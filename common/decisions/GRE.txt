@@ -439,14 +439,16 @@ GRE_battle_of_epirus = {
 			EPR
 		}
 		visible = {
-			has_global_flag = albanian_peasant_revolt
-			has_global_flag = great_war
-			has_completed_focus = GRE_florence_protocol
 			owns_state = 758
 			FROM = {
 				owns_state = 803
 				owns_state = 1225
 			} 
+		}
+		target_root_trigger = {
+			has_completed_focus = GRE_florence_protocol
+			has_global_flag = albanian_peasant_revolt
+			has_global_flag = great_war
 		}
 		available = {
 			count_triggers = {
@@ -3046,8 +3048,10 @@ GRE_debt_management = {
 		}
 		visible = {
 			owns_state = 345
-			NOT = { has_country_flag = GRE_thessaloniki_resources_sold }
 			has_dynamic_modifier = { modifier = GRE_IFC_dynamic_modifier } 
+		}
+		target_root_trigger = {
+			NOT = { has_country_flag = GRE_thessaloniki_resources_sold }
 		}
 		target_trigger = {
 			FROM = {
@@ -12374,8 +12378,8 @@ GRE_minorities_management = {
 		available = {
 			FROM = { compliance > 85 }
 			has_full_control_of_state = FROM
-		}		
-		visible = { has_completed_focus = GRE_appoint_general_governors }
+		}
+		target_root_trigger = { has_completed_focus = GRE_appoint_general_governors }
 		days_remove = 105
 		cost = 50
 		state_target = yes
@@ -12385,26 +12389,26 @@ GRE_minorities_management = {
 				is_owned_by = ROOT
 				is_claimed_by = ROOT
 				NOT = { is_core_of = ROOT }
-				OR = {
-					state = 731
-					state = 345
-					state = 184
-					state = 757
-					state = 200
-					state = 756
-					state = 341
-					state = 860
-					state = 1018
-					state = 347
-					state = 339
-					state = 861
-					state = 825
-					state = 824
-					state = 342
-					state = 803
-					state = 1225
-				}
 			}
+		}
+		targets = {
+			731
+			345
+			184
+			757
+			200
+			756
+			341
+			860
+			1018
+			347
+			339
+			861
+			825
+			824
+			342
+			803
+			1225			
 		}
 		on_map_mode = map_only
 		remove_effect = {
