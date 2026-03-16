@@ -3193,10 +3193,9 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		original_tag = AUS
-		NOT = {
-			has_completed_focus = AUS_polish_baku
-		}
-		date > 1912.4.1
+		#NOT = {
+		#	has_completed_focus = AUS_polish_baku
+		#}
 		OR = {
 			89 = {
 				is_owned_or_subject_trigger = yes
@@ -4945,14 +4944,6 @@ country_event = {
 	picture = GFX_report_event_gathering_protest
 	is_triggered_only = yes
 	fire_only_once = yes
-	immediate = {
-		hidden_effect = {
-			country_event = {
-				id = ww1_austriahungary.177
-				days = 120
-			}
-		}
-	}
 	option = {
 		name = ww1_austriahungary.171.a
 		add_ideas = AUS_consumers_hoarding_food
@@ -4984,6 +4975,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.173
 	title = ww1_austriahungary.173.t
@@ -5003,11 +4995,12 @@ country_event = {
 		set_global_flag = gunther_burstyn_designed_motor_gun
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.174
 	title = ww1_austriahungary.174.t
 	desc = ww1_austriahungary.174.d
-	picture = GFX_none
+	picture = GFX_report_event_gathering_protest
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
@@ -5015,19 +5008,25 @@ country_event = {
 		add_stability = -0.02
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.175
 	title = ww1_austriahungary.175.t
 	desc = ww1_austriahungary.175.d
-	picture = GFX_none
-	is_triggered_only = yes
-	fire_only_once = yes
+	picture = GFX_report_event_gathering_protest
+	trigger = {
+		has_completed_focus = AUS_agricultural_cooperatives
+		not = {
+			has_idea = AUS_sponsoring_agr_cooperatives
+		}
+	}
+	hidden = yes
 	option = {
-		name = ww1_austriahungary.175a
+		name = ww1_austriahungary.175.a
 		add_to_variable = {
-				AUS_EP_consumer_goods = -0.025
-				tooltip = consumer_goods_factor_tt
-			}
+			AUS_EP_consumer_goods = -0.025
+			tooltip = consumer_goods_factor_tt
+		}
 	}
 }
 
@@ -5035,64 +5034,105 @@ country_event = {
 	id = ww1_austriahungary.176
 	title = ww1_austriahungary.176.t
 	desc = ww1_austriahungary.176.d
-	picture = GFX_none
+	picture = GFX_report_event_gathering_protest
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary.176.a
-		AUS_adalbert_von_widmann = {
-			set_character_flag = can_be_hired
-		}
-		if = {
-			limit = {
-				AUS_josef_von_pop = {
-					is_hired_as_advisor = yes
-				}
-			}
-			deactivate_advisor = AUS_josef_von_pop
-			activate_advisor = AUS_adalbert_von_widmann
-		}
-		retire_character = AUS_josef_von_pop
 	}
 }
 
-#beginning of food shortages
 country_event = {
 	id = ww1_austriahungary.177
 	title = ww1_austriahungary.177.t
 	desc = ww1_austriahungary.177.d
 	picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
 	is_triggered_only = yes
-	immediate = {
-		hidden_effect = {
-			activate_mission = AUS_worsening_food_shortages
-		}
-	}
 	option = {
 		name = ww1_austriahungary.177.a
-		add_to_variable = {
-			AUS_intensity_of_food_shortages = 1
-			tooltip = AUS_intensity_of_food_shortages_tt
+		4 = {
+			add_extra_state_shared_building_slots = 1
 		}
-		effect_tooltip = {
-			activate_mission = AUS_worsening_food_shortages
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.005
 		}
 	}
 }
 
-
-
-
-
-
-
-
-
+country_event = {
+	id = ww1_austriahungary.178
+	title = ww1_austriahungary.178.t
+	desc = ww1_austriahungary.178.d
+	picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary.178.a
+		add_to_variable = {
+			AUS_czechoslovak_loyalty = 5
+			tooltip = AUS_loyalty_czechoslovakia_tt
+		}
+		AUS_update_state_of_realm = yes
+		9 = {
+			add_extra_state_shared_building_slots = 1
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.005
+		}
+	}
+}
+country_event = {
+	id = ww1_austriahungary.179
+	title = ww1_austriahungary.179.t
+	desc = ww1_austriahungary.179.d
+	picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary.179.a
+		add_to_variable = {
+				AUS_pole_loyalty = 5
+				tooltip = AUS_loyalty_pole_tt
+			}
+		AUS_update_state_of_realm = yes
+		88 = {
+			add_extra_state_shared_building_slots = 1
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.005
+		}
+	}
+}
+country_event = {
+	id = ww1_austriahungary.180
+	title = ww1_austriahungary.180.t
+	desc = ww1_austriahungary.180.d
+	picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary.180.a
+	add_to_variable = {
+				AUS_ruthenian_loyalty = 5
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+		AUS_update_state_of_realm = yes
+		89 = {
+			add_extra_state_shared_building_slots = 1
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.005
+		}
+	}
+}
 ##################
 #####  DEBUG #####
 ##################
 add_namespace = ww1_austriadebug
-
 country_event = {
 	id = ww1_austriadebug.1
 	title = ww1_austriadebug.1.t
