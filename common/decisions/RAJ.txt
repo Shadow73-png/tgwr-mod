@@ -53,7 +53,7 @@ RIN_berlin_demands_category = {
 		icon = GFX_decision_generic
 		cost = 200
 		allowed = {
-			tag = RIN
+			tag = RAJ
 		}
 		visible = {
 			has_completed_focus = RIN_the_provisional_government_of_india
@@ -83,6 +83,25 @@ RIN_berlin_demands_category = {
 					instant_build = yes
 				}
 			}
+			remove_ideas = RIN_10_rupees_banknotes
+		}
+	}
+	RIN_publish_nationalist_literature = {
+		icon = GFX_decision_generic
+		cost = 100
+		allowed = {
+			tag = RAJ
+		}
+		visible = {
+			has_completed_focus = RIN_publish_nationalist_literature
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			add_ideas = RIN_nationalist_literature_fufilled
+			set_country_flag = RIN_published_nationalist_literature	
 		}
 	}
 }
