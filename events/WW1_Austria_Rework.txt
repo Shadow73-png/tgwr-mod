@@ -4944,6 +4944,14 @@ country_event = {
 	picture = GFX_report_event_gathering_protest
 	is_triggered_only = yes
 	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary.177
+				days = 120
+			}
+		}
+	}
 	option = {
 		name = ww1_austriahungary.171.a
 		add_ideas = AUS_consumers_hoarding_food
@@ -5126,6 +5134,29 @@ country_event = {
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.005
+		}
+	}
+}
+#beginning of food shortages
+country_event = {
+	id = ww1_austriahungary.181
+	title = ww1_austriahungary.181.t
+	desc = ww1_austriahungary.181.d
+	picture = GFX_report_event_gathering_protest
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			activate_mission = AUS_worsening_food_shortages
+		}
+	}
+	option = {
+		name = ww1_austriahungary.181.a
+		add_to_variable = {
+			AUS_intensity_of_food_shortages = 1
+			tooltip = AUS_intensity_of_food_shortages_tt
+		}
+		effect_tooltip = {
+			activate_mission = AUS_worsening_food_shortages
 		}
 	}
 }
