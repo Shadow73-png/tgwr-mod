@@ -1,4 +1,5 @@
 
+#Kokovtsov mechanic
 RUS_parliament_gui_decision_category = {
 	RUS_kokovtsov_resignation_mission = {
 		icon = GFX_decision_generic_political_discourse
@@ -277,6 +278,77 @@ RUS_parliament_gui_decision_category = {
 		}
 	}
 }
+#Goryemykin mechanic
+RUS_parliament_gui_decision_category = {
+	RUS_progressive_bloc_propaganda_mission = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = RUS }
+		activation = {
+			any_character = {
+				is_prime_minister = yes
+				is_reformist = no
+			}
+			duma_exists = yes
+			duma_is_active = yes
+			has_idea = RUS_progressive_bloc
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				any_character = {
+					is_prime_minister = yes
+					is_reformist = yes
+				}
+				duma_exists = no
+				duma_is_active = no
+				NOT = {
+					has_idea = RUS_progressive_bloc
+				}
+			}
+		}
+		fire_only_once = no
+		is_good = no
+		days_mission_timeout = 30
+		selectable_mission = no
+		timeout_effect = {
+			add_political_power = -25
+			add_stability = -0.0025
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.01
+			}
+		}
+	}
+	#Dismiss the Duma
+	RUS_dismiss_the_state_duma = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+		available = {
+
+		}
+		visible = {
+			original_tag = RUS
+			duma_is_active = yes
+			duma_exists = yes
+			has_completed_focus = RUS_dismiss_the_duma
+			RUS_ivan_goremykin = {
+				is_prime_minister = yes
+			}
+		}
+		complete_effect = {
+			add_stability = -0.015
+			set_country_flag = RUS_duma_dismissed
+		}
+		cost = 50
+	}
+}
+#Ministers
 RUS_parliament_gui_decision_category = {
 	#Sway the election
 	RUS_socialist_crackdown = {
