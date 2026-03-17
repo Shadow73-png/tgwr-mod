@@ -820,10 +820,8 @@ ITA_great_war_austria = {
 			}
 			has_completed_focus = AUH_naval_excercices 
 		}
-		target_trigger = {
-			FROM = {
-				tag = ITA
-			}
+		targets = {
+			ITA
 		}
 		visible = {
 			has_war_with = FROM
@@ -862,13 +860,17 @@ ITA_great_war_austria = {
 				}
 			}
 			controls_state = 736
-			has_completed_focus = AUH_naval_excercices 
 		}
 		target_trigger = {
 			FROM = {
-				tag = ITA
 				controls_state = 160
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = AUH_naval_excercices 
+		}
+		targets = {
+			ITA
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -1634,10 +1636,8 @@ ITA_great_war = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = AUS
-			}
+		targets = {
+			AUS
 		}
 		cancel_trigger = {
 			NOT = {
@@ -1679,10 +1679,8 @@ ITA_great_war = {
 		ai_will_do = {
 			base = 200 #take asap
 		}
-		target_trigger = {
-			FROM = {
-				tag = AUS
-			}
+		targets = {
+			AUS
 		}
 		visible = {
 			has_war_with = FROM
@@ -3081,7 +3079,6 @@ ITA_libyan_war = {
 		cost = 0
 		target_trigger = {
 			FROM = {
-				tag = TUR
 				any_controlled_state = {
 					OR = {
 						state = 899
@@ -3089,6 +3086,9 @@ ITA_libyan_war = {
 					}
 				}
 			}
+		}
+		targets = {
+			TUR
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -3107,7 +3107,7 @@ ITA_libyan_war = {
 					}
 					add_dynamic_modifier = {
 						modifier = ITA_ottoman_islands_bombed
-						days = 90
+						days = 120
 						scope = TUR
 					}
 					damage_building = {
@@ -3134,11 +3134,25 @@ ITA_libyan_war = {
 						army = yes
 						navy = yes
 					}
+					damage_units = {
+						state = 164
+						org_damage = 0.25
+						str_damage = 0.1
+						army = yes
+						navy = yes
+					}
 				}
 			}
 		}
 		ai_will_do = {
-			base = 1
+			base = 0
+			modifier = {
+				add = 1
+				OR = {
+					controls_state = 448
+					controls_state = 450
+				}
+			}
 		}
 		fire_only_once = yes
 	}
@@ -3151,7 +3165,6 @@ ITA_libyan_war = {
 			original_tag = ITA
 		}
 		available = {
-			has_completed_focus = ITA_new_naval_guns
 			ships_in_area = {
 				area = 29
 				size > 15
@@ -3159,7 +3172,6 @@ ITA_libyan_war = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = TUR
 				any_controlled_state = {
 					OR = {
 						state = 448
@@ -3167,6 +3179,12 @@ ITA_libyan_war = {
 					}
 				}
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = ITA_new_naval_guns
+		}
+		targets = {
+			TUR
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -3287,7 +3305,6 @@ ITA_libyan_war = {
 			original_tag = ITA
 		}
 		available = {
-			has_completed_focus = ITA_2_enemies_2_navies
 			ships_in_area = {
 				area = 69
 				size > 15
@@ -3295,9 +3312,14 @@ ITA_libyan_war = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = TUR
 				owns_state = 553
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = ITA_2_enemies_2_navies
+		}
+		targets = {
+			TUR
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -7764,10 +7786,8 @@ ITA_reforming_the_country = {
 				state = FROM
 			}
 		}
-		target_root_trigger = {
-			tag = ITA
-		}
-		state_target = any_controlled_state
+		target_array = ROOT.controlled_states
+		state_target = yes
 		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = {
@@ -7819,8 +7839,14 @@ ITA_reforming_the_country = {
 		}
 		visible = {
 			has_completed_focus = ITA_textile_industries
+			159 = {
+				is_owned_by = ROOT
+			}
 		}
 		available = {
+			159 = {
+				is_controlled_by = ROOT
+			}
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -7842,6 +7868,13 @@ ITA_reforming_the_country = {
 					type = industrial_complex
 					level = 1
 					instant_build = yes
+				}
+			}
+		}
+		cancel_trigger = {
+			159 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
 				}
 			}
 		}
@@ -7875,6 +7908,13 @@ ITA_reforming_the_country = {
 				add_resource = {
 					type = coal
 					amount = 2
+				}
+			}
+		}
+		cancel_trigger = {
+			162 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
 				}
 			}
 		}
@@ -7915,6 +7955,13 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			117 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_tap_into_sardina_tungsten = {
 		icon = GFX_decision_tungsten
@@ -7949,6 +7996,13 @@ ITA_reforming_the_country = {
 				add_resource = {
 					type = tungsten
 					amount = 7
+				}
+			}
+		}
+		cancel_trigger = {
+			114 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
 				}
 			}
 		}
@@ -7989,6 +8043,13 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			159 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}	
 	}
 	ITA_invest_in_emilia_electricity = {
 		icon = GFX_decision_generic_electricity
@@ -8001,7 +8062,7 @@ ITA_reforming_the_country = {
 		}
 		available = {
 			833 = {
-				is_owned_and_controlled_by = ROOT
+				is_controlled_by = ROOT
 			}
 		}
 		highlight_states = {
@@ -8018,7 +8079,7 @@ ITA_reforming_the_country = {
 		complete_effect = {
 		}
 		remove_effect = {
-			161 = {
+			833 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -8027,6 +8088,13 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			833 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}		
 	}
 	ITA_utilize_southern_agriculture_for_northern_industry = {
 		icon = GFX_decision_gre_paying_ifc_debt
@@ -8083,8 +8151,14 @@ ITA_reforming_the_country = {
 		}
 		visible = {
 			has_completed_focus = ITA_the_heart_and_soul_of_italy
+			160 = {
+				is_owned_by = ROOT
+			}
 		}
 		available = {
+			160 = {
+				is_controlled_by = ROOT
+			}
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -8110,6 +8184,13 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			160 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_expand_hydroelectricity = {
 		icon = GFX_decision_generic_electricity
@@ -8117,22 +8198,28 @@ ITA_reforming_the_country = {
 			original_tag = ITA
 		}
 		visible = {
-			has_completed_focus = ITA_hydro_electricity_schemes
+			FROM = {
+				is_owned_by = ROOT
+			}
 		}
 		available = {
+			FROM = {
+				is_controlled_by = ROOT
+			}
 		}
 		target_root_trigger = {
-			tag = ROOT
+			has_completed_focus = ITA_hydro_electricity_schemes
 		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 160
-					state = 159
-					state = 161
-				}
+				is_owned_and_controlled_by = ROOT
 			}
+		}
+		targets = {
+			160
+			159
+			161
 		}
 		fire_only_once = yes
 		days_remove = italian_industry_decision_time
@@ -8151,14 +8238,18 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			FROM = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_invest_in_southern_infra = {
 		icon = GFX_decision_generic_construction
 		allowed = {
 			original_tag = ITA
-		}
-		visible = {
-			has_completed_focus = ITA_help_messina_earthquake_recovery
 		}
 		available = {
 		}
@@ -8168,20 +8259,21 @@ ITA_reforming_the_country = {
 			}
 		}
 		target_root_trigger = {
-			tag = ITA
+			has_completed_focus = ITA_help_messina_earthquake_recovery
 		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 157
-					state = 117
-					state = 1217
-					state = 1218
-					state = 156
-					state = 115
-				}
+				is_owned_and_controlled_by = ROOT
 			}
+		}
+		targets = {
+			157
+			117
+			1217
+			1218
+			156
+			115
 		}
 		fire_only_once = yes
 		days_remove = italian_industry_decision_time
@@ -8202,13 +8294,30 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			FROM = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_redistribute_land_in_the_south = {
 		icon = GFX_decision_generic_consumer_goods
 		allowed = {
 			original_tag = ITA
 		}
-		visible = {
+		available = {
+			FROM = {
+				is_demilitarized_zone = no
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = FROM
+			}
+		}
+		target_root_trigger = {
 			OR = {
 				has_completed_focus = ITA_land_reform_south
 				has_completed_focus = ITA_no_more_delays_for_south_land_reform
@@ -8223,31 +8332,19 @@ ITA_reforming_the_country = {
 				has_country_flag = ITA_socialist_italy_flag
 			}
 		}
-		available = {
-			FROM = {
-				is_demilitarized_zone = no
-			}
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = FROM
-			}
-		}
-		target_root_trigger = {
-			tag = ITA
-		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 157
-					state = 117
-					state = 1217
-					state = 1218
-					state = 156
-					state = 115
-				}
+				is_owned_and_controlled_by = ROOT
 			}
+		}
+		targets = {
+			157
+			117
+			1217
+			1218
+			156
+			115
 		}
 		fire_only_once = yes
 		days_remove = italian_industry_decision_time
@@ -8269,14 +8366,18 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			FROM = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_invest_in_southern_states = {
 		icon = GFX_decision_gre_paying_ifc_debt
 		allowed = {
 			original_tag = ITA
-		}
-		visible = {
-			has_completed_focus = ITA_land_reclamation
 		}
 		available = {
 		}
@@ -8286,19 +8387,21 @@ ITA_reforming_the_country = {
 			}
 		}
 		target_root_trigger = {
-			tag = ITA
+			has_completed_focus = ITA_land_reclamation
 		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 157
-					state = 1217
-					state = 1218
-					state = 156
-					state = 115
-				}
+				is_owned_and_controlled_by = ROOT
 			}
+		}
+		targets = {
+			157
+			117
+			1217
+			1218
+			156
+			115
 		}
 		fire_only_once = yes
 		days_remove = italian_industry_decision_time
@@ -8311,6 +8414,13 @@ ITA_reforming_the_country = {
 				increase_state_category = yes
 			}
 		}
+		cancel_trigger = {
+			FROM = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_fight_malaria_in_state = {
 		icon = GFX_decision_gre_paying_ifc_debt
@@ -8318,7 +8428,6 @@ ITA_reforming_the_country = {
 			original_tag = ITA
 		}
 		visible = {
-			has_completed_focus = ITA_fight_malaria
 			FROM = {
 				has_dynamic_modifier = {
 					modifier = ITA_widespread_malaria
@@ -8328,19 +8437,21 @@ ITA_reforming_the_country = {
 		available = {
 		}
 		target_root_trigger = {
-			tag = ITA
+			has_completed_focus = ITA_fight_malaria
 		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 117
-					state = 1217
-					state = 1218
-					state = 156
-					state = 115
-				}
+				is_owned_and_controlled_by = ROOT
 			}
+		}
+		targets = {
+			114
+			115
+			156
+			117
+			1218
+			1217
 		}
 		fire_only_once = yes
 		days_remove = 80
@@ -8352,6 +8463,13 @@ ITA_reforming_the_country = {
 			FROM = {
 				remove_dynamic_modifier = {
 					modifier = ITA_widespread_malaria
+				}
+			}
+		}
+		cancel_trigger = {
+			FROM = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
 				}
 			}
 		}
@@ -9866,6 +9984,54 @@ peace_deals = {
 		is_good = yes
 		days_mission_timeout = 600
 	}
+	ITA_valona_timer = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = {
+			original_tag = ITA
+		}
+		days_mission_timeout = 200
+		activation = {
+			always = no
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				has_capitulated = yes
+				has_war_with = ALB
+				NOT = {
+					owns_state = 44
+					owns_state = 871
+					owns_state = 1214
+					owns_state = 1215
+				}
+				has_subject = ALB
+			}
+		}
+		fire_only_once = no
+		is_good = no
+		timeout_effect = {
+			effect_tooltip = {
+				every_owned_state = {
+					limit = {
+						is_core_of = ALB
+					}
+					transfer_state_to = ALB
+				}
+			}
+			hidden_effect = {
+				#set_global_flag = valona_war_end
+				ALB = {
+					every_core_state = {
+						limit = {
+							is_demilitarized_zone = yes
+						}
+						set_demilitarized_zone = no
+					}
+				}
+				country_event = ww1_albania.20
+			}
+		}
+	}
 }
 
 operations = {
@@ -9939,10 +10105,8 @@ operations = {
 		fire_only_once = yes
 		cost = 50
 		days_remove = 15
-		target_trigger = {
-			FROM = {
-				tag = MLT
-			}
+		targets = {
+			MLT
 		}
 		ai_will_do = {
 			factor = 50
@@ -10006,7 +10170,8 @@ ITA_italian_civil_war_decisions = {
 		visible = {
 			has_global_flag = italian_civil_war
 			has_country_flag = ITA_republican_italy_flag
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				OR = {
 					has_country_flag = ITA_socialist_italy_flag
 					has_country_flag = ITA_monarchist_italy_flag
@@ -10017,7 +10182,7 @@ ITA_italian_civil_war_decisions = {
 		}
 		highlight_states = {
 			highlight_state_targets = {
-				state = 144
+				state = 114
 			}
 		}
 		fire_only_once = yes
@@ -10068,7 +10233,8 @@ ITA_italian_civil_war_decisions = {
 				has_country_flag = ITA_monarchist_italy_flag
 				has_country_flag = ITA_socialist_italy_flag
 			}
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				OR = {
 					has_country_flag = ITA_republican_italy_flag
 					has_country_flag = ITA_monarchist_italy_flag
@@ -10139,7 +10305,8 @@ ITA_italian_civil_war_decisions = {
 					has_country_flag = ITA_socialist_italy_flag
 				}
 			}
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_republican_italy_flag
 				OR = {
 					has_war_with = SRI
@@ -10152,7 +10319,8 @@ ITA_italian_civil_war_decisions = {
 		}
 		visible = {
 			has_global_flag = italian_civil_war
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_republican_italy_flag
 				OR = {
 					has_war_with = SRI
@@ -10222,7 +10390,8 @@ ITA_italian_civil_war_decisions = {
 					has_country_flag = ITA_socialist_italy_flag
 				}
 			}
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_monarchist_italy_flag
 				OR = {
 					has_war_with = SRI
@@ -10235,7 +10404,8 @@ ITA_italian_civil_war_decisions = {
 		}
 		visible = {
 			has_global_flag = italian_civil_war
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_monarchist_italy_flag
 				OR = {
 					has_war_with = SRI
@@ -10305,7 +10475,8 @@ ITA_italian_civil_war_decisions = {
 					has_country_flag = ITA_socialist_italy_flag
 				}
 			}
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_socialist_italy_flag
 				OR = {
 					has_war_with = ITS
@@ -10318,7 +10489,8 @@ ITA_italian_civil_war_decisions = {
 		}
 		visible = {
 			has_global_flag = italian_civil_war
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_socialist_italy_flag
 				OR = {
 					has_war_with = ITS
@@ -10393,8 +10565,8 @@ ITA_italian_civil_war_decisions = {
 			NOT = {
 				has_country_flag = ITA_second_civil_war_intervention
 			}
-			any_country = {
-				original_tag = ITA
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_government = communism
 			}
 		}
@@ -10409,10 +10581,8 @@ ITA_italian_civil_war_decisions = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = SRI
-			}
+		targets = {
+			SRI
 		}
 		complete_effect = {
 			set_country_flag = ITA_second_civil_war_intervention
@@ -10429,8 +10599,8 @@ ITA_italian_civil_war_decisions = {
 		}
 		available = {
 			has_global_flag = italian_civil_war
-			any_country = {
-				original_tag = ITA
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_socialist_italy_flag
 				OR = {
 					has_war_with = ITS
@@ -10446,8 +10616,8 @@ ITA_italian_civil_war_decisions = {
 				has_government = democratic
 			}
 			has_global_flag = italian_civil_war
-			any_country = {
-				original_tag = ITA
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_socialist_italy_flag
 				OR = {
 					has_war_with = ITS
@@ -10460,12 +10630,12 @@ ITA_italian_civil_war_decisions = {
 				AND = {
 					has_government = communism
 					OR = {
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_monarchist_italy_flag
 						}
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_republican_italy_flag
 						}
 					}
@@ -10474,8 +10644,8 @@ ITA_italian_civil_war_decisions = {
 					NOT = {
 						has_government = communism
 					}
-					any_country = {
-						original_tag = ITA
+					any_country_with_original_tag = {
+						original_tag_to_check = ITA
 						has_country_flag = ITA_socialist_italy_flag
 					}
 				}
@@ -10484,18 +10654,15 @@ ITA_italian_civil_war_decisions = {
 		fire_only_once = yes
 		cost = 125
 		days_remove = 15
-		target_trigger = {
-			FROM = {
-				original_tag = ITA
-				has_country_flag = ITA_socialist_italy_flag
-			}
+		targets = {
+			SRI
 		}
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
 					OR = {
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_socialist_italy_flag
 							OR = {
 								has_war_with = ITS
@@ -10508,12 +10675,12 @@ ITA_italian_civil_war_decisions = {
 									has_government = communism
 								}
 								OR = {
-									any_country = {
-										original_tag = ITA
+									any_country_with_original_tag = {
+										original_tag_to_check = ITA
 										has_country_flag = ITA_monarchist_italy_flag
 									}
-									any_country = {
-										original_tag = ITA
+									any_country_with_original_tag = {
+										original_tag_to_check = ITA
 										has_country_flag = ITA_republican_italy_flag
 									}
 								}
@@ -10524,8 +10691,8 @@ ITA_italian_civil_war_decisions = {
 										has_government = communism
 									}
 								}
-								any_country = {
-									original_tag = ITA
+								any_country_with_original_tag = {
+									original_tag_to_check = ITA
 									has_country_flag = ITA_socialist_italy_flag
 								}
 							}
@@ -10541,7 +10708,8 @@ ITA_italian_civil_war_decisions = {
 				}
 				if = {
 					limit = {
-						any_country = {
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							exists = yes
 							has_country_flag = ITA_socialist_italy_flag
 						}
@@ -10554,8 +10722,8 @@ ITA_italian_civil_war_decisions = {
 				}
 				if = {
 					limit = {
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_monarchist_italy_flag
 							has_war_with = SRI
 						}
@@ -10567,8 +10735,8 @@ ITA_italian_civil_war_decisions = {
 				}
 				if = {
 					limit = {
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_republican_italy_flag
 							has_war_with = SRI
 						}
@@ -10582,8 +10750,8 @@ ITA_italian_civil_war_decisions = {
 			else = {
 				if = {
 					limit = {
-						any_country = {
-							exists = yes
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_monarchist_italy_flag
 						}
 					}
@@ -12462,10 +12630,8 @@ ITA_army_reforms = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = AUS
-			}
+		targets = {
+			AUS
 		}
 		cancel_trigger = {
 			NOT = {
@@ -13489,7 +13655,6 @@ ITA_italy_communist_decisions = {
 			}
 		}
 		visible = {
-			has_completed_focus = ITA_form_the_international
 			has_country_flag = ITA_socialist_italy_flag
 			FROM = {
 				is_subject = no
@@ -13499,6 +13664,9 @@ ITA_italy_communist_decisions = {
 					has_country_flag = ITA_asked_join_internationale
 				}
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = ITA_form_the_international
 		}
 		complete_effect = {
 			FROM = {
@@ -13519,7 +13687,7 @@ ITA_italy_communist_decisions = {
 		allowed = {
 			original_tag = ITA
 		}
-		visible = {
+		target_root_trigger = {
 			has_completed_focus = ITA_socialist_economic_intergration
 			has_country_flag = ITA_socialist_italy_flag
 		}
@@ -13574,7 +13742,7 @@ ITA_socialist_sabotadge_entente = {
 		allowed = {
 			original_tag = ITA
 		}
-		visible = {
+		target_root_trigger = {
 			has_completed_focus = ITA_sabotadge_entente
 			has_country_flag = ITA_socialist_italy_flag
 		}

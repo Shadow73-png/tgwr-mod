@@ -242,21 +242,20 @@ RUS_civil_war = {
 			FROM = {
 				NOT = {
 					has_country_flag = SRA_asked_integration
-				}
-				OR = {
-					## dont care about them
-					tag = CRI
-					tag = MOU
-					tag = TER
-					tag = TRC
-					tag = UCH
-				}			
+				}		
 				NOT = {
 					has_war_with = ROOT
 					has_government = communism
 				}
 				is_subject = no
 			}
+		}
+		targets = {
+			CRI
+			MOU
+			TER
+			TRC
+			UCH			
 		}
 		target_root_trigger = {
 			has_country_flag = SRA_foreign_relation_decisions
@@ -314,19 +313,18 @@ RUS_civil_war = {
 		target_trigger = {
 			FROM = {
 				is_subject_of = ROOT
-				OR = {
-					## dont care about them
-					tag = CRI
-					tag = MOU
-					tag = TER
-					tag = TRC
-					tag = UCH
-				}
 				NOT = {
 					has_war_with = ROOT
 					has_government = communism
 				}			
 			}
+		}
+		targets = {
+			CRI
+			MOU
+			TER
+			TRC
+			UCH			
 		}
 		target_root_trigger = {
 			has_country_flag = SRA_foreign_relation_decisions
@@ -814,10 +812,8 @@ RUS_civil_war = {
 		allowed = {
 			tag = SRA
 		}
-		target_trigger = {
-			FROM = {
-				tag = NWA
-			}
+		targets = {
+			NWA
 		}
 		target_root_trigger = {
 			has_character = RUS_pyotr_fon_glazenap
@@ -2019,10 +2015,8 @@ RUS_support_in_civil_war = {
 		cost = 0
 		days_remove = 30
 		days_re_enable = 30
-		target_trigger = {		
-			FROM = {
-				tag = SRA
-			}
+		targets = {
+			SRA
 		}
 		target_root_trigger = {
 			has_country_flag = can_send_to_SRA
@@ -2091,10 +2085,8 @@ RUS_support_in_civil_war = {
 		cost = 0
 		days_remove = 30
 		days_re_enable = 30
-		target_trigger = {
-			FROM = {
-				tag = SRA
-			}
+		targets = {
+			SRA
 		}
 		target_root_trigger = {
 			has_country_flag = can_send_to_SRA
@@ -2160,10 +2152,8 @@ RUS_support_in_civil_war = {
 		cost = 0
 		days_remove = 30
 		days_re_enable = 30
-		target_trigger = {
-			FROM = {
-				tag = SRA
-			}
+		targets = {
+			SRA
 		}
 		target_root_trigger = {
 			has_country_flag = can_send_to_SRA
@@ -2229,10 +2219,8 @@ RUS_support_in_civil_war = {
 		cost = 0
 		days_remove = 30
 		days_re_enable = 30
-		target_trigger = {
-			FROM = {
-				tag = SRA
-			}
+		targets = {
+			SRA
 		}
 		target_root_trigger = {
 			has_country_flag = can_send_to_SRA
@@ -2298,10 +2286,8 @@ RUS_support_in_civil_war = {
 		cost = 0
 		days_remove = 30
 		days_re_enable = 30
-		target_trigger = {
-			FROM = {
-				tag = SRA
-			}
+		targets = {
+			SRA
 		}
 		target_root_trigger = {
 			has_country_flag = can_send_to_SRA
@@ -2367,10 +2353,8 @@ RUS_support_in_civil_war = {
 		cost = 0
 		days_remove = 30
 		days_re_enable = 30
-		target_trigger = {
-			FROM = {
-				tag = SRA
-			}
+		targets = {
+			SRA
 		}
 		target_root_trigger = {
 			has_country_flag = can_send_to_SRA
@@ -2439,10 +2423,8 @@ RUS_support_in_civil_war = {
 		cost = 0
 		days_remove = 30
 		days_re_enable = 30
-		target_trigger = {
-			FROM = {
-				tag = SRA
-			}
+		targets = {
+			SRA
 		}
 		target_root_trigger = {
 			has_country_flag = can_send_to_SRA
