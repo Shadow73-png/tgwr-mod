@@ -1,9 +1,11 @@
 RUS_no_garrision = {
 	allowed = {
-		original_tag = RUS
+		tag = RUS
 	}
 	enable = {
-		always = yes
+		NOT = {
+			tag = SOV
+		}
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
@@ -1710,36 +1712,6 @@ RUS_build_mils = {
 		id = bunker
 		target = 11370
 		value = 200
-	}
-}
-
-RUS_hold_baltic = {
-	allowed = {
-		tag = RUS
-	}
-	enable = {
-		has_war_with = GER
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = naval_dominance
-		id = 9
-		value = 1000
-	}
-}
-
-RUS_hold_black_sea = {
-	allowed = {
-		tag = RUS
-	}
-	enable = {
-		has_war_with = TUR
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = naval_dominance
-		id = 30
-		value = 1000
 	}
 }
 
