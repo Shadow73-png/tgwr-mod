@@ -1231,10 +1231,8 @@ peace_deals = {
 		allowed = {
 			original_tag = BEL
 		}
-		target_trigger = {
-			FROM = {
-				tag = HOL
-			}
+		targets = {
+			HOL
 		}
 		# target_root_trigger = {
 		# 	has_war_with = FROM
@@ -1788,27 +1786,25 @@ BEL_the_colony = {
 		ai_will_do = {
 			factor = 501
 		}
-		visible = {
-			tag = BEL
-			has_country_flag = BEL_luba_rebellion
-			FROM = {
-				OR = {
-					has_dynamic_modifier = { modifier = BEL_luba_resistance_modifier2 }
-					has_dynamic_modifier = { modifier = BEL_luba_resistance_modifier }
-				}
-			}
+		target_trigger = {
+			has_completed_focus = BEL_deal_with_the_luba_rebellion
 		}
 		state_target = yes
+		target_array = owned_states
 		target_trigger = {
 			FROM = {
+				is_controlled_by = ROOT
 				OR = {
 					has_dynamic_modifier = { modifier = BEL_luba_resistance_modifier2 }
 					has_dynamic_modifier = { modifier = BEL_luba_resistance_modifier }
 				}
 			}
 		}
+		targets = {
+			295
+			1221
+		}
 		available = {
-			owns_state = 295
 			divisions_in_state = {
 				size > 1
 				state = FROM
