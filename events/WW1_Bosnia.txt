@@ -433,6 +433,7 @@ country_event = {
 	}
 }
 
+#unused
 country_event = {
 	id = ww1_bosnia.22
 	title = ww1_bosnia.22.t
@@ -442,7 +443,7 @@ country_event = {
     is_triggered_only = yes
 	option = {
 		name = 	ww1_bosnia.22.a
-		set_country_flag = bosnia_is_a_bit_more_autonomy_i_guess
+		
 	}
 }
 
@@ -659,6 +660,7 @@ country_event = {
 			base = 10
 		}
 	}
+	#stay for MP reasons. AI can also accept based on if over 50 relations (impossible in 1910/11)
 	option = {
 		name = ww1_bosnia.32.b
 		add_political_power = -25
@@ -743,16 +745,6 @@ country_event = {
 				days = 2
 			}
 		}
-		#effect_tooltip = {
-		#	add_to_variable = {
-		#		global.BOS_austria_relations = -4
-		#		tooltip = BOS_austria_relations_tt
-		#	}
-		#}
-		#removed since Hungary gets event and not austria :shrug: maybe we could have this and BOP idk -dagg
-		#daggie i think this is still something vienna would get pissed about, since its violation of ausgleich
-		#idk ill think about it (i wont)
-		#you will
 	}
 	#no saying yes
 }
@@ -1482,7 +1474,7 @@ country_event = {
 		}
 	}
 }
-#unused
+
 country_event = {
 	id = ww1_bosnia.61
 	title = ww1_bosnia.61.t
@@ -1786,7 +1778,6 @@ country_event = {
 		unlock_decision_tooltip = BOS_nationalization_of_the_civil_service
 	}
 }
-#daggie
 
 country_event = {
 	id = ww1_bosnia.77
@@ -1880,7 +1871,7 @@ country_event = {
 		activate_mission = BOS_time_until_fourth_session
 	}
 }
-#unused
+#FF death event
 country_event = {
 	id = ww1_bosnia.82
 	title = ww1_bosnia.82.t
@@ -1890,6 +1881,20 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_bosnia.82.a
+		custom_effect_tooltip = modify_BOS_diet_tt
+		add_to_variable = {
+			BOS_diet_stab = -0.15
+			tooltip = stability_factor_tt
+		}
+		add_to_variable = {
+			BOS_diet_pp = -0.2
+			tooltip = political_power_gain_tt
+		}
+
+		add_to_variable = {
+			BOS_improve_relations_timer = 15
+			tooltip = change_days_to_stuff
+		}
 	}
 }
 country_event = {
@@ -1901,7 +1906,7 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_bosnia.83.a
-		#daggie sidz
+		add_stability = -0.025
 	}
 }
 #inviting ff to sarajevo

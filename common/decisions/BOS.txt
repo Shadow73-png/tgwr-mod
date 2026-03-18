@@ -594,7 +594,7 @@ BOS_the_bosnian_diet_dec = {
 		allowed = {
 			original_tag = BOS
 		}
-		days_remove = 40
+		days_remove = 120
 		visible = {
 			original_tag = BOS
 			has_completed_focus = BOS_village_patrols
@@ -623,8 +623,8 @@ BOS_the_bosnian_diet_dec = {
 		}
 		modifier = {
 			# modifier here?
-			war_support_weekly = 0.01
-			stability_weekly = 0.005
+			war_support_weekly = 0.003
+			stability_weekly = 0.003
 			# daggie this should last whole year or sum idk, idk
 		}
 		ai_will_do = {
@@ -677,9 +677,8 @@ BOS_the_bosnian_diet_dec = {
 		}
 		remove_effect = {
 			BOS_increase_serb_opinion = yes
-			add_political_power = 20
-			add_stability = 0.03
-			#good enough daggie?
+			add_political_power = 50
+			add_stability = 0.05
 		}
 		ai_will_do = {
 			base = 100
@@ -700,10 +699,13 @@ BOS_the_bosnian_diet_dec = {
 		}
 		remove_effect = {
 			add_political_power = 50
-			#add pp gain ig
-			add_stability = 0.04
-			add_war_support = 0.02
-			#good enough daggie? 
+			custom_effect_tooltip = modify_BOS_diet_tt
+			add_to_variable = {
+				BOS_diet_pp = 0.05
+				tooltip = political_power_factor_tt
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
 		}
 		ai_will_do = {
 			base = 100
@@ -787,17 +789,48 @@ BOS_austro_hungarian_influence = {
 			always = no
 		}
 		fire_only_once = no
-		days_mission_timeout = 60 #temp sidz
-
+		days_mission_timeout = BOS_AUS_sarajevo_days
 		available = {
 			always = no
 		}
 		timeout_effect = {
+			activate_mission = BOS_faltering_relations_with_vienna
 			add_to_variable = {
 				global.BOS_austria_relations = -5
 				tooltip = BOS_austria_relations_tt
 			}
 			BOS_update_austria_relations = yes
+		}
+	}
+	BOS_diet_collapse = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = BOS
+		}
+		fire_only_once = no
+		days_mission_timeout = 15
+		activation = {
+			check_variable = {
+				var = BOS_austria_relations
+				value = BOS_AUS_rel_needed_collapse_diet
+				compare = greater_than_or_equals
+				tooltip = incoming_diet_collapse
+			}
+		}
+		available = {
+			check_variable = {
+				var = BOS_austria_relations
+				value = BOS_AUS_rel_needed_collapse_diet
+				compare = less_than
+				tooltip = incoming_diet_collapse
+			}
+		}
+		complete_effect = {
+			add_political_power = -15
+			#diet suspension gets cancelled
+		}
+		timeout_effect = {
+			country_event = ww1_bosnia.87
 		}
 	}
 }

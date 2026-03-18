@@ -939,9 +939,24 @@ focus = {
 		}
 		available = {
 			bosnia_is_AUS_subject = yes
+			has_dynamic_modifier = {
+				modifier = BOS_diet_dm
+			}
 		}
 		completion_reward = {
-			
+			add_to_variable = {
+				BOS_AUS_rel_needed_collapse_diet = -5
+				tooltip = change_relations_to_collapse
+			}
+			add_to_variable = {
+				BOS_AUS_sarajevo_days = 5
+				tooltip = change_days_to_collapse
+			}
+			custom_effect_tooltip = modify_BOS_diet_tt
+			add_to_variable = {
+				BOS_diet_stab = 0.05
+				tooltip = stability_factor_tt
+			}
 		}
 	}
 	focus = {
@@ -964,9 +979,24 @@ focus = {
 		available = {
 			bosnia_is_AUS_subject = yes
 			has_global_flag = AUH_franz_ferdinand_killed_in_sarajevo
+			has_dynamic_modifier = {
+				modifier = BOS_diet_dm
+			}
 		}
 		completion_reward = {
-			
+			add_to_variable = {
+				BOS_AUS_rel_needed_collapse_diet = -5
+				tooltip = change_relations_to_collapse
+			}
+			add_to_variable = {
+				BOS_AUS_sarajevo_days = 5
+				tooltip = change_days_to_collapse
+			}
+			custom_effect_tooltip = modify_BOS_diet_tt
+			add_to_variable = {
+				BOS_diet_pp = 0.1
+				tooltip = political_power_factor_tt
+			}
 		}
 	}
 	focus = {
@@ -988,9 +1018,15 @@ focus = {
 		available = {
 			bosnia_is_AUS_subject = yes
 			has_global_flag = AUH_franz_ferdinand_killed_in_sarajevo
+			has_dynamic_modifier = {
+				modifier = BOS_diet_dm
+			}
 		}
 		completion_reward = {
-			
+			add_to_variable = {
+				BOS_improve_relations_timer = -25
+				tooltip = change_days_to_stuff
+			}
 		}
 	}
 
@@ -1860,12 +1896,10 @@ focus = {
 			bosnia_is_AUS_subject = yes
 			always = no
 			has_global_flag = great_war
-			NOT = {
-				country_event = ww1_bosnia.87
-			}
 		}
 		completion_reward = {
 			#pp and stab through event or idk idgaf
+			#not good
 		}
 	}
 	focus = {
