@@ -772,6 +772,35 @@ FRA_wadai_low_prio = {
 	}
 }
 
+CHA_dont_attack = {
+	allowed = {
+		tag = CHA
+	}
+	enable = {
+		has_war_with = FRA
+		NOT = {
+			has_global_flag = wadai_war_end
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			always = yes
+		}
+		execution_type = careful
+		ratio = 0
+		ordertype = front
+		execute_order = no
+		manual_attack = no
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = KUT
+		value = -1000
+	}
+}
+
 IND_stay_in_asia = {
 	allowed = {
 		original_tag = IND
