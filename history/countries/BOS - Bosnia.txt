@@ -3,7 +3,7 @@
 country_lock_all_division_template = yes
 set_research_slots = 1
 add_to_tech_sharing_group = austrian_research
-set_stability = 0.45 #its not a stable state
+set_stability = 0.45
 country_event = {
 	id = ww1_bosnia.3
 	days = 3
@@ -29,11 +29,6 @@ recruit_character = BOS_ali_reza_karabeg
 
 add_ideas = BOS_franz_joseph_i
 
-#Ali-Beg Firus passes
-country_event = {
-	id = ww1_bosnia.28
-	days = 59
-}
 set_variable = {
 	BOS_bills_passed = 0
 }
@@ -99,6 +94,9 @@ set_variable = {
 set_variable = {
 	global.BOS_austria_relations = 35
 }
+set_variable = {
+	BOS_AUS_rel_needed_collapse_diet = 30
+}
 
 1910.1.1 = {
 	set_cosmetic_tag = BOS_AUH
@@ -126,7 +124,7 @@ set_variable = {
 		ruling_party = neutrality
 		last_election = "1905.5.18" 
 		election_frequency = 60 
-		elections_allowed = yes 
+		elections_allowed = no 
 	}	
 	set_popularities = {
 		fascism = 1
@@ -142,30 +140,39 @@ set_variable = {
 		#BOS_agrarian_colonists
 		AUS_pig_war_idea_1
 	}
-	country_event = {
-		id = ww1_bosnia.15
-		days = 45
-	}
-	country_event = {
-		id = ww1_bosnia.24
-		days = 360
+	if = {
+		limit = {
+			has_start_date < 1914.1.1
+		}
+		country_event = {
+			id = ww1_bosnia.28
+			days = 59
+		}
+		country_event = {
+			id = ww1_bosnia.15
+			days = 45
+		}
+		country_event = {
+			id = ww1_bosnia.24
+			days = 360
+		}
 	}
 }	
 
 
 
 1914.1.1 = {
-	add_political_power = 1198
+	add_political_power = 1000
 	add_command_power = 100
 	break_embargo = SER
 	clr_country_flag = pig_war_is_active
 	retire_character = BOS_marijan_varesanin
 	set_politics = {
 		ruling_party = neutrality
-		last_election = "1910.5.18" 
+		last_election = "1910.5.28"  #sidz when was the exact date for partial?
 		election_frequency = 60 
-		elections_allowed = yes 
-	}		
+		elections_allowed = no
+	}
 	add_ideas = {
 		low_economic_mobilisation
 	}

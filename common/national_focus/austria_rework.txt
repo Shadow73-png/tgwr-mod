@@ -5904,6 +5904,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = this_is_planning_related
 			custom_effect_tooltip = AUS_modify_army.tt
 			add_to_variable = {
 				AUS_mea_max_planning = 0.1
@@ -6086,6 +6087,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = this_is_planning_related
 			custom_effect_tooltip = AUS_conrad_will_not_return.tt
 			custom_effect_tooltip = AUS_modify_army.tt
 			add_to_variable = {
@@ -6194,6 +6196,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			custom_effect_tooltip = this_is_planning_related
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.5
 				name = AUS_cautious_planning
@@ -6246,6 +6249,65 @@ focus_tree = {
 				decision = AUS_expand_army_recruitment
 				show_effect_tooltip = yes
 			}
+			custom_effect_tooltip = empty_space_tt
+			custom_effect_tooltip = planning_related_focuses_tt
+			if = {
+				limit = {
+					has_completed_focus = AUS_cautious_planning
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+						AUS_is_CZE_state = yes
+						AUS_is_AUS_state = yes
+						AUS_is_POL_state = yes
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = AUS_debloat_the_military_apparatus
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+						AUS_is_CZE_state = yes
+						AUS_is_AUS_state = yes
+						AUS_is_POL_state = yes
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = AUS_politically_isolate_conrad
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+						AUS_is_CZE_state = yes
+						AUS_is_AUS_state = yes
+						AUS_is_POL_state = yes
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -6267,6 +6329,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			custom_effect_tooltip = this_is_planning_related
 			custom_effect_tooltip = AUS_modify_army.tt
 			add_to_variable = {
 				AUS_mea_max_planning = 0.15
@@ -6398,6 +6461,47 @@ focus_tree = {
 				AUS_mea_train_time = -0.1
 				tooltip = training_time_factor_tt
 			}
+
+			custom_effect_tooltip = empty_space_tt
+			custom_effect_tooltip = planning_related_focuses_tt
+			if = {
+				limit = {
+					has_completed_focus = AUS_ambitious_planning
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+						AUS_is_CZE_state = yes
+						AUS_is_AUS_state = yes
+						AUS_is_POL_state = yes
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = AUS_implement_conrads_army_structure
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+						AUS_is_CZE_state = yes
+						AUS_is_AUS_state = yes
+						AUS_is_POL_state = yes
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -6456,6 +6560,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			custom_effect_tooltip = this_is_planning_related
 			custom_effect_tooltip = AUS_modify_army.tt
 			add_to_variable = {
 				AUS_mea_planning = 0.1

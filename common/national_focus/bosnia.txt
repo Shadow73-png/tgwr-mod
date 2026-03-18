@@ -919,9 +919,81 @@ focus = {
 			always = no
 		}
 		completion_reward = {
+			activate_mission = BOS_faltering_relations_with_vienna
+			custom_effect_tooltip = incoming_diet_collapse
+		}
+	}
+	focus = {
+		id = BOS_reassure_austrian_leadership
+		icon = GFX_focus_AUS_heritage_of_an_empire
+		cost = 5
+		x = 3
+		y = 1
+		relative_position_id = BOS_chaos_in_sarajevo
+		prerequisite = {
+			focus = BOS_chaos_in_sarajevo
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			bosnia_is_AUS_subject = yes
+		}
+		completion_reward = {
 			
 		}
 	}
+	focus = {
+		id = BOS_encourage_anti_serb_protests
+		icon = GFX_focus_attack_serbia
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = BOS_reassure_austrian_leadership
+		prerequisite = {
+			focus = BOS_reassure_austrian_leadership
+		}
+		mutually_exclusive = {
+			focus = BOS_sarajevo_frenzy_of_hate
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			bosnia_is_AUS_subject = yes
+			has_global_flag = AUH_franz_ferdinand_killed_in_sarajevo
+		}
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = BOS_sarajevo_frenzy_of_hate
+		icon = GFX_focus_SER_defense
+		cost = 5
+		x = 1
+		y = 1
+		mutually_exclusive = {
+			focus = BOS_encourage_anti_serb_protests
+		}
+		relative_position_id = BOS_reassure_austrian_leadership
+		prerequisite = {
+			focus = BOS_reassure_austrian_leadership
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			bosnia_is_AUS_subject = yes
+			has_global_flag = AUH_franz_ferdinand_killed_in_sarajevo
+		}
+		completion_reward = {
+			
+		}
+	}
+
 	#WIP this must be autocompleted
 	focus = {
 		id = BOS_martial_law
@@ -970,7 +1042,7 @@ focus = {
 	}#WIP
 	focus = {
 		id = BOS_doboj_prisons
-		icon = GFX_none
+		icon = GFX_focus_CHI_arrest_the_seven_gentlemen
 		cost = 3
 		x = 1
 		y = 1
@@ -1546,7 +1618,7 @@ focus = {
 	}
 	focus = {
 		id = BOS_renegotiate_language
-		icon = GFX_none
+		icon = GFX_goal_generic_forceful_treaty
 		cost = 10
 		x = -1
 		y = 1
@@ -1564,6 +1636,7 @@ focus = {
 			BOS_danilo_dimovic = {
 				is_political_advisor = yes
 			}
+			has_country_flag = language_bill_no_pass
 		}
 		completion_reward = {
 			country_event = ww1_bosnia.61
@@ -1714,7 +1787,7 @@ focus = {
 	}
 	focus = {
 		id = BOS_law_on_investments
-		icon = GFX_none
+		icon = GFX_focus_RAJ_institutional_money_laundering
 		cost = 5
 		x = 1
 		y = 1
@@ -1824,7 +1897,7 @@ focus = {
 	}
 	focus = {
 		id = BOS_offer_forest_concesions
-		icon = GFX_focus_AUH_parliament
+		icon = GFX_focus_generic_concessions
 		cost = 0
 		x = -2
 		y = 1
@@ -1876,7 +1949,7 @@ focus = {
 	focus = {
 		id = BOS_village_patrols
 		icon = GFX_focus_secret_police
-		cost = 5
+		cost = 10
 		x = -1
 		y = 4
 		relative_position_id = BOS_the_show_goes_on
@@ -1902,7 +1975,7 @@ focus = {
 	focus = {
 		id = BOS_offer_manpower
 		icon = GFX_focus_generic_manpower
-		cost = 3
+		cost = 10
 		x = 1
 		y = 1
 		prerequisite = {
@@ -1952,12 +2025,15 @@ focus = {
 	focus = {
 		id = BOS_school_rework
 		icon = GFX_focus_generic_education_tgwr
-		cost = 5
+		cost = 10
 		x = 0
 		y = 2
 		prerequisite = {
 			focus = BOS_offer_forest_concesions
 			focus = BOS_politics
+		}
+		available = {
+			bosnia_is_AUS_subject = yes
 		}
 		relative_position_id = BOS_offer_forest_concesions
 		search_filters = {
@@ -1982,7 +2058,7 @@ focus = {
 	focus = {
 		id = BOS_regional_schools
 		icon = GFX_focus_generic_education_tgwr
-		cost = 5
+		cost = 10
 		x = -1
 		y = 3
 		relative_position_id = BOS_offer_forest_concesions
@@ -2002,8 +2078,8 @@ focus = {
 	}#WIP
 	focus = {
 		id = BOS_tipping_the_scale
-		icon = GFX_goal_generic_major_alliance
-		cost = 5
+		icon = GFX_focus_generic_sympathetic_judges
+		cost = 10
 		x = 2
 		y = 3
 		relative_position_id = BOS_the_show_goes_on
@@ -2027,7 +2103,7 @@ focus = {
 	focus = {
 		id = BOS_le_ze_success
 		icon = GFX_goal_generic_major_alliance
-		cost = 5
+		cost = 10
 		x = 1
 		y = 4
 		relative_position_id = BOS_the_show_goes_on
@@ -2052,7 +2128,7 @@ focus = {
 	focus = {
 		id = BOS_multiethnic
 		icon = GFX_TUR_ease_ethnic_tensions
-		cost = 5
+		cost = 10
 		x = 1
 		y = 1
 		relative_position_id = BOS_regional_schools
@@ -2080,7 +2156,7 @@ focus = {
 	focus = {
 		id = BOS_trialism
 		icon = GFX_focus_YUG_deal
-		cost = 5
+		cost = 10
 		x = 1
 		y = 3
 		relative_position_id = BOS_get_ready

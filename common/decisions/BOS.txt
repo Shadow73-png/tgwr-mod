@@ -307,7 +307,7 @@ BOS_the_bosnian_diet_dec = {
 		allowed = {
 			original_tag = BOS
 		}
-		days_mission_timeout = 60
+		days_mission_timeout = 300
 		activation = {
 			always = no
 		}
@@ -315,8 +315,7 @@ BOS_the_bosnian_diet_dec = {
 			custom_trigger_tooltip = {
 				tooltip = there_will_be_penalties_BOS
 			}
-		}
-		available = {
+			
 			has_completed_focus = BOS_chaos_in_sarajevo
 		}
 		complete_effect = {
@@ -774,6 +773,28 @@ BOS_austro_hungarian_influence = {
 		remove_effect = {
 			add_to_variable = {
 				global.BOS_austria_relations = 5
+				tooltip = BOS_austria_relations_tt
+			}
+			BOS_update_austria_relations = yes
+		}
+	}
+	BOS_faltering_relations_with_vienna = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			original_tag = BOS
+		}
+		activation = {
+			always = no
+		}
+		fire_only_once = no
+		days_mission_timeout = 60 #temp sidz
+
+		available = {
+			always = no
+		}
+		timeout_effect = {
+			add_to_variable = {
+				global.BOS_austria_relations = -5
 				tooltip = BOS_austria_relations_tt
 			}
 			BOS_update_austria_relations = yes
