@@ -31,7 +31,36 @@ country_event = {
 			set_portraits = {
 				civilian = {
 					large="gfx/leaders/PER/PER_ahmad_shah_qajar.png"
+					small=GFX_idea_PER_ahmad_shah_qajar
 				}
+			}
+		}
+		if = {
+			limit = {
+				has_government = neutrality
+				NOT = {
+					has_country_leader = {
+						character = PER_ahmad_shah_qajar
+					}
+				}
+			}
+			promote_character = PER_ahmad_shah_qajar
+			hidden_effect = {
+				remove_ides = PER_ahmad_shah_qajar_young
+				set_party_name = {
+					ideology = neutrality
+					name = PER_neutrality_party
+					long_name = PER_neutrality_party
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = PER_ahmad_shah_qajar_young
+			}
+			swap_ideas = {
+				remove_idea = PER_ahmad_shah_qajar_young
+				add_ideas = PER_ahmad_shah_qajar_young
 			}
 		}
 	}
