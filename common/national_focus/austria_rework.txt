@@ -2787,6 +2787,51 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = AUS_suppression_and_germanization
+		icon = GFX_focus_GER_german_hegemony_in_the_middle_east_demcoratic
+		cost = 5
+		x = 3
+		y = 1
+		prerequisite = {
+			focus = AUS_nationalism_and_liberalism
+		}
+		relative_position_id = AUS_nationalism_and_liberalism
+		available = {
+			AUS_has_reformist_minister = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = AUS_protect_the_sudenten_germans
+		icon = GFX_focus_BRA_reach_out_to_military_dem
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = AUS_suppression_and_germanization
+		}
+		relative_position_id = AUS_suppression_and_germanization
+		available = {
+			AUS_has_reformist_minister = yes
+		}
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+		}
+	}
+	focus = {
 		id = AUS_destroy_power_of_the_church
 		icon = GFX_focus_mex_triumph_over_the_cristeros
 		cost = 5
@@ -2816,45 +2861,7 @@ focus_tree = {
 		search_filters = {
 		}
 	}
-	focus = {
-		id = AUS_closer_german_ties
-		icon = GFX_focus_deal_with_german_empire
-		cost = 5
-		x = -5
-		y = 1
-		prerequisite = {
-			focus = AUS_the_reformist_era
-			focus = AUS_nationalism_and_liberalism
-		}
-		relative_position_id = AUS_the_reformist_era
-		available = {
-			NOT = {
-				has_war_with = GER
-			}
-			AUS_has_reformist_minister = yes
-		}
-		offset = {
-			trigger = {
-				has_completed_focus = AUS_nationalism_and_liberalism
-			}
-			x = 12
-		}
-		completion_reward = {
-			GER = {
-				add_opinion_modifier = {
-					target = FROM
-					modifier = medium_increase
-				}
-			}
-			#leaf
-			#effect idea: economy some investment decision shit
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
+
 	focus = {
 		id = AUS_condemn_ottomans
 		icon = GFX_focus_por_concordat
