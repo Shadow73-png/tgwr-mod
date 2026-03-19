@@ -131,16 +131,12 @@ debug_decisions = {
 			factor = 500
 		}
 		visible = {
-			tag = BEL
 			is_debug = yes
-		}
-		available = {
-			is_debug = yes
-			original_tag = BEL
 		}
 		
 		remove_effect = {
 			set_country_flag = BEL_liberal_victory_1912
+			activate_mission = BEL_coalitionlifespan
 		}
 	}
 	BEL_TP_in_saint_address = {
@@ -434,9 +430,11 @@ BEL_belgian_politics = {
 		}
 	}
 	BEL_coalitionlifespan = {
-    	activation = {
-    	    has_country_flag = BEL_liberal_victory_1912
+		allowed = {
 			original_tag = BEL
+		}
+    	activation = {
+    	    always = no
     	}
 		fire_only_once = yes
     	available = {
