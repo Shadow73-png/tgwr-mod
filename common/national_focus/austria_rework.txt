@@ -2097,6 +2097,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			mark_focus_tree_layout_dirty = yes
+			country_event = ww1_austriahungary.183
 		}
 		ai_will_do = {
 			base = 1
@@ -2148,35 +2149,9 @@ focus_tree = {
 				tooltip = AUS_loyalty_romanians_tt
 			}
 			AUS_update_state_of_realm = yes
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_italian_university
-		icon = GFX_focus_befriend_italy
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = AUS_autonomy_and_reconciliation
-		}
-		relative_position_id = AUS_autonomy_and_reconciliation
-		available = {
-			AUS_has_reformist_minister = yes
-			1198 = {
-				is_owned_and_controlled_by = ROOT
-			}
-			NOT = {
-				has_war_with = ITA
-			}
-		}
-		completion_reward = {
-			unlock_decision_tooltip = {
-				decision = AUS_construct_university_in_triest
+			custom_effect_tooltip = empty_space_tt
+				unlock_decision_tooltip = {
+				decision = AUS_permit_minority_universities
 				show_effect_tooltip = yes
 			}
 		}
@@ -2186,6 +2161,7 @@ focus_tree = {
 		search_filters = {
 		}
 	}
+	
 	focus = {
 		id = AUS_arbeiterbildung
 		icon = GFX_focus_GER_proletarian_solidarity
@@ -2200,6 +2176,15 @@ focus_tree = {
 			AUS_has_reformist_minister = yes
 		}
 		completion_reward = {
+			unlock_decision_tooltip = {
+				decision = AUS_spread_enlightened_literature
+				show_effect_tooltip = yes
+			}
+			custom_effect_tooltip = empty_space_tt
+			unlock_decision_tooltip = {
+				decision = AUS_promote_worker_education
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -2809,6 +2794,51 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = AUS_suppression_and_germanization
+		icon = GFX_focus_GER_german_hegemony_in_the_middle_east_demcoratic
+		cost = 5
+		x = 3
+		y = 1
+		prerequisite = {
+			focus = AUS_nationalism_and_liberalism
+		}
+		relative_position_id = AUS_nationalism_and_liberalism
+		available = {
+			AUS_has_reformist_minister = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = AUS_protect_the_sudenten_germans
+		icon = GFX_focus_BRA_reach_out_to_military_dem
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = AUS_suppression_and_germanization
+		}
+		relative_position_id = AUS_suppression_and_germanization
+		available = {
+			AUS_has_reformist_minister = yes
+		}
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+		}
+	}
+	focus = {
 		id = AUS_destroy_power_of_the_church
 		icon = GFX_focus_mex_triumph_over_the_cristeros
 		cost = 5
@@ -2829,6 +2859,8 @@ focus_tree = {
 			x = 12
 		}
 		completion_reward = {
+			country_event = ww1_austriahungary.182
+			custom_effect_tooltip = AUS_church_stuff_chain
 		}
 		ai_will_do = {
 			base = 1
@@ -2836,45 +2868,7 @@ focus_tree = {
 		search_filters = {
 		}
 	}
-	focus = {
-		id = AUS_closer_german_ties
-		icon = GFX_focus_deal_with_german_empire
-		cost = 5
-		x = -5
-		y = 1
-		prerequisite = {
-			focus = AUS_the_reformist_era
-			focus = AUS_nationalism_and_liberalism
-		}
-		relative_position_id = AUS_the_reformist_era
-		available = {
-			NOT = {
-				has_war_with = GER
-			}
-			AUS_has_reformist_minister = yes
-		}
-		offset = {
-			trigger = {
-				has_completed_focus = AUS_nationalism_and_liberalism
-			}
-			x = 12
-		}
-		completion_reward = {
-			GER = {
-				add_opinion_modifier = {
-					target = FROM
-					modifier = medium_increase
-				}
-			}
-			#leaf
-			#effect idea: economy some investment decision shit
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
+
 	focus = {
 		id = AUS_condemn_ottomans
 		icon = GFX_focus_por_concordat
@@ -3710,6 +3704,7 @@ focus_tree = {
 				name = AUS_encourage_innovation
 				bonus = 0.5
 			}
+		
 		}
 		ai_will_do = {
 			base = 1
