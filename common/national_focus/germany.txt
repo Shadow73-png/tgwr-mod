@@ -1,3 +1,69 @@
+joint_focus = {
+	id = GER_RUS_potsdam_meeting
+	icon = {
+		trigger = { has_focus_tree = russian_empire_focus }
+		value = GFX_focus_bjork_agreement
+	}
+	icon = {
+		value = GFX_focus_befriend_white_russia
+	}
+	text_icon = joint_GER_RUS_focus_style
+	cost = 2
+	x = -6
+	y = 0
+	offset = {
+		x = 36
+		y = 0
+		trigger = {
+			has_focus_tree = russian_empire_focus
+		}
+	}
+	available = {
+		has_crisis = no
+		GER = {
+			is_GER_a_monarchy = yes
+			NOT = {
+				has_war_with = RUS
+			}
+		}
+		RUS = {
+			is_russia_a_monarchy = yes
+		}	
+	}
+	bypass = {
+		OR = {
+			GER = {
+				OR = {
+					exists = no
+					has_war_with = RUS
+					has_non_aggression_pact_with = RUS
+					is_ally_with = RUS
+					is_GER_a_monarchy = no
+				}
+			}
+			RUS = {
+				OR = {
+					exists = no
+					is_russia_a_monarchy = no
+				}
+			}
+		}
+	}
+	completion_reward_joint_originator = {
+		add_political_power = 25
+	}
+	completion_reward_joint_member = {
+		country_event = ww1_germanrework.89
+	}
+	ai_will_do = {
+		factor = 25
+	}
+	search_filters = {
+		FOCUS_FILTER_HISTORICAL
+	}	
+}
+
+
 focus_tree = {
 	id = german_focus
 	country = {
@@ -11,6 +77,7 @@ focus_tree = {
 	initial_show_position = { focus = GER_wilhelmine_germany }
 	default = no
 	
+	shared_focus = GER_RUS_potsdam_meeting
 	shared_focus = GER_TUR_military_mission
 	shared_focus = GER_propose_joint_military_exercises
 	shared_focus = ENG_GER_haldane_mission
@@ -6999,54 +7066,12 @@ focus_tree = {
 		}
 	}
 	# Foreign Policy Pre-War Tree
-	focus = {
-		id = GER_organise_potsdam_conference
-		icon = GFX_focus_befriend_white_russia
-		cost = 2
-		x = -6
-		y = 0
-		available = {
-			is_GER_a_monarchy = yes
-			has_crisis = no
-			NOT = {
-				has_war_with = RUS
-			}
-		}
-		bypass = {
-			OR = {
-				is_in_faction_with = RUS
-				has_war_with = RUS
-				has_non_aggression_pact_with = RUS
-				has_subject = RUS
-				is_subject_of = RUS
-				RUS = {
-					OR = {
-						exists = no
-						is_russia_a_monarchy = no
-					}			
-				}
-			}
-		}
-		completion_reward = {
-			add_political_power = 25
-			RUS = {
-				country_event = ww1_germanrework.89
-			}
-		}
-		ai_will_do = {
-			factor = 25
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_NAVY_XP
-		}
-	}
 	
 	focus = {
 		id = GER_renew_triple_alliance
 		icon = GFX_GER_renew_tiple_alliance
 		cost = 3
-		relative_position_id = GER_organise_potsdam_conference
+		relative_position_id = GER_RUS_potsdam_meeting
 		x = -2
 		y = 1
 		available = {
@@ -7057,8 +7082,11 @@ focus_tree = {
 				has_war_with = AUS
 			}
 		}
+		allow_branch = {
+			has_focus_tree = german_focus
+		}
 		prerequisite = {
-			focus = GER_organise_potsdam_conference
+			focus = GER_RUS_potsdam_meeting
 		}
 		completion_reward = {
 			hidden_effect = {
@@ -7104,14 +7132,17 @@ focus_tree = {
 		id = GER_expand_sektion_iiib # Kept IIIb as is
 		icon = GFX_focus_generic_secret_service_agency
 		cost = 5
-		relative_position_id = GER_organise_potsdam_conference
+		relative_position_id = GER_RUS_potsdam_meeting
 		x = 0
 		y = 1
 		available = {
 			is_GER_a_monarchy = yes
 		}
+		allow_branch = {
+			has_focus_tree = german_focus
+		}
 		prerequisite = {
-			focus = GER_organise_potsdam_conference
+			focus = GER_RUS_potsdam_meeting
 		}
 		completion_reward = {
 			if = {
@@ -7352,7 +7383,7 @@ focus_tree = {
 		id = GER_finance_berlin_baghdad_railway
 		icon = GFX_focus_Generic_Develop_Rail_Network
 		cost = 3
-		relative_position_id = GER_organise_potsdam_conference
+		relative_position_id = GER_RUS_potsdam_meeting
 		x = -4
 		y = 1
 		available = {
@@ -7371,8 +7402,11 @@ focus_tree = {
 				}			
 			}	
 		}
+		allow_branch = {
+			has_focus_tree = german_focus
+		}
 		prerequisite = {
-			focus = GER_organise_potsdam_conference
+			focus = GER_RUS_potsdam_meeting
 		}
 		bypass = {
 			TUR = {
