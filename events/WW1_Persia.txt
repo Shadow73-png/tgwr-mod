@@ -996,28 +996,120 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
-			every_owned_state = {
-				add_core_of = PEX
-			}
-			1013 = {
-				transfer_state_to = PEX
-			}
-			PEX = {
-				load_oob = "PER_1910"
-				declare_war_on = {
-					target = PER
-					type = civil_war
+			start_civil_war = {
+				ruling_party = neutrality
+				ideology = fascism
+				size = 0
+				capital = 1013
+				states = {
+					1013
 				}
-				add_civil_war_target = PER
+				keep_all_characters = yes
+				hidden_effect = {
+					PER = {
+						PER_mohammad_ali_shah = {
+							set_nationality = PREV.PREV
+							promote_character = absolute_monarchy
+							promote_character = reactionism
+						}	
+					}
+					set_popularities = {
+						neutrality = 80
+						fascism = 20
+					}
+					set_politics = {
+						ruling_party = neutrality
+					}
+					set_party_name = {
+						ideology = fascism
+						name = PER_neutrality_party
+						long_name = PER_neutrality_party
+					}
+					set_cosmetic_tag = PER_exiles
+					set_country_flag = PER_persian_exiles
+					add_ideas = PER_idea_civil_war
+					remove_ideas = PER_idea_government_gendarmerie
+					remove_ideas = PER_idea_constitutional_revolution
+					RUS = {
+						give_military_access = PREV
+						give_guarantee = PREV
+					}
+					division_template = {
+						name = "Vafadaran Ghajar" #Qajar Loyalists
+						is_locked = yes
+						force_allow_recruiting = yes
+						regiments = {
+							irregular_infantry = {
+								x = 0
+								y = 0
+							}
+							irregular_infantry = {
+								x = 0
+								y = 1
+							}
+							irregular_infantry = {
+								x = 0
+								y = 2
+							}
+						}
+					}
+					division_template = {
+						name = "Dasteh Ghazaq" #Cossack Detachment
+						is_locked = yes
+						force_allow_recruiting = yes
+						regiments = {
+							irregular_cavalry = {
+								x = 0
+								y = 0
+							}
+							irregular_cavalry = {
+								x = 0
+								y = 1
+							}
+							irregular_cavalry = {
+								x = 0
+								y = 2
+							}
+						}
+					}
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "division_template = \"Vafadaran Ghajar\" start_experience_factor = 0.1 start_equipment_factor = 0.75"
+							owner = PREV
+							count = 3
+						}
+						create_unit = {
+							division = "division_template = \"Dasteh Ghazaq\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+							owner = PREV
+							count = 2
+						}
+					}
+				}
 			}
 		}
 	}
 	option = {
 		name = ww1_persia_rus_intervention.1.a
-		
+		effect_tooltip = {
+			PEX = {
+				declare_war_on = {
+					target = ROOT
+					type = civil_war
+				}
+			}
+		}
+	
 	}
 	option = {
 		name = ww1_persia_rus_intervention.1.b
+		effect_tooltip = {
+			PEX = {
+				declare_war_on = {
+					target = ROOT
+					type = civil_war
+				}
+			}
+		}
 		trigger = {
 			is_ai = no
 			PEX = {
@@ -1092,13 +1184,11 @@ country_event = {
 					freedom_level = 0.8
 				}
 			}
-			every_possible_country = {
-				limit = {
-					has_character = PER_mohammad_ali_shah
-				}
+			PER = {
 				PER_mohammad_ali_shah = {
 					set_nationality = PER	
-					promote_character = yes
+					promote_character = absolute_monarchy
+					promote_character = reactionism
 				}
 			}
 			every_owned_state = {
