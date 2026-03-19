@@ -3027,7 +3027,10 @@ ITA_libyan_war = {
 			}
 			set_global_flag = ITA_libya_lose
 			white_peace = TUR
-			white_peace = LBA
+			if = {
+				limit = { has_war_with = LBA }
+				white_peace = LBA
+			}
 			custom_effect_tooltip = ITA_consequences_lose_war
 			hidden_effect = { news_event = ww1_italianturkish.9 }
 			set_global_flag = libyan_crisis_resolved
@@ -3041,6 +3044,12 @@ ITA_libyan_war = {
 				add_timed_idea = {
 					idea = ITA_reparations_to_war2
 					days = 720
+				}
+				hidden_effect = {
+					if = {
+						limit = { has_template = "Libyan Irregulars" }
+						delete_unit_template_and_units = { division_template = "Libyan Irregulars" }
+					}
 				}
 			}
 		}

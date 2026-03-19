@@ -2586,6 +2586,10 @@ country_event = {
 		hidden_effect = {
 			TUR = {
 				white_peace = ITA
+				if = {
+					limit = { has_template = "Libyan Irregulars" }
+					delete_unit_template_and_units = { division_template = "Libyan Irregulars" }
+				}
 				ITA = {
 					every_allied_country = {
 						PREV.PREV = {
@@ -2615,11 +2619,7 @@ country_event = {
 				ottoman_minority_variable_check = yes
 			}
 			if = {
-				limit = { 
-					LBA = {
-						has_war_with = ITA
-					}
-				}
+				limit = { LBA = { has_war_with = ITA } }
 				white_peace = ITA
 				ITA = {
 					every_allied_country = {
