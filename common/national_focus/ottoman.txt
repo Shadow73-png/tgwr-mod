@@ -3132,13 +3132,14 @@ focus_tree = {
 		relative_position_id = TUR_secure_power_in_arabia
 		available = {
 			747 = {
-				controller = {
-					OR = {
-						tag = ROOT
-						AND = {
-							has_country_flag = TUR_revolting_country
-							has_war_with = ROOT
-						}
+				OR = {
+					controller = {
+						has_country_flag = TUR_revolting_country
+						has_war_with = ROOT
+					}
+					AND = {
+						is_controlled_by = ROOT
+						has_dynamic_modifier = { modifier = TUR_arab_minority }
 					}
 				}
 			}
@@ -3224,17 +3225,17 @@ focus_tree = {
 		relative_position_id = TUR_secure_power_in_arabia
 		available = {
 			293 = {
-				controller = {
-					OR = {
-						tag = ROOT
-						AND = {
-							has_country_flag = TUR_revolting_country
-							has_war_with = ROOT
-						}
+				OR = {
+					controller = {
+						has_country_flag = TUR_revolting_country
+						has_war_with = ROOT
+					}
+					AND = {
+						is_controlled_by = ROOT
+						has_dynamic_modifier = { modifier = TUR_arab_minority }
 					}
 				}
 			}
-			293 = { has_dynamic_modifier = { modifier = TUR_arab_minority } }
 		}
 		complete_tooltip = {
 			YEM = {
