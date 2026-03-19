@@ -29182,6 +29182,9 @@ TUR_panislamism_decision = {
 			original_tag = TUR
 		}
 		target_array = TUR.subjects
+		target_root_trigger = {
+			has_completed_focus = TUR_declare_the_caliphate
+		}
 		target_trigger = {
 			FROM = {
 				is_islamic_nation = yes
@@ -29189,7 +29192,6 @@ TUR_panislamism_decision = {
 		}
 		cost = 120
 		visible = {
-			has_completed_focus = TUR_declare_the_caliphate
 			if = {
 				limit = {
 					FROM = {
@@ -29238,12 +29240,14 @@ TUR_panislamism_decision = {
 		}
 		target_array = ROOT.controlled_states
 		visible = {
-			has_completed_focus = TUR_declare_the_caliphate
 			FROM = {
 				NOT = {
 					is_core_of = ROOT
 				}
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = TUR_declare_the_caliphate
 		}
 		available = {
 			if = {
