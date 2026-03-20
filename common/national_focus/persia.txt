@@ -1,0 +1,47 @@
+focus_tree = {
+	id = persia_focus
+	country = {
+		base = 0
+		modifier = {
+			add = 10
+			tag = PER
+		}
+	}
+	default = no
+	continuous_focus_position = {
+		x = 1000
+		y = 1000
+	}
+
+	#Focus Path shortcuts
+	shortcut = {
+		name = inner_politics_tree_shortcut
+		target = PER_strike_moderates
+		scroll_wheel_factor = 1
+	}
+	
+	focus = {
+		id = PER_strike_moderates
+		icon = GFX_focus_generic_strike_at_democracy2
+		cost = 8
+		x = 0
+		y = 0
+		available = {
+			has_government = democratic
+		}
+	
+		completion_reward = {
+			promote_character = PER_mirza_hasan_ashtiani
+			set_party_name = {
+				ideology = democratic
+				long_name = PER_communism_party
+				name = PER_communism_party
+			}			
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+}
