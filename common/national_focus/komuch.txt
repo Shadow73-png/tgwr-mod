@@ -37,7 +37,7 @@ focus_tree = {
 	focus = {
 		id = KOM_mobilisation_of_the_peoples_army
 		icon = GFX_focus_generic_little_entente
-		cost = 5
+		cost = 3
 		prerequisite = {
 			focus = KOM_consolidate_power
 		}
@@ -49,6 +49,69 @@ focus_tree = {
 			add_timed_idea = {
 				idea = KOM_mobilisation_of_the_peoples_army
 				days = 120
+			}
+			division_template = {
+				name = "Strelkoviy Polk"
+				regiments = { 
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+				support = {
+					field_gun = { x = 0 y = 0 }
+				}
+			}
+			division_template = {
+				name = "Otryad Kappelya"
+				regiments = { 
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+				}
+				support = {
+					field_gun = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+					howitzer = { x = 0 y = 2 }
+				}
+			}
+			251 = {
+				create_unit = {
+					division = "name = \"9-y Stavropolskiy Polk\" division_template = \"Strelkoviy Polk\" start_experience_factor = 0.2"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"10-y Buguruslanskiy Polk\" division_template = \"Strelkoviy Polk\" start_experience_factor = 0.2"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"11-y Buzulukskiy Polk\" division_template = \"Strelkoviy Polk\" start_experience_factor = 0.2"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"12-y Bugulminskiy Polk\" division_template = \"Strelkoviy Polk\" start_experience_factor = 0.2"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Otryad Kappelya\" division_template = \"Otryad Kappelya\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+			}
+			set_division_template_lock = {
+				division_template = "Dobrovoltsi"
+				is_locked = no
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Dobrovoltsi\" start_experience_factor = 0"
+					count = 3
+					owner = ROOT
+				}
 			}
 		}
 	}
