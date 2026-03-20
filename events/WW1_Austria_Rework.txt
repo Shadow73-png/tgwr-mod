@@ -668,16 +668,9 @@ country_event = {
 			NOT = {
 				has_global_flag = AUS_karl_minister
 			}
+			has_global_flag = second_round_of_choosing_MP_AUS
 		}
-		if = {
-			limit = {
-				NOT = {
-					has_global_flag = AUS_karl_minister
-				}
-				has_global_flag = AUS_paul_minister
-			}
-			custom_effect_tooltip = historical_tt
-		}
+		custom_effect_tooltip = historical_tt
 		AUS_fire_minister_advisor = yes
 		set_global_flag = AUS_karl_minister
 		set_global_flag = AUS_mp_austria_autocrat
@@ -686,19 +679,6 @@ country_event = {
 			set_character_flag = minister_AUS
 		}
 		activate_advisor = AUH_karl_von_sturgkh
-		hidden_effect = {
-			IF = {
-				limit = {
-					date < 1911.8.8
-				}
-				hidden_effect = {
-					country_event = {
-						id = ww1_austriahungary.28
-						days = 20
-					}
-				}
-			}
-		}
 		ai_chance = {
 			base = 0
 			modifier = {
@@ -712,6 +692,7 @@ country_event = {
 		trigger = {
 			NOT = {
 				has_global_flag = AUS_heinrich_minister
+				has_global_flag = AUS_paul_minister
 			}
 		}
 		AUS_fire_minister_advisor = yes
@@ -741,6 +722,7 @@ country_event = {
 		trigger = {
 			NOT = {
 				has_global_flag = AUS_max_minister
+				has_global_flag = AUS_paul_minister
 			}
 		}
 		AUS_fire_minister_advisor = yes
@@ -968,6 +950,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_austriahungary.32.a
+		set_global_flag = second_round_of_choosing_MP_AUS
 		country_event = ww1_austriahungary.22
 	}
 }
@@ -4006,6 +3989,7 @@ country_event = {
 		trigger = {
 			NOT = {
 				has_global_flag = AUS_wladimir_minister
+				has_global_flag = AUS_mp_assassinated_1916
 			}
 		}
 		AUS_fire_minister_advisor = yes
@@ -4035,6 +4019,7 @@ country_event = {
 		trigger = {
 			NOT = {
 				has_global_flag = AUS_lammasch_minister
+				has_global_flag = AUS_mp_assassinated_1916
 			}
 		}
 		AUS_fire_minister_advisor = yes
@@ -4065,6 +4050,7 @@ country_event = {
 			NOT = {
 				has_global_flag = AUS_ernest_minister
 			}
+			has_global_flag = AUS_mp_assassinated_1916
 		}
 		AUS_fire_minister_advisor = yes
 		set_global_flag = AUS_ernest_minister
@@ -5199,6 +5185,46 @@ country_event = {
 		name = ww1_austriahungary.184.a
 	}
 }
+#assassination of [AUS_GetMinisterPresident] (forced to be Karl von Stürgkh)
+country_event = {
+	id = ww1_austriahungary.185
+	title = ww1_austriahungary.185.t
+	desc = ww1_austriahungary.185.d
+	picture = GFX_report_event_gathering_protest
+	#is_triggered_only = yes
+	fire_only_once = yes
+	#somebody feel free to make this different
+	trigger = {
+		always = no #remove when 1916 is coded and majority in Council fails
+		NOT = {
+			has_global_flag = AUS_mp_austria_reformist #impossible if historical
+		}
+		original_tag = AUS
+		date > 1916.10.21
+		has_war_with_major = yes
+	}
+	option = {
+		name = ww1_austriahungary.185.a
+		set_global_flag = AUS_mp_assassinated_1916
+		every_character = {
+			limit = {
+				has_character_flag = minister_AUS
+			}
+			retire = yes
+		}
+		country_event = ww1_austriahungary.137
+	}
+}
+
+
+
+
+
+
+
+
+
+
 ##################
 #####  DEBUG #####
 ##################
