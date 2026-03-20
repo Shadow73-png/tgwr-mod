@@ -131,36 +131,6 @@ AUH_great_war_bullshit = {
 		fire_only_once = yes
 		is_good = no
 	}
-	AUS_patriotic_loan = {
-		icon = GFX_decision_generic_electricity
-		allowed = {
-			original_tag = AUS
-		}
-		priority = 20
-		visible = {
-			check_variable = {
-				AUS_patriotic_loan_decision < 2
-			}
-			has_completed_focus = AUS_patriotic_loans
-		}
-		available = {
-			has_war_with_major = yes
-		}
-		fire_only_once = no
-		days_remove = 30
-		cost = 20
-		ai_will_do = {
-			base = 80
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			add_days_mission_timeout = {
-				mission = AUS_impending_bankruptcy
-				days = 30
-			}
-		}
-	}
 	AUS_introduce_price_caps = {
 		icon = GFX_decision_generic_electricity
 		allowed = {
@@ -182,6 +152,32 @@ AUH_great_war_bullshit = {
 		complete_effect = {
 		}
 		remove_effect = {
+		}
+	}
+	AUS_begin_the_rationing_of_flour_bread = {
+		icon = GFX_decision_generic_electricity
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 20
+		visible = {
+			has_completed_focus = AUS_found_the_war_grain_distribution_institution
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		fire_only_once = no
+		days_remove = 25
+		cost = 35
+		ai_will_do = {
+			base = 80
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_worsening_food_shortages_timer = 15
+			}
 		}
 	}
 	AUS_increase_the_money_supply = {
@@ -213,6 +209,36 @@ AUH_great_war_bullshit = {
 		}
 		modifier = {
 			consumer_goods_factor = 0.15
+		}
+	}
+	AUS_patriotic_loan = {
+		icon = GFX_decision_generic_electricity
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 20
+		visible = {
+			check_variable = {
+				AUS_patriotic_loan_decision < 2
+			}
+			has_completed_focus = AUS_patriotic_loans
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		fire_only_once = no
+		days_remove = 30
+		cost = 20
+		ai_will_do = {
+			base = 80
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = AUS_impending_bankruptcy
+				days = 30
+			}
 		}
 	}
 	AUS_convert_economy_d = {
