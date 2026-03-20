@@ -639,9 +639,6 @@ country_event = {
 		country_event = ww1_austriahungary.137
 		custom_effect_tooltip = AUS_mp_austria_now_reformist
 		trigger = {
-			NOT = {
-				has_global_flag = second_round_of_choosing_MP_AUS
-			}
 			if = {
 				limit = {
 					has_completed_focus = AUS_1911_elections
@@ -682,19 +679,6 @@ country_event = {
 			set_character_flag = minister_AUS
 		}
 		activate_advisor = AUH_karl_von_sturgkh
-		hidden_effect = {
-			IF = {
-				limit = {
-					date < 1911.8.8
-				}
-				hidden_effect = {
-					country_event = {
-						id = ww1_austriahungary.28
-						days = 20
-					}
-				}
-			}
-		}
 		ai_chance = {
 			base = 0
 			modifier = {
@@ -712,7 +696,6 @@ country_event = {
 			}
 		}
 		AUS_fire_minister_advisor = yes
-		set_global_flag = second_round_of_choosing_MP_AUS
 		set_global_flag = AUS_heinrich_minister
 		set_global_flag = AUS_mp_austria_autocrat
 		clr_global_flag = AUS_mp_austria_reformist
@@ -743,7 +726,6 @@ country_event = {
 			}
 		}
 		AUS_fire_minister_advisor = yes
-		set_global_flag = second_round_of_choosing_MP_AUS
 		set_global_flag = AUS_max_minister
 		set_global_flag = AUS_mp_austria_autocrat
 		clr_global_flag = AUS_mp_austria_reformist
@@ -781,7 +763,6 @@ country_event = {
 			custom_effect_tooltip = historical_tt
 		}
 		AUS_fire_minister_advisor = yes
-		set_global_flag = second_round_of_choosing_MP_AUS
 		set_global_flag = AUS_paul_minister
 		set_global_flag = AUS_mp_austria_autocrat
 		clr_global_flag = AUS_mp_austria_reformist
@@ -969,6 +950,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_austriahungary.32.a
+		set_global_flag = second_round_of_choosing_MP_AUS
 		country_event = ww1_austriahungary.22
 	}
 }
@@ -4011,7 +3993,6 @@ country_event = {
 			}
 		}
 		AUS_fire_minister_advisor = yes
-		set_global_flag = second_round_of_choosing_MP_AUS
 		set_global_flag = AUS_wladimir_minister
 		clr_global_flag = AUS_mp_austria_autocrat
 		set_global_flag = AUS_mp_austria_reformist
@@ -4042,7 +4023,6 @@ country_event = {
 			}
 		}
 		AUS_fire_minister_advisor = yes
-		set_global_flag = second_round_of_choosing_MP_AUS
 		set_global_flag = AUS_lammasch_minister
 		clr_global_flag = AUS_mp_austria_autocrat
 		set_global_flag = AUS_mp_austria_reformist
@@ -5216,6 +5196,9 @@ country_event = {
 	#somebody feel free to make this different
 	trigger = {
 		always = no #remove when 1916 is coded and majority in Council fails
+		NOT = {
+			has_global_flag = AUS_mp_austria_reformist #impossible if historical
+		}
 		original_tag = AUS
 		date > 1916.10.21
 		has_war_with_major = yes
