@@ -5595,12 +5595,10 @@ focus_tree = {
 				has_war_with = PER
 			}
 			PER = {
-				OR = {
-					has_idea = PER_idea_foreign_reliance
-					any_owned_state = {
-						has_dynamic_modifier = {
-							modifier = per_british_sphere
-						}
+				has_idea = PER_anglo_persian_oil
+				any_owned_state = {
+					has_dynamic_modifier = {
+						modifier = per_british_sphere
 					}
 				}
 			}
@@ -5611,16 +5609,6 @@ focus_tree = {
 		completion_reward = {
 			effect_tooltip = {
 				PER = {
-					add_ideas = PER_idea_nationalised_oil
-					every_subject_country = {
-						limit = {
-							OR = {
-								owns_state = 413
-								owns_state = 412
-							}
-						}
-						add_ideas = PER_idea_nationalised_oil
-					}
 					if = {
 						limit = {
 							OR = {

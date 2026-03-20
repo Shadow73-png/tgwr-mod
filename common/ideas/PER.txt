@@ -103,7 +103,7 @@ ideas = {
                 trade_opinion_factor = 0.5
 			}
 		}
-		PER_idea_nationalised_oil = {
+		PER_anglo_persian_oil = {
 			picture = PER_anglo_iranian_oil_ns
 			allowed = { always = no }
 			allowed_civil_war = {
@@ -122,26 +122,33 @@ ideas = {
 				}
 			}
 			on_add = {
-				ROOT = {
-					if = {
-						limit = {
-							owns_state = 412
-						}
-						give_resource_rights = {
-							receiver = ENG
-							state = 412
+				if = {
+					limit = {
+						ENG = {
+							has_completed_focus = ENG_nationalise_persian_oil
 						}
 					}
-					if = {
-						limit = {
-							owns_state = 413
+					ROOT = {
+						if = {
+							limit = {
+								owns_state = 412
+							}
+							give_resource_rights = {
+								receiver = ENG
+								state = 412
+							}
 						}
-						give_resource_rights = {
-							receiver = ENG
-							state = 413
-						}
-					}			
-				}
+						if = {
+							limit = {
+								owns_state = 413
+							}
+							give_resource_rights = {
+								receiver = ENG
+								state = 413
+							}
+						}			
+					}
+				}			
 			}
 			on_remove = {
 				if = {
@@ -160,6 +167,12 @@ ideas = {
 						remove_resource_rights = 413
 					}
 				}
+			}
+			
+			modifier = {
+				local_resources_factor = -0.15
+				industrial_capacity_factory = -0.1
+				min_export = 0.2			
 			}
 		}
 		PER_idea_government_gendarmerie = {
@@ -180,6 +193,28 @@ ideas = {
 				command_power_gain = 0.10
 				army_core_attack_factor = 0.05
 				army_core_defence_factor = 0.05
+			}
+		}
+	}
+	industrial_concern = {
+		PER_anglo_persian_oil_company = {
+			allowed_civil_war = { always = yes }
+			allowed = {
+				original_tag = PER
+			}
+			removal_cost = -1
+			available = {
+				
+			}
+			research_bonus = {
+				industry = 0.1
+				synth_resources = 0.05
+			}
+			traits = { refinery_concern }
+			modifier = {
+				industrial_capacity_factory = -0.05
+				min_export = 0.1
+				local_resources_factor = -0.2
 			}
 		}
 	}
