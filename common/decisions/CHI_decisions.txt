@@ -1362,6 +1362,9 @@ CHI_warlord_era = {
 		visible = {
 			has_country_flag = CHI_soviet_republic_flag
 		}
+		target_root_trigger = {
+			has_country_flag = CHI_soviet_republic_flag
+		}
 		days_remove = 30
 		cost = 10
 		fire_only_once = no
@@ -1464,6 +1467,9 @@ CHI_warlord_era = {
 					}
 				}
 			}
+		}
+		target_root_trigger = {
+			has_country_flag = CHI_soviet_republic_flag
 		}
 		days_remove = 30
 		cost = 40
@@ -2947,6 +2953,9 @@ CHI_chinese_warlords = {
 				has_global_flag = national_pacification_army
 			}
 		}
+		target_root_trigger = {
+			owns_state = 608
+		}
 		fire_only_once = yes
 		available = {
 			
@@ -3302,6 +3311,16 @@ CHI_chinese_warlords = {
 					}
 				}
 			}
+		}
+		target_root_trigger = {
+			OR = {
+				has_country_flag = ready_to_unite_china
+				has_country_flag = reunited_china
+				AND = {
+					is_china_or_warlord_no_tt = yes
+					NOT = { original_tag = CHI original_tag = QIN }
+				}
+			}			
 		}
 		fire_only_once = no
 		cancel_if_not_visible = yes
