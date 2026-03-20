@@ -8,6 +8,9 @@ focus_tree = {
 		}
 	}
 	default = no
+	shared_focus = naval_experience
+	shared_focus = state_of_the_country_army
+	shared_focus = early_industrialization
 	continuous_focus_position = {
 		x = 1000
 		y = 1000
@@ -16,13 +19,13 @@ focus_tree = {
 	#Focus Path shortcuts
 	shortcut = {
 		name = inner_politics_tree_shortcut
-		target = PER_strike_moderates
+		target = PER_young_peoples_cabinet
 		scroll_wheel_factor = 1
 	}
 	
 	focus = {
-		id = PER_strike_moderates
-		icon = GFX_focus_generic_strike_at_democracy2
+		id = PER_young_peoples_cabinet
+		icon = GFX_focus_PER_strengthen_the_tudeh
 		cost = 8
 		x = 0
 		y = 0
@@ -37,6 +40,149 @@ focus_tree = {
 				long_name = PER_communism_party
 				name = PER_communism_party
 			}			
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = PER_disarm_revolutionaries
+		icon = GFX_focus_focus_fra_maquis
+		cost = 10
+		prerequisite = {
+			focus = PER_young_peoples_cabinet
+		}
+		relative_position_id = PER_young_peoples_cabinet
+		x = 0
+		y = 1
+		available = {
+			has_government = democratic
+		}
+	
+		completion_reward = {
+			add_stability = 0.1		
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = PER_create_the_government_gendarmerie
+		icon = GFX_focus_PER_iranian_gendarmerie
+		cost = 10
+		prerequisite = {
+			focus = PER_disarm_revolutionaries
+		}
+		relative_position_id = PER_disarm_revolutionaries
+		x = -1
+		y = 1
+		available = {
+			has_government = democratic
+		}
+	
+		completion_reward = {
+			add_ideas = PER_idea_government_gendarmerie
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = PER_invite_swedish_officers
+		icon = GFX_focus_SWE_train_the_sheltered
+		cost = 10
+		prerequisite = {
+			focus = PER_create_the_government_gendarmerie
+		}
+		relative_position_id = PER_create_the_government_gendarmerie
+		x = 0
+		y = 1
+		available = {
+			has_government = democratic
+		}
+	
+		completion_reward = {
+			SWE = {
+				SWE_harald_hjalmarson = { set_nationality = ROOT }
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = PER_invite_american_advisors
+		icon = GFX_focus_generic_american_investments
+		cost = 10
+		prerequisite = {
+			focus = PER_disarm_revolutionaries
+		}
+		relative_position_id = PER_disarm_revolutionaries
+		x = 1
+		y = 1
+		available = {
+			has_government = democratic
+		}
+	
+		completion_reward = {
+			add_stability = 0.1		
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = PER_empower_the_treasurer_general
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		cost = 10
+		prerequisite = {
+			focus = PER_invite_american_advisors
+		}
+		relative_position_id = PER_invite_american_advisors
+		x = 0
+		y = 1
+		available = {
+			has_government = democratic
+		}
+	
+		completion_reward = {
+			add_stability = 0.1		
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = PER_treasury_gendarmerie
+		icon = GFX_generic_police_state
+		cost = 10
+		prerequisite = {
+			focus = PER_empower_the_treasurer_general
+		}
+		prerequisite = {
+			focus = PER_invite_swedish_officers
+		}
+		relative_position_id = PER_empower_the_treasurer_general
+		x = -1
+		y = 1
+		available = {
+			has_government = democratic
+		}
+	
+		completion_reward = {
+			add_stability = 0.1		
 		}
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
