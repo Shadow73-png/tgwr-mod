@@ -3645,6 +3645,7 @@ TUR_millet_system = {
 				set_state_flag = TUR_autonomous_vilayet
 				custom_effect_tooltip = TUR_grant_autonomy_to_ahikerya_tt
 				add_to_variable = { TUR_ottoman_resistance_target_greek = -1 }
+				add_resistance = -30
 			}
 		}
 		ai_will_do = {
@@ -6126,7 +6127,7 @@ TUR_millet_system = {
 			any_controlled_state = { has_dynamic_modifier = { modifier = TUR_albanian_minority } }
 			NOT = { has_completed_focus = TUR_albanian_vilayet }
 		}
-		cancel_trigger = { any_controlled_state = { NOT = { has_dynamic_modifier = { modifier = TUR_albanian_minority } } } }
+		cancel_trigger = { all_controlled_state = { NOT = { has_dynamic_modifier = { modifier = TUR_albanian_minority } } } }
 		available = { has_completed_focus = TUR_albanian_vilayet }
 		timeout_effect = {
 			every_state = {
