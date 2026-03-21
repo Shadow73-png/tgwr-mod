@@ -1554,14 +1554,14 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = 0
+		x = -1
 		y = 1
 	}
 	focus = {
 		id = HOL_renew_logistic_lines
 		icon = GFX_focus_generic_industry_3
 		prerequisite = {
-			focus = HOL_invest_artillery
+			focus = HOL_koninklijk_landmacht
 		}
 		relative_position_id = HOL_koninklijk_landmacht
 		available = {
@@ -1591,8 +1591,8 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = 0
-		y = 2
+		x = 1
+		y = 1
 	}
 	focus = {
 		id = HOL_militia_law
@@ -1619,7 +1619,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = -2
+		x = -5
 		y = 1
 	}
 	focus = {
@@ -1651,44 +1651,8 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = -2
+		x = -5
 		y = 2
-	}
-	focus = {
-		id = HOL_watch_the_balkan_war
-		icon = GFX_TUR_balkan_war_experience
-		prerequisite = {
-			focus = HOL_koninklijk_landmacht
-		}
-		relative_position_id = HOL_koninklijk_landmacht
-		available = {
-
-		}
-		available_if_capitulated = yes
-		completion_reward = {
-			custom_effect_tooltip = HOL_modify_dutch_military_tt
-			add_to_variable = {
-				HOL_variable_army_army_defence = 0.05
-				tooltip = army_defence_factor_tt
-			}
-			add_to_variable = {
-				HOL_variable_army_army_attack = 0.05
-				tooltip = army_attack_factor_tt
-			}
-			add_to_variable = {
-				HOL_variable_army_speed = 0.05
-				tooltip = army_speed_factor_tt
-			}
-		}
-		ai_will_do = {
-			factor = 500
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-		cost = 5
-		x = -4
-		y = 1
 	}
 	focus = {
 		id = HOL_renew_coastal_defence_plan
@@ -1722,7 +1686,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = 3
+		x = 5
 		y = 1
 	}
 	focus = {
@@ -1778,8 +1742,8 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = 1
-		y = 1
+		x = 6
+		y = 2
 	}
 	focus = {
 		id = HOL_ring_of_amsterdam
@@ -1826,14 +1790,14 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = -1
-		y = 1
+		x = 4
+		y = 2
 	}
 	focus = {
 		id = HOL_vesting_holland
 		icon = GFX_goal_generic_fortify_city
 		prerequisite = {
-			focus = HOL_ring_of_amsterdam focus = HOL_renew_logistic_lines
+			focus = HOL_ring_of_amsterdam
 		}
 		relative_position_id = HOL_koninklijk_landmacht
 		available = {
@@ -1853,14 +1817,14 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = 1
+		x = 4
 		y = 3
 	}
 	focus = {
 		id = HOL_prussian_style_military
 		icon = GFX_focus_GER_prussian_legacy
 		prerequisite = {
-			focus = HOL_renew_logistic_lines focus = HOL_landstorm_law
+			focus = HOL_renew_logistic_lines focus = HOL_invest_artillery
 		}
 		relative_position_id = HOL_koninklijk_landmacht
 		available = {
@@ -1897,8 +1861,8 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = -1
-		y = 3
+		x = 0
+		y = 2
 	}
 	focus = {
 		id = HOL_expand_marechaussee
@@ -1929,7 +1893,7 @@ focus_tree = {
 			
 		}
 		cost = 5
-		x = -3
+		x = -4
 		y = 3
 	}
 	focus = {
@@ -1965,14 +1929,14 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = -5
+		x = -6
 		y = 3
 	}
 	focus = {
 		id = HOL_strategische_aanwijzigingen
 		icon = GFX_SOV_barrier_troops_ccp_2d_sov_compatibility
 		prerequisite = {
-			focus = HOL_prussian_style_military focus = HOL_vesting_holland
+			focus = HOL_prussian_style_military
 		}
 		relative_position_id = HOL_koninklijk_landmacht
 		available = {
@@ -1997,14 +1961,14 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = 0
-		y = 4
+		x = -1
+		y = 3
 	}
 	focus = {
 		id = HOL_create_new_uniforms
 		icon = GFX_focus_otto_uniform
 		prerequisite = {
-			focus = HOL_prussian_style_military
+			focus = HOL_invest_artillery
 		}
 		relative_position_id = HOL_koninklijk_landmacht
 		available = {
@@ -2034,13 +1998,13 @@ focus_tree = {
 		}
 		cost = 5
 		x = -2
-		y = 4
+		y = 2
 	}
 	focus = {
 		id = HOL_office_extraordinary_transport
 		icon = GFX_generic_truck
 		prerequisite = {
-			focus = HOL_vesting_holland
+			focus = HOL_renew_logistic_lines
 		}
 		relative_position_id = HOL_koninklijk_landmacht
 		available = {
@@ -2053,7 +2017,6 @@ focus_tree = {
 				HOL_variable_army_speed = 0.1
 				tooltip = army_speed_factor_tt
 			}
-			custom_effect_tooltip = HOL_tooltip_focusoat
 			add_equipment_to_stockpile = {
 				type = train_equipment
 				amount = 15
@@ -2067,13 +2030,13 @@ focus_tree = {
 		}
 		cost = 5
 		x = 2
-		y = 4
+		y = 2
 	}
 	focus = {
 		id = HOL_army_restructuration
 		icon = GFX_focus_army_is_ready
 		prerequisite = {
-			focus = HOL_strategische_aanwijzigingen
+			focus = HOL_prussian_style_military
 		}
 		relative_position_id = HOL_koninklijk_landmacht
 		available = {
@@ -2095,8 +2058,8 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = 0
-		y = 5
+		x = 1
+		y = 3
 	}
 	focus = {
 		id = HOL_nationalise_hembrug
@@ -2130,7 +2093,43 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = 5
+		x = 3
+		y = 1
+	}
+	focus = {
+		id = HOL_section_three
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = {
+			focus = HOL_koninklijk_landmacht
+		}
+		relative_position_id = HOL_koninklijk_landmacht
+		available = {
+
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = {
+					has_intelligence_agency = yes
+				}
+				gain_random_agency_upgrade=yes
+				gain_random_agency_upgrade=yes
+			}
+			if = {
+				limit = {
+					has_intelligence_agency = no
+				}
+				create_intelligence_agency = yes
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -3
 		y = 1
 	}
 	focus = {
@@ -2154,7 +2153,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = 7
+		x = 8
 		y = 1
 	}
 	focus = {
