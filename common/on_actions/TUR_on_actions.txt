@@ -417,7 +417,7 @@ on_actions = {
 						ROOT = {
 							set_state_owner = FROM.FROM
 							if = {
-								limit = { has_completed_focus = ALB_rilindija_kombetare }
+								limit = { has_completed_focus = ALB_rilindja_kombetare }
 								FROM.FROM = {
 									create_unit = {
 										division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.4 start_equipment_factor = 0.4"
@@ -428,7 +428,20 @@ on_actions = {
 						}
 					}
 				}
-				else = { ROOT = { set_state_owner = FROM.FROM } }
+				else = {
+					ROOT = {
+						set_state_owner = FROM.FROM
+						if = {
+							limit = { has_completed_focus = ALB_rilindja_kombetare }
+							FROM.FROM = {
+								create_unit = {
+									division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.4 start_equipment_factor = 0.4"
+									owner = ROOT
+								}
+							}
+						}
+					}
+				}
 				if = {
 					limit = { ROOT = { has_completed_focus = ALB_secure_regional_loyalties } }
 					set_temp_variable = { num_units_to_create = 1 }

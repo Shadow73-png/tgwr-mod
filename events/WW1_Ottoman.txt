@@ -319,6 +319,14 @@ country_event = { #ottoman revolt
 			}
 			if = {
 				limit = {
+					var:global.new_occupied_country = {
+						has_completed_focus = ALB_taksim_meeting
+					}
+				}
+				hidden_effect = { set_global_flag = ALB_1912_uprising }
+			}
+			if = {
+				limit = {
 					any_country = {
 						original_tag = ALB
 						has_idea = ALB_decentralized_independence_movement
@@ -1255,6 +1263,13 @@ country_event = { #Ibrahim Hakki resigns
 		}
 		TUR_government_stability_calculate = yes
 		set_country_flag = TUR_mehmed_said_chosen
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
 	}
 	option = {
 		name = ottoman.1.b
@@ -1282,6 +1297,13 @@ country_event = { #Ibrahim Hakki resigns
 		TUR_government_stability_calculate = yes
 		TUR_government_popularity_calculate = yes
 		set_country_flag = TUR_haci_adil_bey_chosen
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
 	}
 }
 

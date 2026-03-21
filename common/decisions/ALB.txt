@@ -130,56 +130,35 @@ ALB_albanian_independence_movement = {
 				NOT = { has_idea = ALB_decentralized_independence_movement }
 				AND = {
 					has_idea = ALB_decentralized_independence_movement
-					OR = {
-						has_cosmetic_tag = ALB_boletini_flag
-						AND = {
-							NOT = { has_cosmetic_tag = ALB_boletini_flag }
-							capital_scope = { ALB_is_kosovar_state = yes }
-						}
-					}
+					has_cosmetic_tag = ALB_boletini_flag
 					FROM = {
 						OR = {
 							ALB_is_kosovar_state = yes
 							has_state_flag = ALB_can_organize_uprisings
 							AND = {
 								ALB_is_northern_state = yes
-								controller = { has_country_flag = ALB_can_organize_northern_uprisings }
+								ROOT = { has_country_flag = ALB_can_organize_northern_uprisings }
 							}
 						}
 					}
 				}
 				AND = {
 					has_idea = ALB_decentralized_independence_movement
-					OR = {
-						has_cosmetic_tag = ALB_kimza_flag
-						AND = {
-							NOT = { has_cosmetic_tag = ALB_kimza_flag }
-							capital_scope = { ALB_is_northern_state = yes }
-						}
-					}
+					has_cosmetic_tag = ALB_kimza_flag
 					FROM = {
 						OR = {
 							ALB_is_northern_state = yes
-							OR = {
-								has_state_flag = ALB_can_organize_uprisings
-								ROOT = { has_country_flag = ALB_can_organize_northern_uprisings }
-							}
+							has_state_flag = ALB_can_organize_uprisings
 							AND = {
 								ALB_is_kosovar_state = yes
-								controller = { has_country_flag = ALB_can_organize_northern_uprisings }
+								ROOT = { has_country_flag = ALB_can_organize_northern_uprisings }
 							}
 						}
 					}
 				}
 				AND = {
 					has_idea = ALB_decentralized_independence_movement
-					OR = {
-						has_cosmetic_tag = ALB_toptani_flag
-						AND = {
-							NOT = { has_cosmetic_tag = ALB_toptani_flag }
-							capital_scope = { ALB_is_central_state = yes }
-						}
-					}
+					has_cosmetic_tag = ALB_toptani_flag
 					FROM = {
 						OR = {
 							ALB_is_central_state = yes
@@ -189,13 +168,7 @@ ALB_albanian_independence_movement = {
 				}
 				AND = {
 					has_idea = ALB_decentralized_independence_movement
-					OR = {
-						has_cosmetic_tag = ALB_vlora_flag
-						AND = {
-							NOT = { has_cosmetic_tag = ALB_vlora_flag }
-							capital_scope = { ALB_is_southern_state = yes }
-						}
-					}
+					has_cosmetic_tag = ALB_vlora_flag
 					FROM = {
 						OR = {
 							ALB_is_southern_state = yes
@@ -290,82 +263,140 @@ ALB_albanian_independence_movement = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				date > 1910.7.14
+				date > 1910.6.24
 				NOT = { has_global_flag = ALB_1911_uprising }
 				FROM = {
 					state = 870
-					resistance > 15
+					resistance > 19
 					resistance < 30
+					NOT = { resistance_target > 30 }
 				}
-				add = 50
+				add = 15
 			}
 			modifier = {
-				date > 1910.9.14
+				date > 1910.7.24
 				NOT = { has_global_flag = ALB_1911_uprising }
 				FROM = {
 					state = 870
-					resistance > 30
-					resistance < 45
+					resistance > 29
+					resistance < 40
+					NOT = { resistance_target > 45 }
 				}
-				add = 50
+				add = 15
 			}
 			modifier = {
-				date > 1910.11.14
+				date > 1910.11.24
 				NOT = { has_global_flag = ALB_1911_uprising }
 				FROM = {
 					state = 870
-					resistance > 45
+					resistance > 39
+					resistance < 50
+					NOT = { resistance_target > 60 }
+				}
+				add = 15
+			}
+			modifier = {
+				date > 1911.1.24
+				NOT = { has_global_flag = ALB_1911_uprising }
+				FROM = {
+					state = 870
+					resistance > 49
 					resistance < 60
+					NOT = { resistance_target > 75 }
 				}
-				add = 100
+				add = 30
 			}
 			modifier = {
-				date > 1911.1.14
+				date > 1911.2.24
 				NOT = { has_global_flag = ALB_1911_uprising }
 				FROM = {
 					state = 870
-					resistance > 60
+					resistance > 59
 				}
 				add = 1000
 			}
 			modifier = {
-				date > 1911.6.1
-				has_completed_focus = ALB_taksim_meeting
+				date > 1911.8.1
+				OR = {
+					has_completed_focus = ALB_taksim_meeting
+					focus_progress = {
+						focus = ALB_taksim_meeting
+						progress > 0.1
+					}
+				}
 				FROM = {
 					state = 847
-					resistance > 15
+					resistance > 19
 					resistance < 30
 				}
-				add = 50
+				add = 30
 			}
 			modifier = {
-				date > 1911.8.1
-				has_completed_focus = ALB_taksim_meeting
+				date > 1911.9.1
+				OR = {
+					has_completed_focus = ALB_taksim_meeting
+					focus_progress = {
+						focus = ALB_taksim_meeting
+						progress > 0.1
+					}
+				}
 				FROM = {
 					state = 847
-					resistance > 30
-					resistance < 45
+					resistance > 29
+					resistance < 40
 				}
-				add = 50
+				add = 30
 			}
 			modifier = {
 				date > 1911.10.1
-				has_completed_focus = ALB_taksim_meeting
+				OR = {
+					has_completed_focus = ALB_taksim_meeting
+					focus_progress = {
+						focus = ALB_taksim_meeting
+						progress > 0.1
+					}
+				}
 				FROM = {
 					state = 847
-					resistance > 45
+					resistance > 39
+					resistance < 50
+				}
+				add = 50
+			}
+			modifier = {
+				date > 1911.11.1
+				OR = {
+					has_completed_focus = ALB_taksim_meeting
+					focus_progress = {
+						focus = ALB_taksim_meeting
+						progress > 0.1
+					}
+				}
+				FROM = {
+					state = 847
+					resistance > 49
 					resistance < 60
 				}
 				add = 100
 			}
 			modifier = {
 				date > 1911.12.1
-				has_completed_focus = ALB_taksim_meeting
+				OR = {
+					has_completed_focus = ALB_taksim_meeting
+					focus_progress = {
+						focus = ALB_taksim_meeting
+						progress > 0.1
+					}
+				}
 				FROM = {
 					state = 847
 					resistance > 60
 				}
 				add = 1000
+			}
+			modifier = {
+				TUR = { has_active_mission = TUR_comply_with_the_14_points }
+				factor = 0
 			}
 		}
 	}
@@ -459,6 +490,85 @@ ALB_albanian_independence_movement = {
 			modifier = {
 				FROM = { ALB_is_northern_state = yes }
 				add = 5
+			}
+			modifier = {
+				date > 1911.8.1
+				OR = {
+					has_completed_focus = ALB_taksim_meeting
+					focus_progress = {
+						focus = ALB_taksim_meeting
+						progress > 0.1
+					}
+				}
+				FROM = {
+					state = 847
+					resistance > 19
+					resistance < 30
+				}
+				add = -15
+			}
+			modifier = {
+				date > 1911.9.1
+				OR = {
+					has_completed_focus = ALB_taksim_meeting
+					focus_progress = {
+						focus = ALB_taksim_meeting
+						progress > 0.1
+					}
+				}
+				FROM = {
+					state = 847
+					resistance > 29
+					resistance < 40
+				}
+				add = -15
+			}
+			modifier = {
+				date > 1911.10.1
+				OR = {
+					has_completed_focus = ALB_taksim_meeting
+					focus_progress = {
+						focus = ALB_taksim_meeting
+						progress > 0.1
+					}
+				}
+				FROM = {
+					state = 847
+					resistance > 39
+					resistance < 50
+				}
+				add = -15
+			}
+			modifier = {
+				date > 1911.11.1
+				OR = {
+					has_completed_focus = ALB_taksim_meeting
+					focus_progress = {
+						focus = ALB_taksim_meeting
+						progress > 0.1
+					}
+				}
+				FROM = {
+					state = 847
+					resistance > 49
+					resistance < 60
+				}
+				add = -15
+			}
+			modifier = {
+				date > 1911.12.1
+				OR = {
+					has_completed_focus = ALB_taksim_meeting
+					focus_progress = {
+						focus = ALB_taksim_meeting
+						progress > 0.1
+					}
+				}
+				FROM = {
+					state = 847
+					resistance > 60
+				}
+				add = -15
 			}
 		}
 	}

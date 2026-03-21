@@ -18,3 +18,99 @@ ALB_agressive_expansion = {
 		#execute_order = yes
 	}
 }
+
+ALB_focus_on_ur_own_lands_kosovo = {
+	allowed = { original_tag = ALB }
+	enable = {
+		tag = ALB
+		has_war_with = TUR
+		has_country_flag = TUR_revolting_country
+		NOT = {
+			has_completed_focus = ALB_taksim_meeting
+			has_completed_focus = ALB_secure_regional_loyalties
+		}
+		has_cosmetic_tag = ALB_boletini_flag
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+		state_trigger = { NOT = { ALB_is_kosovar_state = yes } }
+		priority = 100
+		ratio = 0.5
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+
+ALB_focus_on_ur_own_lands_north = {
+	allowed = { original_tag = ALB }
+	enable = {
+		tag = ALB
+		has_war_with = TUR
+		has_country_flag = TUR_revolting_country
+		NOT = {
+			has_completed_focus = ALB_taksim_meeting
+			has_completed_focus = ALB_secure_regional_loyalties
+		}
+		has_cosmetic_tag = ALB_kimza_flag
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+		state_trigger = { NOT = { ALB_is_northern_state = yes } }
+		priority = 100
+		ratio = 0.5
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+
+ALB_focus_on_ur_own_lands_centre = {
+	allowed = { original_tag = ALB }
+	enable = {
+		tag = ALB
+		has_war_with = TUR
+		has_country_flag = TUR_revolting_country
+		NOT = {
+			has_completed_focus = ALB_taksim_meeting
+			has_completed_focus = ALB_secure_regional_loyalties
+		}
+		has_cosmetic_tag = ALB_toptani_flag
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+		state_trigger = { NOT = { ALB_is_central_state = yes } }
+		priority = 100
+		ratio = 0.5
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+
+ALB_focus_on_ur_own_lands_south = {
+	allowed = { original_tag = ALB }
+	enable = {
+		tag = ALB
+		has_war_with = TUR
+		has_country_flag = TUR_revolting_country
+		NOT = {
+			has_completed_focus = ALB_taksim_meeting
+			has_completed_focus = ALB_secure_regional_loyalties
+		}
+		has_cosmetic_tag = ALB_vlora_flag
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+		state_trigger = { NOT = { ALB_is_southern_state = yes } }
+		priority = 100
+		ratio = 0.5
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
