@@ -5306,9 +5306,64 @@ country_event = {
 			}
 		}
 		else = {
-				add_to_variable = {
+			add_to_variable = {
 				AUS_camarilla_progress_to_deposing_you = 2
 			}
+		}
+	}
+}
+
+country_event = {
+	id = ww1_austriahungary.187
+	title = ww1_austriahungary.187.t
+	desc = ww1_austriahungary.187.d
+	picture = GFX_report_event_gathering_protest
+	fire_only_once = no
+	trigger = {
+		NOT = {
+			has_war = yes
+		}
+		has_completed_focus = AUS_the_reformist_era
+	}
+	mean_time_to_happen = {
+		days = 120
+	}
+	option = {
+		name = ww1_austriahungary.187.a
+		add_political_power = 25
+		army_experience = -20
+		custom_effect_tooltip = AUS_camarailla_influence_army
+		if = {
+			limit = {
+				OR = {
+					AUH_conrad_von_hotzendorf = {
+						is_hired_as_advisor = yes
+					}
+					has_country_leader = {
+						character = AUH_conrad_von_hotzendorf
+					}
+				}
+			}
+			add_to_variable = {
+				AUS_camarilla_progress_to_deposing_you = 2
+			}
+		}
+		else = {
+			add_to_variable = {
+				AUS_camarilla_progress_to_deposing_you = 1
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary.187.b
+		add_political_power = -20
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.02
+		}
+		add_timed_idea = {
+			idea = AUS_parliament_army_sessio
+			days = 60
 		}
 	}
 }
