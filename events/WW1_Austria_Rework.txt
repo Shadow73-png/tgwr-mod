@@ -771,8 +771,8 @@ country_event = {
 		}
 		activate_advisor = AUH_paul_gautsch
 		set_can_be_fired_in_advisor_role = {
-		    character = AUH_paul_gautsch
-		    value = no
+			character = AUH_paul_gautsch
+			value = no
 		}
 		hidden_effect = {
 			IF = {
@@ -961,8 +961,8 @@ country_event = {
 				has_global_flag = AUS_paul_minister
 			}
 			set_can_be_fired_in_advisor_role = {
-			    character = AUH_paul_gautsch
-			    value = yes
+				character = AUH_paul_gautsch
+				value = yes
 			}
 		}
 	}
@@ -5112,6 +5112,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.179
 	title = ww1_austriahungary.179.t
@@ -5122,9 +5123,9 @@ country_event = {
 	option = {
 		name = ww1_austriahungary.179.a
 		add_to_variable = {
-				AUS_pole_loyalty = 5
-				tooltip = AUS_loyalty_pole_tt
-			}
+			AUS_pole_loyalty = 5
+			tooltip = AUS_loyalty_pole_tt
+		}
 		AUS_update_state_of_realm = yes
 		88 = {
 			add_extra_state_shared_building_slots = 1
@@ -5135,6 +5136,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.180
 	title = ww1_austriahungary.180.t
@@ -5144,10 +5146,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_austriahungary.180.a
-	add_to_variable = {
-				AUS_ruthenian_loyalty = 5
-				tooltip = AUS_loyalty_ruthenians_tt
-			}
+		add_to_variable = {
+			AUS_ruthenian_loyalty = 5
+			tooltip = AUS_loyalty_ruthenians_tt
+		}
 		AUS_update_state_of_realm = yes
 		89 = {
 			add_extra_state_shared_building_slots = 1
@@ -5158,6 +5160,7 @@ country_event = {
 		}
 	}
 }
+
 #beginning of food shortages
 country_event = {
 	id = ww1_austriahungary.181
@@ -5181,6 +5184,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.182
 	title = ww1_austriahungary.182.t
@@ -5195,6 +5199,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.183
 	title = ww1_austriahungary.183.t
@@ -5209,6 +5214,7 @@ country_event = {
 		custom_effect_tooltip = AUS_camarilla_introduction
 	}
 }
+
 #people demand for price caps
 country_event = {
 	id = ww1_austriahungary.184
@@ -5222,6 +5228,7 @@ country_event = {
 		activate_mission = AUS_worsening_food_shortages
 	}
 }
+
 #assassination of [AUS_GetMinisterPresident] (forced to be Karl von Stürgkh)
 country_event = {
 	id = ww1_austriahungary.185
@@ -5232,9 +5239,9 @@ country_event = {
 	fire_only_once = yes
 	#somebody feel free to make this different
 	trigger = {
-		always = no #remove when 1916 is coded and majority in Council fails
+		always = no		#remove when 1916 is coded and majority in Council fails
 		NOT = {
-			has_global_flag = AUS_mp_austria_reformist #impossible if historical
+			has_global_flag = AUS_mp_austria_reformist			#impossible if historical
 		}
 		original_tag = AUS
 		date > 1916.10.21
@@ -5253,14 +5260,53 @@ country_event = {
 	}
 }
 
-
-
-
-
-
-
-
-
+country_event = {
+	id = ww1_austriahungary.186
+	title = ww1_austriahungary.186.t
+	desc = ww1_austriahungary.186.d
+	picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary.186.a
+		army_experience = -50
+		custom_effect_tooltip = AUS_modify_army.tt
+		add_to_variable = {
+			AUS_mea_conscription_factor = -0.1
+			tooltip = conscription_factor_tt
+		}
+		custom_effect_tooltip = AUS_modify_eco.tt
+		add_to_variable = {
+			AUS_EP_factory_output = -0.05
+			tooltip = industrial_capacity_factory_tt
+		}
+		add_to_variable = {
+			AUS_ep_mil_speed = -0.05
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+		custom_effect_tooltip = AUS_camarailla_influence_army
+		if = {
+			limit = {
+				OR = {
+					AUH_conrad_von_hotzendorf = {
+						is_hired_as_advisor = yes
+					}
+					has_country_leader = {
+						character = AUH_conrad_von_hotzendorf
+					}
+				}
+			}
+			add_to_variable = {
+				AUS_camarilla_progress_to_deposing_you = 3
+			}
+		}
+		else = {
+				add_to_variable = {
+				AUS_camarilla_progress_to_deposing_you = 2
+			}
+		}
+	}
+}
 
 ##################
 #####  DEBUG #####
