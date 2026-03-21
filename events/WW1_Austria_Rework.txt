@@ -770,6 +770,10 @@ country_event = {
 			set_character_flag = minister_AUS
 		}
 		activate_advisor = AUH_paul_gautsch
+		set_can_be_fired_in_advisor_role = {
+		    character = AUH_paul_gautsch
+		    value = no
+		}
 		hidden_effect = {
 			IF = {
 				limit = {
@@ -952,6 +956,15 @@ country_event = {
 		name = ww1_austriahungary.32.a
 		set_global_flag = second_round_of_choosing_MP_AUS
 		country_event = ww1_austriahungary.22
+		if = {
+			limit = {
+				has_global_flag = AUS_paul_minister
+			}
+			set_can_be_fired_in_advisor_role = {
+			    character = AUH_paul_gautsch
+			    value = yes
+			}
+		}
 	}
 }
 
@@ -1679,6 +1692,7 @@ country_event = {
 	desc = ww1_austriahungary.60.d
 	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
+	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary.60.a
 		custom_effect_tooltip = AUS_modify_aps.tt
@@ -1702,6 +1716,27 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_austriahungary.61.a
+		every_country = {
+			limit = {
+				if = {
+					limit = {
+						bosnia_is_AUS_subject = yes
+					}
+					tag = BOS
+				}
+				tag = AUS
+				if = {
+					limit = {
+						AUS_HUN_exists = yes
+					}
+					tag = HUN
+				}
+			}
+			add_opinion_modifier = {
+				target = SER
+				modifier = medium_decrease
+			}
+		}
 		add_stability = -0.02
 		BOS = {
 			add_stability = -0.04
