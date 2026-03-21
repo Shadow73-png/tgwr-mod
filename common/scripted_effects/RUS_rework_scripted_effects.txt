@@ -1876,6 +1876,9 @@ RUS_remove_from_the_cabinet = {
 				slot = political_advisor
 				trait = prime_minister
 			}
+			PREV = {
+				set_variable = { RUS_cabinet_gui_chairman_name_var = token:RUS_vacant }
+			}
 		}
 		if = {
 			limit = {
@@ -1885,14 +1888,8 @@ RUS_remove_from_the_cabinet = {
 				slot = political_advisor
 				trait = minister_of_internal_affairs
 			}
-		}
-		if = {
-			limit = {
-				has_trait = minister_of_agriculture
-			}
-			remove_trait = {
-				slot = political_advisor
-				trait = minister_of_agriculture
+			PREV = {
+				set_variable = { RUS_cabinet_gui_internal_affairs_name_var = token:RUS_vacant }
 			}
 		}
 		if = {
@@ -1902,6 +1899,18 @@ RUS_remove_from_the_cabinet = {
 			remove_trait = {
 				slot = political_advisor
 				trait = minister_of_finance
+			}
+			PREV = {
+				set_variable = { RUS_cabinet_gui_finance_name_var = token:RUS_vacant }
+			}
+		}
+		if = {
+			limit = {
+				has_trait = minister_of_agriculture
+			}
+			remove_trait = {
+				slot = political_advisor
+				trait = minister_of_agriculture
 			}
 		}
 		if = {

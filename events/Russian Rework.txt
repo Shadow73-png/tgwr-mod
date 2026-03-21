@@ -1356,6 +1356,48 @@ country_event = {
 		name = ww1_kokovtsov.13.b
 	}
 }
+#Krivoshein resigns
+country_event = {
+	id = ww1_kokovtsov.14
+	title = ww1_kokovtsov.14.t
+	desc = ww1_kokovtsov.14.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	trigger = {
+		RUS_vladimir_kokovtsov = {
+			is_prime_minister = yes
+		}
+		RUS_alexander_krivoshein = {
+			is_part_of_the_cabinet = yes
+		}
+		count_triggers = {
+			amount = 2
+			RUS_liberals_satisfied = yes
+			RUS_centrists_satisfied = yes
+			RUS_rightists_satisfied = yes
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			add_stability = 0.025
+			add_political_power = 50
+				RUS_alexander_krivoshein = {
+				RUS_remove_from_the_cabinet = yes
+			}
+		}
+	}
+	#Good riddance
+	option = {
+		name = ww1_kokovtsov.14.a
+		effect_tooltip = {
+			add_stability = 0.025
+			add_political_power = 50
+			RUS_alexander_krivoshein = {
+				RUS_remove_from_the_cabinet = yes
+			}
+		}
+	}
+}
 #WORLD WAR I
 #####################
 #SECOND PATRIOTIC WAR

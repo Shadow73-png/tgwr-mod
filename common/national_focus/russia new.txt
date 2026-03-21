@@ -1825,7 +1825,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_NEW_COURSE
+			FOCUS_FILTER_FINANCE
 		}
 	}
 	focus = {
@@ -1861,7 +1861,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_NEW_COURSE
+			FOCUS_FILTER_FINANCE
 		}
 	}
 	focus = {
@@ -1892,7 +1892,7 @@ focus_tree = {
 			factor = 3
 		}
 		search_filters = {
-			FOCUS_FILTER_NEW_COURSE
+			FOCUS_FILTER_FINANCE
 		}
 	}
 	focus = {
@@ -1946,7 +1946,7 @@ focus_tree = {
 			factor = 3
 		}
 		search_filters = {
-			FOCUS_FILTER_NEW_COURSE
+			FOCUS_FILTER_FINANCE
 		}
 	}
 	focus = {
@@ -1974,7 +1974,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_NEW_COURSE
+			FOCUS_FILTER_FINANCE
 		}
 	}
 	focus = {
@@ -2026,7 +2026,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_NEW_COURSE
+			FOCUS_FILTER_FINANCE
 		}
 	}
 	focus = {
@@ -2101,7 +2101,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_NEW_COURSE
+			FOCUS_FILTER_FINANCE
 		}
 	}
 	focus = {
@@ -2143,7 +2143,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+			FOCUS_FILTER_FINANCE
 		}
 	}
 	focus = {
@@ -2169,7 +2169,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+			FOCUS_FILTER_FINANCE
 		}
 	}
 	focus = {
@@ -2201,7 +2201,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+			FOCUS_FILTER_FINANCE
 		}
 	}
 	#####################
@@ -2863,9 +2863,10 @@ focus_tree = {
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
 		}
 	}
+	#MAKLAKOV
 	focus = {
-		id = RUS_sway_the_election
-		icon = GFX_focus_generic_control_elections
+		id = RUS_nikolay_maklakov
+		icon = GFX_goal_generic_political_pressure
 		cost = 5
 		prerequisite = {
 			focus = RUS_smooth_sailing
@@ -2873,15 +2874,230 @@ focus_tree = {
 		available = {
 			any_character = {
 				is_prime_minister = yes
-				is_conservative = yes
+				OR = {
+					is_conservative = yes
+					is_reactionary = yes
+				}
+			}
+		}
+		x = -9
+		y = 1
+		relative_position_id = RUS_smooth_sailing
+		available_if_capitulated = yes
+		completion_reward = {
+			hidden_effect = {
+				every_character = {
+					limit = {
+						is_minister_of_internal_affairs = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				RUS_nikolay_maklakov = {
+					RUS_appoint_interior_minister = yes
+				}
+				set_variable = { RUS_cabinet_gui_internal_affairs_name_var = token:RUS_nikolay_maklakov }
+			}
+			custom_effect_tooltip = appointed_as_interior_minister_tt
+			show_ideas_tooltip = RUS_nikolay_maklakov
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_put_a_leash_on_okhranka
+		icon = GFX_focus_PER_limit_foreign_influence
+		cost = 5
+		prerequisite = {
+			focus = RUS_nikolay_maklakov
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_conservative = yes
+					is_reactionary = yes
+				}
+			}
+			RUS_nikolay_maklakov = {
+				is_minister_of_internal_affairs = yes
+			}
+		}
+		x = 2
+		y = 1
+		relative_position_id = RUS_nikolay_maklakov
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.01
+			set_temp_variable = { RUS_modify_loyalty_center_right_var = 2.5 }
+			RUS_modify_loyalty_center_right = yes
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = 2.5 }
+			RUS_modify_loyalty_center_left = yes
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = -2.5 }
+			RUS_modify_loyalty_far_right = yes
+			set_temp_variable = { RUS_add_police_reform_progress_var = 5 }
+			RUS_add_police_reform_progress = yes
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_purge_the_gendarmerie
+		icon = GFX_focus_generic_treaty
+		cost = 5
+		prerequisite = {
+			focus = RUS_nikolay_maklakov
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_conservative = yes
+					is_reactionary = yes
+				}
+			}
+			RUS_nikolay_maklakov = {
+				is_minister_of_internal_affairs = yes
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = RUS_nikolay_maklakov
+		available_if_capitulated = yes
+		completion_reward = {
+			add_timed_idea = {
+				idea = RUS_purges_in_gendarmerie
+				days = 120
+			}
+			custom_effect_tooltip = RUS_purges_in_gendarmerie_tt
+			effect_tooltip = {
+				set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
+				RUS_modify_loyalty_center_right = yes
+				set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
+				RUS_modify_loyalty_center_left = yes
+				set_temp_variable = { RUS_add_police_reform_progress_var = 10 }
+				RUS_add_police_reform_progress = yes
+			}
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_concessions_to_workers
+		icon = GFX_focus_generic_welfare
+		cost = 5
+		prerequisite = {
+			focus = RUS_nikolay_maklakov
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_conservative = yes
+					is_reactionary = yes
+				}
+			}
+			RUS_nikolay_maklakov = {
+				is_minister_of_internal_affairs = yes
+			}
+		}
+		x = -1
+		y = 2
+		relative_position_id = RUS_nikolay_maklakov
+		available_if_capitulated = yes
+		completion_reward = {
+			unlock_decision_tooltip = RUS_make_concessions_to_workers
+			custom_effect_tooltip = RUS_concessions_to_workers_tt
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	#Makarov's Ministry
+	focus = {
+		id = RUS_makarovs_ministry
+		icon = GFX_goal_generic_political_pressure
+		cost = 5
+		prerequisite = {
+			focus = RUS_smooth_sailing
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_conservative = yes
+					is_reactionary = yes
+				}
+			}
+		}
+		x = -12
+		y = 1
+		relative_position_id = RUS_smooth_sailing
+		available_if_capitulated = yes
+		completion_reward = {
+			hidden_effect = {
+				every_character = {
+					limit = {
+						is_minister_of_internal_affairs = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				RUS_aleksandr_makarov = {
+					RUS_appoint_interior_minister = yes
+				}
+				set_variable = { RUS_cabinet_gui_internal_affairs_name_var = token:RUS_aleksandr_makarov }
+			}
+			custom_effect_tooltip = appointed_as_interior_minister_tt
+			show_ideas_tooltip = RUS_aleksandr_makarov
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_sway_the_election
+		icon = GFX_focus_generic_control_elections
+		cost = 5
+		prerequisite = {
+			focus = RUS_makarovs_ministry
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_conservative = yes
+					is_reactionary = yes
+				}
 			}
 			RUS_aleksandr_makarov = {
 				is_minister_of_internal_affairs = yes
 			}
 		}
-		x = -1
+		x = 1
 		y = 1
-		relative_position_id = RUS_smooth_sailing
+		relative_position_id = RUS_makarovs_ministry
 		available_if_capitulated = yes
 		completion_reward = {
 			add_political_power = 60
@@ -2902,7 +3118,7 @@ focus_tree = {
 		icon = GFX_goal_anti_comintern_pact
 		cost = 5
 		prerequisite = {
-			focus = RUS_smooth_sailing
+			focus = RUS_makarovs_ministry
 		}
 		available = {
 			any_character = {
@@ -2916,9 +3132,9 @@ focus_tree = {
 				is_minister_of_internal_affairs = yes
 			}
 		}
-		x = -5
-		y = 1
-		relative_position_id = RUS_smooth_sailing
+		x = 0
+		y = 2
+		relative_position_id = RUS_makarovs_ministry
 		available_if_capitulated = yes
 		completion_reward = {
 			unlock_decision_tooltip = RUS_suppress_strikes
@@ -2955,269 +3171,13 @@ focus_tree = {
 				}
 			}
 		}
-		x = -7
+		x = -6
 		y = 1
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
 		completion_reward = {
 			add_political_power = 50
 			unlock_decision_tooltip = RUS_censor_liberal_press_decision
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
-		}
-	}
-	#MAKLAKOV
-	focus = {
-		id = RUS_nikolay_maklakov
-		icon = GFX_goal_generic_political_pressure
-		cost = 5
-		prerequisite = {
-			focus = RUS_smooth_sailing
-		}
-		available = {
-			any_character = {
-				is_prime_minister = yes
-				OR = {
-					is_conservative = yes
-					is_reactionary = yes
-				}
-			}
-		}
-		x = -9
-		y = 1
-		relative_position_id = RUS_smooth_sailing
-		available_if_capitulated = yes
-		completion_reward = {
-			hidden_effect = {
-				every_character = {
-					limit = {
-						is_minister_of_internal_affairs = yes
-					}
-					RUS_remove_from_the_cabinet = yes
-				}
-				RUS_nikolay_maklakov = {
-					RUS_appoint_interior_minister = yes
-				}
-			}
-			custom_effect_tooltip = appointed_as_interior_minister_tt
-			show_ideas_tooltip = RUS_nikolay_maklakov
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
-		}
-	}
-	focus = {
-		id = RUS_put_a_leash_on_okhranka
-		icon = GFX_focus_PER_limit_foreign_influence
-		cost = 5
-		prerequisite = {
-			focus = RUS_nikolay_maklakov
-		}
-		available = {
-			RUS_nikolay_maklakov = {
-				is_minister_of_internal_affairs = yes
-			}
-		}
-		x = 2
-		y = 1
-		relative_position_id = RUS_nikolay_maklakov
-		available_if_capitulated = yes
-		completion_reward = {
-			add_stability = 0.01
-			set_temp_variable = { RUS_modify_loyalty_center_right_var = 2.5 }
-			RUS_modify_loyalty_center_right = yes
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = 2.5 }
-			RUS_modify_loyalty_center_left = yes
-			set_temp_variable = { RUS_modify_loyalty_far_right_var = -2.5 }
-			RUS_modify_loyalty_far_right = yes
-			set_temp_variable = { RUS_add_police_reform_progress_var = 5 }
-			RUS_add_police_reform_progress = yes
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
-		}
-	}
-	focus = {
-		id = RUS_purge_the_gendarmerie
-		icon = GFX_focus_generic_treaty
-		cost = 5
-		prerequisite = {
-			focus = RUS_nikolay_maklakov
-		}
-		available = {
-			RUS_nikolay_maklakov = {
-				is_minister_of_internal_affairs = yes
-			}
-		}
-		x = 0
-		y = 1
-		relative_position_id = RUS_nikolay_maklakov
-		available_if_capitulated = yes
-		completion_reward = {
-			add_timed_idea = {
-				idea = RUS_purges_in_gendarmerie
-				days = 120
-			}
-			custom_effect_tooltip = RUS_purges_in_gendarmerie_tt
-			effect_tooltip = {
-				set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
-				RUS_modify_loyalty_center_right = yes
-				set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
-				RUS_modify_loyalty_center_left = yes
-				set_temp_variable = { RUS_add_police_reform_progress_var = 10 }
-				RUS_add_police_reform_progress = yes
-			}
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
-		}
-	}
-	#KHVOSTOV
-	focus = {
-		id = RUS_khvostovs_ministry
-		icon = GFX_focus_SOV_third_rome
-		cost = 5
-		prerequisite = {
-			focus = RUS_smooth_sailing
-		}
-		available = {
-			any_character = {
-				is_prime_minister = yes
-				OR = {
-					is_conservative = yes
-					is_reactionary = yes
-				}
-			}
-		}
-		x = -11
-		y = 1
-		relative_position_id = RUS_smooth_sailing
-		available_if_capitulated = yes
-		completion_reward = {
-			hidden_effect = {
-				every_character = {
-					limit = {
-						is_minister_of_internal_affairs = yes
-					}
-					RUS_remove_from_the_cabinet = yes
-				}
-				RUS_alexei_khvostov = {
-					RUS_appoint_interior_minister = yes
-				}
-			}
-			custom_effect_tooltip = appointed_as_interior_minister_tt
-			show_ideas_tooltip = RUS_alexei_khvostov
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
-		}
-	}
-	focus = {
-		id = RUS_concessions_to_workers
-		icon = GFX_focus_generic_welfare
-		cost = 5
-		prerequisite = {
-			focus = RUS_khvostovs_ministry
-			focus = RUS_nikolay_maklakov
-		}
-		available = {
-			OR = {
-				RUS_nikolay_maklakov = {
-					is_minister_of_internal_affairs = yes
-				}
-				RUS_alexei_khvostov = {
-					is_minister_of_internal_affairs = yes
-				}
-			}
-		}
-		x = 1
-		y = 2
-		relative_position_id = RUS_khvostovs_ministry
-		available_if_capitulated = yes
-		completion_reward = {
-			unlock_decision_tooltip = RUS_make_concessions_to_workers
-			custom_effect_tooltip = RUS_concessions_to_workers_tt
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
-		}
-	}
-	focus = {
-		id = RUS_reasonable_compromise_with_liberals
-		icon = GFX_goal_generic_intelligence_exchange
-		cost = 5
-		prerequisite = {
-			focus = RUS_khvostovs_ministry
-		}
-		available = {
-			RUS_alexei_khvostov = {
-				is_minister_of_internal_affairs = yes
-			}
-		}
-		x = 0
-		y = 1
-		relative_position_id = RUS_khvostovs_ministry
-		available_if_capitulated = yes
-		completion_reward = {
-			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
-			RUS_modify_loyalty_center_right = yes
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
-			RUS_modify_loyalty_center_left = yes
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
-		}
-	}
-	focus = {
-		id = RUS_unite_the_right
-		icon = GFX_goal_generic_dangerous_deal
-		cost = 5
-		prerequisite = {
-			focus = RUS_reasonable_compromise_with_liberals
-		}
-		available = {
-			RUS_alexei_khvostov = {
-				is_minister_of_internal_affairs = yes
-			}
-		}
-		x = -1
-		y = 2
-		relative_position_id = RUS_khvostovs_ministry
-		available_if_capitulated = yes
-		completion_reward = {
-			effect_tooltip = {
-				set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
-				RUS_modify_loyalty_far_right = yes
-			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -3320,6 +3280,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			unlock_decision_tooltip = RUS_dismiss_the_state_duma
+			unlock_decision_tooltip = RUS_reconvene_the_state_duma
+			custom_effect_tooltip = RUS_dismiss_the_duma_tt
 		}
 		ai_will_do = {
 			factor = 3
