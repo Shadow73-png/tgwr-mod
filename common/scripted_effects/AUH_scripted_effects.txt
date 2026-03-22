@@ -43,6 +43,86 @@ AUS_war_time_effects = {
 		AUS_last_loyalty_penalty = AUS_new_loyalty_penalty
 	}
 }
+AUS_update_food = {
+	remove_ideas = AUS_minimal_food_shortages_idea
+	remove_ideas = AUS_mild_food_shortages_idea
+	remove_ideas = AUS_limited_food_shortages_idea
+	remove_ideas = AUS_noticeable_food_shortages_idea
+	remove_ideas = AUS_moderate_food_shortages_idea
+	remove_ideas = AUS_widespread_food_shortages_idea
+	remove_ideas = AUS_severe_food_shortages_idea
+	remove_ideas = AUS_critical_food_shortages_idea
+	remove_ideas = AUS_extreme_food_shortages_idea
+	remove_ideas = AUS_famine_food_shortages_idea
+	if = {
+		limit = {
+			check_variable = { AUS_intensity_of_food_shortages < 2 }
+		}
+		add_ideas = AUS_minimal_food_shortages_idea
+	}
+	else_if = {
+		limit = {
+			check_variable = { AUS_intensity_of_food_shortages < 4 }
+			check_variable = { AUS_intensity_of_food_shortages > 1 }
+		}
+		add_ideas = AUS_mild_food_shortages_idea
+	}
+	else_if = {
+		limit = {
+			check_variable = { AUS_intensity_of_food_shortages < 5 }
+			check_variable = { AUS_intensity_of_food_shortages > 3 }
+		}
+		add_ideas = AUS_limited_food_shortages_idea
+	}
+	else_if = {
+		limit = {
+			check_variable = { AUS_intensity_of_food_shortages < 6 }
+			check_variable = { AUS_intensity_of_food_shortages > 4 }
+		}
+		add_ideas = AUS_noticeable_food_shortages_idea
+	}
+	else_if = {
+		limit = {
+			check_variable = { AUS_intensity_of_food_shortages < 8 }
+			check_variable = { AUS_intensity_of_food_shortages > 5 }
+		}
+		add_ideas = AUS_moderate_food_shortages_idea
+	}
+	else_if = {
+		limit = {
+			check_variable = { AUS_intensity_of_food_shortages < 10 }
+			check_variable = { AUS_intensity_of_food_shortages > 7 }
+		}
+		add_ideas = AUS_widespread_food_shortages_idea
+	}
+	else_if = {
+		limit = {
+			check_variable = { AUS_intensity_of_food_shortages < 12 }
+			check_variable = { AUS_intensity_of_food_shortages > 9 }
+		}
+		add_ideas = AUS_severe_food_shortages_idea
+	}
+	else_if = {
+		limit = {
+			check_variable = { AUS_intensity_of_food_shortages < 14 }
+			check_variable = { AUS_intensity_of_food_shortages > 11 }
+		}
+		add_ideas = AUS_critical_food_shortages_idea
+	}
+	else_if = {
+		limit = {
+			check_variable = { AUS_intensity_of_food_shortages < 15 }
+			check_variable = { AUS_intensity_of_food_shortages > 13 }
+		}
+		add_ideas = AUS_extreme_food_shortages_idea
+	}
+	else_if = {
+		limit = {
+			check_variable = { AUS_intensity_of_food_shortages > 14 }
+		}
+		add_ideas = AUS_famine_food_shortages_idea
+	}
+}
 
 AUS_update_imperial_council_effects = {
 	# Ensure variables use the expected ranges
@@ -2876,7 +2956,7 @@ AUS_1914_effects = {
 		bonus = 0.75
 		uses = 2
 	}
-
+	
 	AUS_update_imperial_council_effects = yes
 	AUS_update_state_of_realm = yes
 }
