@@ -485,6 +485,307 @@ AUH_great_war_bullshit = {
 	}
 }
 
+AUS_minorities_mechanic = {
+	AUH_galacia_poverty_riots = {
+		priority = 100
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		days_mission_timeout = 300
+		available = {
+			NOT = {
+				any_state = {
+					has_dynamic_modifier = {
+						modifier = AUS_neglected_economy
+					}
+				}
+			}
+		}
+		visible = {
+			AUS_has_neglected_economy = yes
+		}
+		activation = {
+			AUS_has_neglected_economy = yes
+		}
+		timeout_effect = {
+			custom_effect_tooltip = AUS_poverty_total_subtract
+			custom_effect_tooltip = AUS_for_every_state_g
+			custom_effect_tooltip = empty_space_tt
+			subtract_from_variable = {
+				AUS_pole_loyalty = AUS_states_with_galician_poverty
+			}
+			subtract_from_variable = {
+				AUS_ruthenian_loyalty = AUS_states_with_galician_poverty
+			}
+			AUS_how_many_states_have_neglected_fathers = yes
+			AUS_update_state_of_realm = yes
+		}
+		complete_effect = {
+		}
+		fire_only_once = no
+		is_good = no
+	}
+	AUH_bohemian_parliament_shenanigans = {
+		priority = 100
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 69
+				state = 9
+			}
+		}
+		days_mission_timeout = AUS_bohemia_mission_var
+		available = {
+			OR = {
+				has_completed_focus = AUS_dissolve_bohemian_diet
+				has_completed_focus = AUS_unite_the_imperial_council
+			}
+		}
+		visible = {
+			original_tag = AUS
+		}
+		activation = {
+			original_tag = AUS
+			AUS_has_CZE_state = yes
+			NOT = {
+				has_completed_focus = AUS_dissolve_bohemian_diet
+			}
+		}
+		timeout_effect = {
+			activate_mission = AUH_bohemian_parliament_shenanigans
+			AUS_update_state_of_realm = yes
+			IF = {
+				limit = {
+					check_variable = {
+						AUS_czechoslovak_loyalty > 20
+					}
+				}
+				add_to_variable = {
+					AUS_czechoslovak_loyalty = -5
+					tooltip = AUS_loyalty_czechoslovakia_tt
+				}
+			}
+			else = {
+				add_political_power = -20
+			}
+		}
+		complete_effect = {
+		}
+		fire_only_once = no
+		is_good = no
+	}
+	AUS_administrative_sabotage_in_south_slav = {
+		priority = 100
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 104
+				state = 103
+				state = 163
+				state = 208
+				state = 1206
+				state = 1230
+			}
+		}
+		days_mission_timeout = AUS_admin_struggle_slav_var
+		available = {
+			has_completed_focus = AUS_the_hostile_enemy_of_austria
+		}
+		visible = {
+			original_tag = AUS
+		}
+		activation = {
+			original_tag = AUS
+			NOT = {
+				has_global_flag = AUS_end_admin_sabotage
+			}
+		}
+		timeout_effect = {
+			activate_mission = AUS_administrative_sabotage_in_south_slav
+			if = {
+				limit = {
+					check_variable = {
+						AUS_admin_sabotage_var < 5
+					}
+				}
+				AUS_decrease_southern_admin = yes
+			}
+			#custom_effect_tooltip = AUS_administrative_sabotage_in_south_slav.tt
+		}
+		complete_effect = {
+		}
+		fire_only_once = no
+		is_good = no
+	}
+	AUS_stabilization_effort_in_bosnia = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			NOT = {
+				has_active_mission = AUS_stabilization_effort_mission
+			}
+			has_active_mission = AUS_administrative_sabotage_in_south_slav
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 104
+				state = 103
+				state = 163
+				state = 208
+				state = 1206
+				state = 1230
+			}
+		}
+		priority = 21
+		available = {
+			AUS_southern_admin_negative = yes
+		}
+		fire_only_once = no
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+		}
+		cost = AUS_cost_for_stabilization_effort_decision
+		days_remove = AUS_days_for_stabilization_effort_decision
+		remove_effect = {
+			AUS_increase_southern_admin = yes
+		}
+	}
+	AUS_propaganda_in_bohemia = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			NOT = {
+				has_active_mission = AUS_automatic_propaganda_mission
+			}
+		}
+		priority = 21
+		highlight_states = {
+			highlight_state_targets = {
+				state = 69
+				state = 9
+			}
+		}
+		available = {
+			check_variable = {
+				AUS_czechoslovak_loyalty < 80
+				tooltip = AUS_czech_loyalty_less_than
+			}
+		}
+		cancel_trigger = {
+			has_active_mission = AUS_automatic_propaganda_mission
+		}
+		fire_only_once = no
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				check_variable = {
+					AUS_czechoslovak_loyalty < 60
+				}
+			}
+			modifier = {
+				has_political_power < 40
+				factor = 0
+			}
+		}
+		complete_effect = {
+		}
+		cost = AUS_propaganda_in_bohemia_cost
+		days_remove = 30
+		remove_effect = {
+			add_to_variable = {
+				AUS_czechoslovak_loyalty = 5
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+		}
+	}
+	AUS_propaganda_in_bosnia = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			NOT = {
+				has_active_mission = AUS_automatic_propaganda_mission_bosnia
+			}
+			has_completed_focus = AUS_burying_the_grudges_of_the_past
+		}
+		priority = 21
+		highlight_states = {
+			highlight_state_targets = {
+				state = 104
+			}
+		}
+		available = {
+			OR = {
+				check_variable = {
+					AUS_serb_loyalty < 50
+					tooltip = AUS_serb_loyalty_less_than
+				}
+				check_variable = {
+					AUS_croat_loyalty < 50
+					tooltip = AUS_croat_loyalty_less_than
+				}
+			}
+		}
+		cancel_trigger = {
+			has_active_mission = AUS_automatic_propaganda_mission_bosnia
+		}
+		fire_only_once = no
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+		}
+		cost = 25
+		days_remove = 30
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						AUS_serb_loyalty < 50
+					}
+				}
+				add_to_variable = {
+					AUS_serb_loyalty = 5
+					tooltip = AUS_loyalty_serb_tt
+				}
+			}
+			else = {
+				custom_effect_tooltip = AUS_higher_then_50_ser
+			}
+			if = {
+				limit = {
+					check_variable = {
+						AUS_croat_loyalty < 50
+					}
+				}
+				add_to_variable = {
+					AUS_croat_loyalty = 5
+					tooltip = AUS_loyalty_croatian_tt
+				}
+			}
+			else = {
+				custom_effect_tooltip = AUS_higher_then_50_cro
+			}
+			AUS_update_state_of_realm = yes
+		}
+	}
+}
+
 AUH_automatic_mechanics = {
 	AUS_automatic_propaganda_mission_bosnia = {
 		priority = 99
@@ -801,188 +1102,6 @@ AUH_automatic_mechanics = {
 }
 
 AUH_the_imperial_council = {
-	AUS_spread_enlightened_literature = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_arbeiterbildung
-		}
-		priority = 210
-		available = {
-		}
-		fire_only_once = yes
-		days_remove = 60
-		cost = 50
-		ai_will_do = {
-			base = 0
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			custom_effect_tooltip = AUS_modify_aps.tt
-			add_to_variable = {
-				AUS_aps_dem_gain = 0.03
-				tooltip = democratic_drift_tt
-			}
-		}
-	}
-	AUS_promote_worker_education = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_arbeiterbildung
-		}
-		priority = 210
-		available = {
-		}
-		fire_only_once = yes
-		days_remove = 180
-		cost = 50
-		ai_will_do = {
-			base = 0
-		}
-		complete_effect = {
-			add_timed_idea = {
-				idea = AUS_economic_reconstructure
-				days = 180
-			}
-		}
-		remove_effect = {
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_prod_eff_cap = 0.05
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			add_to_variable = {
-				AUS_EP_prod_eff_growth = 0.05
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
-			add_popularity = {
-				ideology = democratic
-				popularity = 0.03
-			}
-		}
-	}
-	AUS_nationalize_heavy_industry = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_arbeiterbildung
-		}
-		priority = 210
-		available = {
-		}
-		fire_only_once = yes
-		days_remove = 60
-		cost = 80
-		ai_will_do = {
-			base = 0
-		}
-		complete_effect = {
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_ep_local_resource = 0.1
-				tooltip = local_resources_factor_tt
-			}
-			9 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			add_stability = -0.1
-		}
-		remove_effect = {
-		}
-	}
-	AUS_nationalize_banks = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_arbeiterbildung
-		}
-		priority = 210
-		available = {
-		}
-		fire_only_once = yes
-		days_remove = 60
-		cost = 80
-		ai_will_do = {
-			base = 0
-		}
-		complete_effect = {
-			custom_effect_tooltip = AUS_modify_aps.tt
-			add_to_variable = {
-				AUS_aps_pp_gain = -0.05
-				tooltip = political_power_factor_tt
-			}
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_stab = -0.05
-				tooltip = stability_factor_tt
-			}
-			add_to_variable = {
-				AUS_ep_construction_speed = 0.05
-				tooltip = production_speed_buildings_factor_tt
-			}
-			add_to_variable = {
-				AUS_ep_mil_speed = -0.05
-				tooltip = production_speed_arms_factory_factor_tt
-			}
-			add_to_variable = {
-				AUS_EP_consumer_goods = -0.07
-				tooltip = consumer_goods_factor_tt
-			}
-		}
-		remove_effect = {
-		}
-	}
-	AUS_permit_minority_universities = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_autonomy_and_reconciliation
-		}
-		priority = 210
-		available = {
-		}
-		fire_only_once = yes
-		days_remove = 120
-		cost = 50
-		ai_will_do = {
-			base = 0
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_ep_research_speed = 0.04
-				tooltip = research_speed_factor_tt
-			}
-			add_stability = 0.02
-			add_popularity = {
-				ideology = democratic
-				popularity = 0.03
-			}
-			add_popularity = {
-				ideology = communism
-				popularity = 0.01
-			}
-		}
-	}
 	AUS_tempoary_coalitions_d = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -1388,105 +1507,6 @@ AUH_the_imperial_council = {
 }
 
 AUH_stitching_the_quilt = {
-	#AUS_livestock_disease_mission = {
-	#	icon = GFX_decision_generic_scorched_earth
-	#	fire_only_once = no
-	#	is_good = no
-	#	allowed = {
-	#		original_tag = AUS
-	#	}
-	#	days_mission_timeout = 30
-	#	days_re_enable = 0
-	#	visible = {
-	#		has_dynamic_modifier = {
-	#			modifier = AUS_livestock_disease
-	#		}
-	#	}
-	#	activation = {
-	#		has_dynamic_modifier = {
-	#			modifier = AUS_livestock_disease
-	#		}
-	#	}
-	#	available = {
-	#		NOT = {
-	#			has_dynamic_modifier = {
-	#				modifier = AUS_livestock_disease
-	#			}
-	#		}
-	#	}
-	#	complete_effect = {
-	#	}
-	#	timeout_effect = {
-	#		if = {
-	#			limit = {
-	#				check_variable = {
-	#					AUS.livestock_modifier < 0.13
-	#				}
-	#			}
-	#			add_to_variable = {
-	#				AUS.livestock_modifier = 0.03
-	#			}
-	#			clamp_variable = {
-	#				var = AUS.livestock_modifier
-	#				min = 0
-	#				max = 0.15
-	#			}
-	#			custom_effect_tooltip = {
-	#				localization_key = AUS_livestock_disease.tt
-	#				VALUE = "+3.0"
-	#			}
-	#		}
-	#	}
-	#}
-	#AUS_cow_vaccine_program = {
-	#	icon = GFX_decision_generic_research
-	#	allowed = {
-	#		tag = AUS
-	#	}
-	#	cost = 20
-	#	fire_only_once = no
-	#	days_remove = 25
-	#	available = {
-	#		has_completed_focus = AUS_HUN_combat_spread_of_rinderpest
-	#	}
-	#	visible = {
-	#		has_dynamic_modifier = {
-	#			modifier = AUS_livestock_disease
-	#		}
-	#	}
-	#	complete_effect = {
-	#		if = {
-	#			limit = {
-	#				check_variable = {
-	#					AUS.livestock_modifier < 0.04
-	#				}
-	#			}
-	#			remove_dynamic_modifier = {
-	#				modifier = AUS_livestock_disease
-	#			}
-	#			HUN = {
-	#				remove_dynamic_modifier = {
-	#					modifier = AUS_livestock_disease
-	#				}
-	#			}
-	#			else = {
-	#				add_to_variable = {
-	#					AUS.livestock_modifier = -0.03
-	#				}
-	#				clamp_variable = {
-	#					var = AUS.livestock_modifier
-	#					min = 0
-	#					max = 0.15
-	#				}
-	#				custom_effect_tooltip = {
-	#					localization_key = AUS_livestock_disease.tt
-	#					VALUE = "-3.0"
-	#				}
-	#			}
-	#		}
-	#	}
-	#}
-	## CARTELS ##
 	AUS_support_sugar_cartels = {
 		icon = GFX_decision_generic_electricity
 		allowed = {
@@ -1697,6 +1717,189 @@ AUH_stitching_the_quilt = {
 				tooltip = consumer_goods_factor_tt
 			}
 			# add stuff
+		}
+	}
+	
+	AUS_spread_enlightened_literature = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_arbeiterbildung
+		}
+		priority = 210
+		available = {
+		}
+		fire_only_once = yes
+		days_remove = 60
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_dem_gain = 0.03
+				tooltip = democratic_drift_tt
+			}
+		}
+	}
+	AUS_promote_worker_education = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_arbeiterbildung
+		}
+		priority = 210
+		available = {
+		}
+		fire_only_once = yes
+		days_remove = 180
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		complete_effect = {
+			add_timed_idea = {
+				idea = AUS_economic_reconstructure
+				days = 180
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_prod_eff_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_prod_eff_growth = 0.05
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.03
+			}
+		}
+	}
+	AUS_nationalize_heavy_industry = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_arbeiterbildung
+		}
+		priority = 210
+		available = {
+		}
+		fire_only_once = yes
+		days_remove = 60
+		cost = 80
+		ai_will_do = {
+			base = 0
+		}
+		complete_effect = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_ep_local_resource = 0.1
+				tooltip = local_resources_factor_tt
+			}
+			9 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = -0.1
+		}
+		remove_effect = {
+		}
+	}
+	AUS_nationalize_banks = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_arbeiterbildung
+		}
+		priority = 210
+		available = {
+		}
+		fire_only_once = yes
+		days_remove = 60
+		cost = 80
+		ai_will_do = {
+			base = 0
+		}
+		complete_effect = {
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_pp_gain = -0.05
+				tooltip = political_power_factor_tt
+			}
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_stab = -0.05
+				tooltip = stability_factor_tt
+			}
+			add_to_variable = {
+				AUS_ep_construction_speed = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				AUS_ep_mil_speed = -0.05
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.07
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+		}
+	}
+	AUS_permit_minority_universities = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_autonomy_and_reconciliation
+		}
+		priority = 210
+		available = {
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_ep_research_speed = 0.04
+				tooltip = research_speed_factor_tt
+			}
+			add_stability = 0.02
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
 		}
 	}
 	AUS_child_welfare = {
@@ -1993,178 +2196,6 @@ AUH_stitching_the_quilt = {
 			}
 		}
 	}
-	AUH_galacia_poverty_riots = {
-		priority = 100
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = AUS
-		}
-		days_mission_timeout = 300
-		available = {
-			NOT = {
-				any_state = {
-					has_dynamic_modifier = {
-						modifier = AUS_neglected_economy
-					}
-				}
-			}
-		}
-		visible = {
-			AUS_has_neglected_economy = yes
-		}
-		activation = {
-			AUS_has_neglected_economy = yes
-		}
-		timeout_effect = {
-			custom_effect_tooltip = AUS_poverty_total_subtract
-			custom_effect_tooltip = AUS_for_every_state_g
-			custom_effect_tooltip = empty_space_tt
-			subtract_from_variable = {
-				AUS_pole_loyalty = AUS_states_with_galician_poverty
-			}
-			subtract_from_variable = {
-				AUS_ruthenian_loyalty = AUS_states_with_galician_poverty
-			}
-			AUS_how_many_states_have_neglected_fathers = yes
-			AUS_update_state_of_realm = yes
-		}
-		complete_effect = {
-		}
-		fire_only_once = no
-		is_good = no
-	}
-	AUH_bohemian_parliament_shenanigans = {
-		priority = 100
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = AUS
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = 69
-				state = 9
-			}
-		}
-		days_mission_timeout = AUS_bohemia_mission_var
-		available = {
-			has_completed_focus = AUS_dissolve_bohemian_diet
-		}
-		visible = {
-			original_tag = AUS
-		}
-		activation = {
-			original_tag = AUS
-			AUS_has_CZE_state = yes
-			NOT = {
-				has_completed_focus = AUS_dissolve_bohemian_diet
-			}
-		}
-		timeout_effect = {
-			activate_mission = AUH_bohemian_parliament_shenanigans
-			AUS_update_state_of_realm = yes
-			IF = {
-				limit = {
-					check_variable = {
-						AUS_czechoslovak_loyalty > 20
-					}
-				}
-				add_to_variable = {
-					AUS_czechoslovak_loyalty = -5
-					tooltip = AUS_loyalty_czechoslovakia_tt
-				}
-			}
-			else = {
-				add_political_power = -20
-			}
-		}
-		complete_effect = {
-		}
-		fire_only_once = no
-		is_good = no
-	}
-	AUS_administrative_sabotage_in_south_slav = {
-		priority = 100
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = AUS
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = 104
-				state = 103
-				state = 163
-				state = 208
-				state = 1206
-				state = 1230
-			}
-		}
-		days_mission_timeout = AUS_admin_struggle_slav_var
-		available = {
-			has_completed_focus = AUS_the_hostile_enemy_of_austria
-		}
-		visible = {
-			original_tag = AUS
-		}
-		activation = {
-			original_tag = AUS
-			NOT = {
-				has_global_flag = AUS_end_admin_sabotage
-			}
-		}
-		timeout_effect = {
-			activate_mission = AUS_administrative_sabotage_in_south_slav
-			if = {
-				limit = {
-					check_variable = {
-						AUS_admin_sabotage_var < 5
-					}
-				}
-				AUS_decrease_southern_admin = yes
-			}
-			#custom_effect_tooltip = AUS_administrative_sabotage_in_south_slav.tt
-		}
-		complete_effect = {
-		}
-		fire_only_once = no
-		is_good = no
-	}
-	AUS_stabilization_effort_in_bosnia = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			NOT = {
-				has_active_mission = AUS_stabilization_effort_mission
-			}
-			has_active_mission = AUS_administrative_sabotage_in_south_slav
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = 104
-				state = 103
-				state = 163
-				state = 208
-				state = 1206
-				state = 1230
-			}
-		}
-		priority = 21
-		available = {
-			AUS_southern_admin_negative = yes
-		}
-		fire_only_once = no
-		ai_will_do = {
-			factor = 0
-		}
-		complete_effect = {
-		}
-		cost = AUS_cost_for_stabilization_effort_decision
-		days_remove = AUS_days_for_stabilization_effort_decision
-		remove_effect = {
-			AUS_increase_southern_admin = yes
-		}
-	}
 	AUS_attack_organized_labor = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -2191,129 +2222,6 @@ AUH_stitching_the_quilt = {
 				AUS_EP_prod_eff_cap = 0.05
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
-		}
-	}
-	AUS_propaganda_in_bohemia = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			NOT = {
-				has_active_mission = AUS_automatic_propaganda_mission
-			}
-		}
-		priority = 21
-		highlight_states = {
-			highlight_state_targets = {
-				state = 69
-				state = 9
-			}
-		}
-		available = {
-			check_variable = {
-				AUS_czechoslovak_loyalty < 80
-				tooltip = AUS_czech_loyalty_less_than
-			}
-		}
-		cancel_trigger = {
-			has_active_mission = AUS_automatic_propaganda_mission
-		}
-		fire_only_once = no
-		ai_will_do = {
-			base = 0
-			modifier = {
-				add = 100
-				check_variable = {
-					AUS_czechoslovak_loyalty < 60
-				}
-			}
-			modifier = {
-				has_political_power < 40
-				factor = 0
-			}
-		}
-		complete_effect = {
-		}
-		cost = AUS_propaganda_in_bohemia_cost
-		days_remove = 30
-		remove_effect = {
-			add_to_variable = {
-				AUS_czechoslovak_loyalty = 5
-				tooltip = AUS_loyalty_czechoslovakia_tt
-			}
-		}
-	}
-	AUS_propaganda_in_bosnia = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			NOT = {
-				has_active_mission = AUS_automatic_propaganda_mission_bosnia
-			}
-			has_completed_focus = AUS_burying_the_grudges_of_the_past
-		}
-		priority = 21
-		highlight_states = {
-			highlight_state_targets = {
-				state = 104
-			}
-		}
-		available = {
-			OR = {
-				check_variable = {
-					AUS_serb_loyalty < 50
-					tooltip = AUS_serb_loyalty_less_than
-				}
-				check_variable = {
-					AUS_croat_loyalty < 50
-					tooltip = AUS_croat_loyalty_less_than
-				}
-			}
-		}
-		cancel_trigger = {
-			has_active_mission = AUS_automatic_propaganda_mission_bosnia
-		}
-		fire_only_once = no
-		ai_will_do = {
-			factor = 0
-		}
-		complete_effect = {
-		}
-		cost = 25
-		days_remove = 30
-		remove_effect = {
-			if = {
-				limit = {
-					check_variable = {
-						AUS_serb_loyalty < 50
-					}
-				}
-				add_to_variable = {
-					AUS_serb_loyalty = 5
-					tooltip = AUS_loyalty_serb_tt
-				}
-			}
-			else = {
-				custom_effect_tooltip = AUS_higher_then_50_ser
-			}
-			if = {
-				limit = {
-					check_variable = {
-						AUS_croat_loyalty < 50
-					}
-				}
-				add_to_variable = {
-					AUS_croat_loyalty = 5
-					tooltip = AUS_loyalty_croatian_tt
-				}
-			}
-			else = {
-				custom_effect_tooltip = AUS_higher_then_50_cro
-			}
-			AUS_update_state_of_realm = yes
 		}
 	}
 	AUS_pit_easterners_against_jews = {
@@ -3541,48 +3449,6 @@ AUH_franzferdinand = {
 	}
 }
 
-debug_decisions = {
-	reset_minority_loyalties = {
-		allowed = {
-			original_tag = AUS
-		}
-		available = {
-			is_ai = no
-		}
-		visible = {
-			is_debug = yes
-			has_variable = AUS_serb_loyalty
-			has_variable = AUS_pole_loyalty
-			has_variable = AUS_czechoslovak_loyalty
-			#has_variable = AUS_italian_loyalty
-			has_variable = AUS_croat_loyalty
-			has_variable = AUS_ruthenian_loyalty
-			has_variable = AUS_romanian_loyalty
-		}
-		complete_effect = {
-			set_variable = {
-				AUS_czechoslovak_loyalty = 50
-			}
-			set_variable = {
-				AUS_croat_loyalty = 35
-			}
-			set_variable = {
-				AUS_serb_loyalty = 35
-			}
-			set_variable = {
-				AUS_pole_loyalty = 45
-			}
-			set_variable = {
-				AUS_ruthenian_loyalty = 45
-			}
-			set_variable = {
-				AUS_romanian_loyalty = 50
-			}
-			AUS_update_state_of_realm = yes
-		}
-	}
-}
-
 AUH_terrorism = {
 	AUH_smuggled_propaganda_in_bosnia = {
 		priority = 99
@@ -3801,5 +3667,79 @@ AUH_terrorism = {
 			}
 		}
 		cost = 20
+	}
+}
+
+debug_decisions = {
+	reset_minority_loyalties = {
+		allowed = {
+			original_tag = AUS
+		}
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_debug = yes
+			has_variable = AUS_serb_loyalty
+			has_variable = AUS_pole_loyalty
+			has_variable = AUS_czechoslovak_loyalty
+			#has_variable = AUS_italian_loyalty
+			has_variable = AUS_croat_loyalty
+			has_variable = AUS_ruthenian_loyalty
+			has_variable = AUS_romanian_loyalty
+		}
+		complete_effect = {
+			set_variable = {
+				AUS_czechoslovak_loyalty = 50
+			}
+			set_variable = {
+				AUS_croat_loyalty = 35
+			}
+			set_variable = {
+				AUS_serb_loyalty = 35
+			}
+			set_variable = {
+				AUS_pole_loyalty = 45
+			}
+			set_variable = {
+				AUS_ruthenian_loyalty = 45
+			}
+			set_variable = {
+				AUS_romanian_loyalty = 50
+			}
+			AUS_update_state_of_realm = yes
+		}
+	}
+	clear_decisions_clutter = {
+		allowed = {
+			original_tag = AUS
+		}
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_debug = yes
+			NOT = {
+				has_country_flag = hide_stuff_for_debug
+			}
+		}
+		complete_effect = {
+			set_country_flag = hide_stuff_for_debug
+		}
+	}
+	add_decisions_clutter = {
+		allowed = {
+			original_tag = AUS
+		}
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_debug = yes
+			has_country_flag = hide_stuff_for_debug
+		}
+		complete_effect = {
+			clr_country_flag = hide_stuff_for_debug
+		}
 	}
 }
