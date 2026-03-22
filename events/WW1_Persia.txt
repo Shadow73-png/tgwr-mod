@@ -1,4 +1,5 @@
 ﻿add_namespace = ww1_persia
+add_namespace = ww1_persia_rework
 
 country_event = {
 	title = ww1_persia.1.t
@@ -1006,5 +1007,39 @@ country_event = {
 			set_border_war = yes
 		}
 		send_embargo = KUR
+	}
+}
+
+#Regent Ali Reza Khan Dies
+country_event = {
+	id = ww1_persia_rework.1
+	title = ww1_persia_rework.1.t
+	desc = ww1_persia_rework.1.d
+	
+	picture = GFX_report_event_royal_parade
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		has_idea = PER_ali_reza_khan_regent
+	}
+	
+	immediate = {
+		hidden_effect = {
+			swap_ideas = {
+				remove_idea = PER_ali_reza_khan_regent
+				add_idea = PER_ahmad_shah_qajar_young
+			}
+		}
+	}
+	
+	option = {
+		name = ww1_persia_rework.1.a
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = PER_ali_reza_khan_regent
+				add_idea = PER_ahmad_shah_qajar_young
+			}
+		}
 	}
 }
