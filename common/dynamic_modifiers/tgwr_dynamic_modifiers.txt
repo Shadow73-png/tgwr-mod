@@ -3721,3 +3721,32 @@ SIA_french_sphere = {
 	state_resources_factor = -0.15
 	local_factories = -0.15
 }
+
+PER_foreign_influence_modifier = {
+	icon = GFX_idea_per_foreign_interference
+
+	political_power_gain = PER_political_power_gain
+	consumer_goods_expected_value = PER_total_foreign_influence
+	min_export = PER_total_foreign_influence
+	civilian_intel_to_others = PER_civilian_intel_to_others
+	custom_modifier_tooltip = PER_foreign_influence_modifier_tt
+}
+
+PER_influence_in_persia_modifier = {
+	#icon = GFX_idea_per_foreign_interference
+	enable = {
+		any_other_country = {
+			has_dynamic_modifier = PER_foreign_influence_modifier
+			NOT = { has_war_with = ROOT }
+		}
+	}
+	remove_trigger = {
+		OR = {
+			is_subject = yes
+			has_country_flag = great_war_loser
+		}
+	}
+	
+	political_power_gain = PER_political_power_gain
+	consumer_goods_factor = PER_consumer_goods_factor
+}	

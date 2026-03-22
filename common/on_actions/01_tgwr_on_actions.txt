@@ -906,6 +906,12 @@
 				}
 				drop_cosmetic_tag = yes
 			}
+			if = {
+				limit = {
+					has_dynamic_modifier = PER_foreign_influence_modifier
+				}
+				PER_calculate_foreign_influnce = yes
+			}
 		}
 	}
 	
@@ -11698,13 +11704,19 @@
 			}
 			if = {
 				limit = {
+					has_dynamic_modifier = PER_foreign_influence_modifier
+				}
+				PER_calculate_foreign_influnce = yes
+			}
+			if = {
+				limit = {
 					is_great_war_ongoing = yes
 					NOT = {
 						has_country_flag = joined_great_war
 					}
 					FROM = {
 						OR = {
-							original_tag = GER
+							tag = GER
 							tag = ENT
 						}
 					}
@@ -12291,6 +12303,17 @@
 		effect = {
 			# unit limit calculations
 			country_event = ww1_political.4
+		}
+	}
+
+	on_weekly_PER = {
+		effect = {
+			every_country = {
+				limit = {
+					has_dynamic_modifier = PER_foreign_influence_modifier
+				}
+				PER_calculate_foreign_influnce = yes
+			}
 		}
 	}
 
