@@ -1762,7 +1762,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_every_180_days
-			
 			hidden_effect = {
 				country_event = {
 					id = ww1_austriahungary.89
@@ -2224,6 +2223,27 @@ focus_tree = {
 			AUS_has_reformist_minister = yes
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_pp_gain = -0.05
+				tooltip = political_power_factor_tt
+			}
+			add_to_variable = {
+				AUS_serb_loyalty = 10
+				tooltip = AUS_loyalty_serb_tt
+			}
+			add_to_variable = {
+				AUS_croat_loyalty = 10
+				tooltip = AUS_loyalty_croatian_tt
+			}
+			AUS_update_state_of_realm = yes
+			add_to_variable = {
+				AUS_cost_for_stabilization_effort_decision = -10
+			}
+			add_to_variable = {
+				AUS_cost_for_stabilization_effort_decision2 = 10
+			}
+			custom_effect_tooltip = AUS_minus_10_stab_effort
 		}
 		ai_will_do = {
 			base = 1
@@ -2277,44 +2297,43 @@ focus_tree = {
 			country_event = ww1_austriahungary.186
 			custom_effect_tooltip = when_taken
 			effect_tooltip = {
-			army_experience = -50
-		custom_effect_tooltip = AUS_modify_army.tt
-		add_to_variable = {
-			AUS_mea_conscription_factor = -0.1
-			tooltip = conscription_factor_tt
-		}
-		custom_effect_tooltip = AUS_modify_eco.tt
-		add_to_variable = {
-			AUS_EP_factory_output = -0.05
-			tooltip = industrial_capacity_factory_tt
-		}
-		add_to_variable = {
-			AUS_ep_mil_speed = -0.05
-			tooltip = production_speed_arms_factory_factor_tt
-		}
-		custom_effect_tooltip = AUS_camarailla_influence_army
-		if = {
-			limit = {
-				OR = {
-					AUH_conrad_von_hotzendorf = {
-						is_hired_as_advisor = yes
+				army_experience = -50
+				custom_effect_tooltip = AUS_modify_army.tt
+				add_to_variable = {
+					AUS_mea_conscription_factor = -0.1
+					tooltip = conscription_factor_tt
+				}
+				custom_effect_tooltip = AUS_modify_eco.tt
+				add_to_variable = {
+					AUS_EP_factory_output = -0.05
+					tooltip = industrial_capacity_factory_tt
+				}
+				add_to_variable = {
+					AUS_ep_mil_speed = -0.05
+					tooltip = production_speed_arms_factory_factor_tt
+				}
+				custom_effect_tooltip = AUS_camarailla_influence_army
+				if = {
+					limit = {
+						OR = {
+							AUH_conrad_von_hotzendorf = {
+								is_hired_as_advisor = yes
+							}
+							has_country_leader = {
+								character = AUH_conrad_von_hotzendorf
+							}
+						}
 					}
-					has_country_leader = {
-						character = AUH_conrad_von_hotzendorf
+					add_to_variable = {
+						AUS_camarilla_progress_to_deposing_you = 3
+					}
+				}
+				else = {
+					add_to_variable = {
+						AUS_camarilla_progress_to_deposing_you = 2
 					}
 				}
 			}
-			add_to_variable = {
-				AUS_camarilla_progress_to_deposing_you = 3
-			}
-		}
-		else = {
-				add_to_variable = {
-				AUS_camarilla_progress_to_deposing_you = 2
-			}
-		}
-			}
-			
 		}
 		ai_will_do = {
 			base = 1
@@ -2322,7 +2341,6 @@ focus_tree = {
 		search_filters = {
 		}
 	}
-		
 	focus = {
 		id = AUS_the_peoples_economy
 		icon = GFX_focus_economic_control_red
@@ -2335,7 +2353,6 @@ focus_tree = {
 		relative_position_id = AUS_arbeiterbildung
 		available = {
 			AUS_has_reformist_minister = yes
-			
 		}
 		completion_reward = {
 			unlock_decision_tooltip = {
@@ -2353,7 +2370,7 @@ focus_tree = {
 		search_filters = {
 		}
 	}
-		focus = {
+	focus = {
 		id = AUS_sack_the_junkers
 		icon = GFX_focus_generic_annex_country_2
 		cost = 5
@@ -2365,10 +2382,8 @@ focus_tree = {
 		relative_position_id = AUS_arbeiterbildung
 		available = {
 			AUS_has_reformist_minister = yes
-			
 		}
 		completion_reward = {
-			
 		}
 		ai_will_do = {
 			base = 1
@@ -2457,7 +2472,6 @@ focus_tree = {
 		prerequisite = {
 			focus = AUS_public_healthcare
 		}
-		
 		prerequisite = {
 			focus = AUS_one_class_struggle
 		}
@@ -2587,8 +2601,6 @@ focus_tree = {
 		search_filters = {
 		}
 	}
-	
-	
 	focus = {
 		id = AUS_reform_the_census_system
 		icon = GFX_generic_abolish_slavery
@@ -2603,7 +2615,7 @@ focus_tree = {
 			AUS_has_reformist_minister = yes
 		}
 		completion_reward = {
-				add_to_variable = {
+			add_to_variable = {
 				AUS_ruthenian_loyalty = 10
 				tooltip = AUS_loyalty_ruthenians_tt
 			}
@@ -2621,8 +2633,8 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
+		}
 	}
-	}	
 	focus = {
 		id = AUS_rebuild_the_east
 		icon = GFX_focus_generic_low_cost_housing
@@ -3600,7 +3612,7 @@ focus_tree = {
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 			add_to_variable = {
-				AUS_ep_civ_speed = 0.05
+				AUS_ep_civ_speed = 0.1
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			random_owned_controlled_state = {
