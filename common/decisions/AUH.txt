@@ -2005,6 +2005,102 @@ AUH_stitching_the_quilt = {
 			AUS_update_state_of_realm = yes
 		}
 	}
+	AUS_build_dam_in_jizera_mountains = {
+		icon = GFX_decision_generic_electricity
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 20
+		visible = {
+		#	has_completed_focus = AUS_canal_projects
+			owns_state = 69
+			has_start_date_1914 = no
+		}
+		available = {
+			69 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 69
+			}
+		}
+		fire_only_once = yes
+		days_remove = 2000
+		cost = 25
+		ai_will_do = {
+			base = 80
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			69 = {
+				add_building_construction = {
+					type = dam_mountain
+					level = 1
+					instant_build = yes
+					province = 11414
+				}
+			}
+			hidden_effect = {
+				country_event = {
+					id = ww1_austriahungary.189
+					days = 306
+				}
+			}
+		}
+	}
+	AUS_build_dam_in_jizera_mountains_2 = {
+		name = AUS_build_dam_in_jizera_mountains
+		icon = GFX_decision_generic_electricity
+		is_good = yes
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 20
+		visible = {
+			has_completed_focus = AUS_canal_projects
+			owns_state = 69
+			has_start_date_1914 = yes
+		}
+		activation = {
+			has_start_date_1914 = yes
+		}
+		available = {
+			69 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 69
+			}
+		}
+		fire_only_once = yes
+		days_mission_timeout = 492
+		complete_effect = {
+			add_political_power = -15
+		}
+		timeout_effect = {
+			69 = {
+				add_building_construction = {
+					type = dam_mountain
+					level = 1
+					instant_build = yes
+					province = 11414
+				}
+			}
+			hidden_effect = {
+				country_event = {
+					id = ww1_austriahungary.189
+					days = 306
+				}
+			}
+		}
+	}
 	AUS_mining_in_salzburg = {
 		icon = GFX_decision_generic_electricity
 		allowed = {
