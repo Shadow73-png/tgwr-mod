@@ -1,6 +1,5 @@
 characters={
 	PER_ahmad_shah_qajar={
-		name="PER_ahmad_shah_qajar"
 		portraits={
 			civilian={
 				large="gfx/leaders/PER/PER_ahmad_shah_qajar_young.png"
@@ -51,8 +50,28 @@ characters={
 				small="gfx/interface/ideas/PER/idea_PER_mohammad_vali_khan_tonekaboni.png"
 			}
 		}
+		advisor={
+			slot = political_advisor
+			idea_token = PER_mohammad_vali_khan_tonekaboni
+			available = {
+				OR = {
+					has_government = neutrality
+					has_country_leader_ideology = conservatism
+				}	
+			}
+			visible = {
+				is_country_leader = no
+			}
+			traits  = {
+				PER_sepahdar_a_zam 
+			}
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
 		country_leader = {
 			ideology = conservatism
+			desc = PER_mohammad_vali_khan_tonekaboni_desc
 			traits = {
 				PER_sepahdar_a_zam
 			}
@@ -65,10 +84,100 @@ characters={
 				small="gfx/interface/ideas/PER/idea_PER_mirza_hasan_ashtiani.png"
 			}
 		}
+		advisor={
+			slot = political_advisor
+			idea_token = PER_mirza_hasan_ashtiani
+			available = {
+				OR = {
+					has_government = democratic
+					has_elections = yes
+				}	
+			}
+			visible = {
+				is_country_leader = no
+				NOT = { has_idea = PER_mirza_hasan_ashtiani_regent }
+			}
+			traits  = {
+				PER_mostowfi_ol_mamalek 
+			}
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
 		country_leader = {
 			ideology = social_democracy
+			desc = PER_mirza_hasan_ashtiani_desc
 			traits = {
 				PER_mostowfi_ol_mamalek
+			}
+		}
+	}
+	PER_mirza_hassan_khan = {
+		portraits = {
+			civilian = {
+				large="gfx/leaders/PER/PER_mirza_hassan_khan.png"
+				small="gfx/interface/ideas/PER/idea_PER_mirza_hassan_khan.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PER_mirza_hassan_khan
+			available = {
+				OR = {
+					has_government = democratic
+					has_elections = yes
+				}	
+			}
+			visible = {
+				is_country_leader = no
+			}
+			traits  = {
+				PER_vosugh_od_dowleh 
+			}
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
+		country_leader = {
+			ideology = social_democracy
+			desc = PER_mirza_hassan_khan_desc
+			traits = {
+				PER_vosugh_od_dowleh
+			}
+		}
+	}
+	PER_abolqasem_khan_qaragozlu = {
+		portraits = {
+			civilian = {
+				large="gfx/leaders/PER/PER_abolqasem_khan_qaragozlu.png"
+				small="gfx/interface/ideas/PER/idea_PER_abolqasem_khan_qaragozlu.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PER_abolqasem_khan_qaragozlu
+			available = {
+				OR = {					
+					has_government = neutrality
+					has_country_leader_ideology = conservatism
+				}	
+			}
+			visible = {
+				is_country_leader = no
+				NOT = { has_idea = PER_abolqasem_khan_qaragozlu_regent }
+			}
+			traits  = {
+				PER_naser_al_molk 
+			}
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			desc = PER_abolqasem_khan_qaragozlu_desc
+			traits = {
+				PER_naser_al_molk
 			}
 		}
 	}
@@ -79,14 +188,28 @@ characters={
 				small="gfx/interface/ideas/PER/idea_PER_najaf_qoli_khan_bakhtiari.png"
 			}
 		}
-		country_leader = {
-			ideology = conservatism
-			traits = {
-				PER_samsam_al_saltaneh
+		advisor={
+			slot = political_advisor
+			idea_token = PER_najaf_qoli_khan_bakhtiari
+			available = {
+				OR = {					
+					has_government = neutrality
+					has_country_leader_ideology = conservatism
+				}	
+			}
+			visible = {
+				is_country_leader = no
+			}
+			traits  = {
+				PER_samsam_al_saltaneh 
+			}
+			ai_will_do  = {
+				factor  = 1
 			}
 		}
 		country_leader = {
-			ideology = authoritarian_democracy
+			ideology = conservatism
+			desc = PER_najaf_qoli_khan_bakhtiari_desc
 			traits = {
 				PER_samsam_al_saltaneh
 			}
@@ -99,8 +222,28 @@ characters={
 				small="gfx/interface/ideas/PER/idea_PER_mirza_mohammad_ali_khan.png"
 			}
 		}
+		advisor={
+			slot = political_advisor
+			idea_token = PER_mirza_mohammad_ali_khan
+			available = {
+				OR = {					
+					has_government = neutrality
+					has_country_leader_ideology = conservatism
+				}	
+			}
+			visible = {
+				is_country_leader = no
+			}
+			traits  = {
+				PER_ala_ol_saltaneh 
+			}
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
 		country_leader = {
 			ideology = authoritarian_democracy
+			desc = PER_mirza_mohammad_ali_khan_desc
 			traits = {
 				PER_ala_ol_saltaneh
 			}
@@ -119,7 +262,7 @@ characters={
 			idea_token = PER_ali_qoli_khan_bakhtiari
 			available = {
 				OR = {
-					has_country_leader_ideology = authoritarian_democracy
+					has_government = neutrality
 					has_country_leader_ideology = conservatism
 				}	
 			}

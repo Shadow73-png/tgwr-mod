@@ -31,15 +31,30 @@
 		y = 0
 		available = {
 			has_government = democratic
+			NOT = {
+				has_idea = PER_abolqasem_khan_qaragozlu_regent
+			}
+		}
+		bypass = {
+			OR = {
+				has_idea = PER_mirza_hasan_ashtiani_regent
+				has_country_leader = {
+					character = PER_mirza_hasan_ashtiani
+				}
+			}		
 		}
 	
 		completion_reward = {
-			promote_character = PER_mirza_hasan_ashtiani
+			promote_character = {
+				character = PER_mirza_hasan_ashtiani
+				ideology = social_democracy
+			}
 			set_party_name = {
 				ideology = democratic
 				long_name = PER_communism_party
 				name = PER_communism_party
-			}			
+			}
+			add_political_power = 100
 		}
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
@@ -53,12 +68,18 @@
 		cost = 10
 		prerequisite = {
 			focus = PER_young_peoples_cabinet
+			focus = PER_elect_new_regent
 		}
 		relative_position_id = PER_young_peoples_cabinet
 		x = 0
 		y = 1
 		available = {
-			has_government = democratic
+			OR = {
+				has_country_leader_ideology = social_democracy
+				has_country_leader = {
+					character = PER_mirza_hasan_ashtiani
+				}
+			}		
 		}
 	
 		completion_reward = {
@@ -157,7 +178,12 @@
 		}
 	
 		completion_reward = {
-			add_stability = 0.1		
+			activate_advisor = PER_morgan_shuster
+			PER_morgan_shuster = {
+				set_can_be_fired_in_advisor_role = {
+					value = no
+				}
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
@@ -184,6 +210,35 @@
 	
 		completion_reward = {
 			add_stability = 0.1		
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	focus = {
+		id = PER_elect_new_regent
+		icon = GFX_focus_PER_constitutional_monarchy
+		cost = 8
+		x = 2
+		y = 0
+		available = {
+			OR = {
+				has_idea = PER_ahmad_shah_qajar_young
+				PER_ahmad_shah_qajar = {
+					is_country_leader = yes
+					has_trait = underage_monarch
+				}
+			}		
+		}
+		bypass = {
+			has_country_flag = PER_ahmad_shah_qajar_mature
+		}
+	
+		completion_reward = {
+			country_event = ww1_persia_rework.2
 		}
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
