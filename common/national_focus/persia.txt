@@ -178,12 +178,30 @@
 			has_government = democratic
 		}
 	
-		completion_reward = {
-			activate_advisor = PER_morgan_shuster
-			PER_morgan_shuster = {
+		completion_reward = {	
+			PER_morgan_shuster = {			
+				hidden_effect = {
+					remove_trait = {
+						slot = political_advisor
+						trait = PER_honest_advisor
+					}
+				}		
+				add_trait = {
+					slot = political_advisor
+					trait = PER_voice_from_the_new_world
+				}
 				set_can_be_fired_in_advisor_role = {
 					value = no
 				}
+			}
+			if = {
+				limit = {
+					has_idea = PER_morgan_shuster
+				}
+				add_political_power = 100
+			}
+			else = {
+				activate_advisor = PER_morgan_shuster
 			}
 			PER_improve_foreign_advisors = yes
 		}
