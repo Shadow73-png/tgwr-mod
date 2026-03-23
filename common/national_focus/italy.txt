@@ -3069,6 +3069,9 @@ focus_tree = {
 			NOT = {
 				has_country_flag = ITA_socialist_italy_flag
 			}
+			NOT = {
+				has_completed_focus = ITA_seek_emergency_powers
+			}
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -3077,10 +3080,12 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -3096,9 +3101,18 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = ITA_fall_of_the_great
 		}
+		offset = {
+			x = -40
+			trigger = {
+				has_completed_focus = ITA_seek_emergency_powers
+			}
+		}
 		allow_branch = {
 			NOT = {
 				has_country_flag = ITA_socialist_italy_flag
+			}
+			NOT = {
+				has_completed_focus = ITA_fall_of_the_great
 			}
 		}
 		available = {
@@ -3118,6 +3132,7 @@ focus_tree = {
 				remove_mission = ITA_vote_of_no_confidence
 			}
 			set_country_flag = ITA_emergency_powers
+			mark_focus_tree_layout_dirty = yes
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -3132,6 +3147,12 @@ focus_tree = {
 		cost = 0
 		x = 22
 		y = 0
+		offset = {
+			trigger = {
+				has_completed_focus = ITA_seek_emergency_powers
+			}
+			x = -18
+		}
 		relative_position_id = ITA_seek_emergency_powers
 		available = {
 			has_country_leader = {
@@ -3145,10 +3166,12 @@ focus_tree = {
 				has_country_flag = ITA_socialist_italy_flag
 			}
 		}
+		
 		completion_reward = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -3180,6 +3203,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -4036,6 +4060,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -9461,6 +9486,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -10558,6 +10584,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -10607,6 +10634,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -10629,6 +10657,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -10677,6 +10706,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -11545,6 +11575,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -11593,6 +11624,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -11616,6 +11648,12 @@ focus_tree = {
 		available = {
 			has_italian_civil_war = no
 			has_global_flag = great_war
+		}
+		offset = {
+			trigger = {
+				has_completed_focus = ITA_seek_emergency_powers
+			}
+			x = -18
 		}
 		completion_reward = {
 			unlock_decision_category_tooltip = ITA_war_prep
@@ -12587,6 +12625,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			factor = 1
@@ -15033,6 +15072,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -15083,6 +15123,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -15117,6 +15158,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -15660,6 +15702,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -15862,6 +15905,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -18316,6 +18360,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -21286,7 +21331,7 @@ focus_tree = {
 		icon = GFX_focus_ETH_peacekeeping_forces
 		cost = 0
 		x = 36
-		y = 8
+		y = 9
 		allow_branch = {
 			NOT = {
 				has_country_flag = ITA_socialist_italy_flag
@@ -21393,6 +21438,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
