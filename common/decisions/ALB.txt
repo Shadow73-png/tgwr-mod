@@ -797,6 +797,26 @@ ALB_albanian_independence_movement = {
 			}
 		}
 	}
+	ALB_civilian_weapon_collection = {
+		icon = GFX_decision_ger_military_buildup
+		allowed = { original_tag = ALB }
+		activate_mission = { always = no }
+		cancel_trigger = {
+			NOT = {
+				has_war_with = TUR
+				has_country_flag = TUR_revolting_country
+			}
+		}
+		available = { hidden_trigger = { always = no} }
+		days_mission_timeout = 30
+		timeout_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 35
+			}
+			activate_mission = ALB_civilian_weapon_collection
+		}
+	}
 }
 
 other_albanian_independence_movement = {

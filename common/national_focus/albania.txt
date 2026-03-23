@@ -2495,6 +2495,35 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 100 }
 	}
+	focus = {
+		id = ALB_guns_for_the_cause
+		icon = GFX_goal_generic_small_arms
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_rilindja_kombetare }
+		x = 10
+		y = 1
+		relative_position_id = ALB_rilindja_kombetare
+		available = {
+			has_war_with = TUR
+			has_country_flag = TUR_revolting_country
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			activate_mission = ALB_civilian_weapon_collection
+			custom_effect_tooltip = ALB_guns_for_the_cause_tt
+			effect_tooltip = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 35
+				}
+				activate_mission = ALB_civilian_weapon_collection
+			}
+		}
+		ai_will_do = { factor = 100 }
+	}
 
 	focus = {
 		id = ALB_establish_the_ottoman_regency
@@ -3304,9 +3333,9 @@ focus_tree = {
 			custom_effect_tooltip = ALB_draft_the_grece_memorandum_tt
 		}
 		ai_will_do = {
-			factor = 0
+			base = 0
 			modifier = {
-				factor = 100
+				add = 100
 				MNT = {
 					focus_progress = {
 						focus = MNT_occupy_shkoder
