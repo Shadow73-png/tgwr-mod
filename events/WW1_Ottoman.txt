@@ -1544,13 +1544,26 @@ country_event = { #Elections of 1912
 		trigger = { has_completed_focus = TUR_elections_of_clubs }
 		add_stability = -0.05
 		add_political_power = 75
-		add_popularity = {
-			ideology = neutrality
-			popularity = 0.15
+		if = {
+			limit = { has_completed_focus = TUR_amend_article_35 }
+			add_to_variable = {
+				tooltip = TUR_government_stability_add_50
+				TUR_government_stability_var = 50
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.1
+			}
 		}
-		add_popularity = {
-			ideology = fascism
-			popularity = 0.05
+		else = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.25
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
 		}
 		new_term_elections = yes
 		TUR_government_popularity_calculate = yes
