@@ -127,31 +127,104 @@ ideas = {
 				political_power_cost = 0.3
 			}
 		}
-		PER_idea_foreign_reliance = {
+		PER_foreign_advisors_0 = { #hostile
 			allowed = { always = no }
 			allowed_civil_war = {
-				NOT = {
-				    has_war_with = RUS
-				    has_war_with = ENG
-				}
+				always = yes
 			}
-			available = {
-			    NOT = {
-				    has_war_with = RUS
-				    has_war_with = ENG
-				}		
-			} 
-			removal_cost = -1
-			picture = per_foreign_interference
+			picture = generic_disjointed_gov
 			modifier = {
-				command_power_gain = -0.5
-				surrender_limit = -0.2
-				required_garrison_factor = 0.5
-				stability_factor = -0.05
-				legitimacy_gain_factor = -0.1
-				min_export = 0.5
+				consumer_goods_factor = 0.1
+				political_power_factor = -0.1
 				civilian_intel_to_others = 10
-                trade_opinion_factor = 0.5
+				trade_opinion_factor = -0.1
+			}
+		}
+		PER_foreign_advisors_1 = { #interfering
+			allowed = { always = no }
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				consumer_goods_factor = 0.07
+				political_power_factor = -0.07
+				civilian_intel_to_others = 7
+				trade_opinion_factor = -0.07
+			}
+		}
+		PER_foreign_advisors_2 = { #dormant
+			allowed = { always = no }
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				consumer_goods_factor = 0.05
+				political_power_factor = -0.05
+				civilian_intel_to_others = 5
+				trade_opinion_factor = -0.05
+			}
+		}
+		PER_foreign_advisors_3 = { #feeble
+			allowed = { always = no }
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				consumer_goods_factor = 0.025
+				political_power_factor = -0.025
+				civilian_intel_to_others = 2.5
+				trade_opinion_factor = -0.025
+			}
+		}
+		PER_foreign_advisors_4 = { #sincere
+			allowed = { always = no }
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				consumer_goods_factor = -0.025
+				political_power_factor = 0.025
+				trade_opinion_factor = 0.025
+			}
+		}
+		PER_foreign_advisors_5 = { #useful
+			allowed = { always = no }
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				consumer_goods_factor = -0.05
+				political_power_factor = 0.05
+				trade_opinion_factor = 0.05
+			}
+		}
+		PER_foreign_advisors_6 = { #striving
+			allowed = { always = no }
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				consumer_goods_factor = -0.07
+				political_power_factor = 0.07
+				trade_opinion_factor = 0.07
+			}
+		}
+		PER_foreign_advisors_7 = { #successful
+			allowed = { always = no }
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = generic_disjointed_gov
+			modifier = {
+				consumer_goods_factor = -0.1
+				political_power_factor = 0.1
+				trade_opinion_factor = 0.1
 			}
 		}
 		PER_anglo_persian_oil = {
