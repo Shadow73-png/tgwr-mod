@@ -104,15 +104,18 @@ turanism_support = {
 per_russian_sphere = {
 	enable = {
 		CONTROLLER = {
-			tag = PER
-			NOT = {
-				has_war_with = RUS
-			}	
+			original_tag = PER
+			NOT = { has_war_with = RUS }	
 		}	
 	}
 	remove_trigger = { 
 		OR = {
-			NOT = { is_owned_by = PER }	
+			AND = {
+				OWNER = {
+					NOT = { original_tag = PER }
+				}
+				NOT = { has_contested_owner = PER }	
+			}		
 			has_russian_civil_war = yes
 		}
 	}
@@ -125,15 +128,18 @@ per_russian_sphere = {
 per_british_sphere = {
 	enable = {
 		CONTROLLER = {
-			tag = PER
-			NOT = {
-				has_war_with = ENG
-			}	
+			original_tag = PER
+			NOT = { has_war_with = ENG }	
 		}	
 	}
 	remove_trigger = { 
 		OR = {
-			NOT = { is_owned_by = PER }
+			AND = {
+				OWNER = {
+					NOT = { original_tag = PER }
+				}
+				NOT = { has_contested_owner = PER }	
+			}		
 			ENG = { has_civil_war = yes }
 		}
 	}
