@@ -1715,10 +1715,10 @@ country_event = { #london conference macedonia
 	timeout_days = 7
 	immediate = {
 		hidden_effect = {
+			set_country_flag = ALB_lc_negotiating_macedonia_done
 			set_variable = { global.vote_for_yes_macedonia = 0 }
 			set_variable = { global.vote_for_no_macedonia = 0 }
 			country_event = { id = albania.51 days = 7 }
-			set_global_flag = ALB_lc_negotiating_macedonia_done
 		}
 	}
 	option = { #yes macedonia
@@ -1924,18 +1924,18 @@ country_event = { #london conference novi pazar
 	picture = GFX_report_event_london_conference
 	is_triggered_only = yes
 	timeout_days = 7
-	trigger = {
-		OR = {
-			check_variable = { global.vote_for_yes_macedonia > global.vote_for_no_macedonia }
-			AND = {
-				check_variable = { global.vote_for_big_albania > global.vote_for_small_albania }
-				check_variable = { global.vote_for_big_albania > global.vote_for_medium_albania }
-			}
-		}
-	}
+#	trigger = {
+#		OR = {
+#			check_variable = { global.vote_for_yes_macedonia > global.vote_for_no_macedonia }
+#			AND = {
+#				check_variable = { global.vote_for_big_albania > global.vote_for_small_albania }
+#				check_variable = { global.vote_for_big_albania > global.vote_for_medium_albania }
+#			}
+#		}
+#	}
 	immediate = {
 		hidden_effect = {
-			set_global_flag = ALB_lc_negotiating_novi_pazar_done
+			set_country_flag = ALB_lc_negotiating_novi_pazar_done
 			set_variable = { global.vote_for_albanian_novi_pazar = 0 }
 			set_variable = { global.vote_for_serbian_novi_pazar = 0 }
 			set_variable = { global.vote_for_austrian_novi_pazar = 0 }
@@ -2061,10 +2061,8 @@ country_event = { #london conference novi pazar
 				}
 				if = {
 					limit = {
-						any_neighbor_state = {
-							NOT = { is_owned_by = SER }
-							is_owned_by = MNT
-						}
+						NOT = { any_neighbor_state = { is_owned_by = SER } }
+						any_neighbor_state = { is_owned_by = MNT }
 					}
 					transfer_state_to = MNT
 				}
@@ -2103,10 +2101,8 @@ country_event = { #london conference novi pazar
 				}
 				if = {
 					limit = {
-						any_neighbor_state = {
-							NOT = { is_owned_by = MNT }
-							is_owned_by = SER
-						}
+						NOT = { any_neighbor_state = { is_owned_by = MNT } }
+						any_neighbor_state = { is_owned_by = SER }
 					}
 					transfer_state_to = SER
 				}
@@ -2336,10 +2332,8 @@ country_event = { #london conference novi pazar
 				}
 				if = {
 					limit = {
-						any_neighbor_state = {
-							NOT = { is_owned_by = SER }
-							is_owned_by = MNT
-						}
+						NOT = { any_neighbor_state = { is_owned_by = SER } }
+						any_neighbor_state = { is_owned_by = MNT }
 					}
 					transfer_state_to = MNT
 				}
@@ -2367,10 +2361,8 @@ country_event = { #london conference novi pazar
 				}
 				if = {
 					limit = {
-						any_neighbor_state = {
-							NOT = { is_owned_by = MNT }
-							is_owned_by = SER
-						}
+						NOT = { any_neighbor_state = { is_owned_by = MNT } }
+						any_neighbor_state = { is_owned_by = SER }
 					}
 					transfer_state_to = SER
 				}
@@ -2708,10 +2700,8 @@ country_event = { #london conference success
 						}
 						if = {
 							limit = {
-								any_neighbor_state = {
-									NOT = { is_owned_by = SER }
-									is_owned_by = MNT
-								}
+								NOT = { any_neighbor_state = { is_owned_by = SER } }
+								any_neighbor_state = { is_owned_by = MNT }
 							}
 							set_state_flag = ALB_lc_state_to_mnt
 							transfer_state_to = MNT
@@ -2743,10 +2733,8 @@ country_event = { #london conference success
 						}
 						if = {
 							limit = {
-								any_neighbor_state = {
-									NOT = { is_owned_by = MNT }
-									is_owned_by = SER
-								}
+								NOT = { any_neighbor_state = { is_owned_by = MNT } }
+								any_neighbor_state = { is_owned_by = SER }
 							}
 							set_state_flag = ALB_lc_state_to_ser
 							transfer_state_to = SER
@@ -2766,8 +2754,6 @@ country_event = { #london conference success
 					}
 					NOT = {
 						check_variable = { global.vote_for_albanian_novi_pazar > global.vote_for_serbian_novi_pazar }
-						check_variable = { global.vote_for_albanian_novi_pazar > global.vote_for_austrian_novi_pazar }
-						check_variable = { global.vote_for_austrian_novi_pazar > global.vote_for_albanian_novi_pazar }
 						check_variable = { global.vote_for_austrian_novi_pazar > global.vote_for_serbian_novi_pazar }
 					}
 				}
@@ -2800,10 +2786,8 @@ country_event = { #london conference success
 					}
 					if = {
 						limit = {
-							any_neighbor_state = {
-								NOT = { is_owned_by = SER }
-								is_owned_by = MNT
-							}
+							NOT = { any_neighbor_state = { is_owned_by = SER } }
+							any_neighbor_state = { is_owned_by = MNT }
 						}
 						set_state_flag = ALB_lc_state_to_mnt
 						transfer_state_to = MNT
@@ -2846,10 +2830,8 @@ country_event = { #london conference success
 					}
 					if = {
 						limit = {
-							any_neighbor_state = {
-								NOT = { is_owned_by = MNT }
-								is_owned_by = SER
-							}
+							NOT = { any_neighbor_state = { is_owned_by = MNT } }
+							any_neighbor_state = { is_owned_by = SER }
 						}
 						set_state_flag = ALB_lc_state_to_ser
 						transfer_state_to = SER
@@ -3978,7 +3960,7 @@ country_event = {
 		if = {
 			limit = {
 				has_global_flag = BUL_join_albania_ongoing
-				NOT = { has_global_flag = ALB_lc_negotiating_macedonia_done }
+				NOT = { has_country_flag = ALB_lc_negotiating_macedonia_done }
 			}
 			country_event = { id = albania.31 }
 		}
@@ -3986,7 +3968,7 @@ country_event = {
 			limit = {
 				check_variable = { global.vote_for_big_albania > global.vote_for_small_albania }
 				check_variable = { global.vote_for_big_albania > global.vote_for_medium_albania }
-				NOT = { has_global_flag = ALB_lc_negotiating_novi_pazar_done }
+				NOT = { has_country_flag = ALB_lc_negotiating_novi_pazar_done }
 			}
 			country_event = { id = albania.32 }
 		}
@@ -5442,7 +5424,7 @@ news_event = { #montenegro invade shkoder news event
 country_event = { #concessions from the ottomans agreed
 	id = albania.102
 	title = albania.102.t
-	desc = albania.102.d
+	desc = albania.102.desc
 	is_triggered_only = yes
 	picture = GFX_report_event_grece_memorendum
 	option = {
@@ -5456,6 +5438,231 @@ country_event = { #concessions from the ottomans agreed
 			add_resistance = 25
 		}
 		add_war_support = 0.05
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = { #albania demand states back
+	id = albania.103
+	title = albania.103.t
+	desc = albania.103.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_london_conference
+	option = {
+		name = albania.103.a
+		effect_tooltip = {
+			every_state = {
+				limit = {
+					has_state_flag = ALB_lc_state_to_alb
+					is_controlled_by = ROOT
+				}
+				transfer_state_to = FROM
+				hidden_effect = { clr_state_flag = ALB_struggle_for_FROM_hide }
+			}
+		}
+		hidden_effect = { FROM = { country_event = { id = albania.104 hours = 8 } } }
+		ai_chance = {
+			base = 20
+			modifier = {
+				is_historical_focus_on = yes
+				tag = ITA
+				factor = 0
+			}
+		}
+	}
+	option = {
+		name = albania.103.b
+		effect_tooltip = {
+			every_state = {
+				limit = {
+					has_state_flag = ALB_lc_state_to_alb
+					is_controlled_by = ROOT
+				}
+				FROM = { custom_effect_tooltip = albania.103.tt }
+				hidden_effect = { clr_state_flag = ALB_struggle_for_FROM_hide }
+			}
+		}
+		hidden_effect = { FROM = { country_event = { id = albania.105 hours = 8 } } }
+		ai_chance = {
+			base = 0
+			modifier = {
+				is_historical_focus_on = yes
+				tag = ITA
+				add = 100
+			}
+		}
+	}
+}
+
+country_event = { #albania demand states back yes
+	id = albania.104
+	title = albania.104.t
+	desc = albania.104.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_london_conference
+	option = {
+		name = albania.104.a
+		every_state = {
+			limit = {
+				has_state_flag = ALB_lc_state_to_alb
+				is_controlled_by = FROM
+			}
+			transfer_state_to = ROOT
+			hidden_effect = { clr_state_flag = ALB_struggle_for_FROM_hide }
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = { #albania demand states back no
+	id = albania.105
+	title = albania.105.t
+	desc = albania.105.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_london_conference
+	option = {
+		name = albania.105.a
+		every_state = {
+			limit = {
+				has_state_flag = ALB_lc_state_to_alb
+				is_controlled_by = FROM
+			}
+			custom_effect_tooltip = albania.103.tt
+			hidden_effect = { clr_state_flag = ALB_struggle_for_FROM_hide }
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = { #albania moving to secure state
+	id = albania.106
+	title = albania.106.t
+	desc = albania.106.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_london_conference
+	immediate = {
+		hidden_effect = {
+			activate_mission = ALB_struggle_for_FROM_mission
+		}
+	}
+	option = {
+		name = albania.106.a
+		effect_tooltip = { activate_mission = ALB_struggle_for_FROM_mission }
+		custom_effect_tooltip = ALB_secure_state_tt_defender
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = { #albania secure state attacker victory
+	id = albania.107
+	title = albania.107.t
+	desc = albania.107.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_london_conference
+	timeout_days = 7
+	option = {
+		name = albania.107.a
+		if = {
+			limit = { check_variable = { global.ALB_struggle_for_attacker_value = 2 } }
+			var:global.ALB_struggle_for_defender = {
+				transfer_state_to = global.ALB_struggle_for_attacker_controller
+				if = {
+					limit = { has_contested_owner = global.ALB_struggle_for_attacker_controller }
+					remove_contested_owner = global.ALB_struggle_for_attacker_controller
+				}
+			}
+			custom_effect_tooltip = ALB_secure_state_tt_attacker_win
+			clr_country_flag = ALB_struggle_for_FROM_active
+		}
+		else = {
+			activate_mission = ALB_struggle_for_FROM_mission2
+			custom_effect_tooltip = ALB_secure_state_tt_attacker
+			hidden_effect = {
+				var:global.ALB_struggle_for_defender_controller = { activate_mission = ALB_struggle_for_FROM_mission2 }
+				add_to_variable = { global.ALB_struggle_for_attacker_value = 1 }
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = { #albania secure state attacker victory
+	id = albania.108
+	title = albania.108.t
+	desc = albania.108.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_london_conference
+	timeout_days = 7
+	option = {
+		name = albania.108.a
+		if = {
+			limit = { check_variable = { global.ALB_struggle_for_defender_value = 2 } }
+			custom_effect_tooltip = ALB_secure_state_tt_attacker_lose
+			clr_country_flag = ALB_struggle_for_FROM_active
+		}
+		else = {
+			activate_mission = ALB_struggle_for_FROM_mission2
+			custom_effect_tooltip = ALB_secure_state_tt_attacker
+			hidden_effect = {
+				var:global.ALB_struggle_for_defender_controller = { activate_mission = ALB_struggle_for_FROM_mission2 }
+				add_to_variable = { global.ALB_struggle_for_defender_value = 1 }
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = { #albania secure state defender victory
+	id = albania.109
+	title = albania.109.t
+	desc = albania.109.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_london_conference
+	timeout_days = 7
+	option = {
+		name = albania.109.a
+		if = {
+			limit = { check_variable = { global.ALB_struggle_for_defender_value = 2 } }
+			custom_effect_tooltip = ALB_secure_state_tt_defender_lose
+		}
+		else = {
+			effect_tooltip = {
+				activate_mission = ALB_struggle_for_FROM_mission2
+			}
+			custom_effect_tooltip = ALB_secure_state_tt_defender
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = { #albania secure state defender victory
+	id = albania.110
+	title = albania.110.t
+	desc = albania.110.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_london_conference
+	timeout_days = 7
+	option = {
+		name = albania.110.a
+		if = {
+			limit = { check_variable = { global.ALB_struggle_for_attacker_value = 2 } }
+			effect_tooltip = {
+				var:global.ALB_struggle_for_defender = {
+					transfer_state_to = global.ALB_struggle_for_attacker_controller
+					if = {
+						limit = { has_contested_owner = global.ALB_struggle_for_attacker_controller }
+						remove_contested_owner = global.ALB_struggle_for_attacker_controller
+					}
+				}
+			}
+			custom_effect_tooltip = ALB_secure_state_tt_defender_lose
+		}
+		else = {
+			effect_tooltip = {
+				activate_mission = ALB_struggle_for_FROM_mission2
+			}
+			custom_effect_tooltip = ALB_secure_state_tt_defender
+		}
 		ai_chance = { base = 100 }
 	}
 }

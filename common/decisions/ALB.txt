@@ -99,7 +99,8 @@ debug_decisions = {
 
 		}
 		complete_effect = {
-			set_variable = { albanian_capital_for_protectorate = 1225 }
+			custom_effect_tooltip = ALB_secure_state_tt_attacker
+			var:global.ALB_struggle_for_defender_controller = { add_stability = 0.01 }
 		}
 		ai_will_do = { base = 0 }
 	}
@@ -800,7 +801,7 @@ ALB_albanian_independence_movement = {
 	ALB_civilian_weapon_collection = {
 		icon = GFX_decision_ger_military_buildup
 		allowed = { original_tag = ALB }
-		activate_mission = { always = no }
+		activation = { always = no }
 		cancel_trigger = {
 			NOT = {
 				has_war_with = TUR
@@ -2204,6 +2205,178 @@ foreign_politics = {
 						has_capitulated = yes
 					}
 					country_event = albania.84
+				}
+			}
+		}
+	}
+	ALB_struggle_for_FROM = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = { original_tag = ALB }
+		target_trigger = {
+			FROM = {
+				has_state_flag = ALB_lc_state_to_alb
+				NOT = { is_owned_by = ROOT }
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		visible = {
+			#NOT = { has_country_flag = ALB_struggle_for_FROM_active }
+			FROM = { NOT = { has_state_flag = ALB_struggle_for_FROM_hide } }
+		}
+		available = {
+			has_border_war = no
+			FROM = { any_neighbor_state = { is_controlled_by = ROOT } }
+			NOT = { has_war_with = FROM.controller }
+		}
+		custom_cost_text = decision_cost_CP_30
+		custom_cost_trigger = { command_power > 29.9 }
+		complete_effect = {
+			hidden_effect = { add_command_power = -30 }
+			activate_mission = ALB_struggle_for_FROM_mission
+			custom_effect_tooltip = ALB_secure_state_tt_attacker
+			hidden_effect = {
+				FROM = {
+					random_neighbor_state = {
+						limit = { is_controlled_by = ROOT }
+						set_variable = { global.ALB_struggle_for_attacker = THIS }
+					}
+				}
+				ROOT = { set_variable = { global.ALB_struggle_for_attacker_controller = THIS } }
+				FROM = { set_variable = { global.ALB_struggle_for_defender = THIS } }
+				FROM.controller = {
+					country_event = albania.106
+					set_variable = { global.ALB_struggle_for_defender_controller = THIS }
+				}
+				set_variable = { global.ALB_struggle_for_attacker_value = 0 }
+				set_variable = { global.ALB_struggle_for_defender_value = 0 }
+			}
+			set_country_flag = ALB_struggle_for_FROM_active
+		}
+	}
+	ALB_struggle_for_FROM_mission = {
+		icon = GFX_decision_generic_ignite_civil_war
+		activation = { always = no }
+		highlight_states = {
+			highlight_state_targets = {
+				state = global.ALB_struggle_for_attacker
+				state = global.ALB_struggle_for_defender
+			}
+		}
+		available = { hidden_trigger = { always = no } }
+		cancel_trigger = {
+			OR = {
+				NOT = { var:global.ALB_struggle_for_attacker = { is_controlled_by = global.ALB_struggle_for_attacker_controller } }
+				NOT = { var:global.ALB_struggle_for_defender = { is_controlled_by = global.ALB_struggle_for_defender_controller } }
+			}
+		}
+		days_mission_timeout = 14
+		timeout_effect = {
+			if = {
+				limit = { original_tag = ALB }
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = global.ALB_struggle_for_attacker
+						num_provinces = 4
+						on_win = albania.107
+						on_lose = albania.108
+						on_cancel = albania.108
+					}
+					defender = {
+						state = global.ALB_struggle_for_defender
+						num_provinces = 4
+						on_win = albania.109
+						on_lose = albania.110
+						on_cancel = albania.109
+					}
+				}
+				custom_effect_tooltip = ALB_secure_state_tt_attacker
+			}
+			else = {
+				effect_tooltip = {
+					start_border_war = {
+						change_state_after_war = no
+						attacker = {
+							state = global.ALB_struggle_for_attacker
+							num_provinces = 4
+							on_win = albania.107
+							on_lose = albania.108
+							on_cancel = albania.108
+						}
+						defender = {
+							state = global.ALB_struggle_for_defender
+							num_provinces = 4
+							on_win = albania.109
+							on_lose = albania.110
+							on_cancel = albania.109
+						}
+					}
+					custom_effect_tooltip = ALB_secure_state_tt_defender
+				}
+			}
+		}
+	}
+	ALB_struggle_for_FROM_mission2 = {
+		name = ALB_struggle_for_FROM_mission
+		icon = GFX_decision_generic_ignite_civil_war
+		activation = { always = no }
+		highlight_states = {
+			highlight_state_targets = {
+				state = global.ALB_struggle_for_attacker
+				state = global.ALB_struggle_for_defender
+			}
+		}
+		available = { hidden_trigger = { always = no } }
+		cancel_trigger = {
+			OR = {
+				NOT = { var:global.ALB_struggle_for_attacker = { is_controlled_by = global.ALB_struggle_for_attacker_controller } }
+				NOT = { var:global.ALB_struggle_for_defender = { is_controlled_by = global.ALB_struggle_for_defender_controller } }
+			}
+		}
+		days_mission_timeout = 3
+		timeout_effect = {
+			if = {
+				limit = { original_tag = ALB }
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = global.ALB_struggle_for_attacker
+						num_provinces = 4
+						on_win = albania.107
+						on_lose = albania.108
+						on_cancel = albania.108
+					}
+					defender = {
+						state = global.ALB_struggle_for_defender
+						num_provinces = 4
+						on_win = albania.109
+						on_lose = albania.110
+						on_cancel = albania.109
+					}
+				}
+				custom_effect_tooltip = ALB_secure_state_tt_attacker
+			}
+			else = {
+				effect_tooltip = {
+					start_border_war = {
+						change_state_after_war = no
+						attacker = {
+							state = global.ALB_struggle_for_attacker
+							num_provinces = 4
+							on_win = albania.107
+							on_lose = albania.108
+							on_cancel = albania.108
+						}
+						defender = {
+							state = global.ALB_struggle_for_defender
+							num_provinces = 4
+							on_win = albania.109
+							on_lose = albania.110
+							on_cancel = albania.109
+						}
+					}
+					custom_effect_tooltip = ALB_secure_state_tt_defender
 				}
 			}
 		}

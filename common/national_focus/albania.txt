@@ -632,7 +632,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_accept_foreign_suzerainty
-		icon = GFX_focus_ETH_re-convene_the_parliament
+		icon = GFX_focus_CZE_german_puppet
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
@@ -658,7 +658,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_crown_a_foreign_king
-		icon = GFX_focus_ETH_re-convene_the_parliament
+		icon = GFX_focus_rom_royal_dictatorship
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
@@ -1145,7 +1145,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_pro_foreigner_republic
-		icon = GFX_focus_ETH_re-convene_the_parliament
+		icon = GFX_focus_renounce_the_treaty_of_trianon
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
@@ -1177,7 +1177,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_kick_the_occupiers_out
-		icon = GFX_focus_ETH_re-convene_the_parliament
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
@@ -1195,8 +1195,32 @@ focus_tree = {
 			}
 		}
 		bypass_if_unavailable = yes
+		complete_tooltip = {
+			custom_effect_tooltip = ALB_kick_the_occupiers_out_tt
+			every_country = {
+				limit = { has_country_flag = ALB_kick_the_occupiers_out }
+				country_event = { id = albania.103 hours = 8 }
+			}
+		}
 		completion_reward = {
-			
+			custom_effect_tooltip = ALB_kick_the_occupiers_out_tt
+			every_other_country = {
+				limit = {
+					NOT = { original_tag = ALB }
+					any_controlled_state = { has_state_flag = ALB_lc_state_to_alb }
+				}
+				country_event = { id = albania.103 hours = 8 }
+				set_country_flag = ALB_kick_the_occupiers_out
+			}
+			hidden_effect = {
+				every_state = {
+					limit = {
+						has_state_flag = ALB_lc_state_to_alb
+						NOT = { is_owned_by = ROOT }
+					}
+					set_state_flag = ALB_struggle_for_FROM_hide
+				}
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
