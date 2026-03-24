@@ -33,7 +33,6 @@ ALB_historical_plan = {
 		ALB_black_hand_of_salvation
 		ALB_tribal_allegiances
 		ALB_establish_the_kimza_government
-		ALB_draft_the_grece_memorandum
 		ALB_international_weapon_aid
 		ALB_local_support
 		ALB_let_the_dominos_topple
@@ -63,6 +62,88 @@ ALB_historical_plan = {
 		factor = 1.0
 		modifier = {
 			factor = 1.0
+		}
+	}
+}
+
+ALB_draft_the_grece_memorandum_plan = {
+	name = "Draft the Grece Memorandum"
+	desc = "completes it when montenegro is about to take shkoder"
+	allowed = {
+		original_tag = ALB
+	}
+	enable = {
+		original_tag = ALB
+		MNT = {
+			focus_progress = {
+				focus = MNT_occupy_shkoder
+				progress > 0
+			}
+		}
+	}
+	ai_national_focuses = {
+		ALB_draft_the_grece_memorandum
+	}
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 0
+		modifier = {
+			MNT = {
+				focus_progress = {
+					focus = MNT_occupy_shkoder
+					progress > 0
+				}
+			}
+			add = 3
+		}
+	}
+}
+
+ALB_present_the_fourteen_demands_plan = {
+	name = "ALB_present_the_fourteen_demands"
+	desc = "completes it when montenegro is about to take shkoder"
+	allowed = {
+		original_tag = ALB
+	}
+	enable = {
+		original_tag = ALB
+		any_neighbor_country = { NOT = { tag = TUR } }
+	}
+	ai_national_focuses = {
+		ALB_present_the_fourteen_demands
+	}
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 2
+		modifier = {
+			any_neighbor_country = { NOT = { tag = TUR } }
+			factor = 0
+		}
+	}
+}
+
+ALB_present_the_fourteen_demands_plan = {
+	name = "ALB_present_the_fourteen_demands"
+	desc = "completes it when montenegro is about to take shkoder"
+	allowed = {
+		original_tag = ALB
+	}
+	enable = {
+		original_tag = ALB
+		any_neighbor_country = { NOT = { tag = TUR } }
+	}
+	ai_national_focuses = {
+		ALB_present_the_fourteen_demands
+	}
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 2
+		modifier = {
+			any_neighbor_country = { NOT = { tag = TUR } }
+			factor = 0
 		}
 	}
 }
