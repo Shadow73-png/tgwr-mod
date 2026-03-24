@@ -3375,6 +3375,68 @@ on_actions = {
 				remove_ideas = TUR_islamic_army_yes
 			}
 		}
+		effect = {
+			if = {
+				limit = {
+					HJZ = {
+						has_idea = ARB_insurgence_tactics
+						has_war = yes
+					}
+				}
+				random_country = {
+					limit = {
+						has_war_with = HJZ
+						any_controlled_state = { is_core_of = HJZ }
+					}
+					HJZ = {
+						become_exiled_in = {
+							target = PREV
+							legitimacy = 0
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					ASR = {
+						has_idea = ARB_insurgence_tactics
+						has_war = yes
+					}
+				}
+				random_country = {
+					limit = {
+						has_war_with = ASR
+						any_controlled_state = { is_core_of = ASR }
+					}
+					ASR = {
+						become_exiled_in = {
+							target = PREV
+							legitimacy = 0
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					YEM = {
+						has_idea = ARB_insurgence_tactics
+						has_war = yes
+					}
+				}
+				random_country = {
+					limit = {
+						has_war_with = YEM
+						any_controlled_state = { is_core_of = YEM }
+					}
+					YEM = {
+						become_exiled_in = {
+							target = PREV
+							legitimacy = 0
+						}
+					}
+				}
+			}
+		}
 	}
 	on_before_peace_conference_start = {
 		effect = {
