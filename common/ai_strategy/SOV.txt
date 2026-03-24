@@ -613,8 +613,8 @@ SOV_ignore_caucasus_1 = {
 		SOV = {
 			has_idea = SOV_war_in_the_caucasus_1
 		}	
-		any_country = {
-			original_tag = DON
+		any_country_with_original_tag = {
+			original_tag_to_check = DON
 			has_country_flag = DON_soviet_tag
 		}
 	}
@@ -638,8 +638,8 @@ SOV_ignore_caucasus_2 = {
 		SOV = {
 			has_idea = SOV_war_in_the_caucasus_2
 		}
-		any_country = {
-			original_tag = DON
+		any_country_with_original_tag = {
+			original_tag_to_check = DON
 			has_country_flag = DON_soviet_tag
 		}
 	}
@@ -1025,11 +1025,12 @@ FER_ignore_ally_MON = {
 	}
 }
 
-SOV_crush_kolchak = {
+SOV_crush_rest_of_white_army = {
 	allowed = {
-		tag = SOV
+		tag = RUS
 	}
 	enable = {
+		tag = SOV
 		has_war_with = SIB
 		NOT = {
 			has_war_with = POL
@@ -1051,5 +1052,39 @@ SOV_crush_kolchak = {
 		}
 		execute_order = yes
 		execution_type = rush
+	}
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = TRC
+		}
+		execute_order = yes
+		execution_type = rush
+	}
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			controller = {
+				tag = RSO
+			}
+		}
+		execute_order = yes
+		execution_type = rush
+	}
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			tag = TRC
+		}
+		value = 100
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			controller = {
+				tag = RSO
+			}
+		}
+		value = 100
 	}
 }
