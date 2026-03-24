@@ -644,7 +644,7 @@ shared_focus = {
 	cost = 10
 	x = 4
 	y = 1
-	ai_will_do = { factor = 0 }
+	ai_will_do = { factor = 100 }
 }
 
 shared_focus = {
@@ -902,6 +902,10 @@ shared_focus = {
 				has_global_flag = great_war
 				has_war = yes
 				date > 1913.1.1
+				AND = {
+					date > 1911.1.1
+					tag = MNT
+				}
 				any_country = {
 					is_major = yes
 					OR = {
