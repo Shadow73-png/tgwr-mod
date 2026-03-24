@@ -308,7 +308,38 @@ AUH_great_war_bullshit = {
 		}
 		priority = 20
 		visible = {
-			#has_completed_focus = AUS_set_up_the_centrals_system
+			has_completed_focus = AUS_set_up_the_centrals_system
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_setting_up_central_tt
+				NOT = {
+					has_country_flag = AUS_setting_up_central
+				}
+			}
+			has_war_with_major = yes
+		}
+		fire_only_once = no
+		days_remove = 30
+		cost = 25
+		ai_will_do = {
+			base = 80
+		}
+		complete_effect = {
+			set_country_flag = AUS_setting_up_central
+		}
+		remove_effect = {
+			clr_country_flag = AUS_setting_up_central
+		}
+	}
+	AUS_establish_the_livestock_meat_central = {
+		icon = GFX_decision_steel
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 20
+		visible = {
+			has_completed_focus = AUS_set_up_the_centrals_system
 		}
 		available = {
 			custom_trigger_tooltip = {
