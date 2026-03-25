@@ -88,7 +88,7 @@
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		ai_will_do = {
-			factor = 100
+			factor = 25
 		}
 	}
 	focus = {
@@ -111,7 +111,7 @@
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		ai_will_do = {
-			factor = 100
+			factor = 25
 		}
 	}
 	focus = {
@@ -136,7 +136,7 @@
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		ai_will_do = {
-			factor = 100
+			factor = 25
 		}
 	}
 	focus = {
@@ -146,11 +146,17 @@
 		prerequisite = {
 			focus = PER_disarm_revolutionaries
 		}
+		mutually_exclusive = {
+			focus = PER_continue_with_belgian_advisors
+		}
 		relative_position_id = PER_disarm_revolutionaries
 		x = 1
 		y = 1
 		available = {
 			has_government = democratic
+			NOT = {
+				has_war_with = USA
+			}
 		}
 	
 		completion_reward = {
@@ -161,7 +167,33 @@
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		ai_will_do = {
-			factor = 100
+			factor = 25
+		}
+	}
+	focus = {
+		id = PER_continue_with_belgian_advisors
+		icon = GFX_focus_BEL_belgian_miracle
+		cost = 10
+		prerequisite = {
+			focus = PER_disarm_revolutionaries
+		}
+		relative_position_id = PER_disarm_revolutionaries
+		x = 3
+		y = 1
+		available = {
+			NOT = {
+				has_war_with = BEL
+			}
+		}
+		mutually_exclusive = {
+			focus = PER_invite_american_advisors
+		}
+	
+		completion_reward = {
+			PER_improve_foreign_advisors = yes
+		}
+		ai_will_do = {
+			factor = 10
 		}
 	}
 	focus = {
@@ -176,6 +208,7 @@
 		y = 1
 		available = {
 			has_government = democratic
+			has_character = PER_william_morgan_shuster
 		}
 	
 		completion_reward = {	
@@ -208,7 +241,7 @@
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		ai_will_do = {
-			factor = 100
+			factor = 25
 		}
 	}
 	focus = {
@@ -234,7 +267,7 @@
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		ai_will_do = {
-			factor = 100
+			factor = 25
 		}
 	}
 
@@ -263,7 +296,7 @@
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		ai_will_do = {
-			factor = 100
+			factor = 25
 		}
 	}
 }
