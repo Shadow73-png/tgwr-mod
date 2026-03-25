@@ -545,58 +545,6 @@ units = {
 			}
 		}
 	}
-	fleet = {
-		name = "Reservegeschwader"
-		naval_base = 6626 #Triest
-		task_force = {
-			name = "Reservegeschwader"
-			location = 6626 #Triest
-			ship = {
-				name = "SMS Sankt Georg"
-				definition = armored_cruiser
-				start_experience_factor = 0.2
-				equipment = { ship_hull_cruiser_1 = { amount = 1 owner = AUS version_name = "Sankt Georg Class" } }
-			}
-			ship = {
-				name = "SMS Kaiser Karl VI"
-				definition = armored_cruiser
-				start_experience_factor = 0.2
-				equipment = { ship_hull_cruiser_1 = { amount = 1 owner = AUS version_name = "Kaiser Karl VI Class" } }
-			}
-			ship = {
-				name = "SMS Leopard"
-				definition = light_cruiser
-				start_experience_factor = 0.2
-				equipment = { ship_hull_cruiser_0 = { amount = 1 owner = AUS version_name = "Panther Class" } }
-			}
-			ship = {
-				name = "SMS Kaiser Franz Joseph I"
-				definition = light_cruiser
-				start_experience_factor = 0.2
-				equipment = { ship_hull_cruiser_0 = { amount = 1 owner = AUS version_name = "Kaiser Franz Joseph I Class" } }
-			}
-			ship = {
-				name = "SM U-5"
-				definition = submarine
-				equipment = { ship_hull_submarine_2 = { amount = 1 owner = AUS version_name = "U-5 Class" } }
-			}
-			ship = {
-				name = "SM U-6"
-				definition = submarine
-				equipment = { ship_hull_submarine_2 = { amount = 1 owner = AUS version_name = "U-5 Class" } }
-			}
-			ship = {
-				name = "SM U-3"
-				definition = submarine
-				equipment = { ship_hull_submarine_1 = { amount = 1 owner = AUS version_name = "U-3 Class" } }
-			}
-			ship = {
-				name = "SM U-4"
-				definition = submarine
-				equipment = { ship_hull_submarine_1 = { amount = 1 owner = AUS version_name = "U-3 Class" } }
-			}
-		}
-	}
 }
 
 #########################
@@ -604,7 +552,73 @@ units = {
 #########################
 
 instant_effect = {
-
+	### Reserve ###
+	# Armoured Cruisers
+	create_ship = {
+		type = ship_hull_cruiser_1
+		equipment_variant = "Sankt Georg Class"
+		creator = AUS
+		name = "SMS Sankt Georg"
+	}
+	create_ship = {
+		type = ship_hull_cruiser_1
+		equipment_variant = "Kaiser Karl VI Class"
+		creator = AUS
+		name = "SMS Kaiser Karl VI"
+	}
+	# Light Cruisers
+	create_ship = {
+		type = ship_hull_cruiser_0
+		equipment_variant = "Panther Class"
+		creator = AUS
+		name = "SMS Leopard"
+	}
+	create_ship = {
+		type = ship_hull_cruiser_0
+		equipment_variant = "Kaiser Franz Joseph I Class"
+		creator = AUS
+		name = "SMS Kaiser Franz Joseph I"
+	}
+	# Submarines
+	# U-5 Class
+	create_ship = {
+		type = ship_hull_submarine_2
+		equipment_variant = "U-5 Class"
+		creator = AUS
+		name = "SM U-5"
+	}
+	create_ship = {
+		type = ship_hull_submarine_2
+		equipment_variant = "U-5 Class"
+		creator = AUS
+		name = "SM U-6"
+	}
+	#U-3 Class
+	create_ship = {
+		type = ship_hull_submarine_1
+		equipment_variant = "U-3 Class"
+		creator = AUS
+		name = "SM U-3"
+	}
+	create_ship = {
+		type = ship_hull_submarine_1
+		equipment_variant = "U-3 Class"
+		creator = AUS
+		name = "SM U-4"
+	}
+	#U-1 Class
+	create_ship = {
+		type = ship_hull_submarine_1
+		equipment_variant = "U-1 Class"
+		creator = AUS
+		name = "SM U-1"
+	}
+	create_ship = {
+		type = ship_hull_submarine_1
+		equipment_variant = "U-1 Class"
+		creator = AUS
+		name = "SM U-2"
+	}
 	### Ships Under Contruction ###
 	# BB: "Tegetthoff" (x1)
 	add_equipment_production = {
@@ -775,31 +789,4 @@ instant_effect = {
 		amount = 1
 		industrial_manufacturer = mio:AUH_ganz_danubius_organization
 	}
-	# SS: "U-1" (x1)
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_submarine_1
-			creator = "AUS"
-			version_name = "U-1 Class"
-		}
-		name = "SM U-1"
-		requested_factories = 5
-		progress = 0.5
-		amount = 1
-		industrial_manufacturer = mio:AUH_ganz_danubius_organization
-	}
-	# SS: "U-2" (x1)
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_submarine_1
-			creator = "AUS"
-			version_name = "U-1 Class"
-		}
-		name = "SM U-2"
-		requested_factories = 5
-		progress = 0.5
-		amount = 1
-		industrial_manufacturer = mio:AUH_ganz_danubius_organization
-	}
-
 }
