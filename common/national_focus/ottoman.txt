@@ -4620,11 +4620,12 @@ focus_tree = {
 			set_temp_variable = { TUR_elections_of_clubs_hif = TUR_hif_popularity }
 			subtract_from_temp_variable = { TUR_elections_of_clubs_hif = TUR_elections_of_clubs_itf }
 			multiply_temp_variable = { TUR_elections_of_clubs_hif = 100 }
+			round_temp_variable = TUR_elections_of_clubs_hif
 			add_to_variable = {
 				tooltip = TUR_elections_of_clubs_government_stability_tt
 				TUR_government_stability_var = var:TUR_elections_of_clubs_hif
 			}
-			TUR_government_popularity_calculate = yes
+			TUR_government_stability_calculate = yes
 		}
 		ai_will_do = { base = 20 }
 	}
@@ -4723,6 +4724,10 @@ focus_tree = {
 				ideology = democratic
 				popularity = 0.03
 			}
+			add_to_variable = {
+				tooltip = TUR_government_stability_add_15
+				TUR_government_stability_var = 15
+			}
 		}
 		completion_reward = {
 			if = {
@@ -4742,6 +4747,11 @@ focus_tree = {
 				ideology = democratic
 				popularity = 0.03
 			}
+			add_to_variable = {
+				tooltip = TUR_government_stability_add_15
+				TUR_government_stability_var = 15
+			}
+			TUR_government_stability_calculate = yes
 			TUR_government_popularity_calculate = yes
 		}
 		ai_will_do = { base = 20 }
@@ -4776,12 +4786,12 @@ focus_tree = {
 			else = {
 				add_popularity = {
 					ideology = neutrality
-					popularity = 0.07
+					popularity = 0.05
 				}
 			}
 			add_to_variable = {
-				tooltip = TUR_government_stability_reduce_5
-				TUR_government_stability_var = -5
+				tooltip = TUR_government_stability_add_5
+				TUR_government_stability_var = 5
 			}
 			TUR_government_stability_calculate = yes
 			TUR_government_popularity_calculate = yes
@@ -4824,8 +4834,8 @@ focus_tree = {
 				name = TUR_mustafa_asim_pasha
 			}
 			add_to_variable = {
-				tooltip = TUR_government_stability_add_5
-				TUR_government_stability_var = 5
+				tooltip = TUR_government_stability_add_10
+				TUR_government_stability_var = 10
 			}
 			TUR_government_popularity_calculate = yes
 		}

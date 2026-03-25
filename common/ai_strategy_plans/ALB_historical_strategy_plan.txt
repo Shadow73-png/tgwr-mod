@@ -123,27 +123,3 @@ ALB_present_the_fourteen_demands_plan = {
 		}
 	}
 }
-
-ALB_present_the_fourteen_demands_plan = {
-	name = "ALB_present_the_fourteen_demands"
-	desc = "completes it when montenegro is about to take shkoder"
-	allowed = {
-		original_tag = ALB
-	}
-	enable = {
-		original_tag = ALB
-		any_neighbor_country = { NOT = { tag = TUR } }
-	}
-	ai_national_focuses = {
-		ALB_present_the_fourteen_demands
-	}
-	# Keep small, as it is used as a factor for some things (such as research needs)
-	# Recommended around 1.0. Useful for relation between plans
-	weight = {
-		factor = 2
-		modifier = {
-			any_neighbor_country = { NOT = { tag = TUR } }
-			factor = 0
-		}
-	}
-}

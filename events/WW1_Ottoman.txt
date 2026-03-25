@@ -15194,7 +15194,6 @@ country_event = { #14 demands proposed to the ottomans
 			every_state = {
 				limit = { check_variable = { TUR_albanian_state_level > 0 } }
 				custom_effect_tooltip = ottoman.233.tt.1
-				add_to_variable = { TUR_ottoman_resistance_target_albanian = -0.7 }
 				add_resistance = -35
 				add_compliance = 25
 			}
@@ -15243,6 +15242,11 @@ country_event = { #14 demands proposed to the ottomans
 	}
 	option = {
 		name = ottoman.233.b
+		every_controlled_state = {
+			limit = { has_dynamic_modifier = { modifier = TUR_albanian_minority } }
+			add_resistance = 10
+			add_compliance = -35
+		}
 		hidden_effect = { FROM = { country_event = { id = ottoman.235 hours = 8 } } }
 		ai_chance = {
 			base = 5
