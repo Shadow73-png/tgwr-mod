@@ -396,6 +396,11 @@ ALB_albanian_independence_movement = {
 				add = 1000
 			}
 			modifier = {
+				has_completed_focus = ALB_taksim_meeting
+				has_capitulated = no
+				add = 100
+			}
+			modifier = {
 				TUR = { has_active_mission = TUR_comply_with_the_14_points }
 				factor = 0
 			}
@@ -473,7 +478,7 @@ ALB_albanian_independence_movement = {
 				FROM = {
 					clamp_variable = {
 						var = ALB_committee_resistance
-						max = 5
+						max = 50
 					}
 				}
 			}
@@ -570,6 +575,14 @@ ALB_albanian_independence_movement = {
 					resistance > 60
 				}
 				add = -15
+			}
+			modifier = {
+				has_capitulated = no
+				factor = 0
+			}
+			modifier = {
+				FROM = { check_variable = { ALB_committee_resistance > 49 } }
+				factor = 0
 			}
 		}
 	}
