@@ -184,7 +184,7 @@ characters={
 	PER_najaf_qoli_khan_bakhtiari = {
 		portraits = {
 			civilian = {
-				#large="gfx/leaders/PER/PER_najaf_qoli_khan_bakhtiari.png"
+				large="gfx/leaders/PER/PER_najaf_qoli_khan_bakhtiari.png"
 				small="gfx/interface/ideas/PER/idea_PER_najaf_qoli_khan_bakhtiari.png"
 			}
 		}
@@ -256,6 +256,9 @@ characters={
 				#large="gfx/leaders/PER/PER_ali_qoli_khan_bakhtiari.png"
 				small="gfx/interface/ideas/PER/idea_PER_ali_qoli_khan_bakhtiari.png"
 			}
+			army = {
+				small="gfx/interface/ideas/PER/idea_PER_ali_qoli_khan_bakhtiari_army.png"
+			}
 		}
 		advisor={
 			slot = political_advisor
@@ -269,6 +272,20 @@ characters={
 			traits  = {
 				PER_sardar_asaad  
 			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = PER_ali_qoli_khan_bakhtiari
+			available = {
+				OR = {
+					has_government = neutrality
+					has_country_leader_ideology = conservatism
+				}	
+			}
+			traits  = {
+				army_chief_morale_2  
+			}
+			cost = 100
 		}
 		# field_marshal = {
 		# 	traits = { old_guard media_personality irregulars_officer inspirational_leader }
