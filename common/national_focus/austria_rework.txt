@@ -249,6 +249,8 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			AUS_national_unity_effect = yes
+			custom_effect_tooltip = empty_space_tt
 			add_to_variable = {
 				AUS_parliament_relations = 0.2
 				tooltip = AUS_p_loyalty_tt
@@ -274,11 +276,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			custom_effect_tooltip = AUS_modify_aps.tt
-			add_to_variable = {
-				AUS_aps_consumer_goods = -0.05
-				tooltip = consumer_goods_factor_tt
-			}
+			AUS_national_unity_effect = yes
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_infra = 0.075
@@ -390,19 +388,11 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			AUS_national_unity_effect = yes
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
-				AUS_EP_trade_ai_chance = -0.15
+				AUS_EP_trade_ai_chance = -0.05
 				tooltip = trade_opinion_factor_neutral_tt
-			}
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_prod_eff_cap = 0.05
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			add_to_variable = {
-				AUS_EP_prod_eff_growth = 0.05
-				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -465,8 +455,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = AUS_i_decide_who_is_a_jew
-		icon = GFX_focus_looming_debts
+		id = AUS_imperial_press
+		icon = GFX_focus_generic_printing_press
 		cost = 5
 		x = -1
 		y = 1
@@ -477,6 +467,13 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			AUS_national_unity_effect = yes
+
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_dem_gain = -0.01
+				tooltip = democratic_drift_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
