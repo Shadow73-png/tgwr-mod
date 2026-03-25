@@ -3376,24 +3376,6 @@ focus_tree = {
 			has_country_flag = TUR_revolting_country
 			OR = {
 				TUR = { all_controlled_state = { NOT = { is_core_of = ALB } } }
-				num_of_controlled_states > 10
-				TUR = {
-					casualties_inflicted_by = {
-						opponent = ALB
-						thousands > 30
-					}
-				}
-				has_country_flag = {
-					flag = TUR_ongoing_rebellion_days
-					days > 180
-				}
-				custom_trigger_tooltip = {
-					tooltip = ALB_present_the_fourteen_demands_tt
-					has_country_flag = {
-						flag = TUR_ongoing_rebellion_days
-						days > 180
-					}
-				}
 				any_other_country = {
 					has_war_with = ROOT
 					has_war_with = TUR
@@ -3403,6 +3385,27 @@ focus_tree = {
 							is_owned_by = TUR
 						}
 						is_claimed_by = PREV
+					}
+				}
+				count_triggers = {
+					amount = 2
+					num_of_controlled_states > 10
+					TUR = {
+						casualties_inflicted_by = {
+							opponent = ALB
+							thousands > 30
+						}
+					}
+					has_country_flag = {
+						flag = TUR_ongoing_rebellion_days
+						days > 150
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_present_the_fourteen_demands_tt
+						has_country_flag = {
+							flag = TUR_ongoing_rebellion_days
+							days > 150
+						}
 					}
 				}
 			}
