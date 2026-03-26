@@ -163,7 +163,7 @@ AUH_great_war_bullshit = {
 			hidden_effect = {
 				AUS_update_food = yes
 			}
-			add_political_power = 50 #people wanted it
+			add_political_power = 50			#people wanted it
 			remove_ideas = AUS_population_demanding_price_caps
 		}
 	}
@@ -1347,6 +1347,156 @@ AUH_the_imperial_council = {
 			}
 		}
 	}
+	AUS_permit_ukranian_university = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_polish_loyalty
+			has_idea = AUS_dysfunctional_galician_diet
+		}
+		cancel_trigger = {
+			has_war_with_major = yes
+		}
+		priority = 210
+		available = {
+			NOT = {
+				has_country_flag = AUS_working_on_ukranian_demand
+			}
+		}
+		fire_only_once = no
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			set_country_flag = AUS_working_on_ukranian_demand
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_ukranian_compromise_progress = 1
+			}
+			custom_effect_tooltip = AUS_loyalty_ukranian_thing_tt
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_ep_research_speed = 0.02
+				tooltip = research_speed_factor_tt
+			}
+			add_political_power = -5
+			clr_country_flag = AUS_working_on_ukranian_demand
+		}
+	}
+	AUS_broader_ruthenian_cultural_and_educational_autonomy = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_polish_loyalty
+			has_idea = AUS_dysfunctional_galician_diet
+		}
+		cancel_trigger = {
+			has_war_with_major = yes
+		}
+		priority = 210
+		available = {
+			NOT = {
+				has_country_flag = AUS_working_on_ukranian_demand
+			}
+		}
+		fire_only_once = no
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			set_country_flag = AUS_working_on_ukranian_demand
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_ukranian_compromise_progress = 1
+			}
+			custom_effect_tooltip = AUS_loyalty_ukranian_thing_tt
+			add_political_power = -25
+			clr_country_flag = AUS_working_on_ukranian_demand
+		}
+	}
+	AUS_promise_minimum_seats_for_ukranians = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_polish_loyalty
+			has_idea = AUS_dysfunctional_galician_diet
+		}
+		cancel_trigger = {
+			has_war_with_major = yes
+		}
+		priority = 210
+		available = {
+			NOT = {
+				has_country_flag = AUS_working_on_ukranian_demand
+			}
+		}
+		fire_only_once = no
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			set_country_flag = AUS_working_on_ukranian_demand
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_ukranian_compromise_progress = 1
+			}
+			custom_effect_tooltip = AUS_loyalty_ukranian_thing_tt
+			add_political_power = -20
+			clr_country_flag = AUS_working_on_ukranian_demand
+		}
+	}
+	AUS_reopen_ruthenian_diet = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_polish_loyalty
+			has_idea = AUS_dysfunctional_galician_diet
+		}
+		cancel_trigger = {
+			has_war_with_major = yes
+		}
+		priority = 210
+		available = {
+			NOT = {
+				has_country_flag = AUS_working_on_ukranian_demand
+			}
+			custom_trigger_tooltip = {
+				check_variable = {
+				AUS_ukranian_compromise_progress > 2
+			}
+			tooltip = AUS_done_ruthenian_demands
+			}
+		}
+		fire_only_once = no
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_political_power = 50
+			remove_ideas = AUS_dysfunctional_galician_diet
+		}
+	}
 	AUS_imperial_elections = {
 		icon = GFX_decision_generic_scorched_earth
 		fire_only_once = yes
@@ -1805,7 +1955,6 @@ AUH_stitching_the_quilt = {
 			# add stuff
 		}
 	}
-	
 	AUS_spread_enlightened_literature = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -1979,12 +2128,10 @@ AUH_stitching_the_quilt = {
 		target_trigger = {
 			FROM = {
 				OR = {
-					
-						state = 9
-						state = 1198
-						state = 91
-						state = 88
-					
+					state = 9
+					state = 1198
+					state = 91
+					state = 88
 				}
 				is_fully_controlled_by = ROOT
 			}
@@ -2005,8 +2152,8 @@ AUH_stitching_the_quilt = {
 		remove_effect = {
 			clr_global_flag = AUS_taking_city_utilities
 			add_dynamic_modifier = {
-					modifier = public_utilities_aus
-				}
+				modifier = public_utilities_aus
+			}
 			add_stability = 0.02
 			add_popularity = {
 				ideology = democratic
