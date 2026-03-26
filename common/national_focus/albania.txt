@@ -434,10 +434,6 @@ focus_tree = {
 						advisor = {
 							slot = political_advisor
 							idea_token = ALB_foreign_supervisor
-							visible = {
-								has_completed_focus = ALB_overlord_albanian_agreement
-								is_subject = yes
-							}
 							traits = { ALB_foreign_supervisor }
 						}
 					}
@@ -494,10 +490,6 @@ focus_tree = {
 						advisor = {
 							slot = political_advisor
 							idea_token = ALB_foreign_supervisor
-							visible = {
-								has_completed_focus = ALB_overlord_albanian_agreement
-								is_subject = yes
-							}
 							traits = { ALB_foreign_supervisor }
 						}
 					}
@@ -585,6 +577,17 @@ focus_tree = {
 				limit = { has_country_flag = ALB_convene_the_congress_of_lushnje2 }
 				end_puppet = ROOT
 			}
+			if = {
+				limit = { has_country_flag = ALB_convene_the_congress_of_lushnje3 }
+				every_character = {
+					limit = { has_character_flag = ALB_foreign_supervisor }
+					remove_trait = {
+						slot = political_advisor
+						trait = ALB_foreign_supervisor
+					}
+					set_can_be_fired_in_advisor_role = { slot = political_advisor value = yes }
+				}
+			}
 			add_victory_points = {
 				province = 9914
 				value = 2
@@ -617,6 +620,15 @@ focus_tree = {
 					end_puppet = ROOT
 					set_country_flag = ALB_convene_the_congress_of_lushnje2
 				}
+				every_character = {
+					limit = { has_character_flag = ALB_foreign_supervisor }
+					remove_trait = {
+						slot = political_advisor
+						trait = ALB_foreign_supervisor
+					}
+					set_can_be_fired_in_advisor_role = { slot = political_advisor value = yes }
+				}
+				set_country_flag = ALB_convene_the_congress_of_lushnje3
 			}
 			set_capital = {
 				state = 1215
