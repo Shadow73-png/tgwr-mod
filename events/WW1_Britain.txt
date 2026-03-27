@@ -6626,6 +6626,7 @@ country_event = {
 				owns_state = 1244
 				owns_state = 411
 				has_subject = ARB
+				has_subject = MAK
 			}
 		}
 	}
@@ -6647,6 +6648,24 @@ country_event = {
 					PER = {
 						set_autonomy = {
 							target = ARB
+							autonomous_state = autonomy_integrated_puppet
+							freedom_level = 0.9
+						}
+					}	
+					restore_previous_government_type = yes
+				}			
+			}
+			if = {
+				limit = {
+					has_subject = MAK
+					country_exists = PER
+				}
+				MAK = {
+					clr_country_flag = protectorate
+					get_current_government_type = yes
+					PER = {
+						set_autonomy = {
+							target = MAK
 							autonomous_state = autonomy_integrated_puppet
 							freedom_level = 0.9
 						}

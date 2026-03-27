@@ -8742,7 +8742,7 @@
 							}
 							OR = {
 								is_in_faction = no
-								is_in_faction_with = PER
+								is_in_faction_with = FROM
 								is_in_faction_with = ROOT
 							}
 							NOT = {
@@ -8763,6 +8763,39 @@
 						}
 					}
 					ARB = {
+						restore_previous_government_type = yes
+					}
+				}
+				if = {
+					limit = {
+						MAK = {
+							OR = {
+								is_subject = no
+								is_subject_of = FROM
+							}
+							OR = {
+								is_in_faction = no
+								is_in_faction_with = FROM
+								is_in_faction_with = ROOT
+							}
+							NOT = {
+								is_subject_of = ROOT
+								has_war_with = ROOT
+								has_war_together_with = RUS
+							}
+						}
+					}
+					MAK = {
+						get_current_government_type = yes
+					}
+					PER = {
+						set_autonomy = {
+							target = MAK
+							autonomous_state = autonomy_integrated_puppet
+							freedom_level = 0.9
+						}
+					}
+					MAK = {
 						restore_previous_government_type = yes
 					}
 				}
