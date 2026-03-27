@@ -576,11 +576,20 @@ AUS_minorities_mechanic = {
 		days_mission_timeout = 300
 		available = {
 			NOT = {
-				any_state = {
-					has_dynamic_modifier = {
+			    any_state = {
+			        OR = {
+			            is_owned_by = AUS
+			            if = {
+							limit = {
+								AUS_HUN_exists = yes
+							}
+							is_owned_by = HUN
+						}
+			        }
+			        has_dynamic_modifier = {
 						modifier = AUS_neglected_economy
 					}
-				}
+			    }
 			}
 		}
 		visible = {
