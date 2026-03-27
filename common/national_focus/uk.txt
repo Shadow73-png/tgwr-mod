@@ -5616,6 +5616,7 @@ focus_tree = {
 						limit = {
 							OR = {
 								owns_state = 413
+								owns_state = 1246
 								owns_state = 412
 							}
 						}
@@ -5653,6 +5654,24 @@ focus_tree = {
 								give_resource_rights = {
 									receiver = ENG
 									state = 412
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							OR = {
+								owns_state = 1246
+								any_subject_country = {
+									owns_state = 1246
+								}
+							}			
+						}
+						1246 = {
+							OWNER = {
+								give_resource_rights = {
+									receiver = ENG
+									state = 1246
 								}
 							}
 						}

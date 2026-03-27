@@ -1007,7 +1007,6 @@ armistice_effect = {
 				OR = {
 					has_state_flag = TUR_no_longer_armenia_core_tt
 					state = 787
-					state = 789
 					state = 806
 					state = 939
 					state = 353
@@ -2277,6 +2276,7 @@ armistice_effect = {
 							state = 419
 							state = 877
 							state = 1212
+							state = 1245
 						}
 					}
 					transfer_state_to = GEO
@@ -2578,6 +2578,23 @@ armistice_effect = {
 						}
 					}
 				}
+				1245 = {
+					owner = {
+						NOT = {
+							original_tag = PER
+							has_war_with = PER
+						}
+						OR = {
+							has_cosmetic_tag = GEO_TSCN
+							has_cosmetic_tag = GEO_TSCN_commissariat
+							has_cosmetic_tag = GEO_TSCN_committee
+							has_cosmetic_tag = GEO_TSCN_communism
+							NOT = {
+								PREV = { is_core_of = PREV }
+							}
+						}
+					}
+				}
 			}
 		}
 		every_state = {
@@ -2588,6 +2605,7 @@ armistice_effect = {
 					state = 421
 					state = 877
 					state = 1212
+					state = 1245
 				}
 				owner = {
 					NOT = {
