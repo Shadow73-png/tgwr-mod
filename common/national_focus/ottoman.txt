@@ -9944,7 +9944,7 @@ focus_tree = {
 			FOCUS_FILTER_ANNEXATION
 		}
 		prerequisite = { focus = TUR_our_traditional_allies }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = TUR_our_traditional_allies
 		available = {
@@ -9952,6 +9952,8 @@ focus_tree = {
 			GRE = {
 				OR = {
 					owns_state = 790
+					owns_state = 975
+					owns_state = 974
 					owns_state = 164
 					owns_state = 899
 					owns_state = 900
@@ -9965,6 +9967,8 @@ focus_tree = {
 				limit = {
 					OR = {
 						state = 790
+						state = 975
+						state = 974
 						state = 164
 						state = 899
 						state = 900
@@ -9980,469 +9984,16 @@ focus_tree = {
 		ai_will_do = { base = 30 }
 	}
 	focus = {
-		id = TUR_expand_the_armenian_reforms
-		icon = GFX_focus_hol_the_foundations_of_defense
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_MINORITY
-			FOCUS_FILTER_STABILITY
-		}
-		prerequisite = { focus = TUR_our_traditional_allies }
-		x = 0
-		y = 1
-		relative_position_id = TUR_our_traditional_allies
-		available = {
-			1022 = { TUR_is_owned_by_us_or_committee_government = yes }
-			881 = { TUR_is_owned_by_us_or_committee_government = yes }
-			1025 = { TUR_is_owned_by_us_or_committee_government = yes }
-			350 = { TUR_is_owned_by_us_or_committee_government = yes }
-			349 = { TUR_is_owned_by_us_or_committee_government = yes }
-			1026 = { TUR_is_owned_by_us_or_committee_government = yes }
-			custom_trigger_tooltip = {
-				tooltip = TUR_not_lift_the_armenian_reforms
-				NOT = { has_country_flag = TUR_lift_the_armenian_reforms }
-			}
-		}
-		completion_reward = {
-			add_stability = 0.1
-			1022 = {
-				add_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-				set_state_flag = TUR_autonomous_vilayet
-			}
-			881 = {
-				add_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-				set_state_flag = TUR_autonomous_vilayet
-			}
-			1025 = {
-				add_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-				set_state_flag = TUR_autonomous_vilayet
-			}
-			350 = {
-				add_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
-				set_state_flag = TUR_semi_autonomous_vilayet
-			}
-			349 = {
-				add_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-				set_state_flag = TUR_autonomous_vilayet
-			}
-			1026 = {
-				add_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-				set_state_flag = TUR_autonomous_vilayet
-			}
-			custom_effect_tooltip = TUR_expand_the_armenian_reforms_tt
-			if = {
-				limit = { 806 = { TUR_is_owned_by_us_or_committee_government = yes } }
-				806 = {
-					add_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-					set_state_flag = TUR_autonomous_vilayet
-				}
-			}
-			else = {
-				hidden_effect = {
-					806 = {
-						set_state_flag = TUR_autonomous_vilayet_no_control
-						set_state_flag = TUR_autonomous_vilayet
-					}
-				}
-			}
-			custom_effect_tooltip = TUR_expand_the_armenian_reforms_tt2
-			if = {
-				limit = { 816 = { TUR_is_owned_by_us_or_committee_government = yes } }
-				816 = {
-					add_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
-					set_state_flag = TUR_semi_autonomous_vilayet
-				}
-			}
-			else = {
-				hidden_effect = {
-					816 = {
-						set_state_flag = TUR_semi_autonomous_vilayet_no_control
-						set_state_flag = TUR_semi_autonomous_vilayet
-					}
-				}
-			}
-			ottoman_minority_variable_check = yes
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
-		id = TUR_dogu_ekspresi
-		icon = GFX_focus_Generic_Develop_Rail_Network
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
-		}
-		prerequisite = { focus = TUR_expand_the_armenian_reforms }
-		x = 0
-		y = 1
-		relative_position_id = TUR_expand_the_armenian_reforms
-		completion_reward = {
-			build_railway = {
-				level = 1
-				build_only_on_allied = no
-				fallback = yes
-				path = {
-					11747
-					11839
-					9900
-					919
-					13276
-					6977
-					9777
-				}
-				start_province = 11747
-				target_province = 9777
-			}
-			build_railway = {
-				level = 1
-				build_only_on_allied = no
-				fallback = yes
-				start_province = 6977
-				target_province = 921
-			}
-			build_railway = {
-				level = 1
-				build_only_on_allied = no
-				fallback = yes
-				path = {
-					9777
-					9761
-					6965
-					9860
-					11797
-					11853
-				}
-				start_province = 9777
-				target_province = 11853
-			}
-			build_railway = {
-				level = 1
-				build_only_on_allied = no
-				fallback = yes
-				start_province = 11853
-				target_province = 7661
-			}
-			49 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			349 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			881 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			1025 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			350 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = supply_node
-					level = 1
-					province = 11853
-					instant_build = yes
-				}
-			}
-			353 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			352 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
-		id = TUR_adriatic_invasion
-		icon = GFX_focus_generic_adriatic_sea_focus
-		cost = 5
-		prerequisite = { focus = TUR_dogu_ekspresi }
-		mutually_exclusive = { focus = TUR_balkan_push }
-		x = -1
-		y = 1
-		relative_position_id = TUR_dogu_ekspresi
-		completion_reward = {
-			every_army_leader = {
-				random_select_amount = 3
-				add_logistics = 1
-			}
-			unlock_decision_tooltip = TUR_adriatic_invasion
-			custom_effect_tooltip = effects_when_selected
-			effect_tooltip = {
-				every_state = {
-					limit = {
-						OR = {
-							state = 803
-							state = 871
-							state = 44
-							state = 870
-							state = 1214
-							state = 105
-							state = 103
-							state = 163
-							state = 208
-							state = 513
-							state = 736
-						}
-					}
-					add_dynamic_modifier = { modifier = TUR_adriatic_invasion_modifier scope = TUR }
-				}
-			}
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
-		id = TUR_balkan_push
-		icon = GFX_focus_generic_aegean_sea_focus
-		cost = 5
-		prerequisite = { focus = TUR_dogu_ekspresi }
-		mutually_exclusive = { focus = TUR_adriatic_invasion }
-		x = 1
-		y = 1
-		relative_position_id = TUR_dogu_ekspresi
-		completion_reward = {
-			every_army_leader = {
-				random_select_amount = 3
-				add_planning = 1
-			}
-			unlock_decision_tooltip = TUR_balkan_push
-			custom_effect_tooltip = effects_when_selected
-			effect_tooltip = {
-				every_state = {
-					limit = {
-						OR = {
-							state = 341
-							state = 860
-							state = 756
-							state = 849
-							state = 200
-							state = 757
-							state = 451
-							state = 212
-							state = 211
-							state = 77
-							state = 48
-							state = 912
-							state = 199
-							state = 788
-							state = 184
-							state = 759
-							state = 1141
-							state = 203
-						}
-					}
-					add_dynamic_modifier = { modifier = TUR_balkan_push_modifier scope = TUR }
-				}
-			}
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
-		id = TUR_form_cossack_units
-		icon = GFX_focus_SOV_restore_cossack_units
-		cost = 5
-		prerequisite = { focus = TUR_adriatic_invasion focus = TUR_balkan_push }
-		mutually_exclusive = { focus = TUR_cooperation_in_desert_warfare }
-		x = 0
-		y = 1
-		relative_position_id = TUR_adriatic_invasion
-		completion_reward = {
-			custom_effect_tooltip = TUR_form_cossack_units_tt
-			set_variable = { TUR_aoabe_cavalry_attack_factor = 0.1 }
-			set_variable = { TUR_aoabe_cavalry_defence_factor = 0.05 }
-			division_template = {
-				name = "Rus Kossak Birlikleri"
-				division_names_group = TUR_CAV_01
-				template_counter = 05
-
-				regiments = {
-					cavalry = { x = 0 y = 0 }
-					cavalry = { x = 0 y = 1 }
-					cavalry = { x = 0 y = 2 }
-					cavalry = { x = 1 y = 0 }
-					cavalry = { x = 1 y = 1 }
-					field_gun_brigade = { x = 2 y = 0 }
-				}
-				support = {
-					field_gun = { x = 0 y = 0 }
-					recon = { x = 0 y = 1 }
-				}
-			}
-			random_owned_controlled_state = {
-				prioritize = { 353 }
-				create_unit = {
-					division = "name = \"1. Ordu\" division_template = \"Rus Kossak Birlikleri\" start_experience_factor = 0.4"
-					owner = TUR
-				}
-				create_unit = {
-					division = "name = \"2. Ordu\" division_template = \"Rus Kossak Birlikleri\" start_experience_factor = 0.4"
-					owner = TUR
-				}
-				create_unit = {
-					division = "name = \"3. Ordu\" division_template = \"Rus Kossak Birlikleri\" start_experience_factor = 0.4"
-					owner = TUR
-				}
-				create_unit = {
-					division = "name = \"4. Ordu\" division_template = \"Rus Kossak Birlikleri\" start_experience_factor = 0.4"
-					owner = TUR
-				}
-			}
-			if = {
-				limit = { NOT = { has_completed_focus = TUR_disband_tribal_light_cavalry_regiments } }
-				if = {
-					limit = { has_completed_focus = TUR_reserve_cavalry_regiments }
-					custom_effect_tooltip = TUR_form_cossack_units_tt2
-				}
-				else = { custom_effect_tooltip = TUR_form_cossack_units_tt3 }
-			}
-			hidden_effect = {
-				add_to_variable = { TUR_hamidiye_cap = 7 }
-				set_division_template_cap = {
-					division_template = "Aşiret Hafif Süvari Alayları"
-					division_cap = TUR_hamidiye_cap
-				}
-			}
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
-		id = TUR_cooperation_in_desert_warfare
-		icon = GFX_focus_generic_camel_corps
-		cost = 5
-		prerequisite = { focus = TUR_adriatic_invasion focus = TUR_balkan_push }
-		mutually_exclusive = { focus = TUR_form_cossack_units }
-		x = 2
-		y = 1
-		relative_position_id = TUR_adriatic_invasion
-		completion_reward = {
-			custom_effect_tooltip = TUR_cooperation_in_desert_warfare_tt
-			add_to_variable = { TUR_aoabe_heat_attrition_factor = -0.1 }
-			set_variable = { TUR_aoabe_out_of_supply_factor = -0.15 }
-			add_to_variable = { TUR_aoabe_acclimatization_hot_climate_gain_factor = 0.2 }
-			random_owned_controlled_state = {
-				prioritize = { 291 }
-				create_unit = {
-					division = "name = \"3. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
-					owner = TUR
-				}
-				create_unit = {
-					division = "name = \"4. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
-					owner = TUR
-				}
-				create_unit = {
-					division = "name = \"5. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
-					owner = TUR
-				}
-				create_unit = {
-					division = "name = \"6. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
-					owner = TUR
-				}
-				create_unit = {
-					division = "name = \"7. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
-					owner = TUR
-				}
-				create_unit = {
-					division = "name = \"8. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
-					owner = TUR
-				}
-			}
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
-		id = TUR_french_investments_in_syria
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
-		}
-		prerequisite = { focus = TUR_our_traditional_allies }
-		x = 2
-		y = 1
-		relative_position_id = TUR_our_traditional_allies
-		available = {
-			OR = {
-				owns_state = 829
-				owns_state = 1028
-				owns_state = 1029
-				owns_state = 859
-				owns_state = 677
-				owns_state = 552
-				owns_state = 553
-				owns_state = 1023
-				owns_state = 680
-				owns_state = 884
-			}
-		}
-		completion_reward = {
-			554 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_dynamic_modifier = { modifier = TUR_french_investments_in_syria days = 365 }
-			}
-			every_state = {
-				limit = {
-					OR = {
-						state = 829
-						state = 1028
-						state = 1029
-						state = 859
-						state = 677
-						state = 552
-						state = 553
-						state = 1023
-						state = 680
-						state = 884
-					}
-				}
-				add_dynamic_modifier = { modifier = TUR_french_investments_in_syria days = 365 }
-			}
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
 		id = TUR_entente_bailouts
 		icon = GFX_focus_generic_treaty
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_OTTOMAN_DEBT
 		}
-		prerequisite = { focus = TUR_french_investments_in_syria }
+		prerequisite = { focus = TUR_our_traditional_allies }
 		x = 1
 		y = 1
-		relative_position_id = TUR_french_investments_in_syria
+		relative_position_id = TUR_our_traditional_allies
 		complete_tooltip = {
 			custom_effect_tooltip = TUR_entente_bailouts_tt
 			every_country = {
@@ -10533,11 +10084,11 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 		}
-		prerequisite = { focus = TUR_german_ottoman_alliance }
-		x = 0
+		prerequisite = { focus = TUR_our_traditional_allies focus = TUR_german_ottoman_alliance }
+		x = -5
 		y = 1
 		relative_position_id = TUR_german_ottoman_alliance
-		completion_reward = {
+		complete_tooltip = {
 			custom_effect_tooltip = TUR_arrival_of_yildirim_army_group_tt
 			set_variable = { TUR_aoabe_army_speed_factor = 0.05 }
 			set_variable = { TUR_aoabe_breakthrough_factor = 0.05 }
@@ -10566,9 +10117,7 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
-				prioritize = {
-					291
-				}
+				prioritize = { 291 }
 				create_unit = {
 					division = "name = \"1. Ordu\" division_template = \"Yıldırım Birlikleri\" start_experience_factor = 0.4"
 					owner = TUR
@@ -10602,12 +10151,183 @@ focus_tree = {
 					owner = TUR
 				}
 			}
-			country_event = {
-				id = ottoman.131
-				days = 20
+			if = {
+				limit = { has_country_flag = TUR_arrival_of_yildirim_army_group1 }
+				country_event = { id = ottoman.131 days = 20 }
+				custom_effect_tooltip = TUR_arrival_of_yildirim_army_group_tt2
+				event_option_tooltip = ottoman.131.a
 			}
-			custom_effect_tooltip = TUR_arrival_of_yildirim_army_group_tt2
-			event_option_tooltip = ottoman.131.a
+			if = {
+				limit = { has_country_flag = TUR_arrival_of_yildirim_army_group2 }
+				country_event = { id = ottoman.304 days = 20 }
+				custom_effect_tooltip = TUR_arrival_of_yildirim_army_group_tt3
+				event_option_tooltip = ottoman.304.a
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = TUR_arrival_of_yildirim_army_group_tt
+			set_variable = { TUR_aoabe_army_speed_factor = 0.05 }
+			set_variable = { TUR_aoabe_breakthrough_factor = 0.05 }
+			custom_effect_tooltip = TUR_yildirim_army_group
+			division_template = {
+				name = "Yıldırım Birlikleri"
+				division_names_group = TUR_INF_01
+				template_counter = 4
+				priority = 2
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					field_gun_brigade = { x = 2 y = 0 }
+					field_gun_brigade = { x = 2 y = 1 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+					field_gun = { x = 0 y = 2 }
+					logistics_company = { x = 0 y = 3 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 291 }
+				create_unit = {
+					division = "name = \"1. Ordu\" division_template = \"Yıldırım Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"2. Ordu\" division_template = \"Yıldırım Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"3. Ordu\" division_template = \"Yıldırım Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"4. Ordu\" division_template = \"Yıldırım Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"5. Ordu\" division_template = \"Yıldırım Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"6. Ordu\" division_template = \"Yıldırım Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"7. Ordu\" division_template = \"Yıldırım Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"8. Ordu\" division_template = \"Yıldırım Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+			}
+			if = {
+				limit = { is_in_faction_with = GER }
+				country_event = { id = ottoman.131 days = 20 }
+				custom_effect_tooltip = TUR_arrival_of_yildirim_army_group_tt2
+				event_option_tooltip = ottoman.131.a
+				set_country_flag = TUR_arrival_of_yildirim_army_group1
+			}
+			if = {
+				limit = { is_in_faction_with = ENG }
+				country_event = { id = ottoman.304 days = 20 }
+				custom_effect_tooltip = TUR_arrival_of_yildirim_army_group_tt3
+				event_option_tooltip = ottoman.304.a
+				set_country_flag = TUR_arrival_of_yildirim_army_group2
+			}
+		}
+		ai_will_do = { base = 30 }
+	}
+	focus = {
+		id = TUR_adriatic_invasion
+		icon = GFX_focus_generic_adriatic_sea_focus
+		cost = 5
+		prerequisite = { focus = TUR_arrival_of_yildirim_army_group }
+		mutually_exclusive = { focus = TUR_balkan_push focus = TUR_schellendorfs_plan focus = TUR_hafiz_hakkis_plan }
+		x = -3
+		y = 1
+		relative_position_id = TUR_arrival_of_yildirim_army_group
+		available = { is_in_faction_with = FRA }
+		completion_reward = {
+			every_army_leader = {
+				random_select_amount = 3
+				add_logistics = 1
+			}
+			unlock_decision_tooltip = TUR_adriatic_invasion
+			custom_effect_tooltip = effects_when_selected
+			effect_tooltip = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 803
+							state = 871
+							state = 44
+							state = 870
+							state = 1214
+							state = 105
+							state = 103
+							state = 163
+							state = 208
+							state = 513
+							state = 736
+						}
+					}
+					add_dynamic_modifier = { modifier = TUR_adriatic_invasion_modifier scope = TUR }
+				}
+			}
+		}
+		ai_will_do = { base = 30 }
+	}
+	focus = {
+		id = TUR_balkan_push
+		icon = GFX_focus_generic_aegean_sea_focus
+		cost = 5
+		prerequisite = { focus = TUR_arrival_of_yildirim_army_group }
+		mutually_exclusive = { focus = TUR_adriatic_invasion focus = TUR_schellendorfs_plan focus = TUR_hafiz_hakkis_plan }
+		x = -1
+		y = 1
+		relative_position_id = TUR_arrival_of_yildirim_army_group
+		available = { is_in_faction_with = FRA }
+		completion_reward = {
+			every_army_leader = {
+				random_select_amount = 3
+				add_planning = 1
+			}
+			unlock_decision_tooltip = TUR_balkan_push
+			custom_effect_tooltip = effects_when_selected
+			effect_tooltip = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 341
+							state = 860
+							state = 756
+							state = 849
+							state = 200
+							state = 757
+							state = 451
+							state = 212
+							state = 211
+							state = 77
+							state = 48
+							state = 912
+							state = 199
+							state = 788
+							state = 184
+							state = 759
+							state = 1141
+							state = 203
+						}
+					}
+					add_dynamic_modifier = { modifier = TUR_balkan_push_modifier scope = TUR }
+				}
+			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -10619,11 +10339,11 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		prerequisite = { focus = TUR_arrival_of_yildirim_army_group }
-		mutually_exclusive = { focus = TUR_hafiz_hakkis_plan }
-		x = -1
+		mutually_exclusive = { focus = TUR_adriatic_invasion focus = TUR_balkan_push focus = TUR_hafiz_hakkis_plan }
+		x = 1
 		y = 1
 		relative_position_id = TUR_arrival_of_yildirim_army_group
-		available = { has_character = GER_fritz_bronsart_von_schellendorf }
+		available = { is_in_faction_with = GER }
 		completion_reward = {
 			every_army_leader = {
 				random_select_amount = 3
@@ -10663,8 +10383,8 @@ focus_tree = {
 		icon = GFX_goal_generic_more_territorial_claims
 		cost = 5
 		prerequisite = { focus = TUR_arrival_of_yildirim_army_group }
-		mutually_exclusive = { focus = TUR_schellendorfs_plan }
-		x = 1
+		mutually_exclusive = { focus = TUR_adriatic_invasion focus = TUR_balkan_push focus = TUR_hafiz_hakkis_plan }
+		x = 3
 		y = 1
 		relative_position_id = TUR_arrival_of_yildirim_army_group
 		available = { has_character = TUR_hafiz_hakki }
@@ -10698,20 +10418,20 @@ focus_tree = {
 		ai_will_do = { base = 30 }
 	}
 	focus = {
-		id = TUR_german_mobilization_plan
+		id = TUR_western_mobilization_plan
 		icon = GFX_focus_ger_oppose_hitler
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 			FOCUS_FILTER_HISTORICAL
 		}
-		prerequisite = { focus = TUR_schellendorfs_plan focus = TUR_hafiz_hakkis_plan }
+		prerequisite = { focus = TUR_adriatic_invasion focus = TUR_balkan_push focus = TUR_schellendorfs_plan focus = TUR_hafiz_hakkis_plan }
 		mutually_exclusive = { focus = TUR_the_new_recruitment_law }
-		x = 0
-		y = 1
-		relative_position_id = TUR_schellendorfs_plan
+		x = -2
+		y = 2
+		relative_position_id = TUR_arrival_of_yildirim_army_group
 		completion_reward = {
-			custom_effect_tooltip = TUR_german_mobilization_plan_tt
+			custom_effect_tooltip = TUR_western_mobilization_plan_tt
 			add_to_variable = { TUR_aoabe_conscription = 0.02 }
 			add_to_variable = { TUR_aoabe_mobilization_speed = 0.15 }
 		}
@@ -10724,11 +10444,11 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 		}
-		prerequisite = { focus = TUR_schellendorfs_plan focus = TUR_hafiz_hakkis_plan }
-		mutually_exclusive = { focus = TUR_german_mobilization_plan }
-		x = 0
-		y = 1
-		relative_position_id = TUR_hafiz_hakkis_plan
+		prerequisite = { focus = TUR_adriatic_invasion focus = TUR_balkan_push focus = TUR_schellendorfs_plan focus = TUR_hafiz_hakkis_plan }
+		mutually_exclusive = { focus = TUR_western_mobilization_plan }
+		x = 2
+		y = 2
+		relative_position_id = TUR_arrival_of_yildirim_army_group
 		completion_reward = {
 			custom_effect_tooltip = TUR_the_new_recruitment_law_tt
 			add_to_variable = { TUR_aoabe_conscription_factor = 0.05 }
@@ -10739,21 +10459,173 @@ focus_tree = {
 		ai_will_do = { base = 30 }
 	}
 	focus = {
+		id = TUR_form_cossack_units
+		icon = GFX_focus_SOV_restore_cossack_units
+		cost = 5
+		prerequisite = { focus = TUR_western_mobilization_plan focus = TUR_the_new_recruitment_law }
+		mutually_exclusive = { focus = TUR_cooperation_in_desert_warfare focus = TUR_german_high_command focus = TUR_turkish_chain_of_command }
+		x = -1
+		y = 1
+		relative_position_id = TUR_western_mobilization_plan
+		available = { is_in_faction_with = RUS }
+		completion_reward = {
+			custom_effect_tooltip = TUR_form_cossack_units_tt
+			set_variable = { TUR_aoabe_cavalry_attack_factor = 0.1 }
+			set_variable = { TUR_aoabe_cavalry_defence_factor = 0.05 }
+			division_template = {
+				name = "Rus Kossak Birlikleri"
+				division_names_group = TUR_CAV_01
+				template_counter = 05
+
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 0 y = 2 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+					field_gun_brigade = { x = 2 y = 0 }
+				}
+				support = {
+					field_gun = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 353 }
+				create_unit = {
+					division = "name = \"1. Ordu\" division_template = \"Rus Kossak Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"2. Ordu\" division_template = \"Rus Kossak Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"3. Ordu\" division_template = \"Rus Kossak Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"4. Ordu\" division_template = \"Rus Kossak Birlikleri\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+			}
+			if = {
+				limit = { NOT = { has_completed_focus = TUR_disband_tribal_light_cavalry_regiments } }
+				if = {
+					limit = { has_completed_focus = TUR_reserve_cavalry_regiments }
+					custom_effect_tooltip = TUR_form_cossack_units_tt2
+				}
+				else = { custom_effect_tooltip = TUR_form_cossack_units_tt3 }
+			}
+			hidden_effect = {
+				add_to_variable = { TUR_hamidiye_cap = 7 }
+				set_division_template_cap = {
+					division_template = "Aşiret Hafif Süvari Alayları"
+					division_cap = TUR_hamidiye_cap
+				}
+			}
+		}
+		ai_will_do = { base = 30 }
+	}
+	focus = {
+		id = TUR_cooperation_in_desert_warfare
+		icon = GFX_focus_generic_camel_corps
+		cost = 5
+		prerequisite = { focus = TUR_western_mobilization_plan focus = TUR_the_new_recruitment_law }
+		mutually_exclusive = { focus = TUR_form_cossack_units focus = TUR_german_high_command focus = TUR_turkish_chain_of_command }
+		x = 1
+		y = 1
+		relative_position_id = TUR_western_mobilization_plan
+		available = { is_in_faction_with = ENG }
+		completion_reward = {
+			custom_effect_tooltip = TUR_cooperation_in_desert_warfare_tt
+			add_to_variable = { TUR_aoabe_heat_attrition_factor = -0.1 }
+			set_variable = { TUR_aoabe_out_of_supply_factor = -0.15 }
+			add_to_variable = { TUR_aoabe_acclimatization_hot_climate_gain_factor = 0.2 }
+			random_owned_controlled_state = {
+				prioritize = { 291 }
+				create_unit = {
+					division = "name = \"3. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"4. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"5. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"6. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"7. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+				create_unit = {
+					division = "name = \"8. Hecin Süvari Tümeni\" division_template = \"Hecin Süvari Tümeni\" start_experience_factor = 0.4"
+					owner = TUR
+				}
+			}
+		}
+		ai_will_do = { base = 30 }
+	}
+	focus = {
 		id = TUR_german_high_command
 		icon = GFX_focus_GER_appease_the_wehrmacht
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_ARMY_XP
 		}
-		prerequisite = { focus = TUR_german_mobilization_plan focus = TUR_the_new_recruitment_law }
-		mutually_exclusive = { focus = TUR_turkish_chain_of_command }
-		x = 0
+		prerequisite = { focus = TUR_western_mobilization_plan focus = TUR_the_new_recruitment_law }
+		mutually_exclusive = { focus = TUR_form_cossack_units focus = TUR_cooperation_in_desert_warfare focus = TUR_turkish_chain_of_command }
+		x = -1
 		y = 1
-		relative_position_id = TUR_german_mobilization_plan
+		relative_position_id = TUR_the_new_recruitment_law
+		available = {
+			is_in_faction_with = GER
+			custom_trigger_tooltip = {
+				tooltip = has_idea_TUR_german_military_command
+				OR = {
+					has_idea = TUR_german_military_command_0
+					has_idea = TUR_german_military_command
+					has_idea = TUR_german_military_command_2
+				}
+			}
+		}
+		complete_tooltip = {
+			if = {
+				limit = { has_country_flag = TUR_german_high_command1 }
+				swap_ideas = {
+					remove_idea = TUR_german_military_command_0
+					add_idea = TUR_german_military_command_2
+				}
+			}
+			if = {
+				limit = { has_country_flag = TUR_german_high_command2 }
+				swap_ideas = {
+					remove_idea = TUR_german_military_command
+					add_idea = TUR_german_military_command_2
+				}
+			}
+		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = TUR_german_military_command
-				add_idea = TUR_german_military_command_2
+			if = {
+				limit = { has_idea = TUR_german_military_command_0 }
+				swap_ideas = {
+					remove_idea = TUR_german_military_command_0
+					add_idea = TUR_german_military_command_2
+				}
+				set_country_flag = TUR_german_high_command1
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = TUR_german_military_command
+					add_idea = TUR_german_military_command_2
+				}
+				set_country_flag = TUR_german_high_command2
 			}
 		}
 		ai_will_do = { base = 30 }
@@ -10766,15 +10638,56 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_HISTORICAL
 		}
-		prerequisite = { focus = TUR_german_mobilization_plan focus = TUR_the_new_recruitment_law }
-		mutually_exclusive = { focus = TUR_german_high_command }
-		x = 0
+		prerequisite = { focus = TUR_western_mobilization_plan focus = TUR_the_new_recruitment_law }
+		mutually_exclusive = { focus = TUR_form_cossack_units focus = TUR_cooperation_in_desert_warfare focus = TUR_german_high_command }
+		x = 1
 		y = 1
 		relative_position_id = TUR_the_new_recruitment_law
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = has_idea_TUR_german_military_command
+				OR = {
+					has_idea = TUR_german_military_command_0
+					has_idea = TUR_german_military_command
+					has_idea = TUR_german_military_command_2
+				}
+			}
+		}
+		complete_tooltip = {
+			if = {
+				limit = { has_country_flag = TUR_turkish_chain_of_command1 }
+				swap_ideas = {
+					remove_idea = TUR_german_military_command_0
+					add_idea = TUR_turkish_military_command
+				}
+			}
+			if = {
+				limit = { has_country_flag = TUR_turkish_chain_of_command2 }
+				swap_ideas = {
+					remove_idea = TUR_german_military_command
+					add_idea = TUR_turkish_military_command
+				}
+			}
+			reverse_add_opinion_modifier = {
+				target = GER
+				modifier = TUR_disregarded_our_advisors
+			}
+		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = TUR_german_military_command
-				add_idea = TUR_turkish_military_command
+			if = {
+				limit = { has_idea = TUR_german_military_command_0 }
+				swap_ideas = {
+					remove_idea = TUR_german_military_command_0
+					add_idea = TUR_turkish_military_command
+				}
+				set_country_flag = TUR_turkish_chain_of_command1
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = TUR_german_military_command
+					add_idea = TUR_turkish_military_command
+				}
+				set_country_flag = TUR_turkish_chain_of_command2
 			}
 			reverse_add_opinion_modifier = {
 				target = GER
@@ -10784,153 +10697,31 @@ focus_tree = {
 		ai_will_do = { base = 30 }
 	}
 	focus = {
-		id = TUR_german_investments_in_anatolia
-		icon = GFX_goal_generic_construct_infrastructure
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
-			FOCUS_FILTER_HISTORICAL
-		}
-		cost = 5
-		prerequisite = { focus = TUR_german_ottoman_alliance }
-		x = -2
-		y = 1
-		relative_position_id = TUR_german_ottoman_alliance
-		available = {
-			OR = {
-				owns_state = 49
-				owns_state = 349
-				owns_state = 1030
-				owns_state = 346
-				owns_state = 348
-				owns_state = 1033
-				owns_state = 1024
-				owns_state = 881
-				owns_state = 1025
-				owns_state = 350
-			}
-		}
-		completion_reward = {
-			every_state = {
-				limit = {
-					OR = {
-						state = 49
-						state = 349
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				add_dynamic_modifier = { modifier = TUR_german_investments_in_anatolia days = 365 }
-				add_manpower = 3000
-			}
-			every_state = {
-				limit = {
-					OR = {
-						state = 346
-						state = 348
-						state = 1033
-						state = 1024
-						state = 881
-						state = 1025
-						state = 350
-						state = 1030
-					}
-				}
-				add_dynamic_modifier = { modifier = TUR_german_investments_in_anatolia days = 365 }
-				add_manpower = 1500
-			}
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
-		id = TUR_confiscate_entente_investments
-		icon = GFX_focus_DEN_heavy_regulations
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_OTTOMAN_DEBT
-			FOCUS_FILTER_INDUSTRY
-			FOCUS_FILTER_HISTORICAL
-		}
-		prerequisite = { focus = TUR_german_investments_in_anatolia }
-		x = -1
-		y = 1
-		relative_position_id = TUR_german_investments_in_anatolia
-		completion_reward = {
-			if = {
-				limit = {
-					OR = {
-						has_idea = TUR_OPDA_idea
-						has_idea = TUR_OPDA_idea_2
-						has_idea = TUR_OPD_idea
-						has_idea = TUR_OPD_idea_2
-						has_idea = TUR_OPD_idea_3
-					}
-				}
-				custom_effect_tooltip = TUR_remove_debt_5_for_majors_at_war_with
-				hidden_effect = {
-					every_country = {
-						limit = {
-							has_war_with = TUR
-							is_major = yes
-						}
-						country_event = ottoman.179
-					}
-				}
-			}
-			if = {
-				limit = { has_completed_focus = TUR_french_investments_in_syria }
-				hidden_effect = {
-					553 = {
-						add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}
-					}
-					554 = {
-						add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}
-					}
-				}
-			}
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
-		id = TUR_import_german_grain
+		id = TUR_import_ukrainian_grain
 		icon = GFX_focus_generic_wheat
 		search_filters = {
 		}
 		cost = 5
 		prerequisite = { focus = TUR_german_ottoman_alliance }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = TUR_german_ottoman_alliance
 		available = {
 			has_idea = TUR_naval_blockade
-			any_state = {
-				AND = {
-					OR = {
-						state = 201
-						state = 198
-						state = 202
-						state = 193
-						state = 259
-						state = 197
-						state = 226
-					}
-					OR = {
-						is_owned_by = TUR
-						is_owned_by = GER
-						owner = { is_subject_of = GER }
-					}
-				}
+			count_triggers = {
+				amount = 5
+				192 = { controller = { is_in_faction_with = ROOT } }
+				201 = { controller = { is_in_faction_with = ROOT } }
+				202 = { controller = { is_in_faction_with = ROOT } }
+				198 = { controller = { is_in_faction_with = ROOT } }
+				197 = { controller = { is_in_faction_with = ROOT } }
+				193 = { controller = { is_in_faction_with = ROOT } }
+				259 = { controller = { is_in_faction_with = ROOT } }
+				226 = { controller = { is_in_faction_with = ROOT } }
+				93 = { controller = { is_in_faction_with = ROOT } }
+				196 = { controller = { is_in_faction_with = ROOT } }
+				221 = { controller = { is_in_faction_with = ROOT } }
+				226 = { controller = { is_in_faction_with = ROOT } }
 			}
 			OR = {
 				TUR_has_land_connection_GER = yes
@@ -10939,11 +10730,11 @@ focus_tree = {
 		}
 		complete_tooltip = {
 			if = {
-				limit = { has_country_flag = TUR_import_german_grain1 }
+				limit = { has_country_flag = TUR_import_ukrainian_grain1 }
 				custom_effect_tooltip = TUR_naval_blockade_reduce_10
 			}
 			if = {
-				limit = { has_country_flag = TUR_import_german_grain2 }
+				limit = { has_country_flag = TUR_import_ukrainian_grain2 }
 				remove_ideas = TUR_naval_blockade
 			}
 		}
@@ -10963,16 +10754,16 @@ focus_tree = {
 						add_ideas = TUR_naval_blockade_dummy
 					}
 				}
-				set_country_flag = TUR_import_german_grain1
+				set_country_flag = TUR_import_ukrainian_grain1
 			}
 			else_if = {
 				limit = { check_variable = { TUR_naval_blockade < 11 } }
 				remove_ideas = TUR_naval_blockade
-				set_country_flag = TUR_import_german_grain2
+				set_country_flag = TUR_import_ukrainian_grain2
 			}
 			hidden_effect = {
 				add_to_variable = { TUR_naval_blockade = -10 }
-				set_variable = { global.TUR_import_german_grain_naval_blockade = TUR_naval_blockade }
+				set_variable = { global.TUR_import_ukrainian_grain_naval_blockade = TUR_naval_blockade }
 				every_country = {
 					limit = { has_idea = TUR_great_famine_of_syria }
 					country_event = ottoman.155
@@ -10992,9 +10783,9 @@ focus_tree = {
 			focus = TUR_our_traditional_allies
 			focus = TUR_german_ottoman_alliance
 		}
-		x = 4
-		y = 1
-		relative_position_id = TUR_our_traditional_allies
+		x = -2
+		y = 0
+		relative_position_id = TUR_arrival_of_yildirim_army_group
 		available = {
 			OR = {
 				controls_state = 554
@@ -11092,219 +10883,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = TUR_canakkale_gecilmez
-		icon = GFX_focus_generic_coastal_fort
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-		prerequisite = {
-			focus = TUR_our_traditional_allies
-			focus = TUR_german_ottoman_alliance
-		}
-		x = 5
-		y = 2
-		relative_position_id = TUR_our_traditional_allies
-		available = {
-			OR = {
-				controls_state = 860
-				controls_state = 861
-			}
-		}
-		complete_tooltip = {
-			860 = {
-				add_dynamic_modifier = {
-					modifier = TUR_defence_in_dardanelles
-					scope = TUR
-					days = 8095
-				}
-				if = {
-					limit = { ROOT = { has_country_flag = TUR_canakkale_gecilmez1 } }
-					add_building_construction = {
-						type = bunker
-						level = 1
-						instant_build = yes
-						province = 849
-					}
-					add_building_construction = {
-						type = coastal_bunker
-						level = 1
-						instant_build = yes
-						province = 849
-					}
-				}
-			}
-			861 = {
-				add_dynamic_modifier = {
-					modifier = TUR_defence_in_dardanelles
-					scope = TUR
-					days = 8095
-				}
-				if = {
-					limit = { ROOT = { has_country_flag = TUR_canakkale_gecilmez2 } }
-					add_building_construction = {
-						type = bunker
-						level = 1
-						instant_build = yes
-						province = 6864
-					}
-					add_building_construction = {
-						type = coastal_bunker
-						level = 1
-						instant_build = yes
-						province = 6864
-					}
-					add_building_construction = {
-						type = bunker
-						level = 1
-						instant_build = yes
-						province = 9887
-					}
-					add_building_construction = {
-						type = coastal_bunker
-						level = 1
-						instant_build = yes
-						province = 9887
-					}
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_canakkale_gecilmez3 }
-				add_ideas = TUR_desperate_defence_1
-			}
-			if = {
-				limit = { has_country_flag = TUR_hold_baghdad4 }
-				swap_ideas = {
-					remove_idea = TUR_desperate_defence_1
-					add_idea = TUR_desperate_defence_2
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_canakkale_gecilmez5 }
-				activate_mission = TUR_holding_baghdad
-			}
-			custom_effect_tooltip = TUR_retreat_to_aleppo_tt
-		}
-		completion_reward = {
-			every_state = {
-				limit = {
-					OR = {
-						state = 860
-						state = 861
-					}
-				}
-				add_dynamic_modifier = { modifier = TUR_defence_in_dardanelles scope = TUR days = 8095 }
-				if = {
-					limit = { ROOT = { controls_state = 860 } }
-					ROOT = { set_country_flag = TUR_canakkale_gecilmez1 }
-					add_building_construction = {
-						type = bunker
-						level = 1
-						instant_build = yes
-						province = 849
-					}
-					add_building_construction = {
-						type = coastal_bunker
-						level = 1
-						instant_build = yes
-						province = 849
-					}
-				}
-				if = {
-					limit = { ROOT = { controls_state = 861 } }
-					ROOT = { set_country_flag = TUR_canakkale_gecilmez2 }
-					add_building_construction = {
-						type = bunker
-						level = 1
-						instant_build = yes
-						province = 6864
-					}
-					add_building_construction = {
-						type = coastal_bunker
-						level = 1
-						instant_build = yes
-						province = 6864
-					}
-					add_building_construction = {
-						type = bunker
-						level = 1
-						instant_build = yes
-						province = 9887
-					}
-					add_building_construction = {
-						type = coastal_bunker
-						level = 1
-						instant_build = yes
-						province = 9887
-					}
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = TUR_desperate_defence_1
-						has_idea = TUR_desperate_defence_2
-						has_idea = TUR_desperate_defence_3
-					}
-				}
-				set_country_flag = TUR_canakkale_gecilmez3
-				add_ideas = TUR_desperate_defence_1
-			}
-			else_if = {
-				limit = { has_idea = TUR_desperate_defence_1 }
-				set_country_flag = TUR_canakkale_gecilmez4
-				swap_ideas = {
-					remove_idea = TUR_desperate_defence_1
-					add_idea = TUR_desperate_defence_2
-				}
-			}
-			else = {
-				set_country_flag = TUR_canakkale_gecilmez4
-				swap_ideas = {
-					remove_idea = TUR_desperate_defence_2
-					add_idea = TUR_desperate_defence_3
-				}
-			}
-			if = {
-				limit = { any_enemy_country = { NOT = { has_country_flag = TUR_revolting_country } } }
-				set_country_flag = TUR_canakkale_gecilmez5
-				activate_mission = TUR_holding_dardanelles
-			}
-			custom_effect_tooltip = TUR_canakkale_gecilmez_tt
-			add_to_variable = { TUR_aoabe_land_bunker_effectiveness_factor = 0.05 }
-			add_to_variable = { TUR_dh_coastal_bunker_effectiveness_factor = 0.05 }
-		}
-		ai_will_do = {
-			base = 0
-			modifier = {
-				add = 50
-				OR = {
-					860 = {
-						any_neighbor_state = {
-							controller = {
-								has_war_with = ROOT
-							}
-						}
-					}
-					861 = {
-						any_neighbor_state = {
-							controller = {
-								has_war_with = ROOT
-							}
-						}
-					}
-				}
-			}
-			modifier = {
-				add = 10
-				any_country = {
-					has_war_with = ROOT
-					alliance_strength_ratio > 3
-				}
-			}
-		}
-	}
-	focus = {
 		id = TUR_hold_baghdad
 		icon = GFX_goal_generic_construct_military
 		cost = 2
@@ -11315,9 +10893,9 @@ focus_tree = {
 			focus = TUR_our_traditional_allies
 			focus = TUR_german_ottoman_alliance
 		}
-		x = 6
-		y = 1
-		relative_position_id = TUR_our_traditional_allies
+		x = 2
+		y = 0
+		relative_position_id = TUR_arrival_of_yildirim_army_group
 		available = { controls_state = 291 }
 		complete_tooltip = {
 			291 = {
@@ -11451,6 +11029,219 @@ focus_tree = {
 							has_war_with = ROOT
 						}
 					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = TUR_canakkale_gecilmez
+		icon = GFX_focus_generic_coastal_fort
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = {
+			focus = TUR_our_traditional_allies
+			focus = TUR_german_ottoman_alliance
+		}
+		x = 4
+		y = 0
+		relative_position_id = TUR_arrival_of_yildirim_army_group
+		available = {
+			OR = {
+				controls_state = 860
+				controls_state = 861
+			}
+		}
+		complete_tooltip = {
+			860 = {
+				add_dynamic_modifier = {
+					modifier = TUR_defence_in_dardanelles
+					scope = TUR
+					days = 8095
+				}
+				if = {
+					limit = { ROOT = { has_country_flag = TUR_canakkale_gecilmez1 } }
+					add_building_construction = {
+						type = bunker
+						level = 1
+						instant_build = yes
+						province = 849
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						instant_build = yes
+						province = 849
+					}
+				}
+			}
+			861 = {
+				add_dynamic_modifier = {
+					modifier = TUR_defence_in_dardanelles
+					scope = TUR
+					days = 8095
+				}
+				if = {
+					limit = { ROOT = { has_country_flag = TUR_canakkale_gecilmez2 } }
+					add_building_construction = {
+						type = bunker
+						level = 1
+						instant_build = yes
+						province = 6864
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						instant_build = yes
+						province = 6864
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						instant_build = yes
+						province = 9887
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						instant_build = yes
+						province = 9887
+					}
+				}
+			}
+			if = {
+				limit = { has_country_flag = TUR_canakkale_gecilmez3 }
+				add_ideas = TUR_desperate_defence_1
+			}
+			if = {
+				limit = { has_country_flag = TUR_canakkale_gecilmez4 }
+				swap_ideas = {
+					remove_idea = TUR_desperate_defence_1
+					add_idea = TUR_desperate_defence_2
+				}
+			}
+			if = {
+				limit = { has_country_flag = TUR_canakkale_gecilmez5 }
+				activate_mission = TUR_holding_the_dardanelles
+			}
+			custom_effect_tooltip = TUR_retreat_to_aleppo_tt
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 860
+						state = 861
+					}
+				}
+				add_dynamic_modifier = { modifier = TUR_defence_in_dardanelles scope = TUR days = 8095 }
+				if = {
+					limit = { ROOT = { controls_state = 860 } }
+					ROOT = { set_country_flag = TUR_canakkale_gecilmez1 }
+					add_building_construction = {
+						type = bunker
+						level = 1
+						instant_build = yes
+						province = 849
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						instant_build = yes
+						province = 849
+					}
+				}
+				if = {
+					limit = { ROOT = { controls_state = 861 } }
+					ROOT = { set_country_flag = TUR_canakkale_gecilmez2 }
+					add_building_construction = {
+						type = bunker
+						level = 1
+						instant_build = yes
+						province = 6864
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						instant_build = yes
+						province = 6864
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						instant_build = yes
+						province = 9887
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						instant_build = yes
+						province = 9887
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = TUR_desperate_defence_1
+						has_idea = TUR_desperate_defence_2
+						has_idea = TUR_desperate_defence_3
+					}
+				}
+				set_country_flag = TUR_canakkale_gecilmez3
+				add_ideas = TUR_desperate_defence_1
+			}
+			else_if = {
+				limit = { has_idea = TUR_desperate_defence_1 }
+				set_country_flag = TUR_canakkale_gecilmez4
+				swap_ideas = {
+					remove_idea = TUR_desperate_defence_1
+					add_idea = TUR_desperate_defence_2
+				}
+			}
+			else = {
+				set_country_flag = TUR_canakkale_gecilmez4
+				swap_ideas = {
+					remove_idea = TUR_desperate_defence_2
+					add_idea = TUR_desperate_defence_3
+				}
+			}
+			if = {
+				limit = { any_enemy_country = { NOT = { has_country_flag = TUR_revolting_country } } }
+				set_country_flag = TUR_canakkale_gecilmez5
+				activate_mission = TUR_holding_the_dardanelles
+			}
+			custom_effect_tooltip = TUR_canakkale_gecilmez_tt
+			add_to_variable = { TUR_aoabe_land_bunker_effectiveness_factor = 0.05 }
+			add_to_variable = { TUR_dh_coastal_bunker_effectiveness_factor = 0.05 }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				OR = {
+					860 = {
+						any_neighbor_state = {
+							controller = {
+								has_war_with = ROOT
+							}
+						}
+					}
+					861 = {
+						any_neighbor_state = {
+							controller = {
+								has_war_with = ROOT
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				add = 10
+				any_country = {
+					has_war_with = ROOT
+					alliance_strength_ratio > 3
 				}
 			}
 		}

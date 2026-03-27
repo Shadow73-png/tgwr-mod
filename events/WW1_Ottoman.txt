@@ -6187,21 +6187,15 @@ country_event = { #demand greece to give aegean
 	option = {
 		name = ottoman.49.a
 		effect_tooltip = {
-			every_state = {
+			every_owned_state = {
 				limit = {
 					OR = {
-						if = {
-							limit = { GRE = { owns_state = 790 } }
-							state = 790
-							state = 975
-							state = 974
-						}
-						if = {
-							limit = { GRE = { NOT = { owns_state = 790 } } }
-							state = 900
-						}
+						state = 790
+						state = 975
+						state = 974
 						state = 164
 						state = 899
+						state = 900
 					}
 					is_controlled_by = GRE
 				}
@@ -6214,21 +6208,15 @@ country_event = { #demand greece to give aegean
 	option = {
 		name = ottoman.49.b
 		effect_tooltip = {
-			every_state = {
+			every_owned_state = {
 				limit = {
 					OR = {
-						if = {
-							limit = { GRE = { owns_state = 790 } }
-							state = 790
-							state = 975
-							state = 974
-						}
-						if = {
-							limit = { GRE = { NOT = { owns_state = 790 } } }
-							state = 900
-						}
+						state = 790
+						state = 975
+						state = 974
 						state = 164
 						state = 899
+						state = 900
 					}
 					is_controlled_by = GRE
 				}
@@ -6256,19 +6244,14 @@ country_event = { #demand greece to give aegean greece agrees
 		name = ottoman.50.a
 		every_state = {
 			limit = {
+				is_owned_by = GRE
 				OR = {
-					if = {
-						limit = { GRE = { owns_state = 790 } }
-						state = 790
-						state = 975
-						state = 974
-					}
-					if = {
-						limit = { GRE = { NOT = { owns_state = 790 } } }
-						state = 900
-					}
+					state = 790
+					state = 975
+					state = 974
 					state = 164
 					state = 899
+					state = 900
 				}
 				is_controlled_by = GRE
 			}
@@ -6290,19 +6273,14 @@ country_event = { #demand greece to give aegean greece dmz proposal
 		effect_tooltip = {
 			every_state = {
 				limit = {
+					is_owned_by = GRE
 					OR = {
-						if = {
-							limit = { GRE = { owns_state = 790 } }
-							state = 790
-							state = 975
-							state = 974
-						}
-						if = {
-							limit = { GRE = { NOT = { owns_state = 790 } } }
-							state = 900
-						}
+						state = 790
+						state = 975
+						state = 974
 						state = 164
 						state = 899
+						state = 900
 					}
 					is_controlled_by = GRE
 				}
@@ -6537,19 +6515,14 @@ country_event = { #demand greece to give aegean greece dmz proposal agree
 		name = ottoman.53.a
 		every_state = {
 			limit = {
+				is_owned_by = GRE
 				OR = {
-					if = {
-						limit = { GRE = { owns_state = 790 } }
-						state = 790
-						state = 974
-						state = 975
-					}
-					if = {
-						limit = { GRE = { NOT = { owns_state = 790 } } }
-						state = 900
-					}
+					state = 790
+					state = 975
+					state = 974
 					state = 164
 					state = 899
+					state = 900
 				}
 				is_controlled_by = GRE
 			}
@@ -11602,8 +11575,8 @@ country_event = { #german grain arrives
 		if = {
 			limit = {
 				OR = {
-					check_variable = { global.TUR_import_german_grain_naval_blockade > 10 }
-					check_variable = { global.TUR_import_german_grain_naval_blockade = 10 }
+					check_variable = { global.TUR_import_ukrainian_grain_naval_blockade > 10 }
+					check_variable = { global.TUR_import_ukrainian_grain_naval_blockade = 10 }
 				}
 			}
 			custom_effect_tooltip = TUR_blocked_famine_reduce_10
@@ -11622,7 +11595,7 @@ country_event = { #german grain arrives
 			}
 		}
 		else_if = {
-			limit = { check_variable = { global.TUR_import_german_grain_naval_blockade = 9 } }
+			limit = { check_variable = { global.TUR_import_ukrainian_grain_naval_blockade = 9 } }
 			custom_effect_tooltip = TUR_blocked_famine_reduce_9
 			add_to_variable = { global.TUR_gfs_supply_consumption_factor = 0.045 }
 			add_to_variable = { global.TUR_gfs_stability_factor = -0.045 }
@@ -11639,7 +11612,7 @@ country_event = { #german grain arrives
 			}
 		}
 		else_if = {
-			limit = { check_variable = { global.TUR_import_german_grain_naval_blockade = 8 } }
+			limit = { check_variable = { global.TUR_import_ukrainian_grain_naval_blockade = 8 } }
 			custom_effect_tooltip = TUR_blocked_famine_reduce_8
 			add_to_variable = { global.TUR_gfs_supply_consumption_factor = 0.04 }
 			add_to_variable = { global.TUR_gfs_stability_factor = -0.04 }
@@ -11656,7 +11629,7 @@ country_event = { #german grain arrives
 			}
 		}
 		else_if = {
-			limit = { check_variable = { global.TUR_import_german_grain_naval_blockade = 7 } }
+			limit = { check_variable = { global.TUR_import_ukrainian_grain_naval_blockade = 7 } }
 			custom_effect_tooltip = TUR_blocked_famine_reduce_7
 			add_to_variable = { global.TUR_gfs_supply_consumption_factor = 0.035 }
 			add_to_variable = { global.TUR_gfs_stability_factor = -0.035 }
@@ -11673,7 +11646,7 @@ country_event = { #german grain arrives
 			}
 		}
 		else_if = {
-			limit = { check_variable = { global.TUR_import_german_grain_naval_blockade = 6 } }
+			limit = { check_variable = { global.TUR_import_ukrainian_grain_naval_blockade = 6 } }
 			custom_effect_tooltip = TUR_blocked_famine_reduce_6
 			add_to_variable = { global.TUR_gfs_supply_consumption_factor = 0.03 }
 			add_to_variable = { global.TUR_gfs_stability_factor = -0.03 }
@@ -11690,7 +11663,7 @@ country_event = { #german grain arrives
 			}
 		}
 		else_if = {
-			limit = { check_variable = { global.TUR_import_german_grain_naval_blockade = 5 } }
+			limit = { check_variable = { global.TUR_import_ukrainian_grain_naval_blockade = 5 } }
 			custom_effect_tooltip = TUR_blocked_famine_reduce_5
 			add_to_variable = { global.TUR_gfs_supply_consumption_factor = 0.025 }
 			add_to_variable = { global.TUR_gfs_stability_factor = -0.025 }
@@ -11707,7 +11680,7 @@ country_event = { #german grain arrives
 			}
 		}
 		else_if = {
-			limit = { check_variable = { global.TUR_import_german_grain_naval_blockade = 4 } }
+			limit = { check_variable = { global.TUR_import_ukrainian_grain_naval_blockade = 4 } }
 			custom_effect_tooltip = TUR_blocked_famine_reduce_4
 			add_to_variable = { global.TUR_gfs_supply_consumption_factor = 0.02 }
 			add_to_variable = { global.TUR_gfs_stability_factor = -0.02 }
@@ -11724,7 +11697,7 @@ country_event = { #german grain arrives
 			}
 		}
 		else_if = {
-			limit = { check_variable = { global.TUR_import_german_grain_naval_blockade = 3 } }
+			limit = { check_variable = { global.TUR_import_ukrainian_grain_naval_blockade = 3 } }
 			custom_effect_tooltip = TUR_blocked_famine_reduce_3
 			add_to_variable = { global.TUR_gfs_supply_consumption_factor = 0.015 }
 			add_to_variable = { global.TUR_gfs_stability_factor = -0.015 }
@@ -11741,7 +11714,7 @@ country_event = { #german grain arrives
 			}
 		}
 		else_if = {
-			limit = { check_variable = { global.TUR_import_german_grain_naval_blockade = 2 } }
+			limit = { check_variable = { global.TUR_import_ukrainian_grain_naval_blockade = 2 } }
 			custom_effect_tooltip = TUR_blocked_famine_reduce_2
 			add_to_variable = { global.TUR_gfs_supply_consumption_factor = 0.01 }
 			add_to_variable = { global.TUR_gfs_stability_factor = -0.05 }
@@ -11758,7 +11731,7 @@ country_event = { #german grain arrives
 				}
 		}
 		else_if = {
-			limit = { check_variable = { global.TUR_import_german_grain_naval_blockade = 1 } }
+			limit = { check_variable = { global.TUR_import_ukrainian_grain_naval_blockade = 1 } }
 			custom_effect_tooltip = TUR_blocked_famine_reduce_1
 			add_to_variable = { global.TUR_gfs_supply_consumption_factor = 0.005 }
 			add_to_variable = { global.TUR_gfs_stability_factor = -0.005 }
@@ -19852,6 +19825,45 @@ country_event = { #paralysing opposition
 			}
 		}
 		custom_effect_tooltip = TUR_paralyzing_opposition_instant_desc
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = { #asian corps
+	id = ottoman.304
+	title = ottoman.304.t
+	desc = ottoman.304.d
+	picture = GFX_report_event_spr_army_of_africa
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ottoman.304.a
+		division_template = {
+			name = "Indian Corps"
+			division_names_group = TUR_INF_01
+			is_locked = yes
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				cavalry = { x = 1 y = 1 }
+				camelry = { x = 1 y = 2 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+				field_gun = { x = 0 y = 2 }
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 341 }
+			create_unit = { division = "name = \"5th (Mhow) Division\" division_template = \"Indian Corps\" start_experience_factor = 0.4" owner = TUR }
+			create_unit = { division = "name = \"8th (Lucknow) Division\" division_template = \"Indian Corps\" start_experience_factor = 0.4" owner = TUR }
+			create_unit = { division = "name = \"9th (Secunderabad) Division\" division_template = \"Indian Corps\" start_experience_factor = 0.4" owner = TUR }
+			create_unit = { division = "name = \"7th (Meerut) Division\" division_template = \"Indian Corps\" start_experience_factor = 0.2" owner = TUR }
+			create_unit = { division = "name = \"6th (Poona) Division\" division_template = \"Indian Corps\" start_experience_factor = 0.2" owner = TUR }
+		}
 		ai_chance = { base = 100 }
 	}
 }
