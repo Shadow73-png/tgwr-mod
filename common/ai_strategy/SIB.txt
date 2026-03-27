@@ -441,3 +441,50 @@ RCW_special_role_ratio = {
 		value = 100
 	}
 }
+
+KOM_rush_kazan = {
+	allowed = {
+		tag = KOM
+	}
+	enable = {
+		has_active_mission = RCW_capture_the_gold_reserves
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_unit_request
+		state = 249
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		state = 249
+		priority = 100
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = garrison
+		value = -1000
+	}
+	ai_strategy = {
+		type = garrison_reinforcement_priority
+		value = -1000
+	}
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = SIB
+		value = 1
+	}
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = ORE
+		value = 1
+	}
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = UCH
+		value = 1
+	}
+}

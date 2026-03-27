@@ -60,6 +60,7 @@ operations = {
 				420 = { set_border_war = no }
 				877 = { set_border_war = no }
 				1212 = { set_border_war = no }
+				1245 = { set_border_war = no }
 			}
 			start_border_war = {
 				change_state_after_war = no
@@ -1711,7 +1712,10 @@ RUS_civil_war = {
 			}
 			if = {
 				limit = {
-					tag = SIB 
+					OR = {
+						tag = SIB
+						tag = KOM
+					}				
 				}
 				OR = {
 					has_completed_focus = SIB_national_constituent_assembly
@@ -1811,10 +1815,16 @@ RUS_civil_war = {
 		allowed = {
 			NOT = {
 				tag = SRA
+				tag = SOV
 			}
 		}
 		available = {
 			has_war_with = SOV
+		}
+		visible = {
+			NOT = {
+				has_government = communism
+			}
 		}
 		cost = 10
 		
