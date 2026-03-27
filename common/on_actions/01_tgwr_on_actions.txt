@@ -2860,7 +2860,6 @@
 								ruling_only = yes
 							}
 							has_idea = FRA_jacques_i
-							has_idea = FRA_charles_xii
 						}
 						has_monarchy = yes
 					}
@@ -2929,7 +2928,6 @@
 									ruling_only = yes
 								}
 								has_idea = FRA_jacques_i
-								has_idea = FRA_charles_xii
 							}
 						}
 					}
@@ -4327,7 +4325,6 @@
 								ruling_only = yes
 							}
 							has_idea = FRA_jacques_i
-							has_idea = FRA_charles_xii
 						}
 						has_monarchy = yes
 					}
@@ -4396,7 +4393,6 @@
 									ruling_only = yes
 								}
 								has_idea = FRA_jacques_i
-								has_idea = FRA_charles_xii
 							}
 						}
 					}
@@ -4868,9 +4864,6 @@
 				}
 				set_state_flag = chinese_core_state
 			}
-			#retiring country selection secren characters
-			HUN = { retire_character = HUN_franz_joseph_i }
-			FRA = { retire_character = FRA_armand_fallieres }
 			if = {
 				limit = {
 					has_start_date < 1914.1.1
@@ -5203,6 +5196,35 @@
 					}
 					RUS = {
 						set_cosmetic_tag = RUS_absolutism
+					}
+				}
+			}
+			SIB = {
+				if = {
+					limit = {
+						has_game_rule = {
+							rule = SIB_ai_behavior
+							option = RANDOM
+						}
+					}
+					random_list = {
+						50 = { set_country_flag = SIB_AI_HISTORICAL }
+						25 = { set_country_flag = AI_COALITION }
+						25 = { set_country_flag = AI_ESER }
+					}
+				}
+			}
+			KOM = {
+				if = {
+					limit = {
+						has_game_rule = {
+							rule = KOM_ai_behavior
+							option = RANDOM
+						}
+					}
+					random_list = {
+						50 = { set_country_flag = AI_COALITION }
+						50 = { set_country_flag = AI_ESER }
 					}
 				}
 			}
@@ -5827,6 +5849,9 @@
 							ideology = communism
 							popularity = 0.25
 						}
+						add_ideas = RCW_decossackization
+						
+						
 						retire_character = RUS_alexei_kaledin
 						retire_character = DON_anatoliy_nazarov
 						set_country_flag = DON_soviet_tag
@@ -5838,6 +5863,8 @@
 						copy_SOV_army_idea = yes
 						remove_ideas = {
 							standing_alone
+							RCW_inogorodnije_excluded
+							RCW_inogorodnije_included
 						}			
 						division_template = {
 							name = "Krasnaya Gvardiya"
@@ -6559,6 +6586,48 @@
 					annex_country = {
 						target = RMO
 						transfer_troops = no
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = GUD
+					is_subject = no
+					has_war_with = MOR
+				}
+				MOR = {
+					annex_country = {
+						target = GUD
+						transfer_troops = no
+					}
+					if = {
+						limit = {
+							is_subject = yes
+						}
+						SPR = {
+							if = {
+								limit = {
+									OR = {
+										has_subject = PREV
+										has_idea = SPR_pact_of_cartagena_1907
+									}
+								}
+								transfer_state = 807
+								transfer_state = 1235
+							}
+						}
+						FRA = {
+							if = {
+								limit = {
+									OR = {
+										has_subject = PREV
+										has_idea = SPR_pact_of_cartagena_1907
+									}
+								}
+								transfer_state = 1236
+								transfer_state = 1234
+							}
+						}
 					}
 				}
 			}
@@ -8262,6 +8331,90 @@
 				}
 				set_cosmetic_tag = RMO
 			}
+			if = {
+				limit = {
+					original_tag = SOM
+				}
+				if = {
+					limit = {
+						ENG = {
+							owns_state = 1039
+							ETH = {
+								owns_state = 271
+								NOT = {
+									has_war_with =  PREV
+									has_country_flag = great_war_loser
+								}
+							}
+						}
+					}
+					ETH = { transfer_state = 1039 }
+				}
+				# Abyssinia
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 657
+							state = 1039
+							state = 1238
+						}
+					}
+					271 = {
+						OWNER = {
+							transfer_state = PREV.PREV
+						}
+					}
+				}
+				# British Somaliland
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 269
+							state = 1041
+							state = 1042
+						}
+					}
+					if = {
+						limit = {
+							ENG = {
+								has_civil_war = no
+								NOT = {
+									has_country_flag = great_war_loser
+								}
+							}
+						}
+						transfer_state_to = ENG
+					}
+					else = {
+						269 = {
+							OWNER = {
+								transfer_state = PREV.PREV
+							}
+						}
+					}
+				}
+				# Italian Somaliland
+				# if = {
+				# 	limit = {
+				# 		owns_state = 1040
+				# 	}
+				# 	889 = {
+				# 		owner = {
+				# 			transfer_state = 1040
+				# 		}
+				# 	}
+				# }
+				# if = {	
+				# 	limit = {
+				# 		owns_state = 1038
+				# 	}
+				# 	888 = {
+				# 		owner = {
+				# 			transfer_state = 1038
+				# 		}
+				# 	}
+				# }
+			}
 			# Prevent vanilla peace for Austria-Balkan War
 			if = {
 				limit = {
@@ -9417,6 +9570,7 @@
 								has_cosmetic_tag = STV_communism
 								has_cosmetic_tag = TRC
 								has_cosmetic_tag = RUS_state
+								has_cosmetic_tag = SUCH
 								has_cosmetic_tag = POLITCENTRE
 								has_cosmetic_tag = PRI
 								has_cosmetic_tag = PRI_communism
@@ -9455,34 +9609,28 @@
 					}
 					else_if = {
 						limit = {
-							tag = SIB								
+							tag = SIB
 						}
 						if = {
 							limit = {
 								has_cosmetic_tag = SIB
-							}
-							set_cosmetic_tag = SIB_communism
-						}			
-						if = {
-							limit = {
-								has_cosmetic_tag = RUS_state																	
 							}
 							if = {
 								limit = {
 									has_country_flag = POLITCENTRE
 								}
 								set_cosmetic_tag = POLITCENTRE
-								else_if = {
-									limit = {
-										has_country_flag = SIB_KOM_unification
-									}						
-									set_cosmetic_tag = RUS_state_communism
-									else = {
-										set_cosmetic_tag = SIB_communism
-									}
+							}
+							else_if = {
+								limit = { 
+									has_country_flag = SIB_KOM_unification
 								}
-							}				
-						}				
+								set_cosmetic_tag = SUCH
+							}
+							else = {
+								set_cosmetic_tag = SIB_communism
+							}
+						}		
 					}
 					else_if = {
 						limit = {
@@ -10251,9 +10399,6 @@
 						}	
 						if = {
 							limit = {
-								NOT = {
-									has_cosmetic_tag = RUS_socialism
-								}
 								OR = {
 									AND = {
 										has_cosmetic_tag = POLITCENTRE
@@ -10261,14 +10406,18 @@
 											has_government = democratic
 										}
 									}
-									has_cosmetic_tag = RUS_state_communism
+									has_cosmetic_tag = SUCH
 									AND = {
 										has_cosmetic_tag = SIB_communism
-										has_country_flag = RUS_state
+										has_country_flag = RUS_state_flag
 									}
 								}																
 							}
 							set_cosmetic_tag = RUS_state
+							else_if = {
+								limit = { has_cosmetic_tag = RUS_socialism }
+								set_cosmetic_tag = RUS_federation
+							}
 							else_if = {
 								limit = { has_cosmetic_tag = SIB_communism }
 								set_cosmetic_tag = SIB
@@ -10971,6 +11120,42 @@
 					drop_cosmetic_tag = yes
 					retire_ideology_leader = democratic
 					retire_ideology_leader = communism
+				}
+				else_if = {
+					limit = {
+						original_tag = RUS						
+					}
+					if = {
+						limit = {
+							tag = SIB
+						}
+						if = {
+							limit = {
+								has_country_flag = POLITCENTRE
+								NOT = { has_cosmetic_tag = POLITCENTRE }
+							}
+							set_cosmetic_tag = POLITCENTRE
+						}		
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						original_tag = RUS						
+					}
+					if = {
+						limit = {
+							tag = SIB
+						}
+						if = {
+							limit = {
+								has_cosmetic_tag = POLITCENTRE
+								NOT = { has_government = communism }
+							}
+							set_cosmetic_tag = RUS_state
+						}		
+					}
 				}
 			}
 			if = {
@@ -12191,6 +12376,29 @@
 				}
 				ROOT = {
 					country_event = ww1_china.303
+				}
+			}
+			# Battle of Tiznit
+			if = {
+				limit = {
+					has_start_date < 1914.1.1
+					ROOT = {
+						has_war_with = GUD
+					}
+					FROM.FROM = {
+						state = 1237
+					}
+				}
+				every_country = {
+					limit = {
+						any_owned_state = {
+							region = 182
+						}
+					}
+					country_event = {
+						id = ww1_morocco.88
+						hours = 3
+					}
 				}
 			}
 		}

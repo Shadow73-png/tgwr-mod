@@ -142,3 +142,75 @@ RUS_foreign_investments_decision_category = {
 	allowed = { tag = RUS }
 	priority = 999
 }
+
+RCW_terrtorial_management = {
+	icon = GFX_decision_category_SOV_civil_war
+
+	allowed = {
+		original_tag = RUS
+	}
+    priority = 200
+	visible = {
+
+	}
+	on_map_area = {
+		target_array = global.RCW_core_states_array
+		target_trigger = {
+			FROM = {
+				RCW_core_states_valid_targer = yes
+			}
+		}
+		name = possible_RCW_core_states
+		zoom = 100
+	}
+	on_map_area = {
+		target_array = global.RCW_non_core_states_array
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_owned_by = ROOT }
+				OWNER = {
+					is_russian_tag = yes
+					has_war_with = ROOT
+				}
+			}
+		}
+		name = possible_RCW_claim_states
+		zoom = 100
+	}
+}
+
+RUS_reforms_decision_category = {
+	icon = GFX_decision_category_generic_political_actions
+
+	allowed = { tag = RUS }
+	priority = 1003
+}
+
+RUS_state_council_gui_decision_category = {
+	icon = usa_congress
+
+	allowed = { tag = RUS }
+	priority = 1001
+
+	scripted_gui = RUS_law_state_council
+}
+
+RUS_parliament_gui_decision_category = {
+	icon = usa_congress
+
+	allowed = { tag = RUS }
+	visible = {
+
+	}
+	priority = 1000
+
+	scripted_gui = RUS_parliament_gui
+}
+
+RUS_foreign_investments_decision_category = {
+	icon = GFX_decision_category_gre_paying_ifc_debt
+
+	allowed = { tag = RUS }
+	priority = 999
+}

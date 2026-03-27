@@ -1161,11 +1161,19 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_russia.49.a
-		RUS = {
-			transfer_state = 419
-			transfer_state = 420
-			transfer_state = 877
-			transfer_state = 1212
+		PER = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 419
+						state = 420
+						state = 877
+						state = 1212
+						state = 1245
+					}				
+				}
+				transfer_state_to = RUS
+			}
 		}
 		add_ai_strategy = {
 			type = alliance
@@ -1746,6 +1754,9 @@ country_event = {
 		1212 = {
 			set_border_war = yes
 		}
+		1245 = {
+			set_border_war = yes
+		}
 		ai_chance = {
 			factor = 100
 		}
@@ -1803,10 +1814,19 @@ country_event = {
 			416 = {
 				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
+			1242 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
+			1243 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
 			417 = {
-					add_dynamic_modifier = { modifier = per_russian_sphere  }
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
 			418 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
+			1241 = {
 				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
 			420 = {
@@ -1842,6 +1862,7 @@ country_event = {
 		add_state_claim = 419
 		add_state_claim = 877
 		add_state_claim = 1212
+		add_state_claim = 1245
 		877 = {
 			add_manpower = -1200
 		}
@@ -1861,10 +1882,19 @@ country_event = {
 			416 = {
 				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
+			1242 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
+			1243 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
 			417 = {
-					add_dynamic_modifier = { modifier = per_russian_sphere  }
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
 			418 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
+			1241 = {
 				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
 			420 = {
@@ -1908,6 +1938,9 @@ country_event = {
 			1212 = {
 				set_border_war = no
 			}
+			1245 = {
+				set_border_war = no
+			}
 		}
 		ai_chance = {
 			factor = 100
@@ -1947,10 +1980,18 @@ country_event = {
 			category = land_doctrine
 			cost_reduction = 0.5
 		}
-		PER = {
-			transfer_state = 877
-			transfer_state = 1212
-			transfer_state = 419
+		RUS = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 877
+						state = 1212
+						state = 1245
+						state = 419
+					}
+				}
+				transfer_state_to = PER
+			}
 		}
 		hidden_effect = {
 			419 = {
@@ -1963,6 +2004,9 @@ country_event = {
 				set_border_war = no
 			}
 			1212 = {
+				set_border_war = no
+			}
+			1245 = {
 				set_border_war = no
 			}
 		}
@@ -2190,12 +2234,17 @@ country_event = {
 				owns_state = 417
 				owns_state = 421
 				owns_state = 416
+				owns_state = 1242
+				owns_state = 1243
 				owns_state = 266
 				owns_state = 418
+				owns_state = 1241
 				owns_state = 414
+				owns_state = 1244
 				owns_state = 411
 				owns_state = 877
 				owns_state = 1212
+				owns_state = 1245
 			}
 		}
 	}
