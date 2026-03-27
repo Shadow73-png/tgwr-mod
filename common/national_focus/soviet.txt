@@ -227,8 +227,9 @@ focus_tree = {
 							state = 940
 						}						
 					}	
-					transfer_state_to = BSR
-					add_core_of = BSR
+					BSR = {
+						RCW_ROOT_release_PREV = yes
+					}
 				}	
 				hidden_effect = {
 					BSR = {
@@ -1052,7 +1053,7 @@ focus_tree = {
 				}
 				add_ideas = extensive_conscription
 			}			
-			unlock_decision_tooltip = SOV_recruit_militia_centre
+			unlock_decision_tooltip = SOV_recruit_militia_huge
 		}
 		ai_will_do = {
 			factor = 1000
@@ -1103,6 +1104,7 @@ focus_tree = {
 				show_ideas_tooltip = RUS_yuri_danilov_high_command
 			}
 			set_country_flag = sov_recent_military_rehab
+			unlock_decision_tooltip = SOV_recruit_militia_large
 		}
 		ai_will_do = {
 			factor = 100
@@ -1178,6 +1180,7 @@ focus_tree = {
 				}
 			}
 			set_country_flag = sov_recent_military_rehab
+			unlock_decision_tooltip = SOV_recruit_militia_large
 		}
 		ai_will_do = {
 			factor = 80
@@ -1285,7 +1288,7 @@ focus_tree = {
 					}
 				}
 			}
-			unlock_decision_tooltip = SOV_recruit_militia_centre_perm
+			unlock_decision_tooltip = SOV_recruit_militia_big
 			clr_country_flag = sov_recent_military_rehab
 			set_country_flag = sov_recent_military_rehab
 			if = {
@@ -1537,7 +1540,7 @@ focus_tree = {
 					add_idea = SOV_idea_red_army_militia_2
 				}
 			}
-			unlock_decision_tooltip = SOV_recruit_militia_centre_perm
+			unlock_decision_tooltip = SOV_recruit_militia_big
 			clr_country_flag = sov_recent_military_rehab
 			set_country_flag = sov_recent_military_rehab
 		}
@@ -2399,9 +2402,24 @@ focus_tree = {
 					inherit_technology = RUS
 					add_ideas = partial_economic_mobilisation
 					add_ideas = service_by_requirement
+					add_ideas = FER_partisans
 					add_timed_idea = {
 						idea = SRA_opened_mobilization
 						days = 120
+					}
+					random_owned_state = {
+						create_unit = {
+							division = "division_template = \"Krasniye Partizani\" start_experience_factor = 1"
+							count = 3
+							owner = FER
+						}
+					}
+					random_owned_state = {
+						create_unit = {
+							division = "division_template = \"Krasniye Partizani\" start_experience_factor = 1"
+							count = 3
+							owner = FER
+						}
 					}
 				}
 			}
@@ -2648,6 +2666,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 250
+			unlock_decision_category_tooltip = RCW_terrtorial_management
+			set_country_flag = RCW_can_core_states
 			remove_ideas = SOV_idea_unrecognized_government
 			set_party_name = { 
 				ideology = communism
