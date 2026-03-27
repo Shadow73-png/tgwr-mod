@@ -2183,7 +2183,7 @@ country_event = {
 		RUS = {
 			OR = {
 				has_country_flag = great_war_loser
-				has_war_with = RUS
+				is_in_russian_civil_war = yes
 			}
 			OR = {
 				owns_state = 420
@@ -2202,6 +2202,8 @@ country_event = {
 				owns_state = 877
 				owns_state = 1212
 				owns_state = 1245
+				has_subject = MAK
+				has_subject = PER
 			}
 		}
 	}
@@ -2246,6 +2248,11 @@ country_event = {
 				relation = military_access
 				active = no
 			}
+			diplomatic_relation = {
+				country = MAK
+				relation = military_access
+				active = no
+			}
 		}
 		every_owned_state = {
 			limit = {
@@ -2262,6 +2269,53 @@ country_event = {
 			}
             RUS = {
                 remove_state_claim = PREV
+			}
+		}
+		if = {
+			limit = {
+				has_subject = MAK
+			}
+			if = {
+				limit = {
+					country_exists = PER
+				}
+				MAK = {
+					clr_country_flag = protectorate
+					get_current_government_type = yes
+					PER = {
+						set_autonomy = {
+							target = MAK
+							autonomous_state = autonomy_integrated_puppet
+							freedom_level = 0.9
+						}
+					}	
+					restore_previous_government_type = yes
+				}
+			}		
+			else = {
+				end_puppet = MAK
+				every_country = {
+					limit = {
+						has_war_with = MAK
+						NOT = {
+							original_tag = PER
+							has_wargoal_against = PER
+							any_state = {
+								OR = {
+									is_owned_by = PER
+									is_owned_by = PRG
+								}
+								is_claimed_by = PREV			
+							}
+						}
+					}
+					MAK = {
+						white_peace = PREV
+					}
+				}
+				MAK = {
+					leave_faction = yes
+				}
 			}
 		}
 	}
