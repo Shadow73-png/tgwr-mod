@@ -1307,30 +1307,6 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
-		id = ALB_open_up_schools
-		icon = GFX_focus_generic_university_1
-		cost = 10
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_MANPOWER
-			FOCUS_FILTER_HISTORICAL
-		}
-		prerequisite = { focus = ALB_albanian_customs_duty }
-		x = 1
-		y = 1
-		relative_position_id = ALB_albanian_customs_duty
-		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
-		completion_reward = {
-			custom_effect_tooltip = modify_ALB_illiterate_society_tt
-			add_to_variable = {
-				tooltip = research_speed_factor_5
-				ALB_is_research_speed = 0.05
-			}
-			custom_effect_tooltip = empty_space
-		}
-		ai_will_do = { factor = 100 }
-	}
-	focus = {
 		id = ALB_national_bank_of_albania
 		icon = GFX_ALB_national_bank_of_albania
 		cost = 5
@@ -1350,6 +1326,22 @@ focus_tree = {
 			set_variable = { ALB_national_bank_value = 1 }
 		}
 		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_agricultural_imports
+		icon = GFX_focus_generic_agricultural_subsidies
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_albanian_customs_duty }
+		x = 1
+		y = 1
+		relative_position_id = ALB_albanian_customs_duty
+		completion_reward = {
+		}
+		ai_will_do = { factor = 20 }
 	}
 	focus = {
 		id = ALB_land_redistribution
@@ -1376,6 +1368,30 @@ focus_tree = {
 		ai_will_do = { factor = 20 }
 	}
 	focus = {
+		id = ALB_open_up_schools
+		icon = GFX_focus_generic_university_1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_national_bank_of_albania }
+		x = -2
+		y = 1
+		relative_position_id = ALB_national_bank_of_albania
+		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
+		completion_reward = {
+			custom_effect_tooltip = modify_ALB_illiterate_society_tt
+			add_to_variable = {
+				tooltip = research_speed_factor_5
+				ALB_is_research_speed = 0.05
+			}
+			custom_effect_tooltip = empty_space
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
 		id = ALB_print_the_national_currency
 		icon = GFX_focus_generic_printing_press
 		cost = 5
@@ -1398,6 +1414,225 @@ focus_tree = {
 				add_stability = 0.03
 				ALB_improve_national_bank = yes
 			}
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_invite_foreign_engineers
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_albanian_customs_duty }
+		x = 0
+		y = 2
+		relative_position_id = ALB_albanian_customs_duty
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_albanian_cattle_industry
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_land_redistribution }
+		x = 0
+		y = 1
+		relative_position_id = ALB_land_redistribution
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_economic_societies
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_national_bank_of_albania }
+		x = -1
+		y = 2
+		relative_position_id = ALB_national_bank_of_albania
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_invest_in_the_construction_industry
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_economic_societies }
+		x = 0
+		y = 1
+		relative_position_id = ALB_economic_societies
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_mechanized_agriculture
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_albanian_cattle_industry }
+		prerequisite = { focus = ALB_invite_foreign_engineers }
+		x = -1
+		y = 1
+		relative_position_id = ALB_albanian_cattle_industry
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	
+	focus = {
+		id = ALB_headstock_tax
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_economic_societies }
+		prerequisite = { focus = ALB_albanian_cattle_industry }
+		x = 1
+		y = 1
+		relative_position_id = ALB_albanian_cattle_industry
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_open_tobacco_factories
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_invest_in_the_construction_industry }
+		x = -2
+		y = 1
+		relative_position_id = ALB_invest_in_the_construction_industry
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_connecting_albania
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_invest_in_the_construction_industry }
+		x = 0
+		y = 1
+		relative_position_id = ALB_invest_in_the_construction_industry
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_expand_adriatic_ports
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_invest_in_the_construction_industry }
+		x = 2
+		y = 1
+		relative_position_id = ALB_invest_in_the_construction_industry
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_electrification_of_albania
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_invite_foreign_engineers }
+		x = 0
+		y = 1
+		relative_position_id = ALB_invite_foreign_engineers
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_commence_oil_drilling
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_electrification_of_albania }
+		x = -1
+		y = 1
+		relative_position_id = ALB_electrification_of_albania
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_utilizing_our_hydroelectric_potential
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_electrification_of_albania }
+		x = 1
+		y = 1
+		relative_position_id = ALB_electrification_of_albania
+		completion_reward = {
+			
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -1991,14 +2226,14 @@ focus_tree = {
 				limit = { has_country_flag = ALB_freed_abdulhamid }
 				NOT = {
 					has_completed_focus = ALB_recrown_abdulhamid_II
-					has_completed_focus = ALB_romantic_independence
+					has_completed_focus = ALB_idea_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
 			}
 			else = {
 				NOT = {
 					has_completed_focus = ALB_recrown_abdulhamid_II
-					has_completed_focus = ALB_romantic_independence
+					has_completed_focus = ALB_idea_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
 			}
@@ -2029,14 +2264,14 @@ focus_tree = {
 				limit = { has_country_flag = ALB_freed_abdulhamid }
 				NOT = {
 					has_completed_focus = ALB_recrown_abdulhamid_II
-					has_completed_focus = ALB_romantic_independence
+					has_completed_focus = ALB_idea_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
 			}
 			else = {
 				NOT = {
 					has_completed_focus = ALB_recrown_abdulhamid_II
-					has_completed_focus = ALB_romantic_independence
+					has_completed_focus = ALB_idea_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
 			}
@@ -2092,7 +2327,7 @@ focus_tree = {
 			FOCUS_FILTER_WAR_SUPPORT
 			FOCUS_FILTER_HISTORICAL
 		}
-		x = 41
+		x = 42
 		y = 0
 		offset = {
 			x = -5
@@ -2104,7 +2339,7 @@ focus_tree = {
 				}
 				OR = {
 					has_completed_focus = ALB_recrown_abdulhamid_II
-					has_completed_focus = ALB_romantic_independence
+					has_completed_focus = ALB_idea_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
 			}
@@ -3756,7 +3991,7 @@ focus_tree = {
 			FOCUS_FILTER_MANPOWER
 			FOCUS_FILTER_HISTORICAL
 		}
-		x = 66
+		x = 69
 		y = 0
 		available_if_capitulated = yes
 		completion_reward = {
@@ -3963,7 +4198,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		prerequisite = { focus = ALB_asymmetric_warfare }
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = ALB_asymmetric_warfare
 		available = { NOT = { has_country_flag = TUR_revolting_country } }
@@ -4074,7 +4309,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		prerequisite = { focus = ALB_asymmetric_warfare }
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = ALB_asymmetric_warfare
 		available = { NOT = { has_country_flag = TUR_revolting_country } }
@@ -4096,7 +4331,7 @@ focus_tree = {
 		prerequisite = { focus = ALB_international_gendarmerie }
 		prerequisite = { focus = ALB_international_control_commission }
 		prerequisite = { focus = ALB_albanian_independence }
-		mutually_exclusive = { focus = ALB_recrown_abdulhamid_II focus = ALB_romantic_independence focus = ALB_foreign_policy_priority }
+		mutually_exclusive = { focus = ALB_recrown_abdulhamid_II focus = ALB_idea_of_romantic_independence focus = ALB_foreign_policy_priority }
 		x = 1
 		y = 1
 		relative_position_id = ALB_international_gendarmerie
@@ -4176,8 +4411,8 @@ focus_tree = {
 		}
 		prerequisite = { focus = ALB_establish_the_ottoman_regency }
 		prerequisite = { focus = ALB_albanian_independence }
-		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_romantic_independence focus = ALB_foreign_policy_priority }
-		x = -3
+		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_idea_of_romantic_independence focus = ALB_foreign_policy_priority }
+		x = -5
 		y = 2
 		relative_position_id = ALB_establish_the_ottoman_regency
 		available = {
@@ -4193,7 +4428,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ALB_romantic_independence
+		id = ALB_idea_of_romantic_independence
 		icon = GFX_TUR_temporary_law_of_deportation
 		cost = 5
 		search_filters = {
@@ -4201,7 +4436,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = ALB_albanian_independence }
 		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_foreign_policy_priority }
-		x = -5
+		x = -6
 		y = 1
 		relative_position_id = ALB_albanian_independence
 		available = {
@@ -4224,10 +4459,154 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		prerequisite = { focus = ALB_albanian_independence }
-		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_romantic_independence }
-		x = 5
+		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_idea_of_romantic_independence }
+		x = 6
 		y = 1
 		relative_position_id = ALB_albanian_independence
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ALB_has_toptani_government
+				has_country_flag = ALB_toptani_government
+			}
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
+		id = ALB_republican_ideals
+		icon = GFX_focus_PER_islamic_solidarity
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_idea_of_romantic_independence }
+		mutually_exclusive = { focus = ALB_crown_the_kastrioti_prince focus = ALB_favor_the_ghica_pretender }
+		x = -4
+		y = 1
+		relative_position_id = ALB_idea_of_romantic_independence
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ALB_has_toptani_government
+				has_country_flag = ALB_toptani_government
+			}
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
+		id = ALB_crown_the_kastrioti_prince
+		icon = GFX_focus_PER_islamic_solidarity
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_idea_of_romantic_independence }
+		mutually_exclusive = { focus = ALB_republican_ideals focus = ALB_favor_the_ghica_pretender }
+		x = 0
+		y = 1
+		relative_position_id = ALB_idea_of_romantic_independence
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ALB_has_toptani_government
+				has_country_flag = ALB_toptani_government
+			}
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
+		id = ALB_favor_the_ghica_pretender
+		icon = GFX_focus_PER_islamic_solidarity
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_idea_of_romantic_independence }
+		mutually_exclusive = { focus = ALB_republican_ideals focus = ALB_crown_the_kastrioti_prince }
+		x = 4
+		y = 1
+		relative_position_id = ALB_idea_of_romantic_independence
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ALB_has_toptani_government
+				has_country_flag = ALB_toptani_government
+			}
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
+		id = ALB_revive_italian_relations
+		icon = GFX_focus_PER_islamic_solidarity
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_foreign_policy_priority }
+		mutually_exclusive = { focus = ALB_cosy_up_to_the_serbs focus = ALB_crown_the_ottoman_albanian }
+		x = -4
+		y = 1
+		relative_position_id = ALB_foreign_policy_priority
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ALB_has_toptani_government
+				has_country_flag = ALB_toptani_government
+			}
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
+		id = ALB_cosy_up_to_the_serbs
+		icon = GFX_focus_PER_islamic_solidarity
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_foreign_policy_priority }
+		mutually_exclusive = { focus = ALB_revive_italian_relations focus = ALB_crown_the_ottoman_albanian }
+		x = 0
+		y = 1
+		relative_position_id = ALB_foreign_policy_priority
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ALB_has_toptani_government
+				has_country_flag = ALB_toptani_government
+			}
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
+		id = ALB_crown_the_ottoman_albanian
+		icon = GFX_focus_PER_islamic_solidarity
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_foreign_policy_priority }
+		mutually_exclusive = { focus = ALB_revive_italian_relations focus = ALB_cosy_up_to_the_serbs }
+		x = 4
+		y = 1
+		relative_position_id = ALB_foreign_policy_priority
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ALB_has_toptani_government
@@ -4249,7 +4628,7 @@ focus_tree = {
 #		}
 #		prerequisite = { focus = ALB_secure_the_vlora_triangle }
 #		prerequisite = { focus = ALB_albanian_independence }
-#		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_romantic_independence focus = ALB_foreign_policy_priority }
+#		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_idea_of_romantic_independence focus = ALB_foreign_policy_priority }
 #		x = 0
 #		y = 2
 #		relative_position_id = ALB_secure_the_vlora_triangle
@@ -8174,8 +8553,8 @@ focus_tree = {
 			FOCUS_FILTER_ANNEXATION
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_recrown_abdulhamid_II focus = ALB_romantic_independence focus = ALB_foreign_policy_priority }
-		x = -9
+		prerequisite = { focus = ALB_recrown_abdulhamid_II focus = ALB_idea_of_romantic_independence focus = ALB_foreign_policy_priority }
+		x = 0
 		y = 2
 		relative_position_id = ALB_albanian_independence
 		completion_reward = {
