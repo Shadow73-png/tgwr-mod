@@ -1374,7 +1374,7 @@ AUH_the_imperial_council = {
 				has_country_flag = AUS_working_on_ukranian_demand
 			}
 		}
-		fire_only_once = no
+		fire_only_once = yes
 		days_remove = 120
 		cost = 0
 		ai_will_do = {
@@ -1415,7 +1415,7 @@ AUH_the_imperial_council = {
 				has_country_flag = AUS_working_on_ukranian_demand
 			}
 		}
-		fire_only_once = no
+		fire_only_once = yes
 		days_remove = 120
 		cost = 0
 		ai_will_do = {
@@ -1451,7 +1451,7 @@ AUH_the_imperial_council = {
 				has_country_flag = AUS_working_on_ukranian_demand
 			}
 		}
-		fire_only_once = no
+		fire_only_once = yes
 		days_remove = 120
 		cost = 0
 		ai_will_do = {
@@ -1493,7 +1493,7 @@ AUH_the_imperial_council = {
 			tooltip = AUS_done_ruthenian_demands
 			}
 		}
-		fire_only_once = no
+		fire_only_once = yes
 		cost = 0
 		ai_will_do = {
 			factor = 0
@@ -1502,7 +1502,35 @@ AUH_the_imperial_council = {
 			
 		}
 		remove_effect = {
-			add_political_power = 50
+			remove_ideas = AUS_dysfunctional_galician_diet
+		}
+	}
+	AUS_storm_the_galician_diet = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_increase_the_police_in_galacia
+			has_idea = AUS_dysfunctional_galician_diet
+		}
+		cancel_trigger = {
+			has_war_with_major = yes
+		}
+		priority = 210
+		available = {
+			has_completed_focus = AUS_increase_the_police_in_galacia
+		}
+		fire_only_once = yes
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_stability = -0.15
 			remove_ideas = AUS_dysfunctional_galician_diet
 		}
 	}
