@@ -7604,6 +7604,34 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = AUS_improved_naval_guns
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = AUS_expand_tegetthof_class
+		prerequisite = {
+			focus = AUS_expand_tegetthof_class
+		}
+		available = {
+			has_tech = early_ship_hull_heavy
+			any_state = {
+				is_controlled_by_ROOT_or_subject = yes
+				is_coastal = yes
+			}
+			dockyard > 0
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_NAVY_XP
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	focus = {
 		id = AUS_naval_expansion_program
 		icon = GFX_focus_generic_expand_the_naval_industry
 		cost = 5
@@ -7871,8 +7899,6 @@ focus_tree = {
 		relative_position_id = AUS_reorganise_the_luftfahrtruppen
 		prerequisite = {
 			focus = AUS_reorganise_the_luftfahrtruppen
-		}
-		prerequisite = {
 			focus = AUS_expand_the_marine_budget
 		}
 		available = {
