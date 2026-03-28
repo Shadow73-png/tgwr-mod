@@ -302,13 +302,15 @@ HOL_dc_ek = {
 		}
 		fire_only_once = yes
 		complete_effect = {
+			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_variable_lc_stab = 0.01
+				tooltip = stability_factor_tt
 			}
 			add_to_variable = {
 				HOL_lc_pp_gain = 0.02
+				tooltip = political_power_factor_tt
 			}
-			custom_effect_tooltip = HOL_lc_decisionvw
 		}
 		cost = 50
 		ai_will_do = {
@@ -330,13 +332,16 @@ HOL_dc_ek = {
 		}
 		fire_only_once = yes
 		complete_effect = {
+			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_lc_efficiency_retention = 0.025
+				tooltip = line_change_production_efficiency_factor_tt
 			}
 			add_to_variable = {
 				HOL_lc_efficiency_growth = 0.025
+				tooltip = production_factory_efficiency_gain_factor_tt
 			}
-			custom_effect_tooltip = HOL_lc_decisionshw
+			
 		}
 		cost = 50
 		ai_will_do = {
@@ -450,11 +455,17 @@ HOL_dc_ek = {
     	timeout_effect = {
 			random = {
 				chance = 50
-				HOL_increase_sdap_pop = yes
+				custom_effect_tooltip = HOL_tooltip_ip_sdap
+				add_to_variable = {
+					HOL_variable_sdap_popularity = 1
+				}
 			}
 			random = {
 				chance = 50
-				HOL_increase_lu_pop = yes
+				custom_effect_tooltip = HOL_tooltip_ip_lu
+				add_to_variable = {
+					HOL_variable_lu_popularity = 1
+				}
 			}
 			activate_mission = HOL_left_making_moves
     	}
@@ -483,10 +494,17 @@ HOL_dc_ek = {
 			random = {
 				chance = 50
 				HOL_increase_arp_pop = yes
+				custom_effect_tooltip = HOL_tooltip_ip_arp
+				add_to_variable = {
+					HOL_variable_arp_popularity = 1
+				}
 			}
 			random = {
 				chance = 50
-				HOL_increase_ag_pop = yes
+				custom_effect_tooltip = HOL_tooltip_ip_ag
+				add_to_variable = {
+					HOL_variable_ag_popularity = 1
+				}
 			}
 			activate_mission = HOL_right_making_moves
     	}
@@ -494,12 +512,16 @@ HOL_dc_ek = {
 	HOL_education_commision = {
     	activation = {
     	    original_tag = HOL
-			has_completed_focus = HOL_staatcommisie_oppenheim
-			has_completed_focus = HOL_staatcommisie_bos
+			OR = {
+				has_completed_focus = HOL_staatcommisie_oppenheim
+				has_completed_focus = HOL_staatcommisie_bos
+			}
     	}
 		fire_only_once = yes
     	available = {
-    	    always = yes
+    	    NOT = {
+				tag = HOL
+			}
     	}
     	cancel_trigger = {
 			
@@ -524,7 +546,9 @@ HOL_dc_ek = {
     	}
 		fire_only_once = yes
     	available = {
-    	    always = yes
+    	    NOT = {
+				tag = HOL
+			}
     	}
     	cancel_trigger = {
 			
@@ -583,23 +607,27 @@ HOL_dc_ek = {
     	days_mission_timeout = 920
     	selectable_mission = no
     	complete_effect = {
-			custom_effect_tooltip = HOL_tooltip_decisionbm
+			custom_effect_tooltip = HOL_modify_dutch_economy_tt
 			add_stability = 0.05
 			add_to_variable = {
 				HOL_variable_ec_civ_construction = -0.1
+				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			add_to_variable = {
 				HOL_variable_ec_consumers = -0.1
+				tooltip = consumer_goods_factor_tt
 			}
     	}
     	timeout_effect = {
     	    add_stability = -0.15
-			custom_effect_tooltip = HOL_tooltip_decisionbm
+			custom_effect_tooltip = HOL_modify_dutch_economy_tt
 			add_to_variable = {
-				HOL_variable_ec_civ_construction = -0.1
+				HOL_variable_ec_civ_construction = 0.1
+				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			add_to_variable = {
-				HOL_variable_ec_consumers = -0.1
+				HOL_variable_ec_consumers = 0.1
+				tooltip = consumer_goods_factor_tt
 			}
     	}
 	}
