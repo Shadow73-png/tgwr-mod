@@ -7512,7 +7512,7 @@ focus_tree = {
 		id = AUS_expand_the_marine_budget
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 5
-		x = 14
+		x = 15
 		y = 0
 		relative_position_id = AUS_continue_the_army_reforms
 		bypass_if_unavailable = yes
@@ -7656,8 +7656,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = AUS_submarines_experiments
-		icon = GFX_goal_generic_navy_submarine
+		id = AUS_naval_technical_military_committee
+		icon = GFX_focus_generic_navy_research_bonus
 		cost = 5
 		x = 0
 		y = 1
@@ -7689,10 +7689,76 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = AUS_submarines_experiments
+		icon = GFX_goal_generic_navy_submarine
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = AUS_naval_technical_military_committee
+		prerequisite = {
+			focus = AUS_naval_technical_military_committee
+		}
+		available = {
+			any_state = {
+				is_controlled_by_ROOT_or_subject = yes
+				is_coastal = yes
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_NAVY_XP
+		}
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = AUS_submarines_experiments
+				bonus = 1
+				uses = 2
+				category = ss_tech
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	focus = {
+		id = AUS_order_uboats_from_germany
+		icon = GFX_focus_deal_with_german_empire
+		cost = 5
+		x = 0
+		y = 2
+		relative_position_id = AUS_naval_technical_military_committee
+		prerequisite = {
+			focus = AUS_submarines_experiments
+		}
+		available = {
+			any_state = {
+				is_controlled_by_ROOT_or_subject = yes
+				is_coastal = yes
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_NAVY_XP
+		}
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = AUS_submarines_experiments
+				bonus = 1
+				uses = 2
+				category = ss_tech
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	focus = {
 		id = AUS_auxiliary_ports
 		icon = GFX_focus_POL_develop_polish_shipbuilding
 		cost = 5
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = AUS_submarines_experiments
 		available = {
@@ -7867,11 +7933,14 @@ focus_tree = {
 		id = AUS_form_kuk_seeflugwesen
 		icon = GFX_focus_naval_support
 		cost = 4
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = AUS_reorganise_the_luftfahrtruppen
 		prerequisite = {
 			focus = AUS_reorganise_the_luftfahrtruppen
+		}
+		prerequisite = {
+			focus = AUS_expand_the_marine_budget
 		}
 		available = {
 			has_war_with = ITA
