@@ -7686,7 +7686,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = AUS_laid_down_tegetthoff_class_battleship
+		id = AUS_expand_tegetthof_class
 		icon = GFX_goal_generic_navy_battleship
 		cost = 5
 		x = 2
@@ -7709,53 +7709,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_tech_bonus = {
-				name = AUS_laid_down_tegetthoff_class_battleship
+				name = AUS_expand_tegetthof_class
 				bonus = 1
 				uses = 1
 				category = naval_equipment
 			}
-			custom_effect_tooltip = AUH_add_production_of_tegetthoff
-			hidden_effect = {
-				add_equipment_production = {
-					equipment = {
-						type = ship_hull_heavy_2
-						creator = "AUS"
-						version_name = "Tegetthoff Class"
-					}
-					name = "SMS Tegetthoff"
-					requested_factories = 1
-					progress = 0.4
-					amount = 1
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 20
-		}
-	}
-	focus = {
-		id = AUS_expand_tegetthof_class
-		icon = GFX_focus_generic_navy_battleship2
-		cost = 5
-		x = 0
-		y = 1
-		relative_position_id = AUS_laid_down_tegetthoff_class_battleship
-		prerequisite = {
-			focus = AUS_laid_down_tegetthoff_class_battleship
-		}
-		available = {
-			has_tech = early_ship_hull_heavy
-			any_state = {
-				is_controlled_by_ROOT_or_subject = yes
-				is_coastal = yes
-			}
-			dockyard > 0
-		}
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-			FOCUS_FILTER_NAVY_XP
-		}
-		completion_reward = {
 			custom_effect_tooltip = AUH_add_production_of_prinz_eugen_and_szent_istvan
 			hidden_effect = {
 				add_equipment_production = {
@@ -7783,7 +7741,7 @@ focus_tree = {
 			}
 		}
 		ai_will_do = {
-			factor = 15
+			factor = 20
 		}
 	}
 	focus = {
