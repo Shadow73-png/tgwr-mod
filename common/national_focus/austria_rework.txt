@@ -7459,7 +7459,7 @@ focus_tree = {
 		id = AUS_expand_the_marine_budget
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 5
-		x = 15
+		x = 14
 		y = 0
 		relative_position_id = AUS_continue_the_army_reforms
 		bypass_if_unavailable = yes
@@ -7501,8 +7501,8 @@ focus_tree = {
 		id = AUS_naval_excercices
 		icon = GFX_goal_generic_navy_cruiser
 		cost = 5
-		x = -2
-		y = 1
+		x = 0
+		y = 3
 		relative_position_id = AUS_expand_the_marine_budget
 		available = {
 			any_state = {
@@ -7511,7 +7511,8 @@ focus_tree = {
 			}
 		}
 		prerequisite = {
-			focus = AUS_expand_the_marine_budget
+			focus = AUS_naval_expansion_program
+			focus = AUS_submarines_experiments
 		}
 		search_filters = {
 			FOCUS_FILTER_RESEARCH
@@ -7603,10 +7604,99 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = AUS_naval_expansion_program
+		icon = GFX_focus_generic_expand_the_naval_industry
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = AUS_expand_tegetthof_class
+		prerequisite = {
+			focus = AUS_expand_tegetthof_class
+		}
+		available = {
+			has_tech = early_ship_hull_heavy
+			any_state = {
+				is_controlled_by_ROOT_or_subject = yes
+				is_coastal = yes
+			}
+			dockyard > 0
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_NAVY_XP
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	focus = {
+		id = AUS_begin_new_dreadnought_constructions
+		icon = GFX_focus_dreadnought
+		cost = 5
+		x = 0
+		y = 2
+		relative_position_id = AUS_expand_tegetthof_class
+		prerequisite = {
+			focus = AUS_naval_expansion_program
+		}
+		available = {
+			has_tech = early_ship_hull_heavy
+			any_state = {
+				is_controlled_by_ROOT_or_subject = yes
+				is_coastal = yes
+			}
+			dockyard > 0
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_NAVY_XP
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = AUS_expand_tegetthof_class
+				bonus = 1
+				uses = 1
+				category = naval_equipment
+			}
+			custom_effect_tooltip = AUH_add_production_of_prinz_eugen_and_szent_istvan
+			hidden_effect = {
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_heavy_2
+						creator = "AUS"
+						version_name = "Tegetthoff Class"
+					}
+					name = "SMS Prinz Eugen"
+					requested_factories = 1
+					progress = 0.4
+					amount = 1
+					industrial_manufacturer = mio:AUH_stabilimento_tecnico_triestino_organization
+				}
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_heavy_2
+						creator = "AUS"
+						version_name = "Tegetthoff Class"
+					}
+					name = "SMS Szent István"
+					requested_factories = 1
+					progress = 0.4
+					amount = 1
+					industrial_manufacturer = mio:AUH_ganz_danubius_organization
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	focus = {
 		id = AUS_naval_technical_military_committee
 		icon = GFX_focus_generic_navy_research_bonus
 		cost = 5
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = AUS_expand_the_marine_budget
 		prerequisite = {
@@ -7639,7 +7729,7 @@ focus_tree = {
 		id = AUS_submarines_experiments
 		icon = GFX_goal_generic_navy_submarine
 		cost = 5
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = AUS_naval_technical_military_committee
 		prerequisite = {
@@ -7672,11 +7762,11 @@ focus_tree = {
 		id = AUS_order_uboats_from_germany
 		icon = GFX_focus_deal_with_german_empire
 		cost = 5
-		x = 0
-		y = 2
+		x = -1
+		y = 1
 		relative_position_id = AUS_naval_technical_military_committee
 		prerequisite = {
-			focus = AUS_submarines_experiments
+			focus = AUS_naval_technical_military_committee
 		}
 		available = {
 			any_state = {
@@ -7695,110 +7785,6 @@ focus_tree = {
 				bonus = 1
 				uses = 2
 				category = ss_tech
-			}
-		}
-		ai_will_do = {
-			factor = 10
-		}
-	}
-	focus = {
-		id = AUS_auxiliary_ports
-		icon = GFX_focus_POL_develop_polish_shipbuilding
-		cost = 5
-		x = -2
-		y = 1
-		relative_position_id = AUS_submarines_experiments
-		available = {
-			any_state = {
-				is_controlled_by_ROOT_or_subject = yes
-				is_coastal = yes
-			}
-		}
-		prerequisite = {
-			focus = AUS_submarines_experiments
-		}
-		prerequisite = {
-			focus = AUS_naval_excercices
-		}
-		search_filters = {
-		}
-		completion_reward = {
-			513 = {
-				add_building_construction = {
-					type = naval_base
-					province = 10749
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = coastal_bunker
-					province = 10749
-					level = 1
-					instant_build = yes
-				}
-			}
-			1006 = {
-				add_building_construction = {
-					type = naval_base
-					province = 3943
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = coastal_bunker
-					province = 3943
-					level = 1
-					instant_build = yes
-				}
-			}
-			103 = {
-				add_building_construction = {
-					type = naval_base
-					province = 3924
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = coastal_bunker
-					province = 3924
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 10
-		}
-	}
-	focus = {
-		id = AUS_new_dockyards
-		icon = GFX_goal_generic_construct_naval_dockyard
-		cost = 5
-		x = 0
-		y = 1
-		available = {
-			any_state = {
-				is_controlled_by_ROOT_or_subject = yes
-				is_coastal = yes
-			}
-		}
-		search_filters = {
-		}
-		relative_position_id = AUS_auxiliary_ports
-		prerequisite = {
-			focus = AUS_auxiliary_ports
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					is_coastal = yes
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build = yes
-				}
 			}
 		}
 		ai_will_do = {
@@ -7880,7 +7866,7 @@ focus_tree = {
 		id = AUS_form_kuk_seeflugwesen
 		icon = GFX_focus_naval_support
 		cost = 4
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = AUS_reorganise_the_luftfahrtruppen
 		prerequisite = {
