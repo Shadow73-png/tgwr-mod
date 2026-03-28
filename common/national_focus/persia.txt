@@ -65,7 +65,7 @@
 	focus = {
 		id = PER_disarm_revolutionaries
 		icon = GFX_focus_focus_fra_maquis
-		cost = 10
+		cost = 6
 		prerequisite = {
 			focus = PER_young_peoples_cabinet
 			focus = PER_elect_new_regent
@@ -97,6 +97,7 @@
 		cost = 10
 		prerequisite = {
 			focus = PER_disarm_revolutionaries
+			focus = PER_stronger_cabinet
 		}
 		relative_position_id = PER_disarm_revolutionaries
 		x = -1
@@ -117,7 +118,7 @@
 	focus = {
 		id = PER_invite_swedish_officers
 		icon = GFX_focus_SWE_train_the_sheltered
-		cost = 10
+		cost = 8
 		prerequisite = {
 			focus = PER_create_the_government_gendarmerie
 		}
@@ -142,9 +143,10 @@
 	focus = {
 		id = PER_invite_american_advisors
 		icon = GFX_focus_generic_american_investments
-		cost = 10
+		cost = 6
 		prerequisite = {
 			focus = PER_disarm_revolutionaries
+			focus = PER_stronger_cabinet
 		}
 		mutually_exclusive = {
 			focus = PER_continue_with_belgian_advisors
@@ -173,9 +175,10 @@
 	focus = {
 		id = PER_continue_with_belgian_advisors
 		icon = GFX_focus_BEL_belgian_miracle
-		cost = 10
+		cost = 6
 		prerequisite = {
 			focus = PER_disarm_revolutionaries
+			focus = PER_stronger_cabinet
 		}
 		relative_position_id = PER_disarm_revolutionaries
 		x = 3
@@ -275,7 +278,7 @@
 		id = PER_elect_new_regent
 		icon = GFX_focus_PER_constitutional_monarchy
 		cost = 8
-		x = 2
+		x = 3
 		y = 0
 		available = {
 			OR = {
@@ -301,6 +304,73 @@
 				factor = 4
 				has_government = neutrality
 			}
+		}
+	}
+
+	focus = {
+		id = PER_subdue_the_press
+		icon = GFX_focus_generic_printing_press
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = PER_elect_new_regent
+		prerequisite = {
+			focus = PER_elect_new_regent
+		}
+		available = {
+			OR = {
+				has_country_leader_ideology = conservatism
+				has_government = neutrality
+			}		
+		}
+	
+		completion_reward = {
+			add_political_power = 100
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 25
+		}
+	}
+	focus = {
+		id = PER_stronger_cabinet
+		icon = GFX_focus_generic_self_management
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = PER_elect_new_regent
+		prerequisite = {
+			focus = PER_elect_new_regent
+		}
+		available = {
+			OR = {
+				has_country_leader_ideology = conservatism
+				has_country_leader_ideology = semi_constitutional_monarchy
+			}		
+		}
+	
+		completion_reward = {
+			add_political_power = 100
+			promote_character = {
+				character = PER_najaf_qoli_khan_bakhtiari
+				ideology = conservatism
+			}
+			set_party_name = {
+				ideology = democratic
+				long_name = PER_democratic_party
+				name = PER_democratic_party
+			}
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				activate_advisor = PER_najaf_qoli_khan_bakhtiari
+			}
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 25
 		}
 	}
 }
