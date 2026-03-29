@@ -7542,6 +7542,33 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = AUS_new_naval_officers
+		icon = GFX_focus_generic_naval_discipline
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = AUS_naval_excercices
+		available = {
+			any_state = {
+				is_controlled_by_ROOT_or_subject = yes
+				is_coastal = yes
+			}
+		}
+		prerequisite = {
+			focus = AUS_naval_excercices
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_NAVY_XP
+		}
+		completion_reward = {
+			#horthy
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	focus = {
 		id = AUS_expand_tegetthof_class
 		icon = GFX_goal_generic_navy_battleship
 		cost = 5
