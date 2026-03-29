@@ -4067,15 +4067,27 @@ focus_tree = {
 			}
 			custom_effect_tooltip = empty_space_tt
 			custom_effect_tooltip = AUS_skoda_combo
-			effect_tooltip = {
-				add_ideas = AUS_artillery_buff_idea_thing
-			}
+			custom_effect_tooltip = AUS_work_with_skoda_combo_tt
 			hidden_effect = {
 				if = {
 					limit = {
 						has_completed_focus = AUS_work_with_skoda
 					}
-					add_ideas = AUS_artillery_buff_idea_thing
+					if = {
+						limit = {
+							has_idea = AUS_working_with_skoda
+						}
+						modify_timed_idea = {
+    						idea = AUS_working_with_skoda
+  						  	days = 150
+						}
+					}
+					else = {
+						add_timed_idea = {
+							idea = AUS_working_with_skoda
+							days = 150
+						}
+					}
 				}
 				if = {
 					limit = {
@@ -6808,15 +6820,16 @@ focus_tree = {
 				}
 				custom_effect_tooltip = empty_space_tt
 				custom_effect_tooltip = AUS_aeme_combos
-				effect_tooltip = {
-					add_ideas = AUS_artillery_buff_idea_thing
-				}
+				custom_effect_tooltip = AUS_work_with_skoda_combo_tt
 				hidden_effect = {
 					if = {
 						limit = {
 							has_completed_focus = AUS_cooperation_with_military_industry
 						}
-						add_ideas = AUS_artillery_buff_idea_thing
+						modify_timed_idea = {
+    						idea = AUS_working_with_skoda
+  						  	days = 150
+						}
 					}
 				}
 			}
