@@ -1506,9 +1506,10 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
-				AUS_aps_stab = 0.1
+				AUS_aps_stab = 0.15
 				tooltip = stability_factor_tt
 			}
+			add_political_power = 20
 			add_to_variable = {
 				AUS_ruthenian_loyalty = -5
 				tooltip = AUS_loyalty_ruthenians_tt
@@ -1557,6 +1558,7 @@ focus_tree = {
 			AUS_has_autocrat_minister = yes
 		}
 		completion_reward = {
+			add_political_power = 100
 			unlock_decision_tooltip = {
 				decision = AUS_tempoary_coalitions_d
 				show_effect_tooltip = yes
@@ -1646,7 +1648,7 @@ focus_tree = {
 				tooltip = democratic_drift_tt
 			}
 			add_to_variable = {
-				AUS_aps_pp_gain = 0.05
+				AUS_aps_pp_gain = 0.1
 				tooltip = political_power_factor_tt
 			}
 			add_to_variable = {
@@ -2959,14 +2961,14 @@ focus_tree = {
 				AUS_serb_loyalty = 3
 			}
 			add_to_temp_variable = {
-				temp_SER_loyalty = 3
+				temp_SER_loyalty = 5
 				tooltip = AUS_loyalty_serb_tt
 			}
 			add_to_variable = {
-				AUS_croat_loyalty = 3
+				AUS_croat_loyalty = 5
 			}
 			add_to_temp_variable = {
-				temp_CRO_loyalty = 3
+				temp_CRO_loyalty = 5
 				tooltip = AUS_loyalty_croatian_tt
 			}
 			AUS_update_state_of_realm = yes
@@ -3007,10 +3009,7 @@ focus_tree = {
 				tooltip = trade_opinion_factor_neutral_tt
 			}
 			hidden_effect = {
-				country_event = {
-					id = ww1_austriahungary.176
-					days = 345
-				}
+				
 			}
 		}
 		ai_will_do = {
@@ -4117,7 +4116,7 @@ focus_tree = {
 	focus = {
 		id = AUS_commission_on_cartels
 		icon = GFX_goal_generic_improve_relations
-		cost = 7
+		cost = 5
 		x = 0
 		y = 2
 		prerequisite = {
@@ -9626,7 +9625,7 @@ joint_focus = {
 	id = AUS_rachet_on_bosnia
 	icon = GFX_focus_AUS_rachet_slavs #temp
 	text_icon = joint_AUS_BOS_focus_style
-	cost = 5
+	cost = 4
 	x = 0
 	y = 0
 	offset = {
@@ -9735,7 +9734,7 @@ joint_focus = {
 	id = AUS_invest_in_bosnian_schools
 	icon = GFX_focus_generic_education_tgwr
 	text_icon = joint_AUS_BOS_focus_style
-	cost = 5
+	cost = 4
 	x = 1
 	y = 1
 	prerequisite = {
@@ -9777,11 +9776,11 @@ joint_focus = {
 				tooltip = offensive_war_stability_factor_tt
 			}
 			add_to_variable = {
-				AUS_serb_loyalty = 5
+				AUS_serb_loyalty = 10
 				tooltip = AUS_loyalty_serb_tt
 			}
 			add_to_variable = {
-				AUS_croat_loyalty = 5
+				AUS_croat_loyalty = 10
 				tooltip = AUS_loyalty_croatian_tt
 			}
 			AUS_update_state_of_realm = yes
