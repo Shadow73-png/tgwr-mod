@@ -1329,7 +1329,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_agricultural_imports
-		icon = GFX_focus_generic_agricultural_subsidies
+		icon = GFX_goal_generic_consumer_goods
 		cost = 10
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -1339,7 +1339,20 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ALB_albanian_customs_duty
+		available = {
+			any_country = {
+				is_major = yes
+				has_opinion = {
+					target = ROOT
+					value > 49
+				}
+				has_war = no
+			}
+			has_war = no
+		}
+		select_effect = { add_ideas = TUR_pension_payments }
 		completion_reward = {
+			add_ideas = ALB_agricultural_surplus
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -1420,7 +1433,7 @@ focus_tree = {
 	focus = {
 		id = ALB_invite_foreign_engineers
 		icon = GFX_focus_generic_printing_press
-		cost = 5
+		cost = 10
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_MANPOWER
@@ -1430,14 +1443,66 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ALB_albanian_customs_duty
+		complete_tooltip = {
+			if = {
+				limit = { has_country_flag = ALB_invite_foreign_engineers1 }
+				custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
+				custom_effect_tooltip = ALB_albanian_economy_tt_yes
+				custom_effect_tooltip = empty_space
+			}
+			if = {
+				limit = { has_country_flag = ALB_invite_foreign_engineers2 }
+				custom_effect_tooltip = ALB_invite_foreign_engineers_tt
+			}
+			add_tech_bonus = {
+				name = ALB_invite_foreign_engineers
+				uses = 2
+				bonus = 1
+				ahead_reduction = 1
+				category = industry
+			}
+			add_tech_bonus = {
+				name = ALB_invite_foreign_engineers
+				uses = 2
+				bonus = 1
+				ahead_reduction = 1
+				category = electronics
+			}
+		}
 		completion_reward = {
-			
+			if = {
+				limit = { has_dynamic_modifier = { modifier = ALB_albanian_economy } }
+				custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
+				custom_effect_tooltip = ALB_albanian_economy_tt_yes
+				custom_effect_tooltip = empty_space
+				set_country_flag = ALB_invite_foreign_engineers1
+			}
+			else = {
+				hidden_effect = { add_dynamic_modifier = { modifier = ALB_albanian_economy } }
+				custom_effect_tooltip = ALB_invite_foreign_engineers_tt
+				set_country_flag = ALB_invite_foreign_engineers2
+			}
+			hidden_effect = { add_ideas = ALB_albanian_economy_invite_foreign_engineers }
+			add_tech_bonus = {
+				name = ALB_invite_foreign_engineers
+				uses = 2
+				bonus = 1
+				ahead_reduction = 1
+				category = industry
+			}
+			add_tech_bonus = {
+				name = ALB_invite_foreign_engineers
+				uses = 2
+				bonus = 1
+				ahead_reduction = 1
+				category = electronics
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
 		id = ALB_albanian_cattle_industry
-		icon = GFX_focus_generic_printing_press
+		icon = GFX_focus_ARG_capitalize_the_beef_industry
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
@@ -1449,14 +1514,28 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_land_redistribution
 		completion_reward = {
-			
+			if = {
+				limit = { has_dynamic_modifier = { modifier = ALB_albanian_economy } }
+				custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
+				custom_effect_tooltip = stability_factor_10
+				custom_effect_tooltip = consumer_goods_factor_minus_10
+				custom_effect_tooltip = empty_space
+				set_country_flag = ALB_albanian_cattle_industry1
+			}
+			else = {
+				hidden_effect = { add_dynamic_modifier = { modifier = ALB_albanian_economy } }
+				custom_effect_tooltip = ALB_albanian_cattle_industry_tt
+				set_country_flag = ALB_albanian_cattle_industry2
+			}
+			add_to_variable = { ALB_ae_stability_factor = 0.1 }
+			add_to_variable = { ALB_ae_consumer_goods_factor = -0.1 }
 		}
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
 		id = ALB_economic_societies
 		icon = GFX_focus_generic_printing_press
-		cost = 5
+		cost = 10
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_MANPOWER
@@ -1466,8 +1545,40 @@ focus_tree = {
 		x = -1
 		y = 2
 		relative_position_id = ALB_national_bank_of_albania
+		complete_tooltip = {
+			if = {
+				limit = { has_country_flag = ALB_economic_societies1 }
+				custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
+				custom_effect_tooltip = industrial_capacity_factory_5
+				custom_effect_tooltip = industrial_capacity_dockyard_5
+				custom_effect_tooltip = cic_construction_boost_factor_5
+				custom_effect_tooltip = empty_space
+			}
+			if = {
+				limit = { has_country_flag = ALB_economic_societies2 }
+				custom_effect_tooltip = ALB_economic_societies_tt
+			}
+			ALB_improve_national_bank = yes
+		}
 		completion_reward = {
-			
+			if = {
+				limit = { has_dynamic_modifier = { modifier = ALB_albanian_economy } }
+				custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
+				custom_effect_tooltip = industrial_capacity_factory_5
+				custom_effect_tooltip = industrial_capacity_dockyard_5
+				custom_effect_tooltip = cic_construction_boost_factor_5
+				custom_effect_tooltip = empty_space
+				set_country_flag = ALB_economic_societies1
+			}
+			else = {
+				hidden_effect = { add_dynamic_modifier = { modifier = ALB_albanian_economy } }
+				custom_effect_tooltip = ALB_economic_societies_tt
+				set_country_flag = ALB_economic_societies2
+			}
+			add_to_variable = { ALB_ae_industrial_capacity_factory = 0.05 }
+			add_to_variable = { ALB_ae_industrial_capacity_dockyard = 0.05 }
+			add_to_variable = { ALB_ae_cic_construction_boost_factor = 0.05 }
+			ALB_improve_national_bank = yes
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -1485,7 +1596,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_economic_societies
 		completion_reward = {
-			
+			ALB_improve_national_bank = yes
 		}
 		ai_will_do = { factor = 100 }
 	}
