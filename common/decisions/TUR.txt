@@ -2,12 +2,41 @@ debug_decisions = {
 	TUR_trigger_check = {
 		allowed = { always = yes }
 		available = {
+			OR = {
+					AND = {
+						TUR_regime_is_more_popular_than_opposition_twice = no
+						TUR_regime_is_more_popular_than_opposition = yes
+						check_variable = { TUR_government_stability_var < 50 }
+					}
+					TUR_regime_is_more_popular_than_opposition = no
+					check_variable = { TUR_government_stability_var < 35 }
+				}
+				NOT = { has_idea = TUR_disruptive_opposition }
 		}
 		complete_effect = {
 			if = {
-					limit = { has_template = "Libyan Irregulars" }
-					delete_unit_template_and_units = { division_template = "Libyan Irregulars" }
+				limit = {
+					TUR_regime_is_more_popular_than_opposition = no
+					check_variable = { TUR_government_stability_var < 35 }
+					NOT = { has_idea = TUR_paralyzing_opposition }
 				}
+				country_event = ottoman.303
+			}
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							TUR_regime_is_more_popular_than_opposition_twice = no
+							TUR_regime_is_more_popular_than_opposition = yes
+							check_variable = { TUR_government_stability_var < 50 }
+						}
+						TUR_regime_is_more_popular_than_opposition = no
+						check_variable = { TUR_government_stability_var < 35 }
+					}
+					NOT = { has_idea = TUR_disruptive_opposition }
+				}
+				country_event = ottoman.302
+			}
 		}
 		ai_will_do = { base = 0 }
 	}
