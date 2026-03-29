@@ -1431,8 +1431,6 @@ country_event = {
 	}
 }
 
-
-
 country_event = {
 	id = ww1_austriahungary.53
 	title = ww1_austriahungary.53.t
@@ -1447,25 +1445,11 @@ country_event = {
 			AUS_aps_pp_gain = -0.05
 			tooltip = political_power_factor_tt
 		}
-		IF = {
-			limit = {
-				has_completed_focus = AUS_bypass_the_obstructionists
-			}
-			add_to_variable = {
-				AUS_parliament_influence = 0.3
-				tooltip = AUS_gain_influence_tt
-			}
-			AUS_update_imperial_council_effects = yes
+		add_to_variable = {
+			AUS_parliament_influence = 0.3
+			tooltip = AUS_gain_influence_tt
 		}
-		else = {
-			add_political_power = -25
-			custom_effect_tooltip = AUS_cons_dont_like
-			add_to_variable = {
-				AUS_parliament_relations = -0.2
-				tooltip = AUS_p_loyalty_tt
-			}
-			AUS_update_imperial_council_effects = yes
-		}
+		AUS_update_imperial_council_effects = yes
 	}
 }
 
@@ -5480,6 +5464,7 @@ country_event = {
 		add_stability = -0.03
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.193
 	title = ww1_austriahungary.193.t
@@ -5492,6 +5477,7 @@ country_event = {
 		add_ideas = AUS_dysfunctional_galician_diet
 	}
 }
+
 ##################
 #####  DEBUG #####
 ##################
