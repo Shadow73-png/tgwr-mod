@@ -627,6 +627,19 @@ shared_focus = {
 	select_effect = {
 		ALB = { country_event = albania.98 }
 		TUR = { country_event = albania.99 }
+		set_country_flag = MNT_occupy_shkoder_in_progress
+	}
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = MNT_occupy_shkoder_tt
+			NOT = {
+				focus_progress = {
+					focus = MNT_occupy_shkoder
+					progress > 0
+				}
+			}
+			has_country_flag = MNT_occupy_shkoder_in_progress
+		}
 	}
 	completion_reward = {
 		transfer_state = 870

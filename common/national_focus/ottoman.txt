@@ -4020,7 +4020,6 @@ focus_tree = {
 		y = 3
 		available = {
 			TUR_regime_is_liberal = yes
-			TUR_regime_is_more_popular_than_opposition = yes
 		}
 		relative_position_id = TUR_repeal_the_martial_law
 		completion_reward = {
@@ -4198,7 +4197,14 @@ focus_tree = {
 		}
 		relative_position_id = TUR_aftermath_of_the_31_march_incident
 		completion_reward = {
-			add_ideas = TUR_policy_of_reapproachment_ALB
+			if = {
+				limit = { has_idea = TUR_brutal_suppression_ALB }
+				swap_ideas = {
+					remove_idea = TUR_brutal_suppression_ALB
+					add_idea = TUR_policy_of_reapproachment_ALB
+				}
+			}
+			else = { add_ideas = TUR_policy_of_reapproachment_ALB }
 			custom_effect_tooltip = TUR_policy_of_reapproachment_ALB_instant_desc
 			if = {
 				limit = { has_completed_focus = TUR_brutal_suppression_of_albania }
@@ -4361,7 +4367,14 @@ focus_tree = {
 		}
 		relative_position_id = TUR_aftermath_of_the_31_march_incident
 		completion_reward = {
-			add_ideas = TUR_brutal_suppression_ALB
+			if = {
+				limit = { has_idea = TUR_policy_of_reapproachment_ALB }
+				swap_ideas = {
+					remove_idea = TUR_policy_of_reapproachment_ALB
+					add_idea = TUR_brutal_suppression_ALB
+				}
+			}
+			else = { add_ideas = TUR_brutal_suppression_ALB }
 			custom_effect_tooltip = TUR_brutal_suppression_ALB_instant_desc
 			if = {
 				limit = { has_completed_focus = TUR_amnesty_for_albanian_rebels }
@@ -5134,7 +5147,7 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = {
 				ideology = neutrality
-				popularity = -0.15
+				popularity = -0.2
 			}
 			add_popularity = {
 				ideology = fascism
@@ -5142,7 +5155,7 @@ focus_tree = {
 			}
 			add_popularity = {
 				ideology = democratic
-				popularity = 0.05
+				popularity = 0.1
 			}
 			add_to_variable = {
 				tooltip = TUR_government_stability_reduce_10
