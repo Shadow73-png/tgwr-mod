@@ -16190,28 +16190,24 @@ country_event = { #commission ship event
 		}
 		effect_tooltip = {
 			if = {
-				limit = { has_country_flag = TUR_ship_commission_submarine }
-				add_offsite_building = { type = industrial_complex level = -1 }
-				FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
-				activate_decision = TUR_active_submarine_commission
+				limit = { FROM = { has_country_flag = TUR_ship_commission_submarine } }
+				add_offsite_building = { type = industrial_complex level = 1 }
+				activate_mission = TUR_active_submarine_commission_mission
 				custom_effect_tooltip = after_480_days
 			}
 			if = {
-				limit = { has_country_flag = TUR_ship_commission_destroyer }
-				add_offsite_building = { type = industrial_complex level = -1 }
-				FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
-				activate_decision = TUR_active_destroyer_commission
+				limit = { FROM = { has_country_flag = TUR_ship_commission_destroyer } }
+				add_offsite_building = { type = industrial_complex level = 1 }
+				activate_mission = TUR_active_destroyer_commission_mission
 				custom_effect_tooltip = after_720_days
 			}
 			if = {
-				limit = { has_country_flag = TUR_ship_commission_battleship }
-				add_offsite_building = { type = industrial_complex level = -1 }
-				FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
-				activate_decision = TUR_active_battleship_commission
+				limit = { FROM = { has_country_flag = TUR_ship_commission_battleship } }
+				add_offsite_building = { type = industrial_complex level = 1 }
+				activate_mission = TUR_active_battleship_commission_mission
 				custom_effect_tooltip = after_1150_days
 			}
-			add_offsite_building = { type = industrial_complex level = 1 }
-			FROM = { add_offsite_building = { type = industrial_complex level = -1 } }
+			add_offsite_building = { type = industrial_complex level = -1 }
 			TUR = {
 				if = {
 					limit = { PREV = { tag = GER } }
@@ -16451,28 +16447,33 @@ country_event = { #ship commission yes
 	is_triggered_only = yes
 	option = {
 		name = ottoman.253.a
+		effect_tooltip = { FROM = { add_offsite_building = { type = industrial_complex level = 1 } } }
 		if = {
 			limit = { has_country_flag = TUR_ship_commission_submarine }
-			add_offsite_building = { type = industrial_complex level = -1 }
 			activate_decision = TUR_active_submarine_commission
-			hidden_effect = { FROM = { activate_decision = TUR_active_submarine_commission } }
+			hidden_effect = { FROM = { activate_mission = TUR_active_submarine_commission_mission } }
+			custom_effect_tooltip = for_480_days
+			custom_effect_tooltip = TUR_civilian_factory_use_1
 			custom_effect_tooltip = after_480_days
 		}
 		if = {
 			limit = { has_country_flag = TUR_ship_commission_destroyer }
-			add_offsite_building = { type = industrial_complex level = -1 }
 			activate_decision = TUR_active_destroyer_commission
-			hidden_effect = { FROM = { activate_decision = TUR_active_destroyer_commission } }
+			hidden_effect = { FROM = { activate_mission = TUR_active_destroyer_commission_mission } }
+			custom_effect_tooltip = for_720_days
+			custom_effect_tooltip = TUR_civilian_factory_use_1
 			custom_effect_tooltip = after_720_days
 		}
 		if = {
 			limit = { has_country_flag = TUR_ship_commission_battleship }
-			add_offsite_building = { type = industrial_complex level = -1 }
 			activate_decision = TUR_active_battleship_commission
-			hidden_effect = { FROM = { activate_decision = TUR_active_battleship_commission } }
+			hidden_effect = { FROM = { activate_mission = TUR_active_battleship_commission_mission } }
+			custom_effect_tooltip = for_1150_days
+			custom_effect_tooltip = TUR_civilian_factory_use_1
 			custom_effect_tooltip = after_1150_days
 		}
 		effect_tooltip = {
+			FROM = { add_offsite_building = { type = industrial_complex level = -1 } }
 			if = {
 				limit = { var:global.TUR_ship_commission_tag = { tag = GER } }
 				if = {
@@ -16651,15 +16652,15 @@ country_event = { #ships seized
 			clear_variable = var:global.TUR_ship_commission_tag
 			if = {
 				limit = { TUR = { has_country_flag = TUR_ship_commission_submarine } }
-				set_country_flag = TUR_ship_commission_submarine
+				clr_country_flag = TUR_ship_commission_submarine
 			}
 			if = {
 				limit = { TUR = { has_country_flag = TUR_ship_commission_destroyer } }
-				set_country_flag = TUR_ship_commission_destroyer
+				clr_country_flag = TUR_ship_commission_destroyer
 			}
 			if = {
 				limit = { TUR = { has_country_flag = TUR_ship_commission_battleship } }
-				set_country_flag = TUR_ship_commission_battleship
+				clr_country_flag = TUR_ship_commission_battleship
 			}
 		}
 		ai_chance = { base = 100 }
@@ -18665,7 +18666,7 @@ country_event = { #ottoman purchase equipment GER
 	}
 }
 
-country_event = { #ottoman purchase equipment GER
+country_event = {
 	id = ottoman.275
 	title = ottoman.275.t
 	desc = ottoman.275.desc
@@ -18677,10 +18678,12 @@ country_event = { #ottoman purchase equipment GER
 		custom_effect_tooltip = if_they_accept_tt
 		set_country_flag = TUR_ship_commission_submarine
 		effect_tooltip = {
-			add_offsite_building = { type = industrial_complex level = -1 }
-			FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
 			activate_decision = TUR_active_submarine_commission
-			custom_effect_tooltip = after_720_days
+			custom_effect_tooltip = for_480_days
+			custom_effect_tooltip = TUR_civilian_factory_use_1
+			custom_effect_tooltip = after_480_days
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = -1 } }
 			create_ship = {
 				type = ship_hull_submarine_1
 				equipment_variant = "A/B/C/D Class"
@@ -18710,10 +18713,12 @@ country_event = { #ottoman purchase equipment GER
 		custom_effect_tooltip = if_they_accept_tt
 		set_country_flag = TUR_ship_commission_destroyer
 		effect_tooltip = {
-			add_offsite_building = { type = industrial_complex level = -1 }
-			FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
 			activate_decision = TUR_active_destroyer_commission
+			custom_effect_tooltip = for_720_days
+			custom_effect_tooltip = TUR_civilian_factory_use_1
 			custom_effect_tooltip = after_720_days
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = -1 } }
 			create_ship = {
 				type = ship_hull_light_1
 				equipment_variant = "TB 114 Class"
@@ -18746,10 +18751,12 @@ country_event = { #ottoman purchase equipment GER
 		custom_effect_tooltip = if_they_accept_tt
 		set_country_flag = TUR_ship_commission_battleship
 		effect_tooltip = {
-			add_offsite_building = { type = industrial_complex level = -1 }
-			FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
 			activate_decision = TUR_active_battleship_commission
-			custom_effect_tooltip = after_720_days
+			custom_effect_tooltip = for_1150_days
+			custom_effect_tooltip = TUR_civilian_factory_use_1
+			custom_effect_tooltip = after_1150_days
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = -1 } }
 			create_ship = {
 				type = ship_hull_pre_dreadnought
 				equipment_variant = "King George V Class"
@@ -18765,7 +18772,7 @@ country_event = { #ottoman purchase equipment GER
 	}
 }
 
-country_event = { #ottoman purchase equipment GER
+country_event = {
 	id = ottoman.276
 	title = ottoman.276.t
 	desc = ottoman.276.desc
@@ -18777,10 +18784,12 @@ country_event = { #ottoman purchase equipment GER
 		custom_effect_tooltip = if_they_accept_tt
 		set_country_flag = TUR_ship_commission_submarine
 		effect_tooltip = {
-			add_offsite_building = { type = industrial_complex level = -1 }
-			FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
 			activate_decision = TUR_active_submarine_commission
-			custom_effect_tooltip = after_720_days
+			custom_effect_tooltip = for_480_days
+			custom_effect_tooltip = TUR_civilian_factory_use_1
+			custom_effect_tooltip = after_420_days
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = -1 } }
 			create_ship = {
 				type = ship_hull_submarine_1
 				equipment_variant = "U Class"
@@ -18810,10 +18819,12 @@ country_event = { #ottoman purchase equipment GER
 		custom_effect_tooltip = if_they_accept_tt
 		set_country_flag = TUR_ship_commission_destroyer
 		effect_tooltip = {
-			add_offsite_building = { type = industrial_complex level = -1 }
-			FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
 			activate_decision = TUR_active_destroyer_commission
+			custom_effect_tooltip = for_720_days
+			custom_effect_tooltip = TUR_civilian_factory_use_1
 			custom_effect_tooltip = after_720_days
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = -1 } }
 			create_ship = {
 				type = ship_hull_light_1
 				equipment_variant = "S138 Class"
@@ -18843,10 +18854,12 @@ country_event = { #ottoman purchase equipment GER
 		custom_effect_tooltip = if_they_accept_tt
 		set_country_flag = TUR_ship_commission_battleship
 		effect_tooltip = {
-			add_offsite_building = { type = industrial_complex level = -1 }
-			FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = 1 } }
 			activate_decision = TUR_active_battleship_commission
-			custom_effect_tooltip = after_720_days
+			custom_effect_tooltip = for_1150_days
+			custom_effect_tooltip = TUR_civilian_factory_use_1
+			custom_effect_tooltip = after_1150_days
+			FROM.FROM = { add_offsite_building = { type = industrial_complex level = -1 } }
 			create_ship = {
 				type = ship_hull_pre_dreadnought
 				equipment_variant = "Brandenburg Class"
