@@ -7655,7 +7655,7 @@ focus_tree = {
 				name = AUS_expand_tegetthof_class
 				bonus = 1
 				uses = 1
-				category = naval_equipment
+				category = bb_tech
 			}
 			custom_effect_tooltip = AUH_add_production_of_prinz_eugen_and_szent_istvan
 			hidden_effect = {
@@ -7884,14 +7884,62 @@ focus_tree = {
 				is_controlled_by_ROOT_or_subject = yes
 				is_coastal = yes
 			}
+			GER = {
+				has_war = no
+			}
 		}
 		completion_reward = {
-			navy_experience = 25
-			add_tech_bonus = {
-				name = AUS_submarines_experiments
-				bonus = 1
-				uses = 2
-				category = ss_tech
+			activate_mission = AUS_germaniawerft_submarine_construction
+			custom_effect_tooltip = AUS_order_uboats.tt
+			effect_tooltip = {
+				create_equipment_variant = {
+					name = "U-7 Class"
+					type = ship_hull_submarine_2
+					modules = {
+						fixed_ship_torpedo_slot = ship_torpedo_sub_2
+						fixed_ship_engine_slot = sub_ship_engine_2
+					}
+				}
+				create_ship = {
+					type = ship_hull_submarine_2
+					equipment_variant = "U-7 Class"
+					name = "SM U-7"
+				}
+				create_ship = {
+					type = ship_hull_submarine_2
+					equipment_variant = "U-7 Class"
+					name = "SM U-8"
+				}
+				create_ship = {
+					type = ship_hull_submarine_2
+					equipment_variant = "U-7 Class"
+					name = "SM U-9"
+				}
+				create_ship = {
+					type = ship_hull_submarine_2
+					equipment_variant = "U-7 Class"
+					name = "SM U-10"
+				}
+				create_ship = {
+					type = ship_hull_submarine_2
+					equipment_variant = "U-7 Class"
+					name = "SM U-11"
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						AUS = {
+							has_war_with = GER
+						}
+					}
+				}
+				custom_effect_tooltip = AUS_order_uboats2.tt
+				effect_tooltip = {
+					GER = {
+						country_event = ww1_austriahungary.194
+					}
+				}
 			}
 		}
 		ai_will_do = {

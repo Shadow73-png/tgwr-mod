@@ -3637,6 +3637,80 @@ AUH_austrian_military = {
 			}
 		}
 	}
+	AUS_germaniawerft_submarine_construction = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			original_tag = AUS
+		}
+		days_mission_timeout = 450
+		is_good = yes
+		activation = {
+			always = no
+		}
+		available = {
+			has_global_flag = great_war
+			OR = {
+				GER = {
+					has_war = yes
+				}
+				AUS = {
+					has_war = yes
+				}
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						AUS = {
+							has_war_with = GER
+						}
+					}
+				}
+				GER = {
+					country_event = ww1_austriahungary.194
+				}
+			}
+		}
+		timeout_effect = {
+			create_equipment_variant = {
+				name = "U-7 Class"
+				type = ship_hull_submarine_2
+				modules = {
+					fixed_ship_torpedo_slot = ship_torpedo_sub_2
+					fixed_ship_engine_slot = sub_ship_engine_2
+				}
+			}
+			create_ship = {
+				type = ship_hull_submarine_2
+				equipment_variant = "U-7 Class"
+				name = "SM U-7"
+			}
+			create_ship = {
+				type = ship_hull_submarine_2
+				equipment_variant = "U-7 Class"
+				name = "SM U-8"
+			}
+			create_ship = {
+				type = ship_hull_submarine_2
+				equipment_variant = "U-7 Class"
+				name = "SM U-9"
+			}
+			create_ship = {
+				type = ship_hull_submarine_2
+				equipment_variant = "U-7 Class"
+				name = "SM U-10"
+			}
+			create_ship = {
+				type = ship_hull_submarine_2
+				equipment_variant = "U-7 Class"
+				name = "SM U-11"
+			}
+		}
+		complete_effect = {
+		}
+		fire_only_once = yes
+	}
 }
 
 AUH_franzferdinand = {
