@@ -2026,11 +2026,11 @@ country_event = { #technocratic government resigns
 			long_name = TUR_neutrality_party_long
 			name = TUR_neutrality_party
 		}
-		add_to_variable = {
-			tooltip = TUR_government_stability_reduce_25
-			TUR_government_stability_var = -25
-		}
-		TUR_government_stability_calculate = yes
+#		add_to_variable = {
+#			tooltip = TUR_government_stability_reduce_25
+#			TUR_government_stability_var = -25
+#		}
+#		TUR_government_stability_calculate = yes
 		TUR_government_popularity_calculate = yes
 		ai_chance = { base = 100 }
 	}
@@ -2056,11 +2056,11 @@ country_event = { #technocratic government resigns
 			long_name = TUR_neutrality_party_long
 			name = TUR_neutrality_party
 		}
-		add_to_variable = {
-			tooltip = TUR_government_stability_reduce_25
-			TUR_government_stability_var = -25
-		}
-		TUR_government_stability_calculate = yes
+#		add_to_variable = {
+#			tooltip = TUR_government_stability_reduce_25
+#			TUR_government_stability_var = -25
+#		}
+#		TUR_government_stability_calculate = yes
 		hidden_effect = { TUR_mustafa_asim = { promote_character = authoritarian_democracy } }
 		TUR_government_popularity_calculate = yes
 		ai_chance = { base = 100 }
@@ -15313,7 +15313,7 @@ country_event = { #14 demands accepted
 		every_state = {
 			limit = { check_variable = { TUR_albanian_state_level > 0 } }
 			custom_effect_tooltip = ottoman.233.tt.1
-			add_to_variable = { TUR_ottoman_resistance_target_albanian = -0.7 }
+			add_to_variable = { TUR_ottoman_resistance_target_albanian = -0.5 }
 			add_resistance = -35
 			add_compliance = 25
 		}
@@ -19801,6 +19801,7 @@ country_event = { #disruptive opposition
 	title = ottoman.302.t
 	desc = ottoman.302.desc
 	is_triggered_only = yes
+	trigger = { NOT = { has_idea = TUR_paralyzing_opposition } }
 	option = {
 		name = ottoman.302.a
 		add_ideas = TUR_disruptive_opposition
