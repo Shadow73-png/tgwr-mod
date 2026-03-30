@@ -116,15 +116,17 @@ country_event = {
 	title = ww1_croatia.3.t
 	desc = ww1_croatia.3.d
 	picture = GFX_report_event_ban_slavko_cuvaj
-	fire_only_once = no
 	trigger = {
-		has_country_flag = HUN_encourage_ban_nikola_tomasic_resign_flag
-		original_tag = HUN
+		OR = {
+			original_tag = HUN
+			original_tag = AUS
+		}
 		date > 1912.01.19
 		if = {
 			limit = {
 				original_tag = HUN
 			}
+			has_country_flag = HUN_encourage_ban_nikola_tomasic_resign_flag
 			NOT = {
 				has_country_flag = already_saw_event_croatia_3
 			}
@@ -137,6 +139,9 @@ country_event = {
 				has_country_flag = i_seen_ts_AUS
 			}
 		}
+	}
+	mean_time_to_happen = {
+		days = 0
 	}
 	#Hungarian Option
 	immediate = {
@@ -151,6 +156,12 @@ country_event = {
 				AUS = {
 					country_event = ww1_croatia.3
 				}
+			}
+			if = {
+				limit = { 
+					tag = AUS
+				}
+				set_country_flag = i_seen_ts_AUS
 			}
 		}
 	}
@@ -178,7 +189,6 @@ country_event = {
 		trigger = {
 			tag = AUS
 		}
-		set_country_flag = i_seen_ts_AUS
 	}
 }
 #Slavko Cuvaj Assassination Attempt OR Assasination
