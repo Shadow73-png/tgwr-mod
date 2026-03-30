@@ -7412,6 +7412,15 @@ focus_tree = {
 			focus = AUS_state_control_of_industry
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_ep_mob_speed = 0.1
+				tooltip = mobilization_speed_tt
+			}
+				add_to_variable = {
+				AUS_ep_local_resource = 0.05
+				tooltip = local_resources_factor_tt
+			}
 			4 = {
 				add_resource = {
 					type = coal
@@ -7419,6 +7428,10 @@ focus_tree = {
 				}
 			}
 			AUS_war_time_effects = yes
+			unlock_decision_tooltip = {
+				decision = AUS_ban_import_of_luxury_goods
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			base = 1
