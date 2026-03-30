@@ -4359,26 +4359,8 @@ news_event = {
 	trigger = {
 		NOT = { has_global_flag = explusion_of_muslims_from_the_balkans }
 		OR = {
-			has_global_flag = kis_firstbalkanwar_victory
-			AND = {
-				TUR = {
-					NOT = {
-						owns_state = 345
-						controls_state = 345
-						owns_state = 184
-						controls_state = 184
-						owns_state = 731
-						controls_state = 731
-					}
-				}
-				any_country = {
-					OR = {
-						original_tag = BUL
-						original_tag = SER
-						original_tag = MNT
-						original_tag = GRE
-						original_tag = ROM
-					}
+			TUR = {
+				NOT = {
 					owns_state = 345
 					controls_state = 345
 					owns_state = 184
@@ -4386,6 +4368,21 @@ news_event = {
 					owns_state = 731
 					controls_state = 731
 				}
+			}
+			any_country = {
+				OR = {
+					original_tag = BUL
+					original_tag = SER
+					original_tag = MNT
+					original_tag = GRE
+					original_tag = ROM
+				}
+				owns_state = 345
+				controls_state = 345
+				owns_state = 184
+				controls_state = 184
+				owns_state = 731
+				controls_state = 731
 			}
 		}
 	}
@@ -4513,13 +4510,29 @@ country_event = {
 			every_state = {
 				limit = {
 					is_core_of = MAC
-					OWNER = {
-						OR = {
-							AND = {
-								tag = MAC
-								is_subject_of = TUR
+					OR = {
+						owner = {
+							OR = {
+								AND = {
+									tag = MAC
+									is_subject_of = TUR
+								}
+								tag = TUR
 							}
-							tag = TUR
+						}
+						AND = {
+							owner = {
+								has_country_flag = TUR_revolting_country
+								controller = {
+									OR = {
+										AND = {
+											tag = MAC
+											is_subject_of = TUR
+										}
+										tag = TUR
+									}
+								}
+							}
 						}
 					}
 				}
@@ -4672,7 +4685,38 @@ country_event = {
 				}
 			}
 		}
-		TUR = { release = MAC }
+		effect_tooltip = { TUR = { release = MAC } }
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_core_of = MAC
+					OR = {
+						owner = {
+							OR = {
+								AND = {
+									tag = MAC
+									is_subject_of = TUR
+								}
+								tag = TUR
+							}
+						}
+						AND = {
+							owner = { has_country_flag = TUR_revolting_country }
+							controller = {
+								OR = {
+									AND = {
+										tag = MAC
+										is_subject_of = TUR
+									}
+									tag = TUR
+								}
+							}
+						}
+					}
+				}
+				transfer_state_to = MAC
+			}
+		}
 		MAC = {
 			set_country_flag = is_ottoman_autonomous_vilayet
 			set_country_flag = has_adopted_TUR_minority_system
@@ -4692,13 +4736,29 @@ country_event = {
 		every_state = {
 			limit = {
 				is_core_of = MAC
-				OWNER = {
-					OR = {
-						AND = {
-							tag = MAC
-							is_subject_of = TUR
+				OR = {
+					owner = {
+						OR = {
+							AND = {
+								tag = MAC
+								is_subject_of = TUR
+							}
+							tag = TUR
 						}
-						tag = TUR
+					}
+					AND = {
+						owner = {
+							has_country_flag = TUR_revolting_country
+							controller = {
+								OR = {
+									AND = {
+										tag = MAC
+										is_subject_of = TUR
+									}
+									tag = TUR
+								}
+							}
+						}
 					}
 				}
 			}

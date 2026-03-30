@@ -1742,8 +1742,12 @@ foreign_politics = {
 		icon = GFX_decision_hol_exchange_intelligence_data
 		allowed = { NOT = { original_tag = ALB } }
 		visible = {
-			ALB = { has_capitulated = yes }
+			ALB = {
+				has_capitulated = yes
+				NOT = { has_country_flag = TUR_revolting_country}
+			}
 			any_controlled_state = {
+				has_state_flag = ALB_lc_state_to_alb
 				is_core_of = ALB
 				OR = {
 					is_owned_by = ALB
