@@ -134,8 +134,8 @@ country_event = { #ottoman revolt
 									state = var:global.occupied_state
 								}
 							}
-							set_state_controller_to = PREV
-							transfer_state_to = var:global.occupier_country
+							set_state_controller_to = controller
+							set_state_owner_to = var:global.occupier_country
 						}
 					}
 				}
@@ -12575,10 +12575,14 @@ country_event = { #hasan riza pasha dies before receiving promotion
 		has_character = TUR_hasan_riza
 		TUR_hasan_riza = { is_unit_leader = no }
 		870 = {
-			owner = { tag = TUR }
+			owner = {
+				OR = {
+					tag = TUR
+					has_country_flag = TUR_revolting_country
+				}
+			}
 			controller = { tag = TUR }
 			has_resistance = yes
-			resistance > 30
 			any_neighbor_state = {
 				controller = {
 					NOT = { has_country_flag = TUR_revolting_country }
@@ -12588,6 +12592,7 @@ country_event = { #hasan riza pasha dies before receiving promotion
 		}
 	}
 	fire_only_once = yes
+	mean_time_to_happen = { days = 0 }
 	option = {
 		name = ottoman.172.a
 		add_corps_commander_role = {
@@ -19771,7 +19776,12 @@ country_event = { #ahmet niyazi dead
 		has_character = TUR_ahmet_niyazi_bey
 		TUR_ahmet_niyazi_bey = { is_unit_leader = no }
 		871 = {
-			owner = { tag = TUR }
+			owner = {
+				OR = {
+					tag = TUR
+					has_country_flag = TUR_revolting_country
+				}
+			}
 			has_resistance = yes
 			OR = {
 				controller = { has_war_with = TUR }
@@ -19784,6 +19794,7 @@ country_event = { #ahmet niyazi dead
 			}
 		}
 	}
+	mean_time_to_happen = { days = 0 }
 	fire_only_once = yes
 	option = {
 		name = ottoman.301.a

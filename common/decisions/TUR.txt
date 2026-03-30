@@ -2,7 +2,25 @@ debug_decisions = {
 	TUR_trigger_check = {
 		allowed = { always = yes }
 		available = {
-			
+			tag = TUR
+		has_character = TUR_hasan_riza
+		TUR_hasan_riza = { is_unit_leader = no }
+		870 = {
+			owner = {
+				OR = {
+					tag = TUR
+					has_country_flag = TUR_revolting_country
+				}
+			}
+			controller = { tag = TUR }
+			has_resistance = yes
+			any_neighbor_state = {
+				controller = {
+					NOT = { has_country_flag = TUR_revolting_country }
+					has_war_with = TUR
+				}
+			}
+		}
 		}
 		complete_effect = {
 			every_state = {
@@ -6151,7 +6169,7 @@ TUR_millet_system = {
 			every_state = {
 				limit = { check_variable = { TUR_albanian_state_level > 0 } }
 				custom_effect_tooltip = ottoman.233.tt.2
-				add_to_variable = { TUR_ottoman_resistance_target_albanian = 0.7 }
+				add_to_variable = { TUR_ottoman_resistance_target_albanian = 0.5 }
 				add_resistance = 100
 				add_compliance = -50
 			}
