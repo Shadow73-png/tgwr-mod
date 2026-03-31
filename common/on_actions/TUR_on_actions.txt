@@ -1360,7 +1360,14 @@ on_actions = {
 			}
 		}
 	}
-	on_government_change = { effect = { TUR_government_popularity_calculate = yes } }
+	on_government_change = {
+		effect = {
+			if = {
+				limit = { tag = TUR }
+				TUR_government_popularity_calculate = yes
+			}
+		}
+	}
 	on_ruling_party_change = {
 		effect = {
 			if = {
