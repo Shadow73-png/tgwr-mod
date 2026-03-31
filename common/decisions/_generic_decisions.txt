@@ -1127,8 +1127,8 @@ operations = {
 	
 		visible = {
 			has_war = yes
-			if = {
-				limit = { TUR_has_minority_system = yes }
+			AND = {
+				TUR_has_minority_system = yes
 				any_enemy_country = { NOT = { has_country_flag = TUR_revolting_country } }
 			}
 			NOT = { has_global_flag = SUEZ_CANAL_BLOCKED }
@@ -1258,8 +1258,8 @@ operations = {
 	
 		visible = {
 			has_war = yes
-			if = {
-				limit = { TUR_has_minority_system = yes }
+			AND = {
+				TUR_has_minority_system = yes
 				any_enemy_country = { NOT = { has_country_flag = TUR_revolting_country } }
 			}
 			NOT = { has_global_flag = PANAMA_CANAL_BLOCKED }
@@ -1569,6 +1569,10 @@ war_measures = {
 		}
 
 		visible = {
+			AND = {
+				TUR_has_minority_system = yes
+				any_enemy_country = { NOT = { has_country_flag = TUR_revolting_country } }
+			}
 			has_defensive_war = yes
 			has_offensive_war = no
 			num_of_controlled_states > 0	
@@ -1598,6 +1602,10 @@ war_measures = {
 		}
 
 		visible = {
+			AND = {
+				TUR_has_minority_system = yes
+				any_enemy_country = { NOT = { has_country_flag = TUR_revolting_country } }
+			}
 			has_offensive_war = yes
 		}
 
@@ -1704,8 +1712,8 @@ war_measures = {
 		}
 		visible = {
 			has_war = yes
-			if = {
-				limit = { TUR_has_minority_system = yes }
+			AND = {
+				TUR_has_minority_system = yes
 				any_enemy_country = { NOT = { has_country_flag = TUR_revolting_country } }
 			}
 		}
@@ -1777,8 +1785,8 @@ war_measures = {
 		}
 		visible = {
 			has_war = yes
-			if = {
-				limit = { TUR_has_minority_system = yes }
+			AND = {
+				TUR_has_minority_system = yes
 				any_enemy_country = { NOT = { has_country_flag = TUR_revolting_country } }
 			}
 		}
@@ -2011,8 +2019,8 @@ economy_decisions = {
 
 		visible = {
 			has_war = yes
-			if = {
-				limit = { TUR_has_minority_system = yes }
+			AND = {
+				TUR_has_minority_system = yes
 				any_enemy_country = { NOT = { has_country_flag = TUR_revolting_country } }
 			}
 			any_owned_state = {
