@@ -1,0 +1,60 @@
+add_namespace = april_fools_2026
+
+#debug event for HRE borders
+country_event = {
+	id = april_fools_2026.1
+	title = april_fools_2026.1.t
+	desc = april_fools_2026.1.d
+	picture = GFX_none
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = april_fools_2026.1.a
+		set_cosmetic_tag = AUS_HRE
+		86 = {
+			transfer_state_to = RUS
+		}
+		every_state = {
+			limit = {
+				OR = {
+					state = 33
+					state = 17
+					state = 863
+					state = 864
+					state = 1210
+					state = 735
+					state = 834
+					state = 21
+					state = 1
+					state = 20
+					state = 32
+				}
+			}
+			transfer_state_to = ROOT
+		}
+		annex_country = {
+			target = GER
+		}
+		annex_country = {
+			target = LIE
+		}
+		annex_country = {
+			target = SWI
+		}
+		annex_country = {
+			target = HOL
+		}
+		annex_country = {
+			target = BEL
+		}
+		annex_country = {
+			target = LUX
+		}
+		annex_country = {
+			target = ITA
+		}
+		annex_country = {
+			target = MCO
+		}
+	}
+}
