@@ -862,6 +862,37 @@ AUS_minorities_mechanic = {
 			AUS_update_state_of_realm = yes
 		}
 	}
+	AUS_crackdown_on_galacia = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_increase_the_police_in_galacia
+			any_owned_state = {
+				has_dynamic_modifier = {
+					modifier = AUS_neglected_economy
+				}
+			}
+		}
+		available = {
+			has_completed_focus = AUS_increase_the_police_in_galacia
+		}
+		fire_only_once = no
+		days_remove = 20
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+		}
+		cost = 20
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = AUH_galacia_poverty_riots
+				days = 30
+			}
+		}
+	}
 }
 
 AUH_automatic_mechanics = {
@@ -1516,7 +1547,7 @@ AUH_the_imperial_council = {
 			add_stability = -0.15
 			remove_ideas = AUS_dysfunctional_galician_diet
 			unlock_national_focus = AUS_polish_loyalty
-				}
+		}
 	}
 	AUS_imperial_elections = {
 		icon = GFX_decision_generic_scorched_earth
@@ -1934,7 +1965,7 @@ AUH_stitching_the_quilt = {
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_trade_ai_chance = -0.1
-				tooltip = trade_opinion_factor_tt
+				tooltip = trade_opinion_factor_neutral_tt
 			}
 			add_to_variable = {
 				AUS_EP_prod_eff_growth = -0.05
@@ -2927,37 +2958,6 @@ AUH_stitching_the_quilt = {
 				add_dynamic_modifier = {
 					modifier = AUS_canal_project_development
 				}
-			}
-		}
-	}
-	AUS_crackdown_on_galacia = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_increase_the_police_in_galacia
-			any_owned_state = {
-				has_dynamic_modifier = {
-					modifier = AUS_neglected_economy
-				}
-			}
-		}
-		available = {
-			has_completed_focus = AUS_increase_the_police_in_galacia
-		}
-		fire_only_once = no
-		days_remove = 20
-		ai_will_do = {
-			factor = 0
-		}
-		complete_effect = {
-		}
-		cost = 20
-		remove_effect = {
-			add_days_mission_timeout = {
-				mission = AUH_galacia_poverty_riots
-				days = 30
 			}
 		}
 	}
