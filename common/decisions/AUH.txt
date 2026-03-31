@@ -2979,26 +2979,31 @@ AUH_SER_pig_war = {
 		cost = 20
 		visible = {
 			has_completed_focus = AUS_amend_pigwar_tarrifs
-			OR = {
+			#OR = {
 				has_idea = AUS_pig_war_idea_1
-				has_idea = AUS_pig_war_idea_2
-				has_idea = AUS_pig_war_idea_3
-			}
+				#has_idea = AUS_pig_war_idea_2
+				#has_idea = AUS_pig_war_idea_3
+			#}
 		}
 		available = {
 			has_completed_focus = AUS_amend_pigwar_tarrifs
 		}
 		remove_effect = {
-			if = {
+			remove_ideas = AUS_pig_war_idea_1
+			every_country = {
 				limit = {
-					NOT = {
-						has_completed_focus = AUS_pursue_balkan_peace
+					is_embargoing = SER
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
 					}
 				}
-				custom_effect_tooltip = recommend_take_focus_pursue_piss
+				diplomatic_relation = {
+					country = SER
+					relation = embargo
+					active = no
+				}
 			}
-			#custom_effect_tooltip = AUS_tooltip_reduce_pw_level
-			AUH_se_pig_war_levels = yes
 		}
 	}
 }
