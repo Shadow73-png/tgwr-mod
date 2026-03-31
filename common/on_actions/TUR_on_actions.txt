@@ -249,7 +249,13 @@ on_actions = {
 						has_country_flag = TUR_revolting_country
 					}
 				}
-				ROOT = { become_exiled_in = { target = FROM } }
+				random_country = {
+					limit = {
+						is_arabian_peninsula_tag_no_constant = yes
+						NOT = { has_war_with = ROOT }
+					}
+					ROOT = { become_exiled_in = { target = PREV } }
+				}
 			}
 			if = {
 				limit = {

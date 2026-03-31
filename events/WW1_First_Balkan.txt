@@ -212,7 +212,6 @@ country_event = {
 					remove_claim_by = BUL
 				}
 			}
-			#if albania is ottoman puppet
 			if = {
 				limit = { NOT = { has_global_flag = kis_firstbalkanwar_victory } }
 				set_global_flag = kis_firstbalkanwar_victory
@@ -253,6 +252,7 @@ country_event = {
 					}
 					every_country = {
 						limit = {
+							NOT = { has_country_flag = TUR_revolting_country }
 							OR = {
 								has_war_with = FROM
 								is_in_faction_with = BLL
@@ -261,6 +261,7 @@ country_event = {
 						set_country_flag = BW1_winner
 						every_enemy_country = {
 							limit = {
+								NOT = { has_country_flag = TUR_revolting_country }
 								OR = {
 									tag = FROM
 									is_subject_of = FROM
@@ -363,6 +364,11 @@ country_event = {
 										is_core_of = PREV
 										is_claimed_by = PREV
 									}
+									NOT = {
+										state = 1018
+										state = 341
+										state = 860
+									}
 								}
 								transfer_state_to = PREV
 							}
@@ -382,8 +388,11 @@ country_event = {
 											has_country_flag = BW1_loser
 										}
 									}
-									OR = {
-										is_core_of = PREV
+									is_core_of = PREV
+									NOT = {
+										state = 1018
+										state = 341
+										state = 860
 									}
 								}
 								transfer_state_to = PREV
@@ -456,6 +465,11 @@ country_event = {
 									is_core_of = PREV
 									is_claimed_by = PREV
 								}
+								NOT = {
+									state = 1018
+									state = 341
+									state = 860
+								}
 							}
 							transfer_state_to = PREV
 						}
@@ -493,6 +507,11 @@ country_event = {
 									state = 731
 									state = 758
 									state = 826
+								}
+								NOT = {
+									state = 1018
+									state = 341
+									state = 860
 								}
 							}
 							transfer_state_to = PREV
@@ -564,6 +583,9 @@ country_event = {
 						state = 451
 						state = 164
 						state = 899
+						state = 1018
+						state = 341
+						state = 860
 					}
 				}
 				remove_core_of = TUR
@@ -629,6 +651,11 @@ country_event = {
 									is_core_of = PREV
 									is_claimed_by = PREV
 								}
+								NOT = {
+									state = 1018
+									state = 341
+									state = 860
+								}
 							}
 							transfer_state_to = PREV
 						}
@@ -646,7 +673,12 @@ country_event = {
 										has_country_flag = BW1_loser
 									}
 								}
-								OR = { is_core_of = PREV }
+								is_core_of = PREV
+								NOT = {
+									state = 1018
+									state = 341
+									state = 860
+								}
 							}
 							transfer_state_to = PREV
 						}
@@ -757,6 +789,11 @@ country_event = {
 							OR = {
 								is_core_of = PREV
 								is_claimed_by = PREV
+							}
+							NOT = {
+								state = 1018
+								state = 341
+								state = 860
 							}
 						}
 						transfer_state_to = PREV

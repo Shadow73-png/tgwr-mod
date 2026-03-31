@@ -2277,13 +2277,31 @@ news_event = { #raid on sublime porte news
 
 country_event = { #mahmud şevket assasination
 	id = ottoman.12
-	title = ottoman.12.t
-	desc = ottoman.12.d
+	title = {
+		text = ottoman.12.t1
+		trigger = { NOT = { has_completed_focus = TUR_reign_of_the_generalissimo } }
+	}
+	title = {
+		text = ottoman.12.t2
+		trigger = { has_completed_focus = TUR_reign_of_the_generalissimo }
+	}desc
+	title = {
+		text = ottoman.12.d1
+		trigger = { NOT = { has_completed_focus = TUR_reign_of_the_generalissimo } }
+	}
+	desc = {
+		text = ottoman.12.d2
+		trigger = { has_completed_focus = TUR_reign_of_the_generalissimo }
+	}
 	is_triggered_only = yes
 	picture = GFX_report_event_europe_funeral
 	option = {
 		name = ottoman.12.a
-		retire_character = TUR_mahmud_sevket
+		if = {
+			limit = { NOT = { has_completed_focus = TUR_reign_of_the_generalissimo } }
+			add_stability = -0.1
+		}
+		else = { retire_character = TUR_mahmud_sevket }
 		add_country_leader_role = {
 			character = TUR_said_halim
 			promote_leader = yes
@@ -19951,10 +19969,10 @@ country_event = { #disruptive opposition
 		name = ottoman.302.a
 		add_ideas = TUR_disruptive_opposition
 		custom_effect_tooltip = TUR_disruptive_opposition_instant_desc
-		hidden_effect = {
-			add_to_variable = { TUR_government_stability_var = -10 }
-			TUR_government_stability_calculate = yes
-		}
+#		hidden_effect = {
+#			add_to_variable = { TUR_government_stability_var = -10 }
+#			TUR_government_stability_calculate = yes
+#		}
 		ai_chance = { base = 100 }
 	}
 }
@@ -19968,22 +19986,26 @@ country_event = { #paralysing opposition
 		name = ottoman.303.a
 		if = {
 			limit = { has_idea = TUR_disruptive_opposition }
-			custom_effect_tooltip = TUR_paralyzing_opposition_desc_tt
-			hidden_effect = {
-				swap_ideas = {
-					remove_idea = TUR_disruptive_opposition
-					add_idea = TUR_paralyzing_opposition
-				}
-				add_to_variable = { TUR_government_stability_var = -10 }
-				TUR_government_stability_calculate = yes
+			swap_ideas = {
+				remove_idea = TUR_disruptive_opposition
+				add_idea = TUR_paralyzing_opposition
 			}
+#			custom_effect_tooltip = TUR_paralyzing_opposition_desc_tt
+#			hidden_effect = {
+#				swap_ideas = {
+#					remove_idea = TUR_disruptive_opposition
+#					add_idea = TUR_paralyzing_opposition
+#				}
+#				add_to_variable = { TUR_government_stability_var = -10 }
+#				TUR_government_stability_calculate = yes
+#			}
 		}
 		else = {
 			add_ideas = TUR_paralyzing_opposition
-			hidden_effect = {
-				add_to_variable = { TUR_government_stability_var = -20 }
-				TUR_government_stability_calculate = yes
-			}
+#			hidden_effect = {
+#				add_to_variable = { TUR_government_stability_var = -20 }
+#				TUR_government_stability_calculate = yes
+#			}
 		}
 		custom_effect_tooltip = TUR_paralyzing_opposition_instant_desc
 		ai_chance = { base = 100 }
