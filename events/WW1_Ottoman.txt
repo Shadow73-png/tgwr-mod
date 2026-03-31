@@ -1730,20 +1730,50 @@ country_event = { #saviour officer Coup
 		set_variable = { TUR_the_great_ittihadist_purge_var = 1 }
 		activate_mission = TUR_the_great_ittihadist_purge
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_ITA }
+			limit = { has_country_flag = TUR_sue_for_peace_ITA_ongoing }
 			remove_decision = TUR_sue_for_peace_ITA
+			remove_targeted_decision = {
+				target = ITA
+				decision = TUR_sue_for_peace_ITA
+			}
+			clr_country_flag = TUR_sue_for_peace_ITA_ongoing
+			clear_variable = TUR_sue_for_peace_ITA_days
 		}
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_BLL }
-			remove_decision = TUR_sue_for_peace_BLL
+			limit = { has_country_flag = TUR_sue_for_peace_BLL_ongoing }
+			remove_targeted_decision = {
+				target = BLL
+				decision = TUR_sue_for_peace_BLL
+			}
+			clr_country_flag = TUR_sue_for_peace_BLL_ongoing
+			clear_variable = TUR_sue_for_peace_BLL_days
 		}
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_BUL_lone_liberator }
-			remove_decision = TUR_sue_for_peace_BUL_lone_liberator
+			limit = { has_country_flag = TUR_sue_for_peace_BUL_lone_liberator_ongoing }
+			remove_targeted_decision = {
+				target = BUL
+				decision = TUR_sue_for_peace_BUL_lone_liberator
+			}
+			clr_country_flag = TUR_sue_for_peace_BUL_lone_liberator_ongoing
+			clear_variable = TUR_sue_for_peace_BUL_lone_liberator_days
 		}
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_BUL_and_RUS }
-			remove_decision = TUR_sue_for_peace_BUL_and_RUS
+			limit = { has_country_flag = TUR_sue_for_peace_BUL_and_RUS_ongoing }
+			remove_targeted_decision = {
+				target = RUS
+				decision = TUR_sue_for_peace_BUL_and_RUS
+			}
+			clr_country_flag = TUR_sue_for_peace_BUL_and_RUS_ongoing
+			clear_variable = TUR_sue_for_peace_BUL_and_RUS_days
+		}
+		if = {
+			limit = { has_country_flag = TUR_sue_for_peace_BUL_no_RUS_ongoing }
+			remove_targeted_decision = {
+				target = BUL
+				decision = TUR_sue_for_peace_BUL_no_RUS
+			}
+			clr_country_flag = TUR_sue_for_peace_BUL_no_RUS_ongoing
+			clear_variable = TUR_sue_for_peace_BUL_no_RUS_days
 		}
 		TUR_government_popularity_calculate = yes
 		ai_chance = { base = 100 }
@@ -1908,20 +1938,50 @@ country_event = { #saviour officer Coup
 			OTT = { country_event = ottoman.133 }
 		}
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_ITA }
+			limit = { has_country_flag = TUR_sue_for_peace_ITA_ongoing }
 			remove_decision = TUR_sue_for_peace_ITA
+			remove_targeted_decision = {
+				target = ITA
+				decision = TUR_sue_for_peace_ITA
+			}
+			clr_country_flag = TUR_sue_for_peace_ITA_ongoing
+			clear_variable = TUR_sue_for_peace_ITA_days
 		}
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_BLL }
-			remove_decision = TUR_sue_for_peace_BLL
+			limit = { has_country_flag = TUR_sue_for_peace_BLL_ongoing }
+			remove_targeted_decision = {
+				target = BLL
+				decision = TUR_sue_for_peace_BLL
+			}
+			clr_country_flag = TUR_sue_for_peace_BLL_ongoing
+			clear_variable = TUR_sue_for_peace_BLL_days
 		}
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_BUL_lone_liberator }
-			remove_decision = TUR_sue_for_peace_BUL_lone_liberator
+			limit = { has_country_flag = TUR_sue_for_peace_BUL_lone_liberator_ongoing }
+			remove_targeted_decision = {
+				target = BUL
+				decision = TUR_sue_for_peace_BUL_lone_liberator
+			}
+			clr_country_flag = TUR_sue_for_peace_BUL_lone_liberator_ongoing
+			clear_variable = TUR_sue_for_peace_BUL_lone_liberator_days
 		}
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_BUL_and_RUS }
-			remove_decision = TUR_sue_for_peace_BUL_and_RUS
+			limit = { has_country_flag = TUR_sue_for_peace_BUL_and_RUS_ongoing }
+			remove_targeted_decision = {
+				target = RUS
+				decision = TUR_sue_for_peace_BUL_and_RUS
+			}
+			clr_country_flag = TUR_sue_for_peace_BUL_and_RUS_ongoing
+			clear_variable = TUR_sue_for_peace_BUL_and_RUS_days
+		}
+		if = {
+			limit = { has_country_flag = TUR_sue_for_peace_BUL_no_RUS_ongoing }
+			remove_targeted_decision = {
+				target = BUL
+				decision = TUR_sue_for_peace_BUL_no_RUS
+			}
+			clr_country_flag = TUR_sue_for_peace_BUL_no_RUS_ongoing
+			clear_variable = TUR_sue_for_peace_BUL_no_RUS_days
 		}
 		hidden_effect = { news_event = { id = ottoman.236 hours = 6 } }
 		TUR_government_popularity_calculate = yes
@@ -2137,26 +2197,56 @@ country_event = { #raid on sublime porte
 			news_event = ottoman.11
 		}
 		add_to_variable = {
-			tooltip = TUR_government_stability_add_30
-			TUR_government_stability_var = 30
+			tooltip = TUR_government_stability_add_20
+			TUR_government_stability_var = 20
 		}
 		TUR_government_stability_calculate = yes
 		TUR_government_popularity_calculate = yes
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_ITA }
+			limit = { has_country_flag = TUR_sue_for_peace_ITA_ongoing }
 			remove_decision = TUR_sue_for_peace_ITA
+			remove_targeted_decision = {
+				target = ITA
+				decision = TUR_sue_for_peace_ITA
+			}
+			clr_country_flag = TUR_sue_for_peace_ITA_ongoing
+			clear_variable = TUR_sue_for_peace_ITA_days
 		}
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_BLL }
-			remove_decision = TUR_sue_for_peace_BLL
+			limit = { has_country_flag = TUR_sue_for_peace_BLL_ongoing }
+			remove_targeted_decision = {
+				target = BLL
+				decision = TUR_sue_for_peace_BLL
+			}
+			clr_country_flag = TUR_sue_for_peace_BLL_ongoing
+			clear_variable = TUR_sue_for_peace_BLL_days
 		}
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_BUL_lone_liberator }
-			remove_decision = TUR_sue_for_peace_BUL_lone_liberator
+			limit = { has_country_flag = TUR_sue_for_peace_BUL_lone_liberator_ongoing }
+			remove_targeted_decision = {
+				target = BUL
+				decision = TUR_sue_for_peace_BUL_lone_liberator
+			}
+			clr_country_flag = TUR_sue_for_peace_BUL_lone_liberator_ongoing
+			clear_variable = TUR_sue_for_peace_BUL_lone_liberator_days
 		}
 		if = {
-			limit = { has_decision = TUR_sue_for_peace_BUL_and_RUS }
-			remove_decision = TUR_sue_for_peace_BUL_and_RUS
+			limit = { has_country_flag = TUR_sue_for_peace_BUL_and_RUS_ongoing }
+			remove_targeted_decision = {
+				target = RUS
+				decision = TUR_sue_for_peace_BUL_and_RUS
+			}
+			clr_country_flag = TUR_sue_for_peace_BUL_and_RUS_ongoing
+			clear_variable = TUR_sue_for_peace_BUL_and_RUS_days
+		}
+		if = {
+			limit = { has_country_flag = TUR_sue_for_peace_BUL_no_RUS_ongoing }
+			remove_targeted_decision = {
+				target = BUL
+				decision = TUR_sue_for_peace_BUL_no_RUS
+			}
+			clr_country_flag = TUR_sue_for_peace_BUL_no_RUS_ongoing
+			clear_variable = TUR_sue_for_peace_BUL_no_RUS_days
 		}
 		hidden_effect = {
 			add_country_leader_role = {
@@ -14797,11 +14887,7 @@ country_event = { #Miralay Sadık's Putsch
 	is_triggered_only = yes
 	option = {
 		name = ottoman.221.a
-		add_political_power = -50
-		add_popularity = {
-			ideology = democratic
-			popularity = -0.1
-		}
+		add_stability = -0.1
 		add_country_leader_role = {
 			character = TUR_nazim_pasha
 			promote_leader = yes
@@ -14811,8 +14897,8 @@ country_event = { #Miralay Sadık's Putsch
 			}
 		}
 		add_to_variable = {
-			tooltip = TUR_government_stability_add_20
-			TUR_government_stability_var = 20
+			tooltip = TUR_government_stability_add_25
+			TUR_government_stability_var = 25
 		}
 		custom_effect_tooltip = TUR_start_focus_eradicate_the_opposition
 		hidden_effect = { load_oob = "TUR_eradicate_the_opposition" }
