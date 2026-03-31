@@ -2,48 +2,9 @@ debug_decisions = {
 	TUR_trigger_check = {
 		allowed = { always = yes }
 		available = {
-			tag = TUR
-		has_character = TUR_hasan_riza
-		TUR_hasan_riza = { is_unit_leader = no }
-		870 = {
-			owner = {
-				OR = {
-					tag = TUR
-					has_country_flag = TUR_revolting_country
-				}
-			}
-			controller = { tag = TUR }
-			has_resistance = yes
-			any_neighbor_state = {
-				controller = {
-					NOT = { has_country_flag = TUR_revolting_country }
-					has_war_with = TUR
-				}
-			}
-		}
 		}
 		complete_effect = {
-			every_state = {
-				limit = {
-					is_core_of = MAC
-					OR = {
-						owner = {
-							OR = {
-								AND = {
-									tag = MAC
-									is_subject_of = TUR
-								}
-								tag = TUR
-							}
-						}
-						owner = {
-							has_country_flag = TUR_revolting_country
-							controller = { tag = TUR }
-						}
-					}
-				}
-				transfer_state_to = MAC
-			}
+			set_country_flag = has_had_war_with_TUR
 		}
 		ai_will_do = { base = 0 }
 	}
@@ -12829,15 +12790,57 @@ peace_deals = {
 				}
 				OR = {
 					#historical trigger
-					AND = {
-						war_length_with = {
-							tag = BLL
-							months < 7
+					OR = {
+						AND = {
+							war_length_with = {
+								tag = BLL
+								months < 7
+							}
+							casualties < 350000
+							OR = {
+								surrender_progress < 0.2
+								any_controlled_state = { is_on_continent = europe }
+							}
+							TUR_is_ittihadist_regime = yes
 						}
-						casualties < 350000
-						OR = {
-							surrender_progress < 0.2
-							any_controlled_state = { is_on_continent = europe }
+						AND = {
+							war_length_with = {
+								tag = BLL
+								months < 2
+							}
+							OR = {
+								surrender_progress < 0.15
+								AND = {
+									345 = {
+										owner = {
+											OR = {
+												tag = ROOT
+												has_country_flag = TUR_revolting_country
+											}
+										}
+										controller = ROOT
+									}
+									203 = {
+										owner = {
+											OR = {
+												tag = ROOT
+												has_country_flag = TUR_revolting_country
+											}
+										}
+										controller = ROOT
+									}
+									106 = {
+										owner = {
+											OR = {
+												tag = ROOT
+												has_country_flag = TUR_revolting_country
+											}
+										}
+										controller = ROOT
+									}
+								}
+							}
+							TUR_is_itilafist_regime = yes
 						}
 					}
 					#dont surrender if you are wining the balkan war

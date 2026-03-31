@@ -1135,7 +1135,7 @@ focus = {
 		id = GRE_treaty_of_athens
 		icon = GFX_focus_generic_treaty
 		cost = 5
-		x = 14
+		x = 15
 		y = 0
 		offset = {
 			x = -2
@@ -1250,12 +1250,9 @@ focus = {
 		id = GRE_unite_with_crete
 		icon = GFX_GRE_unite_with_crete
 		cost = 5
-		x = -1
-		y = 1
+		x = -2
+		y = 0
 		relative_position_id = GRE_treaty_of_athens
-		prerequisite = {
-			focus = GRE_treaty_of_athens
-		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_ANNEXATION
@@ -1270,7 +1267,10 @@ focus = {
 		available = {
 			is_subject = no
 			has_subject = CRE
-			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = has_had_war_with_TUR
+				has_country_flag = has_had_war_with_TUR
+			}
 		}
 		bypass = {
 			NOT = {
@@ -1307,9 +1307,9 @@ focus = {
 			}
 		}
 		bypass_if_unavailable = yes
-		relative_position_id = GRE_treaty_of_athens
+		relative_position_id = GRE_unite_with_crete
 		prerequisite = {
-			focus = GRE_treaty_of_athens
+			focus = GRE_treaty_of_athens focus = GRE_unite_with_crete
 		}
 		completion_reward = {
 			add_stability = 0.05
@@ -1332,7 +1332,7 @@ focus = {
 		id = GRE_florence_protocol
 		icon = GFX_focus_hol_the_foundations_of_defense
 		cost = 5
-		x = -1
+		x = 0
 		y = 1
 		available = {
 			AUS = {
@@ -1393,11 +1393,11 @@ focus = {
 		id = GRE_construct_new_forts
 		icon = GFX_goal_generic_fortify_city
 		cost = 5
-		x = -1
+		x = -2
 		y = 1
-		relative_position_id = GRE_unite_with_crete
+		relative_position_id = GRE_consolidate_new_territories
 		prerequisite = {
-			focus = GRE_unite_with_crete
+			focus = GRE_consolidate_new_territories
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -1420,11 +1420,11 @@ focus = {
 		id = GRE_appoint_general_governors
 		icon = GFX_focus_generic_self_management
 		cost = 5
-		x = 3
+		x = 2
 		y = 1
-		relative_position_id = GRE_unite_with_crete
+		relative_position_id = GRE_consolidate_new_territories
 		prerequisite = {
-			focus = GRE_unite_with_crete
+			focus = GRE_consolidate_new_territories
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
