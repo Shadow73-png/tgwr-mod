@@ -3174,6 +3174,10 @@ focus_tree = {
 				set_country_flag = TUR_truce_with_asir
 			}
 			ASR = {
+				if = {
+					limit = { has_country_flag = TUR_revolting_country }
+					clr_country_flag = TUR_revolting_country
+				}
 				every_core_state = {
 					limit = {
 						TUR_is_owned_by_us_or_committee_government = yes
@@ -3266,6 +3270,10 @@ focus_tree = {
 				set_country_flag = TUR_ratify_the_treaty_of_daan
 			}
 			YEM = {
+				if = {
+					limit = { has_country_flag = TUR_revolting_country }
+					clr_country_flag = TUR_revolting_country
+				}
 				every_core_state = {
 					limit = {
 						TUR_is_owned_by_us_or_committee_government = yes
@@ -8871,6 +8879,10 @@ focus_tree = {
 					white_peace = HJZ
 				}
 				HJZ = {
+					if = {
+						limit = { has_country_flag = TUR_revolting_country }
+						clr_country_flag = TUR_revolting_country
+					}
 					every_core_state = {
 						limit = {
 							is_owned_by = TUR
@@ -8919,6 +8931,10 @@ focus_tree = {
 					white_peace = YEM
 				}
 				YEM = {
+					if = {
+						limit = { has_country_flag = TUR_revolting_country }
+						clr_country_flag = TUR_revolting_country
+					}
 					every_core_state = {
 						limit = { is_owned_by = TUR }
 						transfer_state_to = YEM
@@ -8955,6 +8971,10 @@ focus_tree = {
 					white_peace = ASR
 				}
 				ASR = {
+					if = {
+						limit = { has_country_flag = TUR_revolting_country }
+						clr_country_flag = TUR_revolting_country
+					}
 					every_core_state = {
 						limit = {
 							is_owned_by = TUR
@@ -8994,6 +9014,10 @@ focus_tree = {
 					white_peace = UAS
 				}
 				UAS = {
+					if = {
+						limit = { has_country_flag = TUR_revolting_country }
+						clr_country_flag = TUR_revolting_country
+					}
 					every_core_state = {
 						limit = { is_owned_by = TUR }
 						transfer_state_to = UAS
@@ -9254,6 +9278,10 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			ALB = {
+				if = {
+					limit = { has_country_flag = TUR_revolting_country }
+					clr_country_flag = TUR_revolting_country
+				}
 				set_country_flag = is_ottoman_autonomous_vilayet
 				set_country_flag = has_adopted_TUR_minority_system
 				set_cosmetic_tag = ALB_vilayet
@@ -11269,8 +11297,8 @@ focus_tree = {
 			TUR_regime_is_liberal = yes
 			TUR_regime_is_more_popular_than_opposition_twice = yes
 			custom_trigger_tooltip = {
-				tooltip = TUR_government_stability_at_least_50
-				check_variable = { TUR_government_stability_var > 49 }
+				tooltip = TUR_government_stability_at_least_35
+				check_variable = { TUR_government_stability_var > 34 }
 			}
 		}
 		mutually_exclusive = { focus = TUR_listian_protectionism }
@@ -11816,8 +11844,8 @@ focus_tree = {
 			}
 			TUR_regime_is_more_popular_than_opposition_twice = yes
 			custom_trigger_tooltip = {
-				tooltip = TUR_government_stability_at_least_50
-				check_variable = { TUR_government_stability_var > 49 }
+				tooltip = TUR_government_stability_at_least_35
+				check_variable = { TUR_government_stability_var > 34 }
 			}
 		}
 		mutually_exclusive = { focus = TUR_economic_liberalism }
@@ -16340,7 +16368,7 @@ focus_tree = {
 	focus = {
 		id = TUR_assign_cemal_to_syria
 		icon = GFX_TUR_assign_cemal_to_syria
-		cost = 10
+		cost = 5
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS

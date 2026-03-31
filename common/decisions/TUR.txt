@@ -4,7 +4,10 @@ debug_decisions = {
 		available = {
 		}
 		complete_effect = {
-			set_country_flag = TUR_sue_for_peace_BLL_ongoing
+			every_country = {
+				limit = { has_active_mission = TUR_berlin_baghdad_railway_phase_2 }
+				stability_factor = 0.1
+			}
 		}
 		ai_will_do = { base = 0 }
 	}
@@ -20321,6 +20324,7 @@ TUR_cult_of_ittihat_ve_terakki = {
 			has_character = TUR_ahmet_riza
 			NOT = { has_country_flag = TUR_utilize_ahmet_riza }
 			has_dynamic_modifier = { modifier = TUR_committee_of_union_and_progress }
+			NOT = { has_completed_focus = TUR_three_pasha_government }
 		}
 		available = {
 			TUR_ahmet_riza = {
@@ -26855,26 +26859,32 @@ economy_decisions = {
 			}
 			if = {
 				limit = { tag = GER }
-				TUR_add_debt_1_ROOT = yes
+				effect_tooltip = { TUR_add_debt_1_ROOT = yes }
 			}
 			custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_1_tt1
 			hidden_effect = {
-				build_railway = {
-					level = 1
-					path = { 9830 11810 11746 }
-					fallback = yes
-					start_province = 9830
-					target_province = 11746
+				if = {
+					limit = { tag = TUR }
+					build_railway = {
+						level = 1
+						path = { 9830 11810 11746 }
+						fallback = yes
+						start_province = 9830
+						target_province = 11746
+					}
 				}
 			}
 			344 = {
 				custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_1_tt2
 				hidden_effect = {
-					add_building_construction = {
-						type = supply_node
-						level = 1
-						province = 11746
-						instant_build = yes
+					if = {
+						limit = { tag = TUR }
+						add_building_construction = {
+							type = supply_node
+							level = 1
+							province = 11746
+							instant_build = yes
+						}
 					}
 				}
 			}
@@ -26935,16 +26945,19 @@ economy_decisions = {
 			}
 			if = {
 				limit = { tag = GER }
-				TUR_add_debt_1_ROOT = yes
+				effect_tooltip = { TUR_add_debt_1_ROOT = yes }
 			}
 			custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_2_tt
 			hidden_effect = {
-				build_railway = {
-					level = 1
-					path = { 11746 806 12473 }
-					fallback = yes
-					start_province = 11746
-					target_province = 12473
+				if = {
+					limit = { tag = TUR }
+					build_railway = {
+						level = 1
+						path = { 11746 806 12473 }
+						fallback = yes
+						start_province = 11746
+						target_province = 12473
+					}
 				}
 			}
 			activate_mission = TUR_berlin_baghdad_railway_phase_3
@@ -27005,26 +27018,32 @@ economy_decisions = {
 			}
 			if = {
 				limit = { tag = GER }
-				TUR_add_debt_1_ROOT = yes
+				effect_tooltip = { TUR_add_debt_1_ROOT = yes }
 			}
 			custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_3_tt1
 			hidden_effect = {
-				build_railway = {
-					level = 1
-					path = { 12473 3889 9823 11871 12416 }
-					fallback = yes
-					start_province = 12473
-					target_province = 12416
+				if = {
+					limit = { tag = TUR }
+					build_railway = {
+						level = 1
+						path = { 12473 3889 9823 11871 12416 }
+						fallback = yes
+						start_province = 12473
+						target_province = 12416
+					}
 				}
 			}
 			1028 = {
 				custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_3_tt2
 				hidden_effect = {
-					add_building_construction = {
-						type = supply_node
-						level = 1
-						province = 12416
-						instant_build = yes
+					if = {
+					limit = { tag = TUR }
+						add_building_construction = {
+							type = supply_node
+							level = 1
+							province = 12416
+							instant_build = yes
+						}
 					}
 				}
 			}
@@ -27085,26 +27104,32 @@ economy_decisions = {
 			}
 			if = {
 				limit = { tag = GER }
-				TUR_add_debt_1_ROOT = yes
+				effect_tooltip = { TUR_add_debt_1_ROOT = yes }
 			}
 			custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_4_tt1
 			hidden_effect = {
-				build_railway = {
-					level = 1
-					path = { 12416 1549 10804 10106 }
-					fallback = yes
-					start_province = 12416
-					target_province = 10106
+				if = {
+					limit = { tag = TUR }
+					build_railway = {
+						level = 1
+						path = { 12416 1549 10804 10106 }
+						fallback = yes
+						start_province = 12416
+						target_province = 10106
+					}
 				}
 			}
 			676 = {
 				custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_4_tt2
 				hidden_effect = {
-					add_building_construction = {
-						type = supply_node
-						level = 1
-						province = 10106
-						instant_build = yes
+					if = {
+						limit = { tag = TUR }
+						add_building_construction = {
+							type = supply_node
+							level = 1
+							province = 10106
+							instant_build = yes
+						}
 					}
 				}
 			}
@@ -27165,16 +27190,19 @@ economy_decisions = {
 			}
 			if = {
 				limit = { tag = GER }
-				TUR_add_debt_1_ROOT = yes
+				effect_tooltip = { TUR_add_debt_1_ROOT = yes }
 			}
 			custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_5_tt
 			hidden_effect = {
-				build_railway = {
-					level = 1
-					path = { 10106 1600 13273 3795 13390 2097 }
-					fallback = yes
-					start_province = 10106
-					target_province = 2097
+				if = {
+					limit = { tag = TUR }
+					build_railway = {
+						level = 1
+						path = { 10106 1600 13273 3795 13390 2097 }
+						fallback = yes
+						start_province = 10106
+						target_province = 2097
+					}
 				}
 			}
 			activate_mission = TUR_berlin_baghdad_railway_phase_6
@@ -27240,26 +27268,32 @@ economy_decisions = {
 			}
 			if = {
 				limit = { tag = GER }
-				TUR_add_debt_1_ROOT = yes
+				effect_tooltip = { TUR_add_debt_1_ROOT = yes }
 			}
 			custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_6_tt1
 			hidden_effect = {
-				build_railway = {
-					level = 1
-					path = { 2097 12885 7997 13385 12726 2089 }
-					fallback = yes
-					start_province = 2097
-					target_province = 2089
+				if = {
+					limit = { tag = TUR }
+					build_railway = {
+						level = 1
+						path = { 2097 12885 7997 13385 12726 2089 }
+						fallback = yes
+						start_province = 2097
+						target_province = 2089
+					}
 				}
 			}
 			874 = {
 				custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_6_tt2
 				hidden_effect = {
-					add_building_construction = {
-						type = supply_node
-						level = 1
-						province = 2089
-						instant_build = yes
+					if = {
+						limit = { tag = TUR }
+						add_building_construction = {
+							type = supply_node
+							level = 1
+							province = 2089
+							instant_build = yes
+						}
 					}
 				}
 			}
@@ -36281,7 +36315,12 @@ TUR_unionist_struggle_decisions = {
 		cost = 15
 		days_remove = 30
 		days_re_enable = 30
-		available = { has_war = no }
+		available = {
+			OR = {
+				has_war = no
+				all_enemy_country = { has_country_flag = TUR_revolting_country } 
+			}
+		}
 		complete_effect = {
 			add_popularity = {
 				ideology = fascism
