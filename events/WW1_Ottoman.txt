@@ -1729,6 +1729,22 @@ country_event = { #saviour officer Coup
 		}
 		set_variable = { TUR_the_great_ittihadist_purge_var = 1 }
 		activate_mission = TUR_the_great_ittihadist_purge
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_ITA }
+			remove_decision = TUR_sue_for_peace_ITA
+		}
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_BLL }
+			remove_decision = TUR_sue_for_peace_BLL
+		}
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_BUL_lone_liberator }
+			remove_decision = TUR_sue_for_peace_BUL_lone_liberator
+		}
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_BUL_and_RUS }
+			remove_decision = TUR_sue_for_peace_BUL_and_RUS
+		}
 		TUR_government_popularity_calculate = yes
 		ai_chance = { base = 100 }
 	}
@@ -1891,7 +1907,23 @@ country_event = { #saviour officer Coup
 			}
 			OTT = { country_event = ottoman.133 }
 		}
-		news_event = { id = ottoman.236 hours = 6 }
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_ITA }
+			remove_decision = TUR_sue_for_peace_ITA
+		}
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_BLL }
+			remove_decision = TUR_sue_for_peace_BLL
+		}
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_BUL_lone_liberator }
+			remove_decision = TUR_sue_for_peace_BUL_lone_liberator
+		}
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_BUL_and_RUS }
+			remove_decision = TUR_sue_for_peace_BUL_and_RUS
+		}
+		hidden_effect = { news_event = { id = ottoman.236 hours = 6 } }
 		TUR_government_popularity_calculate = yes
 		ottoman_minority_variable_check = yes
 		ai_chance = { base = 0 }
@@ -2110,6 +2142,22 @@ country_event = { #raid on sublime porte
 		}
 		TUR_government_stability_calculate = yes
 		TUR_government_popularity_calculate = yes
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_ITA }
+			remove_decision = TUR_sue_for_peace_ITA
+		}
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_BLL }
+			remove_decision = TUR_sue_for_peace_BLL
+		}
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_BUL_lone_liberator }
+			remove_decision = TUR_sue_for_peace_BUL_lone_liberator
+		}
+		if = {
+			limit = { has_decision = TUR_sue_for_peace_BUL_and_RUS }
+			remove_decision = TUR_sue_for_peace_BUL_and_RUS
+		}
 		hidden_effect = {
 			add_country_leader_role = {
 				character = TUR_mehmed_serif_pasa
