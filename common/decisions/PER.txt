@@ -48,3 +48,199 @@ operations = {
 		}
 	}
 }
+PER_persian_cossack_brigade = {
+	PER_raise_cossack_regiment_in_FROM = {
+		icon = generic_prepare_civil_war
+		allowed = {
+			tag = PER
+		}
+		state_target = yes
+		targets = {
+			266 #Tehran 10837
+			1117 #Hamadan 10523, Qazvin 4553
+			877 #Tabriz 1896, Ardabil 4901
+			411 #Isfahan 2026
+			416 #Mashhad 5029
+			1247 #Mazandaran Sari 10385
+			419 #Urmia 7604
+			420 #Gilan Rasht 4609
+		}
+		target_trigger = {
+			FROM = {
+				OR = {					
+					is_controlled_by = ROOT
+					is_controlled_by = OWNER
+				}
+				OR = {
+					has_contested_owner = PER #Root doesn't work
+					is_owned_by = ROOT				
+				}	
+				NOT = { has_state_flag = PER_has_raised_cossack_regiment }
+			}
+		}
+		available = {
+			any_other_country = {
+				NOT = {
+					original_tag = PER
+					AND = {
+						original_tag = RUS
+						has_government = communism
+					}
+				}
+				OR = {
+					has_war_with = ROOT
+					is_justifying_wargoal_against = ROOT
+					has_annex_war_goal = ROOT
+				}				
+			}		
+			NOT = {
+				any_enemy_country = {
+					original_tag = RUS
+					NOT = {
+						has_government = communism
+					}				
+				}
+			}
+		}
+		target_root_trigger = {
+			NOT = {
+				any_enemy_country = {
+					original_tag = RUS
+					has_government = communism
+				}
+			}
+		}
+		fire_only_once = no
+		on_map_mode = map_and_decisions_view
+		custom_cost_text = decision_cost_CP_5
+		custom_cost_trigger = {
+			command_power > 4.9
+		}
+		complete_effect = {
+			add_command_power = -5
+			FROM = {
+				create_unit = {
+					division = "division_template = \"Ataryād-e Qazāqkhāneh\" start_experience_factor = 0.8 start_equipment_factor = 0.75"
+					owner = ROOT
+					count = 1
+				}
+				set_state_flag = PER_has_raised_cossack_regiment
+			}
+			
+			if = {
+				limit = {
+					NOT = { has_country_flag = PER_has_raised_cossacks }
+				}
+				set_country_flag = PER_has_raised_cossacks
+				show_unit_leaders_tooltip = PER_reza_khan
+				show_unit_leaders_tooltip = PER_abdollah_amir_tahmasebi
+				show_unit_leaders_tooltip = PER_karim_buzarjomehri
+			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	PER_cossacks_leaving_mission = {
+		icon = eng_blackshirt_march
+		
+		allowed = {
+			original_tag = PER
+		}
+
+		available = {
+			any_other_country = {
+				NOT = {
+					original_tag = PER
+					AND = {
+						original_tag = RUS
+						has_government = communism
+					}
+				}
+				OR = {
+					has_war_with = ROOT
+					is_justifying_wargoal_against = ROOT
+					has_annex_war_goal = ROOT
+				}				
+			}
+		}
+		
+		activation = {
+			has_country_flag = PER_has_raised_cossacks
+			OR = {
+				NOT = {
+					any_other_country = {
+						NOT = {
+							original_tag = PER
+							AND = {
+								original_tag = RUS
+								has_government = communism
+							}
+						}
+						OR = {
+							has_war_with = ROOT
+							is_justifying_wargoal_against = ROOT
+							has_annex_war_goal = ROOT
+						}				
+					}
+				}
+				any_enemy_country = {
+					original_tag = RUS
+					NOT = {
+						has_government = communism
+					}				
+				}
+			}		
+		}
+
+		cancel_trigger = {
+			any_enemy_country = {
+				original_tag = RUS
+				NOT = {
+					has_government = communism
+				}				
+			}
+		}
+
+		fire_only_once = no		
+
+		is_good = no
+		days_mission_timeout = 15
+
+		timeout_effect = {
+			clr_country_flag = PER_has_raised_cossacks
+			delete_unit = {
+				division_template = "Ataryād-e Qazāqkhāneh"
+			}
+			every_state = {
+				limit = {
+					has_state_flag = PER_has_raised_cossack_regiment
+					OWNER = {
+						NOT = {
+							has_country_flag = PER_has_raised_cossacks
+						}
+					}
+				}
+				clr_state_flag = PER_has_raised_cossack_regiment
+			}
+		}
+
+		cancel_effect = {
+			clr_country_flag = PER_has_raised_cossacks
+			delete_unit = {
+				division_template = "Ataryād-e Qazāqkhāneh"
+			}
+			every_state = {
+				limit = {
+					has_state_flag = PER_has_raised_cossack_regiment
+					OWNER = {
+						NOT = {
+							has_country_flag = PER_has_raised_cossacks
+						}
+					}
+				}
+				clr_state_flag = PER_has_raised_cossack_regiment
+			}
+		}
+	}
+}

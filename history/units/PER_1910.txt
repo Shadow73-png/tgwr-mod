@@ -1,7 +1,7 @@
 ﻿###################################################################
 
 division_template = {
-	name = "Barigad Markazi" #Central Brigade
+	name = "Berīgād-e Markazī" #Central Brigade
 	division_names_group = PER_INF_01
 	regiments = {
 		infantry = { x = 0 y = 0 }
@@ -12,6 +12,21 @@ division_template = {
 		recon = { x = 0 y = 1 }
 	}
 }
+#Persian Cossack Brigade
+division_template = {
+	name = "Ataryād-e Qazāqkhāneh" #Cossack Regiment
+	division_names_group = PER_COS_01
+	override_model = RUS_cavalry_entity
+	template_counter = 106
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+	}
+	support = {
+		field_gun = { x = 0 y = 0 }
+	}
+	is_locked = yes
+}
 
 ###################################################################
 
@@ -19,9 +34,9 @@ division_template = {
 	
 units = {
 	division = { 
-		name = "Barigad Markazi"
+		name = "Berīgād-e Markazī" #Central Brigade
 		location = 10837 # Tehran
-		division_template = "Barigad Markazi"
+		division_template = "Berīgād-e Markazī"
 		start_experience_factor = 0
 		start_equipment_factor = 0.5
 	}
