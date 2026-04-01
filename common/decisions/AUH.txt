@@ -448,7 +448,7 @@ AUH_great_war_bullshit = {
 		modifier = {
 		}
 	}
-		AUS_ban_import_of_luxury_goods = {
+	AUS_ban_import_of_luxury_goods = {
 		icon = GFX_decision_generic_electricity
 		allowed = {
 			original_tag = AUS
@@ -469,7 +469,6 @@ AUH_great_war_bullshit = {
 		complete_effect = {
 		}
 		remove_effect = {
-			
 			add_political_power = 50
 			add_stability = -0.05
 			add_war_support = -0.05
@@ -478,8 +477,7 @@ AUH_great_war_bullshit = {
 				AUS_EP_consumer_goods = -0.1
 				tooltip = consumer_goods_factor_tt
 			}
-						AUS_war_time_effects = yes
-
+			AUS_war_time_effects = yes
 		}
 		modifier = {
 		}
@@ -549,7 +547,6 @@ AUH_great_war_bullshit = {
 			}
 		}
 	}
-	
 }
 
 AUS_minorities_mechanic = {
@@ -562,20 +559,20 @@ AUS_minorities_mechanic = {
 		days_mission_timeout = 300
 		available = {
 			NOT = {
-			    any_state = {
-			        OR = {
-			            is_owned_by = AUS
-			            if = {
+				any_state = {
+					OR = {
+						is_owned_by = AUS
+						if = {
 							limit = {
 								AUS_HUN_exists = yes
 							}
 							is_owned_by = HUN
 						}
-			        }
-			        has_dynamic_modifier = {
+					}
+					has_dynamic_modifier = {
 						modifier = AUS_neglected_economy
 					}
-			    }
+				}
 			}
 		}
 		visible = {
@@ -1211,6 +1208,48 @@ AUH_automatic_mechanics = {
 }
 
 AUH_the_imperial_council = {
+	AUS_king_intervention = {
+		priority = 99
+		ai_will_do = {
+			base = 0
+			modifier = {
+				AUS_southern_admin_bad_negative = yes
+				add = 100
+			}
+			modifier = {
+				has_political_power < 40
+				factor = 0
+			}
+		}
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		days_mission_timeout = 1
+		available = {
+			always = no
+		}
+		visible = {
+			original_tag = AUS
+		}
+		activation = {
+			has_completed_focus = AUS_the_siege_mentality
+			NOT = {
+				has_war = yes
+				has_global_flag = great_war_ends
+			}
+		}
+		timeout_effect = {
+			set_political_power = -74
+		}
+		cancel_trigger = {
+			has_political_power > -75
+		}
+		cancel_effect = {
+		}
+		fire_only_once = no
+		is_good = yes
+	}
 	AUS_tempoary_coalitions_d = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -1220,6 +1259,7 @@ AUH_the_imperial_council = {
 			has_completed_focus = AUS_temporary_coalitions
 			NOT = {
 				has_completed_focus = AUS_the_constitutionalist_dictatorship
+				has_completed_focus = AUS_the_siege_mentality
 			}
 		}
 		priority = 210
@@ -1516,7 +1556,6 @@ AUH_the_imperial_council = {
 			factor = 0
 		}
 		complete_effect = {
-			
 		}
 		remove_effect = {
 			remove_ideas = AUS_dysfunctional_galician_diet
@@ -1542,7 +1581,6 @@ AUH_the_imperial_council = {
 			factor = 0
 		}
 		complete_effect = {
-			
 		}
 		remove_effect = {
 			add_stability = -0.15
@@ -2597,7 +2635,6 @@ AUH_stitching_the_quilt = {
 			}
 		}
 	}
-
 	AUS_attack_organized_labor = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -2632,8 +2669,7 @@ AUH_stitching_the_quilt = {
 			original_tag = AUS
 		}
 		visible = {
-			#	has_completed_focus = AUS_pit_minorities_against_eachother
-			#leaf fix this
+			has_completed_focus = AUS_circular_firing_squad
 			always = no
 		}
 		priority = 18
@@ -2649,15 +2685,15 @@ AUH_stitching_the_quilt = {
 		cost = 15
 		remove_effect = {
 			add_to_variable = {
-				AUS_ruthenian_loyalty = 5
+				AUS_ruthenian_loyalty = 10
 				tooltip = AUS_loyalty_ruthenians_tt
 			}
 			add_to_variable = {
-				AUS_pole_loyalty = 5
+				AUS_pole_loyalty = 10
 				tooltip = AUS_loyalty_pole_tt
 			}
 			add_to_variable = {
-				AUS_romanian_loyalty = 5
+				AUS_romanian_loyalty = 10
 				tooltip = AUS_loyalty_romanians_tt
 			}
 			AUS_update_state_of_realm = yes
@@ -2669,8 +2705,7 @@ AUH_stitching_the_quilt = {
 			original_tag = AUS
 		}
 		visible = {
-			#	has_completed_focus = AUS_pit_minorities_against_eachother
-			#	leaf fix this
+			has_completed_focus = AUS_circular_firing_squad
 			always = no
 		}
 		priority = 18
@@ -2686,11 +2721,11 @@ AUH_stitching_the_quilt = {
 		cost = 15
 		remove_effect = {
 			add_to_variable = {
-				AUS_serb_loyalty = 5
+				AUS_serb_loyalty = 10
 				tooltip = AUS_loyalty_serb_tt
 			}
 			add_to_variable = {
-				AUS_croat_loyalty = 5
+				AUS_croat_loyalty = 10
 				tooltip = AUS_loyalty_croatian_tt
 			}
 			AUS_update_state_of_realm = yes

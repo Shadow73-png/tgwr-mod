@@ -1245,7 +1245,7 @@ focus_tree = {
 	focus = {
 		id = AUS_retribution_against_socialists
 		icon = GFX_focus_SWE_attack_landsorganisationen
-		cost = 5
+		cost = 4
 		x = -3
 		y = 1
 		prerequisite = {
@@ -1291,7 +1291,7 @@ focus_tree = {
 	focus = {
 		id = AUS_obstructionism_of_our_own
 		icon = GFX_focus_ETH_re-convene_the_parliament
-		cost = 5
+		cost = 4
 		x = -1
 		y = 1
 		prerequisite = {
@@ -1326,7 +1326,7 @@ focus_tree = {
 	focus = {
 		id = AUS_increase_the_police_in_galacia
 		icon = GFX_generic_police_state
-		cost = 5
+		cost = 4
 		x = 1
 		y = 1
 		prerequisite = {
@@ -1431,7 +1431,7 @@ focus_tree = {
 	focus = {
 		id = AUS_reject_bohemian_autonomy
 		icon = GFX_focus_AUS_reject_bohemian_autonomy
-		cost = 5
+		cost = 4
 		x = 3
 		y = 1
 		prerequisite = {
@@ -1492,7 +1492,7 @@ focus_tree = {
 	focus = {
 		id = AUS_attack_regionalist_parties
 		icon = GFX_focus_eng_move_to_secure_the_dominions
-		cost = 5
+		cost = 4
 		x = 3
 		y = 2
 		prerequisite = {
@@ -1788,14 +1788,10 @@ focus_tree = {
 		cost = 5
 		x = -1
 		y = 1
+		
 		prerequisite = {
-			focus = AUS_bypass_the_obstructionists
-		}
-		prerequisite = {
+			focus = AUS_increase_the_police_in_galacia
 			focus = AUS_attack_regionalist_parties
-		}
-		prerequisite = {
-			focus = AUS_polish_loyalty
 		}
 		relative_position_id = AUS_attack_regionalist_parties
 		available = {
@@ -1854,10 +1850,11 @@ focus_tree = {
 		id = AUS_emperors_right_hand_man
 		icon = GFX_focus_generic_monarchy_1
 		cost = 5
-		x = -1
-		y = 1
+		x = 0
+		y = 2
 		prerequisite = {
-			focus = AUS_bypass_the_obstructionists
+			focus = AUS_the_siege_mentality
+			focus = AUS_circular_firing_squad
 		}
 		relative_position_id = AUS_bypass_the_obstructionists
 		available = {
@@ -1911,14 +1908,76 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = AUS_take_advantage_of_section_41
-		icon = GFX_focus_control_economy
-		cost = 5
+		id = AUS_the_siege_mentality
+		icon = GFX_focus_generic_provoke_border_clashes
+		cost = 2
 		x = 1
 		y = 1
 		prerequisite = {
-			focus = AUS_bypass_the_obstructionists
+			focus = AUS_breakdown_the_rules_of_the_legislature
 		}
+		relative_position_id = AUS_bypass_the_obstructionists
+		available = {
+			AUS_has_autocrat_minister = yes
+		}
+		mutually_exclusive = {
+			focus = AUS_circular_firing_squad
+		}
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.1
+			}
+			custom_effect_tooltip = AUS_if_pp_ever_75
+			custom_effect_tooltip = AUS_disable_unblock_laws
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = AUS_circular_firing_squad
+		icon = GFX_focus_SWE_organize_a_putsch
+		cost = 2
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = AUS_breakdown_the_rules_of_the_legislature
+		}
+		mutually_exclusive = {
+			focus = AUS_the_siege_mentality
+		}
+		relative_position_id = AUS_bypass_the_obstructionists
+		available = {
+			AUS_has_autocrat_minister = yes
+		}
+		completion_reward = {
+			unlock_decision_tooltip = {
+				decision = AUS_pit_southerners_against_muslims
+				show_effect_tooltip = yes
+			}
+				unlock_decision_tooltip = {
+				decision = AUS_pit_easterners_against_jews
+				show_effect_tooltip = yes
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = AUS_take_advantage_of_section_41
+		icon = GFX_focus_control_economy
+		cost = 4
+		x = 2
+		y = 2
 		prerequisite = {
 			focus = AUS_prioritize_arms_bill
 		}
@@ -1955,8 +2014,8 @@ focus_tree = {
 		id = AUS_funnel_money_into_the_landwehr
 		icon = GFX_focus_FRA_expand_army_budget
 		cost = 5
-		x = -2
-		y = 2
+		x = -1
+		y = 3
 		prerequisite = {
 			focus = AUS_take_advantage_of_section_41
 		}
@@ -1997,8 +2056,8 @@ focus_tree = {
 		id = AUS_proactive_interest_rate_policy
 		icon = GFX_focus_economic_recovery
 		cost = 5
-		x = 0
-		y = 2
+		x = 1
+		y = 3
 		prerequisite = {
 			focus = AUS_take_advantage_of_section_41
 		}
@@ -2030,19 +2089,19 @@ focus_tree = {
 				tooltip = consumer_goods_factor_tt
 			}
 			4 = {
-			add_building_construction = {
-				type = industrial_complex
-				level = -1
-				instant_build = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = -1
+					instant_build = yes
+				}
 			}
-		}
-		4 = {
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
+			4 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
 			}
-		}
 		}
 		ai_will_do = {
 			base = 1
@@ -3135,7 +3194,7 @@ focus_tree = {
 	focus = {
 		id = AUS_tackle_galician_poverty
 		icon = GFX_goal_generic_loans
-		cost = 5
+		cost = 4
 		x = 0
 		y = 1
 		prerequisite = {
@@ -3214,7 +3273,7 @@ focus_tree = {
 	focus = {
 		id = AUS_crown_jewels_of_the_empire
 		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
-		cost = 5
+		cost = 4
 		x = 1
 		y = 1
 		relative_position_id = AUS_tackle_galician_poverty
@@ -3268,7 +3327,7 @@ focus_tree = {
 	focus = {
 		id = AUS_uplift_developing_areas
 		icon = GFX_focus_ARG_develop_the_electricity_sector
-		cost = 5
+		cost = 4
 		x = -1
 		y = 1
 		relative_position_id = AUS_tackle_galician_poverty
@@ -4265,7 +4324,7 @@ focus_tree = {
 					modifier = medium_decrease
 				}
 			}
-				random_owned_controlled_state = {
+			random_owned_controlled_state = {
 				limit = {
 					OR = {
 						state = 4
@@ -5601,10 +5660,10 @@ focus_tree = {
 		id = AUS_limit_czech_authority
 		icon = GFX_focus_generic_swooping_falcon
 		cost = 5
-		x = -1
-		y = 1
+		x = -2
+		y = 0
 		prerequisite = {
-			focus = AUS_emperors_right_hand_man
+			focus = AUS_attack_regionalist_parties
 		}
 		prerequisite = {
 			focus = AUS_the_poison_of_nationalism
@@ -5713,8 +5772,8 @@ focus_tree = {
 		id = AUS_the_constitutionalist_dictatorship
 		icon = GFX_focus_generic_ultranationalist_monarchy
 		cost = 5
-		x = 0
-		y = 3
+		x = -1
+		y = 2
 		prerequisite = {
 			focus = AUS_dissolve_bohemian_diet
 		}
@@ -5752,8 +5811,8 @@ focus_tree = {
 		id = AUS_dissolve_bohemian_diet
 		icon = GFX_focus_destroy_meclis
 		cost = 5
-		x = 0
-		y = 2
+		x = -1
+		y = 1
 		prerequisite = {
 			focus = AUS_emperors_right_hand_man
 		}
@@ -7323,7 +7382,6 @@ focus_tree = {
 				AUS_aps_resistance = -0.05
 				tooltip = resistance_activity_tt
 			}
-
 		}
 		ai_will_do = {
 			base = 1
