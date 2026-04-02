@@ -1778,29 +1778,10 @@ armistice_effect = {
 	if = {
 		limit = {
 			ALB = {
-				has_country_flag = AUH_occupation_of_ALB
-			}
-		}
-		every_state = {
-			limit = {
-				is_owned_by = AUS
-				is_core_of = ALB
-			}
-			transfer_state_to = ALB
-		}
-	}
-	if = {
-		limit = {
-			ALB = {
 				has_war_with = AUS
 			}
 			AUS = {
 				has_country_flag = great_war_winner
-			}
-			NOT = {
-				ALB = {
-					has_country_flag = AUH_occupation_of_ALB
-				}
 			}
 		}
 		ALB = {
@@ -5725,14 +5706,7 @@ conference_effect = {
 	}
 	### ALBANIA ###
 	if = {
-		limit = {
-			ALB = {
-				OR = {
-					has_country_flag = great_war_loser
-					has_country_flag = AUH_occupation_of_ALB
-				}			
-			}
-		}
+		limit = { ALB = { has_country_flag = great_war_loser } }
 		if = {
 			limit = {
 				OR = {

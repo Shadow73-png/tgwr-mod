@@ -1643,7 +1643,6 @@ country_event = { #Retake elections
 	option = {
 		name = ottoman.5.c
 		trigger = { NOT = { has_idea = TUR_technocratic_governance } }
-		add_political_power = 50
 		if = {
 			limit = {
 				TUR_is_ittihadist_regime = yes
@@ -1696,8 +1695,13 @@ country_event = { #Retake elections
 				popularity = 0.05
 			}
 		}
+		add_to_variable = {
+			tooltip = TUR_government_stability_add_15
+			TUR_government_stability_var = 15
+		}
 		new_term_elections = yes
 		TUR_government_popularity_calculate = yes
+		TUR_government_stability_calculate = yes
 		ai_chance = { base = 100 }
 	}
 }

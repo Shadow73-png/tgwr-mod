@@ -7557,48 +7557,52 @@ country_event = {
 				limit = { has_character = ALB_esad_toptani }
 				ALB_esad_toptani = {
 					custom_effect_tooltip = joins_central_albania
-					hidden_effect = { set_nationality = PREV.PREV }
+					hidden_effect = {
+						set_nationality = PREV.PREV
+						if = {
+							limit = { has_ideology = personalistic_dictatorship }
+							promote_character = personalistic_dictatorship
+						}
+						else = {
+							add_country_leader_role = {
+								promote_leader = yes
+								country_leader = {
+									ideology = personalistic_dictatorship
+									traits = { ALB_wicked_ambitions }
+								}
+							}
+						}
+						promote_character = stratocracy
+						swap_country_leader_traits = {
+							remove = ALB_pasha_of_central_albania
+							add = ALB_wicked_ambitions
+							ideology = stratocracy
+						}
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								ideology = conservatism
+								traits = { ALB_wicked_ambitions }
+							}
+						}
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								ideology = vanguardism
+								traits = { ALB_wicked_ambitions }
+							}
+						}
+					}
 				}
 			}
 			custom_effect_tooltip = toptani_becomes_country_leader
-			add_country_leader_role = {
-				character = ALB_esad_toptani
-				promote_leader = yes
-				country_leader = {
-					ideology = warlordism
-					traits = { ALB_wicked_ambitions }
-				}
-			}
 			hidden_effect = {
+				set_country_flag = ALB_toptani_independence
 				set_portraits = {
 					character = ALB_esad_toptani
 					civilian = {
 						large = "gfx/leaders/ALB/ALB_esad_toptani.png"
 						small = "gfx/interface/ideas/ALB/ALB_esad_toptani.png"
-					}
-				}
-				ALB_esad_toptani = {
-					swap_country_leader_traits = {
-						remove = ALB_pasha_of_central_albania
-						add = ALB_wicked_ambitions
-						ideology = stratocracy
-					}
-				}
-				promote_character = { character = ALB_esad_toptani ideology = stratocracy }
-				add_country_leader_role = {
-					character = ALB_esad_toptani
-					promote_leader = yes
-					country_leader = {
-						ideology = conservatism
-						traits = { ALB_wicked_ambitions }
-					}
-				}
-				add_country_leader_role = {
-					character = ALB_esad_toptani
-					promote_leader = yes
-					country_leader = {
-						ideology = vanguardism
-						traits = { ALB_wicked_ambitions }
 					}
 				}
 				set_capital = {
@@ -7775,43 +7779,46 @@ country_event = {
 				limit = { has_character = ALB_prenk_bib_doda }
 				ALB_prenk_bib_doda = {
 					custom_effect_tooltip = joins_catholic_albania
-					hidden_effect = { set_nationality = PREV.PREV }
+					hidden_effect = {
+						set_nationality = PREV.PREV
+						add_country_leader_role = {
+							character = ALB_prenk_bib_doda
+							promote_leader = yes
+							country_leader = {
+								ideology = warlordism
+								traits = { ALB_kapedan_of_the_mirdita }
+							}
+						}
+						add_country_leader_role = {
+							character = ALB_prenk_bib_doda
+							promote_leader = yes
+							country_leader = {
+								ideology = fundamentalism
+								traits = { ALB_kapedan_of_the_mirdita }
+							}
+						}
+						add_country_leader_role = {
+							character = ALB_prenk_bib_doda
+							promote_leader = yes
+							country_leader = {
+								ideology = conservatism
+								traits = { ALB_kapedan_of_the_mirdita }
+							}
+						}
+						add_country_leader_role = {
+							character = ALB_prenk_bib_doda
+							promote_leader = yes
+							country_leader = {
+								ideology = religious_communism
+								traits = { ALB_kapedan_of_the_mirdita }
+							}
+						}
+					}
 				}
 			}
 			custom_effect_tooltip = doda_becomes_country_leader
-			add_country_leader_role = {
-				character = ALB_prenk_bib_doda
-				promote_leader = yes
-				country_leader = {
-					ideology = warlordism
-					traits = { ALB_kapedan_of_the_mirdita }
-				}
-			}
 			hidden_effect = {
-				add_country_leader_role = {
-					character = ALB_prenk_bib_doda
-					promote_leader = yes
-					country_leader = {
-						ideology = fundamentalism
-						traits = { ALB_kapedan_of_the_mirdita }
-					}
-				}
-				add_country_leader_role = {
-					character = ALB_prenk_bib_doda
-					promote_leader = yes
-					country_leader = {
-						ideology = conservatism
-						traits = { ALB_kapedan_of_the_mirdita }
-					}
-				}
-				add_country_leader_role = {
-					character = ALB_prenk_bib_doda
-					promote_leader = yes
-					country_leader = {
-						ideology = religious_communism
-						traits = { ALB_kapedan_of_the_mirdita }
-					}
-				}
+				set_country_flag = ALB_kimza_independence
 				set_capital = {
 					state = 870
 					remember_old_capital = no
