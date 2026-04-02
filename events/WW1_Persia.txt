@@ -54,15 +54,72 @@ country_event = {
 					long_name = PER_neutrality_party
 				}
 			}
+			if = {
+				limit = { 
+					has_elections = no
+				}
+				allow_elections = yes
+			}
 		}
-		else_if = {
+		if = {
 			limit = {
 				has_idea = PER_ahmad_shah_qajar_young
 			}
 			swap_ideas = {
 				remove_idea = PER_ahmad_shah_qajar_young
-				add_idea = PER_ahmad_shah_qajar_young
+				add_idea = PER_ahmad_shah_qajar
 			}
+		}
+		else_if = {
+			limit = {
+				has_idea = PER_abolqasem_khan_qaragozlu_regent
+			}
+			swap_ideas = {
+				remove_idea = PER_abolqasem_khan_qaragozlu_regent
+				add_idea = PER_ahmad_shah_qajar
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = PER_mirza_hasan_ashtiani_regent
+			}
+			swap_ideas = {
+				remove_idea = PER_mirza_hasan_ashtiani_regent
+				add_idea = PER_ahmad_shah_qajar
+			}
+		}
+		else_if = {
+			limit = { 
+				NOT = {
+					has_government = communism
+					has_country_leader = {
+						character = PER_ahmad_shah_qajar
+					}
+				}
+			}
+			add_ideas = PER_ahmad_shah_qajar
+		}
+		PER_abolqasem_khan_qaragozlu = {
+			if = {
+				limit = { has_ideology = semi_constitutional_monarchy }
+				remove_country_leader_role = {
+					ideology = semi_constitutional_monarchy
+				}
+			}
+		}
+		PER_mirza_hasan_ashtiani = {
+			if = {
+				limit = { has_ideology = civilian_dictatorship }
+				remove_country_leader_role = {
+					ideology = civilian_dictatorship
+				}
+			}
+			promote_character = social_democracy
+		}
+		set_party_name = {
+			ideology = democratic
+			long_name = PER_communism_party
+			name = PER_communism_party
 		}
 	}
 }
@@ -1153,14 +1210,14 @@ country_event = {
 		name = ww1_persia_rework.2.b
 		PER_mirza_hasan_ashtiani = {
 			if = {
-				limit = { has_ideology = semi_constitutional_monarchy }
-				promote_character = semi_constitutional_monarchy
+				limit = { has_ideology = civilian_dictatorship }
+				promote_character = civilian_dictatorship
 			}
 			else = {
 				add_country_leader_role = {
 					promote_leader = yes					
 					country_leader = {
-						ideology = semi_constitutional_monarchy
+						ideology = civilian_dictatorship
 						desc = PER_mirza_hasan_ashtiani_regent_desc
 						traits = { PER_mostowfi_ol_mamalek }
 					}

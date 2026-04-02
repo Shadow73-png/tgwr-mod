@@ -376,4 +376,30 @@
 			factor = 25
 		}
 	}
+	focus = {
+		id = PER_regency_dictatorship
+		icon = GFX_focus_generic_monarchy_1
+		cost = 10
+		x = 0
+		y = 2
+		relative_position_id = PER_stronger_cabinet
+		prerequisite = {
+			focus = PER_stronger_cabinet
+		}
+		available = {
+			has_government = neutrality
+			has_country_leader = {
+				character = PER_abolqasem_khan_qaragozlu
+			}
+		}
+	
+		completion_reward = {
+			suspend_elections = yes
+			add_political_power = 100
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 25
+		}
+	}
 }
