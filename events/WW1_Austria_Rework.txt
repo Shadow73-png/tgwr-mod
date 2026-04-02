@@ -5648,6 +5648,49 @@ state_event = {
 		}
 	}
 }
+
+#vienna fort dispatch
+country_event = {
+	id = ww1_austria_quests.3
+	hidden = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					4 = {
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				4 = {
+					state_event = { id = ww1_austria_quests.4 trigger_for = owner }
+				}
+			}
+		}
+	}
+}
+
+#mil factory gives quest
+state_event = {
+	id = ww1_austria_quests.4
+	title = ww1_austria_quests.4.t
+	desc = ww1_austria_quests.4.d
+
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name = ww1_austria_quests.4.a
+		4 = {
+			OWNER = {
+				unlock_decision_tooltip = { decision = AUS_improve_vienna_armament show_effect_tooltip = yes }
+			}
+			set_state_flag = AUS_built_military_factory
+			set_variable = { arms_factory_goal = arms_factory_level }
+			add_to_variable = { arms_factory_goal = 1 }
+		}
+	}
+}
 ##################
 #####  DEBUG #####
 ##################

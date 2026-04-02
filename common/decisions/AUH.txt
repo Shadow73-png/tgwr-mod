@@ -4227,6 +4227,55 @@ AUS_quests = {
 			
 		}
 	}
+	AUS_improve_vienna_armament = {
+		icon = generic_construction
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_invest_in_vienna_arms_factory_tt
+				any_owned_state = {
+					has_state_flag = AUS_built_military_factory
+					check_variable = { arms_factory_goal = arms_factory_level }
+				}
+			}
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				has_state_flag = AUS_built_military_factory
+			}
+		}
+		days_mission_timeout = 360
+		is_good = no
+		activation = {
+			any_owned_state = {
+				has_state_flag = AUS_built_military_factory
+			}
+		}
+		timeout_effect = {
+			add_political_power = -15
+			hidden_effect = {
+				4 = {
+					clr_state_flag = AUS_built_military_factory
+					clear_variable = arms_factory_goal
+				}
+				clr_country_flag = AUS_building_fort
+			}
+		}
+		complete_effect = {
+			clr_country_flag = AUS_building_fort
+			add_political_power = 25
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_factory_output = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			hidden_effect = {
+				4 = {
+					clr_state_flag = AUS_built_military_factory
+					clear_variable = arms_factory_goal
+				}
+			}
+		}
+	}
 }
 
 
