@@ -4175,58 +4175,144 @@ AUS_quests = {
 		fire_only_once = yes
 		days_mission_timeout = 100 #change. long time for construction because factories is no good
 		complete_effect = {
-			
+			add_to_variable = {
+				AUS_quests_completed = 1
+			}
 		}
 		timeout_effect = {
-			
+			add_to_variable = {
+				AUS_quests_failed = 1
+			}
 		}
 	}
-	AUS_ready_the_east = {
-		icon = generic_construction
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = AUS_quest_build_fort_tt
-				any_owned_state = {
-					has_state_flag = AUS_build_fort
-					check_variable = { bunker_goal = bunker_level }
-				}
-			}
-			has_event_target = AUS_fortification_global
+	AUS_restore_economic_confidence = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
 		}
-		highlight_states = {
-			highlight_states_trigger = {
-				has_state_flag = AUS_build_fort
-			}
-		}
-		days_mission_timeout = 360
-		is_good = no
 		activation = {
-			any_owned_state = {
-				has_state_flag = AUS_build_fort
+			always = no
+		}
+		visible = {
+			
+		}
+		available = {
+			has_stability > AUS_stab_quest
+		}
+		fire_only_once = yes
+		is_good = no
+		days_mission_timeout = 150
+		complete_effect = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_quests_completed = 1
 			}
 		}
 		timeout_effect = {
-			random_owned_state = {
-				limit = {
-					has_state_flag = AUS_build_fort
-				}
-				clr_state_flag = AUS_build_fort
-				clear_variable = bunker_goal
+			add_political_power = -15
+			add_to_variable = {
+				AUS_quests_failed = 1
 			}
-			clr_country_flag = AUS_building_fort
-		}
-		complete_effect = {
-			random_owned_state = {
-				limit = {
-					has_state_flag = AUS_build_fort
-				}
-				clr_state_flag = AUS_build_fort
-				clear_variable = bunker_goal
-			}
-			clr_country_flag = AUS_building_fort
-			
 		}
 	}
+	AUS_push_the_public_against_democracy = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		activation = {
+			always = no
+		}
+		visible = {
+			
+		}
+		available = {
+			check_variable = {
+				var = AUS_overton_window
+				value = AUS_overton_window_quest
+				compare = greater_than_or_equals
+				tooltip = AUS_overton_window_is_right_tt
+			}
+		}
+		fire_only_once = yes
+		is_good = no
+		days_mission_timeout = 150
+		complete_effect = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_quests_completed = 1
+			}
+		}
+		timeout_effect = {
+			add_political_power = -15
+			add_to_variable = {
+				AUS_quests_failed = 1
+			}
+		}
+	}
+
+
+
+
+	#AUS_ready_the_east = {
+	#	icon = generic_construction
+	#	available = {
+	#		custom_trigger_tooltip = {
+	#			tooltip = AUS_quest_build_fort_tt
+	#			any_owned_state = {
+	#				has_state_flag = AUS_build_fort
+	#				check_variable = { bunker_goal = bunker_level }
+	#			}
+	#		}
+	#		has_event_target = AUS_fortification_global
+	#	}
+	#	highlight_states = {
+	#		highlight_states_trigger = {
+	#			has_state_flag = AUS_build_fort
+	#		}
+	#	}
+	#	days_mission_timeout = 360
+	#	is_good = no
+	#	activation = {
+	#		any_owned_state = {
+	#			has_state_flag = AUS_build_fort
+	#		}
+	#	}
+	#	timeout_effect = {
+	#		random_owned_state = {
+	#			limit = {
+	#				has_state_flag = AUS_build_fort
+	#			}
+	#			clr_state_flag = AUS_build_fort
+	#			clear_variable = bunker_goal
+	#		}
+	#		clr_country_flag = AUS_building_fort
+	#		add_to_variable = {
+	#			AUS_quests_failed = 1
+	#		}
+	#	}
+	#	complete_effect = {
+	#		random_owned_state = {
+	#			limit = {
+	#				has_state_flag = AUS_build_fort
+	#			}
+	#			clr_state_flag = AUS_build_fort
+	#			clear_variable = bunker_goal
+	#		}
+	#		clr_country_flag = AUS_building_fort
+	#		add_to_variable = {
+	#			AUS_quests_completed = 1
+	#		}
+	#	}
+	#}
 	AUS_improve_vienna_armament = {
 		icon = generic_construction
 		available = {
@@ -4259,6 +4345,9 @@ AUS_quests = {
 				}
 				clr_country_flag = AUS_building_fort
 			}
+			add_to_variable = {
+				AUS_quests_failed = 1
+			}
 		}
 		complete_effect = {
 			clr_country_flag = AUS_building_fort
@@ -4273,6 +4362,9 @@ AUS_quests = {
 					clr_state_flag = AUS_built_military_factory
 					clear_variable = arms_factory_goal
 				}
+			}
+			add_to_variable = {
+				AUS_quests_completed = 1
 			}
 		}
 	}
