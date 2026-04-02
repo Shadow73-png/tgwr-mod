@@ -5740,6 +5740,72 @@ country_event = {
 	}
 }
 
+#contain spdao
+country_event = {
+	id = ww1_austria_quests.7
+	title = ww1_austria_quests.7.t
+	desc = ww1_austria_quests.7.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		set_variable = {
+			AUS_contain_spdao_communism_var = party_popularity@communism
+		}
+		add_to_variable = {
+			AUS_contain_spdao_communism_var = -0.075
+		}
+		clamp_variable = {
+			var = AUS_contain_spdao_communism_var
+			min = 0
+		}
+		set_variable = {
+			AUS_contain_spdao_democratic_var = party_popularity@democratic
+		}
+		add_to_variable = {
+			AUS_contain_spdao_democratic_var = -0.075
+		}
+		clamp_variable = {
+			var = AUS_contain_spdao_democratic_var
+			min = 0
+		}
+	}
+	option = {
+		name = ww1_austria_quests.7.a
+		activate_mission = AUS_contain_the_SPDAO
+	}
+}
+
+#inc war support
+
+country_event = {
+	id = ww1_austria_quests.8
+	title = ww1_austria_quests.8.t
+	desc = ww1_austria_quests.8.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		set_variable = {
+			AUS_war_support_quest_var = modifier@war_support_factor
+		}
+		add_to_variable = {
+			AUS_war_support_quest_var = 0.1
+		}
+		clamp_variable = {
+			var = AUS_war_support_quest_var
+			min = 0
+			max = 0.99
+		}
+
+		#need help making this work
+	}
+	option = {
+		name = ww1_austria_quests.8.a
+		activate_mission = AUS_increase_public_perception_of_war
+	}
+}
+
 
 
 
