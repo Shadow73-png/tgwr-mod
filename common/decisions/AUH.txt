@@ -4181,6 +4181,52 @@ AUS_quests = {
 			
 		}
 	}
+	AUS_ready_the_east = {
+		icon = generic_construction
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_quest_build_fort_tt
+				any_owned_state = {
+					has_state_flag = AUS_build_fort
+					check_variable = { bunker_goal = bunker_level }
+				}
+			}
+			has_event_target = AUS_fortification_global
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				has_state_flag = AUS_build_fort
+			}
+		}
+		days_mission_timeout = 360
+		is_good = no
+		activation = {
+			any_owned_state = {
+				has_state_flag = AUS_build_fort
+			}
+		}
+		timeout_effect = {
+			random_owned_state = {
+				limit = {
+					has_state_flag = AUS_build_fort
+				}
+				clr_state_flag = AUS_build_fort
+				clear_variable = bunker_goal
+			}
+			clr_country_flag = AUS_building_fort
+		}
+		complete_effect = {
+			random_owned_state = {
+				limit = {
+					has_state_flag = AUS_build_fort
+				}
+				clr_state_flag = AUS_build_fort
+				clear_variable = bunker_goal
+			}
+			clr_country_flag = AUS_building_fort
+			
+		}
+	}
 }
 
 

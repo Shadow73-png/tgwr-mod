@@ -5586,6 +5586,68 @@ country_event = {
 	}
 }
 
+
+
+add_namespace = ww1_austria_quests
+
+
+# forts dispatch event
+country_event = {
+	id = ww1_austria_quests.1
+	hidden = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_event_target = AUS_fortification_global }
+				clear_global_event_target = AUS_fortification_global
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					is_controlled_by = ROOT
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					AUS_is_GAL_state = yes
+					OR = {
+						state = 88
+						state = 89
+						state = 91
+					}
+				}
+				save_global_event_target_as = AUS_fortification_global
+				state_event = { id = ww1_austria_quests.2 trigger_for = controller }
+				OWNER = {
+					set_country_flag = AUS_building_fort
+				}
+			}
+		}
+	}
+}
+
+#fort gives quest
+state_event = {
+	id = ww1_austria_quests.2
+	title = ww1_austria_quests.2.t
+	desc = ww1_austria_quests.2.d
+
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name = ww1_austria_quests.2.a
+		event_target:AUS_fortification_global = {
+			OWNER = {
+				unlock_decision_tooltip = { decision = AUS_ready_the_east show_effect_tooltip = yes }
+			}
+			set_state_flag = AUS_build_fort
+			set_variable = { bunker_goal = bunker_level }
+			add_to_variable = { bunker_goal = 1 }
+		}
+	}
+}
 ##################
 #####  DEBUG #####
 ##################
