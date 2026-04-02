@@ -10996,22 +10996,27 @@ TUR_create_armenian_vilayet = {
 					state = 349
 					state = 1026
 				}
+				check_variable = { TUR_kurdish_state_level > 0 }
+			}
+			add_dynamic_modifier = { modifier = TUR_kurdish_minority }
+		}
+		every_state = {
+			limit = {
+				OR = {
+					state = 353
+					state = 1022
+					state = 352
+					state = 350
+					state = 881
+					state = 1025
+					state = 349
+					state = 1026
+				}
 				check_variable = { TUR_turkish_state_level > 0 }
 			}
 			add_dynamic_modifier = { modifier = TUR_turkish_minority }
 		}
 		hidden_effect = {
-			set_politics = {
-				ruling_party = democratic
-				elections_allowed = yes
-				election_frequency = 48
-			}
-			set_popularities = {
-				democratic = 45
-				neutrality = 40
-				fascism = 7
-				communism = 8
-			}
 			set_party_name = {
 				ideology = democratic
 				name = ARA_democratic
@@ -11032,9 +11037,10 @@ TUR_create_armenian_vilayet = {
 				name = ARA_communism
 				long_name = ARA_communism_long
 			}
-			ARM = {
+			every_possible_country = {
+				limit = { has_character = ARM_mekertich_portukalian }
 				ARM_mekertich_portukalian = {
-					set_nationality = ARA
+					set_nationality = PREV.PREV
 					promote_character = liberal_conservatism
 				}
 			}
@@ -11096,11 +11102,70 @@ TUR_create_armenian_vilayet = {
 	}
 	TUR = {
 		custom_effect_tooltip = ottoman.151.b.tt2
+		TUR_hampartsoum_boyadjian = {
+			set_nationality = ARA
+			set_character_name = ARM_hampartsoum_boyadjian
+			hidden_effect = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = { ideology = authoritarian_democracy }
+				}
+			}
+		}
+		TUR_nazaret_daghavarian = {
+			set_nationality = ARA
+			set_character_name = ARM_nazaret_daghavarian
+		}
+		TUR_karakin_pastermadjian = {
+			set_nationality = ARA
+			set_character_name = ARM_karakin_pastermadjian
+			hidden_effect = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = { ideology = agrarian_socialism }
+				}
+			}
+		}
+		TUR_stepan_zorian = {
+			set_nationality = ARA
+			set_character_name = ARM_stepan_zorian
+			hidden_effect = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = { ideology = revolutionary_nationalism }
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = TUR_utilize_hampartsoum_boyadjian }
+			activate_decision = TUR_dismiss_hampartsoum_boyadjian
+		}
+		if = {
+			limit = { has_country_flag = TUR_utilize_nazaret_daghavarian }
+			activate_decision = TUR_dismiss_nazaret_daghavarian
+		}
+		if = {
+			limit = { has_country_flag = TUR_utilize_karakin_pastermadjian }
+			activate_decision = TUR_dismiss_karakin_pastermadjian
+		}
 		hidden_effect = {
 			set_autonomy = {
 				target = ARA
 				autonomous_state = autonomy_tgwr_ottoman_autonomous_vilayet
 				freedom_level = 0.7
+			}
+			ARA = {
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+					election_frequency = 48
+				}
+				set_popularities = {
+					democratic = 45
+					neutrality = 40
+					fascism = 7
+					communism = 8
+				}
 			}
 			country_event = ottoman.216
 		}
