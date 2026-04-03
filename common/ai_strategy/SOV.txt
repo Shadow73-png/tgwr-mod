@@ -477,15 +477,6 @@ SOV_north_is_danger = {
 		}
 		value = 50
 	}
-	ai_strategy = {
-		type = front_control
-		country_trigger = {
-			tag = RSO
-		}
-		priority = 50
-		ordertype = front
-		execution_type = balanced
-	}
 }
 SOV_northwestern_army_front = {
 	allowed = {
@@ -697,55 +688,6 @@ SOV_POL_front = {
 	}
 	abort_when_not_enabled = yes
 
-	ai_strategy = {
-		type = front_unit_request
-		tag = POL
-		value = 100
-	}
-	ai_strategy = {
-		type = front_control
-		tag = POL
-		ratio = 0.25
-		ordertype = front
-		execution_type = balanced
-		manual_attack = yes
-	}
-}
-SOV_POL_danger_pol = {
-	allowed = {
-		tag = RUS
-	}
-	enable = {
-		tag = SOV
-		has_war_with = POL
-		POL = {
-			is_subject = no
-			OR = {
-				controls_state = 206
-				controls_state = 241
-				controls_state = 202
-				controls_state = 242
-			}
-		}
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = front_unit_request
-		country_trigger = {
-			original_tag = RUS
-			has_country_flag = RUS_volunteer_army_tag
-		}
-		value = -20
-	}
-	ai_strategy = {
-		type = front_unit_request
-		country_trigger = {
-			original_tag = RUS
-			has_country_flag = RUS_volunteer_army_tag
-		}
-		value = -20
-	}
 	ai_strategy = {
 		type = front_unit_request
 		tag = POL
