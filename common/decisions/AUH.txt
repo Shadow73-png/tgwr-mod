@@ -3182,6 +3182,23 @@ peace_deals = {
 }
 
 AUH_austrian_military = {
+	AUS_reappoint_conrad = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 10
+		available = {
+			amount_manpower_in_deployment_queue > 250000
+		}
+		complete_effect = {
+			AUH_conrad_von_hotzendorf = {
+				clr_character_flag = dismissed
+			}
+		}
+		fire_only_once = yes
+	}
+
 	AUS_expand_army_reserve = {
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
