@@ -3236,6 +3236,57 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = AUS_tackle_galacia_reward2
+			custom_effect_tooltip = AUS_reward_for_no_poverty
+			effect_tooltip = {
+				country_event = ww1_austriahungary.197
+				custom_effect_tooltip = AUS_modify_eco.tt
+				add_to_variable = {
+					AUS_EP_stab = 0.1
+					tooltip = stability_factor_tt
+				}
+				if = {
+					limit = {
+						has_completed_focus = AUS_adress_inequality
+					}
+					add_to_variable = {
+						AUS_EP_consumer_goods = -0.1
+						tooltip = consumer_goods_factor_tt
+					}
+				}
+				add_to_variable = {
+					AUS_ruthenian_loyalty = 10
+					tooltip = AUS_loyalty_ruthenians_tt
+				}
+				add_to_variable = {
+					AUS_pole_loyalty = 10
+					tooltip = AUS_loyalty_pole_tt
+				}
+				AUS_update_state_of_realm = yes
+				random_owned_state = {
+					limit = {
+						AUS_is_GAL_state = yes
+						is_owned_and_controlled_by = AUS
+					}
+					add_manpower = 2000
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_state = {
+					limit = {
+						AUS_is_GAL_state = yes
+						is_owned_and_controlled_by = AUS
+					}
+					add_manpower = 2000
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_state = {
+					limit = {
+						AUS_is_GAL_state = yes
+						is_owned_and_controlled_by = AUS
+					}
+					add_manpower = 2000
+					add_extra_state_shared_building_slots = 1
+				}
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -3451,6 +3502,7 @@ focus_tree = {
 				AUS_EP_consumer_goods = 0.1
 				tooltip = consumer_goods_factor_tt
 			}
+			custom_effect_tooltip = AUS_get_when_10_consumer_goods_the_fuck_you_testers
 			add_to_variable = {
 				AUS_EP_trade_ai_chance = -0.05
 				tooltip = trade_opinion_factor_neutral_tt
@@ -3717,7 +3769,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-				random_owned_controlled_state = {
+			random_owned_controlled_state = {
 				limit = {
 					state_strategic_value > 30
 				}
@@ -3728,7 +3780,7 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 1
 			}
-				random_owned_controlled_state = {
+			random_owned_controlled_state = {
 				limit = {
 					state_strategic_value > 30
 				}
@@ -4061,7 +4113,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-				random_owned_controlled_state = {
+			random_owned_controlled_state = {
 				limit = {
 					state_strategic_value > 30
 				}
