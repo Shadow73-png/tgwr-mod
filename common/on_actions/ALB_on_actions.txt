@@ -403,6 +403,21 @@ on_actions = {
 				TUR = { country_event = { id = albania.43 } }
 			}
 		}
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ALB
+						has_completed_focus = ALB_electrification_of_albania
+					}
+					any_controlled_state = {
+						is_core_of = ROOT
+						NOT = { has_dynamic_modifier = { modifier = ALB_widespread_electrification } }
+					}
+				}
+				ROOT = { activate_mission = ALB_electrification_of_the_country }
+			}
+		}
 	}
 	on_daily_ALB = {
 		effect = {

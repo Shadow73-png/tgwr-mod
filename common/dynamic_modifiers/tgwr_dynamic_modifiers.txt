@@ -4189,5 +4189,22 @@ ALB_albanian_economy = {
 	industrial_capacity_factory	= ALB_ae_industrial_capacity_factory
 	industrial_capacity_dockyard = ALB_ae_industrial_capacity_dockyard
 	cic_construction_boost_factor = ALB_ae_cic_construction_boost_factor
+}
 
+ALB_widespread_electrification = {
+	enable = { always = yes }
+	remove_trigger = {
+		ROOT = { 
+			NOT = {
+				OWNER = {
+					original_tag = ALB
+				}
+			}
+		}
+	}
+	icon = GFX_decision_generic_electricity	
+	state_production_speed_buildings_factor = 0.2
+	local_building_slots_factor = 0.2
+	state_production_speed_infrastructure_factor = 0.1
+	state_production_speed_rail_way_factor = 0.1
 }

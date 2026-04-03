@@ -1704,6 +1704,34 @@ economy_decisions = {
 			activate_mission = ALB_improving_the_customs_duty
 		}
 	}
+	ALB_electrification_of_the_country = {
+		icon = GFX_decision_generic_electricity
+		allowed = { original_tag = ALB }
+		activation = {
+			has_idea = ALB_electrification_campaign
+			any_controlled_state = {
+				is_core_of = ROOT
+				NOT = { has_dynamic_modifier = { modifier = ALB_widespread_electrification } }
+			}
+		}
+		available = { hidden_trigger = { always = no } }
+		cancel_trigger = {
+			all_controlled_state = {
+				OR = {
+					NOT = { is_core_of = ROOT }
+					has_dynamic_modifier = { modifier = ALB_widespread_electrification }
+				}
+			}
+		}
+		days_mission_timeout = 365
+		timeout_effect = {
+			random_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_dynamic_modifier = { modifier = ALB_widespread_electrification }
+			}
+			activate_mission = ALB_electrification_of_the_country
+		}
+	}
 }
 
 foreign_politics = {

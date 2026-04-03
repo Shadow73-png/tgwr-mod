@@ -64,6 +64,19 @@ ideas={
 			research_bonus = { industry = 0.15 } 
 			traits = { industrial_concern } 
 		}
+		ALB_sveja = {
+			picture = generic_refining_concern_1
+			allowed = { original_tag = ALB }
+			available = { has_completed_focus = ALB_commence_oil_drilling }
+			traits = { refinery_concern }
+			research_bonus = {
+				industry = 0.05
+				synth_resources = 0.1
+			}
+			modifier = {
+				local_resources_factor = 0.15
+			}
+		}
 	}
 	country = {
 		ALB_albanian_society_idea = {
@@ -1482,6 +1495,54 @@ ideas={
 			modifier = {
 				production_speed_infrastructure_factor = 0.1
 				research_speed_factor = 0.05
+			}
+		}
+		ALB_electrification_campaign = {
+			picture = PER_tehran_power_grid_idea
+			allowed = { always = yes }
+			allowed_civil_war = { is_subject = yes }
+			removal_cost = -1
+			cancel = {
+				all_controlled_state = {
+					OR = {
+						NOT = { is_core_of = ROOT }
+						has_dynamic_modifier = { modifier = ALB_widespread_electrification }
+					}
+				}
+			}
+			modifier = {
+				civilian_factory_use = 5
+				stability_weekly = 0.0002
+			}
+		}
+		ALB_importing_agricultural_machinery = {
+			picture = ETH_customs_barrier_ITA
+			allowed = { always = yes }
+			allowed_civil_war = { is_subject = yes }
+			removal_cost = -1
+			modifier = {
+				civilian_factory_use = 4
+			}
+		}
+		ALB_mechanized_agriculture_idea = {
+			picture = LIT_invested_in_farms
+			allowed = { always = yes }
+			allowed_civil_war = { is_subject = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = -0.1
+				conscription_factor = 0.07
+				production_factory_efficiency_gain_factor = 0.1
+			}
+		}
+		ALB_hydroelectricity_investments = {
+			picture = por_hydroelectric_power
+			allowed = { always = yes }
+			allowed_civil_war = { is_subject = yes }
+			removal_cost = -1
+			modifier = {
+				civilian_factory_use = 3
 			}
 		}
 	}
