@@ -8756,7 +8756,16 @@
 				}
 				if = {
 					limit = {
-						has_cosmetic_tag = PER_exiles
+						NOT = {
+							any_other_country = {
+								original_tag = PER
+							}
+						}
+						OR = {
+							has_cosmetic_tag = PER_exiles
+							has_cosmetic_tag = PER_mohammad_ali_shah_revolt
+							has_cosmetic_tag = PER_salar_al_daula_revolt
+						}				
 					}
 					set_cosmetic_tag = PER
 				}

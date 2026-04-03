@@ -483,7 +483,7 @@ characters={
 			}
 		}
 		corps_commander = {
-			traits = { trait_royal }
+			traits = { trait_royal trait_cautious }
 			skill = 1
 			attack_skill = 1
 			defense_skill = 1
@@ -502,6 +502,40 @@ characters={
 			ideology = reactionism
 			desc = PER_mohammad_ali_shah_desc
 			traits={ disgraced_monarch }
+		}
+	}
+	PER_abulfath_mirza = {
+		portraits = {
+			# civilian = {
+			# 	large = "gfx/leaders/PER/PER_abulfath_mirza.png"
+			# }
+			# army=  {
+			# 	small = "gfx/interface/ideas/PER/idea_PER_abulfath_mirza.png"
+			# }
+		}
+		corps_commander = {
+			traits = { trait_royal harsh_leader }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			visible = {
+				OR = {
+					has_country_leader_ideology = absolute_monarchy
+					has_country_leader_ideology = reactionism
+				}
+			}
+		}
+		country_leader = {
+			ideology = absolute_monarchy
+			desc = PER_abulfath_mirza_desc
+			traits={ PER_salar_al_daula }
+		}
+		country_leader = {
+			ideology = reactionism
+			desc = PER_abulfath_mirza_desc
+			traits={ PER_salar_al_daula }
 		}
 	}
 }
