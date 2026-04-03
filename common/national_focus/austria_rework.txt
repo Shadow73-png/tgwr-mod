@@ -1106,8 +1106,7 @@ focus_tree = {
 				AUS_parliament_influence = -0.1
 				tooltip = AUS_gain_influence_tt
 			}
-						AUS_update_imperial_council_effects = yes
-
+			AUS_update_imperial_council_effects = yes
 			country_event = ww1_austriahungary.140
 			custom_effect_tooltip = AUS_imperial_council_will_resist
 			hidden_effect = {
@@ -1129,9 +1128,8 @@ focus_tree = {
 					id = ww1_austria_quests.5
 					days = 30
 				}
-				
 			}
-				hidden_effect = {
+			hidden_effect = {
 				country_event = {
 					id = ww1_austria_quests.8
 					days = 20
@@ -1190,7 +1188,7 @@ focus_tree = {
 				}
 				country_event = {
 					id = ww1_austria_quests.3
-					days = 15
+					days = 30
 				}
 			}
 		}
@@ -1342,7 +1340,7 @@ focus_tree = {
 			hidden_effect = {
 				country_event = {
 					id = ww1_austria_quests.6
-					days = 5
+					days = 20
 				}
 			}
 		}
@@ -1725,7 +1723,13 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_political_power = 50
+			add_political_power = 25
+			if = {
+				limit = {
+					has_country_flag = AUS_increased_perception_of_war_quest_done
+				}
+				add_political_power = 15
+			}
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_factory_output = 0.05
@@ -1920,7 +1924,6 @@ focus_tree = {
 					id = ww1_austriahungary.60
 					days = 20
 				}
-				
 			}
 			add_to_variable = {
 				AUS_overton_window = 3
@@ -2013,6 +2016,12 @@ focus_tree = {
 			AUS_has_autocrat_minister = yes
 		}
 		completion_reward = {
+				if = {
+				limit = {
+					has_country_flag = AUS_increased_perception_of_war_quest_done
+				}
+				add_political_power = 15
+			}
 			custom_effect_tooltip = AUH_currently_suspend_gives
 			show_ideas_tooltip = AUH_defunct_reichsrat2
 			custom_effect_tooltip = empty_space_tt
@@ -2056,6 +2065,12 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+				if = {
+				limit = {
+					has_country_flag = AUS_increased_perception_of_war_quest_done
+				}
+				add_political_power = 15
+			}
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_factory_output = 0.05
@@ -2093,6 +2108,12 @@ focus_tree = {
 			AUS_has_autocrat_minister = yes
 		}
 		completion_reward = {
+				if = {
+				limit = {
+					has_country_flag = AUS_increased_perception_of_war_quest_done
+				}
+				add_political_power = 15
+			}
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
 				AUS_aps_pp_gain = -0.05
@@ -5977,7 +5998,6 @@ focus_tree = {
 			}
 			AUS_update_state_of_realm = yes
 			remove_mission = AUH_bohemian_parliament_shenanigans
-		
 		}
 		ai_will_do = {
 			base = 1
@@ -7579,10 +7599,8 @@ focus_tree = {
 			has_war_with_major = yes
 		}
 		prerequisite = {
-			focus = AUS_patriotic_loans
-		}
-		prerequisite = {
 			focus = AUS_stop_the_hoarding_of_food
+			focus = AUS_patriotic_loans
 		}
 		completion_reward = {
 			add_days_mission_timeout = {
