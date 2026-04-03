@@ -1961,7 +1961,7 @@ country_event = {
 	option = {
 		#name = ww1_austriahungary.69.a
 		add_to_variable = {
-			AUS_days_remove_for_serb_stuff = 20
+			AUS_days_remove_for_serb_stuff = 5
 		}
 		if = {
 			limit = {
@@ -2000,7 +2000,7 @@ country_event = {
 	option = {
 		#name = ww1_austriahungary.70.a
 		add_to_variable = {
-			AUS_days_remove_for_serb_stuff = 20
+			AUS_days_remove_for_serb_stuff = 5
 		}
 		if = {
 			limit = {
@@ -2039,7 +2039,7 @@ country_event = {
 	option = {
 		#name = ww1_austriahungary.71.a
 		add_to_variable = {
-			AUS_days_remove_for_serb_stuff = 20
+			AUS_days_remove_for_serb_stuff = 5
 		}
 		if = {
 			limit = {
@@ -2078,7 +2078,7 @@ country_event = {
 	option = {
 		#name = ww1_austriahungary.72.a
 		add_to_variable = {
-			AUS_days_remove_for_serb_stuff = 20
+			AUS_days_remove_for_serb_stuff = 5
 		}
 		if = {
 			limit = {
@@ -2117,7 +2117,7 @@ country_event = {
 	option = {
 		#name = ww1_austriahungary.73.a
 		add_to_variable = {
-			AUS_days_remove_for_serb_stuff = 20
+			AUS_days_remove_for_serb_stuff = 5
 		}
 		if = {
 			limit = {
@@ -2156,7 +2156,7 @@ country_event = {
 	option = {
 		#name = ww1_austriahungary.74.a
 		add_to_variable = {
-			AUS_days_remove_for_serb_stuff = 20
+			AUS_days_remove_for_serb_stuff = 5
 		}
 		if = {
 			limit = {
@@ -2195,7 +2195,7 @@ country_event = {
 	option = {
 		#name = ww1_austriahungary.75.a
 		add_to_variable = {
-			AUS_days_remove_for_serb_stuff = 20
+			AUS_days_remove_for_serb_stuff = 5
 		}
 		if = {
 			limit = {
@@ -2234,7 +2234,7 @@ country_event = {
 	option = {
 		#name = ww1_austriahungary.76.a
 		add_to_variable = {
-			AUS_days_remove_for_serb_stuff = 20
+			AUS_days_remove_for_serb_stuff = 5
 		}
 		if = {
 			limit = {
@@ -3942,6 +3942,9 @@ country_event = {
 	trigger = {
 		original_tag = AUS
 		is_in_faction_with = GER
+		AUH_leopold_berchtold = {
+			is_hired_as_advisor = yes
+		}
 		SER = {
 			has_war_with = TUR
 		}
@@ -3955,12 +3958,7 @@ country_event = {
 		date > 1912.11.10
 		OR = {
 			has_subject = HUN
-			any_owned_state = {
-				is_core_of = ROM
-				NOT = {
-					is_core_of = MOL
-				}
-			}
+			AUS_has_ROM_state = yes
 		}
 	}
 	option = {
@@ -5748,7 +5746,7 @@ add_namespace = ww1_austria_quests
 #		}
 #	}
 #}
-#vienna fort dispatch
+#vienna milfactory vienna dispatch
 country_event = {
 	id = ww1_austria_quests.3
 	hidden = yes
@@ -5885,22 +5883,70 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	immediate = {
-		set_variable = {
-			AUS_war_support_quest_var = modifier@war_support_factor
-		}
-		add_to_variable = {
-			AUS_war_support_quest_var = 0.1
-		}
-		clamp_variable = {
-			var = AUS_war_support_quest_var
-			min = 0
-			max = 0.99
-		}
-		#need help making this work
+	    set_variable = {
+	        AUS_war_support_quest_var = has_war_support
+	    }
+	    add_to_variable = {
+	        AUS_war_support_quest_var = 0.1
+	    }
+	    clamp_variable = {
+	        var = AUS_war_support_quest_var
+	        min = 0
+	        max = 0.99
+	    }
 	}
 	option = {
 		name = ww1_austria_quests.8.a
 		activate_mission = AUS_increase_public_perception_of_war
+	}
+}
+country_event = {
+	id = ww1_austria_quests.9
+	title = ww1_austria_quests.9.t
+	desc = ww1_austria_quests.9.d
+	#picture = GFX_report_event_generic_read_write
+	fire_only_once = yes
+	trigger = {
+		original_tag = AUS
+		is_in_faction_with = GER
+		AUS_ferdinand_von_trauttmansdorff = {
+			is_hired_as_advisor = yes
+		}
+		SER = {
+			has_war_with = TUR
+		}
+		BUL = {
+			has_war_with = TUR
+		}
+		NOT = {
+			has_war_with = ROM
+		}
+		country_exists = ROM
+		date > 1912.11.10
+		OR = {
+			has_subject = HUN
+			AUS_has_ROM_state = yes
+		}
+	}
+	immediate = {
+		set_variable = {
+			AUS_romanian_quest = 0
+		}
+		set_variable = {
+			AUS_romanian_quest = ROM.opinion@AUS
+		}
+		add_to_variable = {
+			AUS_romanian_quest = 15
+		}
+		clamp_variable = {
+			var = AUS_romanian_quest
+			min = 35
+			max = 70
+		}
+	}
+	option = {
+		name = ww1_austria_quests.9.a
+		activate_mission = AUS_increase_relations_with_romanians
 	}
 }
 
@@ -5921,5 +5967,68 @@ country_event = {
 	option = {
 		name = ww1_austriadebug.1.b
 		AUS_update_imperial_council_effects = yes
+	}
+}
+country_event = {
+	id = ww1_austriadebug.2
+	title = ww1_austriadebug.2.t
+	desc = ww1_austriadebug.2.d
+	picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	immediate = {
+		set_variable = {
+			AUS_overton_window_quest = AUS_overton_window
+		}
+		add_to_variable = {
+			AUS_overton_window_quest = 1
+		}
+		set_variable = {
+			AUS_contain_spdao_communism_var = party_popularity@communism
+		}
+		add_to_variable = {
+			AUS_contain_spdao_communism_var = -0.075
+		}
+		clamp_variable = {
+			var = AUS_contain_spdao_communism_var
+			min = 0.05
+		}
+		set_variable = {
+			AUS_contain_spdao_democratic_var = party_popularity@democratic
+		}
+		add_to_variable = {
+			AUS_contain_spdao_democratic_var = -0.075
+		}
+		clamp_variable = {
+			var = AUS_contain_spdao_democratic_var
+			min = 0.05
+		}
+		set_temp_variable = {
+			AUS_stability_temp_var = stability
+		}
+		add_to_temp_variable = {
+			AUS_stability_temp_var = 0.11
+		}
+		set_variable = {
+			AUS_stab_quest = AUS_stability_temp_var
+		}
+		set_variable = {
+			AUS_war_support_quest_var = war_support
+		}
+		add_to_variable = {
+			AUS_war_support_quest_var = 0.1
+		}
+		clamp_variable = {
+			var = AUS_war_support_quest_var
+			min = 0
+			max = 0.99
+		}
+	}
+	option = {
+		name = ww1_austriadebug.2.a
+		activate_mission = AUS_restore_economic_confidence
+		activate_mission = AUS_push_the_public_against_democracy
+		activate_mission = AUS_contain_the_SPDAO
+		activate_mission = AUS_increase_public_perception_of_war
+		activate_mission = AUS_improve_vienna_armament
 	}
 }
