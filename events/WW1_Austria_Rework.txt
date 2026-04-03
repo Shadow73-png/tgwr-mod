@@ -5784,6 +5784,11 @@ state_event = {
 			OWNER = {
 				unlock_decision_tooltip = AUS_improve_vienna_armament
 			}
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = no
+}
 			set_state_flag = AUS_built_military_factory
 			set_variable = {
 				arms_factory_goal = arms_factory_level
@@ -5791,6 +5796,7 @@ state_event = {
 			add_to_variable = {
 				arms_factory_goal = 1
 			}
+
 		}
 	}
 }
@@ -5807,7 +5813,7 @@ country_event = {
 			AUS_stability_temp_var = stability
 		}
 		add_to_temp_variable = {
-			AUS_stability_temp_var = 0.11
+			AUS_stability_temp_var = 0.25
 		}
 		set_variable = {
 			AUS_stab_quest = AUS_stability_temp_var

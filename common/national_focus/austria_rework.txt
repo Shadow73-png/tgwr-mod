@@ -1106,9 +1106,10 @@ focus_tree = {
 				AUS_parliament_influence = -0.1
 				tooltip = AUS_gain_influence_tt
 			}
+						AUS_update_imperial_council_effects = yes
+
 			country_event = ww1_austriahungary.140
 			custom_effect_tooltip = AUS_imperial_council_will_resist
-			AUS_update_imperial_council_effects = yes
 			hidden_effect = {
 				country_event = {
 					id = ww1_austriahungary.147
@@ -1121,6 +1122,20 @@ focus_tree = {
 				country_event = {
 					id = ww1_austria_quests.7
 					days = 25
+				}
+			}
+			hidden_effect = {
+				country_event = {
+					id = ww1_austria_quests.5
+					days = 30
+				}
+				
+			}
+				hidden_effect = {
+				country_event = {
+					id = ww1_austria_quests.8
+					days = 20
+					hours = 5
 				}
 			}
 		}
@@ -1905,10 +1920,7 @@ focus_tree = {
 					id = ww1_austriahungary.60
 					days = 20
 				}
-				country_event = {
-					id = ww1_austria_quests.5
-					days = 7
-				}
+				
 			}
 			add_to_variable = {
 				AUS_overton_window = 3
@@ -5965,13 +5977,7 @@ focus_tree = {
 			}
 			AUS_update_state_of_realm = yes
 			remove_mission = AUH_bohemian_parliament_shenanigans
-			hidden_effect = {
-				country_event = {
-					id = ww1_austria_quests.8
-					days = 17
-					hours = 5
-				}
-			}
+		
 		}
 		ai_will_do = {
 			base = 1

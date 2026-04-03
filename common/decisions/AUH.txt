@@ -3970,7 +3970,7 @@ AUH_terrorism = {
 				AUS_update_state_of_realm = yes
 			}
 			else = {
-			custom_effect_tooltip = "Our Slavic Loyalty is too low for this to have any effect"
+				custom_effect_tooltip = "Our Slavic Loyalty is too low for this to have any effect"
 			}
 		}
 		complete_effect = {
@@ -4101,7 +4101,6 @@ AUH_terrorism = {
 			clr_global_flag = AUH_already_destroying_one_smuggling_operation
 			set_global_flag = AUS_arrested_tons_of_people
 			remove_mission = AUH_smuggled_propaganda_in_bosnia
-			
 		}
 		cost = 20
 	}
@@ -4149,7 +4148,6 @@ AUH_terrorism = {
 	}
 }
 
-
 AUS_quests = {
 	AUS_quest_template = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4166,13 +4164,13 @@ AUS_quests = {
 			#try to trigger from an event from a hidden effect focus
 		}
 		visible = {
-			always = no #change if copying this template
+			always = no			#change if copying this template
 		}
 		available = {
-			always = no #temp
+			always = no			#temp
 		}
 		fire_only_once = yes
-		days_mission_timeout = 100 #change. long time for construction because factories is no good
+		days_mission_timeout = 100		#change. long time for construction because factories is no good
 		complete_effect = {
 			add_to_variable = {
 				AUS_quests_completed = 1
@@ -4193,10 +4191,23 @@ AUS_quests = {
 			always = no
 		}
 		visible = {
-			
 		}
 		available = {
-			has_stability > AUS_stab_quest
+			OR = {
+				has_stability > AUS_stab_quest
+			}
+			AND = {
+				has_completed_focus = AUS_retribution_against_socialists
+				has_completed_focus = AUS_commission_on_cartels
+				NOT = {
+					has_idea = AUS_cartel_riots
+				}
+				check_variable = {
+					AUS_overton_window > 2
+					tooltip = AUS_overton_window_is_3_right
+				}
+				democratic < 0.45
+			}
 		}
 		fire_only_once = yes
 		is_good = no
@@ -4227,7 +4238,6 @@ AUS_quests = {
 			always = no
 		}
 		visible = {
-			
 		}
 		available = {
 			check_variable = {
@@ -4241,11 +4251,21 @@ AUS_quests = {
 		is_good = no
 		days_mission_timeout = 150
 		complete_effect = {
-			add_stability = 0.03
+			add_war_support = 0.03
 			add_political_power = 25
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_neutral_gain = 0.01
+				tooltip = neutrality_drift_tt
+			}
 			add_to_variable = {
 				AUS_quests_completed = 1
 			}
+				add_to_variable = {
+				AUS_parliament_influence = -0.1
+				tooltip = AUS_gain_influence_tt
+			}
+						AUS_update_imperial_council_effects = yes
 		}
 		timeout_effect = {
 			add_political_power = -15
@@ -4300,16 +4320,16 @@ AUS_quests = {
 			always = no
 		}
 		visible = {
-			
 		}
 		available = {
-		    has_war_support > AUS_war_support_quest_var
+			has_war_support > AUS_war_support_quest_var
 		}
 		fire_only_once = yes
 		is_good = no
 		days_mission_timeout = 200
 		complete_effect = {
-			add_political_power = 25
+			custom_effect_tooltip = AUS_pp_for_rearms_now
+			set_country_flag = AUS_increased_perception_of_war_quest_done
 			add_popularity = {
 				ideology = ROOT
 				popularity = 0.05
@@ -4340,14 +4360,14 @@ AUS_quests = {
 			}
 		}
 		available = {
-		    custom_trigger_tooltip = {
-		        tooltip = relation_modifier_ROM_AUS_tt
-		        ROM = {
-		            check_variable = {
-		                opinion@AUS > AUS.AUS_romanian_quest
-		            }
-		        }
-		    }
+			custom_trigger_tooltip = {
+				tooltip = relation_modifier_ROM_AUS_tt
+				ROM = {
+					check_variable = {
+						opinion@AUS > AUS.AUS_romanian_quest
+					}
+				}
+			}
 		}
 		fire_only_once = yes
 		is_good = no
@@ -4368,10 +4388,6 @@ AUS_quests = {
 			}
 		}
 	}
-
-
-
-
 	#AUS_ready_the_east = {
 	#	icon = generic_construction
 	#	available = {
@@ -4430,7 +4446,9 @@ AUS_quests = {
 				tooltip = AUS_invest_in_vienna_arms_factory_tt
 				any_owned_state = {
 					has_state_flag = AUS_built_military_factory
-					check_variable = { arms_factory_goal = arms_factory_level }
+					check_variable = {
+						arms_factory_goal = arms_factory_level
+					}
 				}
 			}
 		}
@@ -4462,11 +4480,7 @@ AUS_quests = {
 		complete_effect = {
 			clr_country_flag = AUS_building_fort
 			add_political_power = 25
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_factory_output = 0.05
-				tooltip = industrial_capacity_factory_tt
-			}
+		
 			hidden_effect = {
 				4 = {
 					clr_state_flag = AUS_built_military_factory
@@ -4479,12 +4493,6 @@ AUS_quests = {
 		}
 	}
 }
-
-
-
-
-
-
 
 debug_decisions = {
 	reset_minority_loyalties = {
@@ -4559,4 +4567,3 @@ debug_decisions = {
 		}
 	}
 }
-
