@@ -6074,10 +6074,12 @@ focus_tree = {
 		}
 		relative_position_id = AUS_technical_military_committee
 		available = {
-			OR = {
-				threat > 0.2
-				has_war_support > 0.4
-			}
+			#OR = {
+			#	threat > 0.2
+			#	has_war_support > 0.4
+			#}
+			#impossible to get without war, then conrad path locks up
+			has_war_support > 0.2
 			NOT = {
 				has_global_flag = great_war
 			}
@@ -10612,10 +10614,7 @@ joint_focus = {
 			limit = {
 				has_focus_tree = austria_tree
 			}
-			add_days_mission_timeout = {
-				mission = AUS_administrative_sabotage_in_south_slav
-				days = 30
-			}
+			remove_mission = AUS_administrative_sabotage_in_south_slav
 			custom_effect_tooltip = empty_space_tt
 			AUS_increase_southern_admin_10 = yes
 			AUS_update_state_of_realm = yes

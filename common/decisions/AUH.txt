@@ -504,12 +504,12 @@ AUH_great_war_bullshit = {
 			base = 80
 		}
 		complete_effect = {
-		}
-		remove_effect = {
 			add_days_mission_timeout = {
 				mission = AUS_impending_bankruptcy
 				days = 30
 			}
+		}
+		remove_effect = {
 		}
 	}
 	AUS_convert_economy_d = {
@@ -671,7 +671,10 @@ AUS_minorities_mechanic = {
 		}
 		days_mission_timeout = AUS_admin_struggle_slav_var
 		available = {
-			has_completed_focus = AUS_the_hostile_enemy_of_austria
+			OR = {
+				has_completed_focus = AUS_the_hostile_enemy_of_austria
+				has_completed_focus = AUS_burying_the_grudges_of_the_past
+			}
 		}
 		visible = {
 			original_tag = AUS
@@ -4000,6 +4003,9 @@ AUH_terrorism = {
 		activation = {
 			original_tag = AUS
 			has_global_flag = AUS_unlock_south_focus
+			NOT = {
+				has_global_flag = AUS_arrested_tons_of_dealers
+			}
 		}
 		timeout_effect = {
 			activate_mission = AUH_smuggled_weapons_in_bosnia
