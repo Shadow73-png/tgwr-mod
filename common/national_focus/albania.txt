@@ -1595,46 +1595,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_economic_societies
-		complete_tooltip = {
-			every_state = {
-				limit = { has_state_flag = ALB_invest_in_the_construction_industry }
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			unlock_decision_tooltip = {
-				decision = ALB_tax_cuts_to_the_construction_industry
-				show_effect_tooltip = yes
-				show_modifiers = yes
-			}
-			ALB_improve_national_bank = yes
-		}
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = ROOT
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = ALB_invest_in_the_construction_industry
-			}
-			unlock_decision_tooltip = {
-				decision = ALB_tax_cuts_to_the_construction_industry
-				show_effect_tooltip = yes
-				show_modifiers = yes
-			}
 			ALB_improve_national_bank = yes
 		}
 		ai_will_do = { factor = 100 }
@@ -1711,44 +1672,8 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = ALB_invest_in_the_construction_industry
-		complete_tooltip = {
-			every_state = {
-				limit = { has_state_flag = ALB_open_tobacco_factories }
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
-			custom_modifier_tooltip = consumer_goods_factor_minus_5
-			custom_effect_tooltip = empty_space
-		}
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = ROOT
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = ALB_open_tobacco_factories
-			}
-			custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
-			add_to_variable = {
-				tooltip = consumer_goods_factor_minus_5
-				ALB_ae_consumer_goods_factor = -0.05
-			}
-			custom_effect_tooltip = empty_space
+			
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -1773,7 +1698,7 @@ focus_tree = {
 	focus = {
 		id = ALB_expand_adriatic_ports
 		icon = GFX_focus_generic_printing_press
-		cost = 10
+		cost = 5
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_MANPOWER
@@ -1784,7 +1709,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_invest_in_the_construction_industry
 		completion_reward = {
-			industrial_complex
+			
 		}
 		ai_will_do = { factor = 100 }
 	}

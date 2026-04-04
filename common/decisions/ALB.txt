@@ -1732,30 +1732,6 @@ economy_decisions = {
 			activate_mission = ALB_electrification_of_the_country
 		}
 	}
-	ALB_tax_cuts_to_the_construction_industry = {
-		icon = GFX_decision_generic_construction
-		allowed = { original_tag = ALB }
-		cost = 35
-		visible = { has_completed_focus = ALB_invest_in_the_construction_industry }
-		days_remove = 180
-		modifier = { consumer_goods_factor = 0.1 }
-		complete_effect = {
-			custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
-			add_to_variable = {
-				tooltip = production_speed_buildings_factor_10
-				ALB_ae_production_speed_buildings_factor = 0.1
-			}
-			custom_effect_tooltip = empty_space
-		}
-		remove_effect = {
-			custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
-			add_to_variable = {
-				tooltip = production_speed_buildings_factor_minus_10
-				ALB_ae_production_speed_buildings_factor = -0.1
-			}
-			custom_effect_tooltip = empty_space
-		}
-	}
 }
 
 foreign_politics = {
