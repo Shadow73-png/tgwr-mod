@@ -1362,6 +1362,9 @@ CHI_warlord_era = {
 		visible = {
 			has_country_flag = CHI_soviet_republic_flag
 		}
+		target_root_trigger = {
+			has_country_flag = CHI_soviet_republic_flag
+		}
 		days_remove = 30
 		cost = 10
 		fire_only_once = no
@@ -1464,6 +1467,9 @@ CHI_warlord_era = {
 					}
 				}
 			}
+		}
+		target_root_trigger = {
+			has_country_flag = CHI_soviet_republic_flag
 		}
 		days_remove = 30
 		cost = 40
@@ -2947,6 +2953,9 @@ CHI_chinese_warlords = {
 				has_global_flag = national_pacification_army
 			}
 		}
+		target_root_trigger = {
+			owns_state = 608
+		}
 		fire_only_once = yes
 		available = {
 			
@@ -3302,6 +3311,16 @@ CHI_chinese_warlords = {
 					}
 				}
 			}
+		}
+		target_root_trigger = {
+			OR = {
+				has_country_flag = ready_to_unite_china
+				has_country_flag = reunited_china
+				AND = {
+					is_china_or_warlord_no_tt = yes
+					NOT = { original_tag = CHI original_tag = QIN }
+				}
+			}			
 		}
 		fire_only_once = no
 		cancel_if_not_visible = yes
@@ -4010,7 +4029,7 @@ operations = {
 		}
 		fire_only_once = no
 		custom_cost_trigger = {
-			has_war_support > 2
+			has_war_support > 0.029
 		}
 		custom_cost_text = decision_cost_WS_3
 		available = {
@@ -4034,7 +4053,7 @@ operations = {
 		}
 		days_remove = 30
 		complete_effect = {
-			add_war_support = -3
+			add_war_support = -0.03
 			add_manpower = -2000
 		}
 		remove_effect = {
@@ -4054,40 +4073,36 @@ operations = {
 					}
 				}
 			}
-			random_state = {
+			random_core_state = {
 				limit = {
 					is_owned_and_controlled_by = ROOT
-					is_core_of = ROOT
 				}
 				create_unit = {
 					division = "name = \"Yiyongjun\" division_template = \"Yiyongjun\" start_experience_factor = 0.0 start_equipment_factor = 0.0"
 					owner = ROOT
 				}
 			}
-			random_state = {
+			random_core_state = {
 				limit = {
 					is_owned_and_controlled_by = ROOT
-					is_core_of = ROOT
 				}
 				create_unit = {
 					division = "name = \"Yiyongjun\" division_template = \"Yiyongjun\" start_experience_factor = 0.0 start_equipment_factor = 0.0"
 					owner = ROOT
 				}
 			}
-			random_state = {
+			random_core_state = {
 				limit = {
 					is_owned_and_controlled_by = ROOT
-					is_core_of = ROOT
 				}
 				create_unit = {
 					division = "name = \"Yiyongjun\" division_template = \"Yiyongjun\" start_experience_factor = 0.0 start_equipment_factor = 0.0"
 					owner = ROOT
 				}
 			}
-			random_state = {
+			random_core_state = {
 				limit = {
 					is_owned_and_controlled_by = ROOT
-					is_core_of = ROOT
 				}
 				create_unit = {
 					division = "name = \"Yiyongjun\" division_template = \"Yiyongjun\" start_experience_factor = 0.0 start_equipment_factor = 0.0"

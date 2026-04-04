@@ -403,6 +403,11 @@ country_event = {
 	desc = ww1_georgia.11.d
 	picture = GFX_report_event_generic_parliament
 	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			has_global_flag = caucasus_collapsed
+		}
+	}
 	immediate = {
 		hidden_effect = {
 			set_global_flag = caucasus_collapsed
