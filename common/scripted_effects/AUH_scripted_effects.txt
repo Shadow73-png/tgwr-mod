@@ -614,6 +614,49 @@ AUS_update_state_of_realm = {
 	add_to_variable = {
 		AUS_admin_struggle_slav_var = AUS_croat_loyalty
 	}
+
+	#display vars
+	set_variable = {
+		AUS_if_multiply_by_1 = AUS_admin_struggle_slav_var
+	}
+	if = {
+		limit = {
+			has_completed_focus = AUS_centralization_and_discipline
+		}
+		add_to_variable = {
+			AUS_if_multiply_by_1 = 10
+		}
+	}
+	set_variable = {
+		AUS_if_multiply_by_1point5 = AUS_admin_struggle_slav_var
+	}
+	multiply_variable = {
+		AUS_if_multiply_by_1point5 = 1.5
+	}
+	if = {
+		limit = {
+			has_completed_focus = AUS_centralization_and_discipline
+		}
+		add_to_variable = {
+			AUS_if_multiply_by_1point5 = 10
+		}
+	}
+	set_variable = {
+		AUS_if_multiply_by_2 = AUS_admin_struggle_slav_var
+	}
+	multiply_variable = {
+		AUS_if_multiply_by_2 = 2
+	}
+	if = {
+		limit = {
+			has_completed_focus = AUS_centralization_and_discipline
+		}
+		add_to_variable = {
+			AUS_if_multiply_by_2 = 10
+		}
+	}
+
+	#the actual multiplication
 	IF = {
 		limit = {
 			NOT = {
