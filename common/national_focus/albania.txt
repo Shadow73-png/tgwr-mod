@@ -1585,7 +1585,7 @@ focus_tree = {
 	focus = {
 		id = ALB_invest_in_the_construction_industry
 		icon = GFX_focus_generic_printing_press
-		cost = 5
+		cost = 10
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_MANPOWER
@@ -1722,7 +1722,7 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
-			custom_modifier_tooltip = consumer_goods_factor_minus_5
+			custom_effect_tooltip = consumer_goods_factor_minus_5
 			custom_effect_tooltip = empty_space
 		}
 		completion_reward = {
@@ -1755,7 +1755,7 @@ focus_tree = {
 	focus = {
 		id = ALB_connecting_albania
 		icon = GFX_focus_generic_printing_press
-		cost = 5
+		cost = 10
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_MANPOWER
@@ -1765,8 +1765,39 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_invest_in_the_construction_industry
+		complete_tooltip = {
+			custom_effect_tooltip = ALB_connecting_albania_tt
+			every_state = {
+				limit = { has_state_flag = ALB_connecting_albania }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_timed_idea = {
+				idea = ALB_road_investments
+				days = 780
+			}
+		}
 		completion_reward = {
-			
+			custom_effect_tooltip = ALB_connecting_albania_tt
+			every_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+					infrastructure < 2
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = ALB_connecting_albania
+			}
+			add_timed_idea = {
+				idea = ALB_road_investments
+				days = 780
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -1783,7 +1814,49 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = ALB_invest_in_the_construction_industry
+		available = {
+			any_controlled_state = {
+				is_core_of = ROOT
+				is_coastal = yes
+			}
+		}
 		completion_reward = {
+			custom_effect_tooltip = ALB_expand_adriatic_ports_tt1
+			random_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				prioritize = { 870 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = ALB_expand_adriatic_ports
+			}
+			custom_effect_tooltip = ALB_expand_adriatic_ports_tt2
+			every_controlled_state = {
+				limit = {
+					is_coastal = yes
+					can_construct_building = naval_base
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = {
+						limit_to_victory_point > 1
+						limit_to_coastal = yes
+					}
+				}
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
