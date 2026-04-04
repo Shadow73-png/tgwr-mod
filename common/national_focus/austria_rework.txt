@@ -1723,6 +1723,12 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			if = {
+				limit = {
+					has_idea = civilian_economy
+				}
+				upgrade_economy_law = yes
+			}
 			add_war_support = 0.05
 			add_political_power = 25
 			if = {
@@ -1916,7 +1922,7 @@ focus_tree = {
 				AUS_aps_dem_gain = -0.05
 				tooltip = democratic_drift_tt
 			}
-				add_to_variable = {
+			add_to_variable = {
 				AUS_aps_neutral_gain = 0.05
 				tooltip = neutrality_drift_tt
 			}
@@ -2022,7 +2028,7 @@ focus_tree = {
 			AUS_has_autocrat_minister = yes
 		}
 		completion_reward = {
-				if = {
+			if = {
 				limit = {
 					has_country_flag = AUS_increased_perception_of_war_quest_done
 				}
@@ -2071,7 +2077,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-				if = {
+			if = {
 				limit = {
 					has_country_flag = AUS_increased_perception_of_war_quest_done
 				}
@@ -2114,7 +2120,7 @@ focus_tree = {
 			AUS_has_autocrat_minister = yes
 		}
 		completion_reward = {
-				if = {
+			if = {
 				limit = {
 					has_country_flag = AUS_increased_perception_of_war_quest_done
 				}
@@ -6065,7 +6071,6 @@ focus_tree = {
 			has_war_support > 0.35
 		}
 		completion_reward = {
-		
 			unlock_decision_tooltip = {
 				decision = AUS_provide_trucks_dec
 				show_effect_tooltip = yes
