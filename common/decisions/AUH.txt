@@ -51,7 +51,7 @@ AUH_great_war_bullshit = {
 			original_tag = AUS
 		}
 		priority = 10
-		days_mission_timeout = 600
+		days_mission_timeout = AUS_impending_bankrupcy_time
 		available = {
 			has_war = no
 		}
@@ -68,6 +68,20 @@ AUH_great_war_bullshit = {
 			has_war = no
 		}
 		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						AUS_make_inflation_mission_short_after_initial < 1
+					}
+				}
+				add_to_variable = {
+					AUS_make_inflation_mission_short_after_initial = 1
+				}
+				add_to_variable = {
+					AUS_impending_bankrupcy_time = -570
+				}
+				custom_effect_tooltip = AUS_it_will_start_every_30_days
+			}
 			AUS_war_time_effects = yes
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
