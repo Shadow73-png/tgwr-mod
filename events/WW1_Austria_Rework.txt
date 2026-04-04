@@ -987,7 +987,10 @@ country_event = {
 	option = {
 		name = ww1_austriahungary.32.a
 		set_global_flag = second_round_of_choosing_MP_AUS
-		country_event = ww1_austriahungary.22
+		country_event = {
+			id = ww1_austriahungary.22
+			days = 2
+		}
 		if = {
 			limit = {
 				has_global_flag = AUS_paul_minister
@@ -4249,9 +4252,11 @@ country_event = {
 	desc = ww1_austriahungary.145.d
 	picture = GFX_report_event_generic_read_write
 	trigger = {
+		original_tag = AUS
 		has_completed_focus = AUS_reject_the_gentlemen_agreements
 		NOT = {
 			has_completed_focus = AUS_emperors_right_hand_man
+			has_country_flag = completing_right_hand_man
 		}
 	}
 	mean_time_to_happen = {
