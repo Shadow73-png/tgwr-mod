@@ -51,7 +51,7 @@ AUH_great_war_bullshit = {
 			original_tag = AUS
 		}
 		priority = 10
-		days_mission_timeout = 700
+		days_mission_timeout = 600
 		available = {
 			has_war = no
 		}
@@ -68,12 +68,11 @@ AUH_great_war_bullshit = {
 			has_war = no
 		}
 		timeout_effect = {
-			country_event = ww1_italy.322
-			effect_tooltip = {
-				add_timed_idea = {
-					idea = ITA_defaulted_debt
-					days = 1000
-				}
+			AUS_war_time_effects = yes
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.015
+				tooltip = consumer_goods_factor_tt
 			}
 		}
 		complete_effect = {
@@ -413,41 +412,7 @@ AUH_great_war_bullshit = {
 			}
 		}
 	}
-	AUS_increase_the_money_supply = {
-		icon = GFX_decision_generic_electricity
-		allowed = {
-			original_tag = AUS
-		}
-		priority = 20
-		visible = {
-			has_completed_focus = AUS_roaring_money_printer
-		}
-		available = {
-			has_war_with_major = yes
-		}
-		fire_only_once = no
-		days_remove = 60
-		cost = 20
-		ai_will_do = {
-			base = 80
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			add_days_mission_timeout = {
-				mission = AUS_impending_bankruptcy
-				days = 60
-			}
-			AUS_war_time_effects = yes
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_consumer_goods = 0.015
-				tooltip = consumer_goods_factor_tt
-			}
-		}
-		modifier = {
-		}
-	}
+
 	AUS_ban_import_of_luxury_goods = {
 		icon = GFX_decision_generic_electricity
 		allowed = {
