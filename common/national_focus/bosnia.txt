@@ -63,9 +63,10 @@ focus_tree = {
 	focus = {
 		id = BOS_first_diet_elections
 		icon = GFX_generic_parliament
-		cost = 0
-		x = 5
+		cost = 4
+		x = 4
 		y = 0
+		cancelable = no
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -73,14 +74,17 @@ focus_tree = {
 		}
 		available = {
 			bosnia_is_AUS_subject = yes
-			custom_trigger_tooltip = {
-				tooltip = BOS_1910_bosnia_elections
-				always = no
-			}
+			#custom_trigger_tooltip = {
+			#	tooltip = BOS_1910_bosnia_elections
+			#	always = no
+			#}
 		}
 		completion_reward = {
+			country_event = ww1_bosnia.4
+			custom_effect_tooltip = empty_space_tt
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = BOS_safvet_beg_basagic
+
 		}
 	}
 	focus = {
