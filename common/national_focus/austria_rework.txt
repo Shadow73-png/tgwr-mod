@@ -6296,10 +6296,6 @@ focus_tree = {
 				AUS_mea_train_time = -0.1
 				tooltip = training_time_factor_tt
 			}
-			add_to_variable = {
-				AUS_mea_conscription_factor = 0.25
-				tooltip = conscription_factor_tt
-			}
 			# add_to_variable = {
 			# 	AUS_mea_fort = 0.05				#§62.4: "One-year volunteers who wish to become fortification officers can be admitted to military training in fortress construction." https://alex.onb.ac.at/cgi-content/alex?apm=0&aid=rgb&datum=19110004&seite=00000193&size=45
 			# 	tooltip = production_speed_bunker_factor_tt
@@ -7249,7 +7245,10 @@ focus_tree = {
 			has_war_support > 0.4
 		}
 		completion_reward = {
-			upgrade_conscription_law = yes
+			add_to_variable = {
+				AUS_mea_conscription_factor = 0.25
+				tooltip = conscription_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
