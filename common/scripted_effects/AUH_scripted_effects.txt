@@ -43,6 +43,7 @@ AUS_war_time_effects = {
 		AUS_last_loyalty_penalty = AUS_new_loyalty_penalty
 	}
 }
+
 AUS_update_food = {
 	remove_ideas = AUS_minimal_food_shortages_idea
 	remove_ideas = AUS_mild_food_shortages_idea
@@ -56,69 +57,105 @@ AUS_update_food = {
 	remove_ideas = AUS_famine_food_shortages_idea
 	if = {
 		limit = {
-			check_variable = { AUS_intensity_of_food_shortages < 2 }
+			check_variable = {
+				AUS_intensity_of_food_shortages < 2
+			}
 		}
 		add_ideas = AUS_minimal_food_shortages_idea
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_intensity_of_food_shortages < 4 }
-			check_variable = { AUS_intensity_of_food_shortages > 1 }
+			check_variable = {
+				AUS_intensity_of_food_shortages < 4
+			}
+			check_variable = {
+				AUS_intensity_of_food_shortages > 1
+			}
 		}
 		add_ideas = AUS_mild_food_shortages_idea
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_intensity_of_food_shortages < 5 }
-			check_variable = { AUS_intensity_of_food_shortages > 3 }
+			check_variable = {
+				AUS_intensity_of_food_shortages < 5
+			}
+			check_variable = {
+				AUS_intensity_of_food_shortages > 3
+			}
 		}
 		add_ideas = AUS_limited_food_shortages_idea
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_intensity_of_food_shortages < 6 }
-			check_variable = { AUS_intensity_of_food_shortages > 4 }
+			check_variable = {
+				AUS_intensity_of_food_shortages < 6
+			}
+			check_variable = {
+				AUS_intensity_of_food_shortages > 4
+			}
 		}
 		add_ideas = AUS_noticeable_food_shortages_idea
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_intensity_of_food_shortages < 8 }
-			check_variable = { AUS_intensity_of_food_shortages > 5 }
+			check_variable = {
+				AUS_intensity_of_food_shortages < 8
+			}
+			check_variable = {
+				AUS_intensity_of_food_shortages > 5
+			}
 		}
 		add_ideas = AUS_moderate_food_shortages_idea
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_intensity_of_food_shortages < 10 }
-			check_variable = { AUS_intensity_of_food_shortages > 7 }
+			check_variable = {
+				AUS_intensity_of_food_shortages < 10
+			}
+			check_variable = {
+				AUS_intensity_of_food_shortages > 7
+			}
 		}
 		add_ideas = AUS_widespread_food_shortages_idea
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_intensity_of_food_shortages < 12 }
-			check_variable = { AUS_intensity_of_food_shortages > 9 }
+			check_variable = {
+				AUS_intensity_of_food_shortages < 12
+			}
+			check_variable = {
+				AUS_intensity_of_food_shortages > 9
+			}
 		}
 		add_ideas = AUS_severe_food_shortages_idea
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_intensity_of_food_shortages < 14 }
-			check_variable = { AUS_intensity_of_food_shortages > 11 }
+			check_variable = {
+				AUS_intensity_of_food_shortages < 14
+			}
+			check_variable = {
+				AUS_intensity_of_food_shortages > 11
+			}
 		}
 		add_ideas = AUS_critical_food_shortages_idea
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_intensity_of_food_shortages < 15 }
-			check_variable = { AUS_intensity_of_food_shortages > 13 }
+			check_variable = {
+				AUS_intensity_of_food_shortages < 15
+			}
+			check_variable = {
+				AUS_intensity_of_food_shortages > 13
+			}
 		}
 		add_ideas = AUS_extreme_food_shortages_idea
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_intensity_of_food_shortages > 14 }
+			check_variable = {
+				AUS_intensity_of_food_shortages > 14
+			}
 		}
 		add_ideas = AUS_famine_food_shortages_idea
 	}
@@ -614,7 +651,6 @@ AUS_update_state_of_realm = {
 	add_to_variable = {
 		AUS_admin_struggle_slav_var = AUS_croat_loyalty
 	}
-
 	#display vars
 	set_variable = {
 		AUS_if_multiply_by_1 = AUS_admin_struggle_slav_var
@@ -655,7 +691,6 @@ AUS_update_state_of_realm = {
 			AUS_if_multiply_by_2 = 10
 		}
 	}
-
 	#the actual multiplication
 	IF = {
 		limit = {
@@ -695,7 +730,6 @@ AUS_update_state_of_realm = {
 			AUS_admin_struggle_slav_var = 10
 		}
 	}
-
 	set_variable = {
 		AUS_days_for_stabilization_effort_decision = 0
 	}
@@ -709,7 +743,6 @@ AUS_update_state_of_realm = {
 		var = AUS_days_for_stabilization_effort_decision
 		value = AUS_temp_bosnia
 	}
-
 	set_variable = {
 		AUS_state_of_the_realm_political_power_var = 0
 	}
@@ -1102,6 +1135,7 @@ AUS_update_state_of_realm = {
 		}
 	}
 }
+
 AUS_south_slav_average = {
 	set_variable = {
 		AUS_south_slav_loyalty = 0
@@ -1533,7 +1567,7 @@ AUH_release_HUN = {
 		set_nationality = HUN
 	}
 	if = {
-		limit = { 
+		limit = {
 			has_character = HUN_gyula_andrassy
 		}
 		HUN_gyula_andrassy = {
@@ -2566,6 +2600,7 @@ AUS_increase_southern_admin = {
 		add_political_power = 15
 	}
 }
+
 AUS_decrease_southern_admin = {
 	if = {
 		limit = {
@@ -2660,6 +2695,18 @@ AUS_decrease_southern_admin = {
 		limit = {
 			has_idea = AUS_southern_administration_16
 		}
+		if = {
+			limit = {
+				has_political_power > 0
+			}
+			add_political_power = -20
+		}
+		if = {
+			limit = {
+				has_stability > 0.5
+			}
+			add_stability = -0.02
+		}
 	}
 	else_if = {
 		limit = {
@@ -2716,6 +2763,7 @@ AUS_decrease_southern_admin = {
 		}
 	}
 }
+
 AUS_increase_southern_admin_10 = {
 	if = {
 		limit = {
@@ -2839,7 +2887,6 @@ AUS_increase_southern_admin_10 = {
 #			add_idea = AUS_southern_administration_
 #		}
 #	}
-
 AUS_cartel_riots_event = {
 	if = {
 		limit = {
@@ -2866,6 +2913,7 @@ AUS_cartel_riots_event = {
 		country_event = ww1_austriahungary.169
 	}
 }
+
 AUS_how_many_states_have_neglected_fathers = {
 	hidden_effect = {
 		every_state = {
@@ -3007,7 +3055,6 @@ AUS_1914_effects = {
 		bonus = 0.75
 		uses = 2
 	}
-	
 	AUS_update_imperial_council_effects = yes
 	AUS_update_state_of_realm = yes
 }
