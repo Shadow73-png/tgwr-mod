@@ -820,10 +820,8 @@ ITA_great_war_austria = {
 			}
 			has_completed_focus = AUH_naval_excercices 
 		}
-		target_trigger = {
-			FROM = {
-				tag = ITA
-			}
+		targets = {
+			ITA
 		}
 		visible = {
 			has_war_with = FROM
@@ -862,13 +860,17 @@ ITA_great_war_austria = {
 				}
 			}
 			controls_state = 736
-			has_completed_focus = AUH_naval_excercices 
 		}
 		target_trigger = {
 			FROM = {
-				tag = ITA
 				controls_state = 160
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = AUH_naval_excercices 
+		}
+		targets = {
+			ITA
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -1634,10 +1636,8 @@ ITA_great_war = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = AUS
-			}
+		targets = {
+			AUS
 		}
 		cancel_trigger = {
 			NOT = {
@@ -1679,10 +1679,8 @@ ITA_great_war = {
 		ai_will_do = {
 			base = 200 #take asap
 		}
-		target_trigger = {
-			FROM = {
-				tag = AUS
-			}
+		targets = {
+			AUS
 		}
 		visible = {
 			has_war_with = FROM
@@ -3081,7 +3079,6 @@ ITA_libyan_war = {
 		cost = 0
 		target_trigger = {
 			FROM = {
-				tag = TUR
 				any_controlled_state = {
 					OR = {
 						state = 899
@@ -3089,6 +3086,9 @@ ITA_libyan_war = {
 					}
 				}
 			}
+		}
+		targets = {
+			TUR
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -3165,7 +3165,6 @@ ITA_libyan_war = {
 			original_tag = ITA
 		}
 		available = {
-			has_completed_focus = ITA_new_naval_guns
 			ships_in_area = {
 				area = 29
 				size > 15
@@ -3173,7 +3172,6 @@ ITA_libyan_war = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = TUR
 				any_controlled_state = {
 					OR = {
 						state = 448
@@ -3181,6 +3179,12 @@ ITA_libyan_war = {
 					}
 				}
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = ITA_new_naval_guns
+		}
+		targets = {
+			TUR
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -3301,7 +3305,6 @@ ITA_libyan_war = {
 			original_tag = ITA
 		}
 		available = {
-			has_completed_focus = ITA_2_enemies_2_navies
 			ships_in_area = {
 				area = 69
 				size > 15
@@ -3309,9 +3312,14 @@ ITA_libyan_war = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = TUR
 				owns_state = 553
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = ITA_2_enemies_2_navies
+		}
+		targets = {
+			TUR
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -3394,7 +3402,7 @@ ITA_libyan_war = {
 			modifier = {
 				add = 100
 				AND = {
-					surrender_progress > 0.1
+					surrender_progress > 0.2
 					ROOT = {
 						any_core_state = {
 							is_controlled_by = TUR
@@ -3408,7 +3416,7 @@ ITA_libyan_war = {
 					TUR = { is_ai = no }
 					LBA = { is_ai = no }
 				}
-				casualties > 40000
+				casualties > 50000
 			}
 			modifier = {
 				add = 10
@@ -9976,6 +9984,54 @@ peace_deals = {
 		is_good = yes
 		days_mission_timeout = 600
 	}
+	ITA_valona_timer = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = {
+			original_tag = ITA
+		}
+		days_mission_timeout = 200
+		activation = {
+			always = no
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				has_capitulated = yes
+				has_war_with = ALB
+				NOT = {
+					owns_state = 44
+					owns_state = 871
+					owns_state = 1214
+					owns_state = 1215
+				}
+				has_subject = ALB
+			}
+		}
+		fire_only_once = no
+		is_good = no
+		timeout_effect = {
+			effect_tooltip = {
+				every_owned_state = {
+					limit = {
+						is_core_of = ALB
+					}
+					transfer_state_to = ALB
+				}
+			}
+			hidden_effect = {
+				#set_global_flag = valona_war_end
+				ALB = {
+					every_core_state = {
+						limit = {
+							is_demilitarized_zone = yes
+						}
+						set_demilitarized_zone = no
+					}
+				}
+				country_event = ww1_albania.20
+			}
+		}
+	}
 }
 
 operations = {
@@ -10049,10 +10105,8 @@ operations = {
 		fire_only_once = yes
 		cost = 50
 		days_remove = 15
-		target_trigger = {
-			FROM = {
-				tag = MLT
-			}
+		targets = {
+			MLT
 		}
 		ai_will_do = {
 			factor = 50
@@ -10527,10 +10581,8 @@ ITA_italian_civil_war_decisions = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = SRI
-			}
+		targets = {
+			SRI
 		}
 		complete_effect = {
 			set_country_flag = ITA_second_civil_war_intervention
@@ -10602,11 +10654,8 @@ ITA_italian_civil_war_decisions = {
 		fire_only_once = yes
 		cost = 125
 		days_remove = 15
-		target_trigger = {
-			FROM = {
-				original_tag = ITA
-				has_country_flag = ITA_socialist_italy_flag
-			}
+		targets = {
+			SRI
 		}
 		cancel_trigger = {
 			hidden_trigger = {
@@ -12581,10 +12630,8 @@ ITA_army_reforms = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = AUS
-			}
+		targets = {
+			AUS
 		}
 		cancel_trigger = {
 			NOT = {
@@ -13608,7 +13655,6 @@ ITA_italy_communist_decisions = {
 			}
 		}
 		visible = {
-			has_completed_focus = ITA_form_the_international
 			has_country_flag = ITA_socialist_italy_flag
 			FROM = {
 				is_subject = no
@@ -13618,6 +13664,9 @@ ITA_italy_communist_decisions = {
 					has_country_flag = ITA_asked_join_internationale
 				}
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = ITA_form_the_international
 		}
 		complete_effect = {
 			FROM = {
@@ -13638,7 +13687,7 @@ ITA_italy_communist_decisions = {
 		allowed = {
 			original_tag = ITA
 		}
-		visible = {
+		target_root_trigger = {
 			has_completed_focus = ITA_socialist_economic_intergration
 			has_country_flag = ITA_socialist_italy_flag
 		}
@@ -13693,7 +13742,7 @@ ITA_socialist_sabotadge_entente = {
 		allowed = {
 			original_tag = ITA
 		}
-		visible = {
+		target_root_trigger = {
 			has_completed_focus = ITA_sabotadge_entente
 			has_country_flag = ITA_socialist_italy_flag
 		}

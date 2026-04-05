@@ -1665,10 +1665,9 @@ FRA_anti_french_resistance_mid = {
 	icon = GFX_modifiers_generic_resistance
 	recruitable_population_factor = -0.25
 	local_supplies_for_controller = -0.25
-	attrition_for_controller = 0.25
 	resistance_target = 0.25
 	compliance_growth = -0.25
-	required_garrison_factor = 0.5
+	required_garrison_factor = 0.2
 }
 
 FRA_colonial_conscription = {
@@ -1750,7 +1749,7 @@ FRA_michel_defensive_plan = {
 
 FRA_voie_sacree_modifier = {
 	enable = {
-		CONTROLLER = {
+		controller = {
 			OR = {
 				tag = FRA
 				is_ally_with = FRA
@@ -1760,7 +1759,7 @@ FRA_voie_sacree_modifier = {
 	remove_trigger = {
 		OR = {
 			has_global_flag = great_war_ends
-			owner = {
+			controller = {
 				NOT = {
 					tag = FRA
 					is_ally_with = FRA
@@ -1769,7 +1768,7 @@ FRA_voie_sacree_modifier = {
 		}
 	}
 	icon = GFX_modifiers_generic_supply
-	local_supplies_for_controller = 0.20
+	local_supplies_for_controller = 0.1
 }
 
 FRA_joffre_offensive_plan = {
