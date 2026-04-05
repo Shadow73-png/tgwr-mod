@@ -6074,7 +6074,10 @@ focus_tree = {
 				show_effect_tooltip = yes
 			}
 			custom_effect_tooltip = empty_space_tt
-			unlock_decision_tooltip = AUS_put_factory_workers_under_military_control
+			unlock_decision_tooltip = {
+				decision = AUS_put_factory_workers_under_military_control
+				show_modifiers = yes
+			}
 		}
 		ai_will_do = {
 			base = 10
@@ -7245,6 +7248,7 @@ focus_tree = {
 			has_war_support > 0.4
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_modify_army.tt
 			add_to_variable = {
 				AUS_mea_conscription_factor = 0.25
 				tooltip = conscription_factor_tt
