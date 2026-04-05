@@ -2020,3 +2020,54 @@ country_event = {
 		add_stability = -0.05
 	}
 	}
+	#resistance to communism
+	country_event = {
+	id = ww1_holland.75
+	title = ww1_holland.75.t
+	desc = ww1_holland.75.d
+	fire_only_once = yes
+	trigger = {
+		has_government = communism
+	}
+	option = {
+		name = ww1_holland.75.a
+		set_variable = {
+			HOL_variable_gelderland_opp = 1
+		}
+		set_variable = {
+			HOL_variable_friesland_opp = 2
+		}
+		set_variable = {
+			HOL_variable_holland_opp = 1
+		}
+		set_variable = {
+			HOL_variable_brabant_opp = 2
+		}
+		hidden_effect = {
+			country_event = {
+				days = 14
+				id = ww1_holland.76
+			}
+		}
+	}
+	}
+	#german right supports counterrevolution
+	country_event = {
+	id = ww1_holland.76
+	title = ww1_holland.76.t
+	desc = ww1_holland.76.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		
+	}
+	option = {
+		name = ww1_holland.75.a
+		add_to_variable = {
+			HOL_variable_gelderland_opp = 1
+		}
+		add_to_variable = {
+			HOL_variable_friesland_opp = 1
+		}
+	}
+	}
