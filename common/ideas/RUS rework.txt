@@ -1495,8 +1495,30 @@ ideas = {
 			
 			modifier = {
 				consumer_goods_factor = 0.1
-				production_speed_infrastructure_factor = 0.15
 				production_speed_industrial_complex_factor = 0.15
+			}
+		}
+		RUS_land_development_idea = {
+			picture = GER_wirtschaftswunder
+			
+			allowed = { always = no }
+			
+			allowed_civil_war = { original_tag = RUS }
+			
+			available = {
+				has_war_with_major = no
+				has_civil_war = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.1
+				production_speed_infrastructure_factor = 0.15
+			}
+			on_remove = {
+				set_temp_variable = { RUS_add_agrarian_reform_progress_var = 5 }
+				RUS_add_agrarian_reform_progress = yes
 			}
 		}
 		RUS_income_tax = {

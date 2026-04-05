@@ -1800,46 +1800,18 @@ focus_tree = {
 	#ECONOMY
 	#####################
 	focus = {
-		id = RUS_new_course
-		icon = GFX_focus_generic_central_planning
-		cost = 5
-		available = {
-			any_character = {
-				is_minister_of_finance = yes
-				is_reformist = yes
-			}
-		}
-		x = 8
-		y = 0
-		relative_position_id = RUS_stolypins_reforms
-		available_if_capitulated = yes
-		completion_reward = {
-			add_timed_idea = {
-				idea = RUS_new_course_idea
-				days = 365
-			}
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_FINANCE
-		}
-	}
-	focus = {
 		id = RUS_railroad_expansion
 		icon = GFX_focus_Generic_Develop_Rail_Network
 		cost = 5
 		prerequisite = {
-			focus = RUS_new_course
+			focus = RUS_anti_alcohol_campaign
 			focus = RUS_balance_the_budget
 		}
 		available = {
 		}
 		x = 3
 		y = 1
-		relative_position_id = RUS_new_course
+		relative_position_id = RUS_anti_alcohol_campaign
 		available_if_capitulated = yes
 		completion_reward = {
 			unlock_decision_tooltip = RUS_secure_funding_for_railways_sd
@@ -1868,7 +1840,7 @@ focus_tree = {
 		icon = GFX_focus_focus_generic_build_dam
 		cost = 5
 		prerequisite = {
-			focus = RUS_new_course
+			focus = RUS_anti_alcohol_campaign
 		}
 		prerequisite = {
 			focus = RUS_railroad_expansion
@@ -1899,7 +1871,7 @@ focus_tree = {
 		icon = GFX_focus_BEL_government_resigns
 		cost = 5
 		prerequisite = {
-			focus = RUS_new_course
+			focus = RUS_anti_alcohol_campaign
 		}
 		available = {
 			has_monopolies = yes
@@ -1916,7 +1888,7 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-		relative_position_id = RUS_new_course
+		relative_position_id = RUS_anti_alcohol_campaign
 		available_if_capitulated = yes
 		select_effect = {
 			country_event = {
@@ -1952,18 +1924,15 @@ focus_tree = {
 		id = RUS_anti_alcohol_campaign
 		icon = GFX_focus_rom_parties_end
 		cost = 5
-		prerequisite = {
-			focus = RUS_new_course
-		}
 		available = {
 			any_character = {
 				is_minister_of_finance = yes
 				is_reformist = yes
 			}
 		}
-		x = -1
-		y = 1
-		relative_position_id = RUS_new_course
+		x = 8
+		y = 0
+		relative_position_id = RUS_stolypins_reforms
 		available_if_capitulated = yes
 		completion_reward = {
 			
@@ -1990,7 +1959,7 @@ focus_tree = {
 			}
 			
 		}
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = RUS_anti_alcohol_campaign
 		available_if_capitulated = yes
@@ -2043,7 +2012,7 @@ focus_tree = {
 			}
 			
 		}
-		x = 1
+		x = 0
 		y = 2
 		relative_position_id = RUS_anti_alcohol_campaign
 		available_if_capitulated = yes
@@ -2117,7 +2086,7 @@ focus_tree = {
 		}
 		x = 4
 		y = 0
-		relative_position_id = RUS_new_course
+		relative_position_id = RUS_anti_alcohol_campaign
 		available_if_capitulated = yes
 		completion_reward = {
 			unlock_decision_tooltip = RUS_law_on_balanced_budget_sd
@@ -2150,7 +2119,7 @@ focus_tree = {
 		icon = GFX_focus_generic_monetary_union
 		cost = 5
 		prerequisite = {
-			focus = RUS_new_course
+			focus = RUS_anti_alcohol_campaign
 			focus = RUS_balance_the_budget
 		}
 		available = {
@@ -3436,6 +3405,114 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	#PYOTR BARK
+	focus = {
+		id = RUS_reform_the_finance
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 6
+		prerequisite = {
+			focus = RUS_smooth_sailing
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_conservative = yes
+					is_reformist = yes
+				}
+			}
+			RUS_vladimir_kokovtsov = {
+				is_part_of_the_cabinet = no
+			}
+		}
+		x = 7
+		y = 1
+		relative_position_id = RUS_smooth_sailing
+		available_if_capitulated = yes
+		completion_reward = {
+			hidden_effect = {
+				every_character = {
+					limit = {
+						is_minister_of_finance = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				RUS_pyotr_bark = {
+					RUS_appoint_finance_minister = yes
+				}
+				set_variable = { RUS_cabinet_gui_finance_name_var = token:RUS_pyotr_bark }
+			}
+			custom_effect_tooltip = appointed_as_minister_of_finance_tt
+			show_ideas_tooltip = RUS_pyotr_bark
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_new_course
+		icon = GFX_focus_generic_central_planning
+		cost = 5
+		prerequisite = {
+			focus = RUS_reform_the_finance
+		}
+		available = {
+			RUS_pyotr_bark = {
+				is_minister_of_finance = yes
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = RUS_reform_the_finance
+		available_if_capitulated = yes
+		completion_reward = {
+			add_timed_idea = {
+				idea = RUS_new_course_idea
+				days = 365
+			}
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_FINANCE
+		}
+	}
+	focus = {
+		id = RUS_land_amelioration
+		icon = GFX_focus_generic_central_planning
+		cost = 5
+		prerequisite = {
+			focus = RUS_reform_the_finance
+		}
+		available = {
+			RUS_pyotr_bark = {
+				is_minister_of_finance = yes
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = RUS_reform_the_finance
+		available_if_capitulated = yes
+		completion_reward = {
+			add_timed_idea = {
+				idea = RUS_land_development_idea
+				days = 365
+			}
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_AGRARIAN_REFORM
 		}
 	}
 	########################
