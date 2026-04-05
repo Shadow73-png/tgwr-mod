@@ -2764,7 +2764,7 @@ AUH_stitching_the_quilt = {
 		visible = {
 			has_global_flag = AUS_unlock_new_boh_governor
 			NOT = {
-				has_global_flag = AUS_liberal_majority_in_pm
+				has_global_flag = AUS_imperial_council_liberal
 			}
 		}
 		priority = 20
@@ -2776,7 +2776,7 @@ AUH_stitching_the_quilt = {
 		}
 		available = {
 			NOT = {
-				has_global_flag = AUS_liberal_majority_in_pm
+				has_global_flag = AUS_imperial_council_liberal
 			}
 			has_global_flag = AUS_unlock_new_boh_governor2
 		}
@@ -2786,16 +2786,23 @@ AUH_stitching_the_quilt = {
 		}
 		complete_effect = {
 			hidden_effect = {
-				country_event = {
-					id = ww1_austriahungary.26
-					days = 10
+				random_list = {
+					50 = {
+						country_event = {
+							id = ww1_austriahungary.26
+							days = 10
+						}
+					}
+					50 = {
+						add_political_power = -15
+					}
 				}
 			}
 		}
 		cost = 5
 		remove_effect = {
 			add_to_variable = {
-				AUS_czechoslovak_loyalty = 10
+				AUS_czechoslovak_loyalty = 7
 				tooltip = AUS_loyalty_czechoslovakia_tt
 			}
 			AUS_update_state_of_realm = yes
@@ -3204,7 +3211,7 @@ AUH_austrian_military = {
 		priority = 10
 		days_mission_timeout = 720
 		available = {
-			amount_manpower_in_deployment_queue > 250000
+			has_manpower > 250000 #fix later
 		}
 		activation = {
 			has_completed_focus = AUS_implement_conrads_army_structure
