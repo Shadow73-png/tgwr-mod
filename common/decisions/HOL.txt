@@ -295,10 +295,12 @@ HOL_dc_ek = {
 		available = {
 			tag = HOL
 			has_completed_focus = HOL_talma_reforms
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_talma_reforms
+			has_government = democratic
 		}
 		fire_only_once = yes
 		complete_effect = {
@@ -325,10 +327,12 @@ HOL_dc_ek = {
 		available = {
 			tag = HOL
 			has_completed_focus = HOL_raden_van_arbeid
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_raden_van_arbeid
+			has_government = democratic
 		}
 		fire_only_once = yes
 		complete_effect = {
@@ -357,9 +361,11 @@ HOL_dc_ek = {
 		days_remove = 180
 		available = {
 			tag = HOL
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
+			has_government = democratic
 		}
 		complete_effect = {
 			HOL_increase_arp_pop = yes
@@ -376,11 +382,13 @@ HOL_dc_ek = {
 		}
 		available = {
 			tag = HOL
+			has_government = democratic
 		}
 		days_re_enable = 180
 		days_remove = 180
 		visible = {
 			tag = HOL
+			has_government = democratic
 		}
 		complete_effect = {
 			HOL_increase_ag_pop = yes
@@ -397,11 +405,13 @@ HOL_dc_ek = {
 		}
 		available = {
 			tag = HOL
+			has_government = democratic
 		}
 		days_re_enable = 180
 		days_remove = 180
 		visible = {
 			tag = HOL
+			has_government = democratic
 		}
 		complete_effect = {
 			HOL_increase_sdap_pop = yes
@@ -418,11 +428,13 @@ HOL_dc_ek = {
 		}
 		available = {
 			tag = HOL
+			has_government = democratic
 		}
 		days_re_enable = 180
 		days_remove = 180
 		visible = {
 			tag = HOL
+			has_government = democratic
 		}
 		complete_effect = {
 			HOL_increase_lu_pop = yes
@@ -441,7 +453,11 @@ HOL_dc_ek = {
 			OR = {
     	  		has_war = yes
 				has_dynamic_modifier = HOL_war_at_the_doorstep
+				NOT = {
+					has_government = democratic
+				}
 			}
+			
     	}
     	cancel_trigger = {
 			
@@ -479,6 +495,9 @@ HOL_dc_ek = {
     	    OR = {
     	  		has_war = yes
 				has_dynamic_modifier = HOL_war_at_the_doorstep
+				NOT = {
+					has_government = democratic
+				}
 			}
     	}
     	cancel_trigger = {
@@ -509,6 +528,33 @@ HOL_dc_ek = {
 			activate_mission = HOL_right_making_moves
     	}
 	}
+	HOL_communist_elections = {
+    	activation = {
+    	    original_tag = HOL
+			OR = {
+				has_completed_focus = HOL_mock_elections
+				has_completed_focus = HOL_pursue_elections
+			}
+    	}
+		fire_only_once = yes
+    	available = {
+    	    NOT = {
+				tag = HOL
+			}
+    	}
+    	cancel_trigger = {
+			
+    	}
+    	icon = GFX_decision_generic_factory
+    	days_mission_timeout = 180
+    	selectable_mission = no
+    	complete_effect = {
+			
+    	}
+    	timeout_effect = {
+			country_event = ww1_holland.71
+    	}
+	}
 	HOL_education_commision = {
     	activation = {
     	    original_tag = HOL
@@ -522,6 +568,9 @@ HOL_dc_ek = {
     	    NOT = {
 				tag = HOL
 			}
+			NOT = {
+				has_government = democratic
+			}
     	}
     	cancel_trigger = {
 			
@@ -530,10 +579,10 @@ HOL_dc_ek = {
     	days_mission_timeout = 1080
     	selectable_mission = no
     	complete_effect = {
-			set_country_flag = HOL_flag_education_reformed
+			
     	}
     	timeout_effect = {
-
+			set_country_flag = HOL_flag_education_reformed
     	}
 	}
 	HOL_grondwet_commision = {
@@ -542,12 +591,18 @@ HOL_dc_ek = {
 			OR = {
 				has_completed_focus = HOL_universal_suffrage
 				has_completed_focus = HOL_onefamily_onevote
+				NOT = {
+					has_government = democratic
+				}
 			}
     	}
 		fire_only_once = yes
     	available = {
     	    NOT = {
 				tag = HOL
+			}
+			NOT = {
+				has_government = democratic
 			}
     	}
     	cancel_trigger = {
@@ -557,10 +612,10 @@ HOL_dc_ek = {
     	days_mission_timeout = 1080
     	selectable_mission = no
     	complete_effect = {
-			set_country_flag = HOL_flag_grondwet_reformed
+			
     	}
     	timeout_effect = {
-
+			set_country_flag = HOL_flag_grondwet_reformed
     	}
 	}
 	HOL_hoogovens = {
@@ -638,7 +693,12 @@ HOL_dc_ek = {
     	}
 		fire_only_once = yes
     	available = {
-    	    
+    	    NOT = {
+				OR = {
+					has_government = democratic
+					has_government = communism
+				}
+			}
     	}
     	cancel_trigger = {
 			
@@ -686,10 +746,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_sdap_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_progressive_income_tax
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -724,10 +786,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_sdap_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_volkhuis_vestigingen
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -762,10 +826,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_sdap_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_maternity_funds
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -802,10 +868,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_lu_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_eight_hour_workday
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -843,10 +911,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_lu_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_reform_the_law
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -881,10 +951,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_lu_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_work_with_investors_and_businessmen
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -915,6 +987,7 @@ HOL_dc_ek = {
 			NOT = {
 				has_country_flag = HOL_flag_is_doing_propoganda
 			}
+			has_government = democratic
 			check_variable = {
 				HOL_variable_lu_popularity > 0
 			}
@@ -922,6 +995,7 @@ HOL_dc_ek = {
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_leningfonds
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -955,10 +1029,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_arp_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_promote_protestant_culture
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -992,10 +1068,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_arp_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_empower_the_police
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -1030,10 +1108,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_arp_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_moderate_the_unions
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -1065,6 +1145,7 @@ HOL_dc_ek = {
 			NOT = {
 				has_country_flag = HOL_flag_is_doing_propoganda
 			}
+			has_government = democratic
 			check_variable = {
 				HOL_variable_arp_popularity > 0
 			}
@@ -1075,6 +1156,7 @@ HOL_dc_ek = {
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_crush_unions
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -1112,10 +1194,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_ag_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_make_sundays_free
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
@@ -1150,10 +1234,12 @@ HOL_dc_ek = {
 			check_variable = {
 				HOL_variable_ag_popularity > 0
 			}
+			has_government = democratic
 		}
 		visible = {
 			tag = HOL
 			has_completed_focus = HOL_promote_trad_family_values
+			has_government = democratic
 		}
 		days_re_enable = 365
 		days_remove = 180
