@@ -1199,7 +1199,7 @@ focus_tree = {
 			factor = 3
 		}
 		search_filters = {
-			
+			FOCUS_FILTER_JEWISH_QUESTION
 		}
 	}
 	#POLAND
@@ -2465,8 +2465,8 @@ focus_tree = {
 		bypass_effect = {
 			set_country_flag = RUS_failed_army_reforms
 		}
-		x = 3
-		y = 1
+		x = 2
+		y = 2
 		relative_position_id = RUS_centralize_army_command
 		available_if_capitulated = yes
 		completion_reward = {
@@ -2499,7 +2499,7 @@ focus_tree = {
 		bypass_effect = {
 			set_country_flag = RUS_failed_army_reforms
 		}
-		x = 2
+		x = -2
 		y = 2
 		relative_position_id = RUS_centralize_army_command
 		available_if_capitulated = yes
@@ -2690,7 +2690,7 @@ focus_tree = {
 				is_prime_minister = yes
 			}
 		}
-		x = -3
+		x = -2
 		y = 1
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
@@ -2848,7 +2848,7 @@ focus_tree = {
 				}
 			}
 		}
-		x = -9
+		x = -6
 		y = 1
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
@@ -2895,8 +2895,8 @@ focus_tree = {
 				is_minister_of_internal_affairs = yes
 			}
 		}
-		x = 2
-		y = 1
+		x = 1
+		y = 2
 		relative_position_id = RUS_nikolay_maklakov
 		available_if_capitulated = yes
 		completion_reward = {
@@ -3016,7 +3016,7 @@ focus_tree = {
 				}
 			}
 		}
-		x = -12
+		x = -9
 		y = 1
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
@@ -3139,7 +3139,7 @@ focus_tree = {
 				}
 			}
 		}
-		x = -6
+		x = -4
 		y = 1
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
@@ -3155,6 +3155,7 @@ focus_tree = {
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
 		}
 	}
+	#################
 	#MAKLAKOV'S PLAN
 	#################
 	focus = {
@@ -3162,15 +3163,12 @@ focus_tree = {
 		icon = GFX_focus_generic_expropriate_industrialist
 		cost = 6
 		prerequisite = {
-			focus = RUS_purge_the_gendarmerie
-		}
-		prerequisite = {
-			focus = RUS_put_a_leash_on_okhranka
-		}
-		prerequisite = {
 			focus = RUS_rebuild_relations_with_liberals
 			focus = RUS_reinforce_our_alliance_with_octobrists
 			focus = RUS_flirt_with_nationalists
+		}
+		mutually_exclusive = {
+			focus = RUS_a_new_understanding
 		}
 		available = {
 			RUS_vladimir_kokovtsov = {
@@ -3184,6 +3182,46 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = RUS_nikolay_maklakov
+		available_if_capitulated = yes
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	#################
+	#KOKOVTSOV SURVIVED
+	#################
+	focus = {
+		id = RUS_a_new_understanding
+		icon = GFX_focus_generic_expropriate_industrialist
+		cost = 6
+		prerequisite = {
+			focus = RUS_rebuild_relations_with_liberals
+			focus = RUS_reinforce_our_alliance_with_octobrists
+			focus = RUS_flirt_with_nationalists
+		}
+		mutually_exclusive = {
+			focus = RUS_drastic_measures
+		}
+		available = {
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
+			count_triggers = {
+				amount = 2
+				RUS_liberals_satisfied = yes
+				RUS_centrists_satisfied = yes
+				RUS_rightists_satisfied = yes
+			}
+		}
+		x = 1
+		y = 2
+		relative_position_id = RUS_policy_of_reconciliation
 		available_if_capitulated = yes
 		completion_reward = {
 
@@ -3367,10 +3405,10 @@ focus_tree = {
 		icon = GFX_focus_generic_self_management
 		cost = 6
 		prerequisite = {
-			focus = RUS_reactionary_crackdown
-		}
-		prerequisite = {
 			focus = RUS_keep_the_radicals_out
+		}
+		mutually_exclusive = {
+			focus = RUS_strong_leadership
 		}
 		available = {
 			RUS_ivan_goremykin = {
@@ -3380,9 +3418,9 @@ focus_tree = {
 				is_part_of_the_cabinet = yes
 			}
 		}
-		x = 0
+		x = -1
 		y = 2
-		relative_position_id = RUS_reactionary_crackdown
+		relative_position_id = RUS_meet_with_duma_members
 		available_if_capitulated = yes
 		completion_reward = {
 			every_character = {
@@ -3523,39 +3561,22 @@ focus_tree = {
 		icon = GFX_focus_generic_sympathetic_judges
 		cost = 6
 		prerequisite = {
-			focus = RUS_smooth_sailing
-			focus = RUS_rebuild_relations_with_liberals
-			focus = RUS_reinforce_our_alliance_with_octobrists
-			focus = RUS_flirt_with_nationalists
 			focus = RUS_dismiss_the_duma
 		}
+		mutually_exclusive = {
+			focus = RUS_give_reforms_a_chance
+		}
 		available = {
-			any_character = {
+			RUS_ivan_goremykin = {
 				is_prime_minister = yes
-				is_conservative = yes
 			}
-			if = {
-				limit = {
-					RUS_vladimir_kokovtsov = {
-						is_prime_minister = yes
-					}
-				}
-				count_triggers = {
-					amount = 2
-					RUS_liberals_satisfied = yes
-					RUS_centrists_satisfied = yes
-					RUS_rightists_satisfied = yes
-				}
-			}
-			else = {
-				RUS_alexander_krivoshein = {
-					is_part_of_the_cabinet = no
-				}
+			RUS_alexander_krivoshein = {
+				is_part_of_the_cabinet = no
 			}
 		}
-		x = 0
-		y = 3
-		relative_position_id = RUS_smooth_sailing
+		x = 1
+		y = 2
+		relative_position_id = RUS_arrest_the_bolsheviks
 		available_if_capitulated = yes
 		completion_reward = {
 			if = {
