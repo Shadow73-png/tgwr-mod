@@ -4074,14 +4074,25 @@ country_event = {
 	picture = GFX_report_event_arab_revolt
 	is_triggered_only = yes
 	trigger = {
-		has_start_date < 1914.1.1
 		GUD = {
 			has_war_with = MOR
 		}
 	}
 	option = {
 		name = ww1_morocco.88.a
-		GUD = { white_peace = MOR }
+		if = {
+			limit = { 
+				ROOT = {
+					tag = GUD
+				}
+			}
+			white_peace = MOR
+		}
+		else = {	
+			effect_tooltip = {
+				GUD = { white_peace = MOR }
+			}
+		}
 	}
 }
 
