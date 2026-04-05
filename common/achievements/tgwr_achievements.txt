@@ -1,15 +1,11 @@
 unique_id = achievements_tgwr
-
 how_happy_is_the_one_who_says_im_a_turk = {
 	possible = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = TUR
 	}
-
 	happened = {
 		all_owned_state = {
 			custom_trigger_tooltip = {
@@ -35,11 +31,8 @@ won_by_blood_lost_with_pride = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = TUR
 	}
-
 	happened = {
 		date > 1923.1.1
 		custom_trigger_tooltip = {
@@ -59,15 +52,12 @@ willy_and_nicky = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = RUS
 	}
-	
 	happened = {
 		has_country_leader = {
 			character = RUS_nikolai_ii
-		}		
+		}
 		is_in_faction_with = GER
 		GER = {
 			has_country_leader = {
@@ -82,11 +72,8 @@ we_are_the_cousins_who_ruled_over_dozens = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = GER
 	}
-	
 	happened = {
 		ROOT = {
 			OR = {
@@ -96,17 +83,23 @@ we_are_the_cousins_who_ruled_over_dozens = {
 				has_idea = GER_wilhelm_ii
 				has_idea = GER_wilhelm_ii_postwar
 			}
-			NOT = { has_country_flag = great_war_loser }
-			is_in_faction_with = ENG	
-		}			
-		ENG = {		
+			NOT = {
+				has_country_flag = great_war_loser
+			}
+			is_in_faction_with = ENG
+		}
+		ENG = {
 			is_britain_a_monarchy = yes
-			NOT = { has_country_flag = great_war_loser }
+			NOT = {
+				has_country_flag = great_war_loser
+			}
 		}
 		is_in_faction_with = RUS
-		RUS = {		
+		RUS = {
 			is_russia_a_monarchy = yes
-			NOT = { has_country_flag = great_war_loser }
+			NOT = {
+				has_country_flag = great_war_loser
+			}
 		}
 	}
 }
@@ -116,11 +109,8 @@ crusader_sultan = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = TUR
 	}
-
 	happened = {
 		custom_trigger_tooltip = {
 			tooltip = TUR_declared_caliphate
@@ -135,15 +125,14 @@ in_the_name_of_the_tsar = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = RUS
 	}
-
 	happened = {
 		is_russia_a_monarchy = yes
 		has_country_flag = great_war_winner
-		GER = { has_country_flag = great_war_loser }
+		GER = {
+			has_country_flag = great_war_loser
+		}
 	}
 }
 
@@ -152,29 +141,27 @@ rule_germania = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = GER
 	}
-
 	happened = {
 		has_war_with = ENG
-		ENG = { has_capitulated = yes }
-		ships_in_area = { area = 18 size > 99 } 
+		ENG = {
+			has_capitulated = yes
+		}
+		ships_in_area = {
+			area = 18
+			size > 99
+		}
 	}
 }
-
 
 small_turkish_solution = {
 	possible = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = TUR
 	}
-
 	happened = {
 		custom_trigger_tooltip = {
 			tooltip = TUR_lost_the_great_war
@@ -239,11 +226,8 @@ egemenlik_kayitsiz_sartsiz_milletindir = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = TUR
 	}
-
 	happened = {
 		custom_trigger_tooltip = {
 			tooltip = TUR_declared_the_republic
@@ -257,10 +241,7 @@ peace_land_and_bread = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 	}
-
 	happened = {
 		tag = SOV
 		has_government = communism
@@ -279,10 +260,7 @@ orient_express = {
 		# is_ironman = yes
 		difficulty > 1
 		# has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 	}
-
 	happened = {
 		is_subject = no
 		has_railway_connection = {
@@ -292,50 +270,64 @@ orient_express = {
 		OR = {
 			#Original
 			AND = {
-				16 = { #Paris
+				16 = {
+					#Paris
 					is_controlled_by_FROM_or_ally = yes
 				}
-				17 = { #Strassburg
+				17 = {
+					#Strassburg
 					is_controlled_by_FROM_or_ally = yes
 				}
-				52 = { #Munich
+				52 = {
+					#Munich
 					is_controlled_by_FROM_or_ally = yes
 				}
-				4 = { #Vienna
+				4 = {
+					#Vienna
 					is_controlled_by_FROM_or_ally = yes
 				}
-				43 = { #Budapest
+				43 = {
+					#Budapest
 					is_controlled_by_FROM_or_ally = yes
 				}
-				46 = { #Bucharest
+				46 = {
+					#Bucharest
 					is_controlled_by_FROM_or_ally = yes
 				}
-				347 = { #Istanbul
+				347 = {
+					#Istanbul
 					is_controlled_by_FROM_or_ally = yes
 				}
 			}
 			#Sempione
 			AND = {
 				date > 1919.1.1
-				16 = { #Paris
+				16 = {
+					#Paris
 					is_controlled_by_FROM_or_ally = yes
 				}
-				851 = { #Lausanne
+				851 = {
+					#Lausanne
 					is_controlled_by_FROM_or_ally = yes
 				}
-				158 = { #Milan
+				158 = {
+					#Milan
 					is_controlled_by_FROM_or_ally = yes
 				}
-				160 = { #Venice
+				160 = {
+					#Venice
 					is_controlled_by_FROM_or_ally = yes
 				}
-				107 = { #Belgrade
+				107 = {
+					#Belgrade
 					is_controlled_by_FROM_or_ally = yes
 				}
-				48 = { #Sofia
+				48 = {
+					#Sofia
 					is_controlled_by_FROM_or_ally = yes
 				}
-				347 = { #Istanbul
+				347 = {
+					#Istanbul
 					is_controlled_by_FROM_or_ally = yes
 				}
 			}
@@ -348,10 +340,7 @@ before_the_leaves_fall = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 	}
-
 	happened = {
 		has_global_flag = before_the_leaves_fall_flag
 		has_country_flag = great_war_winner
@@ -365,11 +354,8 @@ unified_land_under_heaven = {
 		# is_ironman = yes
 		difficulty > 1
 		# has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		is_china_or_warlord = yes
 	}
-
 	happened = {
 		has_global_flag = warlord_era
 		has_country_flag = reunited_china
@@ -389,16 +375,21 @@ king_of_canals = {
 		# is_ironman = yes
 		difficulty > 1
 		# has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 	}
-
 	happened = {
 		is_subject = no
-		58 = { is_controlled_by_ROOT_or_subject = yes }
-		447 = { is_controlled_by_ROOT_or_subject = yes }
-		685 = { is_controlled_by_ROOT_or_subject = yes }
-		7 = { is_controlled_by_ROOT_or_subject = yes }
+		58 = {
+			is_controlled_by_ROOT_or_subject = yes
+		}
+		447 = {
+			is_controlled_by_ROOT_or_subject = yes
+		}
+		685 = {
+			is_controlled_by_ROOT_or_subject = yes
+		}
+		7 = {
+			is_controlled_by_ROOT_or_subject = yes
+		}
 	}
 }
 
@@ -407,19 +398,26 @@ churchills_revenge = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = ENG
 	}
-
 	happened = {
 		has_character = ENG_winston_churchill
 		is_subject = no
-		341 = { is_controlled_by_ROOT_or_subject = yes }
-		347 = { is_controlled_by_ROOT_or_subject = yes }
-		825 = { is_controlled_by_ROOT_or_subject = yes }
-		860 = { is_controlled_by_ROOT_or_subject = yes }
-		861 = { is_controlled_by_ROOT_or_subject = yes }
+		341 = {
+			is_controlled_by_ROOT_or_subject = yes
+		}
+		347 = {
+			is_controlled_by_ROOT_or_subject = yes
+		}
+		825 = {
+			is_controlled_by_ROOT_or_subject = yes
+		}
+		860 = {
+			is_controlled_by_ROOT_or_subject = yes
+		}
+		861 = {
+			is_controlled_by_ROOT_or_subject = yes
+		}
 	}
 }
 
@@ -428,11 +426,8 @@ prussia_of_the_balkans_ww1 = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = BUL
 	}
-
 	happened = {
 		is_subject = no
 		has_war = no
@@ -450,11 +445,8 @@ our_place_in_the_rising_sun = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = GER
 	}
-
 	happened = {
 		is_subject = no
 		has_war = no
@@ -467,11 +459,8 @@ no_road_through_belgium = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = BEL
 	}
-
 	happened = {
 		is_subject = no
 		has_war = no
@@ -481,16 +470,14 @@ no_road_through_belgium = {
 		}
 	}
 }
+
 viva_il_re = {
 	possible = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = ITA
 	}
-
 	happened = {
 		is_subject = no
 		has_civil_war = no
@@ -501,16 +488,14 @@ viva_il_re = {
 		}
 	}
 }
+
 greatest_romania = {
 	possible = {
 		# is_ironman = yes
 		difficulty > 1
 		has_start_date < 1910.5.2
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
 		original_tag = ROM
 	}
-
 	happened = {
 		is_subject = no
 		has_war = no
