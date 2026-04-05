@@ -139,6 +139,13 @@ is_diplomatic_action_valid_request_access_to_licence_production = {
 is_diplomatic_action_valid_join_allies = {
 	if = {
 		limit = {
+			ROOT = { original_tag = TUR }
+			FROM = { has_autonomy_state = autonomy_tgwr_ottoman_emirate }
+		}
+		always = no
+	}
+	else_if = {
+		limit = {
 			protectorate_type_subject = yes			
 		}
 		#always = no
@@ -240,10 +247,13 @@ is_diplomatic_action_valid_join_allies = {
 is_diplomatic_action_valid_call_allies = {
 	if = {
 		limit = {
-			FROM = {
-				protectorate_type_subject = yes
-			}
+			ROOT = { original_tag = TUR }
+			FROM = { has_autonomy_state = autonomy_tgwr_ottoman_emirate }
 		}
+		always = no
+	}
+	else_if = {
+		limit = { FROM = { protectorate_type_subject = yes } }
 		#always = no
 		is_in_faction_with = FROM  #experimental
 	}

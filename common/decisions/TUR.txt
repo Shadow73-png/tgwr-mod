@@ -4,6 +4,20 @@ debug_decisions = {
 		available = {
 		}
 		complete_effect = {
+			676 = {
+				custom_effect_tooltip = TUR_berlin_baghdad_railway_phase_4_tt2
+				hidden_effect = {
+					if = {
+						limit = { ROOT = { tag = TUR } }
+						add_building_construction = {
+							type = supply_node
+							level = 1
+							province = 10106
+							instant_build = yes
+						}
+					}
+				}
+			}
 		}
 		ai_will_do = { base = 0 }
 	}
@@ -2835,7 +2849,7 @@ TUR_millet_system = {
 				custom_effect_tooltip = probably_lead_to_war_with_rus_tt
 			}
 			set_country_flag = TUR_lift_the_armenian_reforms
-			ottoman_armenian_variable_check_only = yes
+			ottoman_minority_variable_check = yes
 		}
 		ai_will_do = {
 			base = 50
@@ -16767,7 +16781,10 @@ TUR_army_and_the_politics = {
 				has_completed_focus = TUR_loosen_the_military_depoliticization_law
 				has_completed_focus = TUR_consolidate_military_positions
 			}
-			NOT = { has_idea = TUR_army_factionalism_ittihadist_3 }
+			NOT = {
+				has_idea = TUR_army_factionalism_4
+				has_idea = TUR_army_factionalism_ittihadist_3
+			}
 		}
 		complete_effect = { TUR_politicize_ittihadist_effect = yes }
 		ai_will_do = {
@@ -16781,7 +16798,10 @@ TUR_army_and_the_politics = {
 		days_re_enable = 70
 		visible = {
 			has_completed_focus = TUR_the_promised_candidate
-			NOT = { has_idea = TUR_army_factionalism_itilafist_3 }
+			NOT = {
+				has_idea = TUR_army_factionalism_4
+				has_idea = TUR_army_factionalism_itilafist_3
+			}
 		}
 		complete_effect = { TUR_politicize_itilafist_effect = yes }
 		ai_will_do = {
@@ -17022,14 +17042,20 @@ TUR_army_and_the_politics = {
 			has_completed_focus = TUR_depoliticize_the_military
 			has_global_flag = TUR_army_resists_depoliticization
 			OR = {
-				any_owned_state = { controller = { has_war_with = ROOT } }
+				AND = {
+					any_owned_state = { controller = { has_war_with = ROOT } }
+					NOT = { has_completed_focus = TUR_eradicate_the_opposition }
+				}
 				TUR_regime_is_more_popular_than_opposition_twice = no
 			}
 		}
 		days_mission_timeout = 140
 		is_good = no
 		available = {
-			NOT = { any_owned_state = { controller = { has_war_with = ROOT } } }
+			OR = {
+				NOT = { any_owned_state = { controller = { has_war_with = ROOT } } }
+				has_completed_focus = TUR_eradicate_the_opposition
+			}
 			TUR_regime_is_more_popular_than_opposition_twice = yes
 		}
 		timeout_effect = {
@@ -27790,7 +27816,7 @@ economy_decisions = {
 				has_dynamic_modifier = { modifier = TUR_OPDA }
 				has_decision = TUR_extend_sutlac_egirdir_line
 			}
-			NOT = { has_global_flag = TUR_extend_sutlac_egirdir_line_no_debt }
+			NOT = { has_global_flag = TUR_extend_sutlac_egirdir_line }
 		}
 		cancel_trigger = {
 			NOT = {
@@ -27853,7 +27879,7 @@ economy_decisions = {
 			}
 			custom_effect_tooltip = TUR_increase_konya_centralization_5
 			add_to_variable = { global.TUR_konya_centralization = 5 }
-			set_global_flag = TUR_extend_sutlac_egirdir_line_no_debt
+			set_global_flag = TUR_extend_sutlac_egirdir_line
 		}
 		ai_will_do = {
 			base = 0
@@ -31737,9 +31763,9 @@ economy_decisions = {
 		visible = {
 			var:global.TUR_ship_commission_tag = { tag = ROOT }
 			OR = {
-				has_decision = TUR_active_submarine_commission
-				has_decision = TUR_active_destroyer_commission
-				has_decision = TUR_active_battleship_commission
+				has_active_mission = TUR_active_submarine_commission_mission
+				has_active_mission = TUR_active_battleship_commission_mission
+				has_active_mission = TUR_active_battleship_commission_mission
 			}
 			NOT = { has_country_flag = TUR_active_ship_commission_seized }
 		}
