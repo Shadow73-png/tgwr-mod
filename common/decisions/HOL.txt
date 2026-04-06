@@ -1288,90 +1288,269 @@ HOL_dc_anti_commie_insurgency = {
 		}
 		visible = {
 			tag = HOL
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
 		}
 		complete_effect = {
 			
 		}
 		remove_effect = {
-
+			set_country_flag = HOL_flag_rebellion_ended
 		}
 		cost = 30
 		ai_will_do = {
 			factor = 200
 		}
 	}
-	HOL_send_militia_gelderland = {
-		icon = GFX_decision_eng_trade_unions_demand
-		allowed = {
-			original_tag = HOL
-		}
-		available = {
-			tag = HOL
-			has_completed_focus = HOL_create_red_militia
-			controls_state = 35
-		}
-		days_remove = 30
-		visible = {
-			tag = HOL
-			has_completed_focus = HOL_create_red_militia
-		}
-		complete_effect = {
-			add_manpower = -500
-		}
-		remove_effect = {
-			add_manpower = 400
-			add_to_variable = {
-				HOL_variable_gelderland_opp = -1
+	HOL_opposition_making_moves = {
+    	activation = {
+    	    original_tag = HOL
+			has_government = communism
+    	}
+		fire_only_once = yes
+    	available = {
+    	    NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
 			}
-		}
-		cost = 30
-		ai_will_do = {
-			factor = 200
-		}
-	}
-	HOL_send_militia_gelderland = {
-		icon = GFX_decision_eng_trade_unions_demand
-		allowed = {
-			original_tag = HOL
-		}
-		available = {
-			tag = HOL
-			has_completed_focus = HOL_create_red_militia
-			controls_state = 35
-		}
-		days_remove = 30
-		visible = {
-			tag = HOL
-			has_completed_focus = HOL_create_red_militia
-		}
-		complete_effect = {
-			add_manpower = -500
-		}
-		remove_effect = {
-			add_manpower = 400
-			add_to_variable = {
-				HOL_variable_gelderland_opp = -1
+    	}
+    	cancel_trigger = {
+			
+    	}
+    	icon = GFX_decision_generic_factory
+    	days_mission_timeout = 30
+    	selectable_mission = no
+    	complete_effect = {
+			
+    	}
+    	timeout_effect = {
+			random = {
+				chance = 25
+				add_to_variable = {
+					HOL_variable_gelderland_opp = 1
+				}
 			}
-		}
-		cost = 30
-		ai_will_do = {
-			factor = 200
-		}
+			random = {
+				chance = 25
+				add_to_variable = {
+					HOL_variable_friesland_opp = 1
+				}
+			}
+			random = {
+				chance = 25
+				add_to_variable = {
+					HOL_variable_holland_opp = 1
+				}
+			}
+			random = {
+				chance = 25
+				add_to_variable = {
+					HOL_variable_brabant_opp = 1
+				}
+			}
+			activate_mission = HOL_opposition_making_moves
+    	}
 	}
-	HOL_send_militia_holland = {
+	HOL_infiltrate_network = {
 		icon = GFX_decision_eng_trade_unions_demand
 		allowed = {
 			original_tag = HOL
 		}
 		available = {
 			tag = HOL
-			has_completed_focus = HOL_create_red_militia
+			has_completed_focus = HOL_final_hammer_hits_nationalists
+			controls_state = 35
+			controls_state = 1103
+			controls_state = 36
 			controls_state = 7
+			check_variable = {
+				HOL_variable_gelderland_opp > 0
+			}
+			check_variable = {
+				HOL_variable_holland_opp > 0
+			}
+			check_variable = {
+				HOL_variable_friesland_opp > 0
+			}
+			check_variable = {
+				HOL_variable_brabant_opp > 0
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		visible = {
+			tag = HOL
+			has_completed_focus = HOL_final_hammer_hits_nationalists
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_to_variable = {
+				HOL_variable_gelderland_opp = -1
+			}
+			add_to_variable = {
+				HOL_variable_holland_opp = -1
+			}
+			add_to_variable = {
+				HOL_variable_friesland_opp = -1
+			}
+			add_to_variable = {
+				HOL_variable_brabant_opp = -1
+			}
+		}
+		cost = 100
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	HOL_disrupt_opposition_logistics = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = HOL
+		}
+		available = {
+			tag = HOL
+			has_completed_focus = HOL_final_hammer_hits_nationalists
+			controls_state = 35
+			controls_state = 1103
+			controls_state = 36
+			controls_state = 7
+			check_variable = {
+				HOL_variable_gelderland_opp > 0
+			}
+			check_variable = {
+				HOL_variable_holland_opp > 0
+			}
+			check_variable = {
+				HOL_variable_friesland_opp > 0
+			}
+			check_variable = {
+				HOL_variable_brabant_opp > 0
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		visible = {
+			tag = HOL
+			has_completed_focus = HOL_final_hammer_hits_nationalists
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_to_variable = {
+				HOL_variable_gelderland_opp = -1
+			}
+			add_to_variable = {
+				HOL_variable_holland_opp = -1
+			}
+			add_to_variable = {
+				HOL_variable_friesland_opp = -1
+			}
+			add_to_variable = {
+				HOL_variable_brabant_opp = -1
+			}
+		}
+		cost = 100
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	HOL_mass_arrests_gelderland = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = HOL
+		}
+		available = {
+			tag = HOL
+			has_completed_focus = HOL_round_up_the_right
+			controls_state = 35
+			check_variable = {
+				HOL_variable_gelderland_opp > 0
+			}
 		}
 		days_remove = 30
 		visible = {
 			tag = HOL
-			has_completed_focus = HOL_create_red_militia
+			has_completed_focus = HOL_round_up_the_right
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
+		}
+		complete_effect = {
+			add_manpower = -500
+		}
+		remove_effect = {
+			add_manpower = 400
+			add_to_variable = {
+				HOL_variable_gelderland_opp = -1
+			}
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	HOL_send_militia_gelderland = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = HOL
+		}
+		available = {
+			tag = HOL
+			controls_state = 35
+			check_variable = {
+				HOL_variable_gelderland_opp > 0
+			}
+		}
+		days_remove = 30
+		visible = {
+			tag = HOL
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
+		}
+		complete_effect = {
+			add_manpower = -500
+		}
+		remove_effect = {
+			add_manpower = 400
+			add_to_variable = {
+				HOL_variable_gelderland_opp = -1
+			}
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	HOL_mass_arrests_holland = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = HOL
+		}
+		available = {
+			tag = HOL
+			has_completed_focus = HOL_round_up_the_right
+			controls_state = 7
+			check_variable = {
+				HOL_variable_holland_opp > 0
+			}
+		}
+		days_remove = 30
+		visible = {
+			tag = HOL
+			has_completed_focus = HOL_round_up_the_right
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
 		}
 		complete_effect = {
 			add_manpower = -500
@@ -1387,20 +1566,56 @@ HOL_dc_anti_commie_insurgency = {
 			factor = 200
 		}
 	}
-	HOL_send_militia_brabant = {
+	HOL_send_militia_holland = {
 		icon = GFX_decision_eng_trade_unions_demand
 		allowed = {
 			original_tag = HOL
 		}
 		available = {
 			tag = HOL
-			has_completed_focus = HOL_create_red_militia
-			controls_state = 1103
+			controls_state = 7
 		}
 		days_remove = 30
 		visible = {
 			tag = HOL
-			has_completed_focus = HOL_create_red_militia
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
+		}
+		complete_effect = {
+			add_manpower = -500
+		}
+		remove_effect = {
+			add_manpower = 400
+			add_to_variable = {
+				HOL_variable_holland_opp = -1
+			}
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	HOL_mass_arrests_brabant = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = HOL
+		}
+		available = {
+			tag = HOL
+			has_completed_focus = HOL_round_up_the_right
+			controls_state = 1103
+			check_variable = {
+				HOL_variable_brabant_opp > 0
+			}
+		}
+		days_remove = 30
+		visible = {
+			tag = HOL
+			has_completed_focus = HOL_round_up_the_right
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
 		}
 		complete_effect = {
 			add_manpower = -500
@@ -1416,6 +1631,71 @@ HOL_dc_anti_commie_insurgency = {
 			factor = 200
 		}
 	}
+	HOL_send_militia_brabant = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = HOL
+		}
+		available = {
+			tag = HOL
+			controls_state = 1103
+		}
+		days_remove = 30
+		visible = {
+			tag = HOL
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
+		}
+		complete_effect = {
+			add_manpower = -500
+		}
+		remove_effect = {
+			add_manpower = 400
+			add_to_variable = {
+				HOL_variable_brabant_opp = -1
+			}
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	HOL_mass_arrests_friesland = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = HOL
+		}
+		available = {
+			tag = HOL
+			has_completed_focus = HOL_round_up_the_right
+			controls_state = 1103
+			check_variable = {
+				HOL_variable_friesland_opp > 0
+			}
+		}
+		days_remove = 30
+		visible = {
+			tag = HOL
+			has_completed_focus = HOL_round_up_the_right
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
+		}
+		complete_effect = {
+			add_manpower = -500
+		}
+		remove_effect = {
+			add_manpower = 400
+			add_to_variable = {
+				HOL_variable_friesland_opp = -1
+			}
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 200
+		}
+	}
 	HOL_send_militia_friesland = {
 		icon = GFX_decision_eng_trade_unions_demand
 		allowed = {
@@ -1423,13 +1703,14 @@ HOL_dc_anti_commie_insurgency = {
 		}
 		available = {
 			tag = HOL
-			has_completed_focus = HOL_create_red_militia
 			controls_state = 36
 		}
 		days_remove = 30
 		visible = {
 			tag = HOL
-			has_completed_focus = HOL_create_red_militia
+			NOT = {
+				has_country_flag = HOL_flag_rebellion_ended
+			}
 		}
 		complete_effect = {
 			add_manpower = -500
