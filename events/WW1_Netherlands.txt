@@ -1998,6 +1998,19 @@ country_event = {
 		}
 		add_stability = -0.1
 		add_ideas = HOL_red_dictatorship
+		custom_effect_tooltip = HOL_tooltip_opposition_all_increase
+		add_to_variable = {
+			HOL_variable_gelderland_opp = 1
+		}
+		add_to_variable = {
+			HOL_variable_holland_opp = 1
+		}
+		add_to_variable = {
+			HOL_variable_friesland_opp = 1
+		}
+		add_to_variable = {
+			HOL_variable_brabant_opp = 1
+		}
 	}
 	}
 	#public calls election fraud
@@ -2018,6 +2031,19 @@ country_event = {
 			popularity = -0.1
 		}
 		add_stability = -0.05
+		custom_effect_tooltip = HOL_tooltip_opposition_all_increase
+		add_to_variable = {
+			HOL_variable_gelderland_opp = 1
+		}
+		add_to_variable = {
+			HOL_variable_holland_opp = 1
+		}
+		add_to_variable = {
+			HOL_variable_friesland_opp = 1
+		}
+		add_to_variable = {
+			HOL_variable_brabant_opp = 1
+		}
 	}
 	}
 	#resistance to communism
@@ -2260,6 +2286,53 @@ country_event = {
 				modifier = HOL_anti_communist_insurgency
 			}
 			set_demilitarized_zone = no
+		}
+	}
+	}
+	#anti commie revolt ends
+	country_event = {
+	id = ww1_holland.85
+	title = ww1_holland.85.t
+	desc = ww1_holland.85.d
+	fire_only_once = yes
+	trigger = {
+		has_government = communism
+		has_country_flag = HOL_flag_rebellion_ended
+	}
+	option = {
+		name = ww1_holland.85.a
+		add_stability = 0.05
+		add_political_power = 50
+	}
+	}
+	#anti commie revolt won
+	country_event = {
+	id = ww1_holland.86
+	title = ww1_holland.86.t
+	desc = ww1_holland.86.d
+	fire_only_once = yes
+	trigger = {
+		has_government = communism
+		check_variable = {
+				HOL_variable_gelderland_opp > 4
+			}
+			check_variable = {
+				HOL_variable_friesland_opp > 4
+			}
+			check_variable = {
+				HOL_variable_brabant_opp > 4
+			}
+			check_variable = {
+				HOL_variable_holland_opp > 4
+			}
+	}
+	option = {
+		name = ww1_holland.86.a
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+			long_name = HOL_army_long
+			name = HOL_army
 		}
 	}
 	}
