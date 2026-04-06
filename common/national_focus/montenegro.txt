@@ -1,0 +1,49 @@
+				
+#					█▀▄▀█ █▀█ █▄░█ ▀█▀ █▀▀ █▄░█ █▀▀ █▀▀ █▀█ █▀█   █▀▀ █▀█ █▀▀ █░█ █▀
+#					█░▀░█ █▄█ █░▀█ ░█░ ██▄ █░▀█ ██▄ █▄█ █▀▄ █▄█   █▀░ █▄█ █▄▄ █▄█ ▄█
+
+focus_tree = {
+	id = montenegro_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = MNT
+		}
+	}
+
+	focus = {
+		id = MNT_start_foc
+		icon = GFX_none
+		cost = 5
+		x = 3
+		y = 0
+		available = {
+		}
+		completion_reward = {
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = MNT_kingdom_proclamation
+		icon = GFX_none
+		cost = 4
+		x = 3
+		y = 2
+		available = {
+		}
+		prerequisite = {
+			focus = MNT_start_foc
+		}
+		completion_reward = {
+			country_event = ww1_montenegro.15
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+}
+
