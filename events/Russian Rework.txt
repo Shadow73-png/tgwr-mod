@@ -215,33 +215,24 @@ country_event = {
 	}
 	immediate = {
 		random_list = {
-			30 = {
+			0 = {
 				country_event = ww1_russia_common.12
-				modifier = {
-					factor = 0
-					has_country_flag = RUS_strikes_triggerred
-				}
-				modifier = {
-					factor = 0.5
-					has_country_flag = RUS_strikes_triggerred_before
-				}
+				set_country_flag = { flag = RUS_chance_of_strike value = 0 }
+				modifier = { add = 10 has_country_flag = { flag = RUS_chance_of_strike value > 0 }}
+				modifier = { add = 10 has_country_flag = { flag = RUS_chance_of_strike value > 1 }}
+				modifier = { add = 10 has_country_flag = { flag = RUS_chance_of_strike value > 2 }}
+				modifier = { add = 10 has_country_flag = { flag = RUS_chance_of_strike value > 3 }}
+				modifier = { add = 10 has_country_flag = { flag = RUS_chance_of_strike value > 4 }}
+				modifier = { add = 10 has_country_flag = { flag = RUS_chance_of_strike value > 5 }}
+				modifier = { add = 10 has_country_flag = { flag = RUS_chance_of_strike value > 6 }}
+				modifier = { add = 10 has_country_flag = { flag = RUS_chance_of_strike value > 7 }}
+				modifier = { add = 10 has_country_flag = { flag = RUS_chance_of_strike value > 8 }}
+				modifier = { add = 10 has_country_flag = { flag = RUS_chance_of_strike value > 9 }}
 			}
-			70 = {}
-		}
-		if = {
-			limit = {
-				has_country_flag = RUS_strikes_triggerred
+			50 = {
+				modify_country_flag = { flag = RUS_chance_of_strike value = 1 }				
 			}
-			clr_country_flag = RUS_strikes_triggerred
-			set_country_flag = RUS_strikes_triggerred_before
 		}
-		else_if = {
-			limit = {
-				has_country_flag = RUS_strikes_triggerred_before			
-			}
-			clr_country_flag = RUS_strikes_triggerred_before
-		}
-		
 	}
 }
 #Strikes!
@@ -253,7 +244,6 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
-			set_country_flag = RUS_strikes_triggerred
 			add_timed_idea = {
 				idea = RUS_strikes
 				days = 90
