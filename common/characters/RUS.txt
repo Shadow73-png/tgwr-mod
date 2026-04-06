@@ -3495,28 +3495,6 @@ characters = {
 			}
 		}
 	}
-	RUS_vladimir_kokovtsov={
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_vladimir_kokovtsov
-			allowed  = {
-					original_tag = RUS
-				}
-				traits  = {
-					quartermaster_general 
-				}
-				ai_will_do  = {
-					factor  = 1.000
-				}
-		}
-		name="RUS_vladimir_kokovtsov"
-		portraits={
-			civilian = {
-				large="gfx/leaders/RUS/RUS_vladimir_kokovtsov.png"
-				small="GFX_idea_RUS_vladimir_kokovtsov"
-			}
-		}
-	}
 	RUS_sergey_sazanov={
 		advisor={
 			slot = political_advisor
@@ -3535,30 +3513,6 @@ characters = {
 		portraits={
 			army={
 				small="GFX_idea_generic_political_advisor_europe_2"
-			}
-		}
-	}
-	RUS_boris_sturmer={
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_boris_sturmer
-			allowed  = {
-					original_tag = RUS
-				}
-				available  = {
-					is_russia_a_monarchy = yes
-				}
-				traits  = {
-					silent_workhorse 
-				}
-				ai_will_do  = {
-					factor  = 1.000
-				}
-		}
-		name="RUS_boris_sturmer"
-		portraits={
-			army={
-				small="GFX_idea_RUS_boris_sturmer"
 			}
 		}
 	}
@@ -3581,85 +3535,6 @@ characters = {
 			army={
 				small="gfx/interface/ideas/RUS/idea_RUS_pyotr_struve.png"
 			}
-		}
-	}
-	RUS_pavel_milyukov={
-		name="RUS_pavel_milyukov"
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_pavel_milyukov
-			allowed  = {
-				original_tag = RUS
-			}
-			available  = {
-				or  = {
-					has_completed_focus  = RUS_centrist_duma 
-					has_completed_focus  = RUS_spirit_of_social_populism 
-				}
-			}
-			traits  = {
-				democratic_reformer 
-			}
-			ai_will_do  = {
-				factor  = 1
-				modifier = {
-					factor = 100
-					OR = {
-						has_completed_focus = RUS_revolutionaries_in_duma
-						has_country_flag = RUS_AI_RANDOM_CONSTITUTIONALIST
-						has_game_rule = {
-							rule = RUS_ai_behavior
-							option = CONSTITUTIONALIST
-						}
-					} 
-					democratic < 0.6
-				}
-				modifier = {
-					factor = 0
-					NOT = {
-						has_government = neutrality
-						has_government = democratic
-					}	
-				}
-			}
-		}
-		portraits={
-			civilian={
-				large="gfx/leaders/RUS/RUS_pavel_milyukov.png"
-				small="GFX_idea_RUS_pavel_milyukov"
-			}
-		}
-		country_leader={
-			ideology=social_liberalism
-			traits={ staunch_constitutionalist  }
-		}
-	}
-	RUS_vasiliy_maklakov={
-		name="RUS_vasiliy_maklakov"
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_vasiliy_maklakov
-			allowed  = {
-				original_tag = RUS
-			}
-			available  = {
-				has_country_leader = {
-					character = RUS_pavel_milyukov
-				}
-			}
-			traits  = {
-				sharp_tongued_lawyer 
-			}
-		}
-		portraits={
-			civilian={
-				large="gfx/leaders/RUS/RUS_Vasiliy_Maklakov.png"
-				small="gfx/interface/ideas/RUS/idea_RUS_Vasiliy_Maklakov.png"
-			}
-		}
-		country_leader={
-			ideology=social_liberalism
-			traits={ sharp_tongued_lawyer  }
 		}
 	}
 	RUS_nikolai_ustryalov={
