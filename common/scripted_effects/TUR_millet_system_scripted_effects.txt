@@ -4296,6 +4296,39 @@ ottoman_all_variable_check = {
 		every_state = {
 			if = {
 				limit = { TUR_state_has_minority_mtth = yes }
+				if = {
+					limit = {
+						OR = {
+							has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+							has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+						}
+					}
+					multiply_variable = { THIS.TUR_armenian_population_stability_factor = 0 }
+					multiply_variable = { THIS.TUR_greek_population_stability_factor = 0 }
+					multiply_variable = { THIS.TUR_arab_population_stability_factor = 0 }
+					multiply_variable = { THIS.TUR_jewish_population_stability_factor = 0 }
+					multiply_variable = { THIS.TUR_bulgarian_population_stability_factor = 0 }
+					multiply_variable = { THIS.TUR_albanian_population_stability_factor = 0 }
+					multiply_variable = { THIS.TUR_serbian_population_stability_factor = 0 }
+					multiply_variable = { THIS.TUR_kurdish_population_stability_factor = 0 }
+					multiply_variable = { THIS.TUR_assyrian_population_stability_factor = 0 }
+					multiply_variable = { THIS.TUR_georgian_population_stability_factor = 0 }
+					multiply_variable = { THIS.TUR_turkish_population_stability_factor = 0 }
+				}
+				if = {
+					limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+					divide_variable = { THIS.TUR_armenian_population_stability_factor = 2 }
+					divide_variable = { THIS.TUR_greek_population_stability_factor = 2 }
+					divide_variable = { THIS.TUR_arab_population_stability_factor = 2 }
+					divide_variable = { THIS.TUR_jewish_population_stability_factor = 2 }
+					divide_variable = { THIS.TUR_bulgarian_population_stability_factor = 2 }
+					divide_variable = { THIS.TUR_albanian_population_stability_factor = 2 }
+					divide_variable = { THIS.TUR_serbian_population_stability_factor = 2 }
+					divide_variable = { THIS.TUR_kurdish_population_stability_factor = 2 }
+					divide_variable = { THIS.TUR_assyrian_population_stability_factor = 2 }
+					divide_variable = { THIS.TUR_georgian_population_stability_factor = 2 }
+					divide_variable = { THIS.TUR_turkish_population_stability_factor = 2 }
+				}
 				add_to_variable = { ROOT.TUR_sublime_realm_stability = THIS.TUR_armenian_population_stability_factor }
 				add_to_variable = { ROOT.TUR_sublime_realm_stability = THIS.TUR_greek_population_stability_factor }
 				add_to_variable = { ROOT.TUR_sublime_realm_stability = THIS.TUR_arab_population_stability_factor }
@@ -4308,18 +4341,6 @@ ottoman_all_variable_check = {
 				add_to_variable = { ROOT.TUR_sublime_realm_stability = THIS.TUR_georgian_population_stability_factor }
 				add_to_variable = { ROOT.TUR_sublime_realm_stability = THIS.TUR_turkish_population_stability_factor }
 			}
-			if = {
-				limit = { TUR_state_has_autonomy_lebanon_mtth = yes }
-				add_to_variable = { ROOT.TUR_sublime_realm_stability = ROOT.TUR_ottoman_autonomy_lebanon_factor }
-			}
-			if = {
-				limit = { TUR_state_has_autonomy_mtth = yes }
-				add_to_variable = { ROOT.TUR_sublime_realm_stability = ROOT.TUR_ottoman_autonomy_factor }
-			}
-			if = {
-				limit = { TUR_state_has_semi_autonomy_mtth = yes }
-				add_to_variable = { ROOT.TUR_sublime_realm_stability = ROOT.TUR_ottoman_semi_autonomy_factor }
-			}
 		}
 		set_variable = { TUR_sublime_realm_stability_half = TUR_sublime_realm_stability }
 		divide_variable = { TUR_sublime_realm_stability_half = 2 }
@@ -4331,6 +4352,39 @@ ottoman_all_variable_check = {
 		every_state = {
 			if = {
 				limit = { TUR_state_has_minority_mtth = yes }
+				if = {
+					limit = {
+						OR = {
+							has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+							has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+						}
+					}
+					multiply_variable = { THIS.TUR_armenian_population_war_support_factor = 0 }
+					multiply_variable = { THIS.TUR_greek_population_war_support_factor = 0 }
+					multiply_variable = { THIS.TUR_arab_population_war_support_factor = 0 }
+					multiply_variable = { THIS.TUR_jewish_population_war_support_factor = 0 }
+					multiply_variable = { THIS.TUR_bulgarian_population_war_support_factor = 0 }
+					multiply_variable = { THIS.TUR_albanian_population_war_support_factor = 0 }
+					multiply_variable = { THIS.TUR_serbian_population_war_support_factor = 0 }
+					multiply_variable = { THIS.TUR_kurdish_population_war_support_factor = 0 }
+					multiply_variable = { THIS.TUR_assyrian_population_war_support_factor = 0 }
+					multiply_variable = { THIS.TUR_georgian_population_war_support_factor = 0 }
+					multiply_variable = { THIS.TUR_turkish_population_war_support_factor = 0 }
+				}
+				if = {
+					limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+					divide_variable = { THIS.TUR_armenian_population_war_support_factor = 2 }
+					divide_variable = { THIS.TUR_greek_population_war_support_factor = 2 }
+					divide_variable = { THIS.TUR_arab_population_war_support_factor = 2 }
+					divide_variable = { THIS.TUR_jewish_population_war_support_factor = 2 }
+					divide_variable = { THIS.TUR_bulgarian_population_war_support_factor = 2 }
+					divide_variable = { THIS.TUR_albanian_population_war_support_factor = 2 }
+					divide_variable = { THIS.TUR_serbian_population_war_support_factor = 2 }
+					divide_variable = { THIS.TUR_kurdish_population_war_support_factor = 2 }
+					divide_variable = { THIS.TUR_assyrian_population_war_support_factor = 2 }
+					divide_variable = { THIS.TUR_georgian_population_war_support_factor = 2 }
+					divide_variable = { THIS.TUR_turkish_population_war_support_factor = 2 }
+				}
 				add_to_variable = { ROOT.TUR_sublime_realm_war_support = THIS.TUR_armenian_population_war_support_factor }
 				add_to_variable = { ROOT.TUR_sublime_realm_war_support = THIS.TUR_greek_population_war_support_factor }
 				add_to_variable = { ROOT.TUR_sublime_realm_war_support = THIS.TUR_arab_population_war_support_factor }
@@ -4342,18 +4396,6 @@ ottoman_all_variable_check = {
 				add_to_variable = { ROOT.TUR_sublime_realm_war_support = THIS.TUR_assyrian_population_war_support_factor }
 				add_to_variable = { ROOT.TUR_sublime_realm_war_support = THIS.TUR_georgian_population_war_support_factor }
 				add_to_variable = { ROOT.TUR_sublime_realm_war_support = THIS.TUR_turkish_population_war_support_factor }
-			}
-			if = {
-				limit = { TUR_state_has_autonomy_lebanon_mtth = yes }
-				add_to_variable = { ROOT.TUR_sublime_realm_war_support = ROOT.TUR_ottoman_autonomy_lebanon_factor }
-			}
-			if = {
-				limit = { TUR_state_has_autonomy_mtth = yes }
-				add_to_variable = { ROOT.TUR_sublime_realm_war_support = ROOT.TUR_ottoman_autonomy_factor }
-			}
-			if = {
-				limit = { TUR_state_has_semi_autonomy_mtth = yes }
-				add_to_variable = { ROOT.TUR_sublime_realm_war_support = ROOT.TUR_ottoman_semi_autonomy_factor }
 			}
 		}
 		set_variable = { TUR_sublime_realm_war_support_half = TUR_sublime_realm_war_support }
