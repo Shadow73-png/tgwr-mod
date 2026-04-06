@@ -666,8 +666,13 @@ AUS_minorities_mechanic = {
 		available = {
 			OR = {
 				has_completed_focus = AUS_the_hostile_enemy_of_austria
-				has_completed_focus = AUS_fight_southern_terrorism
+				has_completed_focus = AUS_suppress_the_terrorists
+				AND = {
+					AUS_has_SER_state = no
+					AUS_has_CRO_state = no
+				}
 			}
+			
 		}
 		visible = {
 			original_tag = AUS
@@ -675,9 +680,15 @@ AUS_minorities_mechanic = {
 		activation = {
 			original_tag = AUS
 			NOT = {
-				has_global_flag = AUS_end_admin_sabotage
 				has_completed_focus = AUS_the_hostile_enemy_of_austria
-				has_completed_focus = AUS_fight_southern_terrorism
+				has_completed_focus = AUS_suppress_the_terrorists
+			}
+			OR = {
+				AND = {
+					AUS_has_SER_state = yes
+					AUS_has_CRO_state = yes
+				}
+				bosnia_is_AUS_subject = yes
 			}
 		}
 		timeout_effect = {
@@ -1845,13 +1856,16 @@ AUH_stitching_the_quilt = {
 		visible = {
 			has_completed_focus = AUS_support_the_cartelization_of_industry
 			has_start_date_1914 = no
+			9 = {
+				is_owned_and_controlled_by = ROOT
+			}
 		}
 		available = {
 			has_completed_focus = AUS_support_the_cartelization_of_industry
 		}
 		highlight_states = {
 			highlight_state_targets = {
-				state = 4
+				state = 9
 			}
 		}
 		fire_only_once = yes
@@ -1863,7 +1877,7 @@ AUH_stitching_the_quilt = {
 		complete_effect = {
 		}
 		remove_effect = {
-			4 = {
+			9 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -1879,7 +1893,7 @@ AUH_stitching_the_quilt = {
 			hidden_effect = {
 				country_event = {
 					id = ww1_austriahungary.167
-					days = 400
+					days = 300
 				}
 			}
 		}
@@ -1892,6 +1906,9 @@ AUH_stitching_the_quilt = {
 		priority = 20
 		visible = {
 			has_completed_focus = AUS_support_the_cartelization_of_industry
+			4 = {
+				is_owned_and_controlled_by = ROOT
+			}
 			has_start_date_1914 = no
 		}
 		available = {
