@@ -215,16 +215,33 @@ country_event = {
 	}
 	immediate = {
 		random_list = {
-			40 = {
+			30 = {
 				country_event = ww1_russia_common.12
 				modifier = {
 					factor = 0
 					has_country_flag = RUS_strikes_triggerred
 				}
+				modifier = {
+					factor = 0.5
+					has_country_flag = RUS_strikes_triggerred_before
+				}
 			}
-			60 = {}
+			70 = {}
 		}
-		clr_country_flag = RUS_strikes_triggerred
+		if = {
+			limit = {
+				has_country_flag = RUS_strikes_triggerred
+			}
+			clr_country_flag = RUS_strikes_triggerred
+			set_country_flag = RUS_strikes_triggerred_before
+		}
+		else_if = {
+			limit = {
+				has_country_flag = RUS_strikes_triggerred_before			
+			}
+			clr_country_flag = RUS_strikes_triggerred_before
+		}
+		
 	}
 }
 #Strikes!
