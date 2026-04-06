@@ -57,9 +57,26 @@ joint_focus = {
 	}
 	completion_reward_joint_originator = {
 		add_political_power = 25
+		if = {
+			limit = { 
+				has_focus_tree = russian_empire_focus
+			}
+			country_event = ww1_germanrework.89
+		}
+		else = {
+			country_event = ww1_germanrework.90
+		}	
 	}
 	completion_reward_joint_member = {
-		country_event = ww1_germanrework.89
+		if = {
+			limit = { 
+				has_focus_tree = russian_empire_focus
+			}
+			country_event = ww1_germanrework.89
+		}
+		else = {
+			country_event = ww1_germanrework.90
+		}
 	}
 	ai_will_do = {
 		factor = 25
