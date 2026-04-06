@@ -90,41 +90,7 @@ RUS_parliament_gui_decision_category = {
 			is_debug = yes
 		}
 		complete_effect = {
-
-			set_temp_variable = { communism_temp = party_popularity@communism }
-			multiply_temp_variable = { communism_temp = 442 }
-
-			set_temp_variable = { democratic_temp = party_popularity@democratic }
-			multiply_temp_variable = { democratic_temp = 442 }
-
-
-			set_temp_variable = { neutrality_temp = party_popularity@neutrality }
-			multiply_temp_variable = { neutrality_temp = 442 }
-
-
-			set_temp_variable = { fascism_temp = party_popularity@fascism }
-			multiply_temp_variable = { fascism_temp = 442 }
-
-			add_to_temp_variable = {
-				neutrality_temp = 1 #because rounding var cause 1 seat to dissapear, so this way it come back
-			}
-
-			set_variable = { var = far_right value = fascism_temp }
-			set_variable = { var = center_right value = neutrality_temp }
-			set_variable = { var = center_left value = democratic_temp }
-			set_variable = { var = socialists value = communism_temp }
-			round_variable = far_right
-			round_variable = center_right
-			round_variable = center_left
-			round_variable = socialists
-
-			RUS_reload_loyalties = yes
-
-			set_variable = { RUS_parliament_seat_array^0 = socialists }
-			set_variable = { RUS_parliament_seat_array^1 = center_left }
-			set_variable = { RUS_parliament_seat_array^2 = center_right }
-			set_variable = { RUS_parliament_seat_array^3 = far_right }
-			RUS_reload_parliament_gui = yes
+			RUS_election_scripted_effect = yes
 		}
 	}
 
@@ -305,7 +271,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -316,7 +282,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -416,7 +382,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -427,7 +393,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -528,7 +494,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -539,7 +505,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -633,7 +599,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -644,7 +610,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -738,7 +704,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -749,7 +715,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -835,7 +801,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -846,7 +812,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -923,7 +889,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -934,7 +900,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1011,7 +977,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1022,7 +988,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1094,7 +1060,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1105,7 +1071,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1180,7 +1146,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1191,7 +1157,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1265,7 +1231,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1276,7 +1242,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1350,7 +1316,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1361,7 +1327,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1435,7 +1401,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1446,7 +1412,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1526,7 +1492,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1537,7 +1503,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 					has_country_flag = RUS_western_zemstvo_crisis
 				}
@@ -1551,7 +1517,7 @@ RUS_parliament_gui_decision_category = {
 			else_if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1631,7 +1597,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1642,7 +1608,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1716,7 +1682,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1727,7 +1693,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1801,7 +1767,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1812,7 +1778,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1886,7 +1852,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1897,7 +1863,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -1971,7 +1937,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -1982,7 +1948,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2056,7 +2022,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2067,7 +2033,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2141,7 +2107,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2152,7 +2118,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2226,7 +2192,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2237,7 +2203,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2311,7 +2277,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2322,7 +2288,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2394,7 +2360,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2405,7 +2371,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2477,7 +2443,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2488,7 +2454,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2560,7 +2526,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2571,7 +2537,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2645,7 +2611,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2656,7 +2622,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2730,7 +2696,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2741,7 +2707,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2815,7 +2781,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2826,7 +2792,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -2906,7 +2872,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -2917,7 +2883,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3000,7 +2966,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3011,7 +2977,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3091,7 +3057,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3102,7 +3068,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3175,7 +3141,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3186,7 +3152,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3259,7 +3225,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3270,7 +3236,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3340,7 +3306,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3351,7 +3317,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3418,7 +3384,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3429,7 +3395,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3499,7 +3465,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3510,7 +3476,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3593,7 +3559,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3604,7 +3570,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3677,7 +3643,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3688,7 +3654,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3758,7 +3724,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3769,7 +3735,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3836,7 +3802,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3847,7 +3813,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3914,7 +3880,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -3925,7 +3891,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -3992,7 +3958,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -4003,7 +3969,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -4072,7 +4038,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -4083,7 +4049,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {
@@ -4133,7 +4099,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				custom_effect_tooltip = RUS_likely_to_pass
@@ -4144,7 +4110,7 @@ RUS_parliament_gui_decision_category = {
 			if = {
 				limit = {
 					check_variable = {
-						total_loyalist_count > 221
+						total_loyalist_count > RUS_duna_majority_threshold
 					}
 				}
 				hidden_effect = {

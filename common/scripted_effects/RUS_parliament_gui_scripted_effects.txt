@@ -48,6 +48,7 @@ RUS_modify_state_council = {
 		min = 0
 		max = 100
 	}
+	RUS_update_state_council_gui = yes
 }
 RUS_state_council_election_effect = {
 	hidden_effect = {
@@ -102,44 +103,105 @@ RUS_state_council_election_effect = {
 	round_temp_variable = RUS_state_council_election_result
 	set_variable = { state_council_dominant_faction = RUS_state_council_election_result }
 	custom_effect_tooltip = RUS_state_council_election_tt
+	RUS_update_state_council_gui = yes
 }
 # Duma election scripted effect
 RUS_election_scripted_effect = {
 	custom_effect_tooltip = RUS_election_tt
 	hidden_effect = {
 		set_temp_variable = { communism_temp = party_popularity@communism }
-		multiply_temp_variable = { communism_temp = 442 }
+		multiply_temp_variable = { communism_temp = RUS_total_duma_seats }
 
 		set_temp_variable = { democratic_temp = party_popularity@democratic }
-		multiply_temp_variable = { democratic_temp = 442 }
+		multiply_temp_variable = { democratic_temp = RUS_total_duma_seats }
 
 
 		set_temp_variable = { neutrality_temp = party_popularity@neutrality }
-		multiply_temp_variable = { neutrality_temp = 442 }
+		multiply_temp_variable = { neutrality_temp = RUS_total_duma_seats }
 
 
 		set_temp_variable = { fascism_temp = party_popularity@fascism }
-		multiply_temp_variable = { fascism_temp = 442 }
+		multiply_temp_variable = { fascism_temp = RUS_total_duma_seats }
 
-		add_to_temp_variable = {
-			neutrality_temp = 1 #because rounding var cause 1 seat to dissapear, so this way it come back
+		round_temp_variable = communism_temp
+		round_temp_variable = democratic_temp
+		round_temp_variable = neutrality_temp
+		round_temp_variable = fascism_temp
+
+		set_temp_variable = {
+			RUS_total_temp_seats  = communism_temp
 		}
-
+		add_to_temp_variable = {
+			RUS_total_temp_seats = democratic_temp
+		}
+		add_to_temp_variable = {
+			RUS_total_temp_seats = neutrality_temp
+		}
+		add_to_temp_variable = {
+			RUS_total_temp_seats = fascism_temp
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					var = RUS_total_temp_seats 
+					value = RUS_total_duma_seats
+					compare = not_equals
+				}
+			}
+			set_temp_variable = {
+				RUS_excess_seats = RUS_total_temp_seats
+			}
+			subtract_from_temp_variable = {
+				RUS_excess_seats = RUS_total_duma_seats
+			}
+			IF = {
+				limit = { 
+					communism_plurality = yes
+				}
+				subtract_from_temp_variable = {
+					var = communism_temp
+					value = RUS_excess_seats
+				}
+			}
+			else_IF = {
+				limit = { 
+					democratic_plurality = yes
+				}
+				subtract_from_temp_variable = {
+					var = democratic_temp
+					value = RUS_excess_seats
+				}
+			}
+			else_IF = {
+				limit = { 
+					neutrality_plurality = yes
+				}
+				subtract_from_temp_variable = {
+					var = neutrality_temp
+					value = RUS_excess_seats
+				}
+			}
+			else_IF = {
+				limit = { 
+					fascism_plurality = yes
+				}
+				subtract_from_temp_variable = {
+					var = fascism_temp
+					value = RUS_excess_seats
+				}
+			}
+		}
 		set_variable = { var = far_right value = fascism_temp }
 		set_variable = { var = center_right value = neutrality_temp }
 		set_variable = { var = center_left value = democratic_temp }
 		set_variable = { var = socialists value = communism_temp }
-		round_variable = far_right
-		round_variable = center_right
-		round_variable = center_left
-		round_variable = socialists
 
 		RUS_reload_loyalties = yes
 
-		set_variable = { RUS_parliament_seat_array^0 = socialists }
-		set_variable = { RUS_parliament_seat_array^1 = center_left }
-		set_variable = { RUS_parliament_seat_array^2 = center_right }
-		set_variable = { RUS_parliament_seat_array^3 = far_right }
+		set_variable = { RUS_parliament_seat_array^RUS_parliament_seat_socialists = socialists }
+		set_variable = { RUS_parliament_seat_array^RUS_parliament_seat_center_left = center_left }
+		set_variable = { RUS_parliament_seat_array^RUS_parliament_seat_center_right = center_right }
+		set_variable = { RUS_parliament_seat_array^RUS_parliament_seat_far_right = far_right }
 		RUS_reload_parliament_gui = yes
 	}
 }
@@ -400,7 +462,8 @@ RUS_reload_loyalties = {
 		var = total_loyalist_count
 		value = socialists_loyalty_litteral_seats
 	}
-
+	RUS_update_state_council_gui = yes
+	RUS_update_parliament_gui = yes
 }
 
 # The following scripted effect does the main job of generating the gui, by adding the seats for each party in a grid.
@@ -450,6 +513,8 @@ RUS_reload_parliament_gui = {
 
 	# Clear the temp_seat array used previously since it's not needed anymore.
 	clear_array = temp_seat
+	RUS_update_parliament_gui = yes
+	RUS_update_state_council_gui = yes
 }
 
 # Clear all arrays (for debugging)
@@ -460,6 +525,13 @@ clear_parliament_gui_arrays = {
 	clear_array = RUS_parliament_x_array
 	clear_array = RUS_parliament_y_array
 	#clear_array = RUS_parliament_member_loyalty
+}
+
+RUS_update_state_council_gui = {
+	set_variable_to_random = RUS.state_council_update
+}
+RUS_update_parliament_gui = {
+	set_variable_to_random = RUS.parliament_update
 }
 
 # parliament_x_array and parliament_y_array stores the list of x and y positions of the parliament dots in the grid, these are generated from this lovely tool by Flaxbeard:
