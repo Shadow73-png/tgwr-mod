@@ -48,6 +48,7 @@ RUS_modify_state_council = {
 		min = 0
 		max = 100
 	}
+	RUS_update_state_council_arrow_position = yes
 	RUS_update_state_council_gui = yes
 }
 RUS_state_council_election_effect = {
@@ -103,6 +104,7 @@ RUS_state_council_election_effect = {
 	round_temp_variable = RUS_state_council_election_result
 	set_variable = { state_council_dominant_faction = RUS_state_council_election_result }
 	custom_effect_tooltip = RUS_state_council_election_tt
+	RUS_update_state_council_arrow_position = yes
 	RUS_update_state_council_gui = yes
 }
 # Duma election scripted effect
@@ -525,6 +527,16 @@ clear_parliament_gui_arrays = {
 	clear_array = RUS_parliament_x_array
 	clear_array = RUS_parliament_y_array
 	#clear_array = RUS_parliament_member_loyalty
+}
+
+RUS_update_state_council_arrow_position = {
+	set_variable = {
+		arrow_position = state_council_dominant_faction
+	}
+	multiply_variable = {
+		var = arrow_position
+		value = 3.6
+	}
 }
 
 RUS_update_state_council_gui = {
