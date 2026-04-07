@@ -1,7 +1,10 @@
 debug_decisions = {
 	ALB_add_muslim_albania_tree = {
 		allowed = { always = yes }
-		visible = { NOT = { has_country_flag = muslim_albania_focus } }
+		visible = {
+			has_focus_tree = albania_focus
+			NOT = { has_country_flag = muslim_albania_focus }
+		}
 		complete_effect = {
 			set_country_flag = muslim_albania_focus
 			if = {
@@ -14,7 +17,10 @@ debug_decisions = {
 	}
 	ALB_remove_muslim_albania_tree = {
 		allowed = { always = yes }
-		visible = { has_country_flag = muslim_albania_focus }
+		visible = {
+			has_focus_tree = albania_focus
+			has_country_flag = muslim_albania_focus
+		}
 		complete_effect = {
 			clr_country_flag = muslim_albania_focus
 			mark_focus_tree_layout_dirty = yes
@@ -23,7 +29,10 @@ debug_decisions = {
 	}
 	ALB_add_catholic_albania_tree = {
 		allowed = { always = yes }
-		visible = { NOT = { has_country_flag = catholic_albania_focus } }
+		visible = {
+			has_focus_tree = albania_focus
+			NOT = { has_country_flag = catholic_albania_focus }
+		}
 		complete_effect = {
 			set_country_flag = catholic_albania_focus
 			if = {
@@ -36,7 +45,10 @@ debug_decisions = {
 	}
 	ALB_remove_catholic_albania_tree = {
 		allowed = { always = yes }
-		visible = { has_country_flag = catholic_albania_focus }
+		visible = {
+			has_focus_tree = albania_focus
+			has_country_flag = catholic_albania_focus
+		}
 		complete_effect = {
 			clr_country_flag = catholic_albania_focus
 			mark_focus_tree_layout_dirty = yes
@@ -45,7 +57,10 @@ debug_decisions = {
 	}
 	ALB_add_abdulhamid_albania_tree = {
 		allowed = { always = yes }
-		visible = { NOT = { has_country_flag = ALB_freed_abdulhamid } }
+		visible = {
+			has_focus_tree = albania_focus
+			NOT = { has_country_flag = ALB_freed_abdulhamid }
+		}
 		complete_effect = {
 			set_country_flag = ALB_freed_abdulhamid
 			mark_focus_tree_layout_dirty = yes
@@ -54,7 +69,10 @@ debug_decisions = {
 	}
 	ALB_remove_abdulhamid_albania_tree = {
 		allowed = { always = yes }
-		visible = { has_country_flag = ALB_freed_abdulhamid }
+		visible = {
+			has_focus_tree = albania_focus
+			has_country_flag = ALB_freed_abdulhamid
+		}
 		complete_effect = {
 			clr_country_flag = ALB_freed_abdulhamid
 			mark_focus_tree_layout_dirty = yes
@@ -62,7 +80,7 @@ debug_decisions = {
 		ai_will_do = { base = 0 }
 	}
 	ALB_add_puppet_albania_tree = {
-		allowed = { always = yes }
+		allowed = { original_tag = ALB }
 		visible = { NOT = { has_country_flag = ALB_colaboration_tag } }
 		complete_effect = {
 			set_country_flag = ALB_colaboration_tag
@@ -71,7 +89,7 @@ debug_decisions = {
 		ai_will_do = { base = 0 }
 	}
 	ALB_remove_puppet_albania_tree = {
-		allowed = { always = yes }
+		allowed = { original_tag = ALB }
 		visible = { has_country_flag = ALB_colaboration_tag }
 		complete_effect = {
 			clr_country_flag = ALB_colaboration_tag
@@ -80,7 +98,7 @@ debug_decisions = {
 		ai_will_do = { base = 0 }
 	}
 	ALB_italian_puppet = {
-		allowed = { always = yes }
+		allowed = { original_tag = ALB }
 		available = {
 
 		}
@@ -93,7 +111,7 @@ debug_decisions = {
 		ai_will_do = { base = 0 }
 	}
 	ALB_capital_state = {
-		allowed = { always = yes }
+		allowed = { original_tag = ALB }
 		available = {
 
 		}

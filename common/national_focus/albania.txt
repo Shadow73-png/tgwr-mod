@@ -1583,6 +1583,87 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
+		id = ALB_electrification_of_albania
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_invite_foreign_engineers }
+		x = 0
+		y = 1
+		relative_position_id = ALB_invite_foreign_engineers
+		available = { num_of_civilian_factories_available_for_projects > 4 }
+		continue_if_invalid = yes
+		completion_reward = {
+			capital_scope = { add_dynamic_modifier = { modifier = ALB_widespread_electrification } }
+			custom_effect_tooltip = ALB_electrification_of_albania_tt
+			add_ideas = ALB_electrification_campaign
+			custom_effect_tooltip = ALB_electrification_campaign_instant_desc
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_mechanized_agriculture
+		icon = GFX_focus_generic_modernizing_agriculture
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_albanian_cattle_industry }
+		prerequisite = { focus = ALB_invite_foreign_engineers }
+		x = -1
+		y = 1
+		relative_position_id = ALB_albanian_cattle_industry
+		available = { num_of_civilian_factories_available_for_projects > 3 }
+		continue_if_invalid = yes
+		select_effect = { add_ideas = ALB_importing_agricultural_machinery }
+		completion_reward = {
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_importing_agricultural_machinery }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_importing_agricultural_machinery
+			add_ideas = ALB_mechanized_agriculture_idea
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_headstock_tax
+		icon = GFX_focus_generic_welfare
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_economic_societies }
+		prerequisite = { focus = ALB_albanian_cattle_industry }
+		x = 1
+		y = 1
+		relative_position_id = ALB_albanian_cattle_industry
+		completion_reward = {
+			custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
+			add_to_variable = {
+				tooltip = supply_consumption_factor_minus_10
+				ALB_ae_supply_consumption_factor = -0.1
+			}
+			add_to_variable = {
+				tooltip = consumer_goods_factor_minus_5
+				ALB_ae_consumer_goods_factor = -0.05
+			}
+			add_to_variable = {
+				tooltip = stability_factor_minus_10
+				ALB_ae_stability_factor = -0.1
+			}
+			custom_effect_tooltip = empty_space
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
 		id = ALB_invest_in_the_construction_industry
 		icon = GFX_goal_generic_construction
 		cost = 10
@@ -1640,59 +1721,107 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
-		id = ALB_mechanized_agriculture
-		icon = GFX_focus_generic_modernizing_agriculture
+		id = ALB_commence_oil_drilling
+		icon = GFX_focus_generic_resource_extraction
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_MANPOWER
 			FOCUS_FILTER_HISTORICAL
 		}
-		prerequisite = { focus = ALB_albanian_cattle_industry }
-		prerequisite = { focus = ALB_invite_foreign_engineers }
+		prerequisite = { focus = ALB_electrification_of_albania }
 		x = -1
 		y = 1
-		relative_position_id = ALB_albanian_cattle_industry
-		available = { num_of_civilian_factories_available_for_projects > 3 }
-		continue_if_invalid = yes
-		select_effect = { add_ideas = ALB_importing_agricultural_machinery }
+		relative_position_id = ALB_electrification_of_albania
 		completion_reward = {
-			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
-			effect_tooltip = { add_ideas = ALB_importing_agricultural_machinery }
-			custom_effect_tooltip = SOV_focus_complete_effect_tt
-			remove_ideas = ALB_importing_agricultural_machinery
-			add_ideas = ALB_mechanized_agriculture_idea
+			add_resource = {
+				type = oil
+				amount = 4
+				state = 44
+			}
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = ALB_sveja
 		}
 		ai_will_do = { factor = 100 }
 	}
-	
 	focus = {
-		id = ALB_headstock_tax
-		icon = GFX_focus_generic_welfare
-		cost = 5
+		id = ALB_utilizing_our_hydroelectric_potential #Vithkuq Hydroelectric Power Station
+		icon = GFX_focus_generic_hydroelectric_energy
+		cost = 10
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_MANPOWER
 			FOCUS_FILTER_HISTORICAL
 		}
-		prerequisite = { focus = ALB_economic_societies }
-		prerequisite = { focus = ALB_albanian_cattle_industry }
+		prerequisite = { focus = ALB_electrification_of_albania }
 		x = 1
 		y = 1
-		relative_position_id = ALB_albanian_cattle_industry
+		relative_position_id = ALB_electrification_of_albania
+		available = { num_of_civilian_factories_available_for_projects > 2 }
+		continue_if_invalid = yes
+		select_effect = { add_ideas = ALB_hydroelectricity_investments }
+		complete_tooltip = {
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_hydroelectricity_investments }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_hydroelectricity_investments
+			every_state = {
+				limit = { has_state_flag = ALB_utilizing_our_hydroelectric_potential }
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 13397
+					}
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+				every_neighbor_state = { custom_effect_tooltip = ALB_utilizing_our_hydroelectric_potential_tt }
+			}
+			custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
+			custom_effect_tooltip = consumer_goods_factor_minus_10
+			custom_effect_tooltip = empty_space
+		}
 		completion_reward = {
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_hydroelectricity_investments }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_hydroelectricity_investments
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				prioritize = { 1225 }
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 13397
+					}
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+				set_state_flag = ALB_utilizing_our_hydroelectric_potential
+				every_neighbor_state = {
+					hidden_effect = {
+						add_state_modifier = {
+							modifier = {
+								production_speed_buildings_factor = 0.05
+								local_resources = 0.05
+							}
+						}
+					}
+					custom_effect_tooltip = ALB_utilizing_our_hydroelectric_potential_tt
+				}
+			}
 			custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
 			add_to_variable = {
-				tooltip = supply_consumption_factor_minus_10
-				ALB_ae_supply_consumption_factor = -0.1
-			}
-			add_to_variable = {
-				tooltip = consumer_goods_factor_minus_5
-				ALB_ae_consumer_goods_factor = -0.05
-			}
-			add_to_variable = {
-				tooltip = stability_factor_minus_10
-				ALB_ae_stability_factor = -0.1
+				tooltip = consumer_goods_factor_minus_10
+				ALB_ae_consumer_goods_factor = -0.1
 			}
 			custom_effect_tooltip = empty_space
 		}
@@ -1857,136 +1986,6 @@ focus_tree = {
 					}
 				}
 			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-	focus = {
-		id = ALB_electrification_of_albania
-		icon = GFX_focus_ARG_develop_the_electricity_sector
-		cost = 10
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_MANPOWER
-			FOCUS_FILTER_HISTORICAL
-		}
-		prerequisite = { focus = ALB_invite_foreign_engineers }
-		x = 0
-		y = 1
-		relative_position_id = ALB_invite_foreign_engineers
-		available = { num_of_civilian_factories_available_for_projects > 4 }
-		continue_if_invalid = yes
-		completion_reward = {
-			capital_scope = { add_dynamic_modifier = { modifier = ALB_widespread_electrification } }
-			custom_effect_tooltip = ALB_electrification_of_albania_tt
-			add_ideas = ALB_electrification_campaign
-			custom_effect_tooltip = ALB_electrification_campaign_instant_desc
-		}
-		ai_will_do = { factor = 100 }
-	}
-	focus = {
-		id = ALB_commence_oil_drilling
-		icon = GFX_focus_generic_resource_extraction
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_MANPOWER
-			FOCUS_FILTER_HISTORICAL
-		}
-		prerequisite = { focus = ALB_electrification_of_albania }
-		x = -1
-		y = 1
-		relative_position_id = ALB_electrification_of_albania
-		completion_reward = {
-			add_resource = {
-				type = oil
-				amount = 4
-				state = 44
-			}
-			custom_effect_tooltip = available_industrial_concern
-			show_ideas_tooltip = ALB_sveja
-		}
-		ai_will_do = { factor = 100 }
-	}
-	focus = {
-		id = ALB_utilizing_our_hydroelectric_potential #Vithkuq Hydroelectric Power Station
-		icon = GFX_focus_generic_hydroelectric_energy
-		cost = 10
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_MANPOWER
-			FOCUS_FILTER_HISTORICAL
-		}
-		prerequisite = { focus = ALB_electrification_of_albania }
-		x = 1
-		y = 1
-		relative_position_id = ALB_electrification_of_albania
-		available = { num_of_civilian_factories_available_for_projects > 2 }
-		continue_if_invalid = yes
-		select_effect = { add_ideas = ALB_hydroelectricity_investments }
-		complete_tooltip = {
-			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
-			effect_tooltip = { add_ideas = ALB_hydroelectricity_investments }
-			custom_effect_tooltip = SOV_focus_complete_effect_tt
-			remove_ideas = ALB_hydroelectricity_investments
-			every_state = {
-				limit = { has_state_flag = ALB_utilizing_our_hydroelectric_potential }
-				add_building_construction = {
-					type = dam
-					level = 1
-					instant_build = yes
-					province = {
-						id = 13397
-					}
-				}
-				custom_effect_tooltip = {
-					localization_key = building_state_modifier|dam
-					INDENT = "    "
-				}
-				every_neighbor_state = { custom_effect_tooltip = ALB_utilizing_our_hydroelectric_potential_tt }
-			}
-			custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
-			custom_effect_tooltip = consumer_goods_factor_minus_10
-			custom_effect_tooltip = empty_space
-		}
-		completion_reward = {
-			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
-			effect_tooltip = { add_ideas = ALB_hydroelectricity_investments }
-			custom_effect_tooltip = SOV_focus_complete_effect_tt
-			remove_ideas = ALB_hydroelectricity_investments
-			random_owned_controlled_state = {
-				limit = { is_core_of = ROOT }
-				prioritize = { 1225 }
-				add_building_construction = {
-					type = dam
-					level = 1
-					instant_build = yes
-					province = {
-						id = 13397
-					}
-				}
-				custom_effect_tooltip = {
-					localization_key = building_state_modifier|dam
-					INDENT = "    "
-				}
-				set_state_flag = ALB_utilizing_our_hydroelectric_potential
-				every_neighbor_state = {
-					hidden_effect = {
-						add_state_modifier = {
-							modifier = {
-								production_speed_buildings_factor = 0.05
-								local_resources = 0.05
-							}
-						}
-					}
-					custom_effect_tooltip = ALB_utilizing_our_hydroelectric_potential_tt
-				}
-			}
-			custom_effect_tooltip = ALB_modify_decentralized_independence_movement_tt
-			add_to_variable = {
-				tooltip = consumer_goods_factor_minus_10
-				ALB_ae_consumer_goods_factor = -0.1
-			}
-			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5848,6 +5847,7 @@ focus_tree = {
 				is_in_faction_with = GER
 				NOT = { is_in_faction_with = ITA }
 			}
+			has_civil_war = no
 		}
 		completion_reward = {
 			hidden_effect = {
@@ -5890,6 +5890,7 @@ focus_tree = {
 					any_enemy_country = { is_major = yes }
 				}
 			}
+			has_civil_war = no
 		}
 		completion_reward = {
 			swap_ideas = {
@@ -5922,6 +5923,7 @@ focus_tree = {
 				is_in_faction_with = ENT
 				NOT = { is_in_faction_with = AUS }
 			}
+			has_civil_war = no
 		}
 		completion_reward = {
 			hidden_effect = {
