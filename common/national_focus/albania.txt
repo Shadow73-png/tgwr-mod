@@ -4766,7 +4766,7 @@ focus_tree = {
 	focus = {
 		id = ALB_albanian_national_army
 		icon = GFX_ALB_albanian_national_army
-		cost = 5
+		cost = 10
 		search_filters = {
 			FOCUS_FILTER_ARMY_XP
 			FOCUS_FILTER_HISTORICAL
@@ -4804,6 +4804,11 @@ focus_tree = {
 					logistics_skill = 2
 				}
 			}
+			custom_effect_tooltip = ALB_albanian_national_army_tt2
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = ALB_albanian_national_army_dm }
+				add_to_variable = { ALB_ana_mobilization_speed = 0.05 }
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -4820,6 +4825,19 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_albanian_national_army
 		completion_reward = {
+			custom_effect_tooltip = modify_ALB_albanian_national_army
+			custom_effect_tooltip = ALB_form_the_air_corps_tt
+			hidden_effect = { add_ideas = ALB_albanian_air_corps }
+			add_equipment_to_stockpile = {
+				type = scout_plane_equipment
+				amount = 3
+				producer = AUS
+			}
+			add_equipment_subsidy = {
+				cic = 300
+				equipment_type = fighter_equipment
+				seller_tags = { AUS ITA }
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
