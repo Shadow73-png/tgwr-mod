@@ -14828,7 +14828,12 @@ focus_tree = {
 				trait = TUR_limited_authority
 			}
 			activate_advisor = TUR_ismail_enver
-			set_can_be_fired_in_advisor_role = { character = TUR_ismail_enver value = no }
+			TUR_ismail_enver = {
+				set_can_be_fired_in_advisor_role = {
+					slot = political_advisor
+					value = no
+				}
+			}
 			if = {
 				limit = { has_country_flag = TUR_three_pasha_government1 }
 				add_corps_commander_role = {
@@ -14840,10 +14845,17 @@ focus_tree = {
 					planning_skill = 1
 					logistics_skill = 2
 				}
+				custom_effect_tooltip = available_high_command
+				show_ideas_tooltip = TUR_ismail_enver_army
 				TUR_ismail_enver = { set_character_name = TUR_ismail_enver_pasha }
 			}
 			activate_advisor = TUR_ahmed_cemal
-			set_can_be_fired_in_advisor_role = { character = TUR_ahmed_cemal value = no }
+			TUR_ahmed_cemal = {
+				set_can_be_fired_in_advisor_role = {
+					slot = political_advisor
+					value = no
+				}
+			}
 			if = {
 				limit = { has_country_flag = TUR_three_pasha_government2 }
 				add_corps_commander_role = {
@@ -14856,6 +14868,8 @@ focus_tree = {
 					logistics_skill = 2
 				}
 				TUR_ahmed_cemal = { set_character_name = TUR_ahmed_cemal_pasha }
+				custom_effect_tooltip = available_chief_of_army
+				show_ideas_tooltip = TUR_ahmed_cemal_army
 			}
 			if = {
 				limit = { has_country_flag = TUR_three_pasha_government3 }
@@ -14904,7 +14918,12 @@ focus_tree = {
 				}
 			}
 			activate_advisor = TUR_ismail_enver
-			set_can_be_fired_in_advisor_role = { character = TUR_ismail_enver value = no }
+			TUR_ismail_enver = {
+				set_can_be_fired_in_advisor_role = {
+					slot = political_advisor
+					value = no
+				}
+			}
 			if = {
 				limit = {
 					has_character = TUR_ismail_enver
@@ -14936,10 +14955,17 @@ focus_tree = {
 					}
 				}
 				TUR_ismail_enver = { set_character_name = TUR_ismail_enver_pasha }
+				custom_effect_tooltip = available_high_command
+				show_ideas_tooltip = TUR_ismail_enver_army
 				set_country_flag = TUR_three_pasha_government1
 			}
 			activate_advisor = TUR_ahmed_cemal
-			set_can_be_fired_in_advisor_role = { character = TUR_ahmed_cemal value = no }
+			TUR_ahmed_cemal = {
+				set_can_be_fired_in_advisor_role = {
+					slot = political_advisor
+					value = no
+				}
+			}
 			if = {
 				limit = {
 					has_character = TUR_ahmed_cemal
@@ -14955,6 +14981,8 @@ focus_tree = {
 					logistics_skill = 2
 				}
 				TUR_ahmed_cemal = { set_character_name = TUR_ahmed_cemal_pasha }
+				custom_effect_tooltip = available_chief_of_army
+				show_ideas_tooltip = TUR_ahmed_cemal_army
 				set_country_flag = TUR_three_pasha_government2
 			}
 			if = {
