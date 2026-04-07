@@ -1324,6 +1324,10 @@ focus_tree = {
 		relative_position_id = AUS_centralization_and_discipline
 		available = {
 			AUS_has_autocrat_minister = yes
+			AUS_has_CZE_state = yes
+		}
+		bypass = {
+			AUS_has_CZE_state = no
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_bohemian_shenanigans2
@@ -1474,6 +1478,10 @@ focus_tree = {
 		relative_position_id = AUS_obstructionism_of_our_own
 		available = {
 			AUS_has_autocrat_minister = yes
+			AUS_has_CZE_state = yes
+		}
+		bypass = {
+			AUS_has_CZE_state = no
 		}
 		completion_reward = {
 			if = {
@@ -5802,15 +5810,11 @@ focus_tree = {
 				bonus = 0.5
 				category = construction_tech
 			}
-			if = {
-				limit = {
-					9 = {
-						is_owned_and_controlled_by = ROOT
-					}
+			random_owned_controlled_state = {
+				prioritize = {
+					9
 				}
-				9 = {
-					increase_state_category = yes
-				}
+				increase_state_category = yes
 			}
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
