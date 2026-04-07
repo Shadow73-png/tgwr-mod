@@ -4734,6 +4734,36 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALB_rely_on_tribal_units
+		icon = placeholder
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_asymmetric_warfare }
+		x = 0
+		y = 1
+		relative_position_id = ALB_asymmetric_warfare
+		available = { NOT = { has_country_flag = TUR_revolting_country } }
+		completion_reward = {}
+	}
+	focus = {
+		id = ALB_arm_patriotic_civilians
+		icon = placeholder
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_rely_on_tribal_units }
+		x = 0
+		y = 1
+		relative_position_id = ALB_rely_on_tribal_units
+		completion_reward = {}
+	}
+
+	focus = {
 		id = ALB_albanian_national_army
 		icon = GFX_ALB_albanian_national_army
 		cost = 5
@@ -4778,7 +4808,7 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
-		id = ALB_promote_the_next_generation
+		id = ALB_finance_the_army
 		icon = GFX_focus_generic_military_mission
 		cost = 5
 		search_filters = {
@@ -4789,6 +4819,86 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_albanian_national_army
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_order_foreign_equipments
+		icon = GFX_focus_generic_military_mission
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_finance_the_army }
+		x = -2
+		y = 1
+		relative_position_id = ALB_finance_the_army
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_invest_in_the_armor_technology
+		icon = GFX_focus_generic_military_mission
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_order_foreign_equipments }
+		x = 0
+		y = 1
+		relative_position_id = ALB_order_foreign_equipments
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_welcome_foreign_advisors
+		icon = GFX_focus_generic_military_mission
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_finance_the_army }
+		x = 0
+		y = 1
+		relative_position_id = ALB_finance_the_army
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_create_military_schools
+		icon = GFX_focus_generic_military_mission
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_finance_the_army }
+		x = 2
+		y = 1
+		relative_position_id = ALB_finance_the_army
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_promote_the_next_generation
+		icon = GFX_focus_generic_military_mission
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_create_military_schools }
+		x = 1
+		y = 1
+		relative_position_id = ALB_create_military_schools
 		completion_reward = {
 			custom_effect_tooltip = available_high_command
 			show_ideas_tooltip = ALB_xhemal_aranitasi
@@ -4843,6 +4953,22 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 100 }
 	}
+	focus = {
+		id = ALB_form_the_mountaineers_corps
+		icon = GFX_focus_generic_military_mission
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_create_military_schools }
+		x = -1
+		y = 1
+		relative_position_id = ALB_create_military_schools
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
 
 	focus = {
 		id = ALB_navy_of_albania
@@ -4857,6 +4983,40 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_asymmetric_warfare
 		available = { NOT = { has_country_flag = TUR_revolting_country } }
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_renovate_old_shipyards
+		icon = GFX_ALB_navy_of_albania
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_navy_of_albania }
+		x = 0
+		y = 2
+		relative_position_id = ALB_navy_of_albania
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_purchase_foreign_ships
+		icon = GFX_ALB_navy_of_albania
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_navy_of_albania }
+		x = 1
+		y = 1
+		relative_position_id = ALB_navy_of_albania
 		completion_reward = {
 			
 		}
