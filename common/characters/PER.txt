@@ -482,6 +482,23 @@ characters={
 				small = "gfx/interface/ideas/PER/idea_PER_mohammad_ali_shah_army.png"
 			}
 		}
+		advisor={
+			slot = army_chief
+			idea_token = PER_mohammad_ali_shah
+			available = {
+				is_country_leader = yes
+			}
+			visible = {
+				is_country_leader = yes
+			}
+			traits  = {
+				army_chief_morale_1
+			}
+			cost = 50
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
 		corps_commander = {
 			traits = { trait_royal trait_cautious }
 			skill = 1
@@ -512,6 +529,42 @@ characters={
 			}
 			army=  {
 				small = "gfx/interface/ideas/PER/idea_PER_abulfath_mirza_army.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PER_abulfath_mirza
+			available = {
+				OR = {					
+					has_country_leader_ideology = absolute_monarchy
+					has_country_leader_ideology = reactionism
+				}	
+			}
+			visible = {
+				is_country_leader = no
+			}
+			traits  = {
+				PER_salar_al_daula 
+			}
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = PER_abulfath_mirza_army_chief
+			available = {
+				OR = {					
+					has_country_leader_ideology = absolute_monarchy
+					has_country_leader_ideology = reactionism
+				}	
+			}
+			traits  = {
+				army_chief_offensive_1 
+			}
+			cost = 50
+			ai_will_do  = {
+				factor  = 1
 			}
 		}
 		corps_commander = {
