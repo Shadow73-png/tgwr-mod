@@ -1163,7 +1163,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_modify_aps.tt
-		
+			
 			add_to_variable = {
 				AUS_aps_ruling_stab = 0.25
 				tooltip = party_popularity_stability_factor_tt
@@ -1380,7 +1380,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-				AUS_update_state_of_realm = yes
+			AUS_update_state_of_realm = yes
 			add_to_variable = {
 				AUS_pole_loyalty = 20
 				tooltip = AUS_loyalty_pole_tt
@@ -2766,40 +2766,40 @@ focus_tree = {
 			AUS_has_reformist_minister = yes
 		}
 		completion_reward = {
-				custom_effect_tooltip = AUS_modify_eco.tt
+			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_consumer_goods = -0.15
 				tooltip = consumer_goods_factor_tt
 			}
-				add_to_variable = {
-					AUS_EP_factory_output = -0.05
-					tooltip = industrial_capacity_factory_tt
-				}
-				add_to_variable = {
-					AUS_ep_mil_speed = -0.05
-					tooltip = production_speed_arms_factory_factor_tt
-				}
-				custom_effect_tooltip = AUS_camarailla_influence_army
-				if = {
-					limit = {
-						OR = {
-							AUH_conrad_von_hotzendorf = {
-								is_hired_as_advisor = yes
-							}
-							has_country_leader = {
-								character = AUH_conrad_von_hotzendorf
-							}
+			add_to_variable = {
+				AUS_EP_factory_output = -0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				AUS_ep_mil_speed = -0.05
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+			custom_effect_tooltip = AUS_camarailla_influence_army
+			if = {
+				limit = {
+					OR = {
+						AUH_conrad_von_hotzendorf = {
+							is_hired_as_advisor = yes
+						}
+						has_country_leader = {
+							character = AUH_conrad_von_hotzendorf
 						}
 					}
-					add_to_variable = {
-						AUS_camarilla_progress_to_deposing_you = 3
-					}
 				}
-				else = {
-					add_to_variable = {
-						AUS_camarilla_progress_to_deposing_you = 2
-					}
+				add_to_variable = {
+					AUS_camarilla_progress_to_deposing_you = 3
 				}
+			}
+			else = {
+				add_to_variable = {
+					AUS_camarilla_progress_to_deposing_you = 2
+				}
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -2875,7 +2875,7 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 1
 			}
-
+			
 		}
 		ai_will_do = {
 			base = 1
@@ -3874,7 +3874,7 @@ focus_tree = {
 				AUS_EP_prod_eff_growth = -0.1
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
-
+			
 			custom_effect_tooltip = empty_space_tt
 			unlock_decision_tooltip = {
 				decision = AUS_support_sugar_cartels
@@ -5449,7 +5449,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			remove_mission = AUS_administrative_sabotage_in_south_slav
-
+			
 			custom_effect_tooltip = empty_space_tt
 			unlock_decision_tooltip = {
 				decision = AUS_propaganda_in_bosnia
@@ -8182,72 +8182,70 @@ focus_tree = {
 				uses = 1
 				category = naval_equipment
 			}
-			custom_effect_tooltip = AUH_add_production_of_prinz_eugen_and_szent_istvan
-			hidden_effect = {
-				create_equipment_variant = {
-					name = "Ersatz Monarch Class"
-					type = ship_hull_heavy_2
-					parent_version = 0
-					modules = {
-						fixed_ship_battery_slot = ship_heavy_battery_2
-						fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-						fixed_ship_engine_slot = heavy_ship_engine_1
-						fixed_ship_secondaries_slot = ship_secondaries_2
-						fixed_ship_armor_slot = ship_armor_bb_1
-						front_1_custom_slot = ship_heavy_battery_2
-						mid_1_custom_slot = ship_torpedo_2
-						rear_1_custom_slot = ship_heavy_battery_2
-					}
-				}
-				add_equipment_production = {
-					equipment = {
-						type = ship_hull_heavy_2
-						creator = "AUS"
-						version_name = "Ersatz Monarch Class"
-					}
-					name = "SMS Schlachtschiff VIII"
-					requested_factories = 1
-					progress = 0.4
-					amount = 1
-					industrial_manufacturer = mio:AUH_stabilimento_tecnico_triestino_organization
-				}
-				add_equipment_production = {
-					equipment = {
-						type = ship_hull_heavy_2
-						creator = "AUS"
-						version_name = "Ersatz Monarch Class"
-					}
-					name = "SMS Schlachtschiff IX"
-					requested_factories = 1
-					progress = 0.4
-					amount = 1
-					industrial_manufacturer = mio:AUH_stabilimento_tecnico_triestino_organization
-				}
-				add_equipment_production = {
-					equipment = {
-						type = ship_hull_heavy_2
-						creator = "AUS"
-						version_name = "Ersatz Monarch Class"
-					}
-					name = "SMS Schlachtschiff X"
-					requested_factories = 1
-					progress = 0.4
-					amount = 1
-					industrial_manufacturer = mio:AUH_ganz_danubius_organization
-				}
-				add_equipment_production = {
-					equipment = {
-						type = ship_hull_heavy_2
-						creator = "AUS"
-						version_name = "Ersatz Monarch Class"
-					}
-					name = "SMS Schlachtschiff XI"
-					requested_factories = 1
-					progress = 0.4
-					amount = 1
-					industrial_manufacturer = mio:AUH_ganz_danubius_organization
+			create_equipment_variant = {
+				name = "Ersatz Monarch Class"
+				type = ship_hull_heavy_2
+				parent_version = 0
+				modules = {
+					fixed_ship_battery_slot = ship_heavy_battery_2
+					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+					fixed_ship_engine_slot = heavy_ship_engine_1
+					fixed_ship_secondaries_slot = ship_secondaries_2
+					fixed_ship_armor_slot = ship_armor_bb_1
+					front_1_custom_slot = ship_heavy_battery_2
+					mid_1_custom_slot = ship_torpedo_2
+					rear_1_custom_slot = ship_heavy_battery_2
 				}
 			}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_heavy_2
+					creator = "AUS"
+					version_name = "Ersatz Monarch Class"
+				}
+				name = "SMS Schlachtschiff VIII"
+				requested_factories = 1
+				progress = 0.4
+				amount = 1
+				industrial_manufacturer = mio:AUH_stabilimento_tecnico_triestino_organization
+			}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_heavy_2
+					creator = "AUS"
+					version_name = "Ersatz Monarch Class"
+				}
+				name = "SMS Schlachtschiff IX"
+				requested_factories = 1
+				progress = 0.4
+				amount = 1
+				industrial_manufacturer = mio:AUH_stabilimento_tecnico_triestino_organization
+			}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_heavy_2
+					creator = "AUS"
+					version_name = "Ersatz Monarch Class"
+				}
+				name = "SMS Schlachtschiff X"
+				requested_factories = 1
+				progress = 0.4
+				amount = 1
+				industrial_manufacturer = mio:AUH_ganz_danubius_organization
+			}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_heavy_2
+					creator = "AUS"
+					version_name = "Ersatz Monarch Class"
+				}
+				name = "SMS Schlachtschiff XI"
+				requested_factories = 1
+				progress = 0.4
+				amount = 1
+				industrial_manufacturer = mio:AUH_ganz_danubius_organization
+			}
+			custom_effect_tooltip = AUS_all_these_40.tt
 		}
 		ai_will_do = {
 			factor = 20
