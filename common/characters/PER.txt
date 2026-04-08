@@ -526,6 +526,28 @@ characters={
 				small="gfx/interface/ideas/PER/idea_PER_Reza_Khan.png"
 			}
 		}
+		advisor={
+			slot = high_command
+			ledger = army
+			idea_token = PER_reza_khan
+			available = {
+				NOT = {
+					any_enemy_country = {
+						original_tag = RUS
+						NOT = {
+							has_government = communism
+						}				
+					}
+				}
+			}
+			traits  = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
 		corps_commander = {
 			traits = { career_officer organizer trait_PER_cossack }
 			skill = 3
@@ -546,6 +568,28 @@ characters={
 			army={
 				large="gfx/leaders/PER/PER_Abdollah_Amir_Tahmasebi.png"
 				small="gfx/interface/ideas/PER/idea_PER_Abdollah_Amir_Tahmasebi.png"
+			}
+		}
+		advisor={
+			slot = high_command
+			ledger = army
+			idea_token = PER_abdollah_amir_tahmasebi
+			available = {
+				NOT = {
+					any_enemy_country = {
+						original_tag = RUS
+						NOT = {
+							has_government = communism
+						}				
+					}
+				}
+			}
+			traits  = {
+				army_logistics_1
+			}
+			cost = 50
+			ai_will_do  = {
+				factor  = 1
 			}
 		}
 		corps_commander = {
@@ -593,6 +637,20 @@ characters={
 				small="gfx/interface/ideas/PER/idea_PER_Mohammad_Taqi_Pessian.png"
 			}
 		}
+		advisor={
+			slot = army_chief
+			idea_token = PER_mohammad_taqi_pessian
+			available = {
+				has_global_flag = great_war_ends
+			}
+			traits  = {
+				air_chief_ground_support_1
+			}
+			cost = 50
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
 		corps_commander = {
 			traits = { trickster trait_engineer trait_PER_gendarmerie }
 			skill = 3
@@ -600,7 +658,6 @@ characters={
 			defense_skill = 2
 			planning_skill = 3
 			logistics_skill = 3
-			#legacy_id=189287
 			visible = {
 				OR = {
 					has_global_flag = great_war
