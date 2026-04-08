@@ -3117,6 +3117,9 @@ focus_tree = {
 		cost = 5
 		x = 3
 		y = 1
+		mutually_exclusive = {
+			focus = AUS_the_adults_in_the_room
+		}
 		prerequisite = {
 			focus = AUS_nationalism_and_liberalism
 		}
@@ -3133,48 +3136,22 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = AUS_protect_the_sudenten_germans
-		icon = GFX_focus_BRA_reach_out_to_military_dem
+		id = AUS_the_adults_in_the_room
+		icon = GFX_focus_GER_german_hegemony_in_the_middle_east_demcoratic
 		cost = 5
 		x = 1
 		y = 1
-		prerequisite = {
+		mutually_exclusive = {
 			focus = AUS_suppression_and_germanization
 		}
-		relative_position_id = AUS_suppression_and_germanization
-		available = {
-			AUS_has_reformist_minister = yes
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_crush_the_bohemian_parliament
-		icon = GFX_focus_destroy_meclis
-		cost = 5
-		x = 0
-		y = 1
 		prerequisite = {
-			focus = AUS_protect_the_sudenten_germans
+			focus = AUS_nationalism_and_liberalism
 		}
-		relative_position_id = AUS_protect_the_sudenten_germans
+		relative_position_id = AUS_nationalism_and_liberalism
 		available = {
 			AUS_has_reformist_minister = yes
 		}
 		completion_reward = {
-			add_to_variable = {
-				AUS_czechoslovak_loyalty = -25
-				tooltip = AUS_loyalty_czechoslovakia_tt
-			}
-			AUS_update_state_of_realm = yes
-			effect_tooltip = {
-				remove_mission = AUH_bohemian_parliament_shenanigans
-			}
 		}
 		ai_will_do = {
 			base = 1
@@ -3182,6 +3159,7 @@ focus_tree = {
 		search_filters = {
 		}
 	}
+	
 	focus = {
 		id = AUS_destroy_power_of_the_church
 		icon = GFX_focus_mex_triumph_over_the_cristeros
