@@ -622,7 +622,7 @@ shared_focus = {
 				}
 			}
 		}
-		870 = { is_owned_and_controlled_by = ALB }
+		870 = { is_controlled_by = ALB }
 	}
 	select_effect = {
 		ALB = { country_event = albania.98 }
@@ -630,15 +630,25 @@ shared_focus = {
 		set_country_flag = MNT_occupy_shkoder_in_progress
 	}
 	bypass = {
-		custom_trigger_tooltip = {
-			tooltip = MNT_occupy_shkoder_tt
-			NOT = {
-				focus_progress = {
-					focus = MNT_occupy_shkoder
-					progress > 0
+		OR = {
+			custom_trigger_tooltip = {
+				tooltip = MNT_occupy_shkoder_tt
+				NOT = {
+					focus_progress = {
+						focus = MNT_occupy_shkoder
+						progress > 0
+					}
 				}
+				has_country_flag = MNT_occupy_shkoder_in_progress
 			}
-			has_country_flag = MNT_occupy_shkoder_in_progress
+			any_country = {
+				OR = {
+					owns_state = 870
+					controls_state = 870
+				}
+				has_war_with = ROOT
+			}
+			controls_state = 870
 		}
 	}
 	completion_reward = {
