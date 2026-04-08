@@ -477,7 +477,15 @@ ALB_albanian_independence_movement = {
 			}
 		}
 		ai_will_do = {
-			base = 35
+			base = 50
+			modifier = {
+				OR = {
+					date < 1911.8.0
+					NOT = { has_global_flag = ALB_1911_uprising }
+				}
+				FROM = { state = 1214 }
+				add = 50
+			}
 			modifier = {
 				FROM = { ALB_is_southern_state = yes }
 				add = 30
@@ -824,7 +832,7 @@ ALB_albanian_independence_movement = {
 		timeout_effect = {
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
-				amount = 35
+				amount = 50
 			}
 			activate_mission = ALB_civilian_weapon_collection
 		}

@@ -2493,6 +2493,8 @@ focus_tree = {
 					country_event = albania.34
 				}
 			}
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_unrecognized_state
 		}
 		bypass_effect = {
 			if = {
@@ -2561,6 +2563,7 @@ focus_tree = {
 					}
 				}
 			}
+			remove_ideas = ALB_unrecognized_state
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -3170,7 +3173,15 @@ focus_tree = {
 				}
 				OR = {
 					has_country_flag = ALB_abdulhamid_government
-					NOT = { has_completed_focus = ALB_albanian_independence }
+					OR = {
+						NOT = {
+							has_country_flag = ALB_prizren_government
+							has_country_flag = ALB_kimza_government
+							has_country_flag = ALB_toptani_government
+							has_country_flag = ALB_vlora_government
+						}
+						NOT = { has_completed_focus = ALB_albanian_independence }
+					}
 				}
 			}
 		}
@@ -3237,6 +3248,12 @@ focus_tree = {
 			promote_character = { character = ALB_isa_boletini ideology = warlordism }
 			add_ideas = ALB_abdulhamid_II
 			set_country_flag = ALB_abdulhamid_government
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_cosmetic_tag = ALB_boletini_flag } }
+					set_cosmetic_tag = ALB_boletini_flag
+				}
+			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
@@ -3258,6 +3275,31 @@ focus_tree = {
 				promote_character = { character = ALB_isa_boletini ideology = warlordism }
 				add_ideas = ALB_abdulhamid_II
 				set_country_flag = ALB_abdulhamid_government
+			}
+		}
+		bypass_effect = {
+			set_capital = {
+				state = 847
+				remember_old_capital = no
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = ALB_abdulhamid_government
+				long_name = ALB_abdulhamid_government
+			}
+			set_party_name = {
+				ideology = fascism
+				name = ALB_abdulhamid_government
+				long_name = ALB_abdulhamid_government
+			}
+			promote_character = { character = ALB_isa_boletini ideology = warlordism }
+			add_ideas = ALB_abdulhamid_II
+			set_country_flag = ALB_abdulhamid_government
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_cosmetic_tag = ALB_boletini_flag } }
+					set_cosmetic_tag = ALB_boletini_flag
+				}
 			}
 		}
 		ai_will_do = {
@@ -3300,7 +3342,15 @@ focus_tree = {
 				}
 				OR = {
 					has_country_flag = ALB_prizren_government
-					NOT = { has_completed_focus = ALB_albanian_independence }
+					OR = {
+						NOT = {
+							has_country_flag = ALB_abdulhamid_government
+							has_country_flag = ALB_kimza_government
+							has_country_flag = ALB_toptani_government
+							has_country_flag = ALB_vlora_government
+						}
+						NOT = { has_completed_focus = ALB_albanian_independence }
+					}
 				}
 			}
 		}
@@ -3392,6 +3442,12 @@ focus_tree = {
 				value = -1
 			}
 			set_country_flag = ALB_prizren_government
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_cosmetic_tag = ALB_boletini_flag } }
+					set_cosmetic_tag = ALB_boletini_flag
+				}
+			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
@@ -3430,6 +3486,48 @@ focus_tree = {
 					value = -1
 				}
 				set_country_flag = ALB_prizren_government
+			}
+		}
+		bypass_effect = {
+			set_capital = {
+				state = 847
+				remember_old_capital = no
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = ALB_prizren_party
+				long_name = ALB_prizren_party
+			}
+			set_party_name = {
+				ideology = democratic
+				name = ALB_prizren_party
+				long_name = ALB_prizren_party
+			}
+			set_party_name = {
+				ideology = fascism
+				name = ALB_prizren_party
+				long_name = ALB_prizren_party
+			}
+			set_party_name = {
+				ideology = communism
+				name = ALB_prizren_party
+				long_name = ALB_prizren_party
+			}
+			promote_character = { character = ALB_bajram_curri ideology = civilian_dictatorship }
+			add_victory_points = {
+				province = 9849
+				value = 1
+			}
+			add_victory_points = {
+				province = 9874
+				value = -1
+			}
+			set_country_flag = ALB_prizren_government
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_cosmetic_tag = ALB_boletini_flag } }
+					set_cosmetic_tag = ALB_boletini_flag
+				}
 			}
 		}
 		ai_will_do = {
@@ -3472,7 +3570,15 @@ focus_tree = {
 				}
 				OR = {
 					has_country_flag = ALB_kimza_government
-					NOT = { has_completed_focus = ALB_albanian_independence }
+					OR = {
+						NOT = {
+							has_country_flag = ALB_abdulhamid_government
+							has_country_flag = ALB_prizren_government
+							has_country_flag = ALB_toptani_government
+							has_country_flag = ALB_vlora_government
+						}
+						NOT = { has_completed_focus = ALB_albanian_independence }
+					}
 				}
 			}
 		}
@@ -3561,6 +3667,12 @@ focus_tree = {
 				set_country_flag = ALB_establish_the_kimza_government
 			}
 			set_country_flag = ALB_kimza_government
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_cosmetic_tag = ALB_kimza_flag } }
+					set_cosmetic_tag = ALB_kimza_flag
+				}
+			}
 		}
 		complete_tooltip = {
 			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
@@ -3630,6 +3742,45 @@ focus_tree = {
 				set_country_flag = ALB_kimza_government
 			}
 		}
+		bypass_effect = {
+			set_capital = {
+				state = 1214
+				remember_old_capital = no
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = ALB_kimza_party
+				long_name = ALB_kimza_party
+			}
+			set_party_name = {
+				ideology = democratic
+				name = ALB_kimza_party
+				long_name = ALB_kimza_party
+			}
+			set_party_name = {
+				ideology = fascism
+				name = ALB_kimza_party
+				long_name = ALB_kimza_party
+			}
+			set_party_name = {
+				ideology = communism
+				name = ALB_kimza_party
+				long_name = ALB_kimza_party
+			}
+			every_country = {
+				limit = { has_character = ALB_terenc_toci }
+				ALB_terenc_toci = { set_nationality = ROOT }
+				promote_character = { character = ALB_terenc_toci ideology = civilian_dictatorship }
+				set_country_flag = ALB_establish_the_kimza_government
+			}
+			set_country_flag = ALB_kimza_government
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_cosmetic_tag = ALB_kimza_flag } }
+					set_cosmetic_tag = ALB_kimza_flag
+				}
+			}
+		}
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
@@ -3652,7 +3803,15 @@ focus_tree = {
 				}
 				OR = {
 					has_country_flag = ALB_toptani_government
-					NOT = { has_completed_focus = ALB_albanian_independence }
+					OR = {
+						NOT = {
+							has_country_flag = ALB_abdulhamid_government
+							has_country_flag = ALB_prizren_government
+							has_country_flag = ALB_kimza_government
+							has_country_flag = ALB_vlora_government
+						}
+						NOT = { has_completed_focus = ALB_albanian_independence }
+					}
 				}
 			}
 		}
@@ -3758,6 +3917,10 @@ focus_tree = {
 						ideology = stratocracy
 					}
 				}
+				if = {
+					limit = { NOT = { has_cosmetic_tag = ALB_toptani_flag } }
+					set_cosmetic_tag = ALB_toptani_flag
+				}
 			}
 			set_country_flag = ALB_toptani_government
 		}
@@ -3796,24 +3959,64 @@ focus_tree = {
 						traits = { ALB_wicked_ambitions }
 					}
 				}
-				hidden_effect = {
-					set_portraits = {
-						character = ALB_esad_toptani
-						civilian = {
-							large = "gfx/leaders/ALB/ALB_esad_toptani.png"
-							small = "gfx/interface/ideas/ALB/ALB_esad_toptani.png"
-						}
-					}
-					ALB_esad_toptani = {
-						swap_country_leader_traits = {
-							remove = ALB_pasha_of_central_albania
-							add = ALB_wicked_ambitions
-							ideology = stratocracy
-						}
-					}
-				}
 				set_country_flag = ALB_toptani_government
 			}
+		}
+		bypass_effect = {
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			set_capital = {
+				state = 44
+				remember_old_capital = no
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = ALB_toptani_party
+				long_name = ALB_toptani_party
+			}
+			set_party_name = {
+				ideology = democratic
+				name = ALB_toptani_party
+				long_name = ALB_toptani_party
+			}
+			set_party_name = {
+				ideology = fascism
+				name = ALB_toptani_party
+				long_name = ALB_toptani_party
+			}
+			set_party_name = {
+				ideology = communism
+				name = ALB_toptani_party
+				long_name = ALB_toptani_party
+			}
+			add_country_leader_role = {
+				character = ALB_esad_toptani
+				promote_leader = yes
+				country_leader = {
+					ideology = personalistic_dictatorship
+					traits = { ALB_wicked_ambitions }
+				}
+			}
+			hidden_effect = {
+				set_portraits = {
+					character = ALB_esad_toptani
+					civilian = {
+						large = "gfx/leaders/ALB/ALB_esad_toptani.png"
+						small = "gfx/interface/ideas/ALB/ALB_esad_toptani.png"
+					}
+				}
+				ALB_esad_toptani = {
+					swap_country_leader_traits = {
+						remove = ALB_pasha_of_central_albania
+						add = ALB_wicked_ambitions
+						ideology = stratocracy
+					}
+				}
+				if = {
+					limit = { NOT = { has_cosmetic_tag = ALB_toptani_flag } }
+					set_cosmetic_tag = ALB_toptani_flag
+				}
+			}
+			set_country_flag = ALB_toptani_government
 		}
 		ai_will_do = {
 			factor = 100
@@ -3856,7 +4059,15 @@ focus_tree = {
 				}
 				OR = {
 					has_country_flag = ALB_vlora_government
-					NOT = { has_completed_focus = ALB_albanian_independence }
+					OR = {
+						NOT = {
+							has_country_flag = ALB_abdulhamid_government
+							has_country_flag = ALB_prizren_government
+							has_country_flag = ALB_kimza_government
+							has_country_flag = ALB_toptani_government
+						}
+						NOT = { has_completed_focus = ALB_albanian_independence }
+					}
 				}
 			}
 		}
@@ -3941,6 +4152,12 @@ focus_tree = {
 			}
 			promote_character = { character = ALB_ismail_qemali ideology = civilian_dictatorship }
 			set_country_flag = ALB_vlora_government
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_cosmetic_tag = ALB_vlora_flag } }
+					set_cosmetic_tag = ALB_vlora_flag
+				}
+			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
@@ -3971,6 +4188,41 @@ focus_tree = {
 				}
 				promote_character = { character = ALB_ismail_qemali ideology = civilian_dictatorship }
 				set_country_flag = ALB_vlora_government
+			}
+		}
+		bypass_effect = {
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			set_capital = {
+				state = 871
+				remember_old_capital = no
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = ALB_vlora_party
+				long_name = ALB_vlora_party
+			}
+			set_party_name = {
+				ideology = democratic
+				name = ALB_vlora_party
+				long_name = ALB_vlora_party
+			}
+			set_party_name = {
+				ideology = fascism
+				name = ALB_vlora_party
+				long_name = ALB_vlora_party
+			}
+			set_party_name = {
+				ideology = communism
+				name = ALB_vlora_party
+				long_name = ALB_vlora_party
+			}
+			promote_character = { character = ALB_ismail_qemali ideology = civilian_dictatorship }
+			set_country_flag = ALB_vlora_government
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_cosmetic_tag = ALB_vlora_flag } }
+					set_cosmetic_tag = ALB_vlora_flag
+				}
 			}
 		}
 		ai_will_do = { factor = 100 }
@@ -4094,25 +4346,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			ALB_post_independence_cosmetic_effect = yes
-			if = {
-				limit = { has_cosmetic_tag = ALB_boletini_flag }
-				set_cosmetic_tag = ALB_boletini_flag_independent
-				set_country_flag = ALB_boletini_independence
-			}
-			else_if = {
-				limit = { has_cosmetic_tag = ALB_kimza_flag }
-				set_cosmetic_tag = ALB_kimza_flag_independent
-				set_country_flag = ALB_kimza_independence
-			}
-			else_if = {
-				limit = { has_cosmetic_tag = ALB_toptani_flag }
-				set_cosmetic_tag = ALB_toptani_flag_independent
-				set_country_flag = ALB_toptani_independence
-			}
-			else = {
-				set_cosmetic_tag = ALB_vlora_flag_independent
-				set_country_flag = ALB_vlora_independence
-			}
 			add_country_leader_trait = ALB_babai_kombit
 			custom_effect_tooltip = ALB_albanian_independence_tt
 			clr_country_flag = TUR_revolting_country
@@ -4120,6 +4353,7 @@ focus_tree = {
 				news_event = { id = albania.36 hours = 6 }
 				country_event = { id = albania.82 days = 365 random_days = 30 } #albanian nationalist party
 			}
+			add_ideas = ALB_unrecognized_state
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5068,7 +5302,6 @@ focus_tree = {
 		}
 		prerequisite = { focus = ALB_international_gendarmerie }
 		prerequisite = { focus = ALB_international_control_commission }
-		prerequisite = { focus = ALB_albanian_independence }
 		mutually_exclusive = { focus = ALB_recrown_abdulhamid_II focus = ALB_idea_of_romantic_independence focus = ALB_foreign_policy_priority }
 		x = 1
 		y = 1

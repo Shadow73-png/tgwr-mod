@@ -199,6 +199,7 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
+			news_event = { id = ww1_firstbalkan.5 hours = 6 }
 			BUL = {
 				every_state = {
 					limit = {
@@ -248,7 +249,13 @@ country_event = {
 				FROM = {
 					if = {
 						limit = { has_war_with = ALB }
-						ALB = { country_event = albania.40 }
+						ALB = {
+							if = {
+								limit = { has_country_flag = TUR_revolting_country }
+								clr_country_flag = TUR_revolting_country
+							}
+							country_event = albania.40
+						}
 					}
 					every_country = {
 						limit = {
