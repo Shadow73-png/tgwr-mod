@@ -343,6 +343,123 @@ characters={
 			}
 		}
 	}
+	PER_abdol_hossein_mizra={
+		portraits={
+			army={
+				large="gfx/leaders/PER/PER_abdol_hossein_mizra.png"
+				#small="gfx/interface/ideas/PER/idea_PER_abdol_hossein_mizra_army.png"
+			}
+			civilian = {
+				#small="gfx/interface/ideas/PER/idea_PER_abdol_hossein_mizra.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PER_abdol_hossein_mizra
+			available = {
+				has_government = neutrality
+			}
+			traits  = {
+				PER_farman_farma 
+			}
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = PER_abdol_hossein_mizra_army_chief
+			available = {
+				OR = {
+					has_government = democratic
+					has_government = neutrality
+				}
+			}
+			traits  = {
+				army_chief_reform_1
+			}
+			cost = 50
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
+		field_marshal = {
+			traits = { old_guard trait_royal trait_cautious organisational_leader }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				OR = {
+					has_government = democratic
+					has_government = neutrality
+				}
+			}
+		}
+	}
+	PER_yeprem_khan_davitian={
+		portraits={
+			army={
+				large="gfx/leaders/PER/PER_yeprem_khan_davitian.png"
+				#small="gfx/interface/ideas/PER/idea_PER_yeprem_khan_davitian_army.png"
+			}
+			civilian = {
+				#small="gfx/interface/ideas/PER/idea_PER_yeprem_khan_davitian.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PER_yeprem_khan_davitian
+			available = {
+				has_PER_constitutionalism = yes
+			}
+			visible = {
+				NOT = {
+					has_character_flag = character_died
+				}
+			}
+			traits  = {
+				PER_hayrik 
+			}
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = PER_yeprem_khan_davitian_army_chief
+			available = {
+				has_PER_constitutionalism = yes
+			}
+			visible = {
+				NOT = {
+					has_character_flag = character_died
+				}
+			}
+			traits  = {
+				army_chief_morale_2
+			}
+			cost = 100
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
+		field_marshal = {
+			traits = { irregulars_officer militias_officer trait_reckless politically_connected inspirational_leader }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				has_PER_constitutionalism = yes
+				NOT = {
+					has_character_flag = character_died
+				}
+			}
+		}
+	}
 	PER_nezam_us_saltaneh={
 		portraits={
 			army={
@@ -362,6 +479,46 @@ characters={
 			ideology = stratocracy
 		}
 	}
+	PER_iskandar_khan_setkhanian={
+		portraits={
+			army={
+				large="gfx/leaders/PER/PER_iskandar_khan_setkhanian.png"
+				#small="gfx/interface/ideas/PER/idea_PER_iskandar_khan_setkhanian.png"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = PER_iskandar_khan_setkhanian
+			available = {
+				NOT = {
+					any_enemy_country = {
+						original_tag = RUS
+						NOT = {
+							has_government = communism
+						}				
+					}
+				}
+			}
+			traits  = {
+				army_chief_defensive_2
+			}
+			cost = 100
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
+		field_marshal = {
+			traits = { cavalry_leader old_guard trait_PER_cossack inflexible_strategist }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+			visible = {
+				has_country_flag = PER_has_raised_cossacks
+			}
+		}
+	}
 	PER_reza_khan={
 		portraits={
 			army={
@@ -370,7 +527,7 @@ characters={
 			}
 		}
 		corps_commander = {
-			traits = { career_officer organizer logistics_wizard offensive_doctrine inspirational_leader trait_PER_cossack }
+			traits = { career_officer organizer trait_PER_cossack }
 			skill = 3
 			attack_skill = 3
 			defense_skill = 1
@@ -454,6 +611,44 @@ characters={
 					has_civil_war = yes
 				}
 			}
+		}
+	}
+	PER_ahmad_khan_daryabeigi={
+		portraits={
+			navy={
+				large="gfx/leaders/PER/PER_ahmad_khan_daryabeigi.png"
+				#small="gfx/interface/ideas/PER/idea_PER_ahmad_khan_daryabeigi.png"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = PER_ahmad_khan_daryabeigi
+			traits  = {
+				navy_fleet_logistics_1
+			}
+			cost = 50
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = PER_ahmad_khan_daryabeigi_theorist
+			traits  = {
+				naval_theorist
+			}
+			cost = 100
+			ai_will_do  = {
+				factor  = 1
+			}
+		}
+		navy_leader={
+			traits={ old_guard_navy gentlemanly  }
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			maneuvering_skill=1
+			coordination_skill=1		
 		}
 	}
 	PER_mirza_kuchik_khan = {
