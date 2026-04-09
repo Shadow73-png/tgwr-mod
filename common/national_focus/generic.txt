@@ -622,7 +622,15 @@ shared_focus = {
 				}
 			}
 		}
-		870 = { is_controlled_by = ALB }
+		870 = {
+			is_controlled_by = ALB
+			owner = {
+				OR = {
+					tag = TUR
+					has_country_flag = TUR_revolting_country
+				}
+			}
+		}
 	}
 	select_effect = {
 		ALB = { country_event = albania.98 }
@@ -641,12 +649,9 @@ shared_focus = {
 				}
 				has_country_flag = MNT_occupy_shkoder_in_progress
 			}
-			any_country = {
-				OR = {
-					owns_state = 870
-					controls_state = 870
-				}
-				has_war_with = ROOT
+			OR = {
+				ALB = { has_war_with = ROOT }
+				TUR = { has_war_with = ROOT }
 			}
 			controls_state = 870
 		}
