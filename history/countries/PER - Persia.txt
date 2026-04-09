@@ -347,7 +347,7 @@ if = {
 	create_dynamic_country = {
 	    original_tag = PER
 	    set_country_flag = PER_persian_exiles
-		set_cosmetic_tag = PER_exiles
+		set_cosmetic_tag = PER_mohammad_ali_shah_revolt
 		set_capital = { state = 1013 }	
 		set_oob = "PER_templates"
 		inherit_technology = PER
@@ -388,11 +388,8 @@ if = {
 			give_guarantee = PREV
 		}
 
-		every_state = {
-			limit = {
-				is_claimed_by = PREV.PREV
-			}
-			add_claim_by = PREV
+		every_core_state = {
+			remove_core_of = PREV
 		}
 	}
 	#Revolt of Salar-al-Daulah

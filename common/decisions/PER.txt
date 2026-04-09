@@ -94,9 +94,6 @@ PER_constitutional_revolution_category = {
 		days_mission_timeout = 396
 
 		timeout_effect = {
-			421 = {
-				transfer_state_to = PRS
-			}
 			hidden_effect = {
 				every_core_state = {
 					add_core_of = PRS
@@ -168,15 +165,24 @@ PER_constitutional_revolution_category = {
 				transfer_state_to = PEX
 			}
 			hidden_effect = {
-				PEX = {
-					if = {
-						limit = {
-							is_government_in_exile = yes
-						}
-						end_exile = THIS
-					}
-					set_cosmetic_tag = PER_mohammad_ali_shah_revolt
+				every_core_state = {
+					add_core_of = PEX
 				}
+				every_state = {
+					limit = {
+						is_claimed_by = PREV.PREV
+					}
+					add_claim_by = PEX
+				}
+			}
+			PEX = {
+				declare_war_on = { target = ROOT type = civil_war }
+				hidden_effect = {
+					add_civil_war_target = ROOT
+					inherit_technology = ROOT
+					remove_all_AI_templates = yes
+					remove_all_tech_templates = yes
+				}			
 			}
 		}
 	}
