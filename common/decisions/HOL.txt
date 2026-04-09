@@ -352,6 +352,66 @@ HOL_dc_ek = {
 			factor = 200
 		}
 	}
+	HOL_women_in_army = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = HOL
+		}
+		available = {
+			tag = HOL
+			has_completed_focus = HOL_expand_feminist_rights
+			has_government = communism
+		}
+		visible = {
+			tag = HOL
+			has_completed_focus = HOL_expand_feminist_rights
+			has_government = communism
+		}
+		fire_only_once = yes
+		complete_effect = {
+			custom_effect_tooltip = HOL_modify_dutch_military_tt
+			add_to_variable = {
+				HOL_variable_army_conscription = 0.05
+				tooltip = conscription_factor_tt
+			}
+		}
+		cost = 75
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	HOL_women_in_workforce = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = HOL
+		}
+		available = {
+			tag = HOL
+			has_completed_focus = HOL_expand_feminist_rights
+			has_government = communism
+		}
+		visible = {
+			tag = HOL
+			has_completed_focus = HOL_expand_feminist_rights
+			has_government = communism
+		}
+		fire_only_once = yes
+		complete_effect = {
+			custom_effect_tooltip = HOL_modify_social_kwestie_tt
+			add_to_variable = {
+				HOL_variable_lc_consumers = -0.025
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				HOL_lc_efficiency_growth = 0.025
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+		}
+		cost = 75
+		ai_will_do = {
+			factor = 200
+		}
+	}
 	HOL_lobby_arp = {
 		icon = GFX_decision_eng_trade_unions_demand
 		allowed = {
