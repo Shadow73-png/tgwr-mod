@@ -1657,3 +1657,70 @@ country_event = { #Al Murra Raid
 		name = ww1_nejd.62.a 
 	}
 }
+
+country_event = {
+	id = ww1_nejd.63
+	title = ww1_nejd.63.t
+	desc = ww1_nejd.63.desc
+	picture = GFX_report_event_saf_soldiers_3
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_nejd.63.a
+		292 = { transfer_state_to = SAU }
+		if = {
+			limit = {
+				NOT = {
+					has_cosmetic_tag = SAU_nejd_and_hasa
+					has_cosmetic_tag = SAU_sultanate
+					has_cosmetic_tag = SAU_nejd_and_hejaz
+					has_cosmetic_tag = SAU_saudi_arabia
+				}
+			}
+			set_cosmetic_tag = SAU_nejd_and_hasa
+		}
+	}
+}
+
+country_event = {
+	id = ww1_nejd.64
+	title = ww1_nejd.64.t
+	desc = ww1_nejd.64.desc
+	picture = GFX_report_event_saf_soldiers_3
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_nejd.64.a
+		effect_tooltip = { 292 = { transfer_state_to = SAU } }
+		if = {
+			limit = { has_subject = QAT }
+			end_puppet = QAT
+		}
+	}
+}
+
+country_event = {
+	id = ww1_nejd.65
+	title = ww1_nejd.65.t
+	desc = ww1_nejd.65.desc
+	picture = GFX_report_event_saf_soldiers_3
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_nejd.65.a
+		add_war_support = -0.1
+	}
+}
+
+country_event = {
+	id = ww1_nejd.66
+	title = ww1_nejd.66.t
+	desc = ww1_nejd.66.desc
+	picture = GFX_report_event_saf_soldiers_3
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_nejd.66.a
+		army_experience = 15
+	}
+}

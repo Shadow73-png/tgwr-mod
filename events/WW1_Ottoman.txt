@@ -3586,20 +3586,21 @@ country_event = { #conquest of al-Hasa
 	is_triggered_only = yes
 	option = {
 		name = ottoman.38.a
-		804 = {
-			add_claim_by = ROOT
-			transfer_state_to = FROM
-		}
-		FROM = {
-			if = {
-				limit = {
-					NOT = {
-						has_cosmetic_tag = SAU_nejd_and_hejaz
-						has_cosmetic_tag = SAU_saudi_arabia
-						has_cosmetic_tag = SAU_sultanate
-					}
+		effect_tooltip = {
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 292
+					on_win = ottoman.38
+					on_lose = ottoman.38
+					on_cancel = ottoman.38
+				}	
+				defender = {
+					state = 804
+					on_win = ottoman.38
+					on_lose = ottoman.38
+					on_cancel = ottoman.38
 				}
-				set_cosmetic_tag = SAU_nejd_and_hasa
 			}
 		}
 	}

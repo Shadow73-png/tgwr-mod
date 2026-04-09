@@ -6,7 +6,7 @@ SAU_arabian_conquest = {
 			original_tag = SAU			
 		}
 		visible = {
-			date > 1912.12.13
+			#date > 1912.12.13
 			NOT = {
 				owns_state = 804
 			}
@@ -22,18 +22,6 @@ SAU_arabian_conquest = {
 			}
 			# saud did this even they had garrison there
 			FROM = {
-				OR = {
-					num_divisions_in_states = {
-						count < 1
-						states = { 804 }
-						exclude = { irregular_infantry irregular_cavalry }
-					}
-					#ww1
-					has_war_with = GER
-					has_war_with = FRA
-					#balkan
-					has_global_flag = kis_firstbalkanwar_victory
-				}
 				NOT = {
 					owns_state = 656
 					owns_state = 904
@@ -52,6 +40,7 @@ SAU_arabian_conquest = {
 				state = 804
 			}
 		}
+		fire_only_once = yes
 		cost = 25
 		ai_will_do = {
 			base = 100
@@ -77,32 +66,22 @@ SAU_arabian_conquest = {
 		}
 		fire_only_once = yes
 		complete_effect = {
-			effect_tooltip = {
-				transfer_state = 804
-				country_event = ww1_nejd.46
-				FROM = {
-					if = {
-						limit = { has_subject = QAT }
-						end_puppet = QAT
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							has_cosmetic_tag = SAU_nejd_and_hasa
-							has_cosmetic_tag = SAU_sultanate
-							has_cosmetic_tag = SAU_nejd_and_hejaz
-							has_cosmetic_tag = SAU_saudi_arabia
-						}
-					}
-					set_cosmetic_tag = SAU_nejd_and_hasa
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 292
+					on_win = ww1_nejd.63
+					on_lose = ww1_nejd.65
+					on_cancel = ww1_nejd.65
+				}	
+				defender = {
+					state = 804
+					on_win = ww1_nejd.66
+					on_lose = ww1_nejd.64
+					on_cancel = ww1_nejd.66
 				}
 			}
-			hidden_effect = {
-				FROM = {
-					country_event = ottoman.38
-				}
-			}
+			hidden_effect = { FROM = { country_event = ottoman.38 } }
 		}
 	}
 	SAU_invade_kuwait = {
@@ -187,12 +166,10 @@ SAU_arabian_conquest = {
 			}
 		}
 		available = {
-			292 = {
-				is_owned_and_controlled_by = ROOT
-			}
-			TUR = {
-				has_country_flag = great_war_loser 
-			}
+			is_subject = no
+			has_war = no
+			FROM = { is_subject = no }
+			is_neighbor_of = FROM
 			NOT = {
 				has_idea = idea_army_restrictions
 				has_active_mission = frankfurt_conference
@@ -391,6 +368,7 @@ SAU_arabian_conquest = {
 			country_exists = FROM
 			NOT = {
 				has_subject = FROM
+				FROM = { has_country_flag = TUR_revolting_country }
 			}
 			# has_country_flag = hjz_preparation
 		}
@@ -455,79 +433,6 @@ SAU_arabian_conquest = {
 			}
 		}
 	}
-	SAU_declare_kingdom_of_hejaz_and_nejd = {
-		icon = GFX_decision_ITA_reorganize_ascari
-		allowed = {
-			original_tag = SAU
-		}
-		available = {
-			HJZ = {
-				OR = {
-					exists = no
-					is_subject_of = PREV
-				}
-			}
-			791 = {
-				is_owned_by = ROOT
-				is_core_of = ROOT
-				# NOT = { is_core_of = JBS }
-			}
-			# has_cosmetic_tag = SAU_sultanate
-		}
-		visible = {
-			OR = {
-				AND = {
-					has_full_control_of_state = 679
-					has_full_control_of_state = 878
-				}
-				has_subject = HJZ
-			}
-		}
-		ai_will_do = {
-			factor = 100
-		}
-		fire_only_once = yes
-		complete_effect = {
-			hidden_effect = {
-				if = {
-					limit = {
-						NOT = { has_global_flag = set_up_sykes_picot_anizah_border }
-						has_global_flag = sykes_picot
-						ENG = { has_country_flag = great_war_winner }
-						915 = { is_owned_or_subject_trigger = yes }
-					}
-					set_up_sykes_picot_anizah_border = yes
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_cosmetic_tag = SAU_nejd_and_hejaz
-						has_cosmetic_tag = SAU_saudi_arabia
-					}
-				}
-				set_cosmetic_tag = SAU_nejd_and_hejaz
-			}
-			if = {
-				limit = {
-					has_subject = HJZ
-				}
-				annex_country = {
-					target = HJZ
-					transfer_troops = yes
-				}
-			}
-			every_owned_state = {
-				limit = {
-					is_core_of = HJZ
-					NOT = {
-						is_core_of = SAU
-					}	
-				}
-				add_core_of = SAU
-			}
-		}
-	}
 	SAU_unite_UAS = {
 		name = SAU_unite_ASR
 		icon = border_war
@@ -538,9 +443,7 @@ SAU_arabian_conquest = {
 			country_exists = FROM
 			NOT = {
 				has_subject = FROM
-			}
-			TUR = {
-				has_country_flag = great_war_loser 
+				FROM = { has_country_flag = TUR_revolting_country }
 			}
 		}
 		available = {
@@ -621,9 +524,7 @@ SAU_arabian_conquest = {
 			country_exists = FROM
 			NOT = {
 				has_subject = FROM
-			}
-			TUR = {
-				has_country_flag = great_war_loser 
+				FROM = { has_country_flag = TUR_revolting_country }
 			}
 		}
 		available = {
@@ -696,6 +597,138 @@ SAU_arabian_conquest = {
 			declare_war_on = {
 				target = FROM
 				type = annex_everything
+			}
+		}
+	}
+	SAU_unite_NAJ = {
+		icon = border_war
+		allowed = {
+			original_tag = SAU
+		}
+		target_array = 929.owner
+		war_with_target_on_complete = yes
+		visible = {
+			owns_state = 292
+			NOT = {
+				has_war_with = FROM
+			}
+		}
+		available = {
+			is_subject = no
+			has_war = no
+			FROM = { is_subject = no }
+			is_neighbor_of = FROM
+			NOT = {
+				has_idea = idea_army_restrictions
+				has_active_mission = frankfurt_conference
+				has_active_mission = versallies_conference
+			}
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				date < 1934.1.1
+			}
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio > 1.0
+				}
+			}
+		}
+		cost = 75
+		fire_only_once = yes
+		complete_effect = {
+			add_state_core = 929
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 292
+					num_provinces = 3
+					on_win = ww1_yemen.6
+					on_lose =  ww1_yemen.7
+				}
+				defender = {
+					state = 929
+					num_provinces = 1
+					on_win =  ww1_yemen.8
+					on_lose =  ww1_yemen.9
+				}
+			}
+		}
+	}
+	SAU_declare_kingdom_of_hejaz_and_nejd = {
+		icon = GFX_decision_ITA_reorganize_ascari
+		allowed = {
+			original_tag = SAU
+		}
+		available = {
+			HJZ = {
+				OR = {
+					exists = no
+					is_subject_of = PREV
+				}
+			}
+			791 = {
+				is_owned_by = ROOT
+				is_core_of = ROOT
+				# NOT = { is_core_of = JBS }
+			}
+			# has_cosmetic_tag = SAU_sultanate
+		}
+		visible = {
+			OR = {
+				AND = {
+					has_full_control_of_state = 679
+					has_full_control_of_state = 878
+				}
+				has_subject = HJZ
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		complete_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { has_global_flag = set_up_sykes_picot_anizah_border }
+						has_global_flag = sykes_picot
+						ENG = { has_country_flag = great_war_winner }
+						915 = { is_owned_or_subject_trigger = yes }
+					}
+					set_up_sykes_picot_anizah_border = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_cosmetic_tag = SAU_nejd_and_hejaz
+						has_cosmetic_tag = SAU_saudi_arabia
+					}
+				}
+				set_cosmetic_tag = SAU_nejd_and_hejaz
+			}
+			if = {
+				limit = {
+					has_subject = HJZ
+				}
+				annex_country = {
+					target = HJZ
+					transfer_troops = yes
+				}
+			}
+			every_owned_state = {
+				limit = {
+					is_core_of = HJZ
+					NOT = {
+						is_core_of = SAU
+					}	
+				}
+				add_core_of = SAU
 			}
 		}
 	}
@@ -785,66 +818,6 @@ SAU_arabian_conquest = {
 			news_event = {
 				id = interwar_news.19
 				hours = 3
-			}
-		}
-	}
-	SAU_unite_NAJ = {
-		icon = border_war
-		allowed = {
-			original_tag = SAU
-		}
-		target_array = 929.owner
-		war_with_target_on_complete = yes
-		visible = {
-			owns_state = 292
-			NOT = {
-				has_war_with = FROM
-			}
-		}
-		available = {
-			is_subject = no
-			has_war = no
-			FROM = {
-				is_subject = no
-			}
-			NOT = {
-				has_idea = idea_army_restrictions
-				has_active_mission = frankfurt_conference
-				has_active_mission = versallies_conference
-			}
-		}
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				factor = 0
-				date < 1934.1.1
-			}
-			modifier = {
-				factor = 0
-				strength_ratio = {
-					tag = FROM
-					ratio > 1.0
-				}
-			}
-		}
-		cost = 75
-		fire_only_once = yes
-		complete_effect = {
-			add_state_core = 929
-			start_border_war = {
-				change_state_after_war = no
-				attacker = {
-					state = 292
-					num_provinces = 3
-					on_win = ww1_yemen.6
-					on_lose =  ww1_yemen.7
-				}
-				defender = {
-					state = 929
-					num_provinces = 1
-					on_win =  ww1_yemen.8
-					on_lose =  ww1_yemen.9
-				}
 			}
 		}
 	}
