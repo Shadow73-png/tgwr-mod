@@ -1154,16 +1154,15 @@ operations = {
 				add_state_claim = 1245
 			}
 			hidden_effect = {
-				every_state = {
-					limit = {
-						is_owned_by = PER
-						OR =  {
-							state = 413
-							state = 1246
-							state = 410
+				if = {
+					limit = { 
+						410 = {
+							is_owned_by = PER
 						}
 					}
-					transfer_state_to = ENG
+					410 = {
+						transfer_state_to = ENG
+					}
 				}
 				every_state = {
 					limit = {

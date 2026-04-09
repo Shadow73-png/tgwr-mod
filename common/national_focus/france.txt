@@ -6788,7 +6788,15 @@ focus_tree = {
 				amount = 250
 				producer = FRA
 			}
-			upgrade_economy_law = yes
+			if = {
+				limit = { 
+					NOT = {
+						has_idea = war_economy
+						has_idea = tot_economic_mobilisation
+					}
+				}
+				upgrade_economy_law = yes
+			}
 		}
 		ai_will_do = {
 			factor = 250
