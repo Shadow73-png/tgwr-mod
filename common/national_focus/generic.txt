@@ -657,12 +657,21 @@ shared_focus = {
 		}
 	}
 	completion_reward = {
-		transfer_state = 870
 		hidden_effect = {
-			ALB = { country_event = albania.100 }
+			ALB = {
+				country_event = albania.100
+				if = {
+					limit = { all_owned_state = { state = 870 } }
+					random_state = {
+						limit = { ALB_is_northern_state = yes }
+						set_state_owner_to = ALB
+					}
+				}
+			}
 			TUR = { country_event = albania.100 }
 			news_event = { id = albania.101 hours = 6 }
 		}
+		transfer_state = 870
 	}
 	relative_position_id = nationalist_regeneration
 	prerequisite = {
