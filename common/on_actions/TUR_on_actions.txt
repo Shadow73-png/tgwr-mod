@@ -287,6 +287,10 @@ on_actions = {
 					}
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_vilayet_centralization } }
 				}
+				if = {
+					limit = { NOT = { has_global_flag = TUR_government_stability_territory_event_change } }
+					FROM.FROM = { set_variable = { global.ottoman_state_change_name = THIS } }
+				}
 				FROM = {
 					if = {
 						limit = { NOT = { has_global_flag = TUR_government_stability_territory_event_change } }
@@ -311,6 +315,10 @@ on_actions = {
 					}
 					ROOT = { tag = TUR }
 					FROM.FROM = { has_state_flag = TUR_vilayet_centralization_no_control }
+				}
+				if = {
+					limit = { NOT = { has_global_flag = TUR_government_stability_territory_event_change } }
+					FROM.FROM = { set_variable = { global.ottoman_state_change_name = THIS } }
 				}
 				ROOT = {
 					if = {

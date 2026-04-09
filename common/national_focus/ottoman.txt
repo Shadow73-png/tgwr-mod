@@ -4425,6 +4425,12 @@ focus_tree = {
 				TUR_sce_neutrality_drift = 0.02
 			}
 			custom_effect_tooltip = empty_space
+			add_stability = -0.05
+			add_to_variable = {
+				tooltip = TUR_government_stability_reduce_5
+				TUR_sce_government_stability = -5
+			}
+			TUR_government_stability_calculate = yes
 		}
 		ai_will_do = { base = 20 }
 	}
@@ -4728,6 +4734,7 @@ focus_tree = {
 				has_idea = TUR_disruptive_opposition
 				has_idea = TUR_paralyzing_opposition
 			}
+			NOT = { has_completed_focus = TUR_eradicate_the_opposition }
 		}
 		bypass = { has_idea = TUR_technocratic_governance }
 		relative_position_id = TUR_aftermath_of_the_31_march_incident
@@ -4796,6 +4803,7 @@ focus_tree = {
 		available = {
 			has_idea = TUR_disruptive_opposition
 			NOT = { has_idea = TUR_paralyzing_opposition }
+			NOT = { has_completed_focus = TUR_eradicate_the_opposition }
 		}
 		bypass = { has_idea = TUR_technocratic_governance }
 		relative_position_id = TUR_aftermath_of_the_31_march_incident
@@ -4838,6 +4846,7 @@ focus_tree = {
 				has_idea = TUR_disruptive_opposition
 				has_idea = TUR_paralyzing_opposition
 			}
+			NOT = { has_completed_focus = TUR_eradicate_the_opposition }
 		}
 		bypass = { has_idea = TUR_technocratic_governance }
 		relative_position_id = TUR_aftermath_of_the_31_march_incident

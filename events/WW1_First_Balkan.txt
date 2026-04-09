@@ -953,6 +953,18 @@ country_event = {
 		name = ww1_firstbalkan.7.a
 		every_country = {
 			limit = {
+				has_country_flag = TUR_revolting_country
+				is_subject = yes
+				overlord = { has_war_with = ROOT }
+			}
+			overlord = { end_puppet = PREV }
+			if = {
+				limit = { is_in_faction = yes }
+				leave_faction = yes
+			}
+		}
+		every_country = {
+			limit = {
 				has_war = yes
 				OR = {
 					is_ally_with = ROOT
@@ -967,6 +979,10 @@ country_event = {
 						is_ally_with = FROM
 						tag = FROM
 					}
+					NOT = {
+						original_tag = SMS
+						has_country_flag = TUR_revolting_country
+					}
 				}
 				white_peace = PREV
 				set_truce = {
@@ -980,9 +996,7 @@ country_event = {
 				set_country_flag = BW1_loser
 
 				if = {
-					limit = {
-						has_wargoal_against = PREV
-					}
+					limit = { has_wargoal_against = PREV }
 					remove_wargoal = {
 						target = PREV
 						type = all
@@ -990,9 +1004,7 @@ country_event = {
 				}
 
 				if = {
-					limit = {
-						original_tag = BUL
-					}
+					limit = { original_tag = BUL }
 					add_ideas = BUL_idea_first_national_catastrophe
 					add_timed_idea = {
 						idea = BUL_idea_refugee_crisis
@@ -1001,33 +1013,23 @@ country_event = {
 					set_global_flag = BUL_surrender_in_balkan_war
 				}
 				else_if = {
-					limit = {
-						original_tag = SER
-					}
+					limit = { original_tag = SER }
 					set_global_flag = SER_surrender_in_balkan_war
 				}
 				else_if = {
-					limit = {
-						original_tag = GRE
-					}
+					limit = { original_tag = GRE }
 					set_global_flag = GRE_surrender_in_balkan_war
 				}
 				else_if = {
-					limit = {
-						original_tag = ROM
-					}
+					limit = { original_tag = GRE }
 					set_global_flag = ROM_surrender_in_balkan_war
 				}
 				else_if = {
-					limit = {
-						original_tag = CRE
-					}
+					limit = { original_tag = CRE }
 					drop_cosmetic_tag = yes
 				}
 				else_if = {
-					limit = {
-						original_tag = SMS
-					}
+					limit = { original_tag = SMS }
 					set_country_flag = protectorate
 					ROOT = {
 						set_autonomy = {
@@ -1045,25 +1047,11 @@ country_event = {
 					}
 				}
 				else_if = {
-					limit = {
-						original_tag = IKR
-					}
-					ROOT = {
-						annex_country = {
-							target = PREV
-						}
-					}
-				}
-				else_if = {
-					limit = {
-						original_tag = MNT
-					}
+					limit = { original_tag = MNT }
 					set_global_flag = MNT_surrender_in_balkan_war
 				}
 				if = {
-					limit = {
-						is_faction_leader = yes
-					}
+					limit = { is_faction_leader = yes }
 					dismantle_faction = yes
 				}
 			}

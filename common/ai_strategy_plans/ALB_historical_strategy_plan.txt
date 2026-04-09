@@ -103,34 +103,34 @@ ALB_draft_the_grece_memorandum_plan = {
 						progress > 0
 					}
 				}
-				modifier = {
-					any_neighbor_country = { NOT = { tag = TUR } }
-					factor = 0
+			}
+			add = 3
+		}
+		modifier = {
+			any_neighbor_country = { NOT = { tag = TUR } }
+			factor = 0
+		}
+		modifier = {
+			OR = {
+				num_of_controlled_states > 10
+				TUR = {
+					casualties_inflicted_by = {
+						opponent = ALB
+						thousands > 30
+					}
 				}
-				modifier = {
-					OR = {
-						num_of_controlled_states > 10
-						TUR = {
-							casualties_inflicted_by = {
-								opponent = ALB
-								thousands > 30
-							}
-						}
-						has_country_flag = {
-							flag = TUR_ongoing_rebellion_days
-							days > 150
-						}
-						custom_trigger_tooltip = {
-							tooltip = ALB_present_the_fourteen_demands_tt
-							has_country_flag = {
-								flag = TUR_ongoing_rebellion_days
-								days > 150
-							}
-						}
+				has_country_flag = {
+					flag = TUR_ongoing_rebellion_days
+					days > 150
+				}
+				custom_trigger_tooltip = {
+					tooltip = ALB_present_the_fourteen_demands_tt
+					has_country_flag = {
+						flag = TUR_ongoing_rebellion_days
+						days > 150
 					}
 				}
 			}
-			add = 3
 		}
 	}
 }
