@@ -129,15 +129,6 @@ SIB_sov_front_only = {
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
-		type = front_control
-		tag = RUS
-		ratio = 0.7
-		
-		priority = 9999
-		ordertype = front
-		execution_type = balanced
-	}
-	ai_strategy = {
 		type = front_unit_request
 		tag = RUS
 		value = 9999
@@ -427,11 +418,17 @@ RCW_special_role_ratio = {
 			tag = RSO
 			tag = TRC
 			tag = KOM
-			tag = SOV
+			tag = RUS
 			tag = FER
 		}
 	}
 	enable = {
+		if = {
+			limit = { 
+				tag = RUS
+			}
+			tag = SOV
+		}
 		is_in_russian_civil_war = yes
 	}
 	abort_when_not_enabled = yes
