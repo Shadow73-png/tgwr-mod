@@ -14,15 +14,8 @@ country_event = {
 	option = { #Accept
 		name = ww1_liman_affair.1.a
 		army_experience = 25
-		effect_tooltip = {
-			GER_TUR_military_mission_effect = yes
-		}
-		TUR = {
-			country_event = {
-				id = ww1_liman_affair.3
-				days = 2
-			}
-		}
+		effect_tooltip = { GER_TUR_military_mission_effect = yes }
+		hidden_effect = { TUR = { country_event = { id = ww1_liman_affair.3 days = 2 } } }
 		ai_chance = {
 			factor = 50
 		}
@@ -31,12 +24,7 @@ country_event = {
 		name = ww1_liman_affair.1.b
 		add_stability = 0.05
 		add_war_support = -0.1
-		TUR = {
-			country_event = {
-				id = ww1_liman_affair.2 #Turkey is informed on Germany's refusal
-				days = 2
-			}
-		}
+		hidden_effect = { TUR = { country_event = { id = ww1_liman_affair.28 days = 2 } } } #Germany is informed on Germany's refusal
 		ai_chance = {
 			factor = 0.25
 			modifier = {
@@ -966,5 +954,76 @@ news_event = {
 			has_country_flag = protest_against_liman_mission
 		}
 		name = ww1_liman_affair.26.b
+	}
+}
+
+#Germany asks Turkey to accept advisors
+country_event = {
+	id = ww1_liman_affair.27
+	title = ww1_liman_affair.27.t
+	desc = ww1_liman_affair.27.d
+	picture = GFX_report_event_GER_TUR_military_mission
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = { #Accept
+		name = ww1_liman_affair.27.a
+		effect_tooltip = { GER_TUR_military_mission_effect = yes }
+		hidden_effect = { GER = { country_event = { id = ww1_liman_affair.29 days = 2 } } }
+		ai_chance = {
+			factor = 50
+		}
+	}
+	option = { #Decline
+		name = ww1_liman_affair.27.b
+		add_political_power = 10
+		add_war_support = -0.05
+		hidden_effect = { GER = { country_event = { id = ww1_liman_affair.28 days = 2 } } } #Germany is informed on Germany's refusal
+		ai_chance = {
+			factor = 0.25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+			modifier = {
+				NOT = {
+					is_historical_focus_on = yes
+				}
+				TUR = {
+					has_opinion = {
+						target = GER
+						value > 0
+					}
+				}
+				factor = 1.5
+			}
+		}
+	}
+}
+#Germany is informed of Turkey's refusal
+country_event = {
+	id = ww1_liman_affair.28
+	title = ww1_liman_affair.28.t
+	desc = ww1_liman_affair.28.d
+	picture = GFX_report_event_GER_TUR_military_mission
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_liman_affair.28.a
+		add_political_power = -15
+		#Possible ending of the Liman Affair
+	}
+}
+#Germany is informed, and get effects, of Turkey's acceptence
+country_event = {
+	id = ww1_liman_affair.29
+	title = ww1_liman_affair.29.t
+	desc = ww1_liman_affair.29.d
+	picture = GFX_report_event_GER_TUR_military_mission
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_liman_affair.3.a
+		army_experience = 25
+		GER_TUR_military_mission_effect = yes
 	}
 }

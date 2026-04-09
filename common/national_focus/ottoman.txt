@@ -3914,11 +3914,15 @@ focus_tree = {
 		completion_reward = {
 			remove_ideas = TUR_orfi_idare
 			custom_effect_tooltip = empty_space
-			add_stability = 0.05
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
 			add_to_variable = {
 				tooltip = TUR_government_stability_add_10
 				TUR_government_stability_var = 10
 			}
+			TUR_government_stability_calculate = yes
 			TUR_government_popularity_calculate = yes
 		}
 		ai_will_do = { base = 20 }
@@ -4250,13 +4254,13 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = empty_space
-			add_to_variable = {
-				tooltip = TUR_government_stability_reduce_5
-				TUR_government_stability_var = -5
-			}
 			add_popularity = {
 				ideology = neutrality
 				popularity = 0.05
+			}
+			add_to_variable = {
+				tooltip = TUR_government_stability_reduce_5
+				TUR_government_stability_var = -5
 			}
 			TUR_government_stability_calculate = yes
 			TUR_government_popularity_calculate = yes
@@ -17754,33 +17758,21 @@ joint_focus = {
 		}
 	}
 	completion_reward_joint_originator = {
-		if = {
-			limit = { original_tag = TUR }
-			custom_effect_tooltip = TUR_german_ottoman_military_mission_tt
-			add_to_variable = { TUR_aoabe_max_command_power_mult = 0.05 }
-			GER = { country_event = { id = ww1_liman_affair.1 hours = 8 } }
-			custom_effect_tooltip = if_they_accept_tt
-		}
-		if = {
-			limit = { original_tag = GER }
-			army_experience = 25
-			country_event = { id = ww1_liman_affair.1 hours = 8 }
-		}
-		custom_effect_tooltip = GER_send_military_mission_to_ottoman
-		effect_tooltip = { GER_TUR_military_mission_effect = yes }
+		army_experience = 25
+		add_political_power = 15
 	}
 	completion_reward_joint_member = {
 		if = {
 			limit = { tag = GER }
-			army_experience = 25
+			country_event = { id = ww1_liman_affair.1 hours = 8 }
 		}
 		if = {
 			limit = { tag = TUR }
-			TUR = {
-				custom_effect_tooltip = TUR_german_ottoman_military_mission_tt
-				add_to_variable = { TUR_aoabe_max_command_power_mult = 0.05 }
-			}
+			country_event = { id = ww1_liman_affair.27 hours = 8 }
 		}
+		custom_effect_tooltip = if_they_accept_tt
+		#custom_effect_tooltip = GER_send_military_mission_to_ottoman
+		effect_tooltip = { GER_TUR_military_mission_effect = yes }
 	}
 	ai_will_do = {
 		modifier = {
