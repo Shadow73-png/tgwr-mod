@@ -14594,6 +14594,7 @@ TUR_government_stability_decision_category = {
 				has_government = neutrality
 				has_government = fascism
 			}
+			NOT = { has_completed_focus = TUR_eradicate_the_opposition }
 		}
 		cancel_trigger = { TUR_is_itilafist_regime = yes }
 		timeout_effect = {
@@ -14614,6 +14615,7 @@ TUR_government_stability_decision_category = {
 			has_government = democratic
 			check_variable = { TUR_government_stability_var < 40 }
 			has_country_leader = { character = TUR_mehmed_kamil }
+			NOT = { has_completed_focus = TUR_eradicate_the_opposition }
 		}
 		cancel_trigger = { TUR_is_itilafist_regime = no }
 		timeout_effect = {
@@ -14638,6 +14640,7 @@ TUR_government_stability_decision_category = {
 		activation = {
 			TUR_is_ittihadist_regime = no
 			check_variable = { TUR_government_stability_var < 26 }
+			NOT = { has_completed_focus = TUR_eradicate_the_opposition }
 		}
 		cancel_trigger = { TUR_is_ittihadist_regime = yes }
 		timeout_effect = {
@@ -14675,6 +14678,7 @@ TUR_government_stability_decision_category = {
 				tooltip = TUR_government_stability_at_least_50
 				check_variable = { TUR_government_stability_var > 49 }
 			}
+			NOT = { has_completed_focus = TUR_eradicate_the_opposition }
 		}
 		cancel_trigger = { TUR_is_itilafist_regime = yes }
 		activation = { always = no }
