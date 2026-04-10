@@ -8724,48 +8724,27 @@
 				}
 				if = {
 					limit = {
-						NOT = { 
+						NOT = {
 							has_government = fascism
 							has_country_leader = {
 								character = PER_mohammad_ali_shah
 							}
-						}
-					}
-					PER_nezam_us_saltaneh = {
-						promote_character = stratocracy
-					}				
-				}
-				else_if = {
-					limit = {
-						has_country_leader = {
-							character = PER_nezam_us_saltaneh
-						}
-					}
-					remove_ideas = standing_alone
-					set_politics = {
-						ruling_party = neutrality
-						name = PER_fascism_party
-						long_name = PER_fascism_party
-						elections_allowed = yes
-					}
-					add_popularity = {
-						ideology = fascism
-						popularity = -0.2
-					}
-					PER_nezam_us_saltaneh = {
-						if = {
-							limit = { has_ideology = authoritarian_democracy }
-							promote_character = authoritarian_democracy
-						}
-						else = {
-							add_country_leader_role = {
-								promote_leader = yes
-								country_leader = {
-									ideology = authoritarian_democracy
-								}
+							has_country_leader = {
+								character = PER_abulfath_mirza
 							}
 						}
 					}
+					PER_reza_khan = {
+						promote_character = stratocracy
+					}
+					if = {
+						limit = {
+							has_character = PER_iskandar_khan_setkhanian
+						}
+						PER_iskandar_khan_setkhanian = {
+							promote_character = stratocracy
+						}
+					}		
 				}
 				if = {
 					limit = {

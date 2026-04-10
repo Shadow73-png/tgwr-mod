@@ -445,8 +445,8 @@ characters={
 				factor  = 1
 			}
 		}
-		field_marshal = {
-			traits = { irregulars_officer militias_officer trait_reckless politically_connected inspirational_leader }
+		corps_commander = {
+			traits = { irregulars_officer militias_officer trait_reckless politically_connected }
 			skill = 3
 			attack_skill = 3
 			defense_skill = 2
@@ -460,23 +460,26 @@ characters={
 			}
 		}
 	}
-	PER_nezam_us_saltaneh={
+	PER_reza_qoli_nezam_mafi={
 		portraits={
 			army={
-				large="gfx/leaders/PER/PER_Nezam_us_Saltaneh.png"
-				small="gfx/interface/ideas/PER/idea_PER_Nezam_us_Saltaneh.png"
+				large="gfx/leaders/PER/PER_reza_qoli_nezam_mafi.png"
+				small="gfx/interface/ideas/PER/idea_PER_reza_qoli_nezam_mafi.png"
 			}
 		}
-		corps_commander = {
-			traits = { cavalry_leader media_personality }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 2
-			planning_skill = 3
-			logistics_skill = 3
-		}
+		# corps_commander = {
+		# 	traits = { cavalry_leader media_personality }
+		# 	skill = 2
+		# 	attack_skill = 2
+		# 	defense_skill = 2
+		# 	planning_skill = 3
+		# 	logistics_skill = 3
+		# }
 		country_leader = {
-			ideology = stratocracy
+			ideology = conservatism
+			traits = {
+				PER_nezam_us_saltaneh
+			}
 		}
 	}
 	PER_iskandar_khan_setkhanian={
@@ -517,6 +520,9 @@ characters={
 			visible = {
 				has_country_flag = PER_has_raised_cossacks
 			}
+		}
+		country_leader = {
+			ideology = stratocracy
 		}
 	}
 	PER_reza_khan={
@@ -561,6 +567,9 @@ characters={
 					has_country_flag = PER_has_raised_cossacks
 				}
 			}
+		}
+		country_leader = {
+			ideology = stratocracy
 		}
 	}
 	PER_abdollah_amir_tahmasebi={
@@ -663,7 +672,7 @@ characters={
 					has_global_flag = great_war
 					has_war_with = RUS
 					date > 1920.9.1
-					has_country_flag = PER_gendarmerie_flag
+					has_country_flag = PER_defense_committee_flag
 					has_country_flag = PER_khorasan_flag
 					has_civil_war = yes
 				}
