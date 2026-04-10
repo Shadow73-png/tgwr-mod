@@ -5058,7 +5058,17 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = ALB_albanian_national_army
+		available = { num_of_civilian_factories_available_for_projects > 4 }
+		select_effect = { add_ideas = ALB_military_spendings }
 		completion_reward = {
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				custom_effect_tooltip = ETH_unlock_spirit_airforce_tt
+			}
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_military_spendings }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_military_spendings
 			custom_effect_tooltip = modify_ALB_albanian_national_army
 			custom_effect_tooltip = ALB_form_the_air_corps_tt
 			hidden_effect = { add_ideas = ALB_albanian_air_corps }
@@ -5077,7 +5087,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_finance_the_army
-		icon = GFX_focus_generic_military_mission
+		icon = GFX_focus_mex_privatisation
 		cost = 10
 		search_filters = {
 			FOCUS_FILTER_ARMY_XP
@@ -5087,14 +5097,38 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_albanian_national_army
+		available = { num_of_civilian_factories_available_for_projects > 4 }
+		select_effect = { add_ideas = ALB_military_spendings }
 		completion_reward = {
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_military_spendings }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_military_spendings
+			custom_effect_tooltip = modify_ALB_albanian_national_army
+			add_to_variable = {
+				tooltip = experience_gain_army_factor_5
+				ALB_ana_experience_gain_army_factor = 0.05
+			}
+			add_to_variable = {
+				tooltip = army_org_factor_5
+				ALB_ana_army_org_factor = 0.05
+			}
+			add_to_variable = {
+				tooltip = unit_field_gun_brigade_design_cost_factor_minus_15
+				ALB_ana_unit_field_gun_brigade_design_cost_factor = -0.15
+			}
+			add_to_variable = {
+				tooltip = unit_infantry_design_cost_factor_minus_15
+				ALB_ana_unit_infantry_design_cost_factor = -0.15
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
 		id = ALB_order_foreign_equipments
 		icon = GFX_focus_generic_military_mission
-		cost = 5
+		cost = 10
 		search_filters = {
 			FOCUS_FILTER_ARMY_XP
 			FOCUS_FILTER_HISTORICAL
@@ -5103,7 +5137,50 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = ALB_finance_the_army
+		available = { num_of_civilian_factories_available_for_projects > 4 }
+		select_effect = { add_ideas = ALB_military_spendings }
 		completion_reward = {
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_military_spendings }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_military_spendings
+			hidden_effect = {
+				random_country = {
+					limit = { is_major = yes }
+					NOT = { has_war_with = ROOT }
+					set_temp_variable = { global.ALB_order_foreign_equipments_major = THIS }
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 20000
+				producer = var:global.ALB_order_foreign_equipments_major
+			}
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = 40
+				producer = var:global.ALB_order_foreign_equipments_major
+			}
+			add_equipment_to_stockpile = {
+				type = machine_gun_equipment
+				amount = 150
+				producer = var:global.ALB_order_foreign_equipments_major
+			}
+			add_equipment_subsidy = {
+				cic = 3000
+				equipment_type = infantry_equipment
+				seller_tags = { ITA AUS ENG FRA GER USA }
+			}
+			add_equipment_subsidy = {
+				cic = 3000
+				equipment_type = field_gun_equipment
+				seller_tags = { ITA AUS ENG FRA GER USA }
+			}
+			add_equipment_subsidy = {
+				cic = 3000
+				equipment_type = machine_gun_equipment
+				seller_tags = { ITA AUS ENG FRA GER USA }
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5120,6 +5197,28 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_order_foreign_equipments
 		completion_reward = {
+			add_tech_bonus = {
+				name = ALB_invest_in_the_armor_technology
+				uses = 1
+				bonus = 1
+				category = armor
+			}
+			add_tech_bonus = {
+				name = ALB_invest_in_the_armor_technology
+				uses = 1
+				bonus = 1
+				category = cat_armored_cars
+			}
+			add_equipment_subsidy = {
+				cic = 3000
+				equipment_type = light_tank_equipment
+				seller_tags = { ITA AUS ENG FRA GER USA }
+			}
+			add_equipment_subsidy = {
+				cic = 3000
+				equipment_type = armored_car_equipment_1
+				seller_tags = { ITA AUS ENG FRA GER USA }
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5136,6 +5235,22 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_finance_the_army
 		completion_reward = {
+			custom_effect_tooltip = modify_ALB_albanian_national_army
+			add_to_variable = {
+				tooltip = experience_gain_army_factor_5
+				ALB_ana_experience_gain_army_factor = 0.05
+			}
+			add_to_variable = {
+				tooltip = land_doctrine_cost_factor_minus_5
+				ALB_ana_land_doctrine_cost_factor = -0.05
+			}
+			custom_effect_tooltip = empty_space
+			every_possible_country = {
+				limit = { has_character = AUS_gustav_von_myrdacz }
+				AUS_gustav_von_myrdacz = { set_nationality = ROOT }
+				custom_effect_tooltip = available_chief_of_army
+				show_ideas_tooltip = AUS_gustav_von_myrdacz
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5152,6 +5267,26 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_finance_the_army
 		completion_reward = {
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				custom_effect_tooltip = ETH_unlock_academy_tt
+			}
+			custom_effect_tooltip = modify_ALB_albanian_national_army
+			add_to_variable = {
+				tooltip = army_leader_cost_factor_minus_25
+				ALB_ana_army_leader_cost_factor = -0.25
+			}
+			add_to_variable = {
+				tooltip = initiative_factor_10
+				ALB_ana_initiative_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
+			add_doctrine_cost_reduction = {
+				name = ALB_create_military_schools
+				category = land_doctrine
+				cost_reduction = 0.25
+				uses = 2
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5251,8 +5386,17 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_asymmetric_warfare
 		available = { NOT = { has_country_flag = TUR_revolting_country } }
+		available = { num_of_civilian_factories_available_for_projects > 4 }
+		select_effect = { add_ideas = ALB_military_spendings }
 		completion_reward = {
-			
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_military_spendings }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_military_spendings
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				custom_effect_tooltip = unlock_spirit_of_naval_academy_tt
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}

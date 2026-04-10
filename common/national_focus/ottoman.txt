@@ -2782,7 +2782,7 @@ focus_tree = {
 			show_ideas_tooltip = TUR_cemil_ucman
 			custom_effect_tooltip = available_chief_of_airforce
 			show_ideas_tooltip = TUR_sureyya_ilmen
-			iF = {
+			if = {
 				limit = { has_dlc = "No Step Back" }
 				custom_effect_tooltip = ETH_unlock_spirit_airforce_tt
 			}
@@ -4961,7 +4961,23 @@ focus_tree = {
 		relative_position_id = TUR_aftermath_of_the_31_march_incident
 		completion_reward = {
 			custom_effect_tooltip = TUR_depoliticize_the_military_tt
-			hidden_effect = { country_event = { id = ottoman.149 days = 3 random_days = 3 } }
+			hidden_effect = {
+				country_event = { id = ottoman.149 days = 3 random_days = 3 }
+				if = {
+					limit = {
+						any_country = {
+							OR = {
+								original_tag = ALB
+								original_tag = MAC
+							}
+							has_country_flag = TUR_revolting_country
+							any_core_state = { is_controlled_by = PREV }
+							has_war_with = ROOT
+						}
+					}
+					country_event = { id = ottoman.7 days = 3 }
+				}
+			}
 		}
 		ai_will_do = {
 			base = 20
@@ -7371,7 +7387,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TUR_guarantee_labor_rights
-		icon = GFX_goal_workers_rights
+		icon = GFX_focus_YUG_pan_slavic_congress
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_STABILITY
@@ -7718,7 +7734,7 @@ focus_tree = {
 			FOCUS_FILTER_BALANCE_OF_POWER
 		}
 		prerequisite = { focus = TUR_remove_the_official_language }
-		mutually_exclusive = { focus = TUR_safeguard_muslim_bayrams }
+		mutually_exclusive = { focus = TUR_safeguard_muslim_bairams }
 		x = 1
 		y = 1
 		relative_position_id = TUR_remove_the_official_language
@@ -7858,7 +7874,7 @@ focus_tree = {
 		ai_will_do = { base = 30 }
 	}
 	focus = {
-		id = TUR_safeguard_muslim_bayrams
+		id = TUR_safeguard_muslim_bairams
 		icon = GFX_focus_PER_islamic_solidarity
 		cost = 5
 		search_filters = {
@@ -7894,11 +7910,11 @@ focus_tree = {
 			FOCUS_FILTER_INDUSTRY
 			FOCUS_FILTER_BALANCE_OF_POWER
 		}
-		prerequisite = { focus = TUR_safeguard_muslim_bayrams }
+		prerequisite = { focus = TUR_safeguard_muslim_bairams }
 		prerequisite = { focus = TUR_guarantee_religious_organization_privacy }
 		x = 1
 		y = 1
-		relative_position_id = TUR_safeguard_muslim_bayrams
+		relative_position_id = TUR_safeguard_muslim_bairams
 		available = {
 			OR = {
 				has_country_leader_with_trait = TUR_old_guard_faction

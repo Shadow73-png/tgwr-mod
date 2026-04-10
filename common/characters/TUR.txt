@@ -508,7 +508,7 @@ characters = {
 			}
 			available = {
 				is_country_leader = no
-				TUR_ziya_gokalp = { is_political_advisor = no }
+				NOT = { TUR_ziya_gokalp = { is_political_advisor = yes } }
 				OR = {
 					has_government = democratic 
 					has_government = neutrality 
@@ -3468,8 +3468,11 @@ characters = {
 			available = {
 				has_government = fascism
 				#has_completed_focus = TUR_national_education
-				TUR_ahmet_tevfik = { is_political_advisor = no }
-				TUR_sati_al_husri = { is_political_advisor = no }
+				NOT = {
+					TUR_ahmet_tevfik = { is_political_advisor = yes }
+					TUR_sati_al_husri = { is_political_advisor = yes }
+					TUR_yusuf_akcura = { is_political_advisor = yes }
+				}
 				if = {
 					limit = { has_power_balance = { id = TUR_unionist_struggle } }
 					if = {
@@ -3528,10 +3531,42 @@ characters = {
 			}
 			available = {
 				has_completed_focus = TUR_education_in_native_languages
-				TUR_ziya_gokalp = { is_political_advisor = no }
+				NOT = { TUR_ziya_gokalp = { is_political_advisor = yes } }
 			}
 			traits = {
 				TUR_patriotic_education_theorist
+			}
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+	}
+	TUR_yusuf_akcura = {
+		name = TUR_yusuf_akcura
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ideas/TUR/idea_TUR_yusuf_akcura.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = TUR_yusuf_akcura
+			allowed = {
+				original_tag = TUR
+			}
+			visible = {
+				OR = {
+					NOT = { has_completed_focus = TUR_eradicate_the_opposition }
+					TUR_is_itilafist_regime = no
+				}
+			}
+			available = {
+				has_government = fascism
+				#has_completed_focus = TUR_national_education
+				NOT = { TUR_ziya_gokalp = { is_political_advisor = yes } }
+			}
+			traits = {
+				TUR_ethno_nationalist
 			}
 			ai_will_do = {
 				factor = 2.000
