@@ -1259,6 +1259,18 @@ ALB_albanian_tribes = {
 		}
 		ai_will_do = { factor = 0 }
 	}
+	ALB_disbanding_tribes_decision = {
+		name = ALB_disbanding_tribes
+		icon = GFX_decision_generic_disband_irregulars
+		allowed = { original_tag = ALB }
+		visible = { has_completed_focus = ALB_rely_on_tribal_units }
+		days_remove = 7
+		remove_effect = {
+			add_stability = -0.1
+			delete_units = { division_template = "Forcat Fisnore" }
+		}
+		ai_will_do = { factor = 0 }
+	}
 	ALB_contact_the_hoti_tribe = {
 		icon = GFX_decision_generic_reorganize_irregulars
 		allowed = { original_tag = ALB }
@@ -1706,6 +1718,19 @@ ALB_albanian_tribes = {
 			set_country_flag = ALB_contact_the_mat_tribe
 		}
 		ai_will_do = { base = 100 }
+	}
+}
+
+war_measures = {
+	ALB_disband_the_militias = {
+		icon = GFX_decision_generic_disband_irregulars
+		allowed = { original_tag = ALB }
+		visible = { has_completed_focus = ALB_arm_patriotic_civilians }
+		days_remove = 7
+		remove_effect = {
+			delete_units = { division_template = "Forcat e Milicisë" }
+		}
+		ai_will_do = { factor = 0 }
 	}
 }
 

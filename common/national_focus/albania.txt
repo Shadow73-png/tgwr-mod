@@ -4980,7 +4980,23 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_asymmetric_warfare
 		available = { NOT = { has_country_flag = TUR_revolting_country } }
-		completion_reward = {}
+		completion_reward = {
+			division_template = {
+				name = "Forcat Fisnore"
+				is_locked = yes
+				force_allow_recruiting = yes
+				division_cap = 14
+				template_counter = 96
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+			}
+			custom_effect_tooltip = ALB_rely_on_tribal_units_tt
+			unlock_decision_tooltip = ALB_disbanding_tribes_decision
+		}
 	}
 	focus = {
 		id = ALB_arm_patriotic_civilians
@@ -4994,7 +5010,29 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_rely_on_tribal_units
-		completion_reward = {}
+		completion_reward = {
+			division_template = {
+				name = "Forcat e Milicisë"
+				is_locked = yes
+				force_allow_recruiting = yes
+				division_cap = 21
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+					militia = { x = 1 y = 2 }
+				}
+				support = { recon = { x = 0 y = 0 } }
+			}
+			custom_effect_tooltip = ALB_arm_patriotic_civilians_tt
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+			}
+			unlock_decision_tooltip = ALB_disband_the_militias
+		}
 	}
 
 	focus = {
@@ -5359,9 +5397,6 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_create_military_schools
 		completion_reward = {
-			custom_effect_tooltip = available_high_command
-			show_ideas_tooltip = ALB_xhemal_aranitasi
-			show_ideas_tooltip = ALB_prenk_pervizi
 			effect_tooltip = {
 				add_corps_commander_role = {
 					character = ALB_xhemal_aranitasi
@@ -5409,6 +5444,9 @@ focus_tree = {
 					logistics_skill = 2
 				}
 			}
+			custom_effect_tooltip = available_high_command
+			show_ideas_tooltip = ALB_xhemal_aranitasi
+			show_ideas_tooltip = ALB_prenk_pervizi
 		}
 		ai_will_do = { factor = 100 }
 	}
