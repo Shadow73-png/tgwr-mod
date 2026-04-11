@@ -5198,7 +5198,13 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_order_foreign_equipments
+		available = { num_of_civilian_factories_available_for_projects > 2 }
+		select_effect = { add_ideas = ALB_military_spendings2 }
 		completion_reward = {
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_military_spendings2 }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_military_spendings2
 			add_tech_bonus = {
 				name = ALB_invest_in_the_armor_technology
 				uses = 1
@@ -5278,7 +5284,13 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = ALB_finance_the_army
+		available = { num_of_civilian_factories_available_for_projects > 2 }
+		select_effect = { add_ideas = ALB_military_spendings2 }
 		completion_reward = {
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_military_spendings2 }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_military_spendings2
 			if = {
 				limit = { has_dlc = "No Step Back" }
 				custom_effect_tooltip = ETH_unlock_academy_tt
@@ -5298,6 +5310,38 @@ focus_tree = {
 				category = land_doctrine
 				cost_reduction = 0.25
 				uses = 2
+			}
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_form_the_mountaineers_corps
+		icon = GFX_focus_generic_military_mission
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_create_military_schools }
+		x = -1
+		y = 1
+		relative_position_id = ALB_create_military_schools
+		completion_reward = {
+			custom_effect_tooltip = modify_ALB_albanian_national_army
+			add_to_variable = {
+				tooltip = special_forces_cap_30
+				ALB_ana_special_forces_cap = 0.3
+			}
+			add_to_variable = {
+				tooltip = special_forces_training_time_factor_minus_10
+				ALB_ana_special_forces_training_time_factor = -0.1
+			}
+			custom_effect_tooltip = empty_space
+			add_tech_bonus = {
+				name = ALB_form_the_mountaineers_corps
+				bonus = 1
+				uses = 2
+				category = mountaineers_tech
 			}
 		}
 		ai_will_do = { factor = 100 }
@@ -5368,22 +5412,6 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 100 }
 	}
-	focus = {
-		id = ALB_form_the_mountaineers_corps
-		icon = GFX_focus_generic_military_mission
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_ARMY_XP
-			FOCUS_FILTER_HISTORICAL
-		}
-		prerequisite = { focus = ALB_create_military_schools }
-		x = -1
-		y = 1
-		relative_position_id = ALB_create_military_schools
-		completion_reward = {
-		}
-		ai_will_do = { factor = 100 }
-	}
 
 	focus = {
 		id = ALB_navy_of_albania
@@ -5397,8 +5425,11 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = ALB_asymmetric_warfare
-		available = { NOT = { has_country_flag = TUR_revolting_country } }
-		available = { num_of_civilian_factories_available_for_projects > 4 }
+		available = {
+			NOT = { has_country_flag = TUR_revolting_country }
+			any_owned_state = { is_coastal = yes }
+			num_of_civilian_factories_available_for_projects > 4
+		}
 		select_effect = { add_ideas = ALB_military_spendings }
 		completion_reward = {
 			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
@@ -5408,6 +5439,15 @@ focus_tree = {
 			if = {
 				limit = { has_dlc = "No Step Back" }
 				custom_effect_tooltip = unlock_spirit_of_naval_academy_tt
+			}
+			custom_effect_tooltip = available_chief_of_navy
+			show_ideas_tooltip = ALB_qazim_koculi
+			custom_effect_tooltip = ALB_navy_of_albania_tt
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = ALB_navy_of_albania_idea }
+				add_to_variable = { ALB_na_experience_gain_navy_factor = 0.1 }
+				add_to_variable = { ALB_na_naval_doctrine_cost_factor = -0.1 }
+				add_to_variable = { ALB_na_coastal_bunker_effectiveness_factor = 0.15 }
 			}
 		}
 		ai_will_do = { factor = 100 }
@@ -5424,8 +5464,61 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ALB_navy_of_albania
+		available = {
+			any_controlled_state = { is_coastal = yes }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		select_effect = { add_ideas = ALB_military_spendings }
+		complete_tooltip = {
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_military_spendings }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_military_spendings
+			every_state = {
+				limit = { has_state_flag = ALB_renovate_old_shipyards }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = modify_ALB_navy_of_albania_idea
+			add_to_variable = {
+				tooltip = industrial_capacity_dockyard_10
+				ALB_ana_industrial_capacity_dockyard = 0.1
+			}
+			custom_effect_tooltip = empty_space
+		}
 		completion_reward = {
-			
+			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
+			effect_tooltip = { add_ideas = ALB_military_spendings }
+			custom_effect_tooltip = SOV_focus_complete_effect_tt
+			remove_ideas = ALB_military_spendings
+			random_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = ALB_renovate_old_shipyards
+			}
+			custom_effect_tooltip = modify_ALB_navy_of_albania_idea
+			add_to_variable = {
+				tooltip = industrial_capacity_dockyard_10
+				ALB_ana_industrial_capacity_dockyard = 0.1
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5442,7 +5535,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_navy_of_albania
 		completion_reward = {
-			
+			custom_effect_tooltip = ALB_purchase_foreign_ships_tt
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -7983,7 +8076,7 @@ focus_tree = {
 
 	focus = {
 		id = ALB_reconquest_of_our_muslim_lands
-		icon = GFX_TUR_win_over_albanian_muslims
+		icon = GFX_TUR_win_over_the_albanian_muslims
 		cost = 10
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION

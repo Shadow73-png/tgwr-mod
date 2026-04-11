@@ -1780,6 +1780,160 @@ economy_decisions = {
 			}
 		}
 	}
+	ALB_purchase_FROM_ships = {
+		icon = GFX_decision_generic_naval
+		allowed = { tag = ALB }
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = GER
+					tag = ENG
+					tag = ITA
+					tag = AUS
+				}
+			}
+		}
+		cancel_trigger = { has_war_with = FROM }
+		available = {
+			NOT = {
+				has_war_with = FROM
+				is_embargoed_by = FROM
+				has_country_flag = has_active_ship_contract
+			}
+		}
+		cost = 50
+		priority = 98
+		fire_only_once = no
+		days_remove = 90
+		visible = {
+			FROM = {
+				NOT = { has_country_flag = great_war_loser }
+				exists = yes
+			}
+			any_controlled_state = { is_coastal = yes }
+			has_completed_focus = ALB_purchase_foreign_ships
+		}
+		modifier = { civilian_factory_use = 3 }
+		complete_effect = {
+			set_country_flag = {
+				flag = has_active_ship_contract
+				days = 90
+				value = 1
+			}
+			if = {
+				limit = { FROM = { tag = ENG } }
+				country_event = albania.111
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_1
+				ENG = { custom_effect_tooltip = TUR_seeks_to_purchase_our_ships }
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					ENG = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_submarines_tt2
+					}
+				}
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_2
+				effect_tooltip = {
+					ENG = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_destroyers_tt2
+					}
+				}
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_2
+				effect_tooltip = {
+					ENG = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_battleships_tt2
+					}
+				}
+			}
+			if = {
+				limit = { FROM = { tag = GER } }
+				country_event = albania.112
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_1
+				GER = { custom_effect_tooltip = TUR_seeks_to_purchase_our_ships }
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					GER = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_submarines_tt2
+					}
+				}
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_2
+				effect_tooltip = {
+					GER = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_destroyers_tt2
+					}
+				}
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_2
+				effect_tooltip = {
+					GER = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_battleships_tt2
+					}
+				}
+			}
+			if = {
+				limit = { FROM = { tag = ITA } }
+				country_event = albania.113
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_1
+				ITA = { custom_effect_tooltip = TUR_seeks_to_purchase_our_ships }
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					ITA = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_submarines_tt2
+					}
+				}
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_2
+				effect_tooltip = {
+					ITA = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_destroyers_tt2
+					}
+				}
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_2
+				effect_tooltip = {
+					ITA = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_battleships_tt2
+					}
+				}
+			}
+			if = {
+				limit = { FROM = { tag = AUS } }
+				country_event = albania.114
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_1
+				AUS = { custom_effect_tooltip = TUR_seeks_to_purchase_our_ships }
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					AUS = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_submarines_tt2
+					}
+				}
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_2
+				effect_tooltip = {
+					AUS = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_destroyers_tt2
+					}
+				}
+				custom_effect_tooltip = BRA_address_labor_disputes_tt_2
+				effect_tooltip = {
+					AUS = {
+						add_offsite_building = { type = industrial_complex level = 3 }
+						custom_effect_tooltip = TUR_purchase_battleships_tt2
+					}
+				}
+			}
+		}
+		remove_effect = { FROM = { add_offsite_building = { type = industrial_complex level = -3 } } }
+		ai_will_do = {
+			base = 0.1
+		}
+	}
 }
 
 foreign_politics = {
