@@ -1,6 +1,6 @@
 ﻿capital=289
 
-set_stability=0.75
+set_stability = 0.4
 set_convoys=15
 
 set_research_slots = 2
@@ -80,6 +80,15 @@ recruit_character = SIA_phraya_phahon
 	add_ideas = {
 		SIA_bamboo_diplomacy
 		idea_overseas_chinese_community
+	}
+	if = {
+		limit = {
+			has_start_date < 1914.1.1
+		}
+		country_event = {
+			id = ww1_siam.1
+			days = 175
+		}
 	}
 }
 1914.1.1 = { 
