@@ -5146,8 +5146,10 @@ focus_tree = {
 			remove_ideas = ALB_military_spendings
 			hidden_effect = {
 				random_country = {
-					limit = { is_major = yes }
-					NOT = { has_war_with = ROOT }
+					limit = {
+						is_major = yes
+						NOT = { has_war_with = ROOT }
+					}
 					set_temp_variable = { global.ALB_order_foreign_equipments_major = THIS }
 				}
 			}
@@ -5209,10 +5211,20 @@ focus_tree = {
 				bonus = 1
 				category = cat_armored_cars
 			}
-			add_equipment_subsidy = {
-				cic = 3000
-				equipment_type = light_tank_equipment
-				seller_tags = { ITA AUS ENG FRA GER USA }
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				add_equipment_subsidy = {
+					cic = 3000 
+					equipment_type = light_tank_chassis
+					seller_tags = { ITA AUS ENG FRA GER USA }
+				}
+			}
+			else = {
+				add_equipment_subsidy = {
+					cic = 3000 
+					equipment_type = light_tank_equipment_1
+					seller_tags = { ITA AUS ENG FRA GER USA }
+				}		
 			}
 			add_equipment_subsidy = {
 				cic = 3000

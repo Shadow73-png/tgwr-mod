@@ -1826,8 +1826,11 @@ country_event = { #saviour officer Coup
 							resistance > 35
 							state = 1018
 							is_core_of = MAC
+							is_core_of = ALB
 							has_state_flag = TUR_edirne
+							check_variable = { TUR_arab_state_level > 2 }
 						}
+						NOT = { state = 345 }
 					}
 				}
 				start_civil_war = {
@@ -1878,9 +1881,11 @@ country_event = { #saviour officer Coup
 							resistance > 35
 							state = 1018
 							is_core_of = MAC
+							is_core_of = ALB
 							has_state_flag = TUR_edirne
+							check_variable = { TUR_arab_state_level > 2 }
 						}
-						is_capital = no
+						NOT = { state = 345 }
 					}
 					PREV = {
 						every_character = {
@@ -1935,6 +1940,18 @@ country_event = { #saviour officer Coup
 						neutrality = 3
 						communism = 8
 					}
+					states = all
+					states_filter = {
+						OR = {
+							resistance > 35
+							state = 1018
+							is_core_of = MAC
+							is_core_of = ALB
+							has_state_flag = TUR_edirne
+							check_variable = { TUR_arab_state_level > 2 }
+						}
+						NOT = { state = 345 }
+					}
 					PREV = {
 						every_character = {
 							limit = { TUR_is_itilafist_character = yes }
@@ -1946,52 +1963,6 @@ country_event = { #saviour officer Coup
 				}
 			}
 			OTT = { country_event = ottoman.133 }
-		}
-		if = {
-			limit = { has_country_flag = TUR_sue_for_peace_ITA_ongoing }
-			remove_decision = TUR_sue_for_peace_ITA
-			remove_targeted_decision = {
-				target = ITA
-				decision = TUR_sue_for_peace_ITA
-			}
-			clr_country_flag = TUR_sue_for_peace_ITA_ongoing
-			clear_variable = TUR_sue_for_peace_ITA_days
-		}
-		if = {
-			limit = { has_country_flag = TUR_sue_for_peace_BLL_ongoing }
-			remove_targeted_decision = {
-				target = BLL
-				decision = TUR_sue_for_peace_BLL
-			}
-			clr_country_flag = TUR_sue_for_peace_BLL_ongoing
-			clear_variable = TUR_sue_for_peace_BLL_days
-		}
-		if = {
-			limit = { has_country_flag = TUR_sue_for_peace_BUL_lone_liberator_ongoing }
-			remove_targeted_decision = {
-				target = BUL
-				decision = TUR_sue_for_peace_BUL_lone_liberator
-			}
-			clr_country_flag = TUR_sue_for_peace_BUL_lone_liberator_ongoing
-			clear_variable = TUR_sue_for_peace_BUL_lone_liberator_days
-		}
-		if = {
-			limit = { has_country_flag = TUR_sue_for_peace_BUL_and_RUS_ongoing }
-			remove_targeted_decision = {
-				target = RUS
-				decision = TUR_sue_for_peace_BUL_and_RUS
-			}
-			clr_country_flag = TUR_sue_for_peace_BUL_and_RUS_ongoing
-			clear_variable = TUR_sue_for_peace_BUL_and_RUS_days
-		}
-		if = {
-			limit = { has_country_flag = TUR_sue_for_peace_BUL_no_RUS_ongoing }
-			remove_targeted_decision = {
-				target = BUL
-				decision = TUR_sue_for_peace_BUL_no_RUS
-			}
-			clr_country_flag = TUR_sue_for_peace_BUL_no_RUS_ongoing
-			clear_variable = TUR_sue_for_peace_BUL_no_RUS_days
 		}
 		hidden_effect = { news_event = { id = ottoman.236 hours = 6 } }
 		TUR_government_popularity_calculate = yes
@@ -2269,6 +2240,206 @@ country_event = { #raid on sublime porte
 			}
 		}
 		ai_chance = { base = 100 }
+	}
+	option = {
+		name = ottoman.10.b
+		retire_character = TUR_nazim_pasha
+		kill_country_leader = yes
+		add_country_leader_role = {
+			character = TUR_mehmet_hadi
+			promote_leader = yes
+			country_leader = {
+				ideology = liberal_conservatism
+				traits = { TUR_noble_general }
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_idea = TUR_army_factionalism_seesh }
+				set_variable = { TUR_ittihadist_civil_war_stregth = 0.7 }
+			}
+			if = {
+				limit = { has_idea = TUR_army_factionalism_0 }
+				set_variable = { TUR_ittihadist_civil_war_stregth = 0.6 }
+			}
+			if = {
+				limit = { has_idea = TUR_army_factionalism_1 }
+				set_variable = { TUR_ittihadist_civil_war_stregth = 0.5 }
+			}
+			if = {
+				limit = { has_idea = TUR_army_factionalism_2 }
+				set_variable = { TUR_ittihadist_civil_war_stregth = 0.4 }
+			}
+			if = {
+				limit = { has_idea = TUR_army_factionalism_3 }
+				set_variable = { TUR_ittihadist_civil_war_stregth = 0.3 }
+			}
+			if = {
+				limit = { has_idea = TUR_army_factionalism_4 }
+				set_variable = { TUR_ittihadist_civil_war_stregth = 0.1 }
+			}
+		}
+		effect_tooltip = { start_civil_war = { ideology = fascism } }
+		hidden_effect = {
+			if = {
+				limit = {
+					any_state = {
+						is_controlled_by = ROOT
+						OR = {
+							state = 345
+							resistance > 35
+							is_core_of = ARM
+							is_core_of = KUR
+							check_variable = { TUR_turkish_state_level > 2 }
+							check_variable = { TUR_armenian_state_level > 2 }
+							has_state_flag = TUR_edirne_vilayet
+							state = 1018
+						}
+					}
+				}
+				start_civil_war = {
+					ideology = fascism
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_second_constitutional_era } } }
+						add_dynamic_modifier = { modifier = TUR_second_constitutional_era }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_army_of_a_bygone_era } } }
+						add_dynamic_modifier = { modifier = TUR_army_of_a_bygone_era }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_army_of_the_modern_era } } }
+						add_dynamic_modifier = { modifier = TUR_army_of_the_modern_era }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_donanma_yi_humayun } } }
+						add_dynamic_modifier = { modifier = TUR_donanma_yi_humayun }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_havacilik_komisyonu } } }
+						add_dynamic_modifier = { modifier = TUR_havacilik_komisyonu }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_sublime_realm } } }
+						add_dynamic_modifier = { modifier = TUR_sublime_realm }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_crippling_illiteracy_dm } } }
+						add_dynamic_modifier = { modifier = TUR_crippling_illiteracy_dm }
+					}
+					set_country_flag = has_adopted_TUR_minority_system
+					set_cosmetic_tag = TUR_HIF
+					size = 0
+					army_ratio = var:TUR_ittihadist_civil_war_stregth
+					navy_ratio = 0.15
+					air_ratio = 0
+					keep_unit_leaders_trigger = { NOT = { has_trait = trait_TUR_itilafist_sympathies } }
+					set_popularities = {
+						fascism = 38
+						neutrality = 42
+						democratic = 14
+						communism = 6
+					}
+					states = all
+					states_filter = {
+						OR = {
+							state = 345
+							resistance > 35
+							is_core_of = ARM
+							is_core_of = KUR
+							check_variable = { TUR_turkish_state_level > 2 }
+							check_variable = { TUR_armenian_state_level > 2 }
+							has_state_flag = TUR_edirne_vilayet
+							state = 1018
+						}
+						is_capital = no
+					}
+					PREV = {
+						every_character = {
+							limit = { TUR_is_ittihadist_character = yes }
+							set_nationality = OTT
+						}
+					}
+					add_ideas = TUR_yusuf_izzettin
+					TUR_paste_values = yes
+				}
+			}
+			else = {
+				start_civil_war = {
+					ideology = democratic
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_second_constitutional_era } } }
+						add_dynamic_modifier = { modifier = TUR_second_constitutional_era }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_army_of_a_bygone_era } } }
+						add_dynamic_modifier = { modifier = TUR_army_of_a_bygone_era }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_army_of_the_modern_era } } }
+						add_dynamic_modifier = { modifier = TUR_army_of_the_modern_era }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_donanma_yi_humayun } } }
+						add_dynamic_modifier = { modifier = TUR_donanma_yi_humayun }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_havacilik_komisyonu } } }
+						add_dynamic_modifier = { modifier = TUR_havacilik_komisyonu }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_sublime_realm } } }
+						add_dynamic_modifier = { modifier = TUR_sublime_realm }
+					}
+					if = {
+						limit = { PREV = { has_dynamic_modifier = { modifier = TUR_crippling_illiteracy_dm } } }
+						add_dynamic_modifier = { modifier = TUR_crippling_illiteracy_dm }
+					}
+					set_country_flag = has_adopted_TUR_minority_system
+					set_cosmetic_tag = TUR_HIF
+					size = 0.15
+					army_ratio = var:TUR_ittihadist_civil_war_stregth
+					navy_ratio = 0.15
+					air_ratio = 0
+					keep_unit_leaders_trigger = { NOT = { has_trait = trait_TUR_itilafist_sympathies } }
+					set_popularities = {
+						fascism = 38
+						neutrality = 42
+						democratic = 14
+						communism = 6
+					}
+					states = all
+					states_filter = {
+						OR = {
+							state = 345
+							resistance > 35
+							is_core_of = ARM
+							is_core_of = KUR
+							check_variable = { TUR_turkish_state_level > 2 }
+							check_variable = { TUR_armenian_state_level > 2 }
+							has_state_flag = TUR_edirne_vilayet
+							state = 1018
+						}
+						is_capital = no
+					}
+					PREV = {
+						every_character = {
+							limit = { TUR_is_itilafist_character = yes }
+							set_nationality = OTT
+						}
+					}
+					TUR_add_mehmed_V = yes
+					TUR_paste_values = yes
+				}
+			}
+			OTT = { country_event = ottoman.133 }
+		}
+		TUR_remove_mehmed_V = yes
+		add_ideas = TUR_yusuf_izzettin
+		hidden_effect = { news_event = { id = ottoman.236 hours = 6 } }
+		TUR_government_popularity_calculate = yes
+		ottoman_minority_variable_check = yes
+		ai_chance = { base = 0 }
 	}
 }
 
