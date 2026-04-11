@@ -15115,12 +15115,16 @@ GER_reichstag_category = {
 	GER_election1 = {
 		activation = {
 			has_elections = yes
+			has_start_date < 1914.1.1
 		}
 		available = {
 			has_elections = no
 		}
 		cancel_trigger = {
-			has_active_mission = GER_election_1919
+			OR = {
+				has_active_mission = GER_election2
+				has_active_mission = GER_election_1919
+			}
 		}
 
 		icon = generic_political_discourse
@@ -15156,6 +15160,7 @@ GER_reichstag_category = {
 	}
 
 	GER_election2 = {
+		name = GER_election1
 		activation = {
 			has_elections = yes
 			NOT = { has_active_mission = GER_election1 }
@@ -15169,10 +15174,7 @@ GER_reichstag_category = {
 			has_elections = no
 		}
 		cancel_trigger = {
-			OR = {
-				has_active_mission = GER_election1
-				has_active_mission = GER_election_1919
-			}	
+			has_active_mission = GER_election_1919	
 		}
 
 		icon = generic_political_discourse
