@@ -7576,7 +7576,7 @@ focus = {
 		
 	}
 	cost = 5
-	x = 1
+	x = 0
 	y = 2
 }
 focus = {
@@ -7604,7 +7604,7 @@ focus = {
 		
 	}
 	cost = 5
-	x = 3
+	x = 2
 	y = 2
 }
 focus = {
@@ -7644,7 +7644,7 @@ focus = {
 		
 	}
 	cost = 5
-	x = 2
+	x = 1
 	y = 3
 }
 focus = {
@@ -7673,7 +7673,7 @@ focus = {
 		
 	}
 	cost = 5
-	x = 0
+	x = -1
 	y = 3
 }
 focus = {
@@ -7705,7 +7705,7 @@ focus = {
 		
 	}
 	cost = 5
-	x = 4
+	x = 3
 	y = 3
 }
 focus = {
@@ -7742,7 +7742,7 @@ focus = {
 		
 	}
 	cost = 5
-	x = 1
+	x = 0
 	y = 4
 }
 focus = {
@@ -7774,8 +7774,209 @@ focus = {
 		
 	}
 	cost = 5
-	x = 3
+	x = 2
 	y = 4
 }
+focus = {
+	id = HOL_implement_wage_index
+	icon = GFX_focus_generic_secret_service_agency
+	available = {
 
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_unemployment_benefitstwo
+	}
+	relative_position_id = HOL_moderates_hold_power
+	completion_reward = {
+		custom_effect_tooltip = HOL_modify_social_kwestie_tt
+		add_to_variable = {
+			HOL_variable_lc_consumers = 0.05
+			tooltip = consumer_goods_factor_tt
+		}
+		add_to_variable = {
+			HOL_lc_pp_gain = -0.05
+			tooltip = political_power_factor_tt
+		}
+		add_to_variable = {
+			HOL_variable_lc_monthly_population = 0.1
+			tooltip = monthly_population_tt
+		}
+		add_to_variable = {
+			HOL_variable_lc_stab = 0.1
+			tooltip = stability_factor_tt
+		}
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = 3
+	y = 5
+}
+focus = {
+	id = HOL_strenghten_worker_councils
+	icon = GFX_focus_generic_secret_service_agency
+	available = {
+
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_unemployment_benefitstwo focus = HOL_capitalism_on_leach
+	}
+	relative_position_id = HOL_moderates_hold_power
+	completion_reward = {
+		add_timed_idea = {
+			idea = HOL_nvv
+			days = 360
+		}
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = 1
+	y = 5
+}
+focus = {
+	id = HOL_judicial_reform
+	icon = GFX_focus_generic_secret_service_agency
+	available = {
+
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_implement_wage_index focus = HOL_strenghten_worker_councils
+	}
+	relative_position_id = HOL_moderates_hold_power
+	completion_reward = {
+		add_political_power = 100
+		custom_effect_tooltip = HOL_modify_social_kwestie_tt
+		add_to_variable = {
+			HOL_lc_pp_gain = 0.05
+			tooltip = political_power_factor_tt
+		}
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = 2
+	y = 6
+}
+focus = {
+	id = HOL_invite_back_business
+	icon = GFX_focus_generic_secret_service_agency
+	available = {
+
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_capitalism_on_leach
+	}
+	relative_position_id = HOL_moderates_hold_power
+	completion_reward = {
+		HOL = {
+			random_state = {
+				add_building_construction = {
+    				type = industrial_complex
+    				level = 1
+    				instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_state = {
+				add_building_construction = {
+    				type = industrial_complex
+    				level = 1
+    				instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -1
+	y = 5
+}
+focus = {
+	id = HOL_housing_reform
+	icon = GFX_focus_generic_secret_service_agency
+	available = {
+
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_capitalism_on_leach
+	}
+	relative_position_id = HOL_moderates_hold_power
+	completion_reward = {
+		HOL = {
+			random_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			random_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+		custom_effect_tooltip = HOL_modify_dutch_economy_tt
+		add_to_variable = {
+			HOL_variable_ec_infra_construction = 0.05
+			tooltip = production_speed_infrastructure_factor_tt
+		}
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = 0
+	y = 6
+}
+focus = {
+	id = HOL_price_control
+	icon = GFX_focus_generic_secret_service_agency
+	available = {
+
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_invite_back_business focus = HOL_housing_reform
+	}
+	relative_position_id = HOL_moderates_hold_power
+	completion_reward = {
+		add_political_power = 50
+		custom_effect_tooltip = HOL_modify_dutch_economy_tt
+		add_to_variable = {
+			HOL_variable_ec_consumers = -0.05
+			tooltip = consumer_goods_factor_tt
+		}
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -1
+	y = 7
+}
 }
