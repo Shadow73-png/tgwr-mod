@@ -579,7 +579,6 @@ country_event = {
 	option = {
 		name = ww1_siam.17.a
 		add_stability = -0.1
-		set_global_flag = SIA_1912_palace_revolt
 	}
 }
 country_event = {
@@ -598,6 +597,7 @@ country_event = {
 	title = ww1_siam.19.t
 	desc = ww1_siam.19.d
 	picture = GFX_report_event_military_planning
+	fire_only_once = yes
 	trigger = {
 		date > 1912.02.27
 		original_tag = SIA
@@ -634,5 +634,50 @@ country_event = {
 	option = {
 		name = ww1_siam.21.a
 		set_country_flag = unlock_tighten_grip_focus_SIA
+	}
+}
+country_event = {
+	id = ww1_siam.22
+	title = ww1_siam.22.t
+	desc = ww1_siam.22.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			retire_character = SIA_vajiravudh
+			promote_character = SIA_prajadhipok
+		}
+	}
+	trigger = {
+		NOT = {
+			has_global_flag = SIA_1912_palace_revolt
+		}
+	}
+	option = {
+		name = ww1_siam.22.a
+		country_event = {
+			id = ww1_siam.23
+			days = 5
+		}
+	}
+}
+country_event = {
+	id = ww1_siam.23
+	title = ww1_siam.23.t
+	desc = ww1_siam.23.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = ww1_siam.23.a
+		add_country_leader_role = {
+			character = SIA_khun_thuayhanpitak
+			promote_leader = yes
+			country_leader = {
+				ideology = civilian_dictatorship
+				expire = "1965.1.1"
+				#traits = {	}
+			}
+		}
+		set_global_flag = SIA_1912_palace_revolt
 	}
 }
