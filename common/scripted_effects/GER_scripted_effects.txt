@@ -3640,7 +3640,14 @@ GER_reduction_of_submarine_warfare_effect = {
 	if = {
 		limit = { 
 			has_character = GER_alfred_von_tirpitz
-			has_idea = GER_alfred_von_tirpitz
+			if = {
+				limit = { 
+					has_character = GER_alfred_von_tirpitz
+				}
+				GER_alfred_von_tirpitz = {
+					is_hired_as_advisor = yes
+				}
+			}
 			has_unrestricted_submarine_warfare = no
 			NOT = {
 				has_active_mission = GER_alfred_von_tirpitz_resignation_mission
