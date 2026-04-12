@@ -191,7 +191,7 @@ focus_tree = {
 		id = SIA_wild_tiger_corps
 		icon = GFX_focus_CHI_popular_army
 		cost = 10
-		x = -4
+		x = -2
 		y = 1
 		relative_position_id = SIA_coronation_of_vajiravudh
 		prerequisite = {
@@ -243,11 +243,46 @@ focus_tree = {
 		id = SIA_maintain_british_french_counterbalance
 		icon = GFX_focus_generic_befriend_usa
 		cost = 5
-		x = -3
+		x = 5
 		y = 2
 		relative_position_id = SIA_coronation_of_vajiravudh
 		prerequisite = {
 			focus = SIA_coronation_of_vajiravudh
+		}
+		available = {
+			
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = USA_jens_westengard
+			unlock_decision_tooltip = {
+				decision = SIA_organize_formal_coronation
+				show_effect_tooltip = yes
+				show_modifiers = yes
+			}
+			hidden_effect = {
+				activate_advisor = USA_jens_westengard
+			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = SIA_water_works
+		icon = GFX_focus_RAJ_water_privatization
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = SIA_monthon_paks
+		prerequisite = {
+			focus = SIA_monthon_paks
+		}
+		prerequisite = {
+			focus = SIA_maintain_british_french_counterbalance
 		}
 		available = {
 			
@@ -293,7 +328,7 @@ focus_tree = {
 		icon = GFX_focus_RAJ_enrollment_of_dali_children
 		cost = 10
 		x = 2
-		y = 5
+		y = 7
 		available = {
 			has_country_flag = unlock_tighten_grip_focus_SIA
 		}

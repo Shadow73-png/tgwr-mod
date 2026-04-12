@@ -430,10 +430,6 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			country_event = {
-				id = ww1_siam.12
-				days = 382
-			}
-			country_event = {
 				id = ww1_siam.13
 				days = 10
 			}
@@ -679,5 +675,20 @@ country_event = {
 			}
 		}
 		set_global_flag = SIA_1912_palace_revolt
+	}
+}
+country_event = {
+	id = ww1_siam.24
+	title = ww1_siam.24.t
+	desc = ww1_siam.24.d
+	picture = GFX_report_event_military_planning
+	trigger = {
+		tag = SIA
+		date > 1915.6.15 # June 1915
+	}
+	option = {
+		name = ww1_siam.24.a
+		retire_character = USA_jens_westengard
+		set_country_flag = SIA_USA_jens_westengard_left
 	}
 }
