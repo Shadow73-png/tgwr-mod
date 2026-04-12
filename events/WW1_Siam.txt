@@ -490,14 +490,6 @@ country_event = {
 			has_global_flag = SIA_1912_palace_revolt
 		}
 	}
-	immediate = {
-		hidden_effect = {
-			country_event = {
-				id = ww1_siam.14
-				days = 150
-			}
-		}
-	}
 	option = {
 		name = ww1_siam.14.a
 		add_stability = -0.05
@@ -506,6 +498,26 @@ country_event = {
 			tooltip = SIA_army_king_tt
 		}
 		clamp_army_king_relations = yes
+		add_to_variable = {
+            SIA_event_14_count = 1
+        }
+		add_timed_idea = {
+			idea = SIA_king_spends_palace
+			days = 60
+		}
+		if = {
+			limit = {
+				check_variable = {
+        		    SIA_event_14_count = 1
+        		}
+			}
+			hidden_effect = {
+				country_event = {
+					id = ww1_siam.14
+					days = 100
+				}
+			}
+		}
 	}
 }
 country_event = {
@@ -519,14 +531,6 @@ country_event = {
 			has_global_flag = SIA_1912_palace_revolt
 		}
 	}
-	immediate = {
-		hidden_effect = {
-			country_event = {
-				id = ww1_siam.15
-				days = 60
-			}
-		}
-	}
 	option = {
 		name = ww1_siam.15.a
 		add_stability = -0.05
@@ -535,6 +539,19 @@ country_event = {
 			tooltip = SIA_army_king_tt
 		}
 		clamp_army_king_relations = yes
+		if = {
+			limit = {
+				check_variable = {
+        		    SIA_event_15_count = 1
+        		}
+			}
+			hidden_effect = {
+				country_event = {
+					id = ww1_siam.15
+					days = 60
+				}
+			}
+		}
 	}
 }
 country_event = {
@@ -581,13 +598,41 @@ country_event = {
 	title = ww1_siam.19.t
 	desc = ww1_siam.19.d
 	picture = GFX_report_event_military_planning
-	is_triggered_only = yes
+	trigger = {
+		date > 1912.02.27
+		original_tag = SIA
+		check_variable = {
+			SIA_relations_army_king > 35
+		}
+	}
 	option = {
 		name = ww1_siam.19.a
-		add_to_variable = {
-			SIA_relations_army_king = -15
-			tooltip = SIA_army_king_tt
+		set_global_flag = yut_ratted_out_coup
+		country_event = {
+			id = ww1_siam.20
+			days = 3
 		}
-		clamp_army_king_relations = yes
+	}
+}
+country_event = {
+	id = ww1_siam.20
+	title = ww1_siam.20.t
+	desc = ww1_siam.20.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = ww1_siam.20.a
+		set_country_flag = unlock_tighten_grip_focus_SIA
+	}
+}
+country_event = {
+	id = ww1_siam.21
+	title = ww1_siam.21.t
+	desc = ww1_siam.21.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = ww1_siam.21.a
+		set_country_flag = unlock_tighten_grip_focus_SIA
 	}
 }
