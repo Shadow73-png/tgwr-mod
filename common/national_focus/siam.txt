@@ -7,7 +7,7 @@ focus_tree = {
 			original_tag = SIA
 		}
 	}
-	shared_focus = early_industrialization
+	#shared_focus = early_industrialization
 	shared_focus = naval_experience
 	shared_focus = state_of_the_country_army
 	shared_focus = planes_experiments
@@ -239,6 +239,30 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
+	focus = {
+		id = SIA_maintain_british_french_counterbalance
+		icon = GFX_focus_generic_befriend_usa
+		cost = 5
+		x = -3
+		y = 2
+		relative_position_id = SIA_coronation_of_vajiravudh
+		prerequisite = {
+			focus = SIA_coronation_of_vajiravudh
+		}
+		available = {
+			
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = USA_jens_westengard
+		}
+		ai_will_do = {
+			base = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
 	#focus = {
 	#	id = SIA_rice_production
 	#	icon = GFX_focus_RAJ_enrollment_of_dali_children
@@ -319,9 +343,6 @@ focus_tree = {
 		}
 		available = {
 			
-		}
-		mutually_exclusive = {
-			focus = SIA_tighten_grip_on_army
 		}
 		completion_reward = {
 			set_cosmetic_tag = SIA_thailand

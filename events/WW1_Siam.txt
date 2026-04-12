@@ -447,6 +447,7 @@ country_event = {
 		name = ww1_siam.11.a
 		add_stability = 0.005
 		complete_national_focus = SIA_coronation_of_vajiravudh
+		activate_mission = SIA_incoming_coup_attempt
 	}
 }
 
@@ -462,6 +463,7 @@ country_event = {
 	option = {
 		name = ww1_siam.12.a
 		add_stability = 0.015
+		add_political_power = -100
 	}
 }
 country_event = {
@@ -474,6 +476,12 @@ country_event = {
 		name = ww1_siam.13.a
 		add_stability = -0.05
 		set_global_flag = SIA_revolution_threat
+		hidden_effect = {
+			country_event = {
+				id = ww1_siam.21
+				days = 80
+			}
+		}
 	}
 }
 
@@ -494,7 +502,7 @@ country_event = {
 		name = ww1_siam.14.a
 		add_stability = -0.05
 		add_to_variable = {
-			SIA_relations_army_king = -10
+			SIA_relations_army_king = -20
 			tooltip = SIA_army_king_tt
 		}
 		clamp_army_king_relations = yes
@@ -505,19 +513,15 @@ country_event = {
 			idea = SIA_king_spends_palace
 			days = 60
 		}
-		if = {
-			limit = {
-				check_variable = {
-        		    SIA_event_14_count = 1
-        		}
-			}
-			hidden_effect = {
-				country_event = {
-					id = ww1_siam.14
-					days = 100
-				}
-			}
+	}
+	option = {
+		name = ww1_siam.14.b
+		add_to_variable = {
+			SIA_relations_army_king = -5
+			tooltip = SIA_army_king_tt
 		}
+		clamp_army_king_relations = yes
+		add_political_power = -25
 	}
 }
 country_event = {
@@ -535,23 +539,19 @@ country_event = {
 		name = ww1_siam.15.a
 		add_stability = -0.05
 		add_to_variable = {
-			SIA_relations_army_king = -10
+			SIA_relations_army_king = -20
 			tooltip = SIA_army_king_tt
 		}
 		clamp_army_king_relations = yes
-		if = {
-			limit = {
-				check_variable = {
-        		    SIA_event_15_count = 1
-        		}
-			}
-			hidden_effect = {
-				country_event = {
-					id = ww1_siam.15
-					days = 60
-				}
-			}
+	}
+	option = {
+		name = ww1_siam.15.b
+		add_to_variable = {
+			SIA_relations_army_king = -5
+			tooltip = SIA_army_king_tt
 		}
+		clamp_army_king_relations = yes
+		add_political_power = -25
 	}
 }
 country_event = {
@@ -602,7 +602,7 @@ country_event = {
 		date > 1912.02.27
 		original_tag = SIA
 		check_variable = {
-			SIA_relations_army_king > 35
+			SIA_relations_army_king > 20
 		}
 	}
 	option = {
@@ -633,7 +633,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_siam.21.a
-		set_country_flag = unlock_tighten_grip_focus_SIA
+		
 	}
 }
 country_event = {
