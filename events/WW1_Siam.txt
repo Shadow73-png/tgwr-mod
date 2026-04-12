@@ -427,22 +427,18 @@ country_event = {
 	desc = ww1_siam.11.d
 	picture = GFX_report_event_military_planning
 	is_triggered_only = yes
-	trigger = {
-		NOT = {
-			has_country_flag = SIA_vajiravudh_coronation
-		}
-	}
 	immediate = {
 		hidden_effect = {
 			country_event = {
 				id = ww1_siam.12
-				days = 9
+				days = 382
 			}
 		}
 	}
 	option = {
 		name = ww1_siam.11.a
 		add_stability = 0.005
+		complete_national_focus = SIA_coronation_of_vajiravudh
 	}
 }
 
@@ -458,7 +454,6 @@ country_event = {
 	option = {
 		name = ww1_siam.12.a
 		add_stability = 0.015
-		complete_national_focus = SIA_coronation_of_vajiravudh
 		hidden_effect = {
 			country_event = {
 				id = ww1_siam.13
@@ -495,7 +490,10 @@ country_event = {
 	option = {
 		name = ww1_siam.14.a
 		add_stability = -0.05
-		SIA_decrease_army_king_relations = yes
+		add_to_variable = {
+			SIA_relations_army_king = -10
+			tooltip = SIA_army_king_tt
+		}
 	}
 }
 country_event = {
@@ -507,6 +505,25 @@ country_event = {
 	option = {
 		name = ww1_siam.15.a
 		add_stability = -0.05
-		SIA_decrease_army_king_relations = yes
+		add_to_variable = {
+			SIA_relations_army_king = -10
+			tooltip = SIA_army_king_tt
+		}
+	}
+}
+country_event = {
+	id = ww1_siam.16
+	title = ww1_siam.16.t
+	desc = ww1_siam.16.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = ww1_siam.16.a
+		hidden_effect = {
+			country_event = {
+				id = ww1_siam.15
+				days = 5
+			}
+		}
 	}
 }
