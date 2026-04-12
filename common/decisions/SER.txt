@@ -2,7 +2,7 @@ SER_black_hand_category = {
 	#SER_arranged_BOS_rebellion
 	SER_form_yugoslavia = {
 		name = SER_form_yugoslavia2
-		icon = GFX_decision_ser_yugoslavia
+		icon = GFX_decision_generic_form_nation
 		ai_will_do = {
 			factor = 500
 		}
@@ -10,32 +10,89 @@ SER_black_hand_category = {
 			tag = SER
 		}
 		visible = {
-			NOT = {
-				has_country_flag = SER_yugoslavia_formed
-			}
+			NOT = { has_country_flag = SER_yugoslavia_formed }
+			has_country_flag = SER_unification_of_yugoslavs
 		}
 		available = {
-			has_country_flag = SER_unification_of_yugoslavs
 			custom_trigger_tooltip = {
 				tooltip = SER_at_least_3_integrated_nations
-				check_variable = {
-					SER_integrated_nations > 2
+				OR = {
+					check_variable = { SER_integrated_nations > 2 }
+					count_triggers = {
+						amount = 3
+						SLV = {
+							OR = {
+								AND = {
+									exists = no
+									any_core_state = { is_owned_by = ROOT }
+								}
+								all_core_state = { is_fully_controlled_by = ROOT }
+								is_subject_of = ROOT
+							}
+						}
+						CRO = {
+							OR = {
+								AND = {
+									exists = no
+									any_core_state = { is_owned_by = ROOT }
+								}
+								all_core_state = { is_fully_controlled_by = ROOT }
+								is_subject_of = ROOT
+							}
+						}
+						BOS = {
+							OR = {
+								AND = {
+									exists = no
+									any_core_state = { is_owned_by = ROOT }
+								}
+								all_core_state = { is_fully_controlled_by = ROOT }
+								is_subject_of = ROOT
+							}
+						}
+						MAC = {
+							OR = {
+								AND = {
+									exists = no
+									any_core_state = { is_owned_by = ROOT }
+								}
+								all_core_state = { is_fully_controlled_by = ROOT }
+								is_subject_of = ROOT
+							}
+						}
+						MNT = {
+							OR = {
+								AND = {
+									exists = no
+									any_core_state = { is_owned_by = ROOT }
+								}
+								all_core_state = { is_fully_controlled_by = ROOT }
+								is_subject_of = ROOT
+							}
+						}
+						BUL = {
+							OR = {
+								AND = {
+									exists = no
+									any_core_state = { is_owned_by = ROOT }
+								}
+								all_core_state = { is_fully_controlled_by = ROOT }
+								is_subject_of = ROOT
+							}
+						}
+					}
 				}
 			}
 		}
 		days_remove = 3
 		remove_effect = {
-			custom_effect_tooltip = SER_integrated_count
+			#custom_effect_tooltip = SER_integrated_count
 			set_country_flag = SER_yugoslavia_formed
 			if = {
-				limit = {
-					has_country_flag = greater_serbia_chosen
-				}
+				limit = { has_country_flag = greater_serbia_chosen }
 				set_cosmetic_tag = SER_empire
-				else = {
-					set_cosmetic_tag = YUG
-				}
 			}
+			else = { set_cosmetic_tag = YUG }
 		}
 	}
 	SER_integrate_balkan_nations = {
@@ -43,18 +100,13 @@ SER_black_hand_category = {
 		allowed = {
 			tag = SER
 		}
-		target_trigger = {
-			FROM = {
-				OR = {
-					tag = SLV
-					tag = CRO
-					tag = BOS
-					tag = MAC
-					tag = TRA
-					tag = ALB
-					tag = MNT
-				}
-			}
+		targets = {
+			SLV
+			CRO
+			BOS
+			MAC
+			MNT
+			BUL	
 		}
 		target_non_existing = yes
 		ai_will_do = {
@@ -110,10 +162,7 @@ SER_black_hand_category = {
 			factor = 100
 		}
 		available = {
-			has_country_flag = BOS_rebellion_planed
-			NOT = {
-				has_country_flag = BOS_rebellion
-			}
+			NOT = { has_country_flag = BOS_rebellion }
 		}
 		visible = {
 			has_country_flag = BOS_rebellion_planed
@@ -147,15 +196,8 @@ SER_black_hand_category = {
 			NOT = {
 				has_war_together_with = BOS
 			}
-			has_country_flag = BOS_rebellion
 		}
 		visible = {
-			BOS = {
-				has_war_with = AUS
-			}
-			NOT = {
-				has_war_together_with = BOS
-			}
 			has_country_flag = BOS_rebellion
 		}
 		remove_effect = {
@@ -180,22 +222,14 @@ SER_black_hand_category = {
 			factor = 100
 		}
 		available = {
-			has_country_flag = BOS_rebellion_planed
 			NOT = {
 				has_country_flag = BOS_rebellion
-			}
-			BOS = {
-				exists = no
 			}
 		}
 		visible = {
 			has_country_flag = BOS_rebellion_planed
-			NOT = {
-				has_country_flag = BOS_rebellion
-			}
-			BOS = {
-				exists = no
-			}
+			NOT = { has_country_flag = BOS_rebellion }
+			BOS = { exists = no }
 		}
 		complete_effect = {
 			add_political_power = -50
@@ -769,7 +803,7 @@ SER_royal_tour = {
 				has_country_flag = SER_on_tour
 			}
 		}
-		visible = {
+		target_root_trigger = {
 			has_completed_focus = SER_neverending_journey
 		}
 		days_remove = 30
@@ -1144,10 +1178,8 @@ SER_weapon_purchases = {
 		allowed = {
 			original_tag = SER
 		}
-		target_trigger = {
-			FROM = {
-				tag = FRA
-			}
+		targets = {
+			FRA
 		}
 		visible = {
 			has_war = yes
@@ -1187,10 +1219,8 @@ SER_weapon_purchases = {
 		allowed = {
 			original_tag = SER
 		}
-		target_trigger = {
-			FROM = {
-				tag = RUS
-			}
+		targets = {
+			RUS
 		}
 		visible = {
 			has_war = yes
@@ -1239,10 +1269,8 @@ SER_weapon_purchases = {
 		allowed = {
 			original_tag = SER
 		}
-		target_trigger = {
-			FROM = {
-				tag = ENG
-			}
+		targets = {
+			ENG
 		}
 		visible = {
 			has_war = yes
@@ -1275,10 +1303,8 @@ SER_weapon_purchases = {
 		allowed = {
 			original_tag = SER
 		}
-		target_trigger = {
-			FROM = {
-				tag = ITA
-			}
+		targets = {
+			ITA
 		}
 		visible = {
 			has_war = yes
@@ -1604,11 +1630,6 @@ SER_spark_the_uprisings = {
 		}
 		target_trigger = {
 			FROM = {
-				OR = {
-					tag = CRO
-					tag = SLV
-					tag = BOS
-				}
 				is_subject = no
 				has_war_with = AUS
 				NOT = {
@@ -1616,9 +1637,16 @@ SER_spark_the_uprisings = {
 				}
 			}
 		}
+		targets = {
+			CRO
+			SLV
+			BOS
+		}
 		visible = {
-			has_completed_focus = SER_a_united_front
 			has_war_with = AUS
+		}
+		target_root_trigger = {
+			has_completed_focus = SER_a_united_front
 		}
 		available = {
 			has_capitulated = no
@@ -1890,10 +1918,8 @@ peace_deals = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = BUL
-			}
+		targets = {
+			BUL
 		}
 		# target_root_trigger = {
 		# 	has_war_with = FROM
@@ -2070,12 +2096,12 @@ GER_great_war = {
 		}
 		target_trigger = {
 			FROM = {
-				OR = {
-					tag = FRA
-					tag = GER
-				}
 				NOT = { has_war_with = ROOT }
 			}
+		}
+		targets = {
+			FRA
+			GER
 		}
 		visible = {
 			is_faction_leader = yes

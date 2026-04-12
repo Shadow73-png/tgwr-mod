@@ -1665,10 +1665,9 @@ FRA_anti_french_resistance_mid = {
 	icon = GFX_modifiers_generic_resistance
 	recruitable_population_factor = -0.25
 	local_supplies_for_controller = -0.25
-	attrition_for_controller = 0.25
 	resistance_target = 0.25
 	compliance_growth = -0.25
-	required_garrison_factor = 0.5
+	required_garrison_factor = 0.2
 }
 
 FRA_colonial_conscription = {
@@ -1750,7 +1749,7 @@ FRA_michel_defensive_plan = {
 
 FRA_voie_sacree_modifier = {
 	enable = {
-		CONTROLLER = {
+		controller = {
 			OR = {
 				tag = FRA
 				is_ally_with = FRA
@@ -1760,7 +1759,7 @@ FRA_voie_sacree_modifier = {
 	remove_trigger = {
 		OR = {
 			has_global_flag = great_war_ends
-			owner = {
+			controller = {
 				NOT = {
 					tag = FRA
 					is_ally_with = FRA
@@ -1769,7 +1768,7 @@ FRA_voie_sacree_modifier = {
 		}
 	}
 	icon = GFX_modifiers_generic_supply
-	local_supplies_for_controller = 0.20
+	local_supplies_for_controller = 0.1
 }
 
 FRA_joffre_offensive_plan = {
@@ -2069,7 +2068,10 @@ ITA_ottoman_islands_bombed = {
 	icon = GFX_modifiers_generic_resistance
 	attrition_for_controller = 0.15
 	local_supplies = -1
-	local_org_regain = -0.5
+	army_attack_factor = -0.15
+	army_defence_factor = -0.15
+	dig_in_speed_factor = -0.5
+	max_dig_in_factor = -0.5
 }
 
 ITA_aus_shell = {
@@ -2382,10 +2384,7 @@ RUS_armistice_effect = {
 }
 HUN_demarcation_line = {
 	enable = {
-		OR = {
-			is_controlled_by = ROM
-			is_controlled_by = HUN
-		}
+		always = yes
 	}
 	remove_trigger = {
 		OWNER = {
@@ -2521,7 +2520,7 @@ GER_productional_efficiency = {
 	resistance_decay = -0.15
 	resistance_growth = 0.15
 	resistance_target = 0.1
-	local_factory_sabotage = 0.25
+	local_factory_sabotage = 0.02
 	enemy_army_speed_factor = 0.15
 	army_speed_factor_for_controller = -0.05
 	local_building_slots_factor = 0.5
@@ -3485,11 +3484,11 @@ LBA_tribal_resistance = {
 	icon = GFX_modifiers_tur_traditionalist_sedition
 	recruitable_population_factor = -0.25
 	local_supplies_for_controller = -0.2
-	resistance_target = 0.15
-	resistance_growth = 0.25
+	resistance_target = 0.1
+	resistance_growth = 0.15
 	compliance_growth = -0.35
 	local_intel_to_enemies = 0.4
-	required_garrison_factor = 0.15
+	required_garrison_factor = 0.1
 	army_speed_factor_for_controller = -0.05
 }
 
@@ -3739,8 +3738,8 @@ unknown_lands = {
 	icon = GFX_unplanned_offensive
 
 	custom_modifier_tooltip = unknown_lands_tt
-	army_attack_factor = -0.15
-	army_defence_factor = -0.1
+	army_attack_factor = -0.1
+	army_defence_factor = -0.05
 	local_supply_impact_factor = 0.1
 }
 unknown_lands_2 = {
@@ -3761,8 +3760,8 @@ unknown_lands_2 = {
 	}
 	icon = GFX_unplanned_offensive
 
-	army_attack_factor = -0.15
-	army_defence_factor = -0.1
+	army_attack_factor = -0.1
+	army_defence_factor = -0.05
 	local_supply_impact_factor = 0.1
 }
 
