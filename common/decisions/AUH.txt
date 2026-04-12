@@ -330,6 +330,30 @@ AUH_great_war_bullshit = {
 		}
 		remove_effect = {
 			if = {
+				limit = { 
+					has_idea = AUS_central_system_consumers
+				}
+				swap_ideas = {
+					remove_idea = AUS_central_system_consumers
+					add_idea = AUS_central_system_metal_consumers
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = AUS_central_system_consumers2
+				}
+				swap_ideas = {
+					remove_idea = AUS_central_system_consumers2
+					add_idea = AUS_central_system_max
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = AUS_central_system
+					add_idea = AUS_central_system_metal
+				}
+			}
+			if = {
 				limit = {
 					4 = {
 						is_controlled_by_ROOT_or_subject = yes
@@ -385,6 +409,39 @@ AUH_great_war_bullshit = {
 			set_country_flag = AUS_setting_up_central
 		}
 		remove_effect = {
+			if = {
+				limit = { 
+					has_idea = AUS_central_system_metal
+				}
+				swap_ideas = {
+					remove_idea = AUS_central_system_metal
+					add_idea = AUS_central_system_metal_consumers
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = AUS_central_system_consumers
+				}
+				swap_ideas = {
+					remove_idea = AUS_central_system_consumers
+					add_idea = AUS_central_system_consumers2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = AUS_central_system_metal_consumers
+				}
+				swap_ideas = {
+					remove_idea = AUS_central_system_metal_consumers
+					add_idea = AUS_central_system_max
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = AUS_central_system
+					add_idea = AUS_central_system_consumers
+				}
+			}
 			clr_country_flag = AUS_setting_up_central
 		}
 	}
@@ -417,8 +474,41 @@ AUH_great_war_bullshit = {
 		}
 		remove_effect = {
 			clr_country_flag = AUS_setting_up_central
+			if = {
+				limit = { 
+					has_idea = AUS_central_system_metal
+				}
+				swap_ideas = {
+					remove_idea = AUS_central_system_metal
+					add_idea = AUS_central_system_metal_consumers
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = AUS_central_system_consumers
+				}
+				swap_ideas = {
+					remove_idea = AUS_central_system_consumers
+					add_idea = AUS_central_system_consumers2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = AUS_central_system_metal_consumers
+				}
+				swap_ideas = {
+					remove_idea = AUS_central_system_metal_consumers
+					add_idea = AUS_central_system_max
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = AUS_central_system
+					add_idea = AUS_central_system_consumers
+				}
+			}
 			add_to_variable = {
-				AUS_intensity_of_food_shortages = 1
+				AUS_intensity_of_food_shortages = -1
 				tooltip = AUS_intensity_of_food_shortages_tt
 			}
 			hidden_effect = {
