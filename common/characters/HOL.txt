@@ -68,11 +68,28 @@ characters={
 		name="HOL_harm_kolthek"
 		portraits={
 			civilian={
+				small="gfx/interface/ideas/HOL/idea_HOL_cornelis_jacobus_snijders.png" #placeholder
 				large="gfx/leaders/HOL/HOL_harm_kolthek.png"
 			}
 		}
-		country_leader={
-			ideology=syndicalism
+		advisor={
+			slot = political_advisor
+			idea_token = HOL_harm_kolthek
+			allowed  = {
+				original_tag  = HOL
+			}
+			available = {
+				OR = {
+					has_completed_focus = HOL_ally_socialistische_partij
+					has_completed_focus = HOL_empower_proletariat
+				}
+			}
+			traits  = {
+				union_leader 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
 		}
 	}
 	HOL_cornelis_snijders={
