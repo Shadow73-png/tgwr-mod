@@ -90,7 +90,7 @@ focus_tree = {
 		id = SIA_royal_pages_college
 		icon = GFX_focus_generic_military_academy
 		cost = 10
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = SIA_coronation_of_vajiravudh
 		prerequisite = {
@@ -119,7 +119,7 @@ focus_tree = {
 		id = SIA_monthon_paks
 		icon = GFX_focus_generic_self_management
 		cost = 10
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SIA_royal_pages_college
 		prerequisite = {
@@ -145,7 +145,7 @@ focus_tree = {
 		id = SIA_chat_satsana_phramahakasat
 		icon = GFX_goal_generic_political_pressure
 		cost = 10
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = SIA_coronation_of_vajiravudh
 		prerequisite = {
@@ -168,7 +168,7 @@ focus_tree = {
 		id = SIA_publish_royal_nationalist_literature
 		icon = GFX_focus_generic_education
 		cost = 10
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SIA_chat_satsana_phramahakasat
 		prerequisite = {
@@ -191,7 +191,7 @@ focus_tree = {
 		id = SIA_wild_tiger_corps
 		icon = GFX_focus_CHI_popular_army
 		cost = 10
-		x = -2
+		x = -3
 		y = 1
 		relative_position_id = SIA_coronation_of_vajiravudh
 		prerequisite = {
@@ -220,7 +220,7 @@ focus_tree = {
 		id = SIA_tiger_cubs
 		icon = GFX_focus_RAJ_enrollment_of_dali_children
 		cost = 5
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = SIA_wild_tiger_corps
 		prerequisite = {
@@ -243,11 +243,74 @@ focus_tree = {
 		id = SIA_maintain_british_french_counterbalance
 		icon = GFX_focus_generic_befriend_usa
 		cost = 5
-		x = 5
-		y = 2
+		x = 3
+		y = 1
 		relative_position_id = SIA_coronation_of_vajiravudh
 		prerequisite = {
 			focus = SIA_coronation_of_vajiravudh
+		}
+		available = {
+			
+		}
+		mutually_exclusive = {
+			focus = SIA_prioritize_german_advisors
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = USA_jens_westengard
+			hidden_effect = {
+				activate_advisor = USA_jens_westengard
+			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = SIA_prioritize_german_advisors
+		icon = GFX_focus_deal_with_german_empire
+		cost = 5
+		x = 5
+		y = 1
+		relative_position_id = SIA_coronation_of_vajiravudh
+		prerequisite = {
+			focus = SIA_coronation_of_vajiravudh
+		}
+		mutually_exclusive = {
+			focus = SIA_maintain_british_french_counterbalance
+		}
+		available = {
+			
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = GER_oskar_frankfurter
+			hidden_effect = {
+				activate_advisor = GER_oskar_frankfurter
+			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = SIA_organize_coronation
+		icon = GFX_unknown
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = SIA_prioritize_german_advisors
+		prerequisite = {
+			focus = SIA_prioritize_german_advisors
+		}
+		prerequisite = {
+			focus = SIA_maintain_british_french_counterbalance
 		}
 		available = {
 			
@@ -274,15 +337,10 @@ focus_tree = {
 				}
 				country_event = ww1_siam.25
 			}
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = USA_jens_westengard
 			unlock_decision_tooltip = {
 				decision = SIA_organize_formal_coronation
 				show_effect_tooltip = yes
 				show_modifiers = yes
-			}
-			hidden_effect = {
-				activate_advisor = USA_jens_westengard
 			}
 		}
 		ai_will_do = {
@@ -296,14 +354,11 @@ focus_tree = {
 		id = SIA_water_works
 		icon = GFX_focus_RAJ_water_privatization
 		cost = 5
-		x = 1
+		x = -1
 		y = 1
-		relative_position_id = SIA_monthon_paks
+		relative_position_id = SIA_organize_coronation
 		prerequisite = {
-			focus = SIA_monthon_paks
-		}
-		prerequisite = {
-			focus = SIA_maintain_british_french_counterbalance
+			focus = SIA_organize_coronation
 		}
 		available = {
 			
@@ -315,6 +370,33 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 1
 			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = SIA_increase_funding_to_RSR
+		icon = GFX_focus_generic_railroad
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = SIA_organize_coronation
+		prerequisite = {
+			focus = SIA_organize_coronation
+		}
+		available = {
+			OR = {
+				has_tech = standard_gauge_railway
+				has_tech = narrow_gauge_railway
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = SIA_royal_state_railways
 		}
 		ai_will_do = {
 			base = 100
