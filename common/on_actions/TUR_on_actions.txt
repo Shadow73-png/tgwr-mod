@@ -1405,6 +1405,28 @@ on_actions = {
 				}
 			}
 		}
+		effect = {
+			if = {
+				limit = {
+					overlord = { has_idea = TUR_yusuf_akcura_idea }
+					ROOT = {
+						OR = {
+							original_tag = AZR
+							original_tag = TRK
+							original_tag = KHI
+							original_tag = BUK
+							original_tag = KAZ
+							original_tag = TAT
+							original_tag = ALT
+							original_tag = TAN
+							original_tag = CRI
+						}
+						NOT = { has_idea = TUR_yusuf_akcura_idea2 }
+					}
+				}
+				ROOT = { add_ideas = TUR_yusuf_akcura_idea2 }
+			}
+		}
 	}
 	on_daily_TUR = {
 		effect = { TUR_government_popularity_calculate = yes }
@@ -3495,6 +3517,47 @@ on_actions = {
 				}
 			}
 			ROOT = { remove_unit_leader_trait = outreaching_authority }
+		}
+	}
+
+	on_subject_free = {
+		effect = {
+			if = {
+				limit = { ROOT = { has_idea = TUR_yusuf_akcura_idea2 } }
+				ROOT = { remove_ideas = TUR_yusuf_akcura_idea2 }
+			}
+		}
+	}
+	on_subject_annexed = {
+		effect = {
+			if = {
+				limit = { ROOT = { has_idea = TUR_yusuf_akcura_idea2 } }
+				ROOT = { remove_ideas = TUR_yusuf_akcura_idea2 }
+			}
+		}
+	}
+	on_subject_autonomy_level_change = {
+		effect = {
+			if = {
+				limit = {
+					FROM = { has_idea = TUR_yusuf_akcura_idea }
+					ROOT = {
+						OR = {
+							original_tag = AZR
+							original_tag = TRK
+							original_tag = KHI
+							original_tag = BUK
+							original_tag = KAZ
+							original_tag = TAT
+							original_tag = ALT
+							original_tag = TAN
+							original_tag = CRI
+						}
+						NOT = { has_idea = TUR_yusuf_akcura_idea2 }
+					}
+				}
+				ROOT = { add_ideas = TUR_yusuf_akcura_idea2 }
+			}
 		}
 	}
 }

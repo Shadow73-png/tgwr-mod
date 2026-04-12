@@ -4896,7 +4896,10 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			modifier = { custom_modifier_tooltip = TUR_new_tax_revenue_tt }
 			on_add = { add_ideas = TUR_new_tax_revenue_dm }
-			on_remove = { remove_ideas = TUR_new_tax_revenue_dm }
+			on_remove = {
+				remove_ideas = TUR_new_tax_revenue_dm
+				clear_variable = global.TUR_ntr_consumer_goods_factor
+			}
 		}
 		TUR_reformed_inheritance_law = {
 			picture = BRA_dasp
@@ -6311,60 +6314,59 @@ ideas = {
 			allowed = { original_tag = TUR }
 			removal_cost = -1
 			cancel = { NOT = { has_idea = TUR_yusuf_akcura } }
+			modifier = { stability_factor = 1 }
 			targeted_modifier = {
 				tag = AZR
-				autonomy_gain = -0.5
 				compliance_gain = 0.1
 				resistance_decay = 0.1
 			}
 			targeted_modifier = {
 				tag = TRK
-				autonomy_gain = -0.5
 				compliance_gain = 0.1
 				resistance_decay = 0.1
 			}
 			targeted_modifier = {
 				tag = KHI
-				autonomy_gain = -0.5
 				compliance_gain = 0.1
 				resistance_decay = 0.1
 			}
 			targeted_modifier = {
 				tag = BUK
-				autonomy_gain = -0.5
 				compliance_gain = 0.1
 				resistance_decay = 0.1
 			}
 			targeted_modifier = {
 				tag = KAZ
-				autonomy_gain = -0.5
 				compliance_gain = 0.1
 				resistance_decay = 0.1
 			}
 			targeted_modifier = {
 				tag = TAT
-				autonomy_gain = -0.5
 				compliance_gain = 0.1
 				resistance_decay = 0.1
 			}
 			targeted_modifier = {
 				tag = ALT
-				autonomy_gain = -0.5
 				compliance_gain = 0.1
 				resistance_decay = 0.1
 			}
 			targeted_modifier = {
 				tag = TAN
-				autonomy_gain = -0.5
 				compliance_gain = 0.1
 				resistance_decay = 0.1
 			}
 			targeted_modifier = {
 				tag = CRI
-				autonomy_gain = -0.5
 				compliance_gain = 0.1
 				resistance_decay = 0.1
 			}
+		}
+		TUR_yusuf_akcura_idea2 = {
+			name = TUR_yusuf_akcura
+			allowed = { original_tag = TUR }
+			removal_cost = -1
+			cancel = { NOT = { overlord = { has_idea = TUR_yusuf_akcura } } }
+			modifier = { autonomy_gain = -0.5 }
 		}
 		TUR_brutal_suppression_1 = {
 			name = TUR_brutal_suppression

@@ -4520,6 +4520,7 @@ focus_tree = {
 			}
 			TUR_government_stability_calculate = yes
 			TUR_government_popularity_calculate = yes
+			set_country_flag = TUR_concessions_to_the_countryside_flag
 		}
 		ai_will_do = { base = 20 }
 	}
@@ -4538,6 +4539,17 @@ focus_tree = {
 		available = {
 			TUR_regime_is_nationalist = yes
 			TUR_regime_is_more_popular_than_opposition_twice = yes
+			has_country_flag = {
+				flag = TUR_concessions_to_the_countryside_flag
+				days > 90
+			}
+			custom_trigger_tooltip = {
+				tooltip = TUR_concessions_to_the_countryside_flag_tt
+				has_country_flag = {
+					flag = TUR_concessions_to_the_countryside_flag
+					days > 90
+				}
+			}
 			NOT = { has_idea = TUR_technocratic_governance }
 		}
 		relative_position_id = TUR_law_on_political_organizations
@@ -4591,6 +4603,17 @@ focus_tree = {
 			TUR_regime_is_nationalist = yes
 			TUR_regime_is_more_popular_than_opposition = yes
 			TUR_regime_is_more_popular_than_opposition_twice = no
+			has_country_flag = {
+				flag = TUR_concessions_to_the_countryside_flag
+				days > 90
+			}
+			custom_trigger_tooltip = {
+				tooltip = TUR_concessions_to_the_countryside_flag_tt
+				has_country_flag = {
+					flag = TUR_concessions_to_the_countryside_flag
+					days > 90
+				}
+			}
 			NOT = { has_idea = TUR_technocratic_governance }
 		}
 		relative_position_id = TUR_law_on_political_organizations
@@ -14858,7 +14881,10 @@ focus_tree = {
 		}
 		available = {
 			TUR_is_ittihadist_regime = yes
-			NOT = { has_country_leader = { character = TUR_mahmud_sevket } }
+			NOT = {
+				has_country_leader = { character = TUR_mahmud_sevket }
+				TUR_mahmud_sevket = { is_hired_as_advisor = yes }
+			}
 		}
 		complete_tooltip = {
 			set_politics = { ruling_party = fascism elections_allowed = yes }

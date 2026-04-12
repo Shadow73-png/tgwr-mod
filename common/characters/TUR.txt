@@ -3564,8 +3564,52 @@ characters = {
 				has_government = fascism
 				NOT = { TUR_ziya_gokalp = { is_political_advisor = yes } }
 			}
-			on_add = { hidden_effect = { owner = { add_ideas = TUR_yusuf_akcura_idea } } }
-			on_remove = { hidden_effect = { owner = { remove_ideas = TUR_yusuf_akcura_idea } } }
+			on_add = {
+				hidden_effect = {
+					owner = {
+						add_ideas = TUR_yusuf_akcura_idea
+						every_subject_country = {
+							limit = {
+								OR = {
+									original_tag = AZR
+									original_tag = TRK
+									original_tag = KHI
+									original_tag = BUK
+									original_tag = KAZ
+									original_tag = TAT
+									original_tag = ALT
+									original_tag = TAN
+									original_tag = CRI
+								}
+							}
+							add_ideas = TUR_yusuf_akcura_idea2
+						}
+					}
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					owner = {
+						remove_ideas = TUR_yusuf_akcura_idea
+						every_subject_country = {
+							limit = {
+								OR = {
+									original_tag = AZR
+									original_tag = TRK
+									original_tag = KHI
+									original_tag = BUK
+									original_tag = KAZ
+									original_tag = TAT
+									original_tag = ALT
+									original_tag = TAN
+									original_tag = CRI
+								}
+							}
+							remove_ideas = TUR_yusuf_akcura_idea2
+						}
+					}
+				}
+			}
 			traits = {
 				TUR_ethno_nationalist
 			}
