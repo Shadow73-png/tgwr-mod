@@ -14785,14 +14785,25 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = ITA_sac_cadorna
-			effect_tooltip = {
-				add_field_marshal_role = {
-					character = ITA_armando_diaz
-					skill = 1 #not actual skills, just for tooltip
-					attack_skill = 1
-					defense_skill = 1
-					planning_skill = 1
-					logistics_skill = 1
+			if = {
+				limit = {
+					has_idea = ITA_luigi_cadorna
+					has_character = ITA_armando_diaz
+				}
+				swap_ideas = {
+					remove_idea = ITA_luigi_cadorna
+					add_idea = ITA_armando_diaz
+				}
+			}
+			if = {
+				limit = {
+					has_character = ITA_armando_diaz
+					ITA_armando_diaz = {
+						is_field_marshal = no
+					}
+				}
+				ITA_armando_diaz = {
+					promote_leader = yes
 				}
 			}
 			custom_effect_tooltip = empty_space_tt
@@ -14802,9 +14813,6 @@ focus_tree = {
 				tooltip = army_org_regain_tt
 			}
 			set_country_flag = ITA_unlock_other_army_chiefs
-			hidden_effect = {
-				activate_advisor = ITA_armando_diaz
-			}
 		}
 		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
