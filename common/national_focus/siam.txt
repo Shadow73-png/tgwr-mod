@@ -51,7 +51,7 @@ focus_tree = {
 		relative_position_id = SIA_phra_piya_maharat
 		bypass_if_unavailable = yes
 		completion_reward = {
-			add_ideas = SIA_monthon_syatem_idea
+			add_ideas = SIA_monthon_system_idea
 		}
 		ai_will_do = {
 			base = 100
@@ -126,12 +126,12 @@ focus_tree = {
 			focus = SIA_royal_pages_college
 		}
 		available = {
-			has_idea = SIA_monthon_syatem_idea
+			has_idea = SIA_monthon_system_idea
 		}
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = SIA_monthon_syatem_idea
-				add_idea = SIA_monthon_syatem_idea_2
+				remove_idea = SIA_monthon_system_idea
+				add_idea = SIA_monthon_system_idea_2
 			}
 		}
 		ai_will_do = {
@@ -143,7 +143,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SIA_chat_satsana_phramahakasat
-		icon = GFX_focus_generic_self_management
+		icon = GFX_goal_generic_political_pressure
 		cost = 10
 		x = 0
 		y = 1
@@ -166,7 +166,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SIA_publish_royal_nationalist_literature
-		icon = GFX_focus_generic_self_management
+		icon = GFX_focus_generic_education
 		cost = 10
 		x = 1
 		y = 1
@@ -253,6 +253,27 @@ focus_tree = {
 			
 		}
 		completion_reward = {
+			every_country = {
+				limit = {
+					NOT = {
+						has_war_with = ROOT
+					}
+					OR = {
+						tag = ENG
+						tag = DEN
+						tag = SWE
+						tag = JAP
+						tag = RUS
+						#delegates
+						tag = USA
+						tag = GER
+						tag = AUS
+						tag = BEL
+						tag = HOL
+					}
+				}
+				country_event = ww1_siam.25
+			}
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = USA_jens_westengard
 			unlock_decision_tooltip = {
@@ -288,8 +309,12 @@ focus_tree = {
 			
 		}
 		completion_reward = {
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = USA_jens_westengard
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 		ai_will_do = {
 			base = 100

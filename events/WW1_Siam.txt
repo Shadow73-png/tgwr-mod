@@ -451,7 +451,7 @@ country_event = {
 	id = ww1_siam.12
 	title = ww1_siam.12.t
 	desc = ww1_siam.12.d
-	picture = GFX_report_event_military_planning
+	picture = GFX_report_event_SIA_coronation_1911_european_visitors
 	is_triggered_only = yes
 	immediate = {
 		set_country_flag = SIA_vajiravudh_coronation
@@ -460,6 +460,17 @@ country_event = {
 		name = ww1_siam.12.a
 		add_stability = 0.015
 		add_political_power = -100
+		news_event = ww1_siam.28
+		every_country = {
+			limit = {
+				has_country_flag = will_visit_siam
+			}
+			add_political_power = 15
+			add_opinion_modifier = {
+				target = SIA
+				modifier = large_increase
+			}
+		}
 	}
 }
 country_event = {
@@ -682,13 +693,212 @@ country_event = {
 	title = ww1_siam.24.t
 	desc = ww1_siam.24.d
 	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	fire_only_once = yes
 	trigger = {
 		tag = SIA
 		date > 1915.6.15 # June 1915
+		NOT = {
+			has_country_flag = SIA_USA_jens_westengard_left
+		}
 	}
 	option = {
 		name = ww1_siam.24.a
 		retire_character = USA_jens_westengard
 		set_country_flag = SIA_USA_jens_westengard_left
+	}
+}
+country_event = {
+	id = ww1_siam.25
+	title = ww1_siam.25.t
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	desc = {
+		trigger = {
+			FROM = {
+				tag = USA
+			}
+		}
+		text = ww1_siam.26.dUSA
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				tag = RUS
+			}
+		}
+		text = ww1_siam.26.dRUS
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				tag = DEN
+			}
+		}
+		text = ww1_siam.26.dSWE
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				tag = SWE
+			}
+		}
+		text = ww1_siam.26.dSWE
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				tag = ENG
+			}
+		}
+		text = ww1_siam.26.dENG
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				tag = JAP
+			}
+		}
+		text = ww1_siam.26.dJAP
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				NOT = {
+					tag = JAP
+					tag = ENG
+					tag = USA
+					tag = SWE
+					tag = DEN
+					tag = RUS
+					tag = USA
+				}
+			}
+		}
+		text = ww1_siam.25.d
+	}
+	option = {
+		name = ww1_siam.25.a
+		set_country_flag = will_visit_siam
+		FROM = {
+			country_event = {
+				id = ww1_siam.26
+				days = 2
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		name = ww1_siam.25.b
+		trigger = {
+			NOT = {
+				tag = RUS
+			}
+		}
+		FROM = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = small_decrease
+			}
+			country_event = {
+				id = ww1_siam.29
+				days = 2
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 1000
+				has_government = communism
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_siam.26
+	title = ww1_siam.26.t
+	desc = ww1_siam.26.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = ww1_siam.26.a
+		add_political_power = 5
+	}
+}
+country_event = {
+	id = ww1_siam.27
+	title = ww1_siam.27.t
+	desc = ww1_siam.27.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		tag = SIA
+		has_global_flag = xinhai_revolution
+	}
+	option = {
+		name = ww1_siam.27.a
+		add_war_support = 0.05
+		add_days_mission_timeout = {
+			mission = SIA_incoming_coup_attempt
+			days = -100
+		}
+	}
+}
+news_event = {
+	id = ww1_siam.28
+	title = ww1_siam.28.t
+	desc = ww1_siam.28.d
+	picture = GFX_news_event_SIA_coronation_1911_european_visitors
+	is_triggered_only = yes
+	option = {
+		name = ww1_siam.28.a
+		trigger = {
+			NOT = {
+				has_country_flag = will_visit_siam
+			}
+		}
+	}
+	option = {
+		name = ww1_siam.28.b
+		trigger = {
+			OR = {
+				has_government = communism
+				has_government = democratic
+			}
+			NOT = {
+				has_country_flag = will_visit_siam
+				tag = SIA
+			}
+		}
+	}
+	option = {
+		name = ww1_siam.28.c
+		trigger = {
+			has_country_flag = will_visit_siam
+		}
+	}
+	option = {
+		name = ww1_siam.28.d
+		trigger = {
+			tag = SIA
+		}
+	}
+}
+country_event = {
+	id = ww1_siam.29
+	title = ww1_siam.29.t
+	desc = ww1_siam.29.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = ww1_siam.29.a
+		
 	}
 }
