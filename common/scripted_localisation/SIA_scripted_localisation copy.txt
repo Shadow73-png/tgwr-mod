@@ -1,0 +1,58 @@
+defined_text = {
+	name = GetKingArmyRelations
+	text = {
+		trigger = { 
+			check_variable = {
+				SIA_relations_army_king = 0
+			}
+		}
+		localization_key = SIA_neutral
+	}
+	text = {
+		trigger = { 
+			OR = {
+				check_variable = {
+					SIA_relations_army_king = -1
+				}
+				check_variable = {
+					SIA_relations_army_king = -2
+				}
+			}
+		}
+		localization_key = SIA_negative
+	}
+	text = {
+		trigger = { 
+			OR = {
+				check_variable = {
+					SIA_relations_army_king = -3
+				}
+				check_variable = {
+					SIA_relations_army_king = -4
+				}
+			}
+		}
+		localization_key = SIA_very_negative
+	}
+	text = {
+		trigger = { 
+			check_variable = {
+				SIA_relations_army_king = -5
+			}
+		}
+		localization_key = SIA_imminent_revolt
+	}
+	text = {
+		trigger = { 
+			OR = {
+				check_variable = {
+					SIA_relations_army_king = 1
+				}
+				check_variable = {
+					SIA_relations_army_king = 2
+				}
+			}
+		}
+		localization_key = SIA_positive
+	}
+}
