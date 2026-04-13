@@ -5692,6 +5692,16 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			remove_ideas = ALB_abdulhamid_II
+			add_country_leader_role = {
+				character = TUR_abdulhamid_II
+				promote_leader = yes
+				country_leader = {
+					ideology = absolute_monarchy
+					traits = { ALB_bloody_sultan }
+				}
+			}
+			set_capital = { state = 1215 remember_old_capital = no }
 			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
@@ -5716,6 +5726,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
 			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
@@ -5740,6 +5752,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_political_power = 75
+			add_war_support = -0.05
 			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
@@ -9819,6 +9833,199 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALB_exile_the_opposition
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_recrown_abdulhamid_II }
+		x = 0
+		y = 1
+		relative_position_id = ALB_recrown_abdulhamid_II
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_initiate_political_transformation
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_exile_the_opposition }
+		x = 1
+		y = 1
+		relative_position_id = ALB_exile_the_opposition
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_cencorship_of_the_press
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_initiate_political_transformation }
+		x = 1
+		y = 1
+		relative_position_id = ALB_initiate_political_transformation
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_loyal_irregular_bands
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_exile_the_opposition }
+		x = -2
+		y = 1
+		relative_position_id = ALB_exile_the_opposition
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_establish_hamidian_units
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_loyal_irregular_bands }
+		x = 0
+		y = 1
+		relative_position_id = ALB_loyal_irregular_bands
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_utilize_political_islam
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_initiate_political_transformation }
+		x = -1
+		y = 1
+		relative_position_id = ALB_initiate_political_transformation
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_reintroduce_the_jizya_tax_abd
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_utilize_political_islam }
+		x = -2
+		y = 1
+		relative_position_id = ALB_utilize_political_islam
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_swap_to_the_arabic_script_abd
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_utilize_political_islam }
+		x = 2
+		y = 1
+		relative_position_id = ALB_utilize_political_islam
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_return_the_balkan_refugees_abd
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_utilize_political_islam }
+		x = 0
+		y = 1
+		relative_position_id = ALB_utilize_political_islam
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_a_state_for_all_muslims
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_return_the_balkan_refugees_abd }
+		x = 0
+		y = 1
+		relative_position_id = ALB_return_the_balkan_refugees_abd
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_usurp_the_title_of_caliph
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_a_state_for_all_muslims }
+		x = -1
+		y = 1
+		relative_position_id = ALB_a_state_for_all_muslims
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_declare_the_balkan_jihad
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_a_state_for_all_muslims }
+		x = 1
+		y = 1
+		relative_position_id = ALB_a_state_for_all_muslims
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
 		id = ALB_bring_the_warlords_to_the_fold
 		icon = GFX_focus_generic_attack_albania
 		cost = 5
@@ -9830,7 +10037,18 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ALB_albanian_independence
+		available = { any_other_country = { original_tag = ALB } }
 		completion_reward = {
+			custom_effect_tooltip = ALB_bring_the_warlords_to_the_fold_tt
+			hidden_effect = {
+				every_other_country = {
+					limit = { original_tag = ALB }
+					create_wargoal = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
