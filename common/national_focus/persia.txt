@@ -407,4 +407,43 @@
 			factor = 25
 		}
 	}
+	focus = {
+		id = PER_restore_maku_maliat_payments
+		icon = GFX_focus_generic_monetary_union
+		cost = 10
+		x = 0
+		y = 1
+		relative_position_id = PER_regency_dictatorship
+		prerequisite = {
+			focus = PER_regency_dictatorship
+		}
+		available = {
+			has_government = neutrality
+			has_subject = MAK
+			MAK = {
+				compare_autonomy_state > autonomy_integrated_puppet
+			}
+		}
+		bypass = {
+			has_subject = MAK
+			MAK = {
+				has_autonomy_state = autonomy_integrated_puppet
+			}
+		}
+	
+		completion_reward = {
+			add_political_power = 100
+			MAK = { get_current_government_type = yes }
+			set_autonomy = {
+				target = MAK
+				autonomy_state = autonomy_integrated_puppet
+				end_wars = no
+			}
+			MAK = { restore_previous_government_type = yes }
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 15
+		}
+	}
 }
