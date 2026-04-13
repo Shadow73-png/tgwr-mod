@@ -496,7 +496,7 @@ ITA_reset_war_score_capture_system_points_effect = yes
 		ITA_ind_factory = -0.2
 	}
 	set_variable = {
-		neutrality_drift_var = 0
+		ITA_neutrality_drift_var = 0
 	}
 	set_variable = {
 		ITA_rad_time = 35
@@ -591,119 +591,6 @@ ITA_reset_war_score_capture_system_points_effect = yes
 	set_variable = {
 		ITA_ind_repair = 0
 	}
-	country_event = {
-		id = ww1_italy.3
-		days = 5
-	}
-	country_event = {
-		id = ww1_italy.184
-		days = 620
-	}
-	country_event = {
-		id = ww1_italy.185
-		days = 690
-	}
-	#country_event = {
-	#	id = ww1_italy.182
-	#	days = 730
-	#}
-	country_event = {
-		id = ww1_italy.65
-		days = 141
-	}
-	country_event = {
-		id = ww1_italy.35
-		days = 50
-	}
-	country_event = {
-		id = ww1_italy.138
-		days = 60
-	}
-	country_event = {
-		id = ww1_italy.139
-		days = 29
-	}
-	country_event = {
-		id = ww1_italy.36
-		days = 80
-	}
-	country_event = {
-		id = ww1_italy.140
-		days = 90
-	}
-	set_variable = {
-		ITA_reforms_building_slots = 0
-	}
-	country_event = {
-		id = ww1_italy.49
-		days = 987
-	}
-	set_global_flag = ITA_not_done_libya_war
-	country_event = {
-		id = ww1_italy.16
-		days = 10
-	}
-	country_event = {
-		id = ww1_italy.119
-		days = 128
-	}
-	country_event = {
-		id = ww1_italy.28
-		days = 100
-	}
-	country_event = {
-		id = ww1_italy.17
-		days = 225
-	}
-	country_event = {
-		id = ww1_italy.41
-		days = 2097
-	}
-	#country_event = {
-	#	id = ww1_italy.245
-	#	days = 1069
-	#}
-	set_variable = {
-		ITA_army_attack = -0.2
-	}
-	country_event = {
-		id = ww1_italy.250
-		days = 1090
-	}
-	set_variable = {
-		ITA_weekly_stab = 0
-	}
-	set_variable = {
-		ITA_weekly_war_support = 0
-	}
-	country_event = {
-		id = ww1_italy.18
-		days = 240
-	}
-	country_event = {
-		id = ww1_italy.19
-		days = 200
-	}
-	country_event = {
-		id = ww1_italy.20
-		days = 180
-	}
-	country_event = {
-		id = ww1_italy.21
-		days = 230
-	}
-	country_event = {
-		id = ww1_italy.334
-		days = 1719
-	}
-	country_event = {
-		id = ww1_italy.335
-		days = 1469
-	}
-	country_event = {
-		id = ww1_italy.299
-		days = 1523
-	}
 	set_variable = {
 		ITA_airforce_xp_var = 0
 	}
@@ -758,9 +645,134 @@ ITA_reset_war_score_capture_system_points_effect = yes
 	set_variable = {
 		ITA_food_shortage_mission_event = 70
 	}
+	set_variable = {
+		ITA_weekly_stab = 0
+	}
+	set_variable = {
+		ITA_weekly_war_support = 0
+	}
+	set_variable = {
+		ITA_army_attack = -0.15
+	}
+	set_global_flag = ITA_not_done_libya_war
+	set_variable = {
+		ITA_reforms_building_slots = 0
+	}
+	if = {
+		limit = {
+			has_start_date < 1914.1.1
+		}
+		country_event = {
+			id = ww1_italy.3
+			days = 5
+		}
+		country_event = {
+			id = ww1_italy.184
+			days = 620
+		}
+		country_event = {
+			id = ww1_italy.185
+			days = 690
+		}
+		#country_event = {
+		#	id = ww1_italy.182
+		#	days = 730
+		#}
+		country_event = {
+			id = ww1_italy.65
+			days = 141
+		}
+		country_event = {
+			id = ww1_italy.35
+			days = 50
+		}
+		country_event = {
+			id = ww1_italy.138
+			days = 60
+		}
+		country_event = {
+			id = ww1_italy.139
+			days = 29
+		}
+		country_event = {
+			id = ww1_italy.36
+			days = 80
+		}
+		country_event = {
+			id = ww1_italy.140
+			days = 90
+		}
+		country_event = {
+			id = ww1_italy.49
+			days = 987
+		}
+		country_event = {
+			id = ww1_italy.16
+			days = 10
+		}
+		country_event = {
+			id = ww1_italy.119
+			days = 128
+		}
+		country_event = {
+			id = ww1_italy.28
+			days = 100
+		}
+		country_event = {
+			id = ww1_italy.17
+			days = 225
+		}
+		country_event = {
+			id = ww1_italy.41
+			days = 2097
+		}
+		#country_event = {
+		#	id = ww1_italy.245
+		#	days = 1069
+		#}
+		country_event = {
+			id = ww1_italy.250
+			days = 1090
+		}
+		country_event = {
+			id = ww1_italy.18
+			days = 240
+		}
+		country_event = {
+			id = ww1_italy.19
+			days = 200
+		}
+		country_event = {
+			id = ww1_italy.20
+			days = 180
+		}
+		country_event = {
+			id = ww1_italy.21
+			days = 230
+		}
+		country_event = {
+			id = ww1_italy.334
+			days = 1719
+		}
+		country_event = {
+			id = ww1_italy.335
+			days = 1469
+		}
+		country_event = {
+			id = ww1_italy.299
+			days = 1523
+		}
+	}
 }
 
 1914.1.1 = {
+	oob = "ITA_1914"
+	remove_ideas = {
+		ITA_active_labor_unions
+	}
+	add_ideas = {
+		ITA_active_labor_unions3
+	}
 	unlock_national_focus = ITA_giolittian_shadow	#21 - 22 May 1910
 	unlock_national_focus = ITA_overtures_to_the_psi	#30 - 21 June 1910
 	unlock_national_focus = ITA_male_suffrage	#30 - 21 July 1910
@@ -833,13 +845,37 @@ ITA_reset_war_score_capture_system_points_effect = yes
 	unlock_national_focus = ITA_unity_through_nationalism	#30 - 21 April 1914
 	unlock_national_focus = ITA_local_government_reforms	#30 - 21 May 1914
 
-	#set variables for 1914 dynamic modifiers
-	set_variable = {
-		ITA_navy_exp = -0.35
+	every_state = {
+		limit = {
+			OR = {
+				state = 117
+				state = 1217
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = ITA_neglected_economy
+		}
 	}
-
-
+	if = {
+		limit = {
+			has_start_date > 1914.1.1
+		}
+		country_event = {
+			id = ww1_italy.41
+			days = 590
+		}
+		country_event = {
+			id = ww1_italy.334
+			days = 375
+		}
+		country_event = {
+			id = ww1_italy.299
+			days = 52
+		}
+	}
+	army_experience = 50
 	navy_experience = 25
+	air_experience = 10
 	set_politics = {
 		ruling_party = democratic
 		last_election = "1916.11.16"		#16 November 1919
@@ -865,10 +901,6 @@ ITA_reset_war_score_capture_system_points_effect = yes
 	add_political_power = 1178
 	add_command_power = 100
 	promote_character = ITA_antonio_salandra
-	country_event = {
-		id = ww1_italy.41
-		days = 591
-	}
 	activate_advisor = ITA_alberto_pollio
 	remove_ideas = {
 		#ITA_rapid_unionisation
@@ -962,15 +994,6 @@ ITA_reset_war_score_capture_system_points_effect = yes
 		concentrated_industry2 = 1
 		electric_railway = 1
 	}
-
-	# if = {
-	# 	limit = {
-	# 		has_dlc = "Man the Guns"
-	# 	}
-	# 	set_technology = {
-	# 		improved_airplane_launcher = 1
-	# 	}
-	# }
 }
 
 if = {
