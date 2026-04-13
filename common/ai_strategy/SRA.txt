@@ -66,7 +66,7 @@ SRA_moscow_directive = {
 		type = front_control
 		country_trigger = {
 			OR = {
-				is_subject_of = SOV
+				has_war_together_with = SOV
 				tag = SOV
 			}
 		}
@@ -80,7 +80,7 @@ SRA_moscow_directive = {
 		type = front_unit_request
 		country_trigger = {
 			OR = {
-				is_subject_of = SOV
+				has_war_together_with = SOV
 				tag = SOV
 			}
 		}
@@ -215,17 +215,6 @@ SRA_attack_without_offensive = {
 		}
 	}
 	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = front_unit_request
-		country_trigger = {
-			OR = {
-				is_subject_of = SOV
-				tag = SOV
-			}
-		}
-		value = 1000
-	}
 	ai_strategy = {
 		type = garrison
 		value = -100

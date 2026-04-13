@@ -208,7 +208,17 @@ GER_great_war = {
 			OR = {
 				has_war = no
 				NOT = {
-					has_idea = GER_alfred_von_tirpitz					
+					if = {
+						limit = { 
+							has_character = GER_alfred_von_tirpitz
+						}
+						GER_alfred_von_tirpitz = {
+							is_hired_as_advisor = yes
+						}
+					}
+					else = {
+						has_character = GER_alfred_von_tirpitz
+					}				
 				}
 			}
 		}
