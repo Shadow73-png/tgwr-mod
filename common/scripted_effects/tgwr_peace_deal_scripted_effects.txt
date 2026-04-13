@@ -1797,30 +1797,6 @@ armistice_effect = {
 			}
 		}
 	}
-	##### Ogaden returns ####
-	if = {
-		limit = {
-			SOM = {
-				owns_state = 657
-				has_country_flag = great_war_loser
-			}
-			ETH = {
-				owns_state = 271
-				NOT = {
-					has_country_flag = great_war_loser
-				}
-			}
-		}
-		ETH = {
-			transfer_state = 657
-		}
-		if = {
-			limit = {
-				SOM = { owns_state = 1039 }
-			}
-			ETH = { transfer_state = 1039 }
-		}
-	}
 	### ALBANIA ###
 	if = {
 		limit = {
@@ -2300,6 +2276,7 @@ armistice_effect = {
 							state = 419
 							state = 877
 							state = 1212
+							state = 1245
 						}
 					}
 					transfer_state_to = GEO
@@ -2601,6 +2578,23 @@ armistice_effect = {
 						}
 					}
 				}
+				1245 = {
+					owner = {
+						NOT = {
+							original_tag = PER
+							has_war_with = PER
+						}
+						OR = {
+							has_cosmetic_tag = GEO_TSCN
+							has_cosmetic_tag = GEO_TSCN_commissariat
+							has_cosmetic_tag = GEO_TSCN_committee
+							has_cosmetic_tag = GEO_TSCN_communism
+							NOT = {
+								PREV = { is_core_of = PREV }
+							}
+						}
+					}
+				}
 			}
 		}
 		every_state = {
@@ -2611,6 +2605,7 @@ armistice_effect = {
 					state = 421
 					state = 877
 					state = 1212
+					state = 1245
 				}
 				owner = {
 					NOT = {
@@ -5311,6 +5306,7 @@ conference_effect = {
 						state = 803
 						state = 1225
 						state = 1214
+						state = 1240
 						state = 1215
 					}
 				}

@@ -804,11 +804,9 @@ focus_tree = {
 		}
 		available = {
 			OR = {
-				any_allied_country = {
+				any_country = {
 					is_major = yes
-					NOT = {
-						is_subject_of = ROOT
-					}
+					is_in_faction_with = ROOT
 				}
 				custom_trigger_tooltip = {
 					tooltip = has_idea_german_military_command
@@ -1075,6 +1073,7 @@ focus_tree = {
 		completion_reward = {
 			unlock_decision_tooltip = TUR_navy_modernization_decision
 			add_ideas = TUR_bahriye_navy_school
+			set_country_flag = TUR_bahriye_nezareti
 		}
 		ai_will_do = {
 			base = 45
@@ -6452,6 +6451,8 @@ focus_tree = {
 						state = 792
 						state = 657
 						state = 827
+						state = 1039
+						state = 1238
 					}
 				}
 				add_compliance = -30
@@ -6473,6 +6474,8 @@ focus_tree = {
 						state = 792
 						state = 657
 						state = 827
+						state = 1039
+						state = 1238
 					}
 				}
 				add_dynamic_modifier = {
@@ -6507,6 +6510,8 @@ focus_tree = {
 						controls_state = 792
 						controls_state = 657
 						controls_state = 827
+						controls_state = 1039
+						controls_state = 1238
 					}
 					NOT = {
 						tag = TUR
@@ -6913,6 +6918,7 @@ focus_tree = {
 						state = 229
 						state = 877
 						state = 1212
+						state = 1245
 						state = 823
 						state = 818
 						state = 419
@@ -6921,11 +6927,18 @@ focus_tree = {
 						state = 417
 						state = 266
 						state = 413
+						state = 1246
 						state = 411
 						state = 418
+						state = 1241
 						state = 416
+						state = 1242
+						state = 1243
 						state = 414
+						state = 1244
 						state = 412
+						state = 1248
+						state = 1249
 						state = 410
 						state = 938
 						state = 939
@@ -7407,6 +7420,7 @@ focus_tree = {
 						state = 847
 						state = 104
 						state = 1214
+						state = 1240
 						state = 1215
 					}
 				}
@@ -13688,7 +13702,8 @@ focus_tree = {
 			}
 			modifier = {
 				add = 10
-				any_enemy_country = {
+				any_country = {
+					has_war_with = ROOT
 					alliance_strength_ratio > 3
 				}
 			}
@@ -16488,7 +16503,9 @@ focus_tree = {
 				controls_state = 419
 				controls_state = 421
 				controls_state = 413
+				controls_state = 1246
 				controls_state = 877
+				controls_state = 1245
 			}
 		}
 		x = 0
@@ -17791,8 +17808,8 @@ focus_tree = {
 				controls_state = 847
 				controls_state = 848
 				controls_state = 1214
+				controls_state = 1240
 				controls_state = 1215
-				controls_state = 1213
 			}
 			NOT = {
 				44 = {
@@ -17869,8 +17886,8 @@ focus_tree = {
 							state = 847
 							state = 758
 							state = 1214
+							state = 1240
 							state = 1215
-							state = 1213
 						}
 					}
 					remove_dynamic_modifier = {
@@ -17900,8 +17917,8 @@ focus_tree = {
 							state = 848
 							state = 847
 							state = 1214
+							state = 1240
 							state = 1215
-							state = 1213
 						}
 					}
 					remove_dynamic_modifier = {
@@ -17970,36 +17987,6 @@ focus_tree = {
 				}
 			}
 			829 = {
-				remove_dynamic_modifier = {
-					modifier = TUR_kurd_minority
-				}
-				clr_state_flag = TUR_kurd_state
-				clr_state_flag = TUR_kurd_state_nocontrol
-				if = {
-					limit = {
-						NOT = {
-							is_core_of = TUR
-						}
-					}
-					add_core_of = TUR
-				}
-			}
-			1027 = {
-				remove_dynamic_modifier = {
-					modifier = TUR_kurd_minority
-				}
-				clr_state_flag = TUR_kurd_state
-				clr_state_flag = TUR_kurd_state_nocontrol
-				if = {
-					limit = {
-						NOT = {
-							is_core_of = TUR
-						}
-					}
-					add_core_of = TUR
-				}
-			}
-			1028 = {
 				remove_dynamic_modifier = {
 					modifier = TUR_kurd_minority
 				}
@@ -18123,6 +18110,7 @@ focus_tree = {
 				controls_state = 419
 				controls_state = 421
 				controls_state = 413
+				controls_state = 1246
 			}
 		}
 		relative_position_id = TUR_a_talk_with_kurdish_sheiks
@@ -18158,6 +18146,18 @@ focus_tree = {
 				}
 			}
 			413 = {
+				TUR_state_remove_specific_minority_modifier = yes
+				clr_state_flag = TUR_arab_state_nocontrol
+				if = {
+					limit = {
+						NOT = {
+							is_core_of = TUR
+						}
+					}
+					add_core_of = TUR
+				}
+			}
+			1246 = {
 				TUR_state_remove_specific_minority_modifier = yes
 				clr_state_flag = TUR_arab_state_nocontrol
 				if = {
@@ -18305,42 +18305,6 @@ focus_tree = {
 				}
 			}
 			455 = {
-				TUR_state_remove_specific_minority_modifier = yes
-				clr_state_flag = TUR_arab_state_nocontrol
-				if = {
-					limit = {
-						NOT = {
-							is_core_of = TUR
-						}
-					}
-					add_core_of = TUR
-				}
-			}
-			1029 = {
-				TUR_state_remove_specific_minority_modifier = yes
-				clr_state_flag = TUR_arab_state_nocontrol
-				if = {
-					limit = {
-						NOT = {
-							is_core_of = TUR
-						}
-					}
-					add_core_of = TUR
-				}
-			}
-			1023 = {
-				TUR_state_remove_specific_minority_modifier = yes
-				clr_state_flag = TUR_arab_state_nocontrol
-				if = {
-					limit = {
-						NOT = {
-							is_core_of = TUR
-						}
-					}
-					add_core_of = TUR
-				}
-			}
-			1021 = {
 				TUR_state_remove_specific_minority_modifier = yes
 				clr_state_flag = TUR_arab_state_nocontrol
 				if = {
@@ -20069,6 +20033,7 @@ focus_tree = {
 				controls_state = 885
 				controls_state = 656
 				controls_state = 413
+				controls_state = 1246
 			}
 		}
 		relative_position_id = TUR_reintroduce_millet_system
@@ -22305,6 +22270,7 @@ focus_tree = {
 				controls_state = 847
 				controls_state = 848
 				controls_state = 1214
+				controls_state = 1240
 				controls_state = 1215
 			}
 			NOT = {
@@ -22394,6 +22360,7 @@ focus_tree = {
 						state = 847
 						state = 848
 						state = 1214
+						state = 1240
 						state = 1215
 					}
 				}
@@ -22428,6 +22395,7 @@ focus_tree = {
 						state = 847
 						state = 848
 						state = 1214
+						state = 1240
 						state = 1215
 					}
 				}
@@ -24090,6 +24058,7 @@ focus_tree = {
 				controls_state = 853
 				controls_state = 847
 				controls_state = 413
+				controls_state = 1246
 				controls_state = 885
 			}
 		}
@@ -24121,6 +24090,7 @@ focus_tree = {
 						state = 853
 						state = 847
 						state = 413
+						state = 1246
 						state = 885
 					}
 				}
@@ -24144,6 +24114,7 @@ focus_tree = {
 						state = 853
 						state = 847
 						state = 413
+						state = 1246
 						state = 885
 					}
 				}
@@ -27704,6 +27675,7 @@ focus_tree = {
 				controls_state = 847
 				controls_state = 848
 				controls_state = 1214
+				controls_state = 1240
 				controls_state = 1215
 			}
 			NOT = {
@@ -27789,6 +27761,7 @@ focus_tree = {
 						state = 847
 						state = 848
 						state = 1214
+						state = 1240
 						state = 1215
 					}
 					has_dynamic_modifier = {
@@ -29952,6 +29925,7 @@ focus_tree = {
 				controls_state = 885
 				controls_state = 656
 				controls_state = 413
+				controls_state = 1246
 			}
 		}
 		relative_position_id = TUR_nationalism_and_centralization
@@ -29978,6 +29952,7 @@ focus_tree = {
 						state = 885
 						state = 656
 						state = 413
+						state = 1246
 					}
 					TUR_state_has_anyminority_modifier = yes
 				}
@@ -29988,6 +29963,7 @@ focus_tree = {
 						NOT = {
 							is_core_of = TUR
 							state = 413
+							state = 1246
 						}
 					}
 					add_core_of = TUR
@@ -31302,6 +31278,7 @@ focus_tree = {
 						state = 847
 						state = 848
 						state = 1214
+						state = 1240
 						state = 1215
 					}
 					TUR_state_has_anyminority_modifier = yes
@@ -32596,6 +32573,7 @@ focus_tree = {
 				controls_state = 885
 				controls_state = 656
 				controls_state = 413
+				controls_state = 1246
 			}
 		}
 		relative_position_id = TUR_one_language_one_religion_one_nation
@@ -32643,6 +32621,7 @@ focus_tree = {
 						state = 885
 						state = 656
 						state = 413
+						state = 1246
 					}
 					TUR_state_has_anyminority_modifier = yes
 				}
@@ -33805,6 +33784,7 @@ focus_tree = {
 				controls_state = 848
 				controls_state = 847
 				controls_state = 1214
+				controls_state = 1240
 				controls_state = 1215
 			}
 			NOT = {
@@ -33897,6 +33877,7 @@ focus_tree = {
 						state = 848
 						state = 847
 						state = 1214
+						state = 1240
 						state = 1215
 					}
 					TUR_state_has_anyminority_modifier = yes
@@ -34699,6 +34680,7 @@ focus_tree = {
 				controls_state = 874
 				controls_state = 885
 				controls_state = 413
+				controls_state = 1246
 			}
 		}
 		relative_position_id = TUR_integration_of_the_working_class
@@ -34727,6 +34709,7 @@ focus_tree = {
 						state = 874
 						state = 885
 						state = 413
+						state = 1246
 					}
 					TUR_state_has_anyminority_modifier = yes
 				}
@@ -35960,6 +35943,7 @@ focus_tree = {
 				controls_state = 847
 				controls_state = 848
 				controls_state = 1214
+				controls_state = 1240
 				controls_state = 1215
 			}
 			NOT = {
@@ -37083,6 +37067,7 @@ focus_tree = {
 						state = 419
 						state = 421
 						state = 413
+						state = 1246
 					}
 				}
 				add_dynamic_modifier = {
