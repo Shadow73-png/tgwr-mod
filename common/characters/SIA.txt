@@ -275,10 +275,17 @@ characters={
 			traits = { SIA_siam_historian }
 			idea_token = GER_oskar_frankfurter
 			visible = {
-				date < 1915.6.6
+				NOT = {
+					GER = {
+						has_country_flag = great_war_loser
+					}
+				}
 			}
 			available = {
-				has_completed_focus = SIA_maintain_british_french_counterbalance
+				has_completed_focus = SIA_prioritize_german_advisors
+				NOT = {
+					has_war_with = GER
+				}	
 			}
 			can_be_fired = no
 		}
