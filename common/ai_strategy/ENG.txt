@@ -1120,8 +1120,10 @@ ENG_blockade_TUR = {
 
 ENG_onto_the_beaches = {
 	allowed = {
-		original_tag = ENG
-		is_historical_focus_on = yes
+		OR = {
+			tag = ENG
+			tag = RAJ
+		}		
 	}
 	enable = {
 		has_war_with = TUR
@@ -1157,6 +1159,16 @@ ENG_onto_the_beaches = {
 		execution_type = balanced
 		execute_order = yes
 	}
+	ai_strategy = {
+		type = front_control
+		tag = TUR
+		ratio = 0.25
+		state = 1248
+		priority = 100
+		ordertype = invasion
+		execution_type = balanced
+		execute_order = yes
+	}
 
 	ai_strategy = {
 		type = invasion_unit_request
@@ -1173,6 +1185,18 @@ ENG_onto_the_beaches = {
 	ai_strategy = {
 		type = invasion_unit_request
 		area = aegean_islands
+		value = -5000
+	}
+
+	ai_strategy = {
+        type = invasion_unit_request
+        area = easter_mediterranean_sea
+       	value = -5000
+    }
+
+	ai_strategy = {
+		type = area_priority
+		id = easter_mediterranean_sea
 		value = -5000
 	}
 
