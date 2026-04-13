@@ -17783,12 +17783,18 @@ joint_focus = {
 	offset = {
 		x = 59
 		y = 4
-		trigger = { tag = TUR }
+		trigger = { has_focus_tree = ottoman_focus_tree }
 	}
 	offset = {
 		x = -10
 		y = 2
-		trigger = { original_tag = GER }
+		trigger = { has_focus_tree = german_focus }
+	}
+	joint_trigger = {
+		OR = {
+			has_focus_tree = german_focus
+			has_focus_tree = ottoman_focus_tree
+		}
 	}
 	available = {
 		TUR = { NOT = { has_completed_focus = TUR_our_traditional_allies } }

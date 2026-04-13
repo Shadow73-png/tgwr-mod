@@ -1413,11 +1413,9 @@ focus_tree = {
 			army_experience = 25
 			if = {
 				limit = {
-					OR = {
-						NOT = {
-							has_completed_focus = SOV_pre_revolutionary_army_officers
-							has_completed_focus = SOV_peoples_army
-						}
+					NOT = {
+						has_completed_focus = SOV_pre_revolutionary_army_officers
+						has_completed_focus = SOV_peoples_army
 					}
 				}
 				remove_ideas = {
@@ -1444,9 +1442,12 @@ focus_tree = {
 				limit = {
 					has_completed_focus = SOV_pre_revolutionary_army_officers
 				}
+				remove_ideas = {
+					SOV_idea_red_army_officers_3
+				}
 				every_subject_country = {
-					limit = { has_idea = SOV_idea_red_army_militia_3 }
-					remove_ideas = SOV_idea_red_army_militia_3
+					limit = { has_idea = SOV_idea_red_army_officers_3 }
+					remove_ideas = SOV_idea_red_army_officers_3
 				}
 			}
 			hidden_effect = {

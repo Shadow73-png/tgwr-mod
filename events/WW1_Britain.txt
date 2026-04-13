@@ -6613,6 +6613,8 @@ country_event = {
 			OR = {
 				owns_state = 410
 				owns_state = 412
+				owns_state = 1248
+				owns_state = 1249
 				owns_state = 413
 				owns_state = 1246
 				owns_state = 421
@@ -13822,14 +13824,24 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_england.260.a
-		PER = {
-			every_owned_state = {
-				limit = {
-					OR = {
-						state = 413
-						state = 1246					
-					}
+		# PER = {
+		# 	every_owned_state = {
+		# 		limit = {
+		# 			OR = {
+		# 				state = 413
+		# 				state = 1246
+		# 			}
+		# 		}
+		# 		transfer_state_to = ROOT
+		# 	}
+		# }
+		if = {
+			limit = {
+				PER = {
+					owns_state = 1246
 				}
+			}
+			1246 = {
 				transfer_state_to = ROOT
 			}
 		}
@@ -13854,6 +13866,13 @@ country_event = {
 				}
 				restore_previous_government_type = yes
 				#separate_peace_all_wars = yes
+			}
+			PER = {
+				diplomatic_relation = {
+					country = ARB
+					relation = docking_rights
+					active = yes
+				}
 			}
 		}
 	}

@@ -140,6 +140,17 @@ focus_tree = {
 				idea = SIB_mobilization_of_the_siberian_army
 				days = 120
 			}
+			if = {
+				limit = {
+					has_completed_focus = SIB_question_of_regional_duma
+				}
+				CER = {
+					country_event = {
+						id = ww1_siberia.6
+						days = 20
+					}
+				}			
+			}
 		}
 		ai_will_do = {
 			factor = 100
@@ -171,6 +182,17 @@ focus_tree = {
 
 		completion_reward = {
 			country_event = ww1_siberia.1
+			if = {
+				limit = {
+					has_completed_focus = SIB_mobilization_of_the_siberian_army
+				}
+				CER = {
+					country_event = {
+						id = ww1_siberia.6
+						days = 20
+					}
+				}			
+			}
 		}
 		ai_will_do = {
 			factor = 100
@@ -615,16 +637,6 @@ focus_tree = {
 				}
 				has_cosmetic_tag = POLITCENTRE
 			}
-		}
-		select_effect = {
-			SIB = {
-				CER = {
-					country_event = {
-						id = ww1_siberia.6
-						days = 20
-					}
-				}
-			}		
 		}
 		completion_reward_joint_originator = {
 			if = {
