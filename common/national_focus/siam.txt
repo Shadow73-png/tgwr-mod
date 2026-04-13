@@ -250,7 +250,17 @@ focus_tree = {
 			focus = SIA_coronation_of_vajiravudh
 		}
 		available = {
-			
+			if = {
+				limit = {
+					is_ai = no
+				}
+				USA = {
+					has_opinion = {
+						target = ROOT
+						value > 50
+					}
+				}
+			}
 		}
 		mutually_exclusive = {
 			focus = SIA_prioritize_german_advisors
@@ -283,7 +293,17 @@ focus_tree = {
 			focus = SIA_maintain_british_french_counterbalance
 		}
 		available = {
-			
+			if = {
+				limit = {
+					is_ai = no
+				}
+				GER = {
+					has_opinion = {
+						target = ROOT
+						value > 50
+					}
+				}
+			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = available_political_advisor
@@ -501,16 +521,62 @@ focus_tree = {
 		icon = GFX_focus_RAJ_enrollment_of_dali_children
 		cost = 10
 		x = 0
+		y = 7
+		#relative_position_id = SIA_assassination_of_vajiravudh
+		#prerequisite = {
+		#	focus = SIA_assassination_of_vajiravudh
+		#}
+		available = {
+			always = no
+		}
+		completion_reward = {
+			set_cosmetic_tag = SIA_thailand
+		}
+		ai_will_do = {
+			base = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = SIA_democracy
+		icon = GFX_focus_RAJ_enrollment_of_dali_children
+		cost = 10
+		x = -2
 		y = 1
 		relative_position_id = SIA_assassination_of_vajiravudh
 		prerequisite = {
 			focus = SIA_assassination_of_vajiravudh
 		}
 		available = {
-			
+			always = no
 		}
 		completion_reward = {
-			set_cosmetic_tag = SIA_thailand
+			
+		}
+		ai_will_do = {
+			base = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = SIA_constitutional_monarchy
+		icon = GFX_focus_RAJ_enrollment_of_dali_children
+		cost = 10
+		x = 2
+		y = 1
+		relative_position_id = SIA_assassination_of_vajiravudh
+		prerequisite = {
+			focus = SIA_assassination_of_vajiravudh
+		}
+		available = {
+			always = no
+		}
+		completion_reward = {
+			
 		}
 		ai_will_do = {
 			base = 100
