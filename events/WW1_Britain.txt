@@ -6612,13 +6612,20 @@ country_event = {
 			OR = {
 				owns_state = 410
 				owns_state = 412
+				owns_state = 1248
+				owns_state = 1249
 				owns_state = 413
+				owns_state = 1246
 				owns_state = 421
 				owns_state = 1211
 				owns_state = 416
+				owns_state = 1242
+				owns_state = 1243
 				owns_state = 266
 				owns_state = 418
+				owns_state = 1241
 				owns_state = 414
+				owns_state = 1244
 				owns_state = 411
 				has_subject = ARB
 			}
@@ -13801,7 +13808,7 @@ country_event = {
 		controls_state = 874
 		PER = {
 			has_idea = PER_idea_foreign_reliance
-			413 = {
+			1246 = {
 				is_owned_or_subject_PREV_trigger = yes
 			}
 			NOT = {
@@ -13816,31 +13823,54 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_england.260.a
+		# PER = {
+		# 	every_owned_state = {
+		# 		limit = {
+		# 			OR = {
+		# 				state = 413
+		# 				state = 1246
+		# 			}
+		# 		}
+		# 		transfer_state_to = ROOT
+		# 	}
+		# }
 		if = {
 			limit = {
 				PER = {
-					owns_state = 413
+					owns_state = 1246
+				}
+			}
+			1246 = {
+				transfer_state_to = ROOT
+			}
+		}
+		if = {
+			limit = {
+				ARB = {
+					OR = {
+						is_subject = no
+						is_subject_of = PER
+					}
 				}	
 			}
-			transfer_state = 413
-			else_if = {
-				limit = {
-					ARB = {
-						owns_state = 413
+			ARB = {
+				set_country_flag = protectorate
+				get_current_government_type = yes
+				ROOT = {
+					set_autonomy = {
+						target = PREV
+						autonomy_state = autonomy_tgwr_informal_protectorate
+						freedom_level = 0.1
 					}
 				}
-				ARB = {
-					set_country_flag = protectorate
-					get_current_government_type = yes
-					ROOT = {
-						set_autonomy = {
-							target = PREV
-							autonomy_state = autonomy_tgwr_informal_protectorate
-							freedom_level = 0.1
-						}
-					}
-					restore_previous_government_type = yes
-					separate_peace_all_wars = yes
+				restore_previous_government_type = yes
+				#separate_peace_all_wars = yes
+			}
+			PER = {
+				diplomatic_relation = {
+					country = ARB
+					relation = docking_rights
+					active = yes
 				}
 			}
 		}

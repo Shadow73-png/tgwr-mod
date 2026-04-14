@@ -74,6 +74,7 @@ ideas = {
 				OR = {
 					owns_state = 412
 					owns_state = 413
+					owns_state = 1246
 				}
 			}
 			on_add = {
@@ -95,7 +96,16 @@ ideas = {
 							receiver = ENG
 							state = 413
 						}
-					}			
+					}		
+					if = {
+						limit = {
+							owns_state = 1246
+						}
+						give_resource_rights = {
+							receiver = ENG
+							state = 1246
+						}
+					}	
 				}
 			}
 			on_remove = {
@@ -113,6 +123,14 @@ ideas = {
 					}
 					ENG = {
 						remove_resource_rights = 413
+					}
+				}
+				if = {
+					limit = {
+						owns_state = 1246
+					}
+					ENG = {
+						remove_resource_rights = 1246
 					}
 				}
 			}

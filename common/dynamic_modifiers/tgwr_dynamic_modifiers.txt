@@ -473,10 +473,10 @@ AUH_OSB_debts = {
 	enable = { original_tag = AUS }
 	consumer_goods_expected_value = var:AUH_OSB_var
 }
-SIB_gold_reserve_dynamic_modifier = {
+RCW_gold_reserve_dynamic_modifier = {
 	icon = GFX_idea_SPR_seize_the_gold_reserves
 	enable = { original_tag = RUS }
-	consumer_goods_expected_value = var:SIB_gold_reserve_var
+	consumer_goods_expected_value = var:global.RCW_gold_reserve_var
 }
 SPR_independence_movements = {
 	enable = { 
@@ -2061,7 +2061,7 @@ FRA_michel_defensive_plan = {
 
 FRA_voie_sacree_modifier = {
 	enable = {
-		CONTROLLER = {
+		controller = {
 			OR = {
 				tag = FRA
 				is_ally_with = FRA
@@ -2071,7 +2071,7 @@ FRA_voie_sacree_modifier = {
 	remove_trigger = {
 		OR = {
 			has_global_flag = great_war_ends
-			owner = {
+			controller = {
 				NOT = {
 					tag = FRA
 					is_ally_with = FRA
@@ -2080,7 +2080,7 @@ FRA_voie_sacree_modifier = {
 		}
 	}
 	icon = GFX_modifiers_generic_supply
-	local_supplies_for_controller = 0.20
+	local_supplies_for_controller = 0.1
 }
 
 FRA_joffre_offensive_plan = {
@@ -2526,6 +2526,10 @@ ROM_romanian_army_idea = {
 	equipment_capture_factor = ROM_stealing 
 	experience_gain_army = ROM_army_xp
 	supply_consumption_factor = ROM_army_supply
+
+	#
+	unit_field_gun_brigade_design_cost_factor = ROM_arty_brigade_cost
+	unit_infantry_design_cost_factor = ROM_infantry_brigade_cost
 }
 ROM_occupation_costs = {
 	enable = { always = yes }

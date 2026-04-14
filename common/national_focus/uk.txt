@@ -3948,6 +3948,17 @@ focus_tree = {
 				id = AMR
 				value = 1
 			}
+			if = {
+				limit = {
+					owns_state = 183
+					TUR = {
+						has_contested_owner = 183
+					}
+				}
+				183 = {
+					remove_contested_owner = TUR
+				}
+			}
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -5616,6 +5627,7 @@ focus_tree = {
 						limit = {
 							OR = {
 								owns_state = 413
+								owns_state = 1246
 								owns_state = 412
 							}
 						}
@@ -5653,6 +5665,24 @@ focus_tree = {
 								give_resource_rights = {
 									receiver = ENG
 									state = 412
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							OR = {
+								owns_state = 1246
+								any_subject_country = {
+									owns_state = 1246
+								}
+							}			
+						}
+						1246 = {
+							OWNER = {
+								give_resource_rights = {
+									receiver = ENG
+									state = 1246
 								}
 							}
 						}
@@ -6160,6 +6190,12 @@ joint_focus = {
 	cost = 2
 	x = 0
 	y = 1
+	joint_trigger = {
+		OR = {
+			has_focus_tree = german_focus
+			has_focus_tree = uk_focus
+		}
+	}
 	available = {
 		has_crisis = no
 		GER = {
@@ -6186,6 +6222,12 @@ joint_focus = {
 		}	
 		NOT = {
 			has_global_flag = great_war
+		}
+	}
+	allow_branch = {
+		OR = {
+			has_focus_tree = german_focus
+			has_focus_tree = uk_focus
 		}
 	}
 	bypass = {
@@ -6251,6 +6293,12 @@ joint_focus = {
 	relative_position_id = ENG_GER_haldane_mission
 	x = 0
 	y = 1
+	joint_trigger = {
+		OR = {
+			has_focus_tree = german_focus
+			has_focus_tree = uk_focus
+		}
+	}
 	available = {
 		GER = {
 			is_GER_a_monarchy = yes
