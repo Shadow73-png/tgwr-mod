@@ -1054,6 +1054,16 @@ country_event = {
 					limit = { is_faction_leader = yes }
 					dismantle_faction = yes
 				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = TUR
+							original_tag = MNT
+						}
+						MNT = { owns_state = 870 }
+					}
+					870 = { transfer_state_to = TUR }
+				}
 			}
 		}
 		set_global_flag = kis_firstbalkanwar_lose
@@ -1067,7 +1077,7 @@ country_event = {
 	}
 	option = {
 		name = ww1_firstbalkan.7.b
-		trigger = { always = no}
+		trigger = { always = no }
 		add_war_support = -0.1
 	}
 }
