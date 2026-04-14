@@ -1098,11 +1098,9 @@ operations = {
 					is_in_faction_with = ROOT
 					is_in_faction = no
 				}
-				has_idea = PER_idea_foreign_reliance
+				has_dynamic_modifier = PER_foreign_influence_modifier
 			}
-			any_state = {
-				has_dynamic_modifier = { modifier = per_british_sphere }
-			}
+			check_variable = { ENG.PER_foreign_influence > 0.1 }
 			OR = {
 				has_war_with = TUR
 				PER = { has_war_with = TUR }

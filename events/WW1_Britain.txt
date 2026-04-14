@@ -6610,25 +6610,13 @@ country_event = {
 		ENG = {
 			has_country_flag = great_war_loser
 			OR = {
-				owns_state = 410
-				owns_state = 412
-				owns_state = 1248
-				owns_state = 1249
-				owns_state = 413
-				owns_state = 1246
-				owns_state = 421
-				owns_state = 1211
-				owns_state = 416
-				owns_state = 1242
-				owns_state = 1243
-				owns_state = 266
-				owns_state = 418
-				owns_state = 1241
-				owns_state = 414
-				owns_state = 1244
-				owns_state = 411
+				any_owned_state = {
+					region = 116
+				}
+				has_subject = PER
 				has_subject = ARB
 				has_subject = MAK
+				check_variable = { ENG.PER_foreign_influence > 0 }
 			}
 		}
 	}
@@ -6713,6 +6701,7 @@ country_event = {
 				transfer_state = PREV
 			}
 		}
+		set_variable = { var = ENG.PER_foreign_influence value = 0 }
 	}
 }
 
