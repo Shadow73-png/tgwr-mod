@@ -2582,14 +2582,14 @@ focus_tree = {
 				limit = { has_country_flag = ALB_freed_abdulhamid }
 				NOT = {
 					has_completed_focus = ALB_recrown_abdulhamid_II
-					has_completed_focus = ALB_idea_of_romantic_independence
+					has_completed_focus = ALB_ideals_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
 			}
 			else = {
 				NOT = {
 					has_completed_focus = ALB_recrown_abdulhamid_II
-					has_completed_focus = ALB_idea_of_romantic_independence
+					has_completed_focus = ALB_ideals_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
 			}
@@ -2620,14 +2620,14 @@ focus_tree = {
 				limit = { has_country_flag = ALB_freed_abdulhamid }
 				NOT = {
 					has_completed_focus = ALB_recrown_abdulhamid_II
-					has_completed_focus = ALB_idea_of_romantic_independence
+					has_completed_focus = ALB_ideals_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
 			}
 			else = {
 				NOT = {
 					has_completed_focus = ALB_recrown_abdulhamid_II
-					has_completed_focus = ALB_idea_of_romantic_independence
+					has_completed_focus = ALB_ideals_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
 			}
@@ -2695,7 +2695,7 @@ focus_tree = {
 				}
 				OR = {
 					has_completed_focus = ALB_recrown_abdulhamid_II
-					has_completed_focus = ALB_idea_of_romantic_independence
+					has_completed_focus = ALB_ideals_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
 			}
@@ -4980,10 +4980,10 @@ focus_tree = {
 			FOCUS_FILTER_ARMY_XP
 			FOCUS_FILTER_HISTORICAL
 		}
-		prerequisite = { focus = ALB_asymmetric_warfare }
-		x = 0
+		prerequisite = { focus = ALB_albanian_national_army }
+		x = 2
 		y = 1
-		relative_position_id = ALB_asymmetric_warfare
+		relative_position_id = ALB_albanian_national_army
 		available = { NOT = { has_country_flag = TUR_revolting_country } }
 		completion_reward = {
 			division_template = {
@@ -5328,8 +5328,8 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		prerequisite = { focus = ALB_finance_the_army }
-		x = 2
-		y = 1
+		x = 1
+		y = 2
 		relative_position_id = ALB_finance_the_army
 		continue_if_invalid = yes
 		available = { num_of_civilian_factories_available_for_projects > 2 }
@@ -5601,7 +5601,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = ALB_international_gendarmerie }
 		prerequisite = { focus = ALB_international_control_commission }
-		mutually_exclusive = { focus = ALB_recrown_abdulhamid_II focus = ALB_idea_of_romantic_independence focus = ALB_foreign_policy_priority }
+		mutually_exclusive = { focus = ALB_recrown_abdulhamid_II focus = ALB_ideals_of_romantic_independence focus = ALB_foreign_policy_priority }
 		x = 1
 		y = 1
 		relative_position_id = ALB_international_gendarmerie
@@ -5681,7 +5681,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = ALB_establish_the_ottoman_regency }
 		prerequisite = { focus = ALB_albanian_independence }
-		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_idea_of_romantic_independence focus = ALB_foreign_policy_priority }
+		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_ideals_of_romantic_independence focus = ALB_foreign_policy_priority }
 		x = -5
 		y = 2
 		relative_position_id = ALB_establish_the_ottoman_regency
@@ -5702,13 +5702,14 @@ focus_tree = {
 				}
 			}
 			set_capital = { state = 1215 remember_old_capital = no }
+			hidden_effect = { country_event = { id = albania.124 days = 3 random_days = 3 } }
 			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
 	}
 
 	focus = {
-		id = ALB_idea_of_romantic_independence
+		id = ALB_ideals_of_romantic_independence
 		icon = GFX_TUR_temporary_law_of_deportation
 		cost = 5
 		search_filters = {
@@ -5741,7 +5742,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		prerequisite = { focus = ALB_albanian_independence }
-		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_idea_of_romantic_independence }
+		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_ideals_of_romantic_independence }
 		x = 6
 		y = 1
 		relative_position_id = ALB_albanian_independence
@@ -5766,11 +5767,11 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_idea_of_romantic_independence }
+		prerequisite = { focus = ALB_ideals_of_romantic_independence }
 		mutually_exclusive = { focus = ALB_crown_the_kastrioti_prince focus = ALB_favor_the_ghica_pretender }
 		x = -4
 		y = 1
-		relative_position_id = ALB_idea_of_romantic_independence
+		relative_position_id = ALB_ideals_of_romantic_independence
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ALB_has_toptani_government
@@ -5790,11 +5791,11 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_idea_of_romantic_independence }
+		prerequisite = { focus = ALB_ideals_of_romantic_independence }
 		mutually_exclusive = { focus = ALB_republican_ideals focus = ALB_favor_the_ghica_pretender }
 		x = 0
 		y = 1
-		relative_position_id = ALB_idea_of_romantic_independence
+		relative_position_id = ALB_ideals_of_romantic_independence
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ALB_has_toptani_government
@@ -5814,11 +5815,11 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_idea_of_romantic_independence }
+		prerequisite = { focus = ALB_ideals_of_romantic_independence }
 		mutually_exclusive = { focus = ALB_republican_ideals focus = ALB_crown_the_kastrioti_prince }
 		x = 4
 		y = 1
-		relative_position_id = ALB_idea_of_romantic_independence
+		relative_position_id = ALB_ideals_of_romantic_independence
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ALB_has_toptani_government
@@ -5912,7 +5913,7 @@ focus_tree = {
 #		}
 #		prerequisite = { focus = ALB_secure_the_vlora_triangle }
 #		prerequisite = { focus = ALB_albanian_independence }
-#		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_idea_of_romantic_independence focus = ALB_foreign_policy_priority }
+#		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_ideals_of_romantic_independence focus = ALB_foreign_policy_priority }
 #		x = 0
 #		y = 2
 #		relative_position_id = ALB_secure_the_vlora_triangle
@@ -10033,7 +10034,7 @@ focus_tree = {
 			FOCUS_FILTER_ANNEXATION
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_recrown_abdulhamid_II focus = ALB_idea_of_romantic_independence focus = ALB_foreign_policy_priority }
+		prerequisite = { focus = ALB_recrown_abdulhamid_II focus = ALB_ideals_of_romantic_independence focus = ALB_foreign_policy_priority }
 		x = 0
 		y = 2
 		relative_position_id = ALB_albanian_independence
