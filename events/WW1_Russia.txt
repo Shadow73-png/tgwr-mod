@@ -2186,24 +2186,12 @@ country_event = {
 				is_in_russian_civil_war = yes
 			}
 			OR = {
-				owns_state = 420
-				owns_state = 419
-				owns_state = 417
-				owns_state = 421
-				owns_state = 416
-				owns_state = 1242
-				owns_state = 1243
-				owns_state = 266
-				owns_state = 418
-				owns_state = 1241
-				owns_state = 414
-				owns_state = 1244
-				owns_state = 411
-				owns_state = 877
-				owns_state = 1212
-				owns_state = 1245
+				any_owned_state = {
+					region = 116
+				}
 				has_subject = MAK
 				has_subject = PER
+				check_variable = { RUS.PER_foreign_influence > 0 }
 			}
 		}
 	}
@@ -2318,6 +2306,7 @@ country_event = {
 				}
 			}
 		}
+		set_variable = { var = RUS.PER_foreign_influence value = 0 }
 	}
 }
 
