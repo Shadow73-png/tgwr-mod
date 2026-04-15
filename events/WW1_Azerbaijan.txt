@@ -148,12 +148,7 @@ country_event = {
 					random_days = 10
 				}
 			}
-			TUR = {
-				country_event = {
-					id = ww1_azerbaijan.7
-					days = 10
-				}
-			}
+			TUR = { country_event = { id = ww1_azerbaijan.7 days = 10 } }
 		}
 	}
 	option = {
@@ -284,82 +279,57 @@ country_event = {
 	picture = GFX_report_event_caucasus_islamic_army
 	fire_only_once = yes
 	is_triggered_only = yes
-	immediate = {
-		hidden_effect = {
-			division_template = {
-				name = "Qafqaz İslam Ordusu"
-				# is_locked = yes
-				division_names_group = AZR_INF_02
-				regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					militia = { x = 1 y = 0 }
-					militia = { x = 1 y = 1 }
-					militia = { x = 1 y = 2 }
-					militia = { x = 1 y = 3 }
-					militia = { x = 0 y = 3 }
-				}
-				support = {
-					engineer = { x = 0 y = 0 }
-					field_gun = { x = 0 y = 1 }
-				}
-			}
-			823 = {
-				create_unit = {
-					division = "name = \"5-ci Qafqaz piyada diviziyasının\" division_template = \"Qafqaz İslam Ordusu\" start_experience_factor = 0.6"
-					owner = ROOT
-					prioritize_location = 1962
-					allow_spawning_on_enemy_provs = yes
-				}
-				create_unit = {
-					division = "name = \"15-ci piyada diviziyasının\" division_template = \"Qafqaz İslam Ordusu\" start_experience_factor = 0.6"
-					owner = ROOT
-					prioritize_location = 1962
-					allow_spawning_on_enemy_provs = yes
-				}
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 1500
-				producer = FROM
-			}
-			add_equipment_to_stockpile = {
-				type = field_gun_equipment
-				amount = 40
-				producer = FROM
-			}
-			add_equipment_to_stockpile = {
-				type = howitzer_equipment
-				amount = 10
-				producer = FROM
-			}
-		}
-	}
 	option = {
 		name = ww1_azerbaijan.3.a
-		FROM = {
-			effect_tooltip = {
-				set_autonomy = {
-					target = ROOT
-					autonomous_state = autonomy_tgwr_informal_protectorate
-				}
+		division_template = {
+			name = "Qafqaz İslam Ordusu"
+			division_names_group = AZR_INF_02
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+				militia = { x = 1 y = 2 }
+				militia = { x = 1 y = 3 }
+				militia = { x = 0 y = 3 }
 			}
-			hidden_effect = {
-				ROOT = {
-					set_country_flag = protectorate
-					get_current_government_type = yes
-					remove_ideas = standing_alone
-				}
-				set_autonomy = {
-					target = ROOT
-					autonomous_state = autonomy_tgwr_informal_protectorate
-					freedom_level = 0.6
-					end_wars = no
-					end_civil_wars = no
-				}
-				ROOT = { restore_previous_government_type = yes }
+			support = {
+				engineer = { x = 0 y = 0 }
+				field_gun = { x = 0 y = 1 }
 			}
 		}
+		random_controlled_state = {
+			create_unit = {
+				division = "name = \"5-ci Qafqaz piyada diviziyasının\" division_template = \"Qafqaz İslam Ordusu\" start_experience_factor = 0.6"
+				owner = ROOT
+				prioritize_location = 1962
+				allow_spawning_on_enemy_provs = yes
+			}
+			create_unit = {
+				division = "name = \"15-ci piyada diviziyasının\" division_template = \"Qafqaz İslam Ordusu\" start_experience_factor = 0.6"
+				owner = ROOT
+				prioritize_location = 1962
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		FROM = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 1500
+				target = ROOT
+			}
+			send_equipment = {
+				equipment = field_gun_equipment
+				amount = 40
+				target = ROOT
+			}
+			send_equipment = {
+				equipment = howitzer_equipment
+				amount = 10
+				target = ROOT
+			}
+		}
+		give_military_access = FROM
 	}
 }
 
@@ -648,24 +618,60 @@ country_event = {
 	}
 	option = {
 		name = ww1_azerbaijan.7.a
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = -1500
-		}
 		effect_tooltip = {
-			FROM = { set_country_flag = protectorate }
-			set_autonomy = {
-				target = FROM
-				autonomy_state = autonomy_tgwr_informal_protectorate
-				end_wars = no
-				end_civil_wars = no
-			}
-		}
-		hidden_effect = {
 			FROM = {
-				country_event = ww1_azerbaijan.3
+				division_template = {
+					name = "Qafqaz İslam Ordusu"
+					division_names_group = AZR_INF_02
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						militia = { x = 1 y = 0 }
+						militia = { x = 1 y = 1 }
+						militia = { x = 1 y = 2 }
+						militia = { x = 1 y = 3 }
+						militia = { x = 0 y = 3 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+						field_gun = { x = 0 y = 1 }
+					}
+				}
+				random_controlled_state = {
+					create_unit = {
+						division = "name = \"5-ci Qafqaz piyada diviziyasının\" division_template = \"Qafqaz İslam Ordusu\" start_experience_factor = 0.6"
+						owner = ROOT
+						prioritize_location = 1962
+						allow_spawning_on_enemy_provs = yes
+					}
+					create_unit = {
+						division = "name = \"15-ci piyada diviziyasının\" division_template = \"Qafqaz İslam Ordusu\" start_experience_factor = 0.6"
+						owner = ROOT
+						prioritize_location = 1962
+						allow_spawning_on_enemy_provs = yes
+					}
+				}
+				ROOT = {
+					send_equipment = {
+						equipment = infantry_equipment
+						amount = 1500
+						target = FROM
+					}
+					send_equipment = {
+						equipment = field_gun_equipment
+						amount = 40
+						target = FROM
+					}
+					send_equipment = {
+						equipment = howitzer_equipment
+						amount = 10
+						target = FROM
+					}
+				}
+				give_military_access = ROOT
 			}
 		}
+		hidden_effect = { FROM = { country_event = ww1_azerbaijan.3 } }
 	}
 	option = {
 		name = ww1_azerbaijan.7.b

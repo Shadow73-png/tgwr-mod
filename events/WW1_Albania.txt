@@ -6380,6 +6380,46 @@ country_event = { #abdulhamid purge general
 	}
 }
 
+country_event = { #abdulhamid purge naval
+	id = albania.128
+	title = albania.128.t
+	desc = albania.128.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_albanian_partisans
+	option = {
+		name = albania.128.a
+		random_character = {
+			limit = {
+				has_character_flag = ALB_abdulhamid_purge
+				is_navy_leader = yes
+			}
+			custom_effect_tooltip = remove_as_admiral
+			if = {
+				limit = { is_navy_chief = yes }
+				custom_effect_tooltip = remove_as_chief_of_navy
+			}
+			if = {
+				limit = { is_high_command = yes }
+				custom_effect_tooltip = remove_as_military_high_command
+			}
+			if = {
+				limit = { is_theorist = yes }
+				custom_effect_tooltip = remove_as_theorist
+			}
+			set_character_flag = ALB_purged_character
+		}
+		add_days_mission_timeout = {
+			mission = ALB_albanian_national_revolution
+			days = 50
+		}
+	}
+	option = {
+		name = albania.128.b
+		add_stability = -0.05
+		add_political_power = -50
+	}
+}
+
 #No More Ottoman Puppet
 country_event = {
 	id = ww1_albania.11

@@ -4378,12 +4378,19 @@ focus_tree = {
 		available = {
 			has_war_with = TUR
 			has_country_flag = TUR_revolting_country
+			NOT = {
+				custom_trigger_tooltip = {
+					tooltip = ALB_draft_the_grece_memorandum_trigger
+					has_global_flag = ALB_draft_the_grece_memorandum
+				}
+			}
 		}
 		completion_reward = {
 			TUR = { country_event = { id = albania.8 hours = 8 } }
 			custom_effect_tooltip = if_they_accept_tt
 			event_option_tooltip = albania.9.a
 			custom_effect_tooltip = ALB_draft_the_grece_memorandum_tt
+			set_global_flag = ALB_draft_the_grece_memorandum
 		}
 		ai_will_do = { base = 20 }
 	}
@@ -4438,6 +4445,12 @@ focus_tree = {
 					}
 				}
 			}
+			NOT = {
+				custom_trigger_tooltip = {
+					tooltip = ALB_present_the_fourteen_demands_trigger
+					has_global_flag = ALB_present_the_fourteen_demands
+				}
+			}
 		}
 		continue_if_invalid = yes
 		completion_reward = {
@@ -4448,6 +4461,7 @@ focus_tree = {
 			TUR = { country_event = { id = ottoman.233 hours = 8 } }
 			custom_effect_tooltip = if_they_accept_tt
 			event_option_tooltip = ottoman.234.a
+			set_global_flag = ALB_present_the_fourteen_demands
 		}
 		ai_will_do = {
 			factor = 100
@@ -4978,6 +4992,56 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALB_albanian_national_army
+		icon = GFX_ALB_albanian_national_army
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_ARMY_XP
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = ALB_asymmetric_warfare }
+		x = -2
+		y = 1
+		relative_position_id = ALB_asymmetric_warfare
+		available = { NOT = { has_country_flag = TUR_revolting_country } }
+		completion_reward = {
+			remove_ideas = ALB_tribal_army_6
+			delete_unit_template_and_units = { division_template = "Kryengritësit Shqiptarë" disband = no }
+			custom_effect_tooltip = ALB_albanian_national_army_tt
+			custom_effect_tooltip = available_chief_of_army
+			show_ideas_tooltip = ALB_ali_shefqet_shkupi
+			custom_effect_tooltip = available_theorist
+			show_ideas_tooltip = ALB_ali_riza_kolonja
+			effect_tooltip = {
+				add_corps_commander_role = {
+					character = ALB_ali_shefqet_shkupi
+					traits = { politically_connected career_officer inflexible_strategist }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 3
+					logistics_skill = 2
+				}
+				add_corps_commander_role = {
+					character = ALB_ali_riza_kolonja
+					traits = { politically_connected career_officer }
+					skill = 3
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 3
+					logistics_skill = 2
+				}
+			}
+			custom_effect_tooltip = ALB_albanian_national_army_tt2
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = ALB_albanian_national_army_dm }
+				add_to_variable = { ALB_ana_mobilization_speed = 0.05 }
+			}
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
 		id = ALB_rely_on_tribal_units
 		icon = GFX_ALB_rely_on_tribal_units
 		cost = 5
@@ -5045,55 +5109,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = ALB_albanian_national_army
-		icon = GFX_ALB_albanian_national_army
-		cost = 10
-		search_filters = {
-			FOCUS_FILTER_ARMY_XP
-			FOCUS_FILTER_HISTORICAL
-		}
-		prerequisite = { focus = ALB_asymmetric_warfare }
-		x = -2
-		y = 1
-		relative_position_id = ALB_asymmetric_warfare
-		available = { NOT = { has_country_flag = TUR_revolting_country } }
-		completion_reward = {
-			remove_ideas = ALB_tribal_army_6
-			delete_unit_template_and_units = { division_template = "Kryengritësit Shqiptarë" disband = no }
-			custom_effect_tooltip = ALB_albanian_national_army_tt
-			custom_effect_tooltip = available_chief_of_army
-			show_ideas_tooltip = ALB_ali_shefqet_shkupi
-			custom_effect_tooltip = available_theorist
-			show_ideas_tooltip = ALB_ali_riza_kolonja
-			effect_tooltip = {
-				add_corps_commander_role = {
-					character = ALB_ali_shefqet_shkupi
-					traits = { politically_connected career_officer inflexible_strategist }
-					skill = 2
-					attack_skill = 2
-					defense_skill = 2
-					planning_skill = 3
-					logistics_skill = 2
-				}
-				add_corps_commander_role = {
-					character = ALB_ali_riza_kolonja
-					traits = { politically_connected career_officer }
-					skill = 3
-					attack_skill = 2
-					defense_skill = 3
-					planning_skill = 3
-					logistics_skill = 2
-				}
-			}
-			custom_effect_tooltip = ALB_albanian_national_army_tt2
-			hidden_effect = {
-				add_dynamic_modifier = { modifier = ALB_albanian_national_army_dm }
-				add_to_variable = { ALB_ana_mobilization_speed = 0.05 }
-			}
-		}
-		ai_will_do = { factor = 100 }
-	}
 	focus = {
 		id = ALB_form_the_air_corps
 		icon = GFX_ALB_form_the_air_corps

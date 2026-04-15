@@ -14256,13 +14256,13 @@ operations = {
 			}
 		}
 	}
-	TUR_finish_andranik = {
+	TUR_finish_off_andranik = {
 		icon = GFX_decision_generic_prepare_civil_war
 		allowed = { original_tag = TUR }
 		target_trigger = {
 			FROM = {
 				original_tag = ARM
-				owns_state = 939
+				owns_state = 938
 			}
 		}
 		visible = {
@@ -29496,24 +29496,22 @@ economy_decisions = {
 			}
 		}
 		visible = {
-			hidden_trigger = {
-				NOT = {
-					has_war_with = FROM
-					has_country_flag = great_war_loser
+			NOT = {
+				has_war_with = FROM
+				has_country_flag = great_war_loser
+			}
+			is_subject = no
+			has_capitulated = no
+			any_country = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
 				}
-				is_subject = no
-				has_capitulated = no
-				any_country = {
-					OR = {
-						tag = ROOT
-						is_subject_of = ROOT
-						is_in_faction_with = ROOT
-					}
-					owns_state = 939
-					controls_state = 939
-					owns_state = 823
-					controls_state = 823
-				}
+				owns_state = 939
+				controls_state = 939
+				owns_state = 823
+				controls_state = 823
 			}
 		}
 		days_remove = 5
