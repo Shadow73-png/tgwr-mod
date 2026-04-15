@@ -1901,6 +1901,70 @@ ALB_rising_opposition = {
 			}
 		}
 	}
+	ALB_raid_on_opposition_newspapers = {
+		icon = GFX_decision_generic_arrest
+		allowed = { original_tag = ALB }
+		visible = {
+			has_active_mission = ALB_albanian_national_revolution
+			has_completed_focus = ALB_cencorship_of_the_press
+		}
+		days_re_enable = 35
+		cost = 35
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = ALB_albanian_national_revolution
+				days = 50
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+	ALB_pressure_on_religious_minorities = {
+		icon = GFX_decision_oppression
+		allowed = { original_tag = ALB }
+		visible = {
+			has_active_mission = ALB_albanian_national_revolution
+			has_completed_focus = ALB_cencorship_of_the_press
+		}
+		days_remove = 40
+		cost = 40
+		modiifer = {
+			stability_factor = -0.1
+			compliance_growth = -0.15
+			non_core_manpower = -0.35
+		}
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = ALB_albanian_national_revolution
+				days = 60
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+	ALB_exile_politicized_officers = {
+		icon = GFX_decision_generic_army_support
+		allowed = { original_tag = ALB }
+		visible = {
+			has_active_mission = ALB_albanian_national_revolution
+			has_completed_focus = ALB_cencorship_of_the_press
+		}
+		days_remove = 70
+		custom_cost_text = decision_cost_CP_35
+		custom_cost_trigger = { command_power > 24.9 }
+		complete_effect = { hidden_effect = { add_command_power = -35 } }
+		modiifer = {
+			experience_gain_army_factor = -0.5
+			experience_gain_navy_factor = -0.5
+			experience_gain_air_factor = -0.5
+			army_org_factor = -0.1
+		}
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = ALB_albanian_national_revolution
+				days = 50
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
 }
 
 war_measures = {

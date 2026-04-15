@@ -1609,6 +1609,44 @@ ideas={
 				compliance_gain = -0.05
 			}
 		}
+		ALB_political_transformation = {
+			picture = BRA_dasp
+			allowed = { always = no }
+			allowed_civil_war = { has_country_leader = { character = TUR_abdulhamid_II } }
+			cancel = { has_stability > 0.7 }
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.1
+				political_advisor_cost_factor = 0.25
+				stability_weekly = 0.001
+			}
+		}
+		ALB_political_transformation_2 = {
+			name = ALB_political_transformation
+			picture = BRA_dasp
+			allowed = { always = no }
+			allowed_civil_war = { has_country_leader = { character = TUR_abdulhamid_II } }
+			cancel = { has_stability > 0.7 }
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.05
+				political_advisor_cost_factor = 0.25
+				stability_weekly = 0.001
+			}
+		}
+		ALB_political_islam = {
+			picture = PER_islamic_traditions_ns
+			allowed = { always = no }
+			allowed_civil_war = { has_country_leader = { character = TUR_abdulhamid_II } }
+			cancel = { has_stability > 0.7 }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.1
+				monthly_population = 0.15
+				research_speed_factor = -0.05
+				drift_defence_factor = 0.25
+			}
+		}
 	}
 	hidden_ideas = {
 		TUR_soldier_desertions = {

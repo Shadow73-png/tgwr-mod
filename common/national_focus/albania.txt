@@ -5737,6 +5737,7 @@ focus_tree = {
 					traits = { ALB_bloody_sultan }
 				}
 			}
+			set_cosmetic_tag = ALB_sultanate
 			set_capital = { state = 1215 remember_old_capital = no }
 			hidden_effect = { country_event = { id = albania.125 days = 3 random_days = 3 } }
 			mark_focus_tree_layout_dirty = yes
@@ -9498,6 +9499,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_state_claim = 105
+			add_state_claim = 1205
 			every_other_country = {
 				limit = {
 					NOT = {
@@ -9883,7 +9885,7 @@ focus_tree = {
 		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
 			custom_effect_tooltip = ALB_exile_the_opposition_tt
-			hidden_effect = { country_event = { id = albania.126 dsy = 14 random_days = 14 } }
+			hidden_effect = { country_event = albania.126 }
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -9900,7 +9902,8 @@ focus_tree = {
 		relative_position_id = ALB_exile_the_opposition
 		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
-			
+			add_ideas = ALB_political_transformation
+			custom_effect_tooltip = ALB_political_transformation_instant_desc
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -9915,9 +9918,37 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ALB_initiate_political_transformation
-		available = { has_country_leader = { character = TUR_abdulhamid_II } }
+		available = {
+			has_country_leader = { character = TUR_abdulhamid_II }
+			OR = {
+				haS_idea = ALB_political_transformation
+				has_active_mission = ALB_albanian_national_revolution
+			}
+		}
+		complete_tooltip = {
+			if = {
+				limit = { has_country_flag = ALB_cencorship_of_the_press }
+				swap_ideas = {
+					remove_idea = ALB_political_transformation
+					add_idea = ALB_political_transformation_2
+				}
+			}
+			unlock_decision_tooltip = ALB_raid_on_opposition_newspapers
+			unlock_decision_tooltip = ALB_pressure_on_religious_minorities
+			unlock_decision_tooltip = ALB_exile_politicized_officers
+		}
 		completion_reward = {
-			
+			if = {
+				limit = { has_idea = ALB_political_transformation }
+				swap_ideas = {
+					remove_idea = ALB_political_transformation
+					add_idea = ALB_political_transformation_2
+				}
+				set_country_flag = ALB_cencorship_of_the_press
+			}
+			unlock_decision_tooltip = ALB_raid_on_opposition_newspapers
+			unlock_decision_tooltip = ALB_pressure_on_religious_minorities
+			unlock_decision_tooltip = ALB_exile_politicized_officers
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -9992,7 +10023,7 @@ focus_tree = {
 		relative_position_id = ALB_initiate_political_transformation
 		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
-			
+			add_ideas = ALB_political_islam
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -10009,7 +10040,7 @@ focus_tree = {
 		relative_position_id = ALB_utilize_political_islam
 		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
-			
+			add_ideas = ALB_xhizja_tax
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -10026,7 +10057,16 @@ focus_tree = {
 		relative_position_id = ALB_utilize_political_islam
 		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
-			
+			custom_effect_tooltip = modify_ALB_illiterate_society_tt
+			add_to_variable = {
+				tooltip = stability_factor_5
+				ALB_is_stability_factor = 0.05
+			}
+			add_to_variable = {
+				tooltip = research_speed_factor_5
+				ALB_is_research_speed = 0.05
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -10043,7 +10083,7 @@ focus_tree = {
 		relative_position_id = ALB_utilize_political_islam
 		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
-			
+			add_ideas = ALB_welcoming_balkan_refugees
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -10075,16 +10115,19 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ALB_a_state_for_all_muslims
-		available = { has_country_leader = { character = TUR_abdulhamid_II } }
+		available = {
+			has_country_leader = { character = TUR_abdulhamid_II }
+			all_other_country = { NOT = { has_idea_with_trait = tgwr_caliph } }
+		}
 		completion_reward = {
-			
+			add_country_leader_trait = tgwr_caliph
 		}
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
 		id = ALB_declare_the_balkan_jihad
 		icon = GFX_TUR_temporary_law_of_deportation
-		cost = 5
+		cost = 10
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
