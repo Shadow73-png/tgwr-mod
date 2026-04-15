@@ -14120,7 +14120,7 @@ operations = {
 					country_event = ottoman.193
 				}
 				EGY = { country_event = ottoman.194 }
-				every_country = {
+				every_other_country = {
 					limit = { is_major = yes }
 					country_event = { id = ottoman.197 hours = 8 }
 				}
@@ -14333,63 +14333,6 @@ operations = {
 						is_in_faction_with = ROOT
 						is_subject_of = ROOT
 						has_war_with = ROOT
-					}
-				}
-			}
-		}
-	}
-	TUR_annex_ARM = {
-		icon = GFX_decision_generic_prepare_civil_war
-		allowed = { original_tag = TUR }
-		target_trigger = {
-			FROM = {
-				tag = ARM
-			}
-		}
-		visible = {
-			is_subject = no
-			has_country_flag = great_war_winner
-			is_neighbor_of = FROM
-			NOT = {
-				has_war_with = FROM
-				FROM = { owns_state = 939 }
-				is_in_faction_with = FROM
-				has_subject = FROM
-			}
-		}
-		available = {
-			has_global_flag = interbellum
-			has_war = no
-			939 = { is_owned_or_subject_trigger = yes }
-			939 = { is_owned_or_subject_trigger = yes }
-			FROM = {
-				is_in_faction = no
-				is_subject = no
-			}
-		}
-		custom_cost_text = decision_cost_CP_25
-		custom_cost_trigger = { command_power > 25 }
-		complete_effect = {
-			hidden_effect = { add_command_power = -25 }
-			add_state_claim = 230
-		}
-		war_with_target_on_remove = yes
-		fire_only_once = no
-		days_remove = 45
-		remove_effect = { FROM = { country_event = { id = ww1_generic.35 hours = 3 } } }
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				factor = 0
-				has_war_support < 10
-			}
-			modifier = {
-				factor = 0
-				any_other_country = {
-					has_guaranteed = FROM
-					NOT = {
-						is_in_faction_with = ROOT
-						is_subject_of = ROOT
 					}
 				}
 			}

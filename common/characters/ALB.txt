@@ -20,8 +20,19 @@ characters = {
 			idea_token = ALB_isa_boletini
 			allowed = { original_tag = ALB }
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				army_chief_offensive_3
@@ -33,7 +44,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				NOT = { has_country_flag = ALB_refused_the_return_of_abdulhamid }
 				ALB_character_trigger = yes
@@ -62,13 +73,22 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_esad_toptani
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			available = {
 				NOT = { has_government = communism }
 				is_country_leader = no
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = { ALB_wicked_ambitions_advisor }
 			ai_will_do = { factor = 100 }
@@ -83,7 +103,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -118,8 +138,19 @@ characters = {
 			traits = {
 				PRC_guerilla_fighter
 			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			cost = 100
@@ -129,7 +160,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -164,8 +195,19 @@ characters = {
 			traits = {
 				army_logistics_3
 			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			cost = 100
@@ -175,7 +217,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -210,8 +252,19 @@ characters = {
 			traits = {
 				army_regrouping_3
 			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			cost = 100
@@ -221,7 +274,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -257,12 +310,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_ismail_qemali
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			available = {
 				is_country_leader = no
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				ALB_international_popularity
@@ -337,11 +399,22 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_fejzi_alizoti
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = {
 				ALB_pragmatic_statesman
 			}
@@ -379,10 +452,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_fejzi_alizoti
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = {
 				financial_expert
 			}
@@ -403,12 +487,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_turhan_permeti
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			available = {
 				is_country_leader = no
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				ALB_old_figurehead
@@ -443,19 +536,28 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_aqif_bicaku
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			available = {
 				NOT = { has_government = communism }
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = { ALB_elbasani_national_figure }
 			ai_will_do = { factor = 100 }
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -482,8 +584,19 @@ characters = {
 			traits = {
 				army_chief_reform_1
 			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			available = { has_completed_focus = ALB_albanian_national_army }
@@ -494,7 +607,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_albanian_national_army
@@ -520,7 +633,6 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_prenk_bib_doda
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			available = {
@@ -530,6 +642,16 @@ characters = {
 				}
 				is_country_leader = no
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				ALB_kapedan_of_the_mirdita_advisor
@@ -540,7 +662,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -567,7 +689,6 @@ characters = {
 				original_tag = ALB
 			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				is_country_leader = no
 			}
@@ -577,6 +698,16 @@ characters = {
 					has_country_leader = { character = ALB_fan_noli }
 				}
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				ALB_cunning_chieftain
@@ -598,13 +729,22 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_fan_noli
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				is_country_leader = no
 			}
 			available = {
 				NOT = { has_country_leader = { character = ALB_ahmet_zogu } }
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				social_reformer
@@ -626,7 +766,6 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_avni_rrustemi
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				is_country_leader = no
 			}
@@ -637,6 +776,16 @@ characters = {
 					has_country_leader = { character = ALB_fan_noli }
 				}
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				ALB_head_of_youth_organization
@@ -667,7 +816,6 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_musa_qazimi
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				OR = {
 					tag = AMA
@@ -680,6 +828,16 @@ characters = {
 					is_subject_of = TUR
 				}
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				ALB_ideological_inspiration
@@ -690,7 +848,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				OR = {
 					tag = AMA
@@ -712,7 +870,6 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_musa_qazimi		
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				OR = {
 					tag = AMA
@@ -725,6 +882,16 @@ characters = {
 					is_subject_of = TUR
 				}
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				ALB_pro_ottoman_propagandist
@@ -753,7 +920,6 @@ characters = {
 				military_theorist
 			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				OR = {
 					tag = AMA
@@ -765,6 +931,16 @@ characters = {
 					tag = AMA
 					is_subject_of = TUR
 				}
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			cost = 100
 			ai_will_do = {
@@ -773,7 +949,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				OR = {
 					tag = AMA
@@ -803,7 +979,6 @@ characters = {
 				original_tag = ALB
 			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				is_country_leader = no
 				OR = {
@@ -817,6 +992,16 @@ characters = {
 					is_subject_of = TUR
 				}
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				ALB_conservative_landowner_advisor
@@ -838,7 +1023,6 @@ characters = {
 			slot = army_chief
 			idea_token = ALB_xhenabi_adili
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				OR = {
 					tag = AMA
@@ -849,6 +1033,16 @@ characters = {
 				OR = {
 					tag = AMA
 					is_subject_of = TUR
+				}
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
 				}
 			}
 			allowed = {
@@ -863,7 +1057,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				OR = {
 					tag = AMA
@@ -890,11 +1084,22 @@ characters = {
 			slot = high_command
 			idea_token = ALB_llazar_bozo
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			allowed = {
 				tag = AMA
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				army_logistics_1
@@ -905,7 +1110,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				tag = AMA
 				OR = {
 					tag = AMA
@@ -932,11 +1137,22 @@ characters = {
 			slot = army_chief
 			idea_token = ALB_taullah_sinani
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			allowed = {
 				tag = AMA
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				army_entrenchment_1
@@ -947,7 +1163,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				tag = AMA
 				OR = {
 					tag = AMA
@@ -976,10 +1192,21 @@ characters = {
 				original_tag = ALB
 			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = {
 				ideological_crusader
 			}
@@ -1002,10 +1229,21 @@ characters = {
 				original_tag = ALB
 			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = {
 				prince_of_terror
 			}
@@ -1025,10 +1263,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_filip_noga
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			allowed = {
 				original_tag = ALB
 			}
@@ -1054,10 +1303,21 @@ characters = {
 				original_tag = ALB
 			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = {
 				ALB_father_of_albanian_nationalism
 			}
@@ -1076,7 +1336,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1100,8 +1360,19 @@ characters = {
 			idea_token = ALB_cerciz_topulli
 			allowed = { original_tag = ALB }
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				army_entrenchment_2
@@ -1122,7 +1393,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1146,8 +1417,19 @@ characters = {
 			slot = high_command
 			idea_token = ALB_sokol_baci
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			allowed = {
 				original_tag = ALB
@@ -1161,7 +1443,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1183,7 +1465,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				NOT = { has_country_flag = ALB_refused_the_return_of_abdulhamid }
 				ALB_character_trigger = yes
@@ -1208,11 +1490,20 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_gjergj_fishta
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			available = {
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 				if = {
 					limit = { tag = ACA }
 					has_completed_focus = ALB_reapproach_the_albanian_nationalists
@@ -1232,7 +1523,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				tag = ACA
@@ -1255,7 +1546,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				tag = ACA
@@ -1285,8 +1576,19 @@ characters = {
 			traits = {
 				military_theorist
 			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			cost = 100
@@ -1296,7 +1598,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_albanian_national_army
@@ -1319,7 +1621,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1341,7 +1643,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1368,10 +1670,21 @@ characters = {
 				original_tag = ALB
 			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { has_completed_focus = ALB_navy_of_albania }
+			available = {
+				has_completed_focus = ALB_navy_of_albania
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = {
 				navy_chief_maneuver_1 
 			}
@@ -1381,7 +1694,6 @@ characters = {
 		}
 		navy_leader = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			traits = { bold }
@@ -1404,12 +1716,23 @@ characters = {
 			slot = high_command
 			idea_token = ALB_xhemal_aranitasi
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_promote_the_next_generation
 			}
 			allowed = {
 				original_tag = ALB
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = {
 				army_regrouping_1
@@ -1420,7 +1743,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_promote_the_next_generation
@@ -1445,9 +1768,20 @@ characters = {
 			slot = high_command
 			idea_token = ALB_prenk_pervizi
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_promote_the_next_generation
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			allowed = {
 				original_tag = ALB
@@ -1461,7 +1795,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_promote_the_next_generation
@@ -1484,7 +1818,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_promote_the_next_generation
@@ -1507,7 +1841,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_promote_the_next_generation
@@ -1530,7 +1864,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				tag = ACA
@@ -1553,7 +1887,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_promote_the_next_generation
@@ -1576,7 +1910,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_promote_the_next_generation
@@ -1603,7 +1937,20 @@ characters = {
 		advisor = {
 			slot = political_advisor
 			idea_token = ALB_mihal_grameno
-			available = { has_intelligence_agency = yes }
+			available = {
+				has_intelligence_agency = yes
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			allowed = {
 				original_tag = ALB
 				has_dlc = "La Resistance"
@@ -1612,7 +1959,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1634,7 +1981,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				has_completed_focus = ALB_promote_the_next_generation
@@ -1662,8 +2009,19 @@ characters = {
 			traits = {
 				army_chief_defensive_2
 			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			cost = 100
@@ -1673,7 +2031,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1704,7 +2062,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1753,7 +2111,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1775,7 +2133,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1799,9 +2157,20 @@ characters = {
 			slot = high_command
 			idea_token = ALB_azem_galica
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			allowed = {
 				original_tag = ALB
@@ -1815,7 +2184,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1835,9 +2204,10 @@ characters = {
 				small = "gfx/interface/ideas/ALB/ALB_shote_galica.png"
 			}
 		}
+		gender = female
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				date > 1915.1.1
 				original_tag = ALB
 				ALB_character_trigger = yes
@@ -1888,11 +2258,20 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_luigj_gurakuqi
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			available = {
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 				if = {
 					limit = { tag = ACA }
 					has_completed_focus = ALB_reapproach_the_albanian_nationalists
@@ -1913,11 +2292,20 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_luigj_bumci
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
 			available = {
 				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
 			}
 			traits = { ALB_bishop_politician }
 			ai_will_do = { factor = 100 }
@@ -1933,7 +2321,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 			}
@@ -1964,7 +2352,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				is_subject_of = SER
 				ALB_character_trigger = yes
 			}
@@ -1987,10 +2375,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_ali_kelcyra
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = { TUR_resistance_organizer }
 			ai_will_do = { factor = 100 }
 		}
@@ -2015,10 +2414,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_mufid_libohova
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = { compassionate_gentleman }
 			ai_will_do = { factor = 100 }
 		}
@@ -2034,10 +2444,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_sami_vrioni
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = { ALB_powerful_landowner }
 			ai_will_do = { factor = 100 }
 		}
@@ -2057,10 +2478,21 @@ characters = {
 				idea_token = ALB_bedri_pejani
 				allowed = { original_tag = ALB }
 				visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 					ALB_character_trigger = yes
 				}
-				available = { ALB_albanian_assembly_trigger = yes }
+				available = {
+					ALB_albanian_assembly_trigger = yes
+					if = {
+						limit = {
+							has_character_flag = ALB_purged_character
+							has_country_leader = { character = TUR_abdulhamid_II }
+						}
+						custom_trigger_tooltip = {
+							tooltip = ALB_purged_character_tt
+							NOT = { has_character_flag = ALB_purged_character }
+						}
+					}
+				}
 				traits = {
 					spymaster
 				}
@@ -2084,10 +2516,21 @@ characters = {
 				idea_token = ALB_bedri_pejani
 				allowed = { original_tag = ALB }
 				visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 					ALB_character_trigger = yes
 				}
-				available = { ALB_albanian_assembly_trigger = yes }
+				available = {
+					ALB_albanian_assembly_trigger = yes
+					if = {
+						limit = {
+							has_character_flag = ALB_purged_character
+							has_country_leader = { character = TUR_abdulhamid_II }
+						}
+						custom_trigger_tooltip = {
+							tooltip = ALB_purged_character_tt
+							NOT = { has_character_flag = ALB_purged_character }
+						}
+					}
+				}
 				traits = {
 					spymaster_no_lar
 				}
@@ -2126,10 +2569,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_lef_nosi
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = { ALB_minister_of_post_telegram }
 			ai_will_do = { factor = 100 }
 		}
@@ -2145,10 +2599,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_nikoll_kacorri
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = { ALB_protonotary_apostolic }
 			ai_will_do = { factor = 100 }
 		}
@@ -2164,10 +2629,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_vehbi_dibra
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = { ALB_grand_mufti }
 			ai_will_do = { factor = 100 }
 		}
@@ -2183,10 +2659,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_abdi_toptani
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = { ALB_minister_of_agriculture }
 			ai_will_do = { factor = 100 }
 		}
@@ -2203,10 +2690,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_shefqet_verlaci
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = { ALB_industrialist_landowner }
 			ai_will_do = { factor = 100 }
 		}
@@ -2223,10 +2721,21 @@ characters = {
 			slot = political_advisor
 			idea_token = ALB_shefqet_verlaci
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 			}
-			available = { ALB_albanian_assembly_trigger = yes }
+			available = {
+				ALB_albanian_assembly_trigger = yes
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
+				}
+			}
 			traits = { ALB_foreign_inspector_general }
 			ai_will_do = { factor = 100 }
 		}
@@ -2243,11 +2752,22 @@ characters = {
 			slot = high_command
 			idea_token = ALB_bekir_fikri
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
 				ALB_character_trigger = yes
 				OR = {
 					#has_completed_focus = ALB_bekir_fikris_landing
 					has_completed_focus = ALB_ask_for_turkish_aid
+				}
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = ALB_purged_character
+						has_country_leader = { character = TUR_abdulhamid_II }
+					}
+					custom_trigger_tooltip = {
+						tooltip = ALB_purged_character_tt
+						NOT = { has_character_flag = ALB_purged_character }
+					}
 				}
 			}
 			allowed = {
@@ -2262,7 +2782,7 @@ characters = {
 		}
 		corps_commander = {
 			visible = {
-				NOT = { has_country_flag = ALB_purged_character }
+				NOT = { has_character_flag = ALB_purged_character }
 				original_tag = ALB
 				ALB_character_trigger = yes
 				OR = {

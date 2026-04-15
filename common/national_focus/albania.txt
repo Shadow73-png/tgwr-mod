@@ -5032,6 +5032,22 @@ focus_tree = {
 					logistics_skill = 2
 				}
 			}
+			division_template = {
+				name = "Këmbësori Pjesëtim"
+				division_names_group = ALB_INF_01
+
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				}
+			}
 			custom_effect_tooltip = ALB_albanian_national_army_tt2
 			hidden_effect = {
 				add_dynamic_modifier = { modifier = ALB_albanian_national_army_dm }
@@ -9864,8 +9880,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_recrown_abdulhamid_II
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
-			
+			custom_effect_tooltip = ALB_exile_the_opposition_tt
+			hidden_effect = { country_event = { id = albania.126 dsy = 14 random_days = 14 } }
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -9880,6 +9898,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ALB_exile_the_opposition
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
 			
 		}
@@ -9896,6 +9915,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ALB_initiate_political_transformation
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
 			
 		}
@@ -9912,8 +9932,9 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = ALB_exile_the_opposition
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
-			
+			add_ideas = ALB_sultans_bands
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -9928,8 +9949,33 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_loyal_irregular_bands
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = ALB_sultans_bands
+				add_idea = ALB_sultans_bands_2
+			}
+			custom_effect_tooltip = ALB_establish_hamidian_units_tt
+			division_template = {
+				name = "Regjimentet Hamidiye"
+				division_names_group = ALB_CAV_01
+				is_locked = yes
+				force_allow_recruiting = yes
+				division_cap = 14
+				regiments = {
+					irregular_cavalry = { x = 0 y = 0 }
+					irregular_cavalry = { x = 0 y = 1 }
+					irregular_cavalry = { x = 0 y = 2 }
+					irregular_cavalry = { x = 1 y = 0 }
+					irregular_cavalry = { x = 1 y = 1 }
+					irregular_cavalry = { x = 1 y = 2 }
+					cavalry = { x = 2 y = 0 }
+				}
+				support = 	{
+					recon = { x = 0 y = 0 }
+				}
+				priority = 0
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -9944,6 +9990,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ALB_initiate_political_transformation
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
 			
 		}
@@ -9960,6 +10007,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = ALB_utilize_political_islam
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
 			
 		}
@@ -9976,6 +10024,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = ALB_utilize_political_islam
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
 			
 		}
@@ -9992,6 +10041,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_utilize_political_islam
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
 			
 		}
@@ -10008,6 +10058,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_return_the_balkan_refugees_abd
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
 			
 		}
@@ -10024,6 +10075,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ALB_a_state_for_all_muslims
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
 			
 		}
@@ -10040,6 +10092,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ALB_a_state_for_all_muslims
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
 			
 		}

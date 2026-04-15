@@ -71,7 +71,17 @@ ideas = {
 				resistance_damage_to_garrison_on_our_occupied_states = 0.25
 				custom_modifier_tooltip = ARB_insurgence_tactics_tt
 			}
-			rule = { can_join_factions = no }
+		}
+		ARB_internationally_unrecognized = {
+			picture = TUR_diplomatic_isolation
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel = { NOT = { has_country_flag = TUR_revolting_country } }
+			removal_cost = -1
+			rule = {
+				can_join_factions = no
+				can_access_market = no
+			}
 		}
 	}
 	hidden_ideas = {
