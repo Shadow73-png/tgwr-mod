@@ -12587,10 +12587,14 @@ focus_tree = {
 		y = 2
 		relative_position_id = TUR_debt_responsibility
 		available = {
-			any_country = {
-				is_major = yes
-				is_in_faction = yes
-				has_war_with_major = yes
+			OR = {
+				threat > 0.25
+				any_country = {
+					is_major = yes
+					is_in_faction = yes
+					any_allied_country = { is_major = yes }
+					has_war_with_major = yes
+				}
 			}
 		}
 		completion_reward = {
@@ -12789,8 +12793,14 @@ focus_tree = {
 					has_idea = TUR_OPD_idea_3
 				}
 			}
-			any_allied_country = { is_major = yes }
-			any_enemy_country = { is_major = yes }
+#			any_allied_country = { is_major = yes }
+#			any_enemy_country = { is_major = yes }
+			any_country = {
+				is_major = yes
+				is_in_faction = yes
+				any_allied_country = { is_major = yes }
+				has_war_with_major = yes
+			}
 		}
 		completion_reward = {
 			remove_ideas = TUR_OPD_idea
