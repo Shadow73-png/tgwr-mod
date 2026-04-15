@@ -4206,6 +4206,7 @@ focus_tree = {
 				has_war_with = ROOT
 			}
 			TUR_regime_is_liberal = yes
+			NOT = { has_idea = TUR_policy_of_reapproachmen }
 		}
 		relative_position_id = TUR_aftermath_of_the_31_march_incident
 		completion_reward = {
@@ -4376,6 +4377,7 @@ focus_tree = {
 				has_war_with = ROOT
 			}
 			TUR_regime_is_nationalist = yes
+			NOT = { has_idea = TUR_brutal_suppression }
 		}
 		relative_position_id = TUR_aftermath_of_the_31_march_incident
 		completion_reward = {
@@ -13946,6 +13948,10 @@ focus_tree = {
 		available = { has_country_leader = { character = TUR_ahmet_izzet } }
 		completion_reward = {
 			if = {
+				limit = { has_idea = TUR_brutal_suppression_ALB }
+				remove_ideas = TUR_brutal_suppression_ALB
+			}
+			if = {
 				limit = { has_idea = TUR_policy_of_reapproachment_ALB }
 				custom_effect_tooltip = TUR_reapproachment_with_minorities_tt
 				custom_effect_tooltip = TUR_policy_of_reapproachment_tt
@@ -14164,6 +14170,10 @@ focus_tree = {
 		relative_position_id = TUR_personality_cult
 		available = { has_country_leader = { character = TUR_mahmud_sevket } }
 		completion_reward = {
+			if = {
+				limit = { has_idea = TUR_policy_of_reapproachment_ALB }
+				remove_ideas = TUR_policy_of_reapproachment_ALB
+			}
 			if = {
 				limit = { has_idea = TUR_brutal_suppression_ALB }
 				custom_effect_tooltip = TUR_iron_fist_of_the_empire_tt

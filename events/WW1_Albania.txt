@@ -6257,7 +6257,7 @@ country_event = { #battleship sale notification no
 	}
 }
 
-country_event = { #against abdulhamid
+country_event = { #ottoman notif albanian units
 	id = albania.124
 	title = albania.124.t
 	desc = albania.124.desc
@@ -6265,18 +6265,82 @@ country_event = { #against abdulhamid
 	picture = GFX_report_event_albanian_partisans
 	option = {
 		name = albania.124.a
+		create_colonial_division_template = {
+			subject = ALB
+			division_template = {
+				name = "Kryengritësit Shqiptarë"
+				is_locked = yes
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+				}
+			}
+		}
+		random_controlled_state = {
+			limit = { is_core_of = ALB }
+			create_unit = { division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.7 start_equipment_factor = 0.8" owner = TUR }
+			set_state_flag = ALB_defending_our_homeland1
+		}
+		random_controlled_state = {
+			limit = { is_core_of = ALB }
+			create_unit = { division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.7 start_equipment_factor = 0.8" owner = TUR }
+			set_state_flag = ALB_defending_our_homeland2
+		}
+		random_controlled_state = {
+			limit = { is_core_of = ALB }
+			create_unit = { division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.7 start_equipment_factor = 0.8" owner = TUR }
+			set_state_flag = ALB_defending_our_homeland3
+		}
+		every_state = {
+			limit = { check_variable = { TUR_albanian_state_level > 1 } }
+			custom_effect_tooltip = TUR_ottoman_add_army_core_defence_factor_albanian
+			hidden_effect = {
+				if = {
+					limit = { check_variable = { TUR_albanian_state_level = 1 } }
+					set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.01 }
+				}
+				if = {
+					limit = { check_variable = { TUR_albanian_state_level = 2 } }
+					set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.02 }
+				}
+				if = {
+					limit = { check_variable = { TUR_albanian_state_level = 3 } }
+					set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.03 }
+				}
+				if = {
+					limit = { check_variable = { TUR_albanian_state_level = 4 } }
+					set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.04 }
+				}
+				if = {
+					limit = { check_variable = { TUR_albanian_state_level = 5 } }
+					set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.05 }
+				}
+			}
+			set_state_flag = ALB_defending_our_homeland4
+		}
+	}
+}
+
+country_event = { #against abdulhamid
+	id = albania.125
+	title = albania.125.t
+	desc = albania.125.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_albanian_partisans
+	option = {
+		name = albania.125.a
 		activate_mission = ALB_albanian_national_revolution
 	}
 }
 
 country_event = { #abdulhamid purge general
-	id = albania.126
-	title = albania.126.t
-	desc = albania.126.desc
+	id = albania.127
+	title = albania.127.t
+	desc = albania.127.desc
 	is_triggered_only = yes
 	picture = GFX_report_event_albanian_partisans
 	option = {
-		name = albania.126.a
+		name = albania.127.a
 		random_character = {
 			limit = {
 				has_character_flag = ALB_abdulhamid_purge
@@ -6310,7 +6374,7 @@ country_event = { #abdulhamid purge general
 		}
 	}
 	option = {
-		name = albania.126.b
+		name = albania.127.b
 		add_stability = -0.05
 		add_political_power = -50
 	}

@@ -4506,59 +4506,64 @@ focus_tree = {
 		}
 		completion_reward = {
 			TUR = {
-				create_colonial_division_template = {
-					subject = ALB
-					division_template = {
-						name = "Kryengritësit Shqiptarë"
-						is_locked = yes
-						regiments = {
-							irregular_infantry = { x = 0 y = 0 }
-							irregular_infantry = { x = 0 y = 1 }
+				effect_tooltip = {
+					create_colonial_division_template = {
+						subject = ALB
+						division_template = {
+							name = "Kryengritësit Shqiptarë"
+							is_locked = yes
+							regiments = {
+								irregular_infantry = { x = 0 y = 0 }
+								irregular_infantry = { x = 0 y = 1 }
+							}
 						}
 					}
+					random_controlled_state = {
+						limit = { is_core_of = ALB }
+						create_unit = { division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.7 start_equipment_factor = 0.8" owner = TUR }
+						set_state_flag = ALB_defending_our_homeland1
+					}
+					random_controlled_state = {
+						limit = { is_core_of = ALB }
+						create_unit = { division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.7 start_equipment_factor = 0.8" owner = TUR }
+						set_state_flag = ALB_defending_our_homeland2
+					}
+					random_controlled_state = {
+						limit = { is_core_of = ALB }
+						create_unit = { division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.7 start_equipment_factor = 0.8" owner = TUR }
+						set_state_flag = ALB_defending_our_homeland3
+					}
 				}
-				random_controlled_state = {
-					limit = { is_core_of = ALB }
-					create_unit = { division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.7 start_equipment_factor = 0.8" owner = TUR }
-					set_state_flag = ALB_defending_our_homeland1
-				}
-				random_controlled_state = {
-					limit = { is_core_of = ALB }
-					create_unit = { division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.7 start_equipment_factor = 0.8" owner = TUR }
-					set_state_flag = ALB_defending_our_homeland2
-				}
-				random_controlled_state = {
-					limit = { is_core_of = ALB }
-					create_unit = { division = "division_template = \"Kryengritësit Shqiptarë\" start_experience_factor = 0.7 start_equipment_factor = 0.8" owner = TUR }
-					set_state_flag = ALB_defending_our_homeland3
-				}
+				hidden_effect = { country_event = { id = albania.124 } }
 			}
-			every_state = {
-				limit = { check_variable = { TUR_albanian_state_level > 1 } }
-				custom_effect_tooltip = TUR_ottoman_add_army_core_defence_factor_albanian
-				hidden_effect = {
-					if = {
-						limit = { check_variable = { TUR_albanian_state_level = 1 } }
-						set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.01 }
+			effect_tooltip = {
+				every_state = {
+					limit = { check_variable = { TUR_albanian_state_level > 1 } }
+					custom_effect_tooltip = TUR_ottoman_add_army_core_defence_factor_albanian
+					hidden_effect = {
+						if = {
+							limit = { check_variable = { TUR_albanian_state_level = 1 } }
+							set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.01 }
+						}
+						if = {
+							limit = { check_variable = { TUR_albanian_state_level = 2 } }
+							set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.02 }
+						}
+						if = {
+							limit = { check_variable = { TUR_albanian_state_level = 3 } }
+							set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.03 }
+						}
+						if = {
+							limit = { check_variable = { TUR_albanian_state_level = 4 } }
+							set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.04 }
+						}
+						if = {
+							limit = { check_variable = { TUR_albanian_state_level = 5 } }
+							set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.05 }
+						}
 					}
-					if = {
-						limit = { check_variable = { TUR_albanian_state_level = 2 } }
-						set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.02 }
-					}
-					if = {
-						limit = { check_variable = { TUR_albanian_state_level = 3 } }
-						set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.03 }
-					}
-					if = {
-						limit = { check_variable = { TUR_albanian_state_level = 4 } }
-						set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.04 }
-					}
-					if = {
-						limit = { check_variable = { TUR_albanian_state_level = 5 } }
-						set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.05 }
-					}
+					set_state_flag = ALB_defending_our_homeland4
 				}
-				set_state_flag = ALB_defending_our_homeland4
 			}
 			set_global_flag = ALB_defending_our_homeland
 			custom_effect_tooltip = ALB_defending_our_homeland_tt
@@ -5702,7 +5707,7 @@ focus_tree = {
 				}
 			}
 			set_capital = { state = 1215 remember_old_capital = no }
-			hidden_effect = { country_event = { id = albania.124 days = 3 random_days = 3 } }
+			hidden_effect = { country_event = { id = albania.125 days = 3 random_days = 3 } }
 			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
