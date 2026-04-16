@@ -1758,6 +1758,10 @@ ALB_rising_opposition = {
 					long_name = ALB_albanian_nationalist_party_long
 				}
 				hidden_effect = {
+					every_state = {
+						limit = { ALB_big_albania_states = yes }
+						add_core_of = ROOT
+					}
 					set_party_name = {
 						ideology = neutrality
 						name = ALB_albanian_nationalist_party
@@ -1927,7 +1931,7 @@ ALB_rising_opposition = {
 		}
 		days_remove = 40
 		cost = 40
-		modiifer = {
+		modifier = {
 			stability_factor = -0.1
 			compliance_growth = -0.15
 			non_core_manpower = -0.35
@@ -1951,7 +1955,7 @@ ALB_rising_opposition = {
 		custom_cost_text = decision_cost_CP_35
 		custom_cost_trigger = { command_power > 24.9 }
 		complete_effect = { hidden_effect = { add_command_power = -35 } }
-		modiifer = {
+		modifier = {
 			experience_gain_army_factor = -0.5
 			experience_gain_navy_factor = -0.5
 			experience_gain_air_factor = -0.5
@@ -1964,6 +1968,44 @@ ALB_rising_opposition = {
 			}
 		}
 		ai_will_do = { factor = 0 }
+	}
+}
+
+ALB_devshirmeja = {
+	ALB_settle_muslim_refugees = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = { original_tag = ALB }
+		visible = {
+			has_completed_focus = ALB_a_state_for_all_muslims
+			FROM = {
+				is_owned_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+		cost = 50
+		targets = { 870 1214 803 1225 758 }
+		state_target = yes
+		on_map_mode = map_only
+		available = {
+			FROM = { is_controlled_by = ROOT }
+		}
+		days_remove = 70
+		modifier = {
+			political_power_gain = -0.05
+			consumer_goods_factor = 0.2
+		}
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+				set_temp_variable = { ALB_local_manpower_var = state_population }
+				divide_temp_variable = { ALB_local_manpower_var = 5 }
+				add_manpower = ALB_local_manpower_var
+			}
+		}
+		cancel_trigger = {
+			NOT = { FROM = { is_controlled_by = ROOT } }
+		}
+		ai_will_do = { base = 100 }
 	}
 }
 
@@ -1981,7 +2023,6 @@ war_measures = {
 }
 
 ALB_literacy_campaigns = {
-
 }
 
 economy_decisions = {

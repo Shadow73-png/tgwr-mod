@@ -6646,6 +6646,132 @@ country_event = { #abdulhamid purge political advisor
 	}
 }
 
+country_event = { #abdulhamid purge political advisor
+	id = albania.131
+	title = albania.131.t
+	desc = albania.131.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_albanian_catholic_revolt
+	option = {
+		name = albania.131.a
+		every_state = {
+			limit = {
+				OR = {
+					state = 870
+					state = 1214
+				}
+			}
+			remove_core_of = ROOT
+			hidden_effect = {
+				create_dynamic_country = {
+					reserve_dynamic_country = yes
+					original_tag = ALB
+					set_cosmetic_tag = ALB_mirdita_republic
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = no
+						name = ALB_catholic_party
+						long_name = ALB_catholic_party
+					}
+					load_focus_tree = empty_focus
+					every_core_state = {
+						remove_core_of = PREV
+					}
+					870 = { add_core_of = PREV }
+					1214 = { add_core_of = PREV }
+					set_capital = {
+						state = 870
+						remember_old_capital = no
+					}
+					set_party_name = {
+						ideology = fascism
+						name = ALB_catholic_party
+						long_name = ALB_catholic_party
+					}
+					set_party_name = {
+						ideology = democratic
+						name = ALB_catholic_party
+						long_name = ALB_catholic_party
+					}
+					set_party_name = {
+						ideology = communism
+						name = ALB_catholic_party
+						long_name = ALB_catholic_party
+					}
+					every_possible_country = {
+						limit = { has_character = ALB_prenk_bib_doda }
+						ALB_prenk_bib_doda = {
+							custom_effect_tooltip = joins_catholic_albania
+							hidden_effect = { set_nationality = PREV.PREV }
+						}
+						add_country_leader_role = {
+							character = ALB_prenk_bib_doda
+							promote_leader = yes
+							country_leader = {
+								ideology = warlordism
+								traits = { ALB_kapedan_of_the_mirdita }
+							}
+							add_country_leader_role = {
+								promote_leader = yes
+								country_leader = {
+									ideology = fundamentalism
+									traits = { ALB_kapedan_of_the_mirdita }
+								}
+							}
+							add_country_leader_role = {
+								promote_leader = yes
+								country_leader = {
+									ideology = conservatism
+									traits = { ALB_kapedan_of_the_mirdita }
+								}
+							}
+							add_country_leader_role = {
+								promote_leader = yes
+								country_leader = {
+									ideology = religious_communism
+									traits = { ALB_kapedan_of_the_mirdita }
+								}
+							}
+						}
+					}
+					set_popularities = {
+						democratic = 5
+						communism = 0
+						fascism = 20
+						neutrality = 75
+					}
+					division_template = {
+						name = "Kryengritësit Katolikë"
+						template_counter = 112
+						regiments = {
+							irregular_infantry = {
+								x = 0
+								y = 0
+							}
+							irregular_infantry = {
+								x = 0
+								y = 1
+							}
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = add_core_of_ACA
+		}
+		every_state = {
+			limit = {
+				OR = {
+					state = 803
+					state = 1225
+					state = 758
+				}
+			}
+			remove_core_of = ROOT
+			add_core_of = GRE
+		}
+	}
+}
+
 #No More Ottoman Puppet
 country_event = {
 	id = ww1_albania.11
