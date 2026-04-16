@@ -83,12 +83,6 @@ SOV_recruit_militia_category = {
 		}
 		ai_will_do = {
 			base = 1000
-			modifier = {
-				factor = 0
-				has_equipment = {
-					infantry_equipment < 1501
-				}
-			}
 		}
 	}
 	SOV_recruit_militia_large = {
@@ -175,12 +169,6 @@ SOV_recruit_militia_category = {
 		}
 		ai_will_do = {
 			base = 1000
-			modifier = {
-				factor = 0
-				has_equipment = {
-					infantry_equipment < 2001
-				}
-			}
 		}
 	}
 	SOV_recruit_militia_huge = {
@@ -263,12 +251,6 @@ SOV_recruit_militia_category = {
 		}
 		ai_will_do = {
 			base = 1000
-			modifier = {
-				factor = 0
-				has_equipment = {
-					infantry_equipment < 2001
-				}
-			}
 		}
 	}
 }
@@ -1563,7 +1545,6 @@ SOV_combat_the_counter_revolution = {
 			FROM = {
 				NOT = {
 					has_war_with = ROOT
-					has_war_together_with = ROOT
 				}
 			}
 			NOT = { has_country_flag = SOV_sue_for_peace_VLN }
@@ -2155,7 +2136,9 @@ SOV_decision_soviet_republics = {
 		fire_only_once = yes
 		remove_effect = {
 			232 = {
-				RCW_ROOT_release_PREV = yes
+				TER = {
+					RCW_ROOT_release_PREV = yes
+				}
 			}
 			TER = {
 				ROOT = {

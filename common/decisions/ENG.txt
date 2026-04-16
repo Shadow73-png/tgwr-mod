@@ -1140,6 +1140,8 @@ operations = {
 			add_state_claim = 413
 			add_state_claim = 1246
 			add_state_claim = 410
+			add_state_claim = 1248
+			add_state_claim = 1249
 			RUS = {
 				add_state_claim = 420
 				add_state_claim = 419
@@ -1154,29 +1156,30 @@ operations = {
 				add_state_claim = 1245
 			}
 			hidden_effect = {
-				if = {
-					limit = { 
-						410 = {
-							is_owned_by = PER
+				PER = {
+					every_owned_state = {
+						limit = {
+							OR = {
+								state = 410
+								state = 1248
+								state = 1249
+							}
 						}
-					}
-					410 = {
-						transfer_state_to = ENG
-					}
-				}
-				every_state = {
-					limit = {
-						is_owned_by = PER
-						OR =  {
-							state = 420
-							state = 419
-							state = 877
-							state = 1212
-							state = 1245
+						transfer_state_to = ROOT
+					}		
+					every_owned_state = {
+						limit = {
+							OR =  {
+								state = 420
+								state = 419
+								state = 877
+								state = 1212
+								state = 1245
+							}
 						}
+						transfer_state_to = RUS
 					}
-					transfer_state_to = RUS
-				}
+				}			
 				RUS = { country_event = ww1_russia.72 }
 			}
 			set_global_flag = rus_eng_partition_of_persia

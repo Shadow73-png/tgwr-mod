@@ -335,6 +335,41 @@ SOV_save_equipment_for_militia = {
 		is_in_russian_civil_war = yes
 		any_controlled_state = {
 			state_population_k > 50
+			OR = {
+				AND = {
+					is_in_array = {
+						array = global.RCW_core_big_states_array
+						value = THIS.id
+					}
+					ROOT = {
+						OR = {
+							has_completed_focus = SOV_military_academy
+							has_completed_focus = SOV_military_all_education
+						}	
+					}
+				}
+				AND = {
+					is_in_array = {
+						array = global.RCW_core_large_states_array
+						value = THIS.id
+					}
+					ROOT = {
+						OR = {
+							has_completed_focus = SOV_pre_revolutionary_army_officers
+							has_completed_focus = SOV_peoples_army
+						}
+					}
+				}
+				AND = {
+					is_in_array = {
+						array = global.RCW_core_huge_states_array
+						value = THIS.id
+					}
+					ROOT = {
+						has_completed_focus = SOV_red_army
+					}
+				}
+			}
 			NOT = { has_state_flag = SOV_has_mobilized_militia }
 			is_core_of = ROOT
 			any_neighbor_state = {
@@ -429,6 +464,30 @@ SOV_crush_nwa = {
 		priority = 250
 		ordertype = front
 		execution_type = rush
+	}
+}
+
+SOV_focus_on_sra = {
+	allowed = {
+		tag = RUS
+	}
+	enable = {
+		tag = SOV
+		has_war_with = SRA
+		SRA = {
+			OR = {
+				has_capitulated = no
+				exists = yes
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			tag = SRA
+		}
+		value = 15
 	}
 }
 
