@@ -1416,10 +1416,6 @@
 					}			
 					NOT = {
 						has_cosmetic_tag = SOV_puppet
-						has_cosmetic_tag = GEO_TSCN_commissariat
-						has_cosmetic_tag = GEO_TSCN_committee
-						has_cosmetic_tag = GEO_TSCN
-						has_cosmetic_tag = GEO_TSCN_communism
 						has_cosmetic_tag = LITBEL
 					}
 					FROM = {
@@ -3024,10 +3020,6 @@
 					}			
 					NOT = {
 						has_cosmetic_tag = SOV_puppet
-						has_cosmetic_tag = GEO_TSCN_commissariat
-						has_cosmetic_tag = GEO_TSCN_committee
-						has_cosmetic_tag = GEO_TSCN
-						has_cosmetic_tag = GEO_TSCN_communism
 						has_cosmetic_tag = LITBEL
 					}
 					FROM = {
@@ -4622,17 +4614,9 @@
 				}
 			}
 			#Occupation of Tabriz
-			419 = {
-				set_compliance = 20
-				set_resistance = 25
-			}
 			877 = {
 				set_compliance = 5
 				set_resistance = 45
-			}
-			1212 = {
-				set_compliance = 15
-				set_resistance = 30
 			}
 			#Occupation Laws
 			## Fix occupation laws on startup
@@ -6929,12 +6913,7 @@
 			}
 			if = {
 				limit = {
-					original_tag = GEO
-					OR = {
-						has_cosmetic_tag = GEO_TSCN
-						has_cosmetic_tag = GEO_TSCN_commissariat
-						has_cosmetic_tag = GEO_TSCN_committee
-					}
+					original_tag = CAU
 					has_war_with = TUR
 				}
 				country_event = ww1_georgia.11
@@ -9868,9 +9847,14 @@
 				}
 				else_if = {
 					limit = {
-						has_cosmetic_tag = GEO_TSCN
+						original_tag = COU
+						OR = {
+							has_cosmetic_tag = TSCN
+							has_cosmetic_tag = TSCN_RUS
+						}					
+						has_country_leader_ideology = vanguardism
 					}
-					set_cosmetic_tag = GEO_TSCN_communism
+					set_cosmetic_tag = TSCN_vanguardist
 				}
 				else_if = {
 					limit = {
@@ -10579,9 +10563,10 @@
 				}
 				else_if = {
 					limit = {
-						has_cosmetic_tag = GEO_TSCN_communism
+						original_tag = COU
+						has_cosmetic_tag = TSCN_vanguardist
 					}
-					set_cosmetic_tag = GEO_TSCN
+					set_cosmetic_tag = TSCN
 				}
 				else_if = {
 					limit = {
@@ -10971,6 +10956,20 @@
 						set_cosmetic_tag = GER_nazi
 					}
 				}
+				else_if = {
+					limit = {
+						original_tag = CAU
+					}	
+					if = {
+						limit = {
+							has_cosmetic_tag = TSCN	
+						}
+						set_cosmetic_tag = TSCN_RUS
+					}
+					else = {
+						set_cosmetic_tag = CAU_RUS
+					}
+				}
 			}
 			else = {
 				# limit = {
@@ -11057,6 +11056,27 @@
 						}
 					}
 				}
+				else_if = {
+					limit = {
+						original_tag = CAU
+						OR = {
+							has_country_flag = TDFR
+							NOT = { has_government = neutrality }
+						}					
+					}	
+					if = {
+						limit = {
+							has_cosmetic_tag = TSCN_RUS
+						}
+						set_cosmetic_tag = TSCN
+					}
+					else_if = {
+						limit = {
+							has_cosmetic_tag = CAU_RUS
+						}
+						drop_cosmetic_tag = yes
+					}
+				}
 			}								
 			if = {
 				limit = {
@@ -11128,6 +11148,41 @@
 						}
 					}
 					drop_cosmetic_tag = yes	
+				}
+				else_if = {
+					limit = {
+						original_tag = CAU
+						NOT = { has_country_flag = TDFR }
+					}	
+					if = {
+						limit = {
+							has_cosmetic_tag = TSCN		
+						}
+						set_cosmetic_tag = TSCN_RUS
+					}
+					else = {
+						set_cosmetic_tag = CAU_RUS
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						original_tag = CAU
+						NOT = { has_government = fascism }
+					}	
+					if = {
+						limit = {
+							has_cosmetic_tag = TSCN_RUS
+						}
+						set_cosmetic_tag = TSCN
+					}
+					else_if = {
+						limit = {
+							has_cosmetic_tag = CAU_RUS
+						}
+						drop_cosmetic_tag = yes
+					}
 				}
 			}
 			if = {
@@ -12209,10 +12264,7 @@
 					ROOT = {
 						OR = {
 							NOT = {
-								has_cosmetic_tag = GEO_TSCN
-								has_cosmetic_tag = GEO_TSCN_commissariat
-								has_cosmetic_tag = GEO_TSCN_communism
-								has_cosmetic_tag = GEO_TSCN_committee
+								original_tag = CAU
 							}
 							FROM.FROM = {
 								is_core_of = ROOT
@@ -12227,19 +12279,15 @@
 					remove_dynamic_modifier = { modifier = GEO_transcaucasia_modifier }
 				}
 			}
-			if = {
+			else_if = {
 				limit = {
 					ROOT = {
-						OR = {
-							has_cosmetic_tag = GEO_TSCN
-							has_cosmetic_tag = GEO_TSCN_commissariat
-							has_cosmetic_tag = GEO_TSCN_communism
-							has_cosmetic_tag = GEO_TSCN_committee
-						}
+						original_tag = CAU
 					}
 					FROM.FROM = {
 						NOT = { is_core_of = ROOT }
 						OR = {
+							is_core_of = GEO
 							is_core_of = AZR
 							is_core_of = ARM
 						}
