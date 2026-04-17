@@ -2,7 +2,10 @@ PER_calculate_total_foreign_influnce = {
 	set_variable = { var = PER_total_foreign_influence value = 0 }
 	if = {
 		limit = { 
-			NOT = { original_tag = MAK }
+			NOT = { 
+				original_tag = MAK
+				original_tag = MRG
+			}
 			ENG = {
 				exists = yes
 				NOT = { has_war_with = ROOT }

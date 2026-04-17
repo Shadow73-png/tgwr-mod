@@ -2197,6 +2197,7 @@ country_event = {
 					region = 116
 				}
 				has_subject = MAK
+				has_subject = MRG
 				has_subject = PER
 				check_variable = { RUS.PER_foreign_influence > 0 }
 			}
@@ -2309,6 +2310,53 @@ country_event = {
 					}
 				}
 				MAK = {
+					leave_faction = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_subject = MRG
+			}
+			if = {
+				limit = {
+					country_exists = PER
+				}
+				MRG = {
+					clr_country_flag = protectorate
+					get_current_government_type = yes
+					PER = {
+						set_autonomy = {
+							target = MRG
+							autonomous_state = autonomy_integrated_puppet
+							freedom_level = 0.9
+						}
+					}	
+					restore_previous_government_type = yes
+				}
+			}		
+			else = {
+				end_puppet = MRG
+				every_country = {
+					limit = {
+						has_war_with = MRG
+						NOT = {
+							original_tag = PER
+							has_wargoal_against = PER
+							any_state = {
+								OR = {
+									is_owned_by = PER
+									is_owned_by = PRG
+								}
+								is_claimed_by = PREV			
+							}
+						}
+					}
+					MRG = {
+						white_peace = PREV
+					}
+				}
+				MRG = {
 					leave_faction = yes
 				}
 			}

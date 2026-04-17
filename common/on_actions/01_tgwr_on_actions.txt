@@ -8804,6 +8804,39 @@
 						restore_previous_government_type = yes
 					}
 				}
+				if = {
+					limit = {
+						MRG = {
+							OR = {
+								is_subject = no
+								is_subject_of = FROM
+							}
+							OR = {
+								is_in_faction = no
+								is_in_faction_with = FROM
+								is_in_faction_with = ROOT
+							}
+							NOT = {
+								is_subject_of = ROOT
+								has_war_with = ROOT
+								has_war_together_with = RUS
+							}
+						}
+					}
+					MRG = {
+						get_current_government_type = yes
+					}
+					PER = {
+						set_autonomy = {
+							target = MRG
+							autonomous_state = autonomy_integrated_puppet
+							freedom_level = 0.9
+						}
+					}
+					MRG = {
+						restore_previous_government_type = yes
+					}
+				}
 			}
 			else_if = {
 				limit = {

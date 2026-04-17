@@ -6616,6 +6616,8 @@ country_event = {
 				has_subject = PER
 				has_subject = ARB
 				has_subject = MAK
+				has_subject = MRG
+				has_subject = BLC
 				check_variable = { ENG.PER_foreign_influence > 0 }
 			}
 		}
@@ -6625,42 +6627,89 @@ country_event = {
 	}
 	hidden = yes
 	immediate = {
+		every_owned_state = {
+			limit = {
+				region = 116
+			}
+			transfer_state_to = PER
+		}
 		ENG = {
-			end_puppet = PER
+			if = {
+				limit = {
+					has_subject = PER
+				}
+				end_puppet = PER
+			}		
 			if = {
 				limit = {
 					has_subject = ARB
-					country_exists = PER
 				}
-				ARB = {
-					clr_country_flag = protectorate
-					get_current_government_type = yes
-					PER = {
-						set_autonomy = {
-							target = ARB
-							autonomous_state = autonomy_integrated_puppet
-							freedom_level = 0.9
-						}
-					}	
-					restore_previous_government_type = yes
+				end_puppet = ARB
+				if = {
+					limit = {
+						country_exists = PER
+						PER = { is_subject = no }
+					}
+					ARB = {
+						clr_country_flag = protectorate
+						get_current_government_type = yes
+						PER = {
+							set_autonomy = {
+								target = ARB
+								autonomous_state = autonomy_integrated_puppet
+								freedom_level = 0.9
+							}
+						}	
+						restore_previous_government_type = yes
+					}			
 				}			
 			}
 			if = {
 				limit = {
 					has_subject = MAK
-					country_exists = PER
 				}
-				MAK = {
-					clr_country_flag = protectorate
-					get_current_government_type = yes
-					PER = {
-						set_autonomy = {
-							target = MAK
-							autonomous_state = autonomy_integrated_puppet
-							freedom_level = 0.9
-						}
-					}	
-					restore_previous_government_type = yes
+				end_puppet = MAK
+				if = {
+					limit = {
+						country_exists = PER
+						PER = { is_subject = no }
+					}
+					MAK = {
+						clr_country_flag = protectorate
+						get_current_government_type = yes
+						PER = {
+							set_autonomy = {
+								target = MAK
+								autonomous_state = autonomy_integrated_puppet
+								freedom_level = 0.9
+							}
+						}	
+						restore_previous_government_type = yes
+					}			
+				}			
+			}
+			if = {
+				limit = {
+					has_subject = MRG
+				}
+				end_puppet = MRG
+				if = {
+					limit = {
+						country_exists = PER
+						PER = { is_subject = no }
+					}
+					MRG = {
+						clr_country_flag = protectorate
+						get_current_government_type = yes
+						PER = {
+							set_autonomy = {
+								target = MRG
+								autonomous_state = autonomy_integrated_puppet
+								freedom_level = 0.9
+							}
+						}	
+						restore_previous_government_type = yes
+					}			
 				}			
 			}
 		}
@@ -6690,15 +6739,6 @@ country_event = {
 				country = ARB
 				relation = guarantee
 				active = no
-			}
-		}
-		every_state = {
-			limit = {
-				region = 116
-				is_owned_by = ENG
-			}
-			PER = {
-				transfer_state = PREV
 			}
 		}
 		set_variable = { var = ENG.PER_foreign_influence value = 0 }
