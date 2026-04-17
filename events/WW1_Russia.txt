@@ -3267,7 +3267,12 @@ country_event = {
 	}
 	immediate = {
 		hidden_effect = {
-			retire_character = RUS_illarion_vorontsov_dashkov
+			RUS_illarion_vorontsov_dashkov = {
+				set_character_flag = character_died
+			}
+			CAU = {
+				retire_character = CAU_illarion_vorontsov_dashkov
+			}
 		}
 	}
 	mean_time_to_happen = {
@@ -3275,11 +3280,7 @@ country_event = {
 	}
 	option = {
 		name = ww1_russia.96.a
-		effect_tooltip = {
-			RUS_illarion_vorontsov_dashkov = {
-				remove_unit_leader_role = yes
-			}
-		}
+		retire_character = RUS_illarion_vorontsov_dashkov
 	}
 }
 # Polish Autonomy after Great War
