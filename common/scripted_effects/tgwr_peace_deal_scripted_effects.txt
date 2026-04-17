@@ -2271,6 +2271,8 @@ armistice_effect = {
 							state = 877
 							state = 1212
 							state = 1245
+							state = 1250
+							state = 1251
 						}
 					}
 					transfer_state_to = CAU
@@ -2555,6 +2557,34 @@ armistice_effect = {
 					}
 				}
 				1245 = {
+					owner = {
+						NOT = {
+							original_tag = PER
+							has_war_with = PER
+						}
+						OR = {
+							original_tag = CAU
+							NOT = {
+								PREV = { is_core_of = PREV }
+							}
+						}
+					}
+				}
+				1250 = {
+					owner = {
+						NOT = {
+							original_tag = PER
+							has_war_with = PER
+						}
+						OR = {
+							original_tag = CAU
+							NOT = {
+								PREV = { is_core_of = PREV }
+							}
+						}
+					}
+				}
+				1251 = {
 					owner = {
 						NOT = {
 							original_tag = PER
