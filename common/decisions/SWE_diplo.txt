@@ -607,7 +607,7 @@ foreign_politics = {
 			original_tag = SWE
 		}
 		visible = {
-			has_completed_focus = SWE_address_the_russian_revolution
+			has_global_flag = october_revolution
 			NOT = {
 				has_completed_focus = SWE_ties_with_revolution
 			}
@@ -658,18 +658,23 @@ foreign_politics = {
 	SWE_the_scandinavian_monetary_union = {
 		allowed = {
 			OR = {
-				original_tag = SWE
-				original_tag = DEN
-				original_tag = NOR
+				tag = SWE
+				tag = DEN
+				tag = NOR
 			}
 		}
 		activation = {	# Temp for testing
 			has_opinion_modifier = SWE_scandinavian_monetary_union
 			OR = {
 				has_global_flag = great_war
-				has_war_with = SWE
-				has_war_with = DEN
-				has_war_with = NOR
+				any_other_country = {
+					has_opinion_modifier = SWE_scandinavian_monetary_union
+					OR = {
+						has_war_with = SWE
+						has_war_with = DEN
+						has_war_with = NOR
+					}
+				}
 			}
 		}
 		available = {
@@ -711,6 +716,7 @@ foreign_politics = {
 	}
 }
 operations = {
+	# Decisions
 	SWE_join_german_war_effort_over_aland = {
 		priority = 100
 		icon = generic_civil_support
@@ -725,7 +731,7 @@ operations = {
 			}
 			has_civil_war = no
 			is_subject = no
-			has_war_support > 0.6
+			has_war_support > 0.7
 			GER = { surrender_progress < 0.1 }
 			RUS = {
 				has_war_with = GER
@@ -769,6 +775,7 @@ operations = {
 		war_with_target_on_remove = yes
 		
 		remove_effect = {
+			# TBA: Mission to Get Åland
 			GER = {
 				add_to_faction = ROOT
 			}

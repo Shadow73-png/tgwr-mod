@@ -723,7 +723,7 @@ SWE_royalism_vs_parliamentalism_cat = {
 		allowed = {
 			original_tag = SWE
 		}
-		fire_only_once = yes
+		
 		visible = {
 			has_country_leader = {
 				character = SWE_karl_staaff
@@ -737,6 +737,8 @@ SWE_royalism_vs_parliamentalism_cat = {
 			}
 		}
 		days_remove = 14
+		days_re_enable = 30
+		
 		cost = 50
 		modifier = { political_power_gain = -1 }
 		complete_effect = {
@@ -781,19 +783,15 @@ SWE_royalism_vs_parliamentalism_cat = {
 			}
 		}
 		days_remove = 5
+		
 		cost = 40
+		
 		remove_effect = {
-			SWE_small_riksdag_increase = yes
 			add_popularity = {
 				ideology = democratic
-				popularity = 0.10
+				popularity = 0.12
 			}
-			custom_effect_tooltip = adjust_swe_political_tt
-			add_to_variable = {
-				tooltip = democratic_drift_tt
-				var = SWE_pol_democratic_drift
-				value = 0.01
-			}
+			SWE_small_riksdag_increase = yes
 		}
 		
 		ai_will_do = {
@@ -967,7 +965,7 @@ SWE_royalism_vs_parliamentalism_cat = {
 	SWE_meet_nationalists = {
 		icon = GFX_decision_generic_political_discourse
 		allowed = {
-			always = no	# No longer used
+			original_tag = SWE
 		}
 		fire_only_once = yes
 		available = {
@@ -1005,7 +1003,47 @@ SWE_royalism_vs_parliamentalism_cat = {
 			}
 		}
 	}
-	# Campaign decisions for late game
+	SWE_denounce_authorism = {
+		icon = GFX_decision_generic_civil_support
+		allowed = {
+			original_tag = SWE
+		}
+		fire_only_once = yes
+		available = {
+			OR = {
+				has_government = democratic
+				has_government = communism
+			}
+		}
+		visible = {
+			has_completed_focus = SWE_anti_authoritan_coalition_successful
+			has_power_balance = {
+				id = SWE_parliamentalism_vs_royalism
+			}
+		}
+		
+		days_remove = 14
+		
+		cost = 25
+		
+		complete_effect = {
+			SWE_small_riksdag_increase = yes
+		}
+		
+		remove_effect = {
+			custom_effect_tooltip = adjust_swe_political_tt
+			add_to_variable = {
+				tooltip = fascism_drift_tt
+				var = SWE_pol_fascism_drift
+				value = -0.01
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+		}
+	}
+	# Campaign decisions for more interactivity
 }
 
 SWE_riksdagens_decisions = {
@@ -1070,8 +1108,11 @@ SWE_riksdagens_decisions = {
 		}
 		available = {
 			OR = {
-				has_global_flag = great_war
 				has_defensive_war = yes
+				AND = {
+					has_global_flag = great_war
+					democratic < 0.5
+				}
 				custom_trigger_tooltip = {
 					tooltip = SWE_conservative_outrage_against_parliamentalism_tt
 					AND = {
@@ -1086,11 +1127,11 @@ SWE_riksdagens_decisions = {
 							}
 							threat > 0.25
 						}
-					}
-					neutrality > 0.15
-					power_balance_value = {
-						id = SWE_parliamentalism_vs_royalism
-						value < -0.15
+						neutrality > 0.15
+						power_balance_value = {
+							id = SWE_parliamentalism_vs_royalism
+							value < -0.15
+						}
 					}
 				}
 			}
@@ -1172,17 +1213,6 @@ SWE_riksdagens_decisions = {
 		days_mission_timeout = 730
 		
 		complete_effect = {
-			if = {
-				limit = {
-					has_power_balance = {
-						id = SWE_staaf_approval
-					}
-				}
-				add_power_balance_value = {
-					id = SWE_staaf_approval
-					value = -0.15
-				}
-			}
 			add_political_power = -50
 			#custom_effect_tooltip = adjust_swe_political_tt
 			#add_to_variable = {
@@ -1213,7 +1243,7 @@ SWE_riksdagens_decisions = {
 		fire_only_once = yes
 		
 		days_mission_timeout = 500
-		is_good = yes
+		is_good = no
 		
 		priority = 100
 		
@@ -1399,7 +1429,7 @@ SWE_riksdagens_decisions = {
 			add_political_power = 25
 		}
 		timeout_effect = {
-			add_stability = -0.015
+			add_war_support = -0.015
 			activate_mission = SWE_take_stance_in_foreign_politics_mission
 		}
 	}
@@ -1500,7 +1530,7 @@ SWE_riksdagens_decisions = {
 	}
 	SWE_conservative_promises_of_suffrage = {
 		allowed = {
-			tag = SWE
+			always = no
 		}
 		activation = {
 			always = no
@@ -2274,11 +2304,6 @@ SWE_riksdagens_decisions = {
 					}
 				}
 				add_to_variable = {
-					tooltip = democratic_drift_tt
-					var = SWE_pol_democratic_drift
-					value = 0.01
-				}
-				add_to_variable = {
 					tooltip = fascism_drift_tt
 					var = SWE_pol_fascism_drift
 					value = -0.01
@@ -2390,6 +2415,13 @@ SWE_riksdagens_decisions = {
 			NOT = { has_idea = SWE_higher_taxes }
 			date > 1913.1.1
 			OR = {
+				AND = {
+					has_completed_focus = SWE_sensible_posturing
+					has_country_leader = {
+						character = SWE_karl_staaff
+						ruling_only = yes
+					}
+				}
 				has_completed_focus = SWE_fix_what_is_backwards
 				has_completed_focus = SWE_promote_reasonable_reforms
 				has_completed_focus = SWE_welfare_reforms
@@ -2675,6 +2707,40 @@ SWE_riksdagens_decisions = {
 		
 		ai_will_do = {
 			base = 100
+		}
+	}
+	SWE_limit_foreign_ownership_of_natural_resources = {
+		# https://www.econstor.eu/bitstream/10419/56257/1/361985312.pdf
+		# "Restrictions for foreign owners were further extended in 1916 when new legislation was passed that prevented foreign owners from having more than 20 percent of the voting rights in Swedish corporations owning natural resources. This law mainly hit firms in mining, forestry, pulp and paper, and iron and steel"
+		allowed = {
+			tag = SWE
+		}
+		visible = {
+			date > 1916.1.1	# Make it part of focus later
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 365
+		cost = 50
+		
+		remove_effect = {
+			custom_effect_tooltip = adjust_swe_political_tt
+			add_to_variable = {
+				tooltip = drift_defence_factor_tt
+				var = SWE_pol_drift_defence_factor
+				value = 0.10
+			}
+			custom_effect_tooltip = adjust_swe_economic_tt
+			add_to_variable = {
+				tooltip = political_power_cost_tt
+				var = SWE_eco_political_power_cost
+				value = -0.05
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
 		}
 	}
 	SWE_anti_trust_and_monopoly_reforms = {
@@ -3859,7 +3925,6 @@ SWE_riksdagens_decisions = {
 			has_idea = SWE_protecting_interests_of_businessowners
 		}
 		available = {
-			threat > 0.05
 			SWE_has_majority_for_reform_conservative = yes
 			OR = {
 				has_completed_focus = SWE_kungliga_regeringen
@@ -3891,6 +3956,7 @@ SWE_riksdagens_decisions = {
 		}
 		
 		remove_effect = {
+			add_stability = 0.05
 			add_political_power = 75
 			remove_ideas = SWE_protecting_interests_of_businessowners
 		}
@@ -3901,7 +3967,7 @@ SWE_riksdagens_decisions = {
 				factor = 0
 				OR = {
 					has_political_power > 75
-					has_stability < 0.5
+					has_stability < 0.3
 				}
 			}
 		}
@@ -3955,12 +4021,6 @@ SWE_riksdagens_decisions = {
 		
 		remove_effect = {
 			set_country_flag = swe_arbetsloshetskommissionen
-			custom_effect_tooltip = adjust_swe_political_tt
-			add_to_variable = {
-				tooltip = political_power_cost_tt
-				var = SWE_pol_political_power_cost
-				value = 0.05
-			}
 			custom_effect_tooltip = adjust_swe_economic_tt
 			add_to_variable = {
 				tooltip = stability_factor_tt
@@ -3998,7 +4058,7 @@ SWE_riksdagens_decisions = {
 			add_to_variable = {
 				tooltip = trade_laws_cost_factor_tt
 				var = SWE_pol_trade_laws_cost_factor
-				value = -0.05
+				value = -0.10
 			}
 		}
 		
@@ -4101,10 +4161,6 @@ SWE_riksdagens_decisions = {
 		
 		days_remove = 50
 		fire_only_once = yes
-		
-		modifier = {
-			mobilization_speed = 0.05
-		}
 		
 		complete_effect = {
 			SWE_increase_riksdag_rigidity = yes
@@ -4977,7 +5033,7 @@ SWE_riksdagens_decisions = {
 		days_remove = 70
 		
 		modifier = {
-			consumer_goods_factor = 0.1
+			consumer_goods_factor = 0.05
 		}
 		
 		remove_effect = {
@@ -5085,12 +5141,12 @@ SWE_riksdagens_decisions = {
 		days_remove = 300
 		
 		modifier = {
-			consumer_goods_factor = 0.1
+			consumer_goods_factor = 0.05
 		}
 		
 		remove_effect = {
-			add_political_power = 5
-			add_stability = 0.01
+			add_political_power = 10
+			add_stability = 0.02
 			if = {
 				limit = {
 					owns_state = 38
@@ -5207,12 +5263,12 @@ SWE_riksdagens_decisions = {
 		days_remove = 300
 		
 		modifier = {
-			consumer_goods_factor = 0.1
+			consumer_goods_factor = 0.05
 		}
 		
 		remove_effect = {
-			add_political_power = 5
-			add_stability = 0.01
+			add_political_power = 10
+			add_stability = 0.02
 			if = {
 				limit = {
 					owns_state = 138
@@ -5412,7 +5468,7 @@ SWE_riksdagens_decisions = {
 			add_to_variable = {
 				tooltip = political_power_cost_tt
 				var = SWE_eco_political_power_cost
-				value = 0.10
+				value = -0.05
 			}
 			add_to_variable = {
 				tooltip = stability_factor_tt
@@ -6028,8 +6084,9 @@ operations = {
 				has_government = neutrality
 				has_government = fascism
 			}
-			RUS = {
-				exists = yes
+			OR = {
+				country_exists = RUS
+				country_exists = SOV
 			}
 			NOT = { has_country_flag = sweden_democratic_crisis }
 		}
@@ -6039,7 +6096,6 @@ operations = {
 		
 		cost = 70
 		modifier = {
-			democratic_drift = -0.02
 			fascism_drift = 0.01
 			neutrality_drift = 0.01
 		}
@@ -6057,16 +6113,6 @@ operations = {
 				tooltip = war_support_factor_tt
 				var = SWE_pol_war_support_factor
 				value = 0.05
-			}
-			add_to_variable = {
-				tooltip = neutrality_drift_tt
-				var = SWE_pol_neutrality_drift
-				value = 0.01
-			}
-			add_to_variable = {
-				tooltip = fascism_drift_tt
-				var = SWE_pol_fascism_drift
-				value = 0.01
 			}
 			custom_effect_tooltip = adjust_swe_military_tt
 			add_to_variable = {
@@ -6609,6 +6655,48 @@ SWE_varnplikten_decisions = {
 			}
 		}
 	}
+	# Mission
+	SWE_goal_of_army_bill = {	# Hammarskjöld's Army Bill of 1914
+		allowed = {
+			always = no
+		}
+		available = {
+			has_army_size = {
+				size > 11
+				type = infantry
+			}
+			#OR = {
+			#	has_army_size = {
+			#		size > 2
+			#		type = cavalry
+			#	}
+			#	has_army_size = {
+			#		size > 1
+			#		type = motorized
+			#	}
+			#}
+			has_army_manpower = { size > 25999 }	# Double of historical strength 13000
+		}
+		visible = {
+			original_tag = SWE
+		}
+		
+		fire_only_once = yes
+		
+		is_good = no
+		
+		days_mission_timeout = 365
+		
+		complete_effect = {
+			add_war_support = 0.05
+			custom_effect_tooltip = adjust_swe_military_tt
+			add_to_variable = {
+				tooltip = mobilization_speed_tt
+				var = SWE_mil_mobilization_speed
+				value = 0.05
+			}
+		}
+	}
 	# Normal
 	SWE_reogranise_the_military_for_future = {
 		allowed = {
@@ -6645,6 +6733,7 @@ SWE_varnplikten_decisions = {
 		custom_cost_text = decision_cost_CP_50_pp_50
 		
 		days_remove = 365
+		priority = 2
 		
 		complete_effect = {
 			hidden_effect = {
@@ -6752,6 +6841,7 @@ SWE_varnplikten_decisions = {
 		}
 		
 		cost = 100
+		priority = 2
 		
 		complete_effect = {
 			set_country_flag = {
@@ -7201,44 +7291,58 @@ SWE_varnplikten_decisions = {
 			}
 		}
 	}
-	SWE_goal_of_army_bill = {	# Hammarskjöld's Army Bill of 1914
+	SWE_military_mission_implementation = {
 		allowed = {
-			always = no
+			tag = SWE
 		}
 		available = {
-			has_army_size = {
-				size > 11
-				type = infantry
-			}
-			#OR = {
-			#	has_army_size = {
-			#		size > 2
-			#		type = cavalry
-			#	}
-			#	has_army_size = {
-			#		size > 1
-			#		type = motorized
-			#	}
-			#}
-			has_army_manpower = { size > 25999 }	# Double of historical strength 13000
+			has_war_support > 0.3
+			NOT = { has_country_flag = swe_recent_army_improvement }
 		}
 		visible = {
-			original_tag = SWE
+			OR = {
+				has_completed_focus = SWE_invite_french_officers
+				has_completed_focus = SWE_german_military_mission
+			}
 		}
-		
 		fire_only_once = yes
 		
-		is_good = no
+		days_remove = 30
 		
-		days_mission_timeout = 365
+		cost = 25
 		
 		complete_effect = {
-			add_war_support = 0.05
+			set_country_flag = {
+				flag = swe_recent_army_improvement
+				days = 50
+				value = 1
+			}
+		}
+		
+		remove_effect = {
+			custom_effect_tooltip = adjust_swe_economic_tt
+			add_to_variable = {
+				tooltip = industrial_capacity_factory_tt
+				var = SWE_mil_industrial_capacity_factory
+				value = 0.01
+			}
+			add_to_variable = {
+				tooltip = industrial_capacity_dockyard_tt
+				var = SWE_mil_industrial_capacity_dockyard
+				value = 0.01
+			}
 			custom_effect_tooltip = adjust_swe_military_tt
 			add_to_variable = {
-				tooltip = mobilization_speed_tt
-				var = SWE_mil_mobilization_speed
-				value = 0.10
+				tooltip = experience_gain_army_factor_tt
+				var = SWE_mil_experience_gain_army_factor
+				value = 0.05
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 2
+				has_war = yes
 			}
 		}
 	}

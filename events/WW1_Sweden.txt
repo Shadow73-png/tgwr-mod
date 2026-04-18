@@ -28,15 +28,7 @@ country_event = {
 			country_event = { id = ww_sverige.3 days = 15 }	# Fbåten mission triggers
 			country_event = { id = ww_sverige_general.3201 days = 915 } # Conservative resurge
 			country_event = { id = ww_sverige_riksdag.10 days = 30 }	# Prohibition tensions
-			#set_power_balance = {
-			#	id = SWE_staaf_approval
-			#	left_side = SWE_disapproval_side
-			#	right_side = SWE_approval_side
-			#}
-			#add_power_balance_value = {	# Temporary fix
-			#	id = SWE_staaf_approval
-			#	value = 1
-			#}
+			remove_ideas = SWE_hugo_hamilton
 		}
 	}
 	
@@ -177,6 +169,12 @@ country_event = {
 		add_political_power = -100
 		SWE_small_riksdag_decrease = yes
 		country_event = { id = ww_sverige_general.18 days = 2 }
+		custom_effect_tooltip = adjust_swe_political_tt
+		add_to_variable = {
+			tooltip = democratic_drift_tt
+			var = SWE_pol_democratic_drift
+			value = -0.01
+		}
 		add_to_variable = {
 			tooltip = swe_lib_dem_vote_f_tt
 			var = SWE_lib_dem_votes_f

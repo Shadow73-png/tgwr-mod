@@ -49,7 +49,8 @@
  # Traits
  neutral_industrialist:0 "Neutral Industrialist"
  # Fix tooltip
- is_soc_dem_tt:0 "§Y[Root.GetLeader]§! has ideology §Y$social_democracy$§!"
+ is_soc_dem_tt:0 "§Y[This.Owner.GetLeader]§! has ideology §Y$social_democracy$§!"
+ is_soc_dem_tt_NOT:0 "§Y[This.Owner.GetLeader]§! does not have ideology §Y$social_democracy$§!"
  # Tooltips
  if_liberals_re_elected:0 "If the $swe_lib_party$ are re-elected they gain the following bonus:"
  svensk_liberalism_focus_will_be_available:0 "The Focus §YStrengthen Svensk Liberalism§! will be available."
@@ -136,6 +137,8 @@
  SWE_prohibition_parties_list:0 "In the discussion of prohibition the parties will generally align as follows;\n$swe_con_parties$ will have no strong stance on it.\n$swe_agr_parties$ will be against larger-scale prohibition.\n$swe_lib_parties$ will be split into two factions; One smaller Anti-Prohbition and A Larger Pro-Prohbition.\n$swe_soc_parties$ will only be supportive with high enough support from population (Will reuire a referendum).\n$swe_com_loc$ are Pro-Prohbition."
  
  swe_temporary_increase_political_rigidity:0 "Support Requried in Riksdagen will temporarily increase due to opposition to this reform."
+ 
+ when_peace_is_made_sweden_gains_following_tt:0 "When the Peace Treaty after the Great War is signed the following will occur:\n"
  # Flags
  neutrality_peace_achieved_temp_tt:0 "Another neutrality-related event cannot occur until §Y[?pause_between_neutrality_events:days_left|Y0]§! days from now."
  swe_recent_army_improvement:0 "A decision improving §YVärnplikten§! is ongoing or finished in the last §Y20§! days. (Wait §Y[?swe_recent_army_improvement:days_left|Y0]§! days)"
@@ -303,7 +306,7 @@
  SWE_riksdagens_decisions_desc:0 "Sweden's Parliament is made out of two houses, the lower house known as §YAndra Kammaren§! (Second Chamber) and the upper house known as §YFörsta Kammaren§! (First Chamber). Första Kammaren has a much more strict set of rules in regards to suffrage, making it represent the interest of landowners more than Andra Kammaren.\n\nBoth chambers need to agree to push through certain reforms since both have absolute veto over the other.\n\n$swedish_first_chamber$"
  
  SWE_conservative_agitation_against_karl_staaff:0 "Conservative Agitation Against Karl Staaff"
- SWE_conservative_outrage_against_parliamentalism_tt:0 "World Tension is above §Y10%§! and Balance of Power between Royalism and Parliamentalism has reached at least $SWE_riksdag_leaning$ while:\n-Authoriatian Support is at or above 15%.\n-It is Election Year OR the Military has been further defunded OR World Tension is Above §Y25%§!."
+ SWE_conservative_outrage_against_parliamentalism_tt:0 "World Tension is above §Y10%§! and Balance of Power between Royalism and Parliamentalism has reached at least §Y$SWE_riksdag_leaning$§! while §YAuthoriatian Support§! is at or above §Y15%§! & When any of the following is true; It's Election Year (1914) OR the focus §Y$SWE_forsvarsvasendet$§! has been completed OR World Tension is Above §Y25%§!."
  
  SWE_parliament_and_dem:0 "Rally Riksdag in Favor of Democratic Principles"
  SWE_parliament_and_dem_desc:0 "While not everyone can be won over, it is important that we stand clear for the young democratic principles here in Sweden."
@@ -388,6 +391,19 @@
  SWE_machine_gun_equipment_1_short: "Kulspruta m/00"
  SWE_machine_gun_equipment_2: "Kulspruta m/1914"
  SWE_machine_gun_equipment_2_short: "Kulspruta m/14"
+ 
+ SWE_field_gun_equipment_1:0 "Bofors m/10"
+ SWE_field_gun_equipment_1_short:0 "Bofors m/10"
+ SWE_field_gun_equipment_3:0 "Bofors 75mm mountain gun"
+ SWE_field_gun_equipment_3_short:0 "Bofors 75mm gun"
+ 
+ SWE_ship_light_battery_1:0 "Bofors 283mm M/12 naval gun"
+ SWE_ship_light_battery_1_short:0 "Bofors 283mm M/12 naval gun"
+ SWE_ship_light_battery_2:0 "Bofors 75mm m/12 gun"
+ SWE_ship_light_battery_2_short:0 "Bofors 75mm m/12 gun"
+ 
+ SWE_howitzer_equipment_2:0 "Bofors 12 cm M. 14"
+ SWE_howitzer_equipment_2_short:0 "Bofors M. 14"
  # TEMP
  #experience_gain_army_unit_factor_tt:0 "Army Unit Experience Gain: §G+5.0%§!"
  #experience_gain_army_unit_factor_tt:0 "Army Unit Experience Gain: §G+5.0%§!"
@@ -526,6 +542,7 @@
  SWE_investigate_entente_doctrines:0 "Investigate Entente's Successes"
  
  SWE_make_use_of_bofors:0 "Bofors Artillery"
+ SWE_make_use_of_bofors_desc:0 "A recent development in our country is Bofors working with our army to develop field guns for them, making use of their expertice we can improve our field guns more effectively."
  SWE_modern_infantry_equipment:0 "Kulspruta m/1914"
  SWE_modernise_the_army:0 "Modernize the Army"
  SWE_organise_the_workforce:0 "Mobilize Swedish Industry"
@@ -641,6 +658,7 @@
  SWE_restoration_of_democracy:0 "The Return To Normalcy"
  SWE_restoration_of_democracy_desc:0 "In an effort to quell public unrest now that the Great War is over, we should take steps towards restoring the democratic principles that did once hold true in Sweden."
  SWE_solidify_military_control:0 "A Military Dictatorship"
+ SWE_solidify_military_control_desc:0 "We need to solidify the control the military has in everyday life, the threat from the Socialists is still everpresent and we need to make sure to not falter to it."
  SWE_restoration_of_order:0 "Restore Order"
  SWE_restoration_of_order_desc:0 "With help of Riksdagen and the military we'll restore full order to the country and reintroduce a sense of normalcy in the life of our people."
  
@@ -698,6 +716,7 @@
  SWE_prepare_strikebreakers:0 "Prepare Strikebreakers"
  SWE_use_central_powers_expertice:0 "Use Central Powers Expertice"
  SWE_the_finland_question:0 "The Future of Finland"
+ SWE_the_finland_question_tt:0 "The future of @FIN §YFinland§! will be discussed with @GER §YGermany§!. @SWE §YSweden§! will be able to request one of the following to be added to the Peace Treaty after Victory in the Great War has been achieved:\n§OIndependent Finnish Buffer State§!\n@FIN §YFinland§! Will be Guaranteed by @SWE §YSweden§! and @GER §YGermany§!. A German or Swedish king will be put in place in @FIN §YFinland§! as head of state.\n§OUnion With Sweden§!\n@FIN §YFinland§! will enter a Personal Union under the Swedish Monarchy while @GER Germany guarantees the independence of @FIN §YFinland§!.\n\n§YÅland§! will be given to @SWE §YSweden§!."
  # Old events replacement
  ww1_sweden.4.db:0 "Fed up with the liberal-progressive policies of [SWE.GetLeader], especially his stance on military matters, Conservatives across the country have rallied farmers in a 30,000 march known as the 'Peasant Armament Support March'.\n\nWhat is especially notable, however, is that the King himself has gotten involved! He delivered the following speech to the gathered protestors;\n\n"Ye honest men of Sweden's yeomanry tribe!\nYe have come to speak Your opinion regarding the maintenance of the realm and the care for its highness. Ye are here with me to make known to all, that no demand is too high and no burden too heavy, when it comes to the preservation of our ancient freedom and the safeguarding of our future development.\nFrom times so distant, held hidden in times immemorial, the foundation of this realm has rested on the firm and unshakably welded trust between king and people.\nI shall, in accordance with My duty as Your king, seek to show You the way to reach our goal in common. Follow and support Me henceforth!"\n\nThis has made rebounds in Swedish politics."
  ww1_sweden.4.ab:0 "This is a crisis"
@@ -949,6 +968,9 @@
  ww_sverige_general.58.t:0 "Stare Social Issue"
  ww_sverige_general.58.a:0 "Maybe someone should do something"
  
+ ww_sverige_general.59.t:0 "Left Election Campaign"
+ ww_sverige_general.59.a:0 "The left has successfully campaigned on disarmament and a reduction of the costs for the people; many in Sweden are tired of the burden the military has placed on them and thus have met the campaign with heavy support.\nWhile Conservative circles still consider this an important issue to stand against that isn't the case in every part of Swedish society."
+ 
  ww_sverige_general.1003.t:0 "F-typen"
  ww_sverige_general.1003.d:0 "Presented in 1910, F-typen would be the a new Coastal Defence Ship for the Swedish navy which would based on its design be the largest ships to serve in the navy as of now. Plans are for Götaverken to handle the construction of these ships and for Bofors AB to make the artillery pieces for it.\n\nLiberal and Social Democratic elements in our Riksdag stand against its construction however, seeing it as yet another tax burden for our people that need to be culled."
  ww_sverige_general.1003.a:0 "We need the ships!"
@@ -980,6 +1002,9 @@
  
  ww1_sweden_demo_crisis.16.t:0 "Opposition Returns"
  ww1_sweden_demo_crisis.16.d:0 "The security that [Root.GetLeader] claimed to seek has now reaching a boiling point. Popularity of the regime is faltering as people are getting restless.\n\nPoliticians from every side of the political scene have organised to demand an end to the state of Emergency by the end of the year."
+ 
+ ww1_sweden_demo_crisis.18.t:0 "Socialists Flock to Liberals"
+ ww1_sweden_demo_crisis.18.d:0 "While there is heavy opposition from Labour Unions and similiar organisations still present in Sweden, it seems that the political landscape have changed after our ban of dangerous socialist parties and organisations.\nMany former organisations have seemed to flock to the Liberal Parties to get a less conservative leaning Riksdag in an attempt to undermine our current regime."
  
  ww1_sweden_demo_crisis.101.t:0 "King's Cold Towards Government"
  ww1_sweden_demo_crisis.101.d:0 "With the seeming slowness and troubles government has ran into, King Gustaf V has started having second thoughts on the government and until it is stabilized it is clear that while he won't (yet) approach another candidate to form a government that he isn't going to actively aid Sven Hedin."

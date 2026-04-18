@@ -139,7 +139,7 @@ characters={
 			available = {
 				has_government = democratic
 				NOT = {
-					has_country_leader_ideology = social_democracy
+					SWE_social_democracy_trigger = yes
 					has_country_leader_ideology = social_liberalism
 					has_country_leader = {
 						character = SWE_ernst_trygger
@@ -428,7 +428,7 @@ characters={
 			cost = 100
 			available = {
 				OR = {
-					has_country_leader_ideology = social_democracy
+					SWE_social_democracy_trigger = yes
 					has_government = communism
 				}
 				is_country_leader = no
@@ -439,7 +439,7 @@ characters={
 						date > 1913.1.1
 						NOT = { has_government = fascism }
 					}
-					has_country_leader_ideology = social_democracy
+					SWE_social_democracy_trigger = yes
 					has_government = communism
 				}
 			}
@@ -845,6 +845,7 @@ characters={
 			}
 		}
 		navy_leader={
+			visible = { date > 1911.1.1 }	# Might be later
 			traits={ navy_career_officer trait_royalist }
 			skill=2
 			attack_skill=1
@@ -1108,7 +1109,7 @@ characters={
 			}
 			available = {
 				OR = {
-					has_country_leader_ideology = social_democracy
+					SWE_social_democracy_trigger = yes
 					has_country_leader_ideology = social_liberalism
 				}
 				NOT = { has_completed_focus = SWE_courtyard_speech }
@@ -1158,13 +1159,13 @@ characters={
 		}
 		advisor={
 			slot = political_advisor
-			idea_token = SWE_hugo_hamilton
+			idea_token = SWE_carl_hederstierna
 			allowed = {
 				original_tag = SWE
 			}
 			available = {
 				NOT = {
-					has_country_leader_ideology = social_democracy
+					SWE_social_democracy_trigger = yes
 					has_country_leader_ideology = social_liberalism
 				}
 				NOT = {
@@ -1227,7 +1228,7 @@ characters={
 			available = {
 				has_government = democratic
 				NOT = {
-					has_country_leader_ideology = social_democracy
+					SWE_social_democracy_trigger = yes
 					has_country_leader_ideology = social_liberalism
 				}
 			}
@@ -1236,7 +1237,17 @@ characters={
 			}
 			cost = 100
 			traits = {
-				# Figure out trait later, probably less effective trait
+				democratic_party_organiser
+			}
+			on_add = {
+				owner = {
+					SWE_tiny_riksdag_increase = yes
+				}
+			}
+			on_remove = {
+				owner = {
+					SWE_tiny_riksdag_decrease = yes
+				}
 			}
 			
 			ai_will_do  = {
@@ -1259,7 +1270,7 @@ characters={
 			}
 			available = {
 				OR = {
-					has_country_leader_ideology = social_democracy
+					SWE_social_democracy_trigger = yes
 					has_country_leader_ideology = social_liberalism
 					has_country_leader_ideology = reformist_socialism
 				}

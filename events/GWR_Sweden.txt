@@ -5,6 +5,7 @@ add_namespace = ww_sverige_riksdag
 add_namespace = ww_sverige_prohibition
 add_namespace = ww_sverige_neutralitet
 add_namespace = ww_sverige_hungerskjold
+add_namespace = ww_sverige_great_war
 add_namespace = ww_sverige_cw
 
 # Status Quo???
@@ -738,7 +739,7 @@ country_event = {
 				long_name = SWE_democratic_national_party_long 
 				name = SWE_democratic_national_party 
 			}
-			country_event = { id = ww_sverige.10001 days = 1 }
+			country_event = { id = ww_sverige.10001 days = 2 }
 			# King's Opinion
 			country_event = { id = ww_sverige_general.1001 hours = 1 }
 		}
@@ -809,7 +810,7 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	option = {	# No
+	option = {	# Let's adapt a bit
 		name = ww_sverige.1002.a
 		swap_ideas = {
 			add_idea = SWE_policy_of_intelligent_anpassning
@@ -1001,15 +1002,9 @@ country_event = {
 		name = ww_sverige.13.a
 		trigger = {
 			democratic > 0.49
-			# Later check for seats to form government
-				# Check for combined liberal/socialist seats
-			#power_balance_value = {
-			#	id = SWE_staaf_approval
-			#	value > 0.1
-			#}
 			power_balance_value = {
 				id = SWE_parliamentalism_vs_royalism
-				value < 0.15
+				value < 0
 			}
 			custom_trigger_tooltip = {
 				tooltip = karl_staaff_regering_ii_survived
@@ -2317,6 +2312,51 @@ country_event = {
 	option = {	# Oh no
 		name = ww_sverige.100.a
 		add_ideas = SWE_hungerskjold
+		custom_effect_tooltip = adjust_swe_political_tt
+		add_to_variable = {
+			tooltip = stability_factor_tt
+			var = SWE_pol_stability_factor
+			value = -0.05
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = SWE_pol_neutrality_drift
+					value = 0.01
+				}
+			}
+			add_to_variable = {
+				tooltip = neutrality_drift_tt
+				var = SWE_pol_neutrality_drift
+				value = -0.01
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = SWE_pol_fascism_drift
+					value = 0.01
+				}
+			}
+			add_to_variable = {
+				tooltip = fascism_drift_tt
+				var = SWE_pol_fascism_drift
+				value = -0.01
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = SWE_pol_democratic_drift
+					value = 0.01
+				}
+			}
+			add_to_variable = {
+				tooltip = democratic_drift_tt
+				var = SWE_pol_democratic_drift
+				value = -0.01
+			}
+		}
 	}
 }
 # Denmark Agreement
@@ -2440,12 +2480,12 @@ country_event = {
 			modifier = {
 				add = 1
 				original_tag = ENG
-				has_country_flag = pact_with_germany
+				SWE = { has_completed_focus = SWE_strengthen_german_relations }
 			}
 			modifier = {
 				add = 1
 				original_tag = GER
-				has_country_flag = pact_with_france
+				SWE = { has_completed_focus = SWE_pro_entente_stance }
 			}
 			modifier = {
 				add = 1
@@ -2508,7 +2548,7 @@ country_event = {
 			}
 			add_popularity = {
 				ideology = neutrality
-				popularity = 0.10
+				popularity = 0.20
 			}
 			SWE_sven_hedin = {
 				promote_character = personalistic_dictatorship
@@ -2533,7 +2573,7 @@ country_event = {
 		effect_tooltip = {
 			add_popularity = {
 				ideology = neutrality
-				popularity = 0.10
+				popularity = 0.20
 			}
 			add_timed_idea = {
 				idea = SWE_anti_conservative_coalition
@@ -2556,8 +2596,8 @@ country_event = {
 			value = 0.10
 		}
 		add_to_variable = {
-			tooltip = stability_factor_tt
-			var = SWE_pol_stability_factor
+			tooltip = war_support_factor_tt
+			var = SWE_pol_war_support_factor
 			value = -0.05
 		}
 		SWE_small_riksdag_increase = yes
@@ -2836,6 +2876,7 @@ country_event = {
 			idea = SWE_great_strike_again
 			days = 120
 		}
+		custom_effect_tooltip = will_see_result_in_fifteen_days
 		hidden_effect = {
 			country_event = { id = ww_sverige_demo_crisis.6 days = 15 }
 		}
@@ -2988,6 +3029,12 @@ country_event = {
 	
 	is_triggered_only = yes
 	
+	immediate = {
+		hidden_effect = {
+			country_event = { id = ww_sverige_demo_crisis.17 days = 600 }
+		}
+	}
+	
 	option = {	# Disbanded it'll be
 		name = ww_sverige_demo_crisis.9.a
 		swap_ideas = {
@@ -2999,11 +3046,6 @@ country_event = {
 			tooltip = political_power_cost_tt
 			var = SWE_pol_political_power_cost
 			value = 0.10
-		}
-		add_to_variable = {
-			tooltip = stability_factor_tt
-			var = SWE_pol_stability_factor
-			value = -0.05
 		}
 		add_to_variable = {
 			tooltip = democratic_drift_tt
@@ -3267,12 +3309,85 @@ country_event = {
 		NOT = { has_completed_focus = SWE_solidify_military_control }
 	}
 	
+	immediate = {
+		hidden_effect = {
+			activate_mission = SWE_demands_of_elections
+		}
+	}
+	
 	option = {	# Outrageous
 		name = ww_sverige_demo_crisis.16.a
-		add_stability = -0.05
-		activate_mission = SWE_demands_of_elections
+		effect_tooltip = { activate_mission = SWE_demands_of_elections }
 	}
 }
+
+# Democratic Rallies
+country_event = {
+	id = ww_sverige_demo_crisis.17
+	title = ww1_sweden_demo_crisis.17.t
+	desc = ww_sverige_demo_crisis.17.d
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_completed_focus = SWE_restoration_of_democracy }
+		NOT = { has_completed_focus = SWE_solidify_military_control }
+	}
+	
+	option = {	# 
+		name = ww_sverige_demo_crisis.17.a
+		custom_effect_tooltip = adjust_swe_political_tt
+		add_to_variable = {
+			tooltip = neutrality_drift_tt
+			var = SWE_pol_neutrality_drift
+			value = -0.01
+		}
+		promote_character = SWE_nils_eden
+		if = {
+			limit = { has_idea = communism_banned }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			add_to_variable = {
+				tooltip = democratic_drift_tt
+				var = SWE_pol_democratic_drift
+				value = 0.01
+			}
+		}
+		else = {
+			add_to_variable = {
+				tooltip = democratic_drift_tt
+				var = SWE_pol_democratic_drift
+				value = 0.01
+			}
+			add_to_variable = {
+				tooltip = communism_drift_tt
+				var = SWE_pol_communism_drift
+				value = 0.01
+			}
+		}
+	}
+}
+# Socialist Rallies to Liberals
+country_event = {
+	id = ww_sverige_demo_crisis.18
+	title = ww1_sweden_demo_crisis.18.t
+	desc = ww_sverige_demo_crisis.18.d
+	
+	is_triggered_only = yes
+	
+	option = {	# 
+		name = ww_sverige_demo_crisis.18.a
+		custom_effect_tooltip = adjust_swe_political_tt
+		add_to_variable = {
+			tooltip = democratic_drift_tt
+			var = SWE_pol_democratic_drift
+			value = 0.01
+		}
+	}
+}
+
 
 
 
@@ -3850,7 +3965,7 @@ country_event = {
 	option = {	# Keep the ban
 		name = ww_sverige_riksdag.16.a
 		ai_chance = {
-			base = 3
+			base = 1
 		}
 		add_stability = -0.07
 		add_war_support = -0.07
@@ -3858,12 +3973,40 @@ country_event = {
 	option = {	# Unban
 		name = ww_sverige_riksdag.16.b
 		ai_chance = {
-			base = 1
+			base = 3
 		}
 		add_political_power = -50
 		remove_ideas = communism_banned
 	}
 }
+
+# Failure of fas to get going (if fas support is too low by X year)
+country_event = {
+	id = ww_sverige_riksdag.17
+	title = ww_sverige_riksdag.17.t
+	desc = ww_sverige_riksdag.17.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = { has_government = fascism }	# Later just change line here
+		fascism < 0.2
+	}
+	
+	option = {	# Keep the ban
+		name = ww_sverige_riksdag.17.a
+		custom_effect_tooltip = adjust_swe_political_tt
+		add_to_variable = {
+			tooltip = fascism_drift_tt
+			var = SWE_pol_fascism_drift
+			value = -0.01
+		}
+	}
+}
+
+
+
 
 #### PROHIBITION LINE ####
 
@@ -5746,6 +5889,8 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	
+	trigger = { has_idea = SWE_statare }
+	
 	option = {	# Why do people care?
 		name = ww_sverige_general.58.a
 		swap_ideas = {
@@ -5755,8 +5900,52 @@ country_event = {
 	}
 }
 
+# Campaign on Disarmament
+country_event = {
+	id = ww_sverige_general.59
+	title = ww_sverige_general.59.t
+	desc = ww_sverige_general.59.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = { date < 1913.1.1 }
+	
+	option = {	# Campaign on disarmament
+		name = ww_sverige_general.59.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.02
+		}
+	}
+}
 
-
+# Finspång Canon-factory thing closes in 1911
+country_event = {
+	id = ww_sverige_general.60
+	title = ww_sverige_general.60.t
+	desc = ww_sverige_general.60.d
+	
+	# https://sv.wikipedia.org/wiki/Finsp%C3%A5ngs_bruk
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = { date < 1912.1.1 }
+	
+	option = {	# Well okay
+		name = ww_sverige_general.60.a
+		#add_to_variable = {
+		#	tooltip = production_factory_max_efficiency_factor_tt
+		#	var = SWE_eco_production_max
+		#	value = -0.01
+		#}
+	}
+}
 
 # Inlandsbanan - Östersund–Ulriksfors, klar 1912
 	# Banan stod klar till Dorotea 1915, till Vilhelmina 1918, till Storuman 1923 och till Arvidsjaur 1928
@@ -5780,8 +5969,6 @@ country_event = {
 # Prins Erik, hertig av Västmanland dies
 
 # Hilda Nilsson trial
-
-# Failure of fas to get going (if fas support is too low by X year)
 
 # King's Approval
 country_event = {
@@ -6664,7 +6851,7 @@ country_event = {
 				days = 210
 			}
 		}
-		# If no Great War somehow, add Sweden being able to lower the worst effects
+		# If no Great War somehow, add Sweden being able to lower the worst effects?
 	}
 }
 
@@ -6768,5 +6955,90 @@ country_event = {
 			base = 0
 		}
 		add_political_power = -40
+	}
+}
+
+
+### GREAT WAR STUFF ###
+
+# Discuss Finland; Sweden-Germany
+country_event = {
+	id = ww_sverige_great_war.1
+	title = ww_sverige_great_war.1.t
+	desc = ww_sverige_great_war.1.d
+	
+	is_triggered_only = yes
+	
+	option = {	# Suggest independent buffer state, german monarch
+		name = ww_sverige_great_war.1.a
+		ai_chance = {
+			base = 2
+		}
+		GER = {
+			country_event = { id = ww_swerige_great_war.2 hours = 6 }
+		}
+		custom_effect_tooltip = when_peace_is_made_sweden_gains_following_tt
+	}
+	option = {	# Suggest independent buffer state, swedish monarch
+		name = ww_sverige_great_war.1.a
+		ai_chance = {
+			base = 4
+			modifier = {
+				add = 2
+				has_government = fascism
+			}
+		}
+		set_country_flag = SWE_suggest_sweden_finland
+		GER = {
+			country_event = { id = ww_swerige_great_war.2 hours = 6 }
+		}
+		custom_effect_tooltip = when_peace_is_made_sweden_gains_following_tt
+	}
+	option = {	# Suggest Fin under union with Sweden
+		name = ww_sverige_great_war.1.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_government = democratic
+			}
+		}
+		set_country_flag = SWE_suggest_union_finland
+		GER = {
+			country_event = { id = ww_swerige_great_war.2 hours = 6 }
+		}
+		custom_effect_tooltip = when_peace_is_made_sweden_gains_following_tt
+	}
+}
+# Discuss Finland; Sweden-Germany (German Response)
+country_event = {
+	id = ww_sverige_great_war.2
+	title = ww_sverige_great_war.2.t
+	desc = ww_sverige_great_war.2.d	# TBA: description changing based on Sweden choice
+	
+	is_triggered_only = yes
+	
+	option = {	# Agree
+		name = ww_sverige_great_war.2.a
+		ai_chance = {
+			base = 1
+		}
+		GER = {
+			country_event = { id = ww_swerige_great_war.2 hours = 6 }
+		}
+		# List the version sweden asks for here
+	}
+	option = {	# Don't agree
+		name = ww_sverige_great_war.2.a
+		ai_chance = {
+			base = 0
+		}
+		SWE = {
+			clr_country_flag = SWE_suggest_sweden_finland
+			clr_country_flag = SWE_suggest_union_finland
+		}
+		GER = {
+			country_event = { id = ww_swerige_great_war.2 hours = 6 }
+		}
 	}
 }

@@ -120,7 +120,10 @@ SWE_fix_our_food_situation = {
 				has_completed_focus = SWE_agreement_with_denmark
 				has_completed_focus = SWE_work_with_great_powers
 			}
-			has_war = yes
+			AND = {
+				has_war = yes
+				NOT = { has_idea = SWE_hungerskjold }
+			}
 		}
 	}
 	
@@ -138,9 +141,9 @@ SWE_fix_our_food_situation = {
 	# Keep small, as it is used as a factor for some things (such as research needs)
 	# Recommended around 1.0. Useful for relation between plans
 	weight = {
-		factor = 1.0
+		factor = 0.9
 		modifier = {
-			factor = 2.0
+			factor = 10.0
 			has_idea = SWE_hungerskjold
 		}
 	}
@@ -172,7 +175,7 @@ SWE_priority_to_our_military = {
 	# Keep small, as it is used as a factor for some things (such as research needs)
 	# Recommended around 1.0. Useful for relation between plans
 	weight = {
-		factor = 1
+		factor = 1.05
 		modifier = {
 			factor = 1.1
 			has_war = yes

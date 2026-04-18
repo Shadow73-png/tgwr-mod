@@ -662,10 +662,7 @@ ideas = {
 				production_speed_industrial_complex_factor = 0.10
 			}
 		}
-		# Make into dynamic mod
-			# Dynamic mod:
-				# Monthly population
-				# PP/Stab
+		# Been made into a dynamic mod
 		SWE_high_emigration_0 = {
 			name = SWE_high_emigration
 			picture = generic_migration
@@ -818,7 +815,7 @@ ideas = {
 				set_country_flag = block_further_famines
 			}
 			modifier = {
-				consumer_goods_factor = 0.10
+				factory_energy_consumption = 0.5	# Representing shortages
 				stability_weekly = -0.02
 				war_support_factor = -0.10
 				ai_join_ally_desire_factor = -100	# This is to help ai not fuck it up by joining war
@@ -1082,6 +1079,7 @@ ideas = {
 			}
 			
 			modifier = {
+				war_support_factor = -0.05
 				consumer_goods_factor = 0.20
 				industrial_capacity_factory = 0.05
 				industrial_capacity_dockyard = 0.05
@@ -1180,7 +1178,7 @@ ideas = {
 			picture = generic_spy_intel
 			modifier = {
 				stability_factor = -0.05
-				communism_drift = -0.02
+				communism_drift = -0.03
 			}
 		}
 		SWE_company_favoritism = {
@@ -1231,7 +1229,7 @@ ideas = {
 			picture = generic_spy_intel
 			
 			modifier = {
-				democratic_drift = 0.16
+				democratic_drift = 0.15
 				communism_drift = 0.10
 				neutrality_drift = -0.02
 			}
@@ -1406,7 +1404,8 @@ ideas = {
 			removal_cost = -1
 			picture = generic_spy_intel
 			modifier = {
-				democratic_drift = 0.03
+				political_power_gain = -0.1
+				democratic_drift = 0.04
 			}
 		}
 		SWE_agrarian_issues_adressed = {
@@ -1442,8 +1441,7 @@ ideas = {
 			removal_cost = -1
 			picture = generic_spy_intel
 			modifier = {
-				political_power_gain = 0.25
-				economy_cost_factor = -0.05
+				political_power_gain = 0.33
 			}
 		}
 		# Liberal (Ahistorical)
@@ -1868,6 +1866,7 @@ ideas = {
 					is_subject = no
 					NOT = { has_war_with = ROOT }
 				}
+				NOT = { has_global_flag = great_war_ends }
 			}
 			
 			removal_cost = -1
@@ -1875,7 +1874,7 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = -0.05
 			}
-
+			
 			targeted_modifier = {
 				tag = GER
 				extra_trade_to_target_factor = 0.25
@@ -2108,8 +2107,8 @@ ideas = {
 				war_support_factor = -0.05
 				join_faction_tension = 0.25
 				ai_focus_peaceful_factor = 0.5
-				democratic_drift = 0.02
-				power_balance_weekly = -0.001
+				democratic_drift = 0.01
+				power_balance_weekly = -0.002
 			}
 		}
 		SWE_neutralitetsvakt = {
@@ -2121,6 +2120,7 @@ ideas = {
 			}
 			available = {
 				is_in_faction = no
+				NOT = { has_global_flag = great_war_ends }
 			}
 			
 			removal_cost = -1
@@ -2128,6 +2128,7 @@ ideas = {
 			modifier = {
 				war_support_factor = 0.05
 				experience_gain_navy = 0.03
+				experience_gain_army = 0.02
 			}
 		}
 		SWE_nordic_censorship_agreement = {
@@ -2153,29 +2154,33 @@ ideas = {
 			picture = generic_spy_intel
 			
 			modifier = {
-				#stability_factor = 0.05
-				#war_support_factor = 0.05
 				political_power_gain = 0.10
 				drift_defence_factor = 0.10
 				join_faction_tension = 0.25
 				enemy_justify_war_goal_time = 0.2
 			}
 		}
-		SWE_diplomatic_frustrations = {
+		# Pro-Central Powers
+		SWE_german_advisors = {
 			allowed = {
 				always = no
 			}
 			allowed_civil_war = {
-				always = no
+				always = yes
 			}
-			available = { is_in_faction = no }
-			
+			available = {
+				NOT = { has_war_with = GER }
+				NOT = {
+					has_idea = idea_army_restrictions
+				}
+			}
 			removal_cost = -1
-			picture = generic_spy_intel
+			
+			picture = generic_infantry_bonus
 			
 			modifier = {
-				trade_opinion_factor = -0.15
-				political_power_gain = -0.20
+				army_infantry_attack_factor = 0.10
+				experience_gain_army_unit_factor = 0.10
 			}
 		}
 		# Democratic Crisis
@@ -2273,7 +2278,7 @@ ideas = {
 			picture = generic_spy_intel
 			
 			modifier = {
-				democratic_drift = -0.05
+				democratic_drift = -0.03
 			}
 		}
 		# Coup
@@ -2322,7 +2327,9 @@ ideas = {
 			}
 			
 			removal_cost = -1
+			
 			picture = generic_spy_intel
+			
 			modifier = {
 				party_popularity_stability_factor = 0.05
 				drift_defence_factor = 0.20
@@ -2344,7 +2351,9 @@ ideas = {
 			}
 			
 			removal_cost = -1
+			
 			picture = generic_spy_intel
+			
 			modifier = {
 				party_popularity_stability_factor = 0.05
 				drift_defence_factor = 0.15
@@ -2497,6 +2506,7 @@ ideas = {
 				fascism_drift = 0.01
 				neutrality_drift = 0.01
 				#defensive_war_stability_factor = 0.2
+				power_balance_weekly = -0.002
 			}
 		}
 		SWE_military_dictatorship = {
@@ -2518,6 +2528,22 @@ ideas = {
 				economy_cost_factor = -0.33
 				mobilization_laws_cost_factor = -0.33
 				ai_join_ally_desire_factor = -5
+			}
+		}
+		SWE_militarisation_of_society = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				tag = SWE
+			}
+			
+			removal_cost = -1
+			picture = generic_intel_bonus
+			
+			modifier = {
+				stability_weekly = -0.001
+				power_balance_weekly = 0.01
 			}
 		}
 		SWE_krigsforberedelser_idea = {
@@ -2548,6 +2574,7 @@ ideas = {
 			available = {
 				NOT = {
 					has_idea = idea_army_restrictions
+					has_idea = idea_armistice
 				}
 			}
 			
@@ -2555,7 +2582,31 @@ ideas = {
 			picture = generic_infantry_bonus
 			
 			modifier = {
-				conscription = 0.01
+				conscription = 0.005
+				stability_factor = -0.03
+			}
+		}
+		SWE_paramilitarism_pol = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				NOT = {
+					has_idea = idea_army_restrictions
+					has_idea = idea_armistice
+				}
+			}
+			
+			removal_cost = -1
+			picture = generic_infantry_bonus
+			
+			modifier = {
+				fascism_drift = 0.01
+				conscription = 0.006
+				stability_factor = -0.05
 			}
 		}
 		SWE_anti_conservative_sentiment = {
@@ -2834,45 +2885,6 @@ ideas = {
 				weekly_manpower = 100
 			}
 		}
-		SWE_workers_army = {
-			allowed = {
-				always = no
-			}
-			allowed_civil_war = {
-				has_government = communism
-			}
-			
-			removal_cost = -1
-			picture = generic_infantry_bonus
-			
-			modifier = {
-				army_org_factor = -0.1
-				army_morale_factor = 0.15
-				resistance_target_on_our_occupied_states = 0.10
-				ai_focus_defense_factor = 0.25
-			}
-		}
-		SWE_peoples_army = {
-			name = SWE_workers_army
-			allowed = {
-				always = no
-			}
-			allowed_civil_war = {
-				has_government = communism
-			}
-			
-			removal_cost = -1
-			picture = generic_infantry_bonus
-			
-			modifier = {
-				mobilization_speed = 0.2
-				army_core_defence_factor = 0.05
-				army_org_factor = -0.1
-				army_morale_factor = 0.15
-				resistance_target_on_our_occupied_states = 0.10
-				ai_focus_defense_factor = 0.25
-			}
-		}
 		SWE_forsvarsforbund = {
 			allowed = {
 				always = no
@@ -2958,6 +2970,23 @@ ideas = {
 	}
 	# Event - Early
 	country = {
+		SWE_diplomatic_frustrations = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			available = { is_in_faction = no }
+			
+			removal_cost = -1
+			picture = generic_spy_intel
+			
+			modifier = {
+				trade_opinion_factor = -0.15
+				political_power_gain = -0.20
+			}
+		}
 		SWE_public_unrest = {
 			allowed = {
 				always = no
@@ -2973,9 +3002,7 @@ ideas = {
 				stability_factor = -0.15
 			}
 		}
-	}
-	# Event - Later
-	country = {
+		# Event - Later
 		SWE_statare = {
 			allowed = {
 				always = no
@@ -3214,6 +3241,97 @@ ideas = {
 				industrial_capacity_dockyard = -0.01
 			}
 		}
+		# Post WW1
+		SWE_election_unrest = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				tag = SWE
+			}
+			available = {
+				has_elections = no
+			}
+			
+			removal_cost = -1
+			picture = generic_spy_intel
+			
+			modifier = {
+				stability_weekly = -0.002
+			}
+		}
+		SWE_controlled_election = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				tag = SWE
+			}
+			available = {
+				has_elections = no
+			}
+			
+			removal_cost = -1
+			picture = generic_spy_intel
+			
+			modifier = {
+				political_power_cost = 0.2
+				stability_weekly = -0.001
+				neutrality_drift = 0.02
+				fascism_drift = 0.03
+			}
+		}
+		SWE_armed_neutrality_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				tag = SWE
+			}
+			
+			removal_cost = -1
+			picture = generic_spy_intel
+			
+			modifier = {
+				production_speed_bunker_factor = 0.1
+				production_speed_coastal_bunker_factor = 0.1
+				production_speed_anti_air_building_factor = 0.05
+				generate_wargoal_tension = 0.50
+				join_faction_tension = 1.00
+				send_volunteers_tension = 0.20
+				guarantee_tension = 1.0
+				embargo_threshold_factor = 2.5
+				ai_badass_factor = 0.01    # Will receive 1% of the threat from others
+				ai_get_ally_desire_factor = -100
+			}
+		}
+		SWE_german_economic_ties = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				tag = SWE
+			}
+			available = {
+				GER = {
+					exists = yes
+					is_subject = no
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			
+			removal_cost = -1
+			picture = generic_spy_intel
+			modifier = {
+				production_speed_buildings_factor = 0.10
+			}
+			
+			targeted_modifier = {
+				tag = GER
+				extra_trade_to_target_factor = 0.25
+				cic_to_target_factor = 0.10
+			}
+		}
 	}
 	# Shared
 	country = {
@@ -3236,6 +3354,7 @@ ideas = {
 			picture = generic_production_bonus
 			
 			modifier = {
+				consumer_goods_factor = 0.05
 				production_speed_arms_factory_factor = 0.05
 				production_speed_dockyard_factor = 0.05
 			}
@@ -3300,7 +3419,7 @@ ideas = {
 			picture = generic_air_bonus
 			
 			modifier = {
-				experience_gain_air_factor = 0.05
+				air_mastery_gain_factor = 0.05
 				air_ace_generation_chance_factor = 0.05
 				air_intercept_efficiency = 0.08
 			}
@@ -3464,28 +3583,6 @@ ideas = {
 				production_speed_bunker_factor = 0.2
 				production_speed_coastal_bunker_factor = 0.2
 				production_speed_anti_air_building_factor = 0.1
-			}
-		}
-		SWE_german_advisors = {
-			allowed = {
-				always = no
-			}
-			allowed_civil_war = {
-				always = yes
-			}
-			available = {
-				NOT = { has_war_with = GER }
-				NOT = {
-					has_idea = idea_army_restrictions
-				}
-			}
-			removal_cost = -1
-			
-			picture = generic_infantry_bonus
-			
-			modifier = {
-				army_infantry_attack_factor = 0.10
-				experience_gain_army_unit_factor = 0.10
 			}
 		}
 		SWE_slow_intervention_finland = {
