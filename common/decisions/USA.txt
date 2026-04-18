@@ -1359,30 +1359,16 @@ USA_russian_intervention = {
 		custom_cost_trigger = {
 			has_equipment = { infantry_equipment > 1999 }
 		}
-		custom_cost_text = 2000_infantry_equipment_1
+		custom_cost_text = 500_infantry_equipment_1
 		ai_will_do = {
-			base = 100
-			modifier = {
-				factor = 0
-				OR = {
-					surrender_progress > 0
-					has_equipment = { infantry_equipment < 10000 }
-					FROM = {
-						OR = {
-							has_equipment = { infantry_equipment > 4999 } 
-							has_war = no
-						}					
-					}			
-				}	
-			}
+			base = 0
 		}
-		days_re_enable = 50
+		days_re_enable = 100
 		complete_effect = {
-			army_experience = 5
 			send_equipment = {
 				target = FROM
 				type = infantry_equipment
-				amount = 2000
+				amount = 1000
 			}
 		}
 	}

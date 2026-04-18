@@ -373,6 +373,22 @@ country_event = {
 					}
 				}
 			}
+			else_if = {
+				limit = {
+					country_exists = CAU
+				}
+				every_state = {
+					limit = {
+						is_owned_by = TUR
+						OR = {
+							state = 787
+							state = 806
+							state = 939
+						}
+					}
+					transfer_state_to = CAU
+				}
+			}
 			if = {
 				limit = {
 					country_exists = GEO
@@ -394,6 +410,29 @@ country_event = {
 						230 = { is_core_of = GEO }
 					}
 					806 = { transfer_state_to = GEO }
+				}
+			}
+			else_if = {
+				limit = {
+					country_exists = CAU
+				}
+				every_state = {
+					limit = {
+						is_owned_by = TUR
+						OR = {
+							state = 748
+							state = 816
+							state = 855
+						}
+					}
+					transfer_state_to = CAU
+				}
+				if = {
+					limit = {
+						owns_state = 806
+						230 = { is_core_of = GEO }
+					}
+					806 = { transfer_state_to = CAU }
 				}
 			}
 		}
