@@ -242,7 +242,7 @@ recruit_character = RUS_pavel_rennenkampf
 recruit_character = RUS_abram_dragomirov
 recruit_character = RUS_nikolai_yanushkevich
 recruit_character = RUS_vladimir_may_mayevsky
-recruit_character = RUS_illarion_vorontsovdashkov
+recruit_character = RUS_illarion_vorontsov_dashkov
 #Admirals
 recruit_character = RUS_nikolai_von_esen
 recruit_character = RUS_alexander_kolchak
@@ -1502,20 +1502,21 @@ recruit_character = RUS_aleksey_krylov
 		token = token_army
 	}
 
-	#Death of Muromtsev
-	country_event = {
-		id = ww1_stolypin.5
-		days = 169
-	}
-	#Death of Tolstoy
-	country_event = {
-		id = ww1_stolypin.7
-		days = 203
-	}
-	#Stolypin's Assassination
-	country_event = {
-		id = ww1_stolypin.16
-		days = 501
+	if = {
+		limit = { 
+			has_start_date < 1914.1.1
+		}
+		
+		country_event = { id = ww1_stolypin.5 days = 169 } #Death of Muromtsev
+		country_event = { id = ww1_stolypin.7 days = 203 } #Death of Tolstoy
+		country_event = { id = ww1_stolypin.16 days = 501 }	#Stolypin's Assassination
+		RUS_vladimir_sukhomlinov = { unit_leader_event = { id = ww1_generic.39 days = 1837 }} #retired in 1915.5.12, should be its own even
+		RUS_illarion_vorontsov_dashkov = { unit_leader_event = { id = ww1_generic.39 days = 1940 }} #retired in 1915.8.23, should be its own event
+		RUS_aleksei_polivanov = { unit_leader_event = { id = ww1_generic.39 days = 2185 }} #retired in 1916.4.24, should be its own event
+		RUS_yakov_zhilinsky = { unit_leader_event = { id = ww1_generic.39 days = 2696 }} #retired in 1917.9.17
+		RUS_pavel_pleve = { unit_leader_event = { id = ww1_generic.38 days = 2171 }} #died in 1916.4.10
+		RUS_nikolai_yanushkevich = { unit_leader_event = { id = ww1_generic.39 days = 2526 }} #retired in 1917.03.31
+		RUS_nikolai_von_esen = { unit_leader_event = { id = ww1_generic.38 days = 1845 }} #died in 1915.5.20
 	}
 }
 1914.1.1 = {
@@ -1849,6 +1850,15 @@ recruit_character = RUS_aleksey_krylov
 	# too high in 1914 bookmark
 	add_stability = -0.10
 	add_war_support = -0.10
+
+	RUS_vladimir_sukhomlinov = { unit_leader_event = { id = ww1_generic.39 days = 332 }} #retired in 1915.5.12, should be its own event
+	RUS_illarion_vorontsov_dashkov = { unit_leader_event = { id = ww1_generic.39 days = 435 }} #retired in 1915.8.23, should be its own event
+	RUS_aleksei_polivanov = { unit_leader_event = { id = ww1_generic.39 days = 680 }} #retired in 1916.4.24, should be its own event
+	RUS_yakov_zhilinsky = { unit_leader_event = { id = ww1_generic.39 days = 1191 }} #retired in 1917.9.17
+	RUS_pavel_pleve = { unit_leader_event = { id = ww1_generic.38 days = 666 }} #died in 1916.4.10
+	RUS_nikolai_yanushkevich = { unit_leader_event = { id = ww1_generic.39 days = 1021 }} #retired in 1917.03.31
+	RUS_nikolai_von_esen = { unit_leader_event = { id = ww1_generic.38 days = 666 }} #died in 1916.4.10
+	RUS_nikolai_von_esen = { unit_leader_event = { id = ww1_generic.38 days = 340 }} #died in 1915.5.20
 }
 
 ##############
