@@ -13,30 +13,33 @@ scripted_gui = {
 					clear_all_great_power_politics_flags = yes
 					set_country_flag = great_power_politics_misc_visible
 					set_variable = { great_power_politics_misc_button = 2 }
+					clear_all_other_great_power_politics_buttons = yes
 				}
 			}
 			great_power_politics_great_war_button_click = {
 				if = {
 					limit = { has_country_flag = great_power_politics_great_war_visible }
 					clear_all_great_power_politics_flags = yes
-					set_variable = { great_power_politics_misc_button = 1 }
+					set_variable = { great_power_politics_great_war_button = 1 }
 				}
 				else = {
 					clear_all_great_power_politics_flags = yes
 					set_country_flag = great_power_politics_great_war_visible
-					set_variable = { great_power_politics_misc_button = 2 }
+					set_variable = { great_power_politics_great_war_button = 2 }
+					clear_all_other_great_power_politics_buttons = yes
 				}
 			}
 			great_power_politics_berlin_baghdad_button_click = {
 				if = {
 					limit = { has_country_flag = great_power_politics_berlin_baghdad_visible }
 					clear_all_great_power_politics_flags = yes
-					set_variable = { great_power_politics_misc_button = 1 }
+					set_variable = { great_power_politics_berlin_baghdad_button = 1 }
 				}
 				else = {
 					clear_all_great_power_politics_flags = yes
 					set_country_flag = great_power_politics_berlin_baghdad_visible
-					set_variable = { great_power_politics_misc_button = 2 }
+					set_variable = { great_power_politics_berlin_baghdad_button = 2 }
+					clear_all_other_great_power_politics_buttons = yes
 				}
 			}
 		}
@@ -47,6 +50,11 @@ scripted_gui = {
 			}
 			great_power_politics_berlin_baghdad_button_click_enabled = {		
 			}
+		}
+		properties = {
+			great_power_politics_misc_button = { frame = great_power_politics_misc_button }
+			great_power_politics_great_war_button = { frame = great_power_politics_great_war_button }
+			great_power_politics_berlin_baghdad_button = { frame = great_power_politics_berlin_baghdad_button }
 		}
 	}
 }

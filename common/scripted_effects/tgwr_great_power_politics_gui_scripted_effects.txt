@@ -3,3 +3,32 @@ clear_all_great_power_politics_flags = {
 	clr_country_flag = great_power_politics_great_war_visible
 	clr_country_flag = great_power_politics_berlin_baghdad_visible
 }
+clear_all_other_great_power_politics_buttons = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = great_power_politics_misc_visible
+			}
+			check_variable = { great_power_politics_misc_button = 2 }
+		}
+		set_variable = { great_power_politics_misc_button = 1 }
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = great_power_politics_great_war_visible
+			}
+			check_variable = { great_power_politics_great_war_button = 2 }
+		}
+		set_variable = { great_power_politics_great_war_button = 1 }
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = great_power_politics_berlin_baghdad_visible
+			}
+			check_variable = { great_power_politics_berlin_baghdad_button = 2 }
+		}
+		set_variable = { great_power_politics_berlin_baghdad_button = 1 }
+	}
+}
