@@ -18,6 +18,11 @@ TGWR_great_power_politics = {
 			is_faction_leader = yes
 		}
 		visible = {
+			has_country_flag = entente_leader
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_great_war_visible
+			}
 			NOT = {
 				has_global_flag = GER_capitulation
 				has_global_flag = ENT_capitulation
@@ -25,9 +30,6 @@ TGWR_great_power_politics = {
 		}
 		allowed = {
 			tag = FRA		
-		}
-		visible = {
-			has_country_flag = entente_leader
 		}
 		targets = {
 			GER
@@ -120,6 +122,10 @@ TGWR_great_power_politics = {
 		}
 		visible = {
 			has_global_flag = great_war
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_great_war_visible
+			}
 			has_war_with = FROM
 			has_capitulated = no
 			is_subject = no
@@ -221,6 +227,10 @@ TGWR_great_power_politics = {
 		}
 		visible = {
 			tag = ENT
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_great_war_visible
+			}
 			NOT = {
 				has_global_flag = GER_capitulation
 				has_global_flag = ENT_capitulation
@@ -440,6 +450,10 @@ TGWR_great_power_politics = {
 		}
 		visible = {
 			has_global_flag = great_war
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_great_war_visible
+			}
 			NOT = {
 				has_global_flag = frankfurt_armistice
 			}
@@ -498,6 +512,10 @@ TGWR_great_power_politics = {
 			}
 		}
 		visible = {
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_great_war_visible
+			}
 			OR = {
 				has_country_flag = member_of_entente
 				tag = GER

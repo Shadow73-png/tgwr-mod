@@ -1,4 +1,5 @@
 TGWR_great_power_politics = {
+	#great_power_politics_misc
 	MOR_pacify_countryside = {
 		allowed = {
 			original_tag = MOR
@@ -6,10 +7,13 @@ TGWR_great_power_politics = {
 		icon = GFX_decision_generic_prepare_civil_war
 		available = {
 			has_war = no
-
 		}
 		visible = {
 			has_country_flag = MOR_pacify_countryside
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_misc_visible
+			}
 			NOT = {
 				has_country_flag = MOR_start_war_with_hostile_caids
 			}

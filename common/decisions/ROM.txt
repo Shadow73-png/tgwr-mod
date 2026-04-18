@@ -1153,6 +1153,7 @@ ROM_kings_country_category = {
 }
 
 TGWR_great_power_politics = {
+	#great_power_politics_misc
 	ROM_unite_with_moldova = {
 		icon = GFX_decision_generic_speech
 		allowed = {
@@ -1165,6 +1166,10 @@ TGWR_great_power_politics = {
 			}
 		}
 		visible = {
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_misc_visible
+			}
 			country_exists = MOL
 		}
 		fire_only_once = yes
@@ -1334,6 +1339,10 @@ TGWR_great_power_politics = {
 			# ^ broken
 		}
 		visible = {
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_great_war_visible
+			}
 			has_war_with = GER
 			has_global_flag = great_war
 			NOT = {
@@ -1423,6 +1432,10 @@ TGWR_great_power_politics = {
 			}
 		}
 		visible = {
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_great_war_visible
+			}
 			has_global_flag = great_war
 			has_global_flag = ROM_treaty_doable
 			NOT = {
@@ -1501,6 +1514,10 @@ TGWR_great_power_politics = {
 			}
 		}
 		visible = {
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_great_war_visible
+			}
 			is_great_war_ongoing = yes
 			NOT = {
 				has_country_flag = ROM_collaborationist_tag

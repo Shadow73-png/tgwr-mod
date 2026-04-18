@@ -3606,7 +3606,11 @@ TGWR_great_power_politics = {
 			is_china_or_warlord_no_tt = yes
 			NOT = { tag = QIN }
 		}
-		visible = {		
+		visible = {
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_great_war_visible
+			}
 			is_subject = no
 			NOT = {
 				has_global_flag = great_war_ends
@@ -3760,6 +3764,10 @@ TGWR_great_power_politics = {
 			NOT = { tag = QIN }
 		}
 		visible = {
+			OR = {
+				is_ai = yes
+				has_country_flag = great_power_politics_great_war_visible
+			}
 			is_subject = no
 			NOT = {
 				has_global_flag = great_war_ends
@@ -3847,7 +3855,7 @@ TGWR_great_power_politics = {
 			GER
 		}
 		target_root_trigger = {
-			has_global_flag = great_war
+			is_great_war_ongoing = yes
 		}
 		cancel_trigger = {
 			OR = {
