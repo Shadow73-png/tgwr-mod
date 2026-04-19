@@ -9,7 +9,44 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_war.1.a
 		add_stability = 0.05
-		add_war_support - 0.05
+		add_war_support = 0.05
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary_war.2
+	title = ww1_austriahungary_war.2.t
+	desc = ww1_austriahungary_war.2.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary_war.2.a
+		add_political_power = -20
+		add_stability = 0.02
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.02
+		}
+		hidden_effect = {
+			country_event = {
+			id = ww1_austriahungary_war.3
+			days = 30
+		}
+		}
+		
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary_war.3
+	title = ww1_austriahungary_war.3.t
+	desc = ww1_austriahungary_war.3.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary_war.3a
+		add_political_power = -15
+		
 	}
 	
 }
