@@ -6,7 +6,7 @@ AUH_great_war_bullshit = {
 		}
 		#priority = 19
 		on_map_mode = map_only
-		visible = {
+		target_root_trigger = {
 			has_completed_focus = AUS_suspend_civil_liberties
 		}
 		available = {
@@ -17,14 +17,13 @@ AUH_great_war_bullshit = {
 				state = FROM
 			}
 		}
-		target_root_trigger = {
-			tag = AUS
-		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
-			any_neighbor_country = {
-				owner = {
-					has_war_with = AUS
+			FROM = {
+				any_neighbor_state = {
+					controller = {
+						has_war_with = ROOT
+					}
 				}
 			}
 		}
@@ -38,15 +37,50 @@ AUH_great_war_bullshit = {
 			}
 		}
 		complete_effect = {
-			set_global_flag = AUS_reforming_state
 		}
-		cost = 0
+		cost = 20
 		remove_effect = {
-			clr_global_flag = AUS_reforming_state
-			add_political_power = 15
-			add_popularity = {
-				ideology = neutrality
-				popularity = -0.005
+			add_dynamic_modifier = {
+				modifier = AUS_state_under_military
+			}
+			if = {
+				limit = {
+					from = {
+						OR = {
+							is_core_of = WUK
+							is_core_of = POL
+						}
+					}
+				}
+				add_to_variable = {
+					AUS_pole_loyalty = -2
+					tooltip = AUS_loyalty_pole_tt
+				}
+				AUS_update_state_of_realm = yes
+			}
+			if = {
+				limit = {
+					from = {
+						is_core_of = UKR
+					}
+				}
+				add_to_variable = {
+					AUS_ruthenian_loyalty = -2
+					tooltip = AUS_loyalty_ruthenians_tt
+				}
+				AUS_update_state_of_realm = yes
+			}
+			if = {
+				limit = {
+					from = {
+						is_core_of = ROM
+					}
+				}
+				add_to_variable = {
+					AUS_romanian_loyalty = -2
+					tooltip = AUS_loyalty_romanians_tt
+				}
+				AUS_update_state_of_realm = yes
 			}
 		}
 	}
@@ -381,7 +415,7 @@ AUH_great_war_bullshit = {
 		}
 		remove_effect = {
 			if = {
-				limit = { 
+				limit = {
 					has_idea = AUS_central_system_consumers
 				}
 				swap_ideas = {
@@ -461,7 +495,7 @@ AUH_great_war_bullshit = {
 		}
 		remove_effect = {
 			if = {
-				limit = { 
+				limit = {
 					has_idea = AUS_central_system_metal
 				}
 				swap_ideas = {
@@ -526,7 +560,7 @@ AUH_great_war_bullshit = {
 		remove_effect = {
 			clr_country_flag = AUS_setting_up_central
 			if = {
-				limit = { 
+				limit = {
 					has_idea = AUS_central_system_metal
 				}
 				swap_ideas = {
@@ -766,22 +800,21 @@ AUS_minorities_mechanic = {
 					tooltip = AUS_loyalty_czechoslovakia_tt
 				}
 				AUS_update_state_of_realm = yes
-					
 			}
 			else = {
-						if = {
-							limit = {
-								has_political_power > 0
-							}
-							add_political_power = -15
-						}
-						if = {
-							limit = {
-								has_stability > 0.5
-							}
-							add_stability = -0.02
-						}
+				if = {
+					limit = {
+						has_political_power > 0
 					}
+					add_political_power = -15
+				}
+				if = {
+					limit = {
+						has_stability > 0.5
+					}
+					add_stability = -0.02
+				}
+			}
 		}
 		complete_effect = {
 		}
@@ -816,7 +849,6 @@ AUS_minorities_mechanic = {
 					AUS_has_CRO_state = no
 				}
 			}
-			
 		}
 		visible = {
 			original_tag = AUS
