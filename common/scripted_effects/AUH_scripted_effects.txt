@@ -521,150 +521,158 @@ AUS_update_state_of_realm = {
 		}
 		
 	}
+	
 	if = {
 		limit = {
-			check_variable = {
-				AUS_parliament_relations > 0
+			NOT = {
+				has_war_with_major = yes
 			}
-			has_global_flag = AUS_imperial_council_liberal
-		}
-		# new min formula: min = influence * 7 + 10  (maps influence 5 -> 50)
-		set_variable = {
-			AUS_loyalty_minimum = AUS_parliament_influence
-		}
-		multiply_variable = {
-			AUS_loyalty_minimum = 6
-		}
-		add_to_variable = {
-			AUS_loyalty_minimum = 10
 		}
 		clamp_variable = {
 			var = AUS_czechoslovak_loyalty
-			min = AUS_loyalty_minimum
-			max = 100
+			min = 30
 		}
 		clamp_variable = {
 			var = AUS_croat_loyalty
-			min = AUS_loyalty_minimum
-			max = 100
+			min = 30
 		}
 		clamp_variable = {
 			var = AUS_serb_loyalty
-			min = AUS_loyalty_minimum
-			max = 100
+			min = 30
 		}
 		clamp_variable = {
 			var = AUS_pole_loyalty
-			min = AUS_loyalty_minimum
-			max = 100
+			min = 30
 		}
 		clamp_variable = {
 			var = AUS_ruthenian_loyalty
-			min = AUS_loyalty_minimum
-			max = 100
+			min = 30
 		}
 		clamp_variable = {
 			var = AUS_romanian_loyalty
-			min = AUS_loyalty_minimum
-			max = 100
-		}
-	}
-	else_if = {
-		limit = {
-			check_variable = {
-				AUS_parliament_relations > 0
-			}
-			has_global_flag = AUS_imperial_council_liberal
-		}
-		# negative relations to lower the maximum loyalty cap based on influence
-		# new max formula: max = 100 - influence * 7  (maps influence 5 -> 60)
-		set_variable = {
-			AUS_loyalty_maximum = AUS_parliament_influence
-		}
-		multiply_variable = {
-			AUS_loyalty_maximum = 6
-		}
-		set_variable = {
-			AUS_loyalty_maximum = 100
-		}
-		# reset then subtract
-		subtract_from_variable = {
-			AUS_loyalty_maximum = AUS_parliament_influence
-		}
-		# directly compute 100 - influence*7 by computing influence*7 then subtracting from 100
-		set_variable = {
-			AUS_temp_loyalty_calc = AUS_parliament_influence
-		}
-		multiply_variable = {
-			AUS_temp_loyalty_calc = 6
-		}
-		set_variable = {
-			AUS_loyalty_maximum = 100
-		}
-		subtract_from_variable = {
-			AUS_loyalty_maximum = AUS_temp_loyalty_calc
-		}
-		clamp_variable = {
-			var = AUS_czechoslovak_loyalty
-			min = 0
-			max = AUS_loyalty_maximum
-		}
-		clamp_variable = {
-			var = AUS_croat_loyalty
-			min = 0
-			max = AUS_loyalty_maximum
-		}
-		clamp_variable = {
-			var = AUS_serb_loyalty
-			min = 0
-			max = AUS_loyalty_maximum
-		}
-		clamp_variable = {
-			var = AUS_pole_loyalty
-			min = 0
-			max = AUS_loyalty_maximum
-		}
-		clamp_variable = {
-			var = AUS_ruthenian_loyalty
-			min = 0
-			max = AUS_loyalty_maximum
-		}
-		clamp_variable = {
-			var = AUS_romanian_loyalty
-			min = 0
-			max = AUS_loyalty_maximum
+			min = 30
 		}
 	}
 	else = {
 		clamp_variable = {
 			var = AUS_czechoslovak_loyalty
 			min = 0
-			max = 100
 		}
 		clamp_variable = {
 			var = AUS_croat_loyalty
 			min = 0
-			max = 100
 		}
 		clamp_variable = {
 			var = AUS_serb_loyalty
 			min = 0
-			max = 100
 		}
 		clamp_variable = {
 			var = AUS_pole_loyalty
 			min = 0
-			max = 100
 		}
 		clamp_variable = {
 			var = AUS_ruthenian_loyalty
 			min = 0
-			max = 100
 		}
 		clamp_variable = {
 			var = AUS_romanian_loyalty
 			min = 0
+		}
+	}
+	if = {
+		limit = {
+			has_global_flag = AUS_czech_loyalty_cap_removed
+		}
+		clamp_variable = {
+			var = AUS_czechoslovak_loyalty
 			max = 100
+		}
+		
+	}
+	else = {
+		clamp_variable = {
+			var = AUS_czechoslovak_loyalty
+			max = 80
+		}
+	}
+	if = {
+		limit = {
+			has_global_flag = AUS_south_slav_loyalty_cap_removed
+		}
+		clamp_variable = {
+			var = AUS_croat_loyalty
+			max = 100
+		}
+		
+	}
+	else = {
+		clamp_variable = {
+			var = AUS_croat_loyalty
+			max = 80
+		}
+	}
+	if = {
+		limit = {
+			has_global_flag = AUS_south_slav_loyalty_cap_removed
+		}
+		clamp_variable = {
+			var = AUS_serb_loyalty
+			max = 100
+		}
+		
+	}
+	else = {
+		clamp_variable = {
+			var = AUS_serb_loyalty
+			max = 80
+		}
+	}
+	if = {
+		limit = {
+			has_global_flag = AUS_pole_loyalty_cap_removed
+		}
+		clamp_variable = {
+			var = AUS_pole_loyalty
+			max = 100
+		}
+		
+	}
+	else = {
+		clamp_variable = {
+			var = AUS_pole_loyalty
+			max = 80
+		}
+	}
+	if = {
+		limit = {
+			has_global_flag = AUS_ruthenian_loyalty_cap_removed
+		}
+		clamp_variable = {
+			var = AUS_ruthenian_loyalty
+			max = 100
+		}
+		
+	}
+	else = {
+		clamp_variable = {
+			var = AUS_ruthenian_loyalty
+			max = 80
+		}
+	}
+	if = {
+		limit = {
+			has_global_flag = AUS_romanian_loyalty_cap_removed
+		}
+		clamp_variable = {
+			var = AUS_romanian_loyalty
+			max = 100
+		}
+		
+	}
+	else = {
+		clamp_variable = {
+			var = AUS_romanian_loyalty
+			max = 80
 		}
 	}
 	set_variable = {
