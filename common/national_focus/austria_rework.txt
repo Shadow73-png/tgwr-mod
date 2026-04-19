@@ -1850,7 +1850,11 @@ focus_tree = {
 			AUS_has_autocrat_minister = yes
 		}
 		completion_reward = {
-			custom_effect_tooltip = AUS_every_180_days
+			custom_effect_tooltip = AUS_every_180_days_3_years
+			set_global_flag = {
+				flag = poison_of_nationalism_180_days
+				days = 1095
+			}
 			hidden_effect = {
 				country_event = {
 					id = ww1_austriahungary.89
@@ -1872,11 +1876,6 @@ focus_tree = {
 				add_to_variable = {
 					AUS_czechoslovak_loyalty = 3
 					tooltip = AUS_loyalty_czechoslovakia_tt
-				}
-				#Serb
-				add_to_variable = {
-					AUS_serb_loyalty = 3
-					tooltip = AUS_loyalty_serb_tt
 				}
 				#Croats
 				add_to_variable = {
@@ -2211,28 +2210,32 @@ focus_tree = {
 				tooltip = offensive_war_stability_factor_tt
 			}
 			add_to_variable = {
-				AUS_serb_loyalty = -20
+				AUS_serb_loyalty = -15
 				tooltip = AUS_loyalty_serb_tt
 			}
 			add_to_variable = {
-				AUS_croat_loyalty = -20
+				AUS_croat_loyalty = -15
 				tooltip = AUS_loyalty_croatian_tt
 			}
-			custom_effect_tooltip = AUS_every_120_days
+			custom_effect_tooltip = AUS_every_150_days_3_years
+			set_global_flag = {
+				flag = AUS_slav_loyalty_3_years
+				days = 1095
+			}
 			effect_tooltip = {
 				add_to_variable = {
-					AUS_serb_loyalty = 5
+					AUS_serb_loyalty = 4
 					tooltip = AUS_loyalty_serb_tt
 				}
 				add_to_variable = {
-					AUS_croat_loyalty = 5
+					AUS_croat_loyalty = 4
 					tooltip = AUS_loyalty_croatian_tt
 				}
 			}
 			hidden_effect = {
 				country_event = {
 					id = ww1_austriahungary.65
-					days = 120
+					days = 150
 				}
 			}
 			AUS_update_state_of_realm = yes

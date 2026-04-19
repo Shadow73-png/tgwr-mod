@@ -1857,16 +1857,21 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		add_to_variable = {
-			AUS_serb_loyalty = 5
+			AUS_serb_loyalty = 4
 			tooltip = AUS_loyalty_serb_tt
 		}
 		add_to_variable = {
-			AUS_croat_loyalty = 5
+			AUS_croat_loyalty = 4
 			tooltip = AUS_loyalty_croatian_tt
 		}
-		country_event = {
-			id = ww1_austriahungary.65
-			days = 120
+		if = {
+			limit = {
+				has_global_flag = AUS_slav_loyalty_3_years
+			}
+			country_event = {
+				id = ww1_austriahungary.65
+				days = 150
+			}
 		}
 		AUS_update_state_of_realm = yes
 	}
@@ -2664,11 +2669,6 @@ country_event = {
 			AUS_czechoslovak_loyalty = 3
 			tooltip = AUS_loyalty_czechoslovakia_tt
 		}
-		#Serb
-		add_to_variable = {
-			AUS_serb_loyalty = 3
-			tooltip = AUS_loyalty_serb_tt
-		}
 		#Croats
 		add_to_variable = {
 			AUS_croat_loyalty = 3
@@ -2680,9 +2680,14 @@ country_event = {
 			tooltip = AUS_loyalty_romanians_tt
 		}
 		AUS_update_state_of_realm = yes
-		country_event = {
-			id = ww1_austriahungary.89
-			days = 180
+		if = {
+			limit = {
+				has_global_flag = poison_of_nationalism_180_days
+			}
+			country_event = {
+				id = ww1_austriahungary.89
+				days = 180
+			}
 		}
 	}
 }
