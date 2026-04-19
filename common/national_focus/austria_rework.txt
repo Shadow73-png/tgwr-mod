@@ -1916,22 +1916,12 @@ focus_tree = {
 			set_country_flag = completing_right_hand_man
 		}
 		completion_reward = {
-			add_stability = 0.15
 			add_political_power = 20
 			add_popularity = {
 				ideology = neutrality
 				popularity = 0.1
 			}
-			if = {
-				limit = {
-					check_variable = {
-						AUS_aps_neutral_gain < 0
-					}
-				}
-				set_variable = {
-					AUS_aps_neutral_gain = 0
-				}
-			}
+			
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
 				AUS_aps_dem_gain = -0.05
@@ -1945,7 +1935,6 @@ focus_tree = {
 				AUS_aps_pp_gain = 0.1
 				tooltip = political_power_factor_tt
 			}
-			custom_effect_tooltip = stuff_set_shit_0
 			hidden_effect = {
 				country_event = {
 					id = ww1_austriahungary.60
