@@ -94,6 +94,17 @@ scripted_gui = {
 					clear_all_other_great_power_politics_buttons = yes
 				}
 			}
+			great_power_politics_show_all_decisions_button_click = {
+				if = {
+					limit = { has_country_flag = great_power_politics_all_decisions_visible }
+					clr_country_flag = great_power_politics_all_decisions_visible
+					set_variable = { great_power_politics_show_all_decisions_button = 1 }
+				}
+				else = {
+					set_country_flag = great_power_politics_all_decisions_visible
+					set_variable = { great_power_politics_show_all_decisions_button = 2 }
+				}
+			}
 		}
 		triggers = {
 			great_power_politics_misc_button_click_enabled = {	
@@ -103,6 +114,42 @@ scripted_gui = {
 			great_power_politics_conquest_of_morocco_button_click_enabled = {
 			}
 			great_power_politics_strangling_of_persia_button_click_enabled = {
+			}
+			great_power_politics_strangling_of_persia_RUS_flag_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_RUS_flag_frame_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_RUS_influence_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_ENG_flag_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_ENG_flag_frame_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_ENG_influence_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_TUR_flag_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_TUR_flag_frame_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_TUR_influence_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_GER_flag_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_GER_flag_frame_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
+			}
+			great_power_politics_strangling_of_persia_GER_influence_visible = {
+				has_country_flag = great_power_politics_strangling_of_persia_visible
 			}
 			great_power_politics_berlin_baghdad_button_click_enabled = {		
 			}
@@ -125,6 +172,19 @@ scripted_gui = {
 			great_power_politics_berlin_baghdad_button = { frame = great_power_politics_berlin_baghdad_button }
 			great_power_politics_sick_man_of_europe_button = { frame = great_power_politics_sick_man_of_europe_button }
 			great_power_politics_balkan_powder_keg_button = { frame = great_power_politics_balkan_powder_keg_button }
+			great_power_politics_show_all_decisions_button = { frame = great_power_politics_show_all_decisions_button }
+			great_power_politics_strangling_of_persia_RUS_flag = { 
+				image = "[RUS.GetFlag]"
+			}
+			great_power_politics_strangling_of_persia_ENG_flag = { 
+				image = "[ENG.GetFlag]"
+			}
+			great_power_politics_strangling_of_persia_TUR_flag = { 
+				image = "[TUR.GetFlag]"
+			}
+			great_power_politics_strangling_of_persia_GER_flag = { 
+				image = "[GER.GetFlag]"
+			}
 		}
 	}
 }
