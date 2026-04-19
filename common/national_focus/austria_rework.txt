@@ -1379,10 +1379,16 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			AUS_update_state_of_realm = yes
-			add_to_variable = {
-				AUS_pole_loyalty = 20
-				tooltip = AUS_loyalty_pole_tt
+			country_event = ww1_austriahungary.199
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				add_to_variable = {
+			AUS_pole_loyalty = 20
+			tooltip = AUS_loyalty_pole_tt
+		}
+		AUS_update_state_of_realm = yes
+		set_global_flag = AUS_pole_loyalty_cap_removed
+		custom_effect_tooltip = AUS_pole_loyalty_cap_removed.tt
 			}
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
@@ -7642,6 +7648,7 @@ focus_tree = {
 				show_effect_tooltip = yes
 			}
 			country_event = ww1_austriahungary_war.4
+			
 		}
 		ai_will_do = {
 			base = 1
