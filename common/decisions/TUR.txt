@@ -19297,14 +19297,16 @@ TUR_local_conscription = {
 			348
 			857
 		}
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+			}
+		}
 		on_map_mode = map_only
 		days_remove = 7
 		days_re_enable = 28
-		visible = {
-			OR = {
-				has_completed_focus = TUR_the_new_recruitment_law
-				#has_completed_focus = TUR_increase_forced_conscription
-			}
+		target_root_trigger = {
+			has_completed_focus = TUR_the_new_recruitment_law
 		}
 		complete_effect = {
 			hidden_effect = {
