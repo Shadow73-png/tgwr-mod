@@ -445,17 +445,8 @@ country_event = {
 			every_state = {
 				limit = {
 					OR = {
-						is_core_of = GEO
-						is_claimed_by = GEO
-					}
-					NOT = {
-						state = 855
-						state = 816
-						state = 748
-						state = 231
-						state = 233
-						state = 1068
-						state = 1069
+						is_core_of = CAU
+						is_claimed_by = CAU
 					}
 				}
 				remove_claim_by = ROOT
@@ -478,7 +469,6 @@ country_event = {
 						state = 938
 						state = 939
 					}
-					NOT = { is_core_of = ROOT }
 				}
 				if = {
 					limit = {
@@ -521,7 +511,6 @@ country_event = {
 			every_owned_state = {
 				limit = {
 					is_core_of = AZR
-					NOT = { is_core_of = ROOT }
 				}
 				if = {
 					limit = {
@@ -559,16 +548,9 @@ country_event = {
 				}
 				GEO = { set_country_flag = post_transcaucasia add_ideas = standing_alone }
 			}
-			every_state = {
+			every_owned_state = {
 				limit = {
-					OR = {
-						is_core_of = GEO
-						state = 230
-						state = 818
-						state = 938
-						state = 939
-					}
-					NOT = { is_core_of = ROOT }
+					is_core_of = GEO
 				}
 				GEO = {
 					safe_transfer_state_to = yes
@@ -628,39 +610,77 @@ country_event = {
 			}
 			every_other_country = {
 				limit = {
-					has_war_with = ROOT
-					is_russian_tag = no
+					has_war_with = ENT
 				}
-				ARM = {
-					add_to_war = {
-						targeted_alliance = ROOT
-						enemy = PREV
+				if = {
+					limit = {
+						ARM = {
+							has_country_flag = post_transcaucasia
+						}
+					}
+					ARM = {
+						add_to_war = {
+							targeted_alliance = ENT
+							enemy = PREV
+						}
 					}
 				}
-				AZR = {
-					add_to_war = {
-						targeted_alliance = ROOT
-						enemy = PREV
+				if = {
+					limit = {
+						GEO = {
+							has_country_flag = post_transcaucasia
+						}
+					}
+					GEO = {
+						add_to_war = {
+							targeted_alliance = ENT
+							enemy = PREV
+						}
 					}
 				}
-				GEO = {
-					add_to_war = {
-						targeted_alliance = ROOT
-						enemy = PREV
+				if = {
+					limit = {
+						AZR = {
+							has_country_flag = post_transcaucasia
+						}
+					}
+					AZR = {
+						add_to_war = {
+							targeted_alliance = ENT
+							enemy = PREV
+						}
 					}
 				}
 			}
 			# call the treaty of batum
 			if = {
 				limit = {
-					any_enemy_country = {
-						original_tag = TUR
+					OR = {
+						GEO = {	
+							any_enemy_country = {
+								original_tag = TUR
+							}
+						}
+						AZR = {	
+							any_enemy_country = {
+								original_tag = TUR
+							}
+						}
+						ARM = {	
+							any_enemy_country = {
+								original_tag = TUR
+							}
+						}
 					}
 				}
 				random_other_country = {
 					limit = {
 						original_tag = TUR
-						has_war_with = ROOT
+						OR = {
+							has_war_with = GEO
+							has_war_with = ARM
+							has_war_with = AZR
+						}
 					}
 					country_event = {
 						id = ww1_ottoman.112
@@ -967,7 +987,7 @@ country_event = {
 	desc = ww1_georgia.20.d
 	picture = GFX_report_event_generic_conference
 	trigger = {
-		tag = GEO
+		tag = CAU
 		has_idea = GEO_erzincan_armistice
 		is_subject = no
 		has_global_flag = brest_litovsk_finished
@@ -994,7 +1014,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	trigger = {
-		TUR = { has_war_with = GEO }
+		TUR = { has_war_with = CAU }
 	}
 	option = {
 		name = ww1_georgia.21.a
@@ -1022,7 +1042,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	trigger = {
-		TUR = { has_war_with = GEO }
+		TUR = { has_war_with = CAU }
 	}
 	option = {
 		name = ww1_georgia.22.a
@@ -1053,7 +1073,7 @@ country_event = {
 	picture = GFX_report_event_generic_conference
 	is_triggered_only = yes
 	trigger = {
-		TUR = { has_war_with = GEO }
+		TUR = { has_war_with = CAU }
 	}
 	option = {
 		name = ww1_georgia.23.a
@@ -1095,7 +1115,7 @@ country_event = {
 	picture = GFX_report_event_generic_conference
 	is_triggered_only = yes
 	trigger = {
-		TUR = { has_war_with = GEO }
+		TUR = { has_war_with = CAU }
 	}
 	option = {
 		name = ww1_georgia.24.a
