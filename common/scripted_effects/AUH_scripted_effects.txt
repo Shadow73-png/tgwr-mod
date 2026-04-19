@@ -1,5 +1,4 @@
-AUS_get_empire_stab = {
-}
+
 AUS_war_time_effects = {
 	set_variable = {
 		AUS_new_loyalty_penalty = AUS_cumulative_food_price_increase
@@ -498,6 +497,30 @@ AUS_update_imperial_council_effects = {
 }
 
 AUS_update_state_of_realm = {
+	if = {
+		limit = {
+			has_global_flag = great_war
+			NOT = {
+				has_global_flag = great_war_ends
+			}
+		}
+		set_variable = {
+			AUS_empire_stab_var = 0
+		}
+		add_to_variable = {
+			AUS_empire_stab_var = stability
+		}
+		add_to_variable = {
+			AUS_empire_stab_var = has_war_support
+		}
+		divide_variable = {
+			var:AUS_empire_stab_var = 2
+		}
+		add_to_variable = {
+			AUS_empire_stab_var = AUS_add_to_empire_stab_var #this will be used for things like events and missions effecting it, not chatgpt writing this for once.
+		}
+		
+	}
 	if = {
 		limit = {
 			check_variable = {
