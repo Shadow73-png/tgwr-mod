@@ -3717,3 +3717,19 @@ SIA_french_sphere = {
 	state_resources_factor = -0.15
 	local_factories = -0.15
 }
+
+colonial_war = {
+	enable = {
+		has_offensive_war = yes
+		all_enemy_country = {
+			OR = {
+				is_african_tag = yes
+				is_middle_eastern_tag = yes
+				is_asian_tag = yes
+			}
+			is_actual_major = no
+		}	
+	}
+	war_stability_factor = 0.1
+	war_support_factor = 0.1
+}
