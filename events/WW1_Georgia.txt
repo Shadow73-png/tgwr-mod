@@ -576,8 +576,19 @@ country_event = {
 						promote_character = authoritarian_democracy
 						promote_character = social_democracy
 					}
-					country_event = { id = ww1_georgia.12 days = 10 }
-				}	
+					GER = {
+						country_event = { id = ww1_georgia.12 days = 10 }
+					}				
+					if = {
+						limit = {
+							ROOT = { has_war_with = ABK }
+						}
+						add_to_war = {
+							targeted_alliance = ROOT
+							enemy = ABK
+						}
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -760,8 +771,9 @@ country_event = {
 			}
 		}
 	}
-	fire_only_once = yes
-	mean_time_to_happen = { days = 0 }
+	is_triggered_only = yes
+	# fire_only_once = yes
+	# mean_time_to_happen = { days = 0 }
 	option = {
 		name = ww1_georgia.12.a
 		effect_tooltip = {
@@ -771,32 +783,33 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			GEO = { remove_ideas = standing_alone }
-			GEO = {
+			GEO = { 
+				remove_ideas = standing_alone
 				set_country_flag = protectorate
 				get_current_government_type = yes
 			}
 			set_autonomy = {
 				target = GEO
 				autonomous_state = autonomy_tgwr_informal_protectorate
+				end_wars = no
 				freedom_level = 0.6
 			}
 			GEO = {
 				restore_previous_government_type = yes
 				set_country_flag = german_protection_on_georgia
 				set_country_flag = released_by_germany #needed for peace conference to not count them as a winner nor a loser
-			}
-			reverse_add_opinion_modifier = {
-				target = GEO
-				modifier = small_decrease
-			}
+			}			
 		}
-		ai_chance = {
+		ai_chance = {`
 			base = 10
 		}
 	}
 	option = {
 		name = ww1_georgia.4.b
+		reverse_add_opinion_modifier = {
+			target = GEO
+			modifier = small_decrease
+		}
 		ai_chance = {
 			base = 0
 		}
@@ -1213,11 +1226,35 @@ country_event = {
 		}
 		clear_all_relations = yes
 		hidden_effect = {
-			FROM = {
-				add_ideas = standing_alone
+			add_ideas = standing_alone
+			if = {
+				limit = { 
+					CAU = {
+						exists = yes
+						is_neighbor_of = ROOT
+						NOT = {
+							has_country_leader_ideology = vanguardism
+						}
+					}
+					
+				}
+				CAU = {
+					country_event = ww1_abkhazia.5
+				}
 			}
-			GEO = {
-				country_event = ww1_abkhazia.5
+			else_if = {
+				limit = {
+					GEO = {
+						exists = yes
+						is_neighbor_of = ROOT
+						NOT = {
+							has_country_leader_ideology = vanguardism
+						}
+					}
+				}	
+				GEO = {
+					country_event = ww1_abkhazia.5
+				}	
 			}
 		}
 	}
@@ -1232,7 +1269,7 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		NOT = {
-			has_government = communism
+			has_country_leader_ideology = vanguardism
 		}
 	}
 	option = {
