@@ -563,3 +563,29 @@ friendly_occupied_country = {
 		}
 	}
 }
+
+jizya_occupation = {
+	icon = 13
+	sound_effect = "Martial_Law_Interface_Liberate_Workers_Occupation_Unique_COM"
+
+	visible = {
+		OR = {
+			has_completed_focus = ALB_reintroduce_the_jizya_tax
+			has_completed_focus = ALB_reintroduce_the_jizya_tax_abd
+		}
+		FROM = { is_muslim = no }
+	}
+
+	state_modifier = {
+		resistance_target 				= -0.15
+		compliance_gain 				= -0.03
+		required_garrison_factor 		= 0.1
+		resistance_damage_to_garrison 	= 0.25
+		local_factories 				= 0.4
+		local_resources 				= 0.2
+	}
+
+	ai_will_do = {
+		base = 200
+	}
+}

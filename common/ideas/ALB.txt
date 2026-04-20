@@ -1406,6 +1406,17 @@ ideas={
 				resistance_damage_to_garrison = -0.25
 			}
 		}
+		ALB_jizya_occupation_fake = {
+			name = jizya_occupation
+			modifier = {
+				resistance_target 				= -0.15
+				compliance_gain 				= -0.03
+				required_garrison_factor 		= 0.1
+				resistance_damage_to_garrison 	= 0.25
+				local_factories 				= 0.4
+				local_resources 				= 0.2
+			}
+		}
 
 		ALB_administrative_council = {
 			picture = generic_pp_unity_bonus
@@ -1638,7 +1649,6 @@ ideas={
 			picture = PER_islamic_traditions_ns
 			allowed = { always = no }
 			allowed_civil_war = { has_country_leader = { character = TUR_abdulhamid_II } }
-			cancel = { has_stability > 0.7 }
 			removal_cost = -1
 			modifier = {
 				stability_factor = 0.1
@@ -1652,7 +1662,6 @@ ideas={
 			picture = PER_islamic_traditions_ns
 			allowed = { always = no }
 			allowed_civil_war = { has_country_leader = { character = TUR_abdulhamid_II } }
-			cancel = { has_stability > 0.7 }
 			removal_cost = -1
 			modifier = {
 				stability_factor = 0.1
@@ -1662,6 +1671,15 @@ ideas={
 				research_speed_factor = -0.05
 				drift_defence_factor = 0.25
 				political_power_gain = -0.05
+			}
+		}
+		ALB_vakif_privacy = {
+			picture = SPR_seize_the_gold_reserves
+			allowed = { always = no }
+			allowed_civil_war = { has_country_leader = { character = TUR_abdulhamid_II } }
+			removal_cost = -1
+			modifier = {
+				production_speed_industrial_complex_factor = -0.15
 			}
 		}
 	}

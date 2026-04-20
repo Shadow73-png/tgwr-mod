@@ -4660,7 +4660,7 @@ country_event = { #Besetztes Freundesland
 	is_triggered_only = yes
 	option = {
 		name = albania.78.a
-		custom_effect_tooltip = ITA_ministry_of_italian_africa_occupation_law_tt
+		custom_effect_tooltip = ALB_friendly_occupied_country_occupation_law_tt
 		show_ideas_tooltip = ALB_friendly_occupied_country_fake
 		set_country_flag = ALB_friendly_occupied_country
 		set_occupation_law_where_available = friendly_occupied_country
@@ -4668,7 +4668,7 @@ country_event = { #Besetztes Freundesland
 	}
 	option = {
 		name = albania.78.b
-		custom_effect_tooltip = ITA_ministry_of_italian_africa_occupation_law_tt
+		custom_effect_tooltip = ALB_friendly_occupied_country_occupation_law_tt
 		show_ideas_tooltip = ALB_friendly_occupied_country_fake
 		set_country_flag = ALB_friendly_occupied_country
 		ai_chance = { base = 0 }
@@ -6769,6 +6769,56 @@ country_event = { #remove christian core
 			remove_core_of = ROOT
 			add_core_of = GRE
 		}
+	}
+}
+
+news_event = { #coronation of abdulhamid II
+	id = albania.132
+	title = albania.132.t
+	desc = albania.132.desc
+	picture = GFX_news_event_abdulhamid_II
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		trigger = { original_tag = ALB }
+		name = albania.132.a
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		trigger = { NOT = { original_tag = ALB } }
+		name = albania.132.b
+		ai_chance = { factor = 100 }
+	}
+}
+
+news_event = { #muslim rumelia
+	id = albania.133
+	title = albania.133.t
+	desc = albania.133.desc
+	picture = GFX_news_event_muslim_rumelia
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		trigger = { original_tag = ALB }
+		name = albania.133.a
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		trigger = { original_tag = TUR }
+		name = albania.133.b
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		trigger = {
+			NOT = {
+				original_tag = ALB
+				original_tag = TUR
+			}
+		}
+		name = albania.133.b
+		ai_chance = { factor = 100 }
 	}
 }
 

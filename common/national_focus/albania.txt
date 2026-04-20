@@ -5737,11 +5737,16 @@ focus_tree = {
 					traits = { ALB_bloody_sultan }
 				}
 			}
+			set_character_name = {
+				character = TUR_abdulhamid_II
+				name = ALB_abdulhamid_II
+			}
 			set_cosmetic_tag = ALB_sultanate
 			set_capital = { state = 1215 remember_old_capital = no }
 			hidden_effect = {
 				country_event = { id = albania.125 days = 3 random_days = 4 }
 				country_event = { id = albania.131 days = 4 random_days = 10 }
+				news_event = { id = albania.132 hours = 6 }
 			}
 			mark_focus_tree_layout_dirty = yes
 		}
@@ -8127,6 +8132,8 @@ focus_tree = {
 		relative_position_id = ALB_invite_the_ottoman_bureaucracy
 		completion_reward = {
 			add_ideas = ALB_xhizja_tax
+			custom_effect_tooltip = ALB_jizya_occupation_fake_occupation_law_tt
+			show_ideas_tooltip = ALB_jizya_occupation_fake
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -10031,7 +10038,7 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
-		id = ALB_reintroduce_the_jizya_tax_abd
+		id = ALB_introduce_the_vakif_system
 		icon = GFX_TUR_temporary_law_of_deportation
 		cost = 5
 		search_filters = {
@@ -10043,7 +10050,8 @@ focus_tree = {
 		relative_position_id = ALB_utilize_political_islam
 		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
-			add_ideas = ALB_xhizja_tax
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_ideas = ALB_vakif_privacy
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -10132,6 +10140,25 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
+		id = ALB_reintroduce_the_jizya_tax_abd
+		icon = GFX_TUR_temporary_law_of_deportation
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_a_state_for_all_muslims }
+		x = 1
+		y = 1
+		relative_position_id = ALB_a_state_for_all_muslims
+		available = { has_country_leader = { character = TUR_abdulhamid_II } }
+		completion_reward = {
+			add_ideas = ALB_xhizja_tax
+			custom_effect_tooltip = ALB_jizya_occupation_fake_occupation_law_tt
+			show_ideas_tooltip = ALB_jizya_occupation_fake
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
 		id = ALB_declare_the_balkan_jihad
 		icon = GFX_TUR_temporary_law_of_deportation
 		cost = 10
@@ -10139,8 +10166,8 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		prerequisite = { focus = ALB_a_state_for_all_muslims }
-		x = 1
-		y = 1
+		x = 0
+		y = 2
 		relative_position_id = ALB_a_state_for_all_muslims
 		available = { has_country_leader = { character = TUR_abdulhamid_II } }
 		completion_reward = {
@@ -10224,6 +10251,7 @@ focus_tree = {
 				}
 			}
 			set_cosmetic_tag = ALB_rumeliam_sultanate
+			hidden_effect = { news_event = { id = albania.133 hours = 6 } }
 		}
 		ai_will_do = { factor = 100 }
 	}
