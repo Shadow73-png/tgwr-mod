@@ -16305,14 +16305,21 @@ country_event = {
 			}
 			if = {
 				limit = {
-					owns_state = 877
-					PER = { owns_state = 1117 }
+					PER = {
+						exists = yes
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
 				}
 				every_owned_state = {
 					limit = {
 						OR = {
 							state = 877
 							state = 420
+							state = 1251
+							state = 1250
+							state = 419
 						}
 					}
 					transfer_state_to = PER

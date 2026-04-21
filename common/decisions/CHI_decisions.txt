@@ -3599,14 +3599,15 @@ political_actions = {
 	}
 }
 
-GER_great_war = {
+TGWR_great_power_politics = {
 	CHI_join_entente = {
 		icon = GFX_decision_hol_exchange_intelligence_data
 		allowed = {
 			is_china_or_warlord_no_tt = yes
 			NOT = { tag = QIN }
 		}
-		visible = {		
+		visible = {
+			great_power_politics_great_war_visible = yes
 			is_subject = no
 			NOT = {
 				has_global_flag = great_war_ends
@@ -3760,6 +3761,7 @@ GER_great_war = {
 			NOT = { tag = QIN }
 		}
 		visible = {
+			great_power_politics_great_war_visible = yes
 			is_subject = no
 			NOT = {
 				has_global_flag = great_war_ends
@@ -3847,7 +3849,7 @@ GER_great_war = {
 			GER
 		}
 		target_root_trigger = {
-			has_global_flag = great_war
+			is_great_war_ongoing = yes
 		}
 		cancel_trigger = {
 			OR = {
