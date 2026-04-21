@@ -495,67 +495,89 @@ GER_great_war = {
 				has_country_leader_with_trait = tgwr_caliph
 			}
 		}
+		cancel_trigger = {
+			OR = {
+				NOT = {
+					any_enemy_country = {
+						is_major = yes
+						is_in_faction = yes
+					}
+				}
+				OR = {
+					has_idea_with_trait = tgwr_caliph
+					has_country_leader_with_trait = tgwr_caliph
+				}
+			}
+		}
 		cost = 25
 		fire_only_once = yes
-		complete_effect = {
-			add_war_support = 0.05
-			every_controlled_state = {
-				limit = {
-					is_muslim_state = yes
-					has_resistance = yes
-				}
-				add_compliance = 3
+		days_remove = -1
+		highlight_states = {
+			highlight_states_trigger = {
+				is_muslim_state = yes
 			}
-			effect_tooltip = {
-				every_country = {
-					limit = { is_in_faction_with = ROOT }
-					if = {
-						limit = {
-							any_controlled_state = {
-								is_muslim_state = yes
-								has_resistance = yes
-							}
-						}
-						every_controlled_state = {
-							limit = {
-								is_muslim_state = yes
-								has_resistance = yes
-							}
-							add_compliance = 15
-						}
-					}
-					if = {
-						limit = { is_muslim = yes }
-						add_war_support = 0.1
-					}
+		}
+		on_map_mode = decision_view_only
+		complete_effect = {
+			every_state = {
+				limit = { is_muslim_state = yes }
+				add_resistance_target = {
+					amount = -10
+					occupier = TUR
+					tooltip = TUR_jihad
 				}
-				every_enemy_country = {
-					if = {
-						limit = {
-							any_controlled_state = {
-								is_muslim_state = yes
-								has_resistance = yes
-							}
-						}
-						every_controlled_state = {
-							limit = {
-								is_muslim_state = yes
-								has_resistance = yes
-							}
-							add_resistance = 15
-						}
-					}
-					if = {
-						limit = { is_muslim = yes }
-						add_war_support = -0.1
+			}
+			every_country = {
+				limit = {
+					has_war_with = TUR
+					is_muslim = no
+				}
+				every_state = {
+					limit = { is_muslim_state = yes }
+					add_resistance_target = {
+						amount = 10
+						occupier = PREV
+						tooltip = TUR_jihad
 					}
 				}
 			}
 			set_country_flag = TUR_jihad_declared
-			custom_effect_tooltip = TUR_declare_jihad_tt
-			add_to_variable = { TUR_aoabe_army_morale_factor = 0.02 }
-			set_variable = { TUR_aoabe_weekly_casualties_war_support = 0.002 }
+#			custom_effect_tooltip = TUR_declare_jihad_tt
+#			add_to_variable = { TUR_aoabe_army_morale_factor = 0.02 }
+#			add_to_variable = { TUR_aoabe_weekly_casualties_war_support = 0.002 }
 			hidden_effect = { news_event = { id = ottoman.232 hours = 6 } }
+		}
+		modifier = {
+			army_morale_factor = 0.02
+			weekly_casualties_war_support = 0.002
+		}
+		cancel_effect = {
+			every_state = {
+				limit = { is_muslim_state = yes }
+				add_resistance_target = {
+					amount = 10
+					occupier = TUR
+					tooltip = TUR_jihad
+				}
+			}
+			every_country = {
+				limit = {
+					has_war_with = TUR
+					is_muslim = no
+				}
+				every_state = {
+					limit = { is_muslim_state = yes }
+					add_resistance_target = {
+						amount = -10
+						occupier = PREV
+						tooltip = TUR_jihad
+					}
+				}
+			}
+			clr_country_flag = TUR_jihad_declared
+#			custom_effect_tooltip = TUR_declare_jihad_reverse_tt
+#			add_to_variable = { TUR_aoabe_army_morale_factor = -0.02 }
+#			add_to_variable = { TUR_aoabe_weekly_casualties_war_support = -0.002 }
 		}
 		ai_will_do = {
 			base = 1000

@@ -1309,6 +1309,20 @@ is_muslim = {
 		original_tag = ZAN
 		original_tag = BOS
 		original_tag = CRI
+		original_tag = ALB
+		original_tag = BLC
+		original_tag = KUT
+		original_tag = ASR
+		original_tag = HJZ
+		original_tag = YEM
+		original_tag = JOR
+		original_tag = SYR
+		original_tag = IRQ
+		original_tag = MTQ
+		original_tag = BKH
+		original_tag = ARB
+		original_tag = PAL
+		original_tag = LEB
 	}
 }
 
@@ -1361,9 +1375,23 @@ is_muslim_state = {
 		is_core_of = ZAN
 		is_core_of = BOS
 		is_core_of = CRI
+		is_core_of = BLC
+		is_core_of = KUT
+		state = 77
+		state = 211
+		state = 846
 		state = 792
-		state = 896
-		state = 44
+		region = 145
+		state = 652
+		check_variable = { TUR_shia_state_level > 2 }
+		check_variable = { TUR_sunni_state_level > 2 }
+	}
+	NOT = {
+		check_variable = { TUR_orthodox_state_level > 2 }
+		check_variable = { TUR_catholic_state_level > 2 }
+		check_variable = { TUR_judaic_state_level > 2 }
+		check_variable = { TUR_apostolic_state_level > 2 }
+		check_variable = { TUR_syriac_state_level > 2 }
 	}
 }
 
