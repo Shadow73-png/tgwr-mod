@@ -5041,89 +5041,10 @@ focus_tree = {
 		y = 1
 	}
 	focus = {
-		id = HOL_ban_export_of_minerals
-		icon = GFX_focus_GER_integrated_economies
-		prerequisite = {
-			focus = HOL_defending_neutrality_at_all_cost
-		}
-		relative_position_id = HOL_defending_neutrality_at_all_cost
-		available = {
-
-		}
-		available_if_capitulated = yes
-		completion_reward = {
-			custom_effect_tooltip = HOL_modify_economy_lockdown_tt
-			add_to_variable = {
-				HOL_variable_eol_consumers = 0.05
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
-				HOL_variable_eol_lackofrecoursepenalty = -0.1
-				tooltip = production_lack_of_resource_penalty_factor_tt
-			}
-			add_to_variable = {
-				HOL_variable_eol_output = 0.05
-				tooltip = industrial_capacity_factory_tt
-			}
-			add_to_variable = {
-				HOL_variable_eol_efficiency_gain = 0.05
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
-			add_to_variable = {
-				HOL_variable_eol_attrition = -0.05
-			}
-		}
-		ai_will_do = {
-			factor = 500
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-		cost = 5
-		x = -2
-		y = 1
-	}
-	focus = {
-		id = HOL_royal_support_company
-		icon = GFX_focus_generic_economic_profit
-		prerequisite = {
-			focus = HOL_ban_export_of_minerals
-		}
-		relative_position_id = HOL_defending_neutrality_at_all_cost
-		available = {
-
-		}
-		available_if_capitulated = yes
-		completion_reward = {
-			custom_effect_tooltip = HOL_modify_economy_lockdown_tt
-			add_to_variable = {
-				HOL_variable_eol_consumers = -0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
-				HOL_variable_eol_output = 0.05
-				tooltip = industrial_capacity_factory_tt 
-			}
-			add_to_variable = {
-				HOL_variable_eol_efficiency_gain = 0.05
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
-		}
-		ai_will_do = {
-			factor = 500
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-		cost = 5
-		x = -2
-		y = 2
-	}
-	focus = {
 		id = HOL_create_commision_belgian_border_villages
 		icon = GFX_focus_chinese_reform
 		prerequisite = {
-			focus = HOL_ban_export_of_minerals
+			focus = HOL_support_not
 		}
 		relative_position_id = HOL_defending_neutrality_at_all_cost
 		available = {
@@ -5180,144 +5101,8 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = -6
-		y = 2
-	}
-	focus = {
-		id = HOL_commitee_to_feed
-		icon = GFX_focus_food_welfare
-		prerequisite = {
-			focus = HOL_support_not focus = HOL_create_commision_belgian_border_villages
-		}
-		relative_position_id = HOL_defending_neutrality_at_all_cost
-		available = {
-
-		}
-		available_if_capitulated = yes
-		completion_reward = {
-			custom_effect_tooltip = HOL_modify_economy_lockdown_tt
-			add_to_variable = {
-				HOL_wag_monthly_pop = 0.1
-				tooltip = monthly_population_tt
-			}
-			custom_effect_tooltip = HOL_tooltip_morefood
-			add_to_variable = {
-				HOL_variable_food = 3
-			}
-		}
-		ai_will_do = {
-			factor = 500
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-		cost = 5
-		x = -5
-		y = 3
-	}
-	focus = {
-		id = HOL_stimulate_coal_mines
-		icon = GFX_focus_generic_coal_mining
-		prerequisite = {
-			focus = HOL_royal_support_company focus = HOL_create_commision_belgian_border_villages
-		}
-		relative_position_id = HOL_defending_neutrality_at_all_cost
-		available = {
-
-		}
-		available_if_capitulated = yes
-		completion_reward = {
-			1063 = {
-				add_resource = {
-					type = coal
-					amount = 8
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 500
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-		cost = 5
-		x = -3
-		y = 3
-	}
-	focus = {
-		id = HOL_cut_corner_food_production
-		icon = GFX_food_imports
-		prerequisite = {
-			focus = HOL_commitee_to_feed focus = HOL_stimulate_coal_mines
-		}
-		relative_position_id = HOL_defending_neutrality_at_all_cost
-		available = {
-
-		}
-		available_if_capitulated = yes
-		completion_reward = {
-			custom_effect_tooltip = HOL_modify_economy_lockdown_tt
-			add_to_variable = {
-				HOL_variable_eol_consumers = -0.05
-				tooltip = consumer_goods_factor_tt
-			}
-			custom_effect_tooltip = HOL_tooltip_morefood	
-			add_to_variable = {
-				HOL_variable_food = 3
-			}
-		}
-		ai_will_do = {
-			factor = 500
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-		cost = 5
-		x = -4
-		y = 4
-	}
-	focus = {
-		id = HOL_force_all_worker_into_mines
-		icon = GFX_focus_miners
-		prerequisite = {
-			focus = HOL_stimulate_coal_mines
-		}
-		relative_position_id = HOL_defending_neutrality_at_all_cost
-		available = {
-			
-		}
-		available_if_capitulated = yes
-		completion_reward = {
-			custom_effect_tooltip = HOL_modify_economy_lockdown_tt
-			add_to_variable = {
-				HOL_variable_eol_consumers = -0.05
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
-				HOL_variable_eol_output = 0.05
-				tooltip = industrial_capacity_factory_tt 
-			}
-			add_to_variable = {
-				HOL_variable_eol_efficiency_gain = 0.05
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
-			add_stability = -0.1
-			1063 = {
-				add_resource = {
-					type = coal
-					amount = 15
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 500
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-		cost = 5
-		x = -3
-		y = 5
+		x = -2
+		y = 1
 	}
 	focus = {
 		id = HOL_fund_association_of_sea_risk
@@ -5352,14 +5137,14 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = -7
-		y = 3
+		x = -2
+		y = 2
 	}
 	focus = {
 		id = HOL_create_vaargeul
 		icon = GFX_SOV_pc_of_the_ussr_navy_ccp_2d_sov_compatibility
 		prerequisite = {
-			focus = HOL_fund_association_of_sea_risk
+			focus = HOL_support_not
 		}
 		relative_position_id = HOL_defending_neutrality_at_all_cost
 		available = {
@@ -5387,14 +5172,14 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = -7
-		y = 4
+		x = -4
+		y = 2
 	}
 	focus = {
 		id = HOL_distribution_law
 		icon = GFX_focus_food_welfare
 		prerequisite = {
-			focus = HOL_create_vaargeul
+			focus = HOL_fund_association_of_sea_risk
 		}
 		relative_position_id = HOL_defending_neutrality_at_all_cost
 		available = {
@@ -5426,14 +5211,14 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = -8
-		y = 5
+		x = -1
+		y = 3
 	}
 	focus = {
 		id = HOL_profit_from_famine_in_germany
 		icon = GFX_focus_generic_monetary_union
 		prerequisite = {
-			focus = HOL_create_vaargeul
+			focus = HOL_fund_association_of_sea_risk
 		}
 		mutually_exclusive = {
 			focus = HOL_distribution_law
@@ -5463,8 +5248,8 @@ focus_tree = {
 			
 		}
 		cost = 5
-		x = -6
-		y = 5
+		x = -3
+		y = 3
 	}
 	focus = {
 		id = HOL_expand_anti_profiteering_laws
@@ -5926,38 +5711,6 @@ focus_tree = {
 		y = 5
 	}
 	focus = {
-		id = HOL_grain_bureau
-		icon = GFX_focus_HUN_grain_stashing_shine
-		prerequisite = {
-			focus = HOL_royal_support_company
-		}
-		relative_position_id = HOL_defending_neutrality_at_all_cost
-		available = {
-
-		}
-		available_if_capitulated = yes
-		completion_reward = {
-			custom_effect_tooltip = HOL_modify_war_in_europe_tt
-			add_to_variable = {
-				HOL_wag_pp_gain = 0.05
-				tooltip = political_power_factor_tt
-			}
-			custom_effect_tooltip = HOL_tooltip_morefood
-			add_to_variable = {
-				HOL_variable_food = 3
-			}
-		}
-		ai_will_do = {
-			factor = 500
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-		cost = 5
-		x = -2
-		y = 4
-	}
-	focus = {
 		id = HOL_censor_press
 		icon = GFX_goal_generic_news
 		prerequisite = {
@@ -5988,6 +5741,254 @@ focus_tree = {
 		cost = 5
 		x = 2
 		y = 3
+	}
+	#mutual war path
+	focus = {
+		id = HOL_ban_export_of_minerals
+		icon = GFX_focus_GER_integrated_economies
+		prerequisite = {
+			focus = HOL_war_at_the_doorstep
+		}
+		relative_position_id = HOL_war_at_the_doorstep
+		available = {
+
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = HOL_modify_economy_lockdown_tt
+			add_to_variable = {
+				HOL_variable_eol_consumers = 0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_eol_lackofrecoursepenalty = -0.1
+				tooltip = production_lack_of_resource_penalty_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_eol_output = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				HOL_variable_eol_efficiency_gain = 0.05
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_eol_attrition = -0.05
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -2
+		y = 1
+	}
+	focus = {
+		id = HOL_royal_support_company
+		icon = GFX_focus_generic_economic_profit
+		prerequisite = {
+			focus = HOL_ban_export_of_minerals
+		}
+		relative_position_id = HOL_defending_neutrality_at_all_cost
+		available = {
+
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = HOL_modify_economy_lockdown_tt
+			add_to_variable = {
+				HOL_variable_eol_consumers = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_eol_output = 0.05
+				tooltip = industrial_capacity_factory_tt 
+			}
+			add_to_variable = {
+				HOL_variable_eol_efficiency_gain = 0.05
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -2
+		y = 2
+	}
+	focus = {
+		id = HOL_commitee_to_feed
+		icon = GFX_focus_food_welfare
+		prerequisite = {
+			focus = HOL_support_not focus = HOL_create_commision_belgian_border_villages
+		}
+		relative_position_id = HOL_defending_neutrality_at_all_cost
+		available = {
+
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = HOL_modify_economy_lockdown_tt
+			add_to_variable = {
+				HOL_wag_monthly_pop = 0.1
+				tooltip = monthly_population_tt
+			}
+			custom_effect_tooltip = HOL_tooltip_morefood
+			add_to_variable = {
+				HOL_variable_food = 3
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -5
+		y = 3
+	}
+	focus = {
+		id = HOL_stimulate_coal_mines
+		icon = GFX_focus_generic_coal_mining
+		prerequisite = {
+			focus = HOL_royal_support_company focus = HOL_create_commision_belgian_border_villages
+		}
+		relative_position_id = HOL_defending_neutrality_at_all_cost
+		available = {
+
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			1063 = {
+				add_resource = {
+					type = coal
+					amount = 8
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -3
+		y = 3
+	}
+	focus = {
+		id = HOL_cut_corner_food_production
+		icon = GFX_food_imports
+		prerequisite = {
+			focus = HOL_commitee_to_feed focus = HOL_stimulate_coal_mines
+		}
+		relative_position_id = HOL_defending_neutrality_at_all_cost
+		available = {
+
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = HOL_modify_economy_lockdown_tt
+			add_to_variable = {
+				HOL_variable_eol_consumers = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			custom_effect_tooltip = HOL_tooltip_morefood	
+			add_to_variable = {
+				HOL_variable_food = 3
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -4
+		y = 4
+	}
+	focus = {
+		id = HOL_force_all_worker_into_mines
+		icon = GFX_focus_miners
+		prerequisite = {
+			focus = HOL_stimulate_coal_mines
+		}
+		relative_position_id = HOL_defending_neutrality_at_all_cost
+		available = {
+			
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = HOL_modify_economy_lockdown_tt
+			add_to_variable = {
+				HOL_variable_eol_consumers = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_eol_output = 0.05
+				tooltip = industrial_capacity_factory_tt 
+			}
+			add_to_variable = {
+				HOL_variable_eol_efficiency_gain = 0.05
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			add_stability = -0.1
+			1063 = {
+				add_resource = {
+					type = coal
+					amount = 15
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -3
+		y = 5
+	}
+	focus = {
+		id = HOL_grain_bureau
+		icon = GFX_focus_HUN_grain_stashing_shine
+		prerequisite = {
+			focus = HOL_royal_support_company
+		}
+		relative_position_id = HOL_defending_neutrality_at_all_cost
+		available = {
+
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = HOL_modify_war_in_europe_tt
+			add_to_variable = {
+				HOL_wag_pp_gain = 0.05
+				tooltip = political_power_factor_tt
+			}
+			custom_effect_tooltip = HOL_tooltip_morefood
+			add_to_variable = {
+				HOL_variable_food = 3
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -2
+		y = 4
 	}
 	#take a side
 	focus = {
