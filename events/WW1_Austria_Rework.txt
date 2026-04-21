@@ -260,6 +260,29 @@ country_event = {
 			}
 	}
 }
+country_event = {
+	id = ww1_austriahungary_war.12
+	title = ww1_austriahungary_war.12.t
+	desc = ww1_austriahungary_war.12.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		tag = AUS
+		has_global_flag = great_war
+		has_war_with_major = yes
+	}
+	mean_time_to_happen = {
+		days = 80
+	}
+	option = {
+		name = ww1_austriahungary_war.12.a
+		add_to_variable = {
+				AUS_croat_loyalty = -5
+				tooltip = AUS_loyalty_croatian_tt
+			}
+		add_political_power = 20
+			AUS_update_state_of_realm = yes
+	}
+}
 # Stephan Burian Resigns from Position
 country_event = {
 	id = ww1_austriahungary.1
