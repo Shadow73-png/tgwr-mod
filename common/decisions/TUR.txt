@@ -17312,10 +17312,15 @@ TUR_local_conscription = {
 				}
 			}
 		}
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+			}
+		}
 		on_map_mode = map_only
 		days_remove = 7
 		days_re_enable = 28
-		visible = { has_completed_focus = TUR_the_new_recruitment_law }
+		target_root_trigger = { has_completed_focus = TUR_the_new_recruitment_law }
 		complete_effect = { hidden_effect = { army_experience = -10 } }
 		remove_effect = {
 			set_temp_variable = { TUR_local_conscription_in_state_manpower_var = FROM.state_population }
