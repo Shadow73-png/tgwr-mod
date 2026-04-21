@@ -73,6 +73,46 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = TUR_new_loan_deliveries
+		icon = GFX_focus_generic_money_deal
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_BALANCE_OF_POWER
+		}
+		prerequisite = { focus = TUR_foreign_loan_negotiations }
+		x = 0
+		y = 1
+		relative_position_id = TUR_foreign_loan_negotiations
+		available = {
+			NOT = {
+				custom_trigger_tooltip = {
+					tooltip = has_idea_TUR_inflow_of_foreign_loan
+					OR = {
+						has_idea = TUR_inflow_of_foreign_loan
+						has_idea = TUR_inflow_of_foreign_loan_2
+						has_idea = TUR_inflow_of_foreign_loan_3
+						has_idea = TUR_inflow_of_foreign_loan_4
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = TUR_OPDA_trigger_tooltip
+				OR = {
+					has_idea = TUR_OPDA_idea
+					has_idea = TUR_OPDA_idea_2
+					has_idea = TUR_OPD_idea
+					has_idea = TUR_OPD_idea_2
+					has_idea = TUR_OPD_idea_3
+				}
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = TUR_new_loan_deliveries_tt
+		}
+		ai_will_do = { base = 30 }
+	}
+	focus = {
 		id = TUR_harbiye_nezareti
 		icon = GFX_TUR_harbiye_nezareti
 		cost = 5
@@ -4726,6 +4766,7 @@ focus_tree = {
 				add_days_mission_timeout = { mission = TUR_handling_separatism days = 35 }
 			}
 			deactivate_advisor = TUR_mahmud_sevket
+			set_can_be_fired_in_advisor_role = { character = TUR_mahmud_sevket value = yes }
 			TUR_government_stability_calculate = yes
 			TUR_government_popularity_calculate = yes
 		}
@@ -12962,8 +13003,8 @@ focus_tree = {
 		ai_will_do = { base = 30 }
 	}
 	focus = {
-		id = TUR_new_loan_deliveries
-		icon = GFX_focus_mex_privatisation
+		id = TUR_assume_the_directorate_of_war_production
+		icon = GFX_focus_generic_reorient_production
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
@@ -12974,34 +13015,13 @@ focus_tree = {
 		y = 1
 		relative_position_id = TUR_continue_industrial_programs
 		available = {
-			NOT = {
-				custom_trigger_tooltip = {
-					tooltip = has_idea_TUR_inflow_of_foreign_loan
-					OR = {
-						has_idea = TUR_inflow_of_foreign_loan
-						has_idea = TUR_inflow_of_foreign_loan_2
-						has_idea = TUR_inflow_of_foreign_loan_3
-						has_idea = TUR_inflow_of_foreign_loan_4
-					}
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = TUR_OPDA_trigger_tooltip
-				OR = {
-					has_idea = TUR_OPDA_idea
-					has_idea = TUR_OPDA_idea_2
-					has_idea = TUR_OPD_idea
-					has_idea = TUR_OPD_idea_2
-					has_idea = TUR_OPD_idea_3
-				}
-			}
 			OR = {
 				has_country_leader = { character = TUR_ahmet_izzet }
 				has_country_leader = { character = TUR_mahmud_sevket }
 			}
 		}
 		completion_reward = {
-			custom_effect_tooltip = TUR_new_loan_deliveries_tt
+			add_country_leader_trait = TUR_general_director_of_war_production
 			add_power_balance_value = {
 				id = TUR_government_committee_struggle
 				value = 0.1
