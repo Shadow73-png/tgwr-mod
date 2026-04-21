@@ -1129,3 +1129,20 @@ protectorate_type_subject = {
 is_generic_character = {
 	has_character_flag = is_generic
 }
+
+is_in_colonial_war = {
+	custom_trigger_tooltip = {
+		tooltip = is_in_colonial_war_tt
+		has_dynamic_modifier = colonial_war
+	}
+}
+is_in_major_war = {
+	custom_trigger_tooltip = {
+		tooltip = is_in_major_war_tt
+		has_war = yes
+		any_enemy_country = {
+			is_government_in_exile = no
+		}
+		NOT = { has_dynamic_modifier = colonial_war }
+	}
+}
