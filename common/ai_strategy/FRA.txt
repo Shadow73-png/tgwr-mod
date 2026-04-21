@@ -74,14 +74,6 @@ FRA_area_priority = {
 		id = pacific
 		value = -1000
 	}
-	ai_strategy = {
-		type = garrison_reinforcement_priority
-		value = -1000
-	}
-	ai_strategy = {
-		type = garrison
-		value = -1000
-	}
 }
 
 FRA_no_AIFC_during_schliefen = {
@@ -700,9 +692,7 @@ FRA_on_ne_passe_pas = {
 		states = {
 			17
 		}
-		ratio = 0.6
-		subtract_invasions_from_need = yes
-		subtract_fronts_from_need = yes
+		ratio = 0.3
 	}
 }
 
@@ -769,6 +759,35 @@ FRA_wadai_low_prio = {
 		execution_type = balanced
 		execute_order = yes
 		manual_attack = yes
+	}
+}
+
+CHA_dont_attack = {
+	allowed = {
+		tag = CHA
+	}
+	enable = {
+		has_war_with = FRA
+		NOT = {
+			has_global_flag = wadai_war_end
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			always = yes
+		}
+		execution_type = careful
+		ratio = 0
+		ordertype = front
+		execute_order = no
+		manual_attack = no
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = KUT
+		value = -1000
 	}
 }
 
@@ -968,60 +987,6 @@ FRA_backline_normandie = {
 	}
 }
 
-FRA_defend_ports_in_great_war = {
-	allowed = {
-		original_tag = FRA
-	}
-	enable = {
-		war_length_with = {
-			tag = GER
-			months > 10
-		}
-		surrender_progress < 0.5
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = put_unit_buffers
-		ratio = 0.5
-		states = {
-			14
-		}
-		subtract_invasions_from_need = yes
-		subtract_fronts_from_need = yes
-	}
-	ai_strategy = {
-		type = put_unit_buffers
-		ratio = 0.35
-		states = {
-			23
-		}
-		subtract_invasions_from_need = yes
-		subtract_fronts_from_need = yes
-	}
-	ai_strategy = {
-		type = put_unit_buffers
-		ratio = 0.2
-		states = {
-			1108
-		}
-		subtract_invasions_from_need = yes
-		subtract_fronts_from_need = yes
-	}
-	ai_strategy = {
-		type = put_unit_buffers
-		ratio = 0.35
-		states = {
-			19
-		}
-		subtract_invasions_from_need = yes
-		subtract_fronts_from_need = yes
-	}
-	ai_strategy = {
-		type = garrison
-		value = -100
-	}
-}
-
 FRA_italy_guarantee_GER = {
 	allowed = {
 		original_tag = FRA
@@ -1118,12 +1083,10 @@ FRA_THE_garnison = {
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = put_unit_buffers
-		ratio = 1
+		ratio = 0.5
 		states = {
 			345
 		}
-		subtract_fronts_from_need = yes
-		subtract_invasions_from_need = yes
 	}
 }
 
@@ -1591,19 +1554,18 @@ FRA_early_tank_production = {
 		NOT = {
 			has_global_flag = great_war_ends
 		}
-		has_active_mission = FRA_fufill_schneider_contract
 		has_tech = basic_medium_tank_chassis
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = equipment_production_factor
 		id = armor
-		value = 100
+		value = 150
 	}
 	ai_strategy = {
 		type = role_ratio
 		id = medium_armor
-		value = 20
+		value = 40
 	}
 }
 
@@ -1622,12 +1584,12 @@ FRA_renault_tank_production = {
 	ai_strategy = {
 		type = role_ratio
 		id = light_armor
-		value = 20
+		value = 40
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = armor
-		value = 100
+		value = 150
 	}
 }
 
