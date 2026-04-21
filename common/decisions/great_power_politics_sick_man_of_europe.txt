@@ -1,0 +1,206 @@
+#BERLLIN BAGHDAD RAILWAY
+TGWR_great_power_politics = {
+	sick_man_of_europe_berlin_baghdad_progress = {
+		icon = sick_man_of_europe
+		allowed = {
+			OR = {
+				tag = TUR
+				tag = GER
+				tag = ENG
+				tag = RUS
+			}
+		}
+		visible = {
+			great_power_politics_sick_man_of_europe_visible = yes
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+	}
+}
+#GERMANY
+TGWR_great_power_politics = {
+	berling_baghdad_construction_decision = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			tag = GER
+		}
+		visible = {
+			great_power_politics_sick_man_of_europe_visible = yes
+		}
+		available = {
+			TUR = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+			NOT = {
+				has_country_flag = cant_build_berlin_baghdad
+			}
+		}
+		cost = 50
+		complete_effect = {
+			ENG = {
+				custom_effect_tooltip = berlin_baghdad_status
+			}
+			RUS = {
+				custom_effect_tooltip = berlin_baghdad_status
+			}
+			TUR = {
+				country_event = ww1_berlin_baghdad.1
+			}
+			set_country_flag = cant_build_berlin_baghdad
+		}
+	}
+	berling_baghdad_construction_mission = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			always = no
+		}
+		activation = {
+			always = no
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					TUR = {
+						OR = {
+							exists = no
+							AND = {
+								is_subject = yes
+								NOT = {
+									is_subject_of = ROOT
+								}
+							}
+							has_war_with = ROOT
+						}
+					}
+					has_country_flag = cant_build_berlin_baghdad
+				}
+			}
+		}
+		days_mission_timeout = 365
+		is_good = yes
+		timeout_effect = {
+			if = {
+				limit = {
+					has_country_flag = berlin_baghdad_stage_1
+				}
+				clr_country_flag = berlin_baghdad_stage_1
+				set_country_flag = berlin_baghdad_stage_2
+			}
+			else_if = {
+				limit = {
+					has_country_flag = berlin_baghdad_stage_2
+				}
+				clr_country_flag = berlin_baghdad_stage_2
+				set_country_flag = berlin_baghdad_stage_3
+			}
+			else_if = {
+				limit = {
+					has_country_flag = berlin_baghdad_stage_3
+				}
+				clr_country_flag = berlin_baghdad_stage_3
+				set_country_flag = berlin_baghdad_stage_4
+			}
+			every_country = {
+				limit = {
+					has_country_flag = berlin_baghdad_backed_down
+				}
+				clr_country_flag = berlin_baghdad_backed_down
+				set_country_flag = berlin_baghdad_opposes
+			}
+		}
+		cancel_effect = {
+			hidden_effect = {
+				country_event = ww1_berlin_baghdad.14
+			}
+		}
+	}
+	berling_baghdad_stop_the_construction = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			tag = GER
+		}
+		visible = {
+			has_active_mission = berling_baghdad_construction_mission
+			great_power_politics_sick_man_of_europe_visible = yes
+		}
+		complete_effect = {
+			hidden_effect = {
+				remove_mission = berling_baghdad_construction_mission
+			}
+			custom_effect_tooltip = cant_build_berlin_baghdad_tt
+			set_country_flag = {
+				flag = cant_build_berlin_baghdad
+				days = 365
+			}
+		}
+	}
+}
+#TURKEY
+TGWR_great_power_politics = {
+	berling_baghdad_revoke_the_permit = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			tag = TUR
+		}
+		visible = {
+			GER = {
+				has_active_mission = berling_baghdad_construction_mission
+			}
+			great_power_politics_sick_man_of_europe_visible = yes
+		}
+		complete_effect = {
+			hidden_effect = {
+				GER = {
+					remove_mission = berling_baghdad_construction_mission
+					set_country_flag = {
+						flag = cant_build_berlin_baghdad
+						days = 365
+					}
+				}
+			}
+			custom_effect_tooltip = revoke_permit_tt
+		}
+	}
+}
+#UK, RUSSIA
+TGWR_great_power_politics = {
+	berling_baghdad_lift_embargo = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			OR = {
+				tag = ENG
+				tag = RUS
+			}
+		}
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = TUR
+					tag = GER
+				}
+				is_embargoed_by = ROOT
+			}
+		}
+		visible = {
+			great_power_politics_sick_man_of_europe_visible = yes
+		}
+		complete_effect = {
+			break_embargo = FROM
+			FROM = {
+				country_event = ww1_berlin_baghdad.12
+			}
+		}
+	}
+}
