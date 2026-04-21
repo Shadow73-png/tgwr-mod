@@ -1267,29 +1267,13 @@ focus_tree = {
 			}
 			custom_effect_tooltip = TUR_reserve_cavalry_regiments_tt2
 			if = {
-				limit = {
-					KUR = {
-						has_character = KUR_kor_huseyin
-						exists = no
-					}
-				}
+				limit = { KUR = { exists = no } }
 				custom_effect_tooltip = TUR_reserve_cavalry_regiments_tt3
 				hidden_effect = {
 					every_possible_country = {
 						limit = { has_character = KUR_kor_huseyin }
 						KUR_kor_huseyin = { set_nationality = TUR }
 					}
-				}
-			}
-			if = {
-				limit = {
-					KUR = {
-						has_character = KUR_haci_musa_beg
-						exists = no
-					}
-				}
-				custom_effect_tooltip = TUR_reserve_cavalry_regiments_tt4
-				hidden_effect = {
 					every_possible_country = {
 						limit = { has_character = KUR_haci_musa_beg }
 						KUR_haci_musa_beg = { set_nationality = TUR }
@@ -1297,7 +1281,7 @@ focus_tree = {
 				}
 			}
 			hidden_effect = {
-				add_to_variable = { TUR_hamidiye_cap = 14 }
+				add_to_variable = { TUR_hamidiye_cap = 24 }
 				set_division_template_cap = {
 					division_template = "Aşiret Hafif Süvari Alayları"
 					division_cap = TUR_hamidiye_cap
