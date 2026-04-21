@@ -160,7 +160,7 @@
 	}
 }
 
-GER_great_war = {
+TGWR_great_power_politics = {
 	TUR_surrender_to_entente = {
 		allowed = {
 			tag = TUR
@@ -276,6 +276,7 @@ GER_great_war = {
 			set_global_flag = mudros_armistice
 		}
 	}
+	#great_power_politics_great_war
 	TUR_declare_jihad = {
 		icon = GFX_decision_generic_nationalism
 		allowed = {
@@ -292,6 +293,7 @@ GER_great_war = {
 			}
 		}
 		visible = {
+			great_power_politics_great_war_visible = yes
 			NOT = {
 				has_country_flag = TUR_abolished_caliph
 			}
@@ -473,11 +475,15 @@ GER_great_war = {
 		allowed = {
 			tag = TUR
 		}
+		targets = {
+			RUS
+		}
 		days_remove = 720
 		available = {
 			has_war_with = RUS
 		}
 		visible = {
+			great_power_politics_great_war_visible = yes
 			is_in_faction_with = GER
 			has_completed_focus = TUR_schelendorfs_plan
 			is_great_war_ongoing = yes
@@ -597,11 +603,15 @@ GER_great_war = {
 		allowed = {
 			tag = TUR
 		}
+		targets = {
+			RUS
+		}
 		days_remove = 720
 		available = {
 			has_war_with = RUS
 		}
 		visible = {
+			great_power_politics_great_war_visible = yes
 			has_completed_focus = TUR_hafiz_hakkis_plan
 		}
 		complete_effect = {
@@ -796,6 +806,7 @@ GER_great_war = {
 		}
 		fire_only_once = yes
 		visible = {
+			great_power_politics_great_war_visible = yes
 			is_subject = no
 			is_great_war_ongoing = yes
 			FROM = {
