@@ -1,11 +1,11 @@
 retire_SER_petar_i = {
 	if = {
 		limit = {
-			has_character = SER_dorde_karadjordjevic
+			has_character = SER_aleksandar_karadjordjevic
 			NOT = {
 				AND = {
-					has_character = SER_aleksandar_karadjordjevic
-					has_country_flag = SER_alexander_regency
+					has_character = SER_dorde_obrenovic
+					has_country_flag = SER_george_regency
 				}
 				AND = {
 					has_character = SER_jelena_karadjordjevic
@@ -16,6 +16,55 @@ retire_SER_petar_i = {
 					has_country_flag = SER_arsenije_regency
 				}
 			}
+			
+		}
+		if = {
+			limit = {
+				OR = {
+					has_cosmetic_tag = SER_YUG
+					has_cosmetic_tag = YUG
+				}
+			}
+			SER_aleksandar_karadjordjevic = {
+				set_character_name = SER_aleksandar_i
+			}
+			else = {
+				SER_aleksandar_karadjordjevic = {
+					set_character_name = SER_aleksandar_ii
+					set_character_flag = SER_aleksandar_ii
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = SER_petar_i
+					has_idea = SER_petar_i_2
+				}
+			}
+			hidden_effect = {
+				remove_ideas = {
+					SER_petar_i
+					SER_petar_i_2
+				}
+			}
+			add_ideas = SER_aleksandar_karadjordjevic
+		}
+		promote_character = SER_aleksandar_karadjordjevic
+	}
+	else_if = {
+		limit = {
+			has_character = SER_dorde_karadjordjevic
+			NOT = {
+				AND = {
+					has_character = SER_jelena_karadjordjevic
+					has_country_flag = SER_helen_regency
+				}
+				AND = {
+					has_character = SER_arsenije_karadjordjevic
+					has_country_flag = SER_arsenije_regency
+				}
+			}		
 		}
 		if = {
 			limit = {
@@ -56,54 +105,6 @@ retire_SER_petar_i = {
 			add_country_leader_trait = insane_king
 		}
 		promote_character = SER_dorde_karadjordjevic
-	}
-	else_if = {
-		limit = {
-			has_character = SER_aleksandar_karadjordjevic
-			NOT = {
-				AND = {
-					has_character = SER_jelena_karadjordjevic
-					has_country_flag = SER_helen_regency
-				}
-				AND = {
-					has_character = SER_arsenije_karadjordjevic
-					has_country_flag = SER_arsenije_regency
-				}
-			}
-		}
-		if = {
-			limit = {
-				OR = {
-					has_cosmetic_tag = SER_YUG
-					has_cosmetic_tag = YUG
-				}
-			}
-			SER_aleksandar_karadjordjevic = {
-				set_character_name = SER_aleksandar_i
-			}
-			else = {
-				SER_aleksandar_karadjordjevic = {
-					set_character_name = SER_aleksandar_ii
-					set_character_flag = SER_aleksandar_ii
-				}
-			}
-		}
-		if = {
-			limit = {
-				OR = {
-					has_idea = SER_petar_i
-					has_idea = SER_petar_i_2
-				}
-			}
-			hidden_effect = {
-				remove_ideas = {
-					SER_petar_i
-					SER_petar_i_2
-				}
-			}
-			add_ideas = SER_aleksandar_karadjordjevic
-		}
-		promote_character = SER_aleksandar_karadjordjevic
 	}
 	else_if = {
 		limit = {
