@@ -768,7 +768,7 @@ country_event = {
 	}
 }
 
-#coastal_defence_plan
+#coastal_defence_plan france objects
 country_event = {
 	id = ww1_holland.23
 	title = ww1_holland.23.t
@@ -780,21 +780,18 @@ country_event = {
 	}
 	option = {
 		name = ww1_holland.23.a
-		7 = {
-			add_building_construction = {
-   				type = coastal_bunker
-				level = 1
-				instant_build = yes
-				province = 3314
-			}
+		country_event = ww1_holland.87
+		add_power_balance_value = {
+			id = HOL_bop_neutrality
+			value = 0.2
 		}
-		1092 = {
-			add_building_construction = {
-   				type = coastal_bunker
-				level = 2
-				instant_build = yes
-				province = 480
-			}
+	}
+	option = {
+		name = ww1_holland.23.a
+		country_event = ww1_holland.88
+		add_power_balance_value = {
+			id = HOL_bop_neutrality
+			value = -0.2
 		}
 	}
 }
@@ -880,7 +877,6 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		tag = HOL
-		has_completed_focus = HOL_another_dutch_belgian_conference
 	}
 	option = {
 		name = ww1_holland.28.a
@@ -890,6 +886,9 @@ country_event = {
 		}
 		add_war_support = 0.05
 		set_country_flag = HOL_flag_entente
+		remove_power_balance = {
+			id = HOL_bop_neutrality
+		}
 	}
 }
 #war fucks up everything
@@ -949,6 +948,10 @@ country_event = {
 		name = ww1_holland.30.a
 		add_dynamic_modifier = {
 			modifier = HOL_dm_soldier_without_borders
+		}
+		add_power_balance_value = {
+			id = HOL_bop_neutrality
+			value = -0.1
 		}
 		hidden_effect = {
 			country_event = {
@@ -1038,6 +1041,10 @@ country_event = {
 			tooltip = stability_factor_tt
 		}
 		add_political_power = -50
+		add_power_balance_value = {
+			id = HOL_bop_neutrality
+			value = 0.1
+		}
 	}
 }
 #german cav detachment accidently goes into limburg
@@ -1056,6 +1063,10 @@ country_event = {
 		add_to_variable = {
 			HOL_variable_swb_stab = -0.025
 			tooltip = stability_factor_tt
+		}
+		add_power_balance_value = {
+			id = HOL_bop_neutrality
+			value = -0.1
 		}
 	}
 }
@@ -1082,7 +1093,10 @@ country_event = {
 	}
 	option = {
 		name = ww1_holland.36.a
-		
+		add_power_balance_value = {
+			id = HOL_bop_neutrality
+			value = -0.1
+		}
 	}
 }
 #wave of belgian refugees
@@ -1264,6 +1278,10 @@ country_event = {
 			HOL_variable_wag_stab = -0.05
 			tooltip = stability_factor_tt
 		}
+		add_power_balance_value = {
+			id = HOL_bop_neutrality
+			value = -0.2
+		}
 	}
 }
 #belgian side alliance
@@ -1280,7 +1298,7 @@ country_event = {
 		name = ww1_holland.43.a
 		HOL = {
 			country_event = {
-				id = ww1_holland_28
+				id = ww1_holland.28
 				days = 1
 			}
 		}
@@ -1299,6 +1317,10 @@ country_event = {
 		tag = HOL
 		has_completed_focus = HOL_another_dutch_belgian_conference
 		has_global_flag = july_crisis_alert
+		power_balance_value = {
+			id = HOL_bop_neutrality
+			value < -0.5
+		}
 	}
 	option = {
 		name = ww1_holland.44.a
@@ -1363,74 +1385,6 @@ country_event = {
 					modifier = HOL_vesting_holland
 				}
 			}
-		}
-	}
-}
-#side with germany
-country_event = {
-	id = ww1_holland.47
-	title = ww1_holland.47.t
-	desc = ww1_holland.47.d
-	fire_only_once = yes
-	trigger = {
-		tag = HOL
-		has_completed_focus = HOL_condemn_boer_suppresion
-		has_global_flag = july_crisis_alert
-	}
-	option = {
-		name = ww1_holland.47.a
-		GER = {
-			country_event = {
-				id = ww1_holland_48
-				days = 1
-			}
-		}
-	}
-	option = {
-		name = ww1_holland.47.b
-	}
-}
-#side with germany side
-country_event = {
-	id = ww1_holland.48
-	title = ww1_holland.48.t
-	desc = ww1_holland.48.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	trigger = {
-		tag = HOL
-		has_completed_focus = HOL_condemn_boer_suppresion
-		has_global_flag = july_crisis_alert
-	}
-	option = {
-		name = ww1_holland.48.a
-		HOL = {
-			country_event = {
-				id = ww1_holland_49
-				days = 1
-			}
-		}
-	}
-	option = {
-		name = ww1_holland.48.b
-	}
-}
-#side with germany final
-country_event = {
-	id = ww1_holland.49
-	title = ww1_holland.49.t
-	desc = ww1_holland.49.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	trigger = {
-		tag = HOL
-		has_completed_focus = HOL_condemn_boer_suppresion
-		has_global_flag = july_crisis_alert
-	}
-	option = {
-		name = ww1_holland.49.a
-		GER = {
-			add_to_faction = HOL
 		}
 	}
 }
@@ -2343,3 +2297,158 @@ country_event = {
 		}
 	}
 	}
+#coastal_defence_plan stronger
+country_event = {
+	id = ww1_holland.87
+	title = ww1_holland.87.t
+	desc = ww1_holland.87.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = HOL
+	}
+	option = {
+		name = ww1_holland.87.a
+		7 = {
+			add_building_construction = {
+   				type = coastal_bunker
+				level = 2
+				instant_build = yes
+				province = 3314
+			}
+		}
+		1092 = {
+			add_building_construction = {
+   				type = coastal_bunker
+				level = 3
+				instant_build = yes
+				province = 480
+			}
+		}
+	}
+}
+#coastal_defence_plan weaker
+country_event = {
+	id = ww1_holland.88
+	title = ww1_holland.88.t
+	desc = ww1_holland.88.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = HOL
+	}
+	option = {
+		name = ww1_holland.88.a
+		7 = {
+			add_building_construction = {
+   				type = coastal_bunker
+				level = 1
+				instant_build = yes
+				province = 3314
+			}
+		}
+		1092 = {
+			add_building_construction = {
+   				type = coastal_bunker
+				level = 1
+				instant_build = yes
+				province = 480
+			}
+		}
+	}
+}
+#look to germany
+country_event = {
+	id = ww1_holland.89
+	title = ww1_holland.89.t
+	desc = ww1_holland.89.d
+	fire_only_once = yes
+	trigger = {
+		tag = HOL
+		power_balance_value = {
+			id = HOL_bop_neutrality
+			value > 0.5
+		}
+		has_global_flag = july_crisis_alert
+	}
+	option = {
+		name = ww1_holland.89.a
+		GER = {
+			country_event = {
+				id = ww1_holland.90
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ww1_holland.89.a
+		add_stability = 0.02
+	}
+}
+#look to germany german side
+country_event = {
+	id = ww1_holland.90
+	title = ww1_holland.90.t
+	desc = ww1_holland.90.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = HOL
+	}
+	option = {
+		name = ww1_holland.90.a
+		HOL = {
+			country_event = {
+				id = ww1_holland.91
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ww1_holland.90.a
+		HOL = {
+			country_event = {
+				id = ww1_holland.91
+				days = 1
+			}
+		}
+	}
+}
+#look to germany rejected
+country_event = {
+	id = ww1_holland.91
+	title = ww1_holland.91.t
+	desc = ww1_holland.91.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = HOL
+		
+		has_global_flag = july_crisis_alert
+	}
+	option = {
+		name = ww1_holland.90.a
+		add_political_power = -10
+	}
+}
+#look to germany accepted
+country_event = {
+	id = ww1_holland.91
+	title = ww1_holland.91.t
+	desc = ww1_holland.91.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = HOL
+	}
+	option = {
+		name = ww1_holland.90.a
+		GER = {
+			add_to_faction = HOL
+		}
+		add_war_support = 0.05
+		remove_power_balance = {
+			id = HOL_bop_neutrality
+		}
+	}
+}
