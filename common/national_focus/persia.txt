@@ -95,8 +95,8 @@
 		}
 	}
 	focus = {
-		id = PER_create_the_government_gendarmerie
-		icon = GFX_focus_PER_iranian_gendarmerie
+		id = PER_ask_for_loans
+		icon = GFX_focus_generic_stockpile_currency
 		cost = 10
 		prerequisite = {
 			focus = PER_disarm_revolutionaries
@@ -104,6 +104,29 @@
 		}
 		relative_position_id = PER_disarm_revolutionaries
 		x = -1
+		y = 1
+		available = {
+			
+		}
+	
+		completion_reward = {
+			add_political_power = 200
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		ai_will_do = {
+			factor = 25
+		}
+	}
+	focus = {
+		id = PER_create_the_government_gendarmerie
+		icon = GFX_focus_PER_iranian_gendarmerie
+		cost = 10
+		prerequisite = {
+			focus = PER_ask_for_loans
+		}
+		relative_position_id = PER_ask_for_loans
+		x = 0
 		y = 1
 		available = {
 			has_government = democratic
@@ -267,7 +290,7 @@
 		}
 		relative_position_id = PER_empower_the_treasurer_general
 		x = -1
-		y = 1
+		y = 2
 		available = {
 			has_government = democratic
 		}
