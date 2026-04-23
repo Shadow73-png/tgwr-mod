@@ -619,7 +619,8 @@ FRA_situation_in_morocco = {
 	}
 }
 
-GER_great_war = {
+TGWR_great_power_politics = {
+	#great_power_politics_misc
 	FRA_pull_out_from_mali = {
 		icon = GFX_decision_eng_blackshirt_march
 		allowed = {
@@ -632,6 +633,7 @@ GER_great_war = {
 		# 	has_war_with = FROM
 		# }
 		visible = {
+			great_power_politics_misc_visible = yes
 			has_war_with = VOL
 			NOT = {
 				has_global_flag = mali_war_end
@@ -688,6 +690,7 @@ GER_great_war = {
 			original_tag = FRA
 		}
 		visible = {
+			great_power_politics_misc_visible = yes
 			NOT = {
 				tag = FRC
 			}
@@ -793,6 +796,7 @@ GER_great_war = {
 			set_country_flag = france_lost_tunisia
 		}
 	}
+	#great_power_politics_great_war
 	FRA_send_janin_to_russia = {
 		icon = GFX_decision_fra_advisors
 		fire_only_once = no
@@ -800,6 +804,7 @@ GER_great_war = {
 			original_tag = FRA
 		}
 		visible = {
+			great_power_politics_great_war_visible = yes
 			NOT = { has_global_flag = great_war_ends }
 			FROM = {
 				exists = yes
@@ -819,6 +824,9 @@ GER_great_war = {
 			}
 			has_character = FRA_maurice_janin
 		}
+		target_root_trigger = {
+			has_character = FRA_maurice_janin
+		}
 		custom_cost_trigger = {
 			command_power > 9.9
 		}
@@ -829,12 +837,13 @@ GER_great_war = {
 			}
 		}
 		available = {
-			any_other_country = {
-				OR = {
-					is_major = yes
-					tag = SOV
-				}	
-				has_war_with = FROM
+			FROM = {
+				any_enemy_country = {
+					OR = {
+						is_major = yes
+						tag = SOV
+					}
+				}
 			}
 			NOT = {
 				has_idea = idea_army_restrictions
