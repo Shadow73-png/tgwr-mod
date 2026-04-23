@@ -30,6 +30,7 @@ retire_SER_petar_i = {
 			else = {
 				SER_dorde_karadjordjevic = {
 					set_character_name = SER_dorde_ii
+					set_character_flag = SER_dorde_ii
 				}
 			}
 		}
@@ -90,6 +91,7 @@ retire_SER_petar_i = {
 			else = {
 				SER_aleksandar_karadjordjevic = {
 					set_character_name = SER_aleksandar_ii
+					set_character_flag = SER_aleksandar_ii
 				}
 			}
 		}
@@ -192,4 +194,48 @@ retire_SER_petar_i = {
 	}
 	retire_character = SER_petar_i
 	mark_focus_tree_layout_dirty = yes
+}
+SER_YUG_regnal_number_change = {
+	if = {
+		limit = { 
+			has_character = SER_aleksandar_karadjordjevic
+			SER_aleksandar_karadjordjevic = {
+				has_character_flag = SER_aleksandar_ii
+			}
+		}
+		SER_aleksandar_karadjordjevic = {
+			clr_character_flag = SER_aleksandar_ii
+			set_character_name = SER_aleksandar_i
+		}
+		if = {
+			limit = { 
+				has_idea = SER_aleksandar_ii
+			}
+			hidden_effect = {
+				remove_ideas = SER_aleksandar_ii
+				add_ideas = SER_aleksandar_i
+			}
+		}
+	}
+	else_if = {
+		limit = { 
+			has_character = SER_dorde_karadjordjevic
+			SER_dorde_karadjordjevic = {
+				has_character_flag = SER_dorde_ii
+			}
+		}
+		SER_dorde_karadjordjevic = {
+			clr_character_flag = SER_dorde_ii
+			set_character_name = SER_dorde_i
+		}
+		if = {
+			limit = { 
+				has_idea = SER_dorde_ii
+			}
+			hidden_effect = {
+				remove_ideas = SER_dorde_ii
+				add_ideas = SER_dorde_i
+			}
+		}
+	}
 }
