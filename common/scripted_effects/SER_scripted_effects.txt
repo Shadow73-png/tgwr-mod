@@ -49,18 +49,11 @@ retire_SER_petar_i = {
 					SER_dorde_karadjordjevic
 				}
 			}
-			if = {
-				limit = {
-					OR = {
-						has_cosmetic_tag = SER_YUG
-						has_cosmetic_tag = YUG
-					}
-				}
-				add_ideas = SER_dorde_i
-				else = {
-					add_ideas = SER_dorde_ii
-				}
-			}
+			add_ideas = SER_dorde_karadjordjevic_king
+		}
+		SER_dorde_karadjordjevic = {
+			remove_country_leader_trait = insane_prince
+			add_country_leader_trait = insane_king
 		}
 		promote_character = SER_dorde_karadjordjevic
 	}
@@ -100,28 +93,15 @@ retire_SER_petar_i = {
 				OR = {
 					has_idea = SER_petar_i
 					has_idea = SER_petar_i_2
-					has_idea = SER_aleksandar_karadjordjevic
 				}
 			}
 			hidden_effect = {
 				remove_ideas = {
 					SER_petar_i
 					SER_petar_i_2
-					SER_aleksandar_karadjordjevic
 				}
 			}
-			if = {
-				limit = {
-					OR = {
-						has_cosmetic_tag = SER_YUG
-						has_cosmetic_tag = YUG
-					}
-				}
-				add_ideas = SER_aleksandar_i
-				else = {
-					add_ideas = SER_aleksandar_ii
-				}
-			}
+			add_ideas = SER_aleksandar_karadjordjevic
 		}
 		promote_character = SER_aleksandar_karadjordjevic
 	}
@@ -139,30 +119,19 @@ retire_SER_petar_i = {
 			set_character_name = SER_jelena_i
 		}
 		if = {
-			limit = { 
-				has_idea = SER_jelena_karadjordjevic_2
-			}
-			hidden_effect = {
-				remove_ideas = SER_jelena_karadjordjevic_2
-			}
-			add_ideas = SER_jelena_i_2
-		}
-		else_if = {
 			limit = {
 				OR = {
 					has_idea = SER_petar_i
 					has_idea = SER_petar_i_2
-					has_idea = SER_jelena_karadjordjevic
 				}
 			}
 			hidden_effect = {
 				remove_ideas = {
 					SER_petar_i
 					SER_petar_i_2
-					SER_jelena_karadjordjevic
 				}
 			}
-			add_ideas = SER_jelena_i
+			add_ideas = SER_jelena_karadjordjevic
 		}
 		promote_character = SER_jelena_karadjordjevic
 	}
@@ -178,17 +147,15 @@ retire_SER_petar_i = {
 				OR = {
 					has_idea = SER_petar_i
 					has_idea = SER_petar_i_2
-					has_idea = SER_arsenije_karadjordjevic
 				}
 			}
 			hidden_effect = {
 				remove_ideas = {
 					SER_petar_i
 					SER_petar_i_2
-					SER_arsenije_karadjordjevic
 				}
 			}
-			add_ideas = SER_arsenije_i
+			add_ideas = SER_arsenije_karadjordjevic
 		}
 		promote_character = SER_arsenije_karadjordjevic
 	}
@@ -206,15 +173,6 @@ SER_YUG_regnal_number_change = {
 		SER_aleksandar_karadjordjevic = {
 			clr_character_flag = SER_aleksandar_ii
 			set_character_name = SER_aleksandar_i
-		}
-		if = {
-			limit = { 
-				has_idea = SER_aleksandar_ii
-			}
-			hidden_effect = {
-				remove_ideas = SER_aleksandar_ii
-				add_ideas = SER_aleksandar_i
-			}
 		}
 	}
 	else_if = {

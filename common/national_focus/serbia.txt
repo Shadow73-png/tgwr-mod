@@ -238,10 +238,15 @@ focus_tree = {
 				ideology = fascism
 				popularity = 0.05
 			}
-			swap_ideas = {
-				remove_idea = SER_petar_i
-				add_idea = SER_petar_i_2
-			}
+			if = {
+				limit = { 
+					has_idea = SER_petar_i
+				}
+				swap_ideas = {
+					remove_idea = SER_petar_i
+					add_idea = SER_petar_i_2
+				}
+			}			
 		}
 		ai_will_do = {
 			factor = 50
@@ -2921,13 +2926,10 @@ focus_tree = {
 		available = {
 			OR = {
 				has_idea = SER_jelena_karadjordjevic
-				has_idea = SER_jelena_i
 				has_country_leader = {
 					character = SER_jelena_karadjordjevic
 				}
-
-			}
-			
+			}		
 		}
 		completion_reward = {
 			SER_jelena_karadjordjevic = {
@@ -2940,15 +2942,6 @@ focus_tree = {
 				swap_ideas = {
 					remove_idea = SER_jelena_karadjordjevic
 					add_idea = SER_jelena_karadjordjevic_2
-				}
-			}
-			else_if = {
-				limit = { 
-					has_idea = SER_jelena_i
-				}
-				swap_ideas = {
-					remove_idea = SER_jelena_karadjordjevic
-					add_idea = SER_jelena_i_2
 				}
 			}
 		}
@@ -3801,7 +3794,6 @@ focus_tree = {
 		available = {
 			OR = {
 				has_idea = SER_arsenije_karadjordjevic
-				has_idea = SER_arsenije_i
 				has_country_leader = {
 					character = SER_arsenije_karadjordjevic
 				}
@@ -5695,6 +5687,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SER_blame_regent
 		}
+		available = {
+			has_country_flag = SER_blame_black_hand
+		}
 		select_effect = {
 			country_event = {
 				id = ww1_serbia.49
@@ -5787,6 +5782,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SER_blame_black_hand
 		}
+		available = {
+			has_country_flag = SER_blame_regent
+		}
 		available_if_capitulated = yes
 		completion_reward = {
 			add_war_support = -0.1
@@ -5817,6 +5815,12 @@ focus_tree = {
 		prerequisite = {
 			focus = SER_blame_regent
 		}
+		available = {
+			has_character = SER_petar_i
+			NOT = {
+				has_government = neutrality
+			}
+		}
 		completion_reward = {
 			if = {
 				limit = {
@@ -5825,13 +5829,56 @@ focus_tree = {
 				SER_aleksandar_karadjordjevic = {
 					remove_unit_leader_role = yes
 				}
+				if = {
+					limit = { 
+						has_idea = SER_aleksandar_karadjordjevic
+					}
+					remove_ideas = SER_aleksandar_karadjordjevic
+				}
 			}
-			if = {
+			else_if = {
 				limit = {
 					has_country_flag = SER_george_regency
 				}
 				SER_dorde_karadjordjevic = {
 					remove_unit_leader_role = yes
+				}
+				if = {
+					limit = { 
+						has_idea = SER_dorde_karadjordjevic
+					}
+					remove_ideas = SER_dorde_karadjordjevic
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = SER_helen_regency
+				}
+				if = {
+					limit = { 
+						has_idea = SER_jelena_karadjordjevic
+					}
+					remove_ideas = SER_jelena_karadjordjevic
+				}
+				else_if = {
+					limit = { 
+						has_idea = SER_jelena_karadjordjevic_2
+					}
+					remove_ideas = SER_jelena_karadjordjevic_2
+				}	
+			}
+			else_if = {
+				limit = {
+					has_country_flag = SER_arsenije_regency
+				}
+				SER_arsenije_karadjordjevic = {
+					remove_unit_leader_role = yes
+				}
+				if = {
+					limit = { 
+						has_idea = SER_arsenije_karadjordjevic
+					}
+					remove_ideas = SER_arsenije_karadjordjevicSER_arsenije_karadjordjevic
 				}
 			}
 			add_ideas = SER_petar_i_2

@@ -1358,17 +1358,29 @@ country_event = {
 			ideology = fascism
 			popularity = -0.05
 		}
-		set_country_flag = blamed_black_hand
+		set_country_flag = SER_blame_black_hand
 	}
 	option = {
 		name = ww1_serbia.52.b
+		trigger = {
+			has_character = SER_petar_i
+			OR = {
+				has_country_flag = SER_alexander_regency
+				has_country_flag = SER_george_regency
+				has_country_flag = SER_helen_regency
+				has_country_flag = SER_arsenije_regency
+			}
+			NOT = {
+				has_government = neutrality
+			}
+		}
 		add_political_power = -200
 		add_popularity = {
 			ideology = neutrality
 			popularity = -0.1
 		}
 		add_stability = -0.1
-		set_country_flag = blamed_regent
+		set_country_flag = SER_blame_regent
 	}
 }
 
