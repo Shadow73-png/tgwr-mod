@@ -474,9 +474,9 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
 			FIN = {
@@ -573,27 +573,29 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				AND = {
-					any_character = {
-						is_prime_minister = yes
-						is_reformist = yes
-					}
-					RUS_pyotr_stolypin = {
-						NOT = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					AND = {
+						any_character = {
 							is_prime_minister = yes
+							is_reformist = yes
+						}
+						RUS_pyotr_stolypin = {
+							NOT = {
+								is_prime_minister = yes
+							}
 						}
 					}
-				}
-				FIN = {
-					OR = {
-						NOT = {
-							is_subject_of = ROOT
+					FIN = {
+						OR = {
+							NOT = {
+								is_subject_of = ROOT
+							}
+							has_autonomy_state = autonomy_tgwr_personal_union
 						}
-						has_autonomy_state = autonomy_tgwr_personal_union
 					}
 				}
 			}
@@ -613,9 +615,9 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
 			FIN = {
@@ -712,27 +714,29 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				AND = {
-					any_character = {
-						is_prime_minister = yes
-						is_reformist = yes
-					}
-					RUS_pyotr_stolypin = {
-						NOT = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					AND = {
+						any_character = {
 							is_prime_minister = yes
+							is_reformist = yes
+						}
+						RUS_pyotr_stolypin = {
+							NOT = {
+								is_prime_minister = yes
+							}
 						}
 					}
-				}
-				FIN = {
-					OR = {
-						NOT = {
-							is_subject_of = ROOT
+					FIN = {
+						OR = {
+							NOT = {
+								is_subject_of = ROOT
+							}
+							has_autonomy_state = autonomy_tgwr_personal_union
 						}
-						has_autonomy_state = autonomy_tgwr_personal_union
 					}
 				}
 			}
@@ -752,9 +756,9 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
 			FIN = {
@@ -848,28 +852,30 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				AND = {
-					any_character = {
-						is_prime_minister = yes
-						is_reformist = yes
-					}
-					RUS_pyotr_stolypin = {
-						NOT = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					AND = {
+						any_character = {
 							is_prime_minister = yes
+							is_reformist = yes
+						}
+						RUS_pyotr_stolypin = {
+							NOT = {
+								is_prime_minister = yes
+							}
 						}
 					}
-				}
-				FIN = {
-					OR = {
-						NOT = {
-							is_subject_of = ROOT
-							owns_state = 957
+					FIN = {
+						OR = {
+							NOT = {
+								is_subject_of = ROOT
+								owns_state = 957
+							}
+							has_autonomy_state = autonomy_tgwr_personal_union
 						}
-						has_autonomy_state = autonomy_tgwr_personal_union
 					}
 				}
 			}
@@ -889,20 +895,20 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
-			any_character = {
-				is_prime_minister = yes
-				is_reactionary = yes
-			}
 			FIN = {
 				is_subject_of = ROOT
 				NOT = {
 					has_autonomy_state = autonomy_tgwr_personal_union
 				}
+			}
+			any_character = {
+				is_prime_minister = yes
+				is_reactionary = yes
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_abolition_of_finnish_autonomy_passed_in_sc
@@ -982,20 +988,22 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = no
-				}
-				FIN = {
-					OR = {
-						NOT = {
-							is_subject_of = ROOT
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = no
+					}
+					FIN = {
+						OR = {
+							NOT = {
+								is_subject_of = ROOT
+							}
+							has_autonomy_state = autonomy_tgwr_personal_union
 						}
-						has_autonomy_state = autonomy_tgwr_personal_union
 					}
 				}
 			}
@@ -1015,11 +1023,17 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
+			FIN = {
+				is_subject_of = ROOT
+				NOT = {
+					has_autonomy_state = autonomy_tgwr_personal_union
+				}
+			}
 			any_character = {
 				is_prime_minister = yes
 				is_reformist = yes
@@ -1027,12 +1041,6 @@ RUS_state_council_gui_decision_category = {
 			RUS_pyotr_stolypin = {
 				NOT = {
 					is_prime_minister = yes
-				}
-			}
-			FIN = {
-				is_subject_of = ROOT
-				NOT = {
-					has_autonomy_state = autonomy_tgwr_personal_union
 				}
 			}
 			NOT = {
@@ -1133,23 +1141,25 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reformist = yes
-				}
-				RUS_pyotr_stolypin = {
-					is_prime_minister = yes
-				}
-				FIN = {
-					OR = {
-						NOT = {
-							is_subject_of = ROOT
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reformist = no
+					}
+					RUS_pyotr_stolypin = {
+						is_prime_minister = yes
+					}
+					FIN = {
+						OR = {
+							NOT = {
+								is_subject_of = ROOT
+							}
+							has_autonomy_state = autonomy_tgwr_personal_union
 						}
-						has_autonomy_state = autonomy_tgwr_personal_union
 					}
 				}
 			}
@@ -1170,15 +1180,17 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
-			has_agrarian_question = yes
 			any_character = {
 				is_prime_minister = yes
 				is_reactionary = no
+			}
+			RUS_alexander_krivoshein = {
+				is_part_of_the_cabinet = yes
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_peasant_land_ownership_passed_in_sc
@@ -1255,15 +1267,18 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					RUS_alexander_krivoshein = {
+						is_part_of_the_cabinet = no
+					}
 					NOT = {
 						has_agrarian_question = yes
 					}
@@ -1285,15 +1300,17 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
-			has_agrarian_question = yes
 			any_character = {
 				is_prime_minister = yes
 				is_reactionary = no
+			}
+			RUS_alexander_krivoshein = {
+				is_part_of_the_cabinet = yes
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_land_management_passed_in_sc
@@ -1370,15 +1387,18 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					RUS_alexander_krivoshein = {
+						is_part_of_the_cabinet = no
+					}
 					NOT = {
 						has_agrarian_question = yes
 					}
@@ -1400,15 +1420,17 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
-
-			has_agrarian_question = yes
+			
 			any_character = {
 				is_prime_minister = yes
 				is_reactionary = no
+			}
+			RUS_alexander_krivoshein = {
+				is_part_of_the_cabinet = yes
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_abolition_of_serfdom_in_caucasus_passed_in_sc
@@ -1483,14 +1505,18 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					RUS_alexander_krivoshein = {
+						is_part_of_the_cabinet = no
+					}
 					NOT = {
 						has_agrarian_question = yes
 					}
@@ -1512,15 +1538,17 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
-			has_agrarian_question = yes
 			any_character = {
 				is_prime_minister = yes
-				is_reformist = yes
+				is_reactionary = no
+			}
+			RUS_alexander_krivoshein = {
+				is_part_of_the_cabinet = yes
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_state_agricultural_bank_passed_in_sc
@@ -1597,15 +1625,18 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reformist = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					RUS_alexander_krivoshein = {
+						is_part_of_the_cabinet = no
+					}
 					NOT = {
 						has_agrarian_question = yes
 					}
@@ -1628,12 +1659,16 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_illiteracy = yes
 			duma_exists = yes
 			
-			has_illiteracy = yes
+			any_character = {
+				is_prime_minister = yes
+				is_reactionary = no
+			}
 			NOT = {
 				has_country_flag = RUS_law_on_secular_primary_schooling_passed_in_sc
 				has_country_flag = RUS_vote_in_state_council
@@ -1709,15 +1744,15 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
 					NOT = {
 						has_illiteracy = yes
 					}
@@ -1739,12 +1774,17 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			
 			has_illiteracy = yes
+			duma_exists = yes
+			
+			any_character = {
+				is_prime_minister = yes
+				is_reactionary = no
+			}
 			NOT = {
 				has_country_flag = RUS_rules_of_private_education_institutions_passed_in_sc
 				has_country_flag = RUS_vote_in_state_council
@@ -1820,15 +1860,15 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
 					NOT = {
 						has_illiteracy = yes
 					}
@@ -1850,12 +1890,16 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_illiteracy = yes
 			duma_exists = yes
 			
-			has_illiteracy = yes
+			any_character = {
+				is_prime_minister = yes
+				is_reactionary = no
+			}
 			NOT = {
 				has_country_flag = RUS_law_on_higher_primary_schools_passed_in_sc
 				has_country_flag = RUS_vote_in_state_council
@@ -1931,15 +1975,15 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
 					NOT = {
 						has_illiteracy = yes
 					}
@@ -1961,12 +2005,16 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_illiteracy = yes
 			duma_exists = yes
 			
-			has_illiteracy = yes
+			any_character = {
+				is_prime_minister = yes
+				is_reactionary = no
+			}
 			NOT = {
 				has_country_flag = RUS_law_on_universal_primary_schooling_passed_in_sc
 				has_country_flag = RUS_vote_in_state_council
@@ -2042,15 +2090,15 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
 					NOT = {
 						has_illiteracy = yes
 					}
@@ -2073,14 +2121,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			has_authoritarian_zemstvo = yes
-			passed_all_zemstvo_laws = no
+			
+			duma_exists = yes
 			any_character = {
 				is_prime_minister = yes
+				is_reactionary = no
+			}
+			any_character = {
+				is_minister_of_internal_affairs = yes
 				is_reactionary = no
 			}
 			NOT = {
@@ -2175,14 +2227,20 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_authoritarian_zemstvo = no
-				passed_all_zemstvo_laws = yes
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_authoritarian_zemstvo = no
+
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					any_character = {
+						is_minister_of_internal_affairs = yes
+						is_reactionary = yes
+					}
 				}
 			}
 		}
@@ -2201,14 +2259,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			has_authoritarian_zemstvo = yes
-			passed_all_zemstvo_laws = no
+			
+			duma_exists = yes
 			any_character = {
 				is_prime_minister = yes
+				is_reactionary = no
+			}
+			any_character = {
+				is_minister_of_internal_affairs = yes
 				is_reactionary = no
 			}
 			NOT = {
@@ -2285,14 +2347,20 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_authoritarian_zemstvo = no
-				passed_all_zemstvo_laws = yes
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_authoritarian_zemstvo = no
+
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					any_character = {
+						is_minister_of_internal_affairs = yes
+						is_reactionary = yes
+					}
 				}
 			}
 		}
@@ -2311,14 +2379,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			has_authoritarian_zemstvo = yes
-			passed_all_zemstvo_laws = no
+			
+			duma_exists = yes
 			any_character = {
 				is_prime_minister = yes
+				is_reactionary = no
+			}
+			any_character = {
+				is_minister_of_internal_affairs = yes
 				is_reactionary = no
 			}
 			NOT = {
@@ -2395,14 +2467,20 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_authoritarian_zemstvo = no
-				passed_all_zemstvo_laws = yes
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_authoritarian_zemstvo = no
+
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					any_character = {
+						is_minister_of_internal_affairs = yes
+						is_reactionary = yes
+					}
 				}
 			}
 		}
@@ -2421,14 +2499,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			has_authoritarian_zemstvo = yes
-			passed_all_zemstvo_laws = no
+			
+			duma_exists = yes
 			any_character = {
 				is_prime_minister = yes
+				is_reactionary = no
+			}
+			any_character = {
+				is_minister_of_internal_affairs = yes
 				is_reactionary = no
 			}
 			NOT = {
@@ -2505,14 +2587,20 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_authoritarian_zemstvo = no
-				passed_all_zemstvo_laws = yes
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_authoritarian_zemstvo = no
+
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					any_character = {
+						is_minister_of_internal_affairs = yes
+						is_reactionary = yes
+					}
 				}
 			}
 		}
@@ -2531,14 +2619,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			has_authoritarian_zemstvo = yes
-			passed_all_zemstvo_laws = no
+			
+			duma_exists = yes
 			any_character = {
 				is_prime_minister = yes
+				is_reactionary = no
+			}
+			any_character = {
+				is_minister_of_internal_affairs = yes
 				is_reactionary = no
 			}
 			NOT = {
@@ -2615,14 +2707,20 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_authoritarian_zemstvo = no
-				passed_all_zemstvo_laws = yes
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_authoritarian_zemstvo = no
+
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					any_character = {
+						is_minister_of_internal_affairs = yes
+						is_reactionary = yes
+					}
 				}
 			}
 		}
@@ -2641,14 +2739,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			has_authoritarian_zemstvo = yes
-			passed_all_zemstvo_laws = no
+			
+			duma_exists = yes
 			any_character = {
 				is_prime_minister = yes
+				is_reactionary = no
+			}
+			any_character = {
+				is_minister_of_internal_affairs = yes
 				is_reactionary = no
 			}
 			NOT = {
@@ -2725,14 +2827,20 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_authoritarian_zemstvo = no
-				passed_all_zemstvo_laws = yes
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_authoritarian_zemstvo = no
+
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					any_character = {
+						is_minister_of_internal_affairs = yes
+						is_reactionary = yes
+					}
 				}
 			}
 		}
@@ -2751,14 +2859,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			has_authoritarian_zemstvo = yes
-			passed_all_zemstvo_laws = no
+			
+			duma_exists = yes
 			any_character = {
 				is_prime_minister = yes
+				is_reactionary = no
+			}
+			any_character = {
+				is_minister_of_internal_affairs = yes
 				is_reactionary = no
 			}
 			NOT = {
@@ -2835,14 +2947,20 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_authoritarian_zemstvo = no
-				passed_all_zemstvo_laws = yes
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_authoritarian_zemstvo = no
+
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					any_character = {
+						is_minister_of_internal_affairs = yes
+						is_reactionary = yes
+					}
 				}
 			}
 		}
@@ -2861,14 +2979,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			has_authoritarian_zemstvo = yes
-			passed_all_zemstvo_laws = no
+			
+			duma_exists = yes
 			any_character = {
 				is_prime_minister = yes
+				is_reactionary = no
+			}
+			any_character = {
+				is_minister_of_internal_affairs = yes
 				is_reactionary = no
 			}
 			NOT = {
@@ -2945,14 +3067,20 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_authoritarian_zemstvo = no
-				passed_all_zemstvo_laws = yes
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_authoritarian_zemstvo = no
+
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					any_character = {
+						is_minister_of_internal_affairs = yes
+						is_reactionary = yes
+					}
 				}
 			}
 		}
@@ -2971,15 +3099,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
-			
 			has_authoritarian_zemstvo = yes
-			passed_all_zemstvo_laws = no
+			
+			duma_exists = yes
 			any_character = {
 				is_prime_minister = yes
+				is_reactionary = no
+			}
+			any_character = {
+				is_minister_of_internal_affairs = yes
 				is_reactionary = no
 			}
 			NOT = {
@@ -3056,14 +3187,20 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_authoritarian_zemstvo = no
-				passed_all_zemstvo_laws = yes
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_authoritarian_zemstvo = no
+
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+					any_character = {
+						is_minister_of_internal_affairs = yes
+						is_reactionary = yes
+					}
 				}
 			}
 		}
@@ -3082,17 +3219,21 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_authoritarian_zemstvo = yes
 			duma_exists = yes
 			
-			has_authoritarian_zemstvo = yes
-			passed_all_zemstvo_laws = yes
 			any_character = {
 				is_prime_minister = yes
 				is_reformist = yes
 			}
+			any_character = {
+				is_minister_of_internal_affairs = yes
+				is_reformist = yes
+			}
+			passed_all_zemstvo_laws = yes
 			NOT = {
 				has_country_flag = RUS_law_on_abolition_of_zemstvo_district_chiefs_passed_in_sc
 				has_country_flag = RUS_vote_in_state_council
@@ -3169,14 +3310,20 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_authoritarian_zemstvo = no
-				passed_all_zemstvo_laws = no
-				any_character = {
-					is_prime_minister = yes
-					is_reformist = no
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_authoritarian_zemstvo = no
+					passed_all_zemstvo_laws = no
+					any_character = {
+						is_prime_minister = yes
+						is_reformist = no
+					}
+					any_character = {
+						is_minister_of_internal_affairs = yes
+						is_reformist = no
+					}
 				}
 			}
 		}
@@ -3196,12 +3343,12 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_labour_question = yes
 			duma_exists = yes
 			
-			has_labour_question = yes
 			any_character = {
 				is_prime_minister = yes
 				is_reactionary = no
@@ -3276,15 +3423,15 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
 					NOT = {
 						has_labour_question = yes
 					}
@@ -3306,15 +3453,16 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_country_flag = RUS_insurance_funds_created
+			has_labour_question = yes
 			duma_exists = yes
 			
-			has_labour_question = yes
 			any_character = {
 				is_prime_minister = yes
-				is_reactionary = no
+				is_reformist = yes
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_expanded_insurance_passed_in_sc
@@ -3386,17 +3534,18 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reformist = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reformist = no
+					}
 					NOT = {
 						has_labour_question = yes
+						has_country_flag = RUS_insurance_funds_created
 					}
 				}
 			}
@@ -3416,15 +3565,16 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_country_flag = RUS_insurance_funds_created
+			has_labour_question = yes
 			duma_exists = yes
 			
-			has_labour_question = yes
 			any_character = {
 				is_prime_minister = yes
-				is_reactionary = no
+				is_reformist = yes
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_employee_rights_protection_passed_in_sc
@@ -3500,17 +3650,18 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reformist = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reformist = no
+					}
 					NOT = {
 						has_labour_question = yes
+						has_country_flag = RUS_insurance_funds_created
 					}
 				}
 			}
@@ -3530,15 +3681,16 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_country_flag = RUS_insurance_funds_created
+			has_labour_question = yes
 			duma_exists = yes
 			
-			has_labour_question = yes
 			any_character = {
 				is_prime_minister = yes
-				is_reactionary = no
+				is_reformist = yes
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_10_hour_workday_passed_in_sc
@@ -3614,17 +3766,18 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reformist = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reformist = no
+					}
 					NOT = {
 						has_labour_question = yes
+						has_country_flag = RUS_insurance_funds_created
 					}
 				}
 			}
@@ -3644,15 +3797,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_country_flag = RUS_insurance_funds_expanded
+			has_country_flag = RUS_law_on_10_hour_workday_passed_in_sc
+			has_country_flag = RUS_law_on_employee_rights_protection_passed_in_sc
+			has_labour_question = yes
+			
 			duma_exists = yes
 			
-			has_labour_question = yes
-			any_character = {
+			RUS_pyotr_stolypin = {
 				is_prime_minister = yes
-				is_reactionary = no
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_controlled_unions_passed_in_sc
@@ -3728,17 +3884,19 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					RUS_pyotr_stolypin = {
+						is_prime_minister = no
+					}
 					NOT = {
 						has_labour_question = yes
+						has_country_flag = RUS_insurance_funds_expanded
+						has_country_flag = RUS_law_on_10_hour_workday_passed_in_sc
+						has_country_flag = RUS_law_on_employee_rights_protection_passed_in_sc
 					}
 				}
 			}
@@ -3758,15 +3916,18 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_country_flag = RUS_insurance_funds_expanded
+			has_country_flag = RUS_law_on_10_hour_workday_passed_in_sc
+			has_country_flag = RUS_law_on_employee_rights_protection_passed_in_sc
+			has_labour_question = yes
+			
 			duma_exists = yes
 			
-			has_labour_question = yes
-			any_character = {
+			RUS_alexander_krivoshein = {
 				is_prime_minister = yes
-				is_reactionary = no
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_freedom_of_assembly_passed_in_sc
@@ -3842,17 +4003,19 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
-				}
-				hidden_trigger = {
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					
+					RUS_alexander_krivoshein = {
+						is_prime_minister = no
+					}
 					NOT = {
 						has_labour_question = yes
+						has_country_flag = RUS_insurance_funds_expanded
+						has_country_flag = RUS_law_on_10_hour_workday_passed_in_sc
+						has_country_flag = RUS_law_on_employee_rights_protection_passed_in_sc
 					}
 				}
 			}
@@ -3873,20 +4036,21 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			controls_poland = yes
-			NOT = {
-				has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
-				has_country_flag = RUS_vote_in_state_council
-			}
+			
+			duma_exists = yes
 			766 = {
-				is_owned_by = ROOT
+				is_owned_by = RUS
 				has_dynamic_modifier = {
 					modifier = RUS_tsardom_of_poland	
 				}
+			}
+			NOT = {
+				has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
+				has_country_flag = RUS_vote_in_state_council
 			}
 			has_completed_focus = RUS_kholm_governorate
 			has_country_flag = RUS_law_on_kholm_governorate_passed_in_sd
@@ -3958,13 +4122,18 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				controls_poland = no
-				NOT = {
-					766 = {
-						is_owned_by = ROOT
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					controls_poland = no
+					NOT = {
+						766 = {
+							is_owned_by = RUS
+							has_dynamic_modifier = {
+								modifier = RUS_tsardom_of_poland	
+							}
+						}
 					}
 				}
 			}
@@ -3984,15 +4153,12 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
-			duma_exists = yes
 			controls_poland = yes
-			NOT = {
-				has_country_flag = RUS_law_on_ethnographic_poland_passed_in_sc
-				has_country_flag = RUS_vote_in_state_council
-			}
+			
+			duma_exists = yes
 			95 = {
 				is_owned_by = ROOT
 				NOT = {
@@ -4006,6 +4172,10 @@ RUS_state_council_gui_decision_category = {
 				has_dynamic_modifier = {
 					modifier = RUS_tsardom_of_poland	
 				}
+			}
+			NOT = {
+				has_country_flag = RUS_law_on_ethnographic_poland_passed_in_sc
+				has_country_flag = RUS_vote_in_state_council
 			}
 			has_completed_focus = RUS_ethnographic_poland
 			has_country_flag = RUS_law_on_ethnographic_poland_passed_in_sd
@@ -4083,16 +4253,26 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				controls_poland = no
-				NOT = {
-					95 = {
-						is_owned_by = ROOT
-					}
-					11 = {
-						is_owned_by = ROOT
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					controls_poland = no
+					NOT = {
+						95 = {
+							is_owned_by = ROOT
+							NOT = {
+								has_dynamic_modifier = {
+									modifier = RUS_tsardom_of_poland	
+								}
+							}
+						}
+						11 = {
+							is_owned_by = ROOT
+							has_dynamic_modifier = {
+								modifier = RUS_tsardom_of_poland	
+							}
+						}
 					}
 				}
 			}
@@ -4112,16 +4292,20 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			controls_poland = yes
 			duma_exists = yes
 			
+			any_character = {
+				is_prime_minister = yes
+				is_reactionary = no
+			}
 			NOT = {
 				has_country_flag = RUS_law_on_autonomy_for_polish_cities_passed_in_sc
 				has_country_flag = RUS_vote_in_state_council
 			}
-			controls_poland = yes
 			has_completed_focus = RUS_autonomy_for_polish_cities
 			has_country_flag = RUS_law_on_autonomy_for_polish_cities_passed_in_sd
 		}
@@ -4190,11 +4374,16 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				controls_poland = no
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					controls_poland = no
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+				}
 			}
 		}
 		cancel_effect = {
@@ -4212,16 +4401,20 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			controls_poland = yes
 			duma_exists = yes
 			
+			any_character = {
+				is_prime_minister = yes
+				is_reactionary = no
+			}
 			NOT = {
 				has_country_flag = RUS_law_on_polish_zemstvo_passed_in_sc
 				has_country_flag = RUS_vote_in_state_council
 			}
-			controls_poland = yes
 			has_completed_focus = RUS_polish_zemstvo
 			has_country_flag = RUS_law_on_polish_zemstvo_passed_in_sd
 		}
@@ -4290,11 +4483,16 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				controls_poland = no
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					controls_poland = no
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+				}
 			}
 		}
 		cancel_effect = {
@@ -4312,16 +4510,35 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			controls_poland = yes
+			
 			duma_exists = yes
 			
-			NOT = {
-				has_country_flag = RUS_law_personal_union_with_poland_passed_in_sc
-				has_country_flag = RUS_vote_in_state_council
+			if = {
+				limit = {
+					OR = {
+						RUS_pyotr_stolypin = {
+							is_prime_minister = yes
+						}
+						any_character = {
+							is_prime_minister = yes
+							is_reactionary = no
+							is_reformist = no
+						}
+					}
+				}
+				has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
+				has_country_flag = RUS_law_on_ethnographic_poland_passed_in_sc
 			}
-			controls_poland = yes
+			else = {
+				any_character = {
+					is_prime_minister = yes
+					is_reformist = yes
+				}
+			}
 			has_completed_focus = RUS_autonomy_for_poland
 			has_country_flag = RUS_law_personal_union_with_poland_passed_in_sd
 		}
@@ -4443,11 +4660,36 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				controls_poland = no
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					controls_poland = no
+					if = {
+						limit = {
+							OR = {
+								RUS_pyotr_stolypin = {
+									is_prime_minister = yes
+								}
+								any_character = {
+									is_prime_minister = yes
+									is_reactionary = no
+									is_reformist = no
+								}
+							}
+						}
+						NOT = {
+							has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
+							has_country_flag = RUS_law_on_ethnographic_poland_passed_in_sc
+						}
+					}
+					else = {
+						any_character = {
+							is_prime_minister = yes
+							is_reformist = no
+						}
+					}
+				}
 			}
 		}
 		cancel_effect = {
@@ -4466,9 +4708,9 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
 			NOT = {
@@ -4541,7 +4783,12 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			duma_is_active = no
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+				}
+			}
 		}
 		cancel_effect = {
 			clr_country_flag = RUS_vote_in_state_council
@@ -4559,11 +4806,13 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			NOT = {
+				has_idea = RUS_drunken_budget
+			}
 			duma_exists = yes
-			
 			any_character = {
 				is_minister_of_finance = yes
 				is_reformist = yes
@@ -4638,13 +4887,17 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_minister_of_finance = yes
-					is_reformist = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					NOT = {
+						has_idea = RUS_drunken_budget
+					}
+					any_character = {
+						is_minister_of_finance = yes
+						is_reformist = no
+					}
 				}
 			}
 		}
@@ -4663,11 +4916,11 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_idea = RUS_income_tax
 			duma_exists = yes
-			
 			any_character = {
 				is_minister_of_finance = yes
 				is_reformist = yes
@@ -4764,13 +5017,17 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_minister_of_finance = yes
-					is_reformist = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					NOT = {
+						has_idea = RUS_income_tax
+					}
+					any_character = {
+						is_minister_of_finance = yes
+						is_reformist = no
+					}
 				}
 			}
 		}
@@ -4790,12 +5047,13 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
+			has_monopolies = yes
+			
 			duma_exists = yes
 			
-			has_monopolies = yes
 			any_character = {
 				is_minister_of_finance = yes
 				is_reformist = yes
@@ -4871,13 +5129,15 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_minister_of_finance = yes
-					is_reformist = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					has_monopolies = no
+					any_character = {
+						is_minister_of_finance = yes
+						is_reformist = no
+					}
 				}
 			}
 		}
@@ -4897,18 +5157,19 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
-			any_character = {
-				is_prime_minister = yes
-				is_reformist = no
+			RUS_vladimir_sukhomlinov = {
+				is_part_of_the_cabinet = yes
 			}
 			NOT = {
 				has_country_flag = RUS_new_conscription_law_passed_in_sc
 				has_country_flag = RUS_vote_in_state_council
+				has_country_flag = RUS_failed_army_reforms
+				has_war_with_major = yes
 			}
 			has_completed_focus = RUS_new_conscription_law
 			has_country_flag = RUS_new_conscription_law_passed_in_sd
@@ -4976,13 +5237,13 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reformist = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					RUS_vladimir_sukhomlinov = {
+						is_part_of_the_cabinet = no
+					}
 				}
 			}
 		}
@@ -5001,18 +5262,19 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
-			any_character = {
-				is_prime_minister = yes
-				is_reformist = no
+			RUS_vladimir_sukhomlinov = {
+				is_part_of_the_cabinet = yes
 			}
 			NOT = {
 				has_country_flag = RUS_grand_fleet_programme_passed_in_sc
 				has_country_flag = RUS_vote_in_state_council
+				has_country_flag = RUS_failed_army_reforms
+				has_war_with_major = yes
 			}
 			has_completed_focus = RUS_grand_fleet_programme
 			has_country_flag = RUS_grand_fleet_programme_passed_in_sd
@@ -5080,13 +5342,15 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reformist = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					RUS_vladimir_sukhomlinov = {
+						is_part_of_the_cabinet = no
+					}
+					has_country_flag = RUS_failed_army_reforms
+					has_war_with_major = yes
 				}
 			}
 		}
@@ -5105,10 +5369,14 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
+			
+			RUS_vladimir_sukhomlinov = {
+				is_part_of_the_cabinet = yes
+			}
 			NOT = {
 				has_country_flag = RUS_failed_army_reforms
 				has_country_flag = RUS_lesser_rearmament_programme_passed_in_sc
@@ -5187,11 +5455,16 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_war_with_major = yes
-				has_country_flag = RUS_failed_army_reforms
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					RUS_vladimir_sukhomlinov = {
+						is_part_of_the_cabinet = no
+					}
+					has_country_flag = RUS_failed_army_reforms
+					has_war_with_major = yes
+				}
 			}
 		}
 		cancel_effect = {
@@ -5209,10 +5482,14 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
+			
+			RUS_vladimir_sukhomlinov = {
+				is_part_of_the_cabinet = yes
+			}
 			NOT = {
 				has_country_flag = RUS_failed_army_reforms
 				has_country_flag = RUS_great_army_programme_passed_in_sc
@@ -5293,11 +5570,16 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_war_with_major = yes
-				has_country_flag = RUS_failed_army_reforms
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					RUS_vladimir_sukhomlinov = {
+						is_part_of_the_cabinet = no
+					}
+					has_country_flag = RUS_failed_army_reforms
+					has_war_with_major = yes
+				}
 			}
 		}
 		cancel_effect = {
@@ -5316,10 +5598,14 @@ RUS_state_council_gui_decision_category = {
 			NOT = { 
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
+			any_character = {
+				is_minister_of_finance = yes
+				is_reformist = no
+			}
 			NOT = {
 				has_country_flag = RUS_law_on_balanced_budget_passed_in_sc
 				has_idea = RUS_balanced_budget
@@ -5398,199 +5684,16 @@ RUS_state_council_gui_decision_category = {
 		cost = 50
 		days_remove = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				any_character = {
-					is_minister_of_finance = yes
-					is_reformist = yes
-				}
-				has_idea = RUS_balanced_budget
-			}
-		}
-		cancel_effect = {
-			clr_country_flag = RUS_vote_in_state_council
-			set_variable = { law_acceptance_progress = 0 }
-			#RUS_update_state_council_gui = yes
-		}
-	}
-	#FUNDING
-	RUS_secure_funding_for_fortresses_sc = {
-		icon = GFX_decision_eng_trade_unions_support
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			NOT = { 
-				has_country_flag = RUS_vote_in_state_council 
-			}
-		}
-		visible = {
-			duma_is_active = yes
-			duma_exists = yes
-			NOT = {
-				has_country_flag = RUS_has_funding_for_fortresses_sc
-				has_country_flag = RUS_vote_in_state_council
-			}
-			has_completed_focus = RUS_reinforce_western_fortresses
-			has_country_flag = RUS_has_funding_for_fortresses_sd
-		}
-		complete_effect = {
-			custom_effect_tooltip = RUS_need_majority_sc
-			set_temp_variable = { RUS_state_council_socialist_support = 0 }
-			set_temp_variable = { RUS_state_council_liberal_support = 0 }
-			set_temp_variable = { RUS_state_council_centrist_support = 1 }
-			set_temp_variable = { RUS_state_council_rightist_support = 1 }
-			RUS_state_council_set_law_support = yes
-			set_country_flag = RUS_vote_in_state_council
-		}
-		remove_effect = {
-			if = {
-				limit = {
-					check_variable = {
-						law_acceptance_progress = 100
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					any_character = {
+						is_minister_of_finance = yes
+						is_reformist = yes
 					}
-					check_variable = {
-						total_loyalist_count > RUS_duna_majority_threshold
-					}
+					has_idea = RUS_balanced_budget
 				}
-				custom_effect_tooltip = RUS_likely_to_pass
-			}
-			else = {
-				custom_effect_tooltip = RUS_likely_to_be_rejected
-			}
-			if = {
-				limit = {
-					check_variable = {
-						law_acceptance_progress = 100
-					}
-					check_variable = {
-						total_loyalist_count > RUS_duna_majority_threshold
-					}
-				}
-				hidden_effect = {
-					set_country_flag = RUS_has_funding_for_fortresses_sc
-					clr_country_flag = RUS_has_funding_for_fortresses_sd
-					country_event = ww1_russia_common.2
-				}
-			}
-			else = {
-				hidden_effect = {
-					clr_country_flag = RUS_has_funding_for_fortresses_sd
-					country_event = ww1_russia_common.4
-				}
-			}
-			custom_effect_tooltip = RUS_if_the_law_passes
-			effect_tooltip = {
-				custom_effect_tooltip = RUS_has_funding_for_fortresses
-			}
-			custom_effect_tooltip = RUS_if_the_law_is_rejected
-			effect_tooltip = {
-				custom_effect_tooltip = RUS_law_has_to_be_passed_again
-			}
-			clr_country_flag = RUS_vote_in_state_council
-			set_variable = { law_acceptance_progress = 0 }
-			#RUS_update_state_council_gui = yes
-		}
-		cost = 25
-		days_remove = 30
-		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_country_flag = RUS_has_funding_for_fortresses
-			}
-		}
-		cancel_effect = {
-			clr_country_flag = RUS_vote_in_state_council
-			set_variable = { law_acceptance_progress = 0 }
-			#RUS_update_state_council_gui = yes
-		}
-	}
-	RUS_secure_funding_for_railways_sc = {
-		icon = GFX_decision_eng_trade_unions_support
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			NOT = { 
-				has_country_flag = RUS_vote_in_state_council 
-			}
-		}
-		visible = {
-			duma_is_active = yes
-			duma_exists = yes
-			NOT = {
-				has_country_flag = RUS_has_funding_for_railways_sc
-				has_country_flag = RUS_vote_in_state_council
-			}
-			has_completed_focus = RUS_railroad_expansion
-			has_country_flag = RUS_has_funding_for_railways_sd
-		}
-		complete_effect = {
-			custom_effect_tooltip = RUS_need_majority_sc
-			set_temp_variable = { RUS_state_council_socialist_support = 0 }
-			set_temp_variable = { RUS_state_council_liberal_support = 1 }
-			set_temp_variable = { RUS_state_council_centrist_support = 1 }
-			set_temp_variable = { RUS_state_council_rightist_support = 0 }
-			RUS_state_council_set_law_support = yes
-			set_country_flag = RUS_vote_in_state_council
-		}
-		remove_effect = {
-			if = {
-				limit = {
-					check_variable = {
-						law_acceptance_progress = 100
-					}
-					check_variable = {
-						total_loyalist_count > RUS_duna_majority_threshold
-					}
-				}
-				custom_effect_tooltip = RUS_likely_to_pass
-			}
-			else = {
-				custom_effect_tooltip = RUS_likely_to_be_rejected
-			}
-			if = {
-				limit = {
-					check_variable = {
-						law_acceptance_progress = 100
-					}
-					check_variable = {
-						total_loyalist_count > RUS_duna_majority_threshold
-					}
-				}
-				hidden_effect = {
-					set_country_flag = RUS_has_funding_for_railways_sc
-					clr_country_flag = RUS_has_funding_for_railways_sd
-					country_event = ww1_russia_common.2
-				}
-			}
-			else = {
-				hidden_effect = {
-					clr_country_flag = RUS_has_funding_for_railways
-					country_event = ww1_russia_common.4
-				}
-			}
-			custom_effect_tooltip = RUS_if_the_law_passes
-			effect_tooltip = {
-				custom_effect_tooltip = RUS_has_funding_for_railways
-			}
-			custom_effect_tooltip = RUS_if_the_law_is_rejected
-			effect_tooltip = {
-				custom_effect_tooltip = RUS_law_has_to_be_passed_again
-			}
-			clr_country_flag = RUS_vote_in_state_council
-			set_variable = { law_acceptance_progress = 0 }
-			#RUS_update_state_council_gui = yes
-		}
-		cost = 25
-		days_remove = 30
-		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				has_country_flag = RUS_has_funding_for_railways
 			}
 		}
 		cancel_effect = {

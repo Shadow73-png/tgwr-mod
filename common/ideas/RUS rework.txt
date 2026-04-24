@@ -8,12 +8,44 @@ ideas = {
 			removal_cost = -1
 			
 			available = {
-				duma_is_active = yes
+				duma_exists = yes
 			}
 
 			modifier = {
 				political_power_gain = 0.5
 				neutrality_drift = 0.01
+			}
+		}
+		RUS_kokovtsovs_political_system = {
+			
+			allowed = { always = no }
+			
+			removal_cost = -1
+			
+			available = {
+				duma_exists = yes
+			}
+
+			modifier = {
+				stability_factor = 0.025
+				political_power_gain = 0.25
+			}
+		}
+		RUS_autocracy_in_all_but_name = {
+			
+			allowed = { always = no }
+			
+			removal_cost = -1
+			
+			available = {
+				duma_exists = yes
+			}
+
+			modifier = {
+				stability_factor = -0.025
+				political_power_gain = 0.5
+				neutrality_drift = 0.01
+				fascism_drift = 0.01
 			}
 		}
 		RUS_progressive_bloc = {
@@ -23,7 +55,7 @@ ideas = {
 			removal_cost = -1
 			
 			available = {
-				duma_is_active = yes
+				duma_exists = yes
 			}
 
 			modifier = {
@@ -434,7 +466,7 @@ ideas = {
 				communism_drift = -0.02
 			}
 		}
-		RUS_strikes = {
+		RUS_strikes_suppression = {
 			picture = RUS_labour_question
 			
 			allowed = { always = no }
@@ -443,9 +475,8 @@ ideas = {
 			
 			available = {
 				has_labour_question = yes
-				NOT = {
-					has_idea = RUS_appeasement_of_workers
-					has_country_flag = RUS_strikes_suppressed
+				RUS_vladimir_kokovtsov = {
+					is_prime_minister = yes
 				}
 			}
 
@@ -453,10 +484,9 @@ ideas = {
 			
 			modifier = {
 				stability_factor = -0.025
-				communism_drift = 0.02
-				industrial_capacity_factory = -0.05
-				industrial_capacity_dockyard = -0.05
-				fuel_gain_factor = -0.25
+				communism_drift = -0.02
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
 			}
 		}
 		RUS_general_strike = {
@@ -478,27 +508,6 @@ ideas = {
 				industrial_capacity_factory = -0.2
 				industrial_capacity_dockyard = -0.2
 				fuel_gain_factor = -0.5
-			}
-		}
-		RUS_appeasement_of_workers = {
-			picture = RUS_labour_question
-			
-			allowed = { always = no }
-			
-			allowed_civil_war = { original_tag = RUS }
-			
-			available = {
-				has_labour_question = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				stability_weekly = 0.001
-				neutrality_drift = 0.01
-				industrial_capacity_factory = -0.05
-				industrial_capacity_dockyard = -0.05
-				consumer_goods_factor = 0.15
 			}
 		}
 		RUS_crippling_illiteracy = {
@@ -1269,22 +1278,66 @@ ideas = {
 			
 			allowed_civil_war = { original_tag = RUS }
 			
+			available = {
+				RUS_vladimir_kokovtsov = {
+					is_prime_minister = yes
+				}
+				RUS_nikolay_maklakov = {
+					is_minister_of_internal_affairs = yes
+				}
+			}
+
 			removal_cost = -1
 			
 			modifier = {
 				political_power_cost = 0.25
-				consumer_goods_factor = 0.1
-				stability_weekly = 0.001
-				democratic_drift = 0.01
 			}
 
 			on_remove = {
-				set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
-				RUS_modify_loyalty_center_right = yes
-				set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
-				RUS_modify_loyalty_center_left = yes
-				set_temp_variable = { RUS_add_police_reform_progress_var = 10 }
+				add_political_power = 100
+				set_temp_variable = { RUS_add_police_reform_progress_var = 15 }
 				RUS_add_police_reform_progress = yes
+			}
+		}
+		RUS_internal_audit_idea = {
+			picture = RUS_increased_conscription
+			
+			allowed = { always = no }
+			
+			allowed_civil_war = { original_tag = RUS }
+
+			available = {
+				RUS_vladimir_kokovtsov = {
+					is_prime_minister = yes
+				}
+				RUS_nikolay_maklakov = {
+					is_minister_of_internal_affairs = yes
+				}
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = 0.25
+			}
+
+			on_remove = {
+				set_temp_variable = {
+					RUS_modify_loyalty_center_left_var = 2.5
+				}
+				RUS_modify_loyalty_center_left = yes
+				set_temp_variable = {
+					RUS_modify_loyalty_center_right_var = 2.5
+				}
+				RUS_modify_loyalty_center_right = yes
+				set_temp_variable = {
+					RUS_add_agrarian_reform_progress_var = 5
+				}
+				RUS_add_agrarian_reform_progress = yes
+				set_temp_variable = {
+					RUS_add_education_reform_progress_var = 5
+				}
+				RUS_add_education_reform_progress = yes
 			}
 		}
 		RUS_complete_police_reform = {
@@ -1298,10 +1351,6 @@ ideas = {
 			
 			modifier = {
 				stability_factor = 0.025
-				political_power_factor = 0.05
-				compliance_growth = 0.25
-				resistance_activity = -0.5
-				communism_drift = -0.02
 			}
 		}
 		RUS_drunken_budget = {

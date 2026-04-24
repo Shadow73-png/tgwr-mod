@@ -232,141 +232,230 @@ is_character_available_as_pm = {
 	}
 }
 
+RUS_liberal_demands = {
+	custom_trigger_tooltip = {
+		tooltip = RUS_liberal_demands_tt
+		has_country_flag = RUS_coalition_with_liberals
+		set_temp_variable = {
+			RUS_agrarian_reform_progress_temp_var = 25
+		}
+		set_temp_variable = {
+			RUS_education_reform_progress_temp_var = 25
+		}
+		set_temp_variable = {
+			RUS_labour_reform_progress_temp_var = 10
+		}
+		set_temp_variable = {
+			RUS_zemstvo_reform_progress_temp_var = 50
+		}
+		set_temp_variable = {
+			RUS_center_left_loyalty_trigger_var = 40
+		}
+		AND = {
+			check_variable = {
+				var = RUS_agrariran_reform_progress_var
+				value = RUS_agrarian_reform_progress_temp_var
+				compare = greater_than_or_equals
+				tooltip = has_agrarian_reform_progress_tt
+			}
+			check_variable = {
+				var = RUS_education_reform_progress_var
+				value = RUS_education_reform_progress_temp_var
+				compare = greater_than_or_equals
+				tooltip = has_education_reform_progress_tt
+			}
+			check_variable = {
+				var = RUS_labour_reform_progress_temp_var
+				value = RUS_labour_reform_progress_temp_var
+				compare = greater_than_or_equals
+				tooltip = has_labour_reform_progress_tt
+			}
+			check_variable = {
+				var = RUS_zemstvo_reform_progress_var
+				value = RUS_zemstvo_reform_progress_temp_var
+				compare = greater_than_or_equals
+				tooltip = has_zemstvo_reform_progress_tt
+			}
+			check_variable = {
+				var = center_left_loyalty
+				value = RUS_center_left_loyalty_trigger_var
+				compare = greater_than_or_equals
+				tooltip = RUS_center_left_loyalty_trigger_tt
+			}
+		}
+		NOT = {
+			has_country_flag = RUS_rigged_the_election
+		}
+	}
+}
+
 RUS_liberals_satisfied = {
 	custom_trigger_tooltip = {
 		tooltip = RUS_liberals_satisfied_tt
-		if = {
-			limit = {
-				has_country_flag = RUS_coalition_with_liberals
+		has_country_flag = RUS_coalition_with_liberals
+		set_temp_variable = {
+			RUS_agrarian_reform_progress_temp_var = 25
+		}
+		set_temp_variable = {
+			RUS_education_reform_progress_temp_var = 25
+		}
+		set_temp_variable = {
+			RUS_labour_reform_progress_temp_var = 10
+		}
+		set_temp_variable = {
+			RUS_zemstvo_reform_progress_temp_var = 50
+		}
+		set_temp_variable = {
+			RUS_center_left_loyalty_trigger_var = 40
+		}
+		AND = {
+			check_variable = {
+				var = RUS_agrariran_reform_progress_var
+				value = RUS_agrarian_reform_progress_temp_var
+				compare = greater_than_or_equals
+				tooltip = has_agrarian_reform_progress_tt
 			}
-			set_temp_variable = {
-				RUS_agrarian_reform_progress_temp_var = 20
+			check_variable = {
+				var = RUS_education_reform_progress_var
+				value = RUS_education_reform_progress_temp_var
+				compare = greater_than_or_equals
+				tooltip = has_education_reform_progress_tt
 			}
-			set_temp_variable = {
-				RUS_education_reform_progress_temp_var = 20
+			check_variable = {
+				var = RUS_labour_reform_progress_temp_var
+				value = RUS_labour_reform_progress_temp_var
+				compare = greater_than_or_equals
+				tooltip = has_labour_reform_progress_tt
 			}
-			set_temp_variable = {
-				RUS_labour_reform_progress_temp_var = 40
+			check_variable = {
+				var = RUS_zemstvo_reform_progress_var
+				value = RUS_zemstvo_reform_progress_temp_var
+				compare = greater_than_or_equals
+				tooltip = has_zemstvo_reform_progress_tt
 			}
-			set_temp_variable = {
-				RUS_zemstvo_reform_progress_temp_var = 60
-			}
-			count_triggers = {
-				amount = 3
-				check_variable = {
-					var = RUS_agrariran_reform_progress_var
-					value = RUS_agrarian_reform_progress_temp_var
-					compare = greater_than_or_equals
-					tooltip = has_agrarian_reform_progress_tt
-				}
-				check_variable = {
-					var = RUS_education_reform_progress_var
-					value = RUS_education_reform_progress_temp_var
-					compare = greater_than_or_equals
-					tooltip = has_education_reform_progress_tt
-				}
-				check_variable = {
-					var = RUS_labour_reform_progress_var
-					value = RUS_labour_reform_progress_temp_var
-					compare = greater_than_or_equals
-					tooltip = has_labour_reform_progress_tt
-				}
-				check_variable = {
-					var = RUS_zemstvo_reform_progress_var
-					value = RUS_zemstvo_reform_progress_temp_var
-					compare = greater_than_or_equals
-					tooltip = has_zemstvo_reform_progress_tt
-				}
-			}
-			NOT = {
-				has_country_flag = RUS_rigged_the_election
-				has_country_flag = RUS_centrists_left_the_coalition
+			check_variable = {
+				var = center_left_loyalty
+				value = RUS_center_left_loyalty_trigger_var
+				compare = greater_than_or_equals
+				tooltip = RUS_center_left_loyalty_trigger_tt
 			}
 		}
-		else = {
-			always = no
+		NOT = {
+			has_country_flag = RUS_rigged_the_election
 		}
 	}
 }
 
+RUS_centrist_demands = {
+	custom_trigger_tooltip = {
+		tooltip = RUS_centrist_demands_tt
+		has_country_flag = RUS_coalition_with_centrists
+		set_temp_variable = {
+			RUS_agrarian_reform_progress_temp_var = 15
+		}
+		set_temp_variable = {
+			RUS_zemstvo_reform_progress_temp_var = 40
+		}
+		check_variable = {
+			var = RUS_agrariran_reform_progress_var
+			value = RUS_agrarian_reform_progress_temp_var
+			compare = greater_than_or_equals
+			tooltip = has_agrarian_reform_progress_tt
+		}
+		check_variable = {
+			var = RUS_zemstvo_reform_progress_var
+			value = RUS_zemstvo_reform_progress_temp_var
+			compare = greater_than_or_equals
+			tooltip = has_zemstvo_reform_progress_tt
+		}
+		has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
+		has_country_flag = RUS_law_of_equality_passed_in_sc
+		NOT = {
+			has_country_flag = RUS_liberals_left_the_coalition
+			has_country_flag = RUS_rightists_left_the_coalition
+		}
+	}
+}
 RUS_centrists_satisfied = {
 	custom_trigger_tooltip = {
 		tooltip = RUS_centrists_satisfied_tt
-		if = {
-			limit = {
-				has_country_flag = RUS_coalition_with_centrists
-			}
-			set_temp_variable = {
-				RUS_agrarian_reform_progress_temp_var = 15
-			}
-			set_temp_variable = {
-				RUS_zemstvo_reform_progress_temp_var = 40
-			}
-			count_triggers = {
-				amount = 3
-				check_variable = {
-					var = RUS_agrariran_reform_progress_var
-					value = RUS_agrarian_reform_progress_temp_var
-					compare = greater_than_or_equals
-					tooltip = has_agrarian_reform_progress_tt
-				}
-				check_variable = {
-					var = RUS_zemstvo_reform_progress_var
-					value = RUS_zemstvo_reform_progress_temp_var
-					compare = greater_than_or_equals
-					tooltip = has_zemstvo_reform_progress_tt
-				}
-				has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
-				has_country_flag = RUS_law_of_equality_passed_in_sc
-			}
-			NOT = {
-				has_country_flag = RUS_liberals_left_the_coalition
-				has_country_flag = RUS_rightists_left_the_coalition
-			}
-			NOT = {
-				has_country_flag = RUS_liberals_left_the_coalition
-				has_country_flag = RUS_rightists_left_the_coalition
-			}
+		has_country_flag = RUS_coalition_with_centrists
+		set_temp_variable = {
+			RUS_agrarian_reform_progress_temp_var = 15
 		}
-		else = {
-			always = no
+		set_temp_variable = {
+			RUS_zemstvo_reform_progress_temp_var = 40
+		}
+		check_variable = {
+			var = RUS_agrariran_reform_progress_var
+			value = RUS_agrarian_reform_progress_temp_var
+			compare = greater_than_or_equals
+			tooltip = has_agrarian_reform_progress_tt
+		}
+		check_variable = {
+			var = RUS_zemstvo_reform_progress_var
+			value = RUS_zemstvo_reform_progress_temp_var
+			compare = greater_than_or_equals
+			tooltip = has_zemstvo_reform_progress_tt
+		}
+		has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
+		has_country_flag = RUS_law_of_equality_passed_in_sc
+		NOT = {
+			has_country_flag = RUS_liberals_left_the_coalition
+			has_country_flag = RUS_rightists_left_the_coalition
 		}
 	}
 }
 
+RUS_rightist_demands = {
+	custom_trigger_tooltip = {
+		tooltip = RUS_rightist_demands_tt
+		has_country_flag = RUS_coalition_with_rightists
+		set_temp_variable = {
+			RUS_police_reform_progress_temp_var = 25
+		}
+		check_variable = {
+			var = RUS_police_reform_progress_var
+			value = RUS_police_reform_progress_temp_var
+			compare = greater_than_or_equals
+			tooltip = has_police_reform_progress_tt
+		}
+		has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
+		has_country_flag = RUS_law_of_equality_passed_in_sc
+		set_temp_variable = {
+			far_right_loyalty_temp_var = 40
+		}
+		check_variable = {
+			var = far_right_loyalty
+			value = RUS_far_right_loyalty_trigger_var
+			compare = greater_than_or_equals
+			tooltip = RUS_far_right_loyalty_trigger_tt
+		}
+	}
+}
 RUS_rightists_satisfied = {
 	custom_trigger_tooltip = {
 		tooltip = RUS_rightists_satisfied_tt
-		if = {
-			limit = {
-				has_country_flag = RUS_coalition_with_rightists
-			}
-			set_temp_variable = {
-				RUS_police_reform_progress_temp_var = 25
-			}
-			check_variable = {
-				var = RUS_police_reform_progress_var
-				value = RUS_police_reform_progress_temp_var
-				compare = greater_than_or_equals
-				tooltip = has_police_reform_progress_tt
-			}
-			has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
-			has_country_flag = RUS_law_of_equality_passed_in_sc
-			set_temp_variable = {
-				far_right_loyalty_temp_var = 60
-			}
-			check_variable = {
-				var = far_right_loyalty
-				value = far_right_loyalty_temp_var
-				compare = greater_than_or_equals
-				tooltip = has_far_right_loyalty_tt
-			}
-			NOT = {
-				has_country_flag = RUS_centrists_left_the_coalition
-			}
+		has_country_flag = RUS_coalition_with_rightists
+		set_temp_variable = {
+			RUS_police_reform_progress_temp_var = 25
 		}
-		else = {
-			always = no
+		check_variable = {
+			var = RUS_police_reform_progress_var
+			value = RUS_police_reform_progress_temp_var
+			compare = greater_than_or_equals
+			tooltip = has_police_reform_progress_tt
+		}
+		has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
+		has_country_flag = RUS_law_of_equality_passed_in_sc
+		set_temp_variable = {
+			far_right_loyalty_temp_var = 40
+		}
+		check_variable = {
+			var = far_right_loyalty
+			value = RUS_far_right_loyalty_trigger_var
+			compare = greater_than_or_equals
+			tooltip = RUS_far_right_loyalty_trigger_tt
 		}
 	}
 }

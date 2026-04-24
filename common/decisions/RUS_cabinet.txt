@@ -1,149 +1,74 @@
 
-#Kokovtsov mechanic
+#Kokovtsov decisions
 RUS_parliament_gui_decision_category = {
 	RUS_kokovtsov_resignation_mission = {
 		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = RUS }
+		allowed = { always = no }
 		activation = {
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = yes
-			}
-			NOT = {
-				count_triggers = {
-					amount = 1
-					has_active_mission = RUS_liberals_leave_the_coalition
-					has_active_mission = RUS_centrists_leave_the_coalition
-					has_active_mission = RUS_rightists_leave_the_coalition
-				}
-				count_triggers = {
-					amount = 2
-					RUS_liberals_satisfied = yes
-					RUS_centrists_satisfied = yes
-					RUS_rightists_satisfied = yes
-				}
-			}
+			always = no
 		}
 		available = {
 			hidden_trigger = {
 				always = no
 			}
-		}
-		cancel_trigger = {
-			OR = {
-				count_triggers = {
-					amount = 1
-					has_active_mission = RUS_liberals_leave_the_coalition
-					has_active_mission = RUS_centrists_leave_the_coalition
-					has_active_mission = RUS_rightists_leave_the_coalition
+			if = {
+				limit = {
+					has_country_flag = RUS_coalition_with_liberals
 				}
-				count_triggers = {
-					amount = 2
-					RUS_liberals_satisfied = yes
-					RUS_centrists_satisfied = yes
-					RUS_rightists_satisfied = yes
-				}
-			}
-		}
-		fire_only_once = no
-		is_good = no
-		days_mission_timeout = 120
-		selectable_mission = no
-		timeout_effect = {
-			country_event = ww1_russia_common.5
-		}
-	}
-	RUS_liberals_leave_the_coalition = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = RUS }
-		activation = {
-			has_country_flag = RUS_coalition_with_liberals
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = yes
-			}
-			RUS_liberals_satisfied = no
-		}
-		available = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		cancel_trigger = {
-			OR = {
+				RUS_liberal_demands = yes
 				AND = {
 					set_temp_variable = {
-						RUS_agrarian_reform_progress_temp_var = 20
+						RUS_agrarian_reform_progress_temp_var = 25
 					}
 					set_temp_variable = {
-						RUS_education_reform_progress_temp_var = 20
+						RUS_education_reform_progress_temp_var = 25
 					}
 					set_temp_variable = {
-						RUS_labour_reform_progress_temp_var = 40
+						RUS_labour_reform_progress_temp_var = 10
 					}
 					set_temp_variable = {
-						RUS_zemstvo_reform_progress_temp_var = 60
+						RUS_zemstvo_reform_progress_temp_var = 50
 					}
-					count_triggers = {
-						amount = 3
-						check_variable = {
-							var = RUS_agrariran_reform_progress_var
-							value = RUS_agrarian_reform_progress_temp_var
-							compare = greater_than_or_equals
-							tooltip = has_agrarian_reform_progress_tt
-						}
-						check_variable = {
-							var = RUS_education_reform_progress_var
-							value = RUS_education_reform_progress_temp_var
-							compare = greater_than_or_equals
-							tooltip = has_education_reform_progress_tt
-						}
-						check_variable = {
-							var = RUS_labour_reform_progress_var
-							value = RUS_labour_reform_progress_temp_var
-							compare = greater_than_or_equals
-							tooltip = has_labour_reform_progress_tt
-						}
-						check_variable = {
-							var = RUS_zemstvo_reform_progress_var
-							value = RUS_zemstvo_reform_progress_temp_var
-							compare = greater_than_or_equals
-							tooltip = has_zemstvo_reform_progress_tt
-						}
+					check_variable = {
+						var = RUS_agrariran_reform_progress_var
+						value = RUS_agrarian_reform_progress_temp_var
+						compare = greater_than_or_equals
+						tooltip = has_agrarian_reform_progress_tt
 					}
-					NOT = {
-						has_country_flag = RUS_rigged_the_election
-						has_country_flag = RUS_centrists_left_the_coalition
+					check_variable = {
+						var = RUS_education_reform_progress_var
+						value = RUS_education_reform_progress_temp_var
+						compare = greater_than_or_equals
+						tooltip = has_education_reform_progress_tt
+					}
+					check_variable = {
+						var = RUS_labour_reform_progress_temp_var
+						value = RUS_labour_reform_progress_temp_var
+						compare = greater_than_or_equals
+						tooltip = has_labour_reform_progress_tt
+					}
+					check_variable = {
+						var = RUS_zemstvo_reform_progress_var
+						value = RUS_zemstvo_reform_progress_temp_var
+						compare = greater_than_or_equals
+						tooltip = has_zemstvo_reform_progress_tt
 					}
 				}
-				RUS_vladimir_kokovtsov = {
-					is_prime_minister = no
+			}
+			else_if = {
+				limit = { 
+					has_country_flag = RUS_liberals_left_the_coalition
+				}
+				custom_trigger_tooltip = {
+					tooltip = RUS_liberals_left_the_coalition
+					always = no
 				}
 			}
-		}
-		fire_only_once = no
-		is_good = no
-		days_mission_timeout = 365
-		selectable_mission = no
-		timeout_effect = {
-			country_event = ww1_kokovtsov.5
-		}
-	}
-	RUS_centrists_leave_the_coalition = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = RUS }
-		activation = {
-			has_country_flag =  RUS_coalition_with_centrists
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = yes
-			}
-			RUS_centrists_satisfied = no
-		}
-		available = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		cancel_trigger = {
-			OR = {
+			if = {
+				limit = {
+					has_country_flag = RUS_coalition_with_centrists
+				}
+				RUS_centrist_demands = yes
 				AND = {
 					set_temp_variable = {
 						RUS_agrarian_reform_progress_temp_var = 15
@@ -151,58 +76,36 @@ RUS_parliament_gui_decision_category = {
 					set_temp_variable = {
 						RUS_zemstvo_reform_progress_temp_var = 40
 					}
-					count_triggers = {
-						amount = 3
-						check_variable = {
-							var = RUS_agrariran_reform_progress_var
-							value = RUS_agrarian_reform_progress_temp_var
-							compare = greater_than_or_equals
-							tooltip = has_agrarian_reform_progress_tt
-						}
-						check_variable = {
-							var = RUS_zemstvo_reform_progress_var
-							value = RUS_zemstvo_reform_progress_temp_var
-							compare = greater_than_or_equals
-							tooltip = has_zemstvo_reform_progress_tt
-						}
-						has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
-						has_country_flag = RUS_law_of_equality_passed_in_sc
+					check_variable = {
+						var = RUS_agrariran_reform_progress_var
+						value = RUS_agrarian_reform_progress_temp_var
+						compare = greater_than_or_equals
+						tooltip = has_agrarian_reform_progress_tt
 					}
-					NOT = {
-						has_country_flag = RUS_liberals_left_the_coalition
-						has_country_flag = RUS_rightists_left_the_coalition
+					check_variable = {
+						var = RUS_zemstvo_reform_progress_var
+						value = RUS_zemstvo_reform_progress_temp_var
+						compare = greater_than_or_equals
+						tooltip = has_zemstvo_reform_progress_tt
 					}
-				}
-				RUS_vladimir_kokovtsov = {
-					is_prime_minister = no
+					has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
+					has_country_flag = RUS_law_of_equality_passed_in_sc
 				}
 			}
-		}
-		fire_only_once = no
-		is_good = no
-		days_mission_timeout = 365
-		selectable_mission = no
-		timeout_effect = {
-			country_event = ww1_kokovtsov.8
-		}
-	}
-	RUS_rightists_leave_the_coalition = {
-		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = RUS }
-		activation = {
-			has_country_flag = RUS_coalition_with_rightists
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = yes
+			else_if = {
+				limit = { 
+					has_country_flag = RUS_centrists_left_the_coalition
+				}
+				custom_trigger_tooltip = {
+					tooltip = RUS_centrists_left_the_coalition
+					always = no
+				}
 			}
-			RUS_rightists_satisfied = no
-		}
-		available = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		cancel_trigger = {
-			OR = {
+			if = {
+				limit = {
+					has_country_flag = RUS_coalition_with_rightists
+				}
+				RUS_rightist_demands = yes
 				AND = {
 					set_temp_variable = {
 						RUS_police_reform_progress_temp_var = 25
@@ -216,29 +119,149 @@ RUS_parliament_gui_decision_category = {
 					has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
 					has_country_flag = RUS_law_of_equality_passed_in_sc
 					set_temp_variable = {
-						far_right_loyalty_temp_var = 60
+						far_right_loyalty_temp_var = 40
 					}
 					check_variable = {
 						var = far_right_loyalty
-						value = far_right_loyalty_temp_var
+						value = RUS_far_right_loyalty_trigger_var
 						compare = greater_than_or_equals
-						tooltip = has_far_right_loyalty_tt
-					}
-					NOT = {
-						has_country_flag = RUS_centrists_left_the_coalition
+						tooltip = RUS_far_right_loyalty_trigger_tt
 					}
 				}
-				RUS_vladimir_kokovtsov = {
-					is_prime_minister = no
+			}
+			else_if = {
+				limit = { 
+					has_country_flag = RUS_rightists_left_the_coalition
 				}
+				custom_trigger_tooltip = {
+					tooltip = RUS_rightists_left_the_coalition
+					always = no
+				}
+			}
+			OR = {
+				has_completed_focus = RUS_a_new_understanding
+				has_completed_focus = RUS_drastic_measures
+			}
+		}
+		fire_only_once = yes
+		is_good = no
+		days_mission_timeout = 338
+		selectable_mission = no
+		timeout_effect = {
+			country_event = ww1_kokovtsov.18
+		}
+	}
+	RUS_liberals_leave_the_coalition_mission = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = RUS }
+		activation = {
+			has_country_flag = RUS_coalition_with_liberals
+			OR = {
+				AND = {
+					has_country_flag = RUS_state_duma_election
+					has_country_flag = RUS_rigged_the_election
+				}
+				check_variable = {
+					center_left_loyalty < 40
+				}
+			}
+		}
+		cancel_trigger = {
+			set_temp_variable = {
+				RUS_center_left_loyalty_trigger_var = 40
+			}
+			check_variable = {
+				var = center_left_loyalty
+				value = RUS_center_left_loyalty_trigger_var
+				compare = greater_than_or_equals
+				tooltip = RUS_center_left_loyalty_trigger_tt
+			}
+			NOT = {
+				has_country_flag = RUS_rigged_the_election
 			}
 		}
 		fire_only_once = no
 		is_good = no
-		days_mission_timeout = 365
+		days_mission_timeout = 60
 		selectable_mission = no
 		timeout_effect = {
-			country_event = ww1_kokovtsov.11
+			country_event = ww1_kokovtsov.5
+			clr_country_flag = RUS_coalition_with_liberals
+			set_country_flag = RUS_liberals_left_the_coalition
+			add_political_power = -50
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = -50 }
+			RUS_modify_loyalty_center_left = yes
+		}
+	}
+	RUS_centrists_leave_the_coalition_mission = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = RUS }
+		activation = {
+			has_country_flag = RUS_coalition_with_centrists
+			OR = {
+				has_country_flag = RUS_liberals_left_the_coalition
+				has_country_flag = RUS_rightists_left_the_coalition
+			}
+		}
+		fire_only_once = no
+		is_good = no
+		days_mission_timeout = 60
+		selectable_mission = no
+		timeout_effect = {
+			country_event = ww1_kokovtsov.7
+			clr_country_flag = RUS_coalition_with_centrists
+			set_country_flag = RUS_centrists_left_the_coalition
+			add_political_power = -50
+			set_temp_variable = {
+				var = sway_value_tt
+				value = center_right
+			}
+			multiply_temp_variable = {
+				var = sway_value_tt
+				value = 0.22
+			}
+			set_temp_variable = {
+				var = parliament_loser
+				value = RUS_parliament_seat_center_right
+			}
+			set_temp_variable = {
+				var = parliament_winner
+				value = RUS_parliament_seat_center_left
+			}
+			RUS_recalculate_sway = yes
+		}
+	}
+	RUS_rightists_leave_the_coalition_mission = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = RUS }
+		activation = {
+			has_country_flag = RUS_coalition_with_rightists
+			check_variable = {
+				far_right_loyalty < 40
+			}
+		}
+		cancel_trigger = {
+			set_temp_variable = {
+				RUS_far_right_loyalty_trigger_var = 40
+			}
+			check_variable = {
+				var = far_right_loyalty
+				value = RUS_far_right_loyalty_trigger_var
+				compare = greater_than_or_equals
+				tooltip = RUS_far_right_loyalty_trigger_tt
+			}
+		}
+		fire_only_once = no
+		is_good = no
+		days_mission_timeout = 60
+		selectable_mission = no
+		timeout_effect = {
+			country_event = ww1_kokovtsov.10
+			clr_country_flag = RUS_coalition_with_rightists
+			set_country_flag = RUS_rightists_left_the_coalition
+			add_political_power = -50
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = -50 }
+			RUS_modify_loyalty_far_right = yes
 		}
 	}
 	RUS_markov_denounces_the_wine_monopoly = {
@@ -249,7 +272,10 @@ RUS_parliament_gui_decision_category = {
 				is_prime_minister = yes
 			}
 			has_idea = RUS_drunken_budget
-			has_active_mission = RUS_rightists_leave_the_coalition
+			has_country_flag = RUS_coalition_with_rightists
+			NOT = {
+				has_completed_focus = RUS_a_new_understanding
+			}
 		}
 		available = {
 			hidden_trigger = {
@@ -261,8 +287,7 @@ RUS_parliament_gui_decision_category = {
 				NOT = {
 					has_idea = RUS_drunken_budget
 				}
-				RUS_rightists_satisfied = yes
-				has_country_flag = RUS_rightists_left_the_coalition
+				has_completed_focus = RUS_a_new_understanding
 			}
 		}
 		fire_only_once = no
@@ -272,9 +297,237 @@ RUS_parliament_gui_decision_category = {
 		timeout_effect = {
 			add_political_power = -10
 			set_temp_variable = {
-				RUS_modify_loyalty_far_right_var = -5
+				RUS_modify_loyalty_far_right_var = -1
 			}
 			RUS_modify_loyalty_far_right = yes
+		}
+	}
+	#Sway the election
+	RUS_socialist_crackdown = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+		available = {
+
+		}
+		visible = {
+			duma_is_active = yes
+			has_completed_focus = RUS_electoral_strategy
+			has_country_flag = RUS_election_interference
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
+			NOT = {
+				has_country_flag = RUS_state_duma_election
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = RUS_rigged_the_election
+					}
+				}
+				set_country_flag = RUS_rigged_the_election
+			}
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.025
+			}
+			set_temp_variable = { RUS_modify_loyalty_socialists_var = -10 }
+			RUS_modify_loyalty_socialists = yes
+		}
+		cost = 25
+		days_remove = 30
+		days_re_enable = 30
+		cancel_trigger = {
+			OR = {
+				duma_is_active = no
+				RUS_aleksandr_makarov = {
+					is_minister_of_internal_affairs = no
+				}
+			}
+		}
+	}
+	RUS_apply_administrative_pressure = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = RUS
+		}
+		available = {
+
+		}
+		visible = {
+			duma_is_active = yes
+			has_completed_focus = RUS_electoral_strategy
+			has_country_flag = RUS_election_interference
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
+			NOT = {
+				has_country_flag = RUS_state_duma_election
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = RUS_rigged_the_election
+					}
+				}
+				set_country_flag = RUS_rigged_the_election
+			}
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.025
+			}
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = -10 }
+			RUS_modify_loyalty_center_left = yes
+		}
+		cost = 25
+		days_remove = 30
+		days_re_enable = 30
+		cancel_trigger = {
+			OR = {
+				duma_is_active = no
+				RUS_aleksandr_makarov = {
+					is_minister_of_internal_affairs = no
+				}
+			}
+		}
+	}
+	RUS_use_the_priesthood = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+		available = {
+
+		}
+		visible = {
+			duma_is_active = yes
+			has_completed_focus = RUS_electoral_strategy
+			has_country_flag = RUS_election_interference
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
+			NOT = {
+				has_country_flag = RUS_state_duma_election
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = RUS_rigged_the_election
+					}
+				}
+				set_country_flag = RUS_rigged_the_election
+			}
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.025
+			}
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
+			RUS_modify_loyalty_far_right = yes
+		}
+		cost = 25
+		days_remove = 30
+		days_re_enable = 30
+		cancel_trigger = {
+			OR = {
+				duma_is_active = no
+				RUS_aleksandr_makarov = {
+					is_minister_of_internal_affairs = no
+				}
+			}
+		}
+	}
+	#Censor liberal press
+	RUS_censor_liberal_press_decision = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+		available = {
+
+		}
+		visible = {
+			has_completed_focus = RUS_censor_liberal_press
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = RUS_censored_liberal_press
+					}
+				}
+				set_country_flag = RUS_censored_liberal_press
+			}
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = -2.5 }
+			RUS_modify_loyalty_center_left = yes
+		}
+		modifier = {
+			democratic_drift = -0.02
+			consumer_goods_factor = 0.05
+		}
+		cost = 50
+		days_remove = 90
+		days_re_enable = 30
+		cancel_trigger = {
+			RUS_aleksandr_makarov = {
+				is_minister_of_internal_affairs = no
+			}
+			RUS_nikolay_maklakov = {
+				is_minister_of_internal_affairs = no
+			}
+		}
+	}
+	#Suppress strikes
+	RUS_suppress_strikes = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+		visible = {
+			has_labour_question = yes
+			has_completed_focus = RUS_crack_down_on_strikes
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
+		}
+		cost = 25
+		complete_effect = {
+			add_ideas = RUS_strikes_suppression
+		}
+	}
+	#Stop suppressing strikes
+	RUS_stop_strikes_suppression = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+		visible = {
+			has_labour_question = yes
+			has_completed_focus = RUS_crack_down_on_strikes
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
+			has_idea = RUS_strikes_suppression
+		}
+		cost = 25
+		complete_effect = {
+			remove_ideas = RUS_strikes_suppression
 		}
 	}
 }
@@ -367,278 +620,5 @@ RUS_parliament_gui_decision_category = {
 			clr_country_flag = RUS_duma_dismissed
 		}
 		cost = 50
-	}
-}
-#Ministers
-RUS_parliament_gui_decision_category = {
-	#Sway the election
-	RUS_socialist_crackdown = {
-		icon = GFX_decision_oppression
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-
-		}
-		visible = {
-			duma_is_active = yes
-			has_completed_focus = RUS_sway_the_election
-			RUS_aleksandr_makarov = {
-				is_minister_of_internal_affairs = yes
-			}
-			NOT = {
-				has_country_flag = RUS_state_duma_election
-			}
-		}
-		complete_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_country_flag = RUS_rigged_the_election
-					}
-				}
-				set_country_flag = RUS_rigged_the_election
-			}
-		}
-		remove_effect = {
-			add_popularity = {
-				ideology = communism
-				popularity = -0.025
-			}
-			set_temp_variable = { RUS_modify_loyalty_socialists_var = -10 }
-			RUS_modify_loyalty_socialists = yes
-		}
-		cost = 25
-		days_remove = 30
-		days_re_enable = 30
-		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				RUS_aleksandr_makarov = {
-					is_minister_of_internal_affairs = no
-				}
-			}
-		}
-	}
-	RUS_apply_administrative_pressure = {
-		icon = GFX_decision_eng_trade_unions_demand
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-
-		}
-		visible = {
-			duma_is_active = yes
-			has_completed_focus = RUS_sway_the_election
-			RUS_aleksandr_makarov = {
-				is_minister_of_internal_affairs = yes
-			}
-			NOT = {
-				has_country_flag = RUS_state_duma_election
-			}
-		}
-		complete_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_country_flag = RUS_rigged_the_election
-					}
-				}
-				set_country_flag = RUS_rigged_the_election
-			}
-		}
-		remove_effect = {
-			add_popularity = {
-				ideology = democratic
-				popularity = -0.025
-			}
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = -10 }
-			RUS_modify_loyalty_center_left = yes
-		}
-		cost = 25
-		days_remove = 30
-		days_re_enable = 30
-		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				RUS_aleksandr_makarov = {
-					is_minister_of_internal_affairs = no
-				}
-			}
-		}
-	}
-	RUS_use_the_priesthood = {
-		icon = GFX_decision_oppression
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-
-		}
-		visible = {
-			duma_is_active = yes
-			has_completed_focus = RUS_sway_the_election
-			RUS_aleksandr_makarov = {
-				is_minister_of_internal_affairs = yes
-			}
-			NOT = {
-				has_country_flag = RUS_state_duma_election
-			}
-		}
-		complete_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_country_flag = RUS_rigged_the_election
-					}
-				}
-				set_country_flag = RUS_rigged_the_election
-			}
-		}
-		remove_effect = {
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.025
-			}
-			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
-			RUS_modify_loyalty_far_right = yes
-		}
-		cost = 25
-		days_remove = 30
-		days_re_enable = 30
-		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				RUS_aleksandr_makarov = {
-					is_minister_of_internal_affairs = no
-				}
-			}
-		}
-	}
-	#Censor liberal press
-	RUS_censor_liberal_press_decision = {
-		icon = GFX_decision_oppression
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-
-		}
-		visible = {
-			has_completed_focus = RUS_censor_liberal_press
-			OR = {
-				RUS_aleksandr_makarov = {
-					is_minister_of_internal_affairs = yes
-				}
-				RUS_nikolay_maklakov = {
-					is_minister_of_internal_affairs = yes
-				}
-			}
-		}
-		complete_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_country_flag = RUS_censored_liberal_press
-					}
-				}
-				set_country_flag = RUS_censored_liberal_press
-			}
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = -2.5 }
-			RUS_modify_loyalty_center_left = yes
-		}
-		modifier = {
-			democratic_drift = -0.02
-			consumer_goods_factor = 0.05
-		}
-		cost = 50
-		days_remove = 90
-		days_re_enable = 30
-		cancel_trigger = {
-			RUS_aleksandr_makarov = {
-				is_minister_of_internal_affairs = no
-			}
-			RUS_nikolay_maklakov = {
-				is_minister_of_internal_affairs = no
-			}
-		}
-	}
-	#Suppress strikes
-	RUS_suppress_strikes = {
-		icon = GFX_decision_oppression
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			has_idea = RUS_strikes
-		}
-		visible = {
-			has_labour_question = yes
-			OR = {
-				AND = {
-					has_completed_focus = RUS_crack_down_on_strikes
-					RUS_aleksandr_makarov = {
-						is_minister_of_internal_affairs = yes
-					}
-				}
-			}
-		}
-		cost = 10
-		complete_effect = {
-			effect_tooltip = {
-				remove_ideas = RUS_strikes
-			}
-			hidden_effect = {
-				if = {
-					limit = {
-						date > 1911.12.31
-						date < 1913.01.01
-						NOT = {
-							has_country_flag = RUS_lena_massacre
-						}
-					}
-					country_event = ww1_russia_common.13
-				}
-				else = {
-					random_list = {
-						75 = {
-							country_event = ww1_russia_common.27
-						}
-						25 = {
-							country_event = ww1_russia_common.28
-						}
-					}
-				}
-			}
-		}
-	}
-	RUS_make_concessions_to_workers = {
-		icon = GFX_decision_eng_trade_unions_support
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			has_idea = RUS_strikes
-		}
-		visible = {
-			has_labour_question = yes
-			has_completed_focus = RUS_concessions_to_workers
-			OR = {
-				RUS_alexei_khvostov = {
-					is_minister_of_internal_affairs = yes
-				}
-				RUS_nikolay_maklakov = {
-					is_minister_of_internal_affairs = yes
-				}
-			}
-		}
-		cost = 10
-		complete_effect = {
-			add_timed_idea = {
-				idea = RUS_appeasement_of_workers
-				days = 180
-			}
-		}
 	}
 }
