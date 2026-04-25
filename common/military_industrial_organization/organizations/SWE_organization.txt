@@ -9,6 +9,28 @@ SWE_marinvarkstaderna_organization = {
 		original_tag = SWE
 		has_dlc = "Arms Against Tyranny"
 	}
+	
+	add_trait = { 
+		token = SWE_mio_trait_coastal_battlefleet
+		name = mio_policy_navy_coastal_battlefleet
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_weapons
+		special_trait_background = yes
+		
+		position = { x=2 y=0 }
+		
+		relative_position_id = generic_mio_trait_high_speed_cruising
+		
+		limit_to_equipment_type = { capital_ship screen_ship mio_cat_eq_all_cruiser }
+		
+		available = {
+			has_completed_focus = SWE_invest_in_coastal_ships
+		}
+		
+		equipment_bonus = {
+			naval_range = -0.05
+			armor_value = 0.05
+		}
+	}
 }
 
 #####################

@@ -214,6 +214,7 @@ debug_decisions = {
 						state = 1140
 						state = 1141
 						state = 1214
+						state = 1240
 						state = 1215
 					}
 				}
@@ -304,8 +305,8 @@ debug_decisions = {
 							has_country_flag = member_of_central_powers
 							tag = SOV
 							is_ally_with = SOV
-							any_country = {
-								original_tag = RUS
+							any_country_with_original_tag = {
+								original_tag_to_check = RUS
 								has_war_with = SOV
 							}
 						}
@@ -453,7 +454,6 @@ debug_decisions = {
 			}
 		}
 		visible = {
-			is_debug = yes
 			has_global_flag = great_war
 			has_global_flag = FRA_capitulation_alone
 			NOT = {
@@ -469,6 +469,9 @@ debug_decisions = {
 					tag = FRA
 				}
 			}
+		}
+		target_root_trigger = {
+			is_debug = yes
 		}
 		fire_only_once = no
 		cost = 0
@@ -609,8 +612,10 @@ debug_decisions = {
 			is_ai = no
 		}
 		visible = {
-			is_debug = yes
 			is_subject = yes
+		}
+		target_root_trigger = {
+			is_debug = yes
 		}
 		fire_only_once = no
 		cost = 0
@@ -632,8 +637,10 @@ debug_decisions = {
 			is_ai = no
 		}
 		visible = {
-			is_debug = yes
 			is_subject = yes
+		}
+		target_root_trigger = {
+			is_debug = yes
 		}
 		fire_only_once = no
 		cost = 0
@@ -655,8 +662,10 @@ debug_decisions = {
 			is_ai = no
 		}
 		visible = {
-			is_debug = yes
 			is_subject = yes
+		}
+		target_root_trigger = {
+			is_debug = yes
 		}
 		fire_only_once = no
 		cost = 0
@@ -1119,7 +1128,6 @@ debug_decisions = {
 	capitulate_em = {
 		available = {
 			is_ai = no
-			is_debug = yes
 		}
 		target_trigger = {
 			FROM = {
@@ -1129,6 +1137,9 @@ debug_decisions = {
 				}
 				has_capitulated = no
 			}
+		}
+		target_root_trigger = {
+			is_debug = yes
 		}
 		visible = {
 		}

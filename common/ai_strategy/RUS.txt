@@ -1,6 +1,6 @@
 RUS_no_garrision = {
 	allowed = {
-		original_tag = RUS
+		tag = RUS
 	}
 	enable = {
 		always = yes
@@ -1713,36 +1713,6 @@ RUS_build_mils = {
 	}
 }
 
-RUS_hold_baltic = {
-	allowed = {
-		tag = RUS
-	}
-	enable = {
-		has_war_with = GER
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = naval_dominance
-		id = 9
-		value = 1000
-	}
-}
-
-RUS_hold_black_sea = {
-	allowed = {
-		tag = RUS
-	}
-	enable = {
-		has_war_with = TUR
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = naval_dominance
-		id = 30
-		value = 1000
-	}
-}
-
 RUS_danish_belts_are_dangerous = {
 	allowed = {
 		tag = RUS
@@ -1767,6 +1737,9 @@ RUS_great_retreatment = {
 		has_war_with = GER
 		GER = {
 			has_idea = GER_focus_on_russian_front
+		}
+		NOT = {
+			tag = SOV
 		}
 	}
 	abort_when_not_enabled = yes

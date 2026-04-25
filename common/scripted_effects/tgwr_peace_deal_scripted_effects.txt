@@ -1007,7 +1007,6 @@ armistice_effect = {
 				OR = {
 					has_state_flag = TUR_no_longer_armenia_core_tt
 					state = 787
-					state = 789
 					state = 806
 					state = 939
 					state = 353
@@ -2229,14 +2228,8 @@ armistice_effect = {
 	#Transcaucasia
 	if = {
 		limit = {
-			GEO = {
+			CAU = {
 				has_country_flag = great_war_winner
-				OR = {
-					has_cosmetic_tag = GEO_TSCN
-					has_cosmetic_tag = GEO_TSCN_commissariat
-					has_cosmetic_tag = GEO_TSCN_committee
-					has_cosmetic_tag = GEO_TSCN_communism
-				}
 			}
 		}
 		if = {
@@ -2259,8 +2252,8 @@ armistice_effect = {
 							state = 1034
 						}
 					}
-					add_core_of = GEO
-					transfer_state_to = GEO
+					add_core_of = CAU
+					transfer_state_to = CAU
 				}
 			}
 		}
@@ -2277,26 +2270,29 @@ armistice_effect = {
 							state = 419
 							state = 877
 							state = 1212
+							state = 1245
+							state = 1250
+							state = 1251
 						}
 					}
-					transfer_state_to = GEO
+					transfer_state_to = CAU
 				}
 			}
 		}
 		else = {
 			every_state = {
 				limit = {
-					is_owned_by = GEO
+					is_owned_by = CAU
 					region = 116
 				}
-				remove_core_of = GEO
+				remove_core_of = CAU
 				transfer_state_to = PER
 			}
 		}
-		GEO = {
+		CAU = {
 			if = {
 				limit = {
-					has_cosmetic_tag = GEO_TSCN_commissariat
+					has_government = neutrality
 				}
 				country_event = {
 					id = ww1_georgia.2
@@ -2483,10 +2479,7 @@ armistice_effect = {
 							has_war_with = PER
 						}
 						OR = {
-							has_cosmetic_tag = GEO_TSCN
-							has_cosmetic_tag = GEO_TSCN_commissariat
-							has_cosmetic_tag = GEO_TSCN_committee
-							has_cosmetic_tag = GEO_TSCN_communism
+							original_tag = CAU
 							NOT = {
 								PREV = { is_core_of = PREV }
 							}
@@ -2500,10 +2493,7 @@ armistice_effect = {
 							has_war_with = PER
 						}
 						OR = {
-							has_cosmetic_tag = GEO_TSCN
-							has_cosmetic_tag = GEO_TSCN_commissariat
-							has_cosmetic_tag = GEO_TSCN_committee
-							has_cosmetic_tag = GEO_TSCN_communism
+							original_tag = CAU
 							NOT = {
 								PREV = { is_core_of = PREV }
 							}
@@ -2517,10 +2507,7 @@ armistice_effect = {
 							has_war_with = PER
 						}
 						OR = {
-							has_cosmetic_tag = GEO_TSCN
-							has_cosmetic_tag = GEO_TSCN_commissariat
-							has_cosmetic_tag = GEO_TSCN_committee
-							has_cosmetic_tag = GEO_TSCN_communism
+							original_tag = CAU
 							NOT = {
 								PREV = { is_core_of = PREV }
 							}
@@ -2534,10 +2521,7 @@ armistice_effect = {
 							has_war_with = PER
 						}
 						OR = {
-							has_cosmetic_tag = GEO_TSCN
-							has_cosmetic_tag = GEO_TSCN_commissariat
-							has_cosmetic_tag = GEO_TSCN_committee
-							has_cosmetic_tag = GEO_TSCN_communism
+							original_tag = CAU
 							NOT = {
 								PREV = { is_core_of = PREV }
 							}
@@ -2551,10 +2535,7 @@ armistice_effect = {
 							has_war_with = PER
 						}
 						OR = {
-							has_cosmetic_tag = GEO_TSCN
-							has_cosmetic_tag = GEO_TSCN_commissariat
-							has_cosmetic_tag = GEO_TSCN_committee
-							has_cosmetic_tag = GEO_TSCN_communism
+							original_tag = CAU
 							NOT = {
 								PREV = { is_core_of = PREV }
 							}
@@ -2568,10 +2549,49 @@ armistice_effect = {
 							has_war_with = PER
 						}
 						OR = {
-							has_cosmetic_tag = GEO_TSCN
-							has_cosmetic_tag = GEO_TSCN_commissariat
-							has_cosmetic_tag = GEO_TSCN_committee
-							has_cosmetic_tag = GEO_TSCN_communism
+							original_tag = CAU
+							NOT = {
+								PREV = { is_core_of = PREV }
+							}
+						}
+					}
+				}
+				1245 = {
+					owner = {
+						NOT = {
+							original_tag = PER
+							has_war_with = PER
+						}
+						OR = {
+							original_tag = CAU
+							NOT = {
+								PREV = { is_core_of = PREV }
+							}
+						}
+					}
+				}
+				1250 = {
+					owner = {
+						NOT = {
+							original_tag = PER
+							has_war_with = PER
+						}
+						OR = {
+							original_tag = CAU
+							NOT = {
+								PREV = { is_core_of = PREV }
+							}
+						}
+					}
+				}
+				1251 = {
+					owner = {
+						NOT = {
+							original_tag = PER
+							has_war_with = PER
+						}
+						OR = {
+							original_tag = CAU
 							NOT = {
 								PREV = { is_core_of = PREV }
 							}
@@ -2588,6 +2608,7 @@ armistice_effect = {
 					state = 421
 					state = 877
 					state = 1212
+					state = 1245
 				}
 				owner = {
 					NOT = {
@@ -2595,10 +2616,7 @@ armistice_effect = {
 						has_war_with = PER
 					}
 					OR = {
-						has_cosmetic_tag = GEO_TSCN
-						has_cosmetic_tag = GEO_TSCN_commissariat
-						has_cosmetic_tag = GEO_TSCN_committee
-						has_cosmetic_tag = GEO_TSCN_communism
+						tag = CAU
 						NOT = {
 							PREV = { is_core_of = PREV }
 						}
@@ -2607,9 +2625,9 @@ armistice_effect = {
 			}
 			if = {
 				limit = {
-					is_core_of = GEO
+					is_core_of = CAU
 				}
-				remove_core_of = GEO
+				remove_core_of = CAU
 			}
 			transfer_state_to = PER
 		}
@@ -5288,6 +5306,7 @@ conference_effect = {
 						state = 803
 						state = 1225
 						state = 1214
+						state = 1240
 						state = 1215
 					}
 				}
@@ -5683,23 +5702,24 @@ conference_effect = {
 				}
 			}
 			ALB = {
-				if = {
-					limit = {
-						owns_state = 870
-					}
-					random_other_country = {
-						limit = {
-							owns_state = 105
-						}
-						transfer_state = 870
-					}
-					if = {
-						limit = {
-							NOT = { has_country_flag = great_war_loser }
-						}
-						870 = { add_contested_owner = ALB }
-					}
-				}
+				# no sources
+				#if = {
+				#	limit = {
+				#		owns_state = 870
+				#	}
+				#	random_other_country = {
+				#		limit = {
+				#			owns_state = 105
+				#		}
+				#		transfer_state = 870
+				#	}
+				#	if = {
+				#		limit = {
+				#			NOT = { has_country_flag = great_war_loser }
+				#		}
+				#		870 = { add_contested_owner = ALB }
+				#	}
+				#}
 				if = {
 					limit = {
 						OR = {
@@ -5729,11 +5749,14 @@ conference_effect = {
 					}
 				}
 			}
+			ALB = { get_current_government_type = yes }
 			ITA = {
-				annex_country = {
+				set_autonomy = {
 					target = ALB
+					autonomy_state = autonomy_integrated_puppet
 				}
 			}
+			ALB = { restore_previous_government_type = yes }
 		}
 	}
 	### QUEBEC ###

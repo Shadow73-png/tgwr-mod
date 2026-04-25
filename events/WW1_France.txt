@@ -949,23 +949,22 @@ country_event = {
 }
 
 # Joseph Gallieni died in 1916 may 27
-country_event = {
+unit_leader_event = {
 	title = ww1_france.67.t
 	desc = ww1_france.67.d
 	id = ww1_france.67
 	picture = GFX_report_event_generic_funeral
 	fire_only_once = yes
-	trigger = {
-		original_tag = FRA
-		date > 1916.05.01
-		has_character = FRA_joseph_gallieni
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			set_character_flag = character_died
+		}	
 	}
 
-	mean_time_to_happen = {
-		days = 10
-	}
 	option = {
-		name = event_generic_ok
+		name = ww1_generic.6.a
 		retire_character = FRA_joseph_gallieni
 	}
 }
@@ -5726,6 +5725,7 @@ country_event = {
 		name = ww1_france.237.a
 		FRA_gaston_calmette = {
 			add_trait = {
+				slot = political_advisor
 				trait = assassination_survivor
 			}
 		}
@@ -5760,6 +5760,7 @@ country_event = {
 		name = ww1_france.239.a
 		FRA_gaston_calmette = {
 			add_trait = {
+				slot = political_advisor
 				trait = assassination_survivor
 			}
 		}
@@ -9349,6 +9350,7 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		date > 1910.10.08
+		has_start_date < 1914.1.1
 		tag = FRA
 		NOT = {
 			has_country_flag = cheminots_strike
@@ -9400,9 +9402,9 @@ country_event = {
 	picture = GFX_CGT_manifestation
 	fire_only_once = yes
 	trigger = {
+		tag = FRA
 		date > 1912.11.15
 		has_start_date < 1914.6.14
-		tag = FRA
 		NOT = {
 			has_country_flag = FRA_anti_war_manifestation_1912
 		}
@@ -9883,7 +9885,6 @@ country_event = {
 	trigger = {
 		original_tag = FRA
 		date > 1922.1.12
-		date < 1922.1.20
 		has_government = democratic
 		has_elections = yes
 		has_country_leader = {
@@ -10242,7 +10243,6 @@ news_event = {
 			owns_state = 735
 		}
 		date > 1924.01.25
-		date < 1924.02.05
 	}
 	option = {
 		name = ww1_france.293.a
@@ -10458,13 +10458,11 @@ country_event = {
 		tag = FRA
 		has_government = democratic
 		date > 1925.11.1
-		date < 1925.12.1
 		has_elections = yes 
 		NOT = {
 			has_country_flag = FRA_briand_1925_pm
 		}
 	}
-	fire_only_once = yes
 	mean_time_to_happen = {
 		days = 20
 	}
@@ -10507,7 +10505,6 @@ country_event = {
 		tag = FRA
 		has_government = democratic
 		date > 1924.6.15
-		date < 1924.6.30
 		has_elections = yes 
 		NOT = {
 			has_country_flag = FRA_elections_1924_pm
@@ -10517,7 +10514,6 @@ country_event = {
 	mean_time_to_happen = {
 		days = 7
 	}
-	fire_only_once = yes
 	immediate = {
 		hidden_effect = {
 			set_country_flag = FRA_elections_1924_pm
@@ -13119,7 +13115,6 @@ country_event = {
 	id = ww1_france.356
 	title = ww1_france.356.t
 	desc = ww1_france.356.d
-	fire_only_once = yes
 	trigger = {
 		OR = {
 			tag = FRA
@@ -13133,10 +13128,18 @@ country_event = {
 			has_country_flag = FRA_IND_saigon_attack
 		}
 	}
+	mean_time_to_happen = {
+		days = 0
+	}
+	immediate = {
+		hidden_effect = {
+			set_country_flag = FRA_IND_saigon_attack
+			activate_mission = fight_phan_xich_long_loyalists_in_indochina
+		}
+	}
 	picture = GFX_saigon_streets
 	option = {
 		name = ww1_france.356.a
-		set_country_flag = FRA_IND_saigon_attack
 		if = {
 			limit = {
 				tag = IND
@@ -13152,14 +13155,16 @@ country_event = {
 				}
 			}
 		}
-		every_country = {
-			limit = {
-				OR = {
-					tag = FRA
-					tag = IND
+		effect_tooltip = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = FRA
+						tag = IND
+					}
 				}
+				activate_mission = fight_phan_xich_long_loyalists_in_indochina
 			}
-			activate_mission = fight_phan_xich_long_loyalists_in_indochina
 		}
 
 	}
@@ -13174,9 +13179,20 @@ country_event = {
 	picture = GFX_saigon_streets
 	option = {
 		name = ww1_france.357.a
-		IND = {
+		if = {
+			limit = { 
+				tag = IND
+			}
 			add_stability = 0.05
 			add_manpower = -1
+		}
+		else = {
+			effect_tooltip = {	
+				IND = {
+					add_stability = 0.05
+					add_manpower = -1
+				}
+			}
 		}
 	}
 }
@@ -13190,21 +13206,37 @@ country_event = {
 	picture = GFX_saigon_streets
 	option = {
 		name = ww1_france.358.a
-		IND = {
+		if = {
+			limit = { 
+				tag = IND
+			}
 			add_stability = -0.25
 			add_war_support = -0.15
 		}
+		else = {
+			effect_tooltip = {	
+				IND = {
+					add_stability = -0.25
+					add_war_support = -0.15
+				}
+			}
+		}
 		hidden_effect = {
-			every_country = {
+			if = {
 				limit = {
-					OR = {
-						tag = FRA
-						tag = IND
+					tag = IND
+				}
+				FRA = {
+					country_event = {
+						id = ww1_france.359
+						days = 12
 					}
 				}
-				country_event = {
-					id = ww1_france.359
-					days = 12
+				IND = {
+					country_event = {
+						id = ww1_france.359
+						days = 12
+					}
 				}
 			}
 		}
@@ -13238,17 +13270,22 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			every_country = {
+			if = {
 				limit = {
-					OR = {
-						tag = FRA
-						tag = IND
-					}
+					tag = IND
 				}
-				country_event = {
-					id = ww1_france.360
-					days = 6
-					random_days = 12
+				every_country = {
+					limit = {
+						OR = {
+							tag = FRA
+							tag = IND
+						}
+					}
+					country_event = {
+						id = ww1_france.360
+						days = 6
+						random_days = 12
+					}
 				}
 			}
 		}
@@ -13310,17 +13347,22 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			every_country = {
+			if = {
 				limit = {
-					OR = {
-						tag = FRA
-						tag = IND
-					}
+					tag = IND
 				}
-				country_event = {
-					id = ww1_france.361
-					days = 5
-					random_days = 30
+				every_country = {
+					limit = {
+						OR = {
+							tag = FRA
+							tag = IND
+						}
+					}
+					country_event = {
+						id = ww1_france.361
+						days = 5
+						random_days = 30
+					}
 				}
 			}
 		}
@@ -13548,7 +13590,6 @@ country_event = {
 	id = ww1_france.366
 	title = ww1_france.366.t
 	desc = ww1_france.366.d
-	fire_only_once = yes
 	trigger = {
 		OR = {
 			tag = FRA
@@ -13561,6 +13602,9 @@ country_event = {
 		NOT = {
 			has_country_flag = FRA_IND_duy_tan_rebellion
 		}
+	}
+	mean_time_to_happen = {
+		days = 0
 	}
 	picture = GFX_saigon_streets
 	option = {
@@ -13592,7 +13636,6 @@ country_event = {
 	id = ww1_france.367
 	title = ww1_france.367.t
 	desc = ww1_france.367.d
-	fire_only_once = yes
 	trigger = {
 		OR = {
 			tag = FRA
@@ -13606,6 +13649,9 @@ country_event = {
 		NOT = {
 			has_country_flag = FRA_IND_long_arrestation
 		}
+	}
+	mean_time_to_happen = {
+		days = 0
 	}
 	picture = GFX_saigon_streets
 	option = {
@@ -13887,7 +13933,6 @@ country_event = {
 	id = ww1_france.372
 	title = ww1_france.372.t
 	desc = ww1_france.372.d
-	fire_only_once = yes
 	trigger = {
 		OR = {
 			tag = FRA
@@ -13901,6 +13946,9 @@ country_event = {
 		NOT = {
 			has_country_flag = FRA_IND_dauy_tan_hois_insurrection
 		}
+	}
+	mean_time_to_happen = {
+		days = 0
 	}
 	picture = GFX_saigon_streets
 	option = {
@@ -15649,6 +15697,7 @@ country_event = {
 	title = ww1_france.421.t
 	desc = ww1_france.421.d
 	trigger = {
+		original_tag = FRA
 		has_character = FRA_jules_guesde
 		date > 1922.06.28
 	}
@@ -19942,6 +19991,8 @@ country_event = {
 		NOT = {
 			has_country_flag = IND_playing_as_separatists
 			has_country_flag = VIT_is_doing_something
+			has_country_flag = long_jiguang_intervention
+			has_country_flag = IND_end_of_nationalist_resistance
 		}
 	}
 	mean_time_to_happen = {

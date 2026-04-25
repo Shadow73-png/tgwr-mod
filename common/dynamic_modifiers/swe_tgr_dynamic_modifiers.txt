@@ -25,7 +25,7 @@
 #	will only updated daily, unless forced by force_update_dynamic_modifier effect
 
 
-SWE_local_guarantees = {
+SWE_strengthened_local_defences = {
 	enable = { is_controlled_by = SWE }
 	remove_trigger = {
 		OR = {
@@ -33,10 +33,27 @@ SWE_local_guarantees = {
 			NOT = { is_owned_by = SWE }
 		}
 	}
+	
 	icon = GFX_modifiers_state_manpower
 	
-	state_production_speed_buildings_factor = 0.10
-	local_intel_to_enemies = -0.15
+	state_production_speed_bunker_factor = 0.05
+	local_supplies_for_controller = 0.10
+}
+SWE_defensive_chokepoint = {
+	enable = { is_controlled_by = SWE }
+	remove_trigger = {
+		OR = {
+			owner = { NOT = { has_government = communism } }
+			NOT = { is_owned_by = SWE }
+		}
+	}
+	
+	icon = GFX_modifiers_state_manpower
+	
+	local_manpower = 0.05
+	local_org_regain = 0.05
+	state_production_speed_bunker_factor = 0.10
+	local_supplies_for_controller = 0.10
 }
 SWE_political_dynamic_mod = {
 	enable = { original_tag = SWE }
@@ -132,6 +149,8 @@ SWE_svenska_varnplikten = {
 	army_infantry_defence_factor = SWE_mil_infantry_defence_factor
 	army_core_defence_factor = SWE_mil_army_core_defence_factor
 	
+	army_attack_speed_factor = SWE_mil_army_attack_speed_factor
+	land_night_attack = SWE_mil_land_night_attack
 	max_planning_factor = SWE_mil_max_planning_factor
 	planning_speed = SWE_mil_planning_speed
 	dig_in_speed_factor = SWE_mil_dig_in_speed

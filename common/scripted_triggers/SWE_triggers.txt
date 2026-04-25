@@ -200,7 +200,13 @@ SWE_has_majority_for_reform_conservative = {
 	# For now
 	if = {
 		limit = {
-			has_country_leader_ideology = conservatism
+			OR = {
+				has_country_leader_ideology = conservatism
+				AND = {
+					has_government = neutrality
+					neutrality > 0.2
+				}
+			}
 		}
 		add_to_temp_variable = {
 			var = support_for_reform_a
@@ -345,7 +351,7 @@ SWE_has_majority_for_reform_anti_socialist = {
 				NOT = {
 					check_variable = {
 						var = socialist_f_riksdag
-						value = 20
+						value = 21
 					}
 					check_variable = {
 						var = socialist_a_riksdag

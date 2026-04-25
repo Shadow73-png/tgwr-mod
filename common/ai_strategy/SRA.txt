@@ -66,7 +66,7 @@ SRA_moscow_directive = {
 		type = front_control
 		country_trigger = {
 			OR = {
-				is_subject_of = SOV
+				has_war_together_with = SOV
 				tag = SOV
 			}
 		}
@@ -80,7 +80,7 @@ SRA_moscow_directive = {
 		type = front_unit_request
 		country_trigger = {
 			OR = {
-				is_subject_of = SOV
+				has_war_together_with = SOV
 				tag = SOV
 			}
 		}
@@ -125,7 +125,7 @@ SRA_dont_spend_pp = {
 # 	}
 # }
 
-SRA_chill_balls = {
+SRA_dont_rush = {
 	allowed = {
 		tag = SRA
 	}
@@ -139,32 +139,17 @@ SRA_chill_balls = {
 
 	ai_strategy = {
 		type = front_control
-		state_trigger = {
-			state = 234
+		country_trigger = {
+			OR = {
+				is_subject_of = SOV
+				tag = SOV
+			}
 		}
-		ratio = 0.5
-		priority = 9999
+		ratio = 1
+		priority = 1000
 		ordertype = front
-		execution_type = balanced
 		manual_attack = no
 		execute_order = no
-	}
-	ai_strategy = {
-		type = front_control
-		state_trigger = {
-			state = 234
-		}
-		ratio = 0.5
-		priority = 9999
-		ordertype = front
-		execution_type = balanced
-		manual_attack = no
-		execute_order = no
-	}
-	ai_strategy = {
-		type = front_unit_request
-		state = 234
-		value = 100
 	}
 }
 
@@ -230,49 +215,6 @@ SRA_attack_without_offensive = {
 		}
 	}
 	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = front_control
-		state_trigger = {
-			state = 219
-		}
-		# SOV tag not working here
-		country_trigger = {
-			OR = {
-				is_subject_of = SOV
-				tag = SOV
-			}
-		}
-		priority = 1000
-		ratio = 0.5
-		ordertype = front
-		execution_type = balanced
-		manual_attack = yes
-		execute_order = yes
-	}
-	ai_strategy = {
-		type = front_control
-		# VLN tag not working here
-		country_trigger = {
-			tag = VLN
-		}
-		priority = 100
-		ratio = 0.5
-		ordertype = front
-		execution_type = balanced
-		manual_attack = yes
-		execute_order = yes
-	}
-	ai_strategy = {
-		type = front_unit_request
-		country_trigger = {
-			OR = {
-				is_subject_of = SOV
-				tag = SOV
-			}
-		}
-		value = 1000
-	}
 	ai_strategy = {
 		type = garrison
 		value = -100
@@ -381,39 +323,6 @@ CRI_ignore_SRA = {
 	}
 }
 
-SRA_ignore_CRI = {
-	allowed = {
-		tag = SRA
-	}
-	enable = {
-		CRI = {
-			exists = yes
-			NOT = {
-				has_government = communism
-			}
-		}
-		is_neighbor_of = CRI
-		NOT = {
-			has_war_with = CRI
-		}
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = dont_defend_ally_borders
-		id = CRI
-		value = 1000
-	}
-
-	ai_strategy = {
-		type = front_unit_request
-		country_trigger = {
-			original_tag = CRI
-		}
-		value = -9999
-	}
-}
-
 SRA_ignore_caucasus = {
 	allowed = {
 		tag = SRA
@@ -461,11 +370,7 @@ SRA_dont_help_don = {
 	enable = {
 		has_idea = SRA_marching_army
 	}
-	abort = {
-		NOT = {
-			has_idea = SRA_marching_army
-		}
-	}
+	abort_when_not_enabled = yes
 
 	# ai_strategy = {
 	# 	type = dont_defend_ally_borders
@@ -689,13 +594,6 @@ DON_attack_dsr = {
 		}
 		value = 9999
 	}
-	ai_strategy = {
-		type = front_control
-		tag = DON
-		ordertype = front
-		execution_type = balanced
-		manual_attack = yes
-	}
 }
 
 DSR_attack_don = {
@@ -712,13 +610,6 @@ DSR_attack_don = {
 		type = front_unit_request
 		tag = DON
 		value = 9999
-	}
-	ai_strategy = {
-		type = front_control
-		tag = DON
-		ordertype = front
-		execution_type = balanced
-		manual_attack = yes
 	}
 }
 DSR_ignore_sra = {

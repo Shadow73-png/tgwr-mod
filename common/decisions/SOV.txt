@@ -1,573 +1,56 @@
 SOV_recruit_militia_category = {
-	SOV_recruit_militia_centre = {
-		icon = GFX_decision_generic_reorganize_irregulars
+	SOV_recruit_militia_big = {
+		icon = generic_prepare_civil_war
 		name = SOV_recruit_militia
 		allowed = {
 			original_tag = RUS
 		}
-		cost = 10
 		state_target = yes
-		target_array = ROOT.core_states
+		target_array = global.RCW_core_big_states_array
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 219
-					state = 223
-					state = 257
-					state = 254
-					state = 253
-				}
-			}
-		}
-		fire_only_once = yes
-		on_map_mode = map_and_decisions_view
-		days_remove = 21
-		visible = {
-			has_completed_focus = SOV_red_army
-			# OR = {
-			# 	is_ai = yes
-			# 	is_ai = no
-			# }
-			owns_state = FROM
-			FROM = {
-				is_core_of = ROOT
-			}
-		}
-		available = {
-			NOT = {
-				has_country_flag = SOV_recruiting_militia
-			}
-			has_war = yes
-			controls_state = FROM
-		}
-		cancel_trigger = {
-			NOT = { 
-				controls_state = FROM
-				has_war = yes
-			}
-		}
-		cancel_effect = {
-			clr_country_flag = SOV_recruiting_militia
-		}
-		complete_effect = {
-			set_country_flag = SOV_recruiting_militia
-		}
-		remove_effect = {
-			clr_country_flag = SOV_recruiting_militia
-			if = {
-				limit = {
-					NOT = {
-						has_template = "Krasnaya Gvardiya"
-					}
-				}
-				division_template = {
-					name = "Krasnaya Gvardiya"
-					template_counter = 69
-					division_names_group = RUS_MIL_01
-					regiments = {
-						militia = { x = 0 y = 0 }
-						militia = { x = 0 y = 1 }
-						militia = { x = 1 y = 0 }
-					}
-					priority = 0
-					is_locked = yes
-				}
-			}
-			FROM = {
-				create_unit = {
-					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1 start_equipment_factor = 1"
-					owner = ROOT
-					count = 5
-				}
-				set_state_flag = SOV_has_mobilized_militia
-			}
-		}
-		ai_will_do = {
-			base = 1000
-		}
-	}
-
-	SOV_recruit_militia_east = {
-		icon = GFX_decision_generic_reorganize_irregulars
-		name = SOV_recruit_militia
-		allowed = {
-			original_tag = RUS
-		}
-		cost = 10
-		state_target = yes
-		target_array = ROOT.core_states
-		target_trigger = {
-			FROM = {
-				OR = {
-					state = 248
-					state = 252
-				}
-			}
-		}
-		fire_only_once = yes
-		on_map_mode = map_and_decisions_view
-		days_remove = 30
-		visible = {
-			has_completed_focus = SOV_red_army
-			# OR = {
-			# 	is_ai = yes
-			# 	is_ai = no
-			# }
-			owns_state = FROM
-			FROM = {
-				is_core_of = ROOT
-			}
-		}
-		available = {
-			NOT = {
-				has_country_flag = SOV_recruiting_militia
-			}
-			controls_state = FROM
-			OR = {
-				has_war_with = SIB
-				has_war_with = KOM
+				RCW_recruit_militia_valid_targer = yes
 			}
 		}
 		cancel_trigger = {
-			NOT = {
-				controls_state = FROM
-				AND = {
-					has_war_with = SIB
-					has_war_with = KOM
-				}	
-			}
-		}
-		cancel_effect = {
-			clr_country_flag = SOV_recruiting_militia
-		}
-		complete_effect = {
-			set_country_flag = SOV_recruiting_militia
-		}
-		remove_effect = {
-			clr_country_flag = SOV_recruiting_militia
-			if = {
-				limit = {
-					NOT = {
-						has_template = "Krasnaya Gvardiya"
-					}
-				}
-				division_template = {
-					name = "Krasnaya Gvardiya"
-					template_counter = 69
-					division_names_group = RUS_MIL_01
-					regiments = {
-						militia = { x = 0 y = 0 }
-						militia = { x = 0 y = 1 }
-						militia = { x = 1 y = 0 }
-					}
-					priority = 0
-					is_locked = yes
-				}
-			}
-			if = {
-				limit = {
-					FROM = {
-						state = 248
-					}
-				}
-				FROM = {
-					create_unit = {
-						division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1 start_equipment_factor = 1"
-						owner = ROOT
-						count = 5
-					}
-					set_state_flag = SOV_has_mobilized_militia
-				}
-			}
-			else = {
-				FROM = {
-					create_unit = {
-						division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1 start_equipment_factor = 1"
-						owner = ROOT
-						count = 10
-					}
-					set_state_flag = SOV_has_mobilized_militia
-				}
-			}
-		}
-		ai_will_do = {
-			base = 1000
-		}
-	}
-
-	SOV_recruit_militia_south = {
-		icon = GFX_decision_generic_reorganize_irregulars
-		name = SOV_recruit_militia
-		allowed = {
-			original_tag = RUS
-		}
-		cost = 10
-		state_target = yes
-		target_array = ROOT.core_states
-		target_trigger = {
 			FROM = {
+				RCW_recruit_militia_valid_targer = no
+			}
+		}
+		target_root_trigger = {
+			SOV = {
 				OR = {
-					state = 224
-					state = 242
-					state = 260
-				}
-			}
-		}
-		fire_only_once = yes
-		on_map_mode = map_and_decisions_view
-		days_remove = 21
-		visible = {
-			has_completed_focus = SOV_red_army
-			# OR = {
-			# 	is_ai = yes
-			# 	is_ai = no
-			# }
-			owns_state = FROM
-			FROM = {
-				is_core_of = ROOT
-			}
-		}
-		available = {
-			NOT = {
-				has_country_flag = SOV_recruiting_militia
-			}
-			controls_state = FROM
-			OR = {
-				has_war_with = UKR
-				has_war_with = POL
-			}
-		}
-		cancel_trigger = {
-			NOT = {
-				controls_state = FROM
-				AND = {
-					has_war_with = UKR
-					has_war_with = POL
-				}
-			}
-		}
-		cancel_effect = {
-			clr_country_flag = SOV_recruiting_militia
-		}
-		complete_effect = {
-			set_country_flag = SOV_recruiting_militia
-		}
-		remove_effect = {
-			clr_country_flag = SOV_recruiting_militia
-			if = {
-				limit = {
-					NOT = {
-						has_template = "Krasnaya Gvardiya"
-					}
-				}
-				division_template = {
-					name = "Krasnaya Gvardiya"
-					template_counter = 69
-					division_names_group = RUS_MIL_01
-					regiments = {
-						militia = { x = 0 y = 0 }
-						militia = { x = 0 y = 1 }
-						militia = { x = 1 y = 0 }
-					}
-					priority = 0
-					is_locked = yes
-				}
-			}
-			FROM = {
-				create_unit = {
-					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1 start_equipment_factor = 1"
-					owner = ROOT
-					count = 10
-				}
-				set_state_flag = SOV_has_mobilized_militia
-			}
-		}
-		ai_will_do = {
-			base = 1000
-		}
-	}
-
-	SOV_recruit_militia_north = {
-		icon = GFX_decision_generic_reorganize_irregulars
-		name = SOV_recruit_militia
-		allowed = {
-			original_tag = RUS
-		}
-		cost = 10
-		state_target = yes
-		target_array = ROOT.core_states
-		target_trigger = {
-			FROM = {
-				state = 195
-			}
-		}
-		fire_only_once = yes
-		on_map_mode = map_and_decisions_view
-		days_remove = 21
-		visible = {
-			has_completed_focus = SOV_red_army
-			# OR = {
-			# 	is_ai = yes
-			# 	is_ai = no
-			# }
-			owns_state = FROM
-			FROM = {
-				is_core_of = ROOT
-			}
-		}
-		available = {
-			NOT = {
-				has_country_flag = SOV_recruiting_militia
-			}
-			controls_state = FROM
-			has_war_with = RSO
-		}
-		cancel_trigger = {
-			NOT = { 
-				controls_state = FROM
-				has_war_with = RSO
-			}
-		}
-		cancel_effect = {
-			clr_country_flag = SOV_recruiting_militia
-		}
-		
-		complete_effect = {
-			set_country_flag = SOV_recruiting_militia
-		}
-		remove_effect = {
-			clr_country_flag = SOV_recruiting_militia
-			if = {
-				limit = {
-					NOT = {
-						has_template = "Krasnaya Gvardiya"
-					}
-				}
-				division_template = {
-					name = "Krasnaya Gvardiya"
-					template_counter = 69
-					division_names_group = RUS_MIL_01
-					regiments = {
-						militia = { x = 0 y = 0 }
-						militia = { x = 0 y = 1 }
-						militia = { x = 1 y = 0 }
-					}
-					priority = 0
-					is_locked = yes
-				}
-			}
-			FROM = {
-				create_unit = {
-					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1 start_equipment_factor = 1"
-					owner = ROOT
-					count = 7
-				}
-				set_state_flag = SOV_has_mobilized_militia
-			}
-		}
-		ai_will_do = {
-			base = 1000
-		}
-	}
-
-	SOV_recruit_militia_west = {
-		icon = GFX_decision_generic_reorganize_irregulars
-		name = SOV_recruit_militia
-		allowed = {
-			original_tag = RUS
-		}
-		cost = 10
-		state_target = yes
-		target_array = ROOT.core_states
-		target_trigger = {
-			FROM = {
-				OR = {
-					state = 247
-					state = 263
+					has_completed_focus = SOV_military_academy
+					has_completed_focus = SOV_military_all_education
 				}	
 			}
 		}
 		fire_only_once = yes
 		on_map_mode = map_and_decisions_view
-		days_remove = 21
-		visible = {
-			has_completed_focus = SOV_red_army
-			# OR = {
-			# 	is_ai = yes
-			# 	is_ai = no
-			# }
-			owns_state = FROM
-			FROM = {
-				is_core_of = ROOT
-			}
-		}
+		days_remove = 1
+		custom_cost_text = 500_infantry_equipment_1
 		available = {
-			NOT = {
-				has_country_flag = SOV_recruiting_militia
+			has_equipment = {
+				infantry_equipment > 499
 			}
 			controls_state = FROM
-			has_war_with = NWA
 		}
-		cancel_trigger = {
-			NOT = { 
-				controls_state = FROM
-				has_war_with = NWA
-			}
-		}
-		cancel_effect = {
-			clr_country_flag = SOV_recruiting_militia
-		}
-		complete_effect = {
-			set_country_flag = SOV_recruiting_militia
-		}
-		remove_effect = {
-			clr_country_flag = SOV_recruiting_militia
-			if = {
-				limit = {
-					NOT = {
-						has_template = "Krasnaya Gvardiya"
-					}
-				}
-				division_template = {
-					name = "Krasnaya Gvardiya"
-					template_counter = 69
-					division_names_group = RUS_MIL_01
-					regiments = {
-						militia = { x = 0 y = 0 }
-						militia = { x = 0 y = 1 }
-						militia = { x = 1 y = 0 }
-					}
-					priority = 0
-					is_locked = yes
-				}
-			}
-			FROM = {
-				create_unit = {
-					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1 start_equipment_factor = 1"
-					owner = ROOT
-					count = 10
-				}
-				set_state_flag = SOV_has_mobilized_militia
-			}
-		}
-		ai_will_do = {
-			base = 1000
-		}
-	}
-
-	SOV_recruit_militia_caucasus = {
-		icon = GFX_decision_generic_reorganize_irregulars
-		name = SOV_recruit_militia
-		allowed = {
-			original_tag = RUS
-		}
-		cost = 10
-		state_target = yes
-		target_array = ROOT.core_states
-		target_trigger = {
-			FROM = {
-				state = 217
-			}
-		}
-		fire_only_once = yes
-		on_map_mode = map_and_decisions_view
-		days_remove = 21
-		visible = {
-			has_completed_focus = SOV_red_army
-			# OR = {
-			# 	is_ai = yes
-			# 	is_ai = no
-			# }
-			owns_state = FROM
-			FROM = {
-				is_core_of = ROOT
-			}
-		}
-		available = {
-			NOT = {
-				has_country_flag = SOV_recruiting_militia
-			}
-			controls_state = FROM
-			has_war_with = SRA
-		}
-		cancel_trigger = {
-			NOT = { 
-				controls_state = FROM
-				has_war_with = SRA
-			}
-		}
-		cancel_effect = {
-			clr_country_flag = SOV_recruiting_militia
-		}
-		complete_effect = {
-			set_country_flag = SOV_recruiting_militia
-		}
-		remove_effect = {
-			clr_country_flag = SOV_recruiting_militia
-			if = {
-				limit = {
-					NOT = {
-						has_template = "Krasnaya Gvardiya"
-					}
-				}
-				division_template = {
-					name = "Krasnaya Gvardiya"
-					template_counter = 69
-					division_names_group = RUS_MIL_01
-					regiments = {
-						militia = { x = 0 y = 0 }
-						militia = { x = 0 y = 1 }
-						militia = { x = 1 y = 0 }
-					}
-					priority = 0
-					is_locked = yes
-				}
-			}
-			FROM = {
-				create_unit = {
-					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1 start_equipment_factor = 1"
-					owner = ROOT
-					count = 5
-				}
-				set_state_flag = SOV_has_mobilized_militia
-			}
-		}
-		ai_will_do = {
-			base = 1000
-		}
-	}
-
-	SOV_recruit_militia_centre_perm = {
-		icon = GFX_decision_generic_reorganize_irregulars
-		name = SOV_recruit_militia
-		allowed = {
-			original_tag = RUS
-		}
-		fire_only_once = no
-		custom_cost_text = 3000_infantry_equipment_1
 		custom_cost_trigger = {
 			has_equipment = {
-				infantry_equipment > 2999
+				infantry_equipment > 499
 			}
 		}
-		days_remove = 21
-		days_re_enable = 14
-		visible = {
-			OR = {
-				has_completed_focus = SOV_military_academy
-				has_completed_focus = SOV_military_all_education
-			}
-			NOT = {
-				has_completed_focus = SOV_reform_the_army
-			}
-		}
-		available = {
-			has_equipment = {
-				infantry_equipment > 2999
+		cancel_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
 			}
 		}
 		complete_effect = {
-			
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -500
+			}
 		}
 		remove_effect = {
 			if = {
@@ -589,50 +72,71 @@ SOV_recruit_militia_category = {
 					is_locked = yes
 				}
 			}
-			capital_scope = {
+			FROM = {
 				create_unit = {
-					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1 start_equipment_factor = 1"
+					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.05 start_equipment_factor = 0.75"
 					owner = ROOT
-					count = 10
+					count = 2
 				}
+				set_state_flag = SOV_has_mobilized_militia
 			}
 		}
 		ai_will_do = {
-			base = 100
-			modifier = {
-				factor = 0
-				stockpile_ratio = {
-					archetype = infantry_equipment
-					ratio < 0.35
-				}
-			}
+			base = 1000
 		}
 	}
-
-	SOV_emergency_conscription_puppets = {
-		icon = GFX_decision_generic_reorganize_irregulars
+	SOV_recruit_militia_large = {
+		icon = generic_prepare_civil_war
 		name = SOV_recruit_militia
 		allowed = {
-			OR = {
-				original_tag = RUS
-				original_tag = DON
-				original_tag = KUB
-				original_tag = AMU
-				original_tag = TRK
+			original_tag = RUS
+		}
+		state_target = yes
+		target_array = global.RCW_core_large_states_array
+		target_trigger = {
+			FROM = {
+				RCW_recruit_militia_valid_targer = yes
+			}
+		}
+		cancel_trigger = {
+			FROM = {
+				RCW_recruit_militia_valid_targer = no
+			}
+		}
+		target_root_trigger = {
+			SOV = {
+				OR = {
+					has_completed_focus = SOV_pre_revolutionary_army_officers
+					has_completed_focus = SOV_peoples_army
+				}	
 			}
 		}
 		fire_only_once = yes
-		cost = 25
-		days_remove = 21
-		visible = {
-			surrender_progress > 0.5
-			is_subject_of = SOV
-		}
+		on_map_mode = map_and_decisions_view
+		days_remove = 3
+		custom_cost_text = 1500_infantry_equipment_1
 		available = {
-
+			has_equipment = {
+				infantry_equipment > 999
+			}
+			controls_state = FROM
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		cancel_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+			}
 		}
 		complete_effect = {
-			
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
 		}
 		remove_effect = {
 			if = {
@@ -654,32 +158,99 @@ SOV_recruit_militia_category = {
 					is_locked = yes
 				}
 			}
-			if = {
-				limit = { 
-					capital_scope = {
-						is_owned_and_controlled_by = ROOT
-					}
+			FROM = {
+				create_unit = {
+					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.05 start_equipment_factor = 0.75"
+					owner = ROOT
+					count = 3
 				}
-				capital_scope = {
-					create_unit = {
-						division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1 start_equipment_factor = 1"
-						owner = OWNER
-						count = 4
-					}
-				}
-			}
-			else = {
-				random_owned_controlled_state = {
-					create_unit = {
-						division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.1 start_equipment_factor = 1"
-						owner = OWNER
-						count = 4
-					}					
-				}
+				set_state_flag = SOV_has_mobilized_militia
 			}
 		}
 		ai_will_do = {
-			base = 100
+			base = 1000
+		}
+	}
+	SOV_recruit_militia_huge = {
+		icon = generic_prepare_civil_war
+		name = SOV_recruit_militia
+		allowed = {
+			original_tag = RUS
+		}
+		state_target = yes
+		target_array = global.RCW_core_huge_states_array
+		target_trigger = {
+			FROM = {
+				RCW_recruit_militia_valid_targer = yes
+			}
+		}
+		cancel_trigger = {
+			FROM = {
+				RCW_recruit_militia_valid_targer = no
+			}
+		}
+		target_root_trigger = {
+			SOV = {
+				has_completed_focus = SOV_red_army
+			}
+		}
+		fire_only_once = yes
+		on_map_mode = map_and_decisions_view
+		days_remove = 4
+		custom_cost_text = 1500_infantry_equipment_1
+		available = {
+			has_equipment = {
+				infantry_equipment > 1499
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 1499
+			}
+		}
+		cancel_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1500
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1500
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_template = "Krasnaya Gvardiya"
+					}
+				}
+				division_template = {
+					name = "Krasnaya Gvardiya"
+					template_counter = 69
+					division_names_group = RUS_MIL_01
+					regiments = {
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+						militia = { x = 1 y = 0 }
+					}
+					priority = 0
+					is_locked = yes
+				}
+			}
+			FROM = {
+				create_unit = {
+					division = "division_template = \"Krasnaya Gvardiya\" start_experience_factor = 0.05 start_equipment_factor = 0.75"
+					owner = ROOT
+					count = 4
+				}
+				set_state_flag = SOV_has_mobilized_militia
+			}
+		}
+		ai_will_do = {
+			base = 1000
 		}
 	}
 }
@@ -687,7 +258,7 @@ SOV_recruit_militia_category = {
 RUS_civil_war = {
 	
 	SOV_czechs_leave_via_siberia = {
-		icon = GFX_decision_generic_reorganize_irregulars
+		icon = generic_train
 
 		allowed = {
 			always = no
@@ -915,7 +486,7 @@ VLN_anarchy_decisions = {
 	}
 
 	VLN_recruit_units = {
-		icon = GFX_decision_generic_reorganize_irregulars
+		icon = generic_prepare_civil_war
 		allowed = {
 			tag = VLN
 		}
@@ -989,16 +560,28 @@ peace_deals = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = POL
 				is_subject = no
 				has_war_with = ROOT
 			}
+		}
+		targets = {
+			POL
 		}
 		# target_root_trigger = {
 		# 	has_war_with = FROM
 		# }
 		available = {
-			surrender_progress > 0.05
+			OR = {
+				surrender_progress > 0.05
+				war_length_with = {
+					tag = POL
+					months > 36
+				}
+				casualties_inflicted_by = {
+					opponent = POL
+					thousands > 1000
+				}
+			}
 		}
 		visible = {
 			is_subject = no
@@ -1043,10 +626,12 @@ peace_deals = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = POL
 				is_subject = no
 				has_war_with = ROOT
 			}
+		}
+		targets = {
+			POL
 		}
 		available = {
 			OR = {
@@ -1085,16 +670,14 @@ peace_deals = {
 		visible = {
 			tag = SOV
 		}
-		target_trigger = {
-			FROM = {
-				tag = VLN
-			}
+		targets = {
+			VLN
 		}
 		available = {
 			OR = {
 				surrender_progress > 0.3
-				any_country = {
-					original_tag = UKR
+				any_country_with_original_tag = {
+					original_tag_to_check = UKR
 					is_subject_of = PREV
 					has_capitulated = yes
 				}
@@ -1128,10 +711,8 @@ peace_deals = {
 		visible = {
 			tag = SOV
 		}
-		target_trigger = {
-			FROM = {
-				tag = EST
-			}
+		targets = {
+			EST
 		}
 		available = {
 			is_subject = no
@@ -1261,10 +842,8 @@ peace_deals = {
 		visible = {
 			tag = SOV
 		}
-		target_trigger = {
-			FROM = {
-				tag = LAT
-			}
+		targets = {
+			LAT
 		}
 		available = {
 			is_subject = no
@@ -1342,7 +921,10 @@ peace_deals = {
 				limit = {
 					is_core_of = FROM
 					owner = {
-						is_russian_tag = yes
+						OR = {
+							is_russian_tag = yes
+							is_subject_of = ROOT
+						}
 					}
 				}
 				transfer_state_to = FROM
@@ -1395,10 +977,8 @@ peace_deals = {
 		visible = {
 			tag = SOV
 		}
-		target_trigger = {
-			FROM = {
-				tag = LIT
-			}
+		targets = {
+			LIT
 		}
 		available = {
 			is_subject = no
@@ -1584,10 +1164,12 @@ peace_deals = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = JAP
 				is_subject = no
 				has_war_with = ROOT
 			}
+		}
+		targets = {
+			JAP
 		}
 		visible = {
 			tag = SOV
@@ -1831,8 +1413,8 @@ SOV_combat_the_counter_revolution = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = { tag = CER }
+		targets = {
+			CER
 		}
 		cost = 5
 		ai_will_do = {
@@ -1860,8 +1442,8 @@ SOV_combat_the_counter_revolution = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = { tag = TRK }
+		targets = {
+			TRK
 		}
 		cost = 5
 		ai_will_do = {
@@ -1877,11 +1459,13 @@ SOV_combat_the_counter_revolution = {
 	}
 	SOV_crush_FROM_cossacks = {
 		icon = GFX_decision_SOV_secure_the_administration
+		allowed = {
+			original_tag = RUS
+		}
 		available = {
 			is_neighbor_of = FROM
 		}
 		visible = {
-			has_completed_focus = SOV_combat_the_counter_revolution
 			FROM = {
 				is_subject = no
 				is_in_faction = no
@@ -1891,6 +1475,9 @@ SOV_combat_the_counter_revolution = {
 					has_cosmetic_tag = TBK_okraina
 				}
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = SOV_combat_the_counter_revolution
 		}
 		target_trigger = {
 			FROM = { is_cossack_tag = yes }
@@ -1935,10 +1522,8 @@ SOV_combat_the_counter_revolution = {
 		visible = {
 			tag = SOV
 		}
-		target_trigger = {
-			FROM = {
-				tag = VLN
-			}
+		targets = {
+			VLN
 		}
 		war_with_target_on_remove = yes
 		available = {
@@ -1960,7 +1545,6 @@ SOV_combat_the_counter_revolution = {
 			FROM = {
 				NOT = {
 					has_war_with = ROOT
-					has_war_together_with = ROOT
 				}
 			}
 			NOT = { has_country_flag = SOV_sue_for_peace_VLN }
@@ -2052,7 +1636,8 @@ SOV_combat_the_counter_revolution = {
 			is_subject = no
 			has_government = communism
 			NOT = {
-				any_country = {
+				any_country_with_original_tag = {
+					original_tag_to_check = RUS
 					has_country_flag = RUS_stavropol_tag
 				}
 			}
@@ -2082,7 +1667,11 @@ SOV_combat_the_counter_revolution = {
 					original_tag = RUS
 					copy_tag = SOV
 					add_political_power = 100
-					transfer_state = 235
+					235 = {
+						PREV = {
+							RCW_ROOT_release_PREV = yes
+						}
+					}
 					load_focus_tree = empty_focus
 					if = {
 						limit = { ROOT = { has_idea = RUS_demobilizing_army }}
@@ -2143,15 +1732,10 @@ SOV_combat_the_counter_revolution = {
 					every_state = {
 						limit = {
 							is_core_of = PREV
-							NOT = {
-								state = 235
-							}	
+							NOT = { state = 235 }	
 						}
 						remove_core_of = PREV
 					}
-				}
-				235 = {
-					remove_core_of = SOV
 				}
 			}	
 			effect_tooltip = {
@@ -2457,9 +2041,12 @@ SOV_decision_soviet_republics = {
 		days_mission_timeout = 64
 		fire_only_once = yes
 		timeout_effect = {
+			561 = {
+				AMU = {
+					RCW_ROOT_release_PREV = yes
+				}			
+			}
 			AMU = {
-				transfer_state = 561
-				add_state_core = 561
 				ROOT = {
 					puppet = PREV
 				}
@@ -2535,7 +2122,8 @@ SOV_decision_soviet_republics = {
 				}	
 				is_subject = yes
 				country_exists = TER
-				any_country = {
+				any_country_with_original_tag = {
+					original_tag_to_check = KUB
 					has_cosmetic_tag = KUB_north_caucasus_communism
 				}
 			}	
@@ -2547,9 +2135,12 @@ SOV_decision_soviet_republics = {
 		}
 		fire_only_once = yes
 		remove_effect = {
+			232 = {
+				TER = {
+					RCW_ROOT_release_PREV = yes
+				}
+			}
 			TER = {
-				transfer_state = 232
-				add_state_core = 232
 				ROOT = {
 					puppet = PREV
 				}
@@ -2597,18 +2188,25 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_soviet_kuban_black_sea = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			is_subject = no
 			has_government = communism
 		}
 		target_trigger = {
 			FROM = {
-				tag = KUB
 				NOT = {
 					tag = BSR
 				}
 			}
+		}
+		targets = {
+			KUB
 		}
 		visible = {
 			has_subject = KUB
@@ -2620,34 +2218,33 @@ SOV_decision_soviet_republics = {
 		}
 		fire_only_once = yes
 		complete_effect = {
-			KUB = {
-				annex_country = {
-					target = BSR
-					transfer_troops = yes
+			BSR = {
+				KUB = {
+					RCW_THIS_fuze_with_PREV = yes
+					set_cosmetic_tag = KUB_black_sea_communism
 				}
-				every_state = {
-					limit = {
-						is_core_of = BSR
-					}
-					add_core_of = KUB
-					remove_core_of = BSR
-				}
-				set_cosmetic_tag = KUB_black_sea_communism
 			}
 		}
 	}	
 	SOV_soviet_north_caucasus = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			is_subject = no
 			has_government = communism
 		}
 		target_trigger = {
 			FROM = {
-				tag = KUB
 				has_cosmetic_tag = KUB_black_sea_communism
 			}
+		}
+		targets = {
+			KUB
 		}
 		visible = {
 			any_subject_country = {
@@ -2661,41 +2258,30 @@ SOV_decision_soviet_republics = {
 		}
 		fire_only_once = yes
 		complete_effect = {
-			KUB = {
-				annex_country = {
-					target = TER
-					transfer_troops = yes
+			TER = {
+				KUB = {
+					RCW_THIS_fuze_with_PREV = yes
 				}
-				if = {
-					limit = {
-						any_country = {
-							has_country_flag = RUS_stavropol_tag
-						}
+			}
+			if = {
+				limit = {
+					any_subject_country = {
+						has_country_flag = RUS_stavropol_tag
 					}
-					annex_country = {
-						target = STV
-						transfer_troops = yes
+				}
+				STV = {
+					KUB = {
+						RCW_THIS_fuze_with_PREV = yes
 					}
-				}	
+				}
+			}	
+			KUB = {
 				set_cosmetic_tag = KUB_north_caucasus_communism
 				create_country_leader = {
 					name = SOV_abram_rubin
 					picture = "gfx/leaders/SOV/SOV_Abram_Rubin.png"
 					ideology = vanguardism
 				}
-				every_state = {
-					limit = {
-						OR = {
-							is_core_of = STV
-							is_core_of = TER				
-						}
-						NOT = {
-							is_core_of = KUB
-						}
-					}
-					add_core_of = KUB
-					remove_core_of = STV
-				}		
 			}
 			every_owned_state = {
 				limit = {
@@ -2723,6 +2309,9 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_annex_soviet_north_caucasus = {
 		icon = GFX_decision_SOV_secure_the_administration
+		allowed = {
+			original_tag = RUS
+		}
 		available = {
 			is_subject = no
 			has_government = communism
@@ -2735,10 +2324,12 @@ SOV_decision_soviet_republics = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = KUB
 				has_cosmetic_tag = KUB_north_caucasus_communism
 				is_subject_of = ROOT
 			}
+		}
+		targets = {
+			KUB
 		}
 		cost = 5
 		ai_will_do = {
@@ -3036,8 +2627,13 @@ SOV_decision_soviet_republics = {
 
 	SOV_soviet_belarus = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			is_subject = no
 			OR = {
 				has_government = democratic
@@ -3059,9 +2655,11 @@ SOV_decision_soviet_republics = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = BLR
 				is_subject = no
 			}
+		}
+		targets = {
+			BLR
 		}
 		cost = 25
 		ai_will_do = {
@@ -3256,8 +2854,13 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_rearanage_belarusian_borders = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			FROM = {
 				owns_state = 206
 			}
@@ -3346,8 +2949,13 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_soviet_ukraine = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			is_subject = no
 			UKR = {
 				has_capitulated = no
@@ -3378,9 +2986,11 @@ SOV_decision_soviet_republics = {
 		war_with_target_on_complete = yes
 		target_trigger = {
 			FROM = {
-				tag = UKR
 				is_subject = no
 			}
+		}
+		targets = {
+			UKR
 		}
 		cost = 25
 		ai_will_do = {
@@ -3573,10 +3183,8 @@ SOV_decision_soviet_republics = {
 				}
 			}		
 		}
-		target_trigger = {
-			FROM = {
-				tag = USR
-			}
+		targets = {
+			USR
 		}
 		# target_root_trigger = {
 		# 	has_subject = FROM
@@ -3671,8 +3279,13 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_soviet_georgia = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			country_exists = GEO
 			is_subject = no
 			FROM = {
@@ -3686,28 +3299,21 @@ SOV_decision_soviet_republics = {
 			}			
 			OR = {
 				is_neighbor_of = FROM
-				any_country = {
-					is_ally_with = ROOT
+				any_allied_country = {
 					is_neighbor_of = FROM
 				}
 			}
 		}
 		target_trigger = {
 			FROM = {
-				tag = GEO
 				is_subject = no
 			}
 		}
+		targets = {
+			GEO
+		}
 		visible = {
 			has_global_flag = russian_civil_war
-			FROM = {
-				NOT = {
-					has_cosmetic_tag = GEO_TSCN_commissariat
-					has_cosmetic_tag = GEO_TSCN_committee
-					#has_cosmetic_tag = GEO_TSCN
-					#has_cosmetic_tag = GEO_TSCN_communism
-				}
-			}
 		}
 		cost = 25
 		ai_will_do = {
@@ -3763,8 +3369,7 @@ SOV_decision_soviet_republics = {
 			}
 			OR = {
 				is_neighbor_of = FROM
-				any_country = {
-					is_ally_with = ROOT
+				any_allied_country = {
 					is_neighbor_of = FROM
 				}
 			}
@@ -3772,10 +3377,8 @@ SOV_decision_soviet_republics = {
 		visible = {
 			has_global_flag = russian_civil_war
 		}
-		target_trigger = {
-			FROM = {
-				tag = ARM
-			}
+		targets = {
+			ARM
 		}
 		cost = 25
 		ai_will_do = {
@@ -3844,8 +3447,13 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_soviet_azerbaijan = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			country_exists = AZR
 			FROM = {
 				is_subject = no
@@ -3859,11 +3467,7 @@ SOV_decision_soviet_republics = {
 			}
 			OR = {
 				is_neighbor_of = FROM
-				any_country = {
-					OR = {
-						is_subject_of = ROOT
-						is_in_faction_with = ROOT
-					}
+				any_allied_country = {
 					is_neighbor_of = FROM
 				}
 			}
@@ -3873,9 +3477,11 @@ SOV_decision_soviet_republics = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = AZR
 				is_subject = no
 			}
+		}
+		targets = {
+			AZR
 		}
 		fire_only_once = yes
 		cost = 25
@@ -4003,10 +3609,8 @@ SOV_decision_soviet_republics = {
 				}
 			}		
 		}
-		target_trigger = {
-			FROM = {
-				tag = MOU
-			}
+		targets = {
+			MOU
 		}
 		cost = 25
 		ai_will_do = {
@@ -4039,8 +3643,13 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_soviet_khorezm = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			country_exists = KHI
 			FROM = {
 				is_subject = no
@@ -4048,9 +3657,15 @@ SOV_decision_soviet_republics = {
 			}
 			is_subject = no
 			OR = {
-				controls_state = 587
-				controls_state = 584
-				controls_state = 585
+				587 = {
+					is_controlled_by_ROOT_or_subject = yes
+				}
+				584 = {
+					is_controlled_by_ROOT_or_subject = yes
+				}
+				585 = {
+					is_controlled_by_ROOT_or_subject = yes
+				}
 				has_subject = KAZ
 			}	
 			OR = {
@@ -4066,9 +3681,11 @@ SOV_decision_soviet_republics = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = KHI
 				is_subject = no
 			}
+		}
+		targets = {
+			KHI
 		}
 		cost = 25
 		ai_will_do = {
@@ -4119,13 +3736,24 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_soviet_bukhara = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			is_subject = no
 			OR = {
-				controls_state = 732
-				controls_state = 584
-				controls_state = 585
+				732 = {
+					is_controlled_by_ROOT_or_subject = yes
+				}
+				584 = {
+					is_controlled_by_ROOT_or_subject = yes
+				}
+				585 = {
+					is_controlled_by_ROOT_or_subject = yes
+				}
 				has_subject = KHI
 			}
 			BUK = {
@@ -4145,9 +3773,11 @@ SOV_decision_soviet_republics = {
 		}	
 		target_trigger = {
 			FROM = {
-				tag = BUK
 				is_subject = no
 			}
+		}
+		targets = {
+			BUK
 		}
 		cost = 25
 		ai_will_do = {
@@ -4238,8 +3868,13 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_soviet_latvia = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			country_exists = LAT
 			OR = {
 				LAT = { has_government = ROOT }
@@ -4265,7 +3900,6 @@ SOV_decision_soviet_republics = {
 		}		
 		target_trigger = {
 			FROM = {
-				tag = LAT
 				OR = {
 					is_subject = no
 					AND = {
@@ -4274,6 +3908,9 @@ SOV_decision_soviet_republics = {
 					}
 				}				
 			}
+		}
+		targets = {
+			LAT
 		}
 		cost = 25
 		ai_will_do = {
@@ -4347,9 +3984,11 @@ SOV_decision_soviet_republics = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = LIT
 				is_subject = no
 			}
+		}
+		targets = {
+			LIT
 		}
 		cost = 25
 		ai_will_do = {
@@ -4425,9 +4064,11 @@ SOV_decision_soviet_republics = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = EST
 				is_subject = no
 			}
+		}
+		targets = {
+			EST
 		}
 		cost = 25
 		ai_will_do = {
@@ -4626,6 +4267,7 @@ SOV_decision_soviet_republics = {
 					is_owned_and_controlled_by = ROOT
 					any_other_country = {
 						OR = {
+							original_tag = CAU
 							original_tag = GEO
 							original_tag = ARM
 							original_tag = AZR
@@ -4641,6 +4283,7 @@ SOV_decision_soviet_republics = {
 					is_owned_and_controlled_by = ROOT
 					any_other_country = {
 						OR = {
+							original_tag = CAU
 							original_tag = GEO
 							original_tag = ARM
 							original_tag = AZR
@@ -4656,6 +4299,7 @@ SOV_decision_soviet_republics = {
 					is_owned_and_controlled_by = ROOT
 					any_other_country = {
 						OR = {
+							original_tag = CAU
 							original_tag = GEO
 							original_tag = ARM
 							original_tag = AZR
@@ -4671,6 +4315,7 @@ SOV_decision_soviet_republics = {
 					is_owned_and_controlled_by = ROOT
 					any_other_country = {
 						OR = {
+							original_tag = CAU
 							original_tag = GEO
 							original_tag = ARM
 							original_tag = AZR
@@ -4686,6 +4331,7 @@ SOV_decision_soviet_republics = {
 					is_owned_and_controlled_by = ROOT
 					any_other_country = {
 						OR = {
+							original_tag = CAU
 							original_tag = GEO
 							original_tag = ARM
 							original_tag = AZR
@@ -4701,6 +4347,7 @@ SOV_decision_soviet_republics = {
 					is_owned_and_controlled_by = ROOT
 					any_other_country = {
 						OR = {
+							original_tag = CAU
 							original_tag = GEO
 							original_tag = ARM
 							original_tag = AZR
@@ -4716,6 +4363,7 @@ SOV_decision_soviet_republics = {
 					is_owned_and_controlled_by = ROOT
 					any_other_country = {
 						OR = {
+							original_tag = CAU
 							original_tag = GEO
 							original_tag = ARM
 							original_tag = AZR
@@ -4731,6 +4379,7 @@ SOV_decision_soviet_republics = {
 					is_owned_and_controlled_by = ROOT
 					any_other_country = {
 						OR = {
+							original_tag = CAU
 							original_tag = GEO
 							original_tag = ARM
 							original_tag = AZR
@@ -4746,6 +4395,7 @@ SOV_decision_soviet_republics = {
 					is_owned_and_controlled_by = ROOT
 					any_other_country = {
 						OR = {
+							original_tag = CAU
 							original_tag = GEO
 							original_tag = ARM
 							original_tag = AZR
@@ -4761,6 +4411,7 @@ SOV_decision_soviet_republics = {
 					is_owned_and_controlled_by = ROOT
 					any_other_country = {
 						OR = {
+							original_tag = CAU
 							original_tag = GEO
 							original_tag = ARM
 							original_tag = AZR
@@ -4778,6 +4429,12 @@ SOV_decision_soviet_republics = {
 			OR = {
 				has_government = democratic
 				has_government = communism
+			}
+			CAU = {
+				OR = {
+					is_subject_of = ROOT
+					exists = no
+				}
 			}
 			GEO = {
 				OR = {
@@ -4816,6 +4473,9 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_soviet_crimea = {
 		icon = GFX_decision_SOV_secure_the_administration
+		allowed = {
+			original_tag = RUS
+		}
 		available = {
 			has_capitulated = no
 			OR = {
@@ -4832,8 +4492,10 @@ SOV_decision_soviet_republics = {
 				}
 			}
 		}
-		visible = {
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		visible = {
 			has_global_flag = brest_litovsk_finished
 			GER = {
 				NOT = {
@@ -4848,9 +4510,11 @@ SOV_decision_soviet_republics = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = CRI
 				is_subject = no
 			}
+		}
+		targets = {
+			CRI
 		}
 		fire_only_once = yes
 		cost = 25
@@ -4888,8 +4552,13 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_soviet_persia = {
 		icon = GFX_decision_SOV_secure_the_administration
-		available = {
+		allowed = {
+			original_tag = RUS
+		}
+		target_root_trigger = {
 			has_completed_focus = SOV_soviet_republics
+		}
+		available = {
 			FROM = {
 				has_civil_war = no
 			}
@@ -4899,8 +4568,7 @@ SOV_decision_soviet_republics = {
 			}
 			OR = {
 				is_neighbor_of = FROM
-				any_country = {
-					is_ally_with = ROOT
+				any_allied_country = {
 					is_neighbor_of = FROM
 				}
 			}
@@ -4922,9 +4590,11 @@ SOV_decision_soviet_republics = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = PER
 				is_subject = no
 			}
+		}
+		targets = {
+			PER
 		}
 		fire_only_once = yes
 		cost = 25
@@ -5008,6 +4678,9 @@ SOV_decision_soviet_republics = {
 	}
 	SOV_mongol_peoples_republic = {
 		icon = GFX_decision_SOV_secure_the_administration
+		allowed = {
+			original_tag = RUS
+		}
 		available = {
 			is_neighbor_of = FROM
 			OR = {
@@ -5016,7 +4689,6 @@ SOV_decision_soviet_republics = {
 			}
 		}
 		visible = {
-			has_completed_focus = SOV_soviet_republics
 			FROM = {
 				has_country_leader = {
 					character = RUS_roman_ungern_sternberg 
@@ -5025,12 +4697,15 @@ SOV_decision_soviet_republics = {
 				is_in_faction = no
 			}
 		}
+		target_root_trigger = {
+			has_completed_focus = SOV_soviet_republics
+		}
 		target_trigger = {
 			FROM = {
 				original_tag = MON
-				owns_state = 330
 			}
 		}
+		target_array = 330.owner
 		cost = 20
 		ai_will_do = {
 			base = 0
@@ -5347,10 +5022,8 @@ foreign_politics = {
 				original_tag = RUS 
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = VLN
-			}
+		targets = {
+			VLN
 		}	
 		visible = {
 			OR = {

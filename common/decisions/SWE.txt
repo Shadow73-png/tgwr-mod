@@ -6068,6 +6068,49 @@ operations = {
 			base = 1
 		}
 	}
+	SWE_focus_on_local_projection = {
+		allowed = {
+			tag = SWE
+		}
+		
+		available = {
+			has_capitulated = no
+			OR = {
+				is_great_war_ongoing = yes
+				has_war = yes
+			}
+		}
+		visible = {
+			has_completed_focus = SWE_coastal_projection
+		}
+		
+		days_remove = 14
+		fire_only_once = yes
+		
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		
+		custom_cost_text = decision_cost_CP_25
+		
+		modifier = { war_support_weekly = 0.01 }
+		
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		
+		remove_effect = {
+			add_timed_idea = {
+				idea = SWE_coastal_projection
+				days = 1095
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	SWE_organise_against_russian_threat = {
 		# Essentially Sven Hedin was very anti-russian
 			# So this is preparing people for the future
@@ -6694,6 +6737,69 @@ SWE_varnplikten_decisions = {
 				tooltip = mobilization_speed_tt
 				var = SWE_mil_mobilization_speed
 				value = 0.05
+			}
+		}
+	}
+	SWE_military_lessons_of_great_war = {
+		allowed = {
+			always = no
+		}
+		available = {
+			has_country_flag = { 
+				flag = sweden_observe_the_fronts_amount
+				value = 6
+			}
+		}
+		visible = {
+			original_tag = SWE
+		}
+		
+		fire_only_once = yes
+		
+		is_good = yes
+		
+		days_mission_timeout = 90
+		
+		complete_effect = {
+			army_experience = 5
+		}
+		
+		timeout_effect = {
+			custom_effect_tooltip = adjust_swe_military_tt
+			add_to_variable = {
+				tooltip = army_org_factor_tt
+				var = SWE_mil_army_org_factor
+				value = 0.01
+			}
+			add_to_variable = {
+				tooltip = army_attack_factor_tt
+				var = SWE_mil_army_attack_factor
+				value = 0.02
+			}
+			add_to_variable = {
+				tooltip = experience_gain_army_factor_tt
+				var = SWE_mil_experience_gain_army_factor
+				value = 0.02
+			}
+			add_to_variable = {
+				tooltip = land_mastery_gain_factor_tt
+				var = SWE_mil_land_mastery_gain_factor
+				value = 0.01
+			}
+			if = {
+				limit = {
+					has_country_flag = sweden_observe_the_fronts_amount
+				}
+				modify_country_flag = {
+					flag = sweden_observe_the_fronts_amount
+					value = 1
+				}
+			}
+			else = {
+				set_country_flag = {
+					flag = sweden_observe_the_fronts_amount
+					value = 1
+				}
 			}
 		}
 	}
@@ -7341,7 +7447,11 @@ SWE_varnplikten_decisions = {
 		ai_will_do = {
 			base = 1
 			modifier = {
-				factor = 2
+				add = 1
+				is_in_faction = yes
+			}
+			modifier = {
+				add = 1
 				has_war = yes
 			}
 		}
@@ -7560,21 +7670,16 @@ SWE_varnplikten_decisions = {
 			}
 		}
 	}
-	SWE_budget_for_landstorm = {
+	SWE_focus_on_tank_developments = {
 		allowed = {
 			original_tag = SWE
 		}
 		visible = {
+			has_tech = coil_ignition
 			has_completed_focus = SWE_favor_gustaf_hammarskjold
 		}
 		available = {
-			threat > 0.4
-			has_war_support > 0.7
-			OR = {
-				has_completed_focus = SWE_neutralitetsvakt
-				has_completed_focus = SWE_german_military_mission
-				has_completed_focus = SWE_invite_french_officers
-			}
+			is_special_project_completed = sp_land_tank_prototype
 			SWE_has_majority_for_reform_war = yes
 			NOT = {
 				has_idea = idea_armistice
@@ -7584,42 +7689,42 @@ SWE_varnplikten_decisions = {
 		
 		cost = 50
 		
-		days_remove = 70
+		days_remove = 60
 		fire_only_once = yes
+		
+		modifier = { consumer_goods_factor = 0.1 }
 		
 		complete_effect = {
 			set_country_flag = {
 				flag = swe_recent_army_improvement
-				days = 90
+				days = 80
 				value = 1
 			}
 		}
 		
 		remove_effect = {
-			# Unlocks decisions to increase resources for Landstorm
-			set_country_flag = swe_landstorm_decisions
-			custom_effect_tooltip = landstorm_decisions_tt
-			custom_effect_tooltip = adjust_swe_economic_tt
-			add_to_variable = {
-				tooltip = consumer_goods_factor_tt
-				var = SWE_consumer_goods
-				value = 0.05
+			if = {
+				limit = { has_tech = tank_design }
+				army_experience = 5
+				add_tech_bonus = {
+					name = armor
+					category = armor
+					uses = 1
+					bonus = 0.35
+				}
 			}
-			hidden_effect = {
-				load_oob = "SWE_landstorm"
+			else = {
+				add_tech_bonus = {
+					name = tank_design
+					technology = tank_design
+					uses = 1
+					bonus = 0.5
+				}
 			}
 		}
 		
 		ai_will_do = {
-			base = 1
-			modifier = {
-				factor = 10
-				has_war = yes
-			}
-			modifier = {
-				factor = 0
-				has_political_power < 150
-			}
+			base = 5
 		}
 	}
 	SWE_importance_of_entrenchment = {
@@ -7682,6 +7787,68 @@ SWE_varnplikten_decisions = {
 			modifier = {
 				factor = 0
 				date < 1913.1.1
+			}
+		}
+	}
+	SWE_budget_for_landstorm = {
+		allowed = {
+			original_tag = SWE
+		}
+		visible = {
+			has_completed_focus = SWE_favor_gustaf_hammarskjold
+		}
+		available = {
+			threat > 0.4
+			has_war_support > 0.7
+			OR = {
+				has_completed_focus = SWE_neutralitetsvakt
+				has_completed_focus = SWE_german_military_mission
+				has_completed_focus = SWE_invite_french_officers
+			}
+			SWE_has_majority_for_reform_war = yes
+			NOT = {
+				has_idea = idea_armistice
+				has_idea = idea_army_restrictions
+			}
+		}
+		
+		cost = 50
+		
+		days_remove = 70
+		fire_only_once = yes
+		
+		complete_effect = {
+			set_country_flag = {
+				flag = swe_recent_army_improvement
+				days = 90
+				value = 1
+			}
+		}
+		
+		remove_effect = {
+			# Unlocks decisions to increase resources for Landstorm
+			set_country_flag = swe_landstorm_decisions
+			custom_effect_tooltip = landstorm_decisions_tt
+			custom_effect_tooltip = adjust_swe_economic_tt
+			add_to_variable = {
+				tooltip = consumer_goods_factor_tt
+				var = SWE_consumer_goods
+				value = 0.05
+			}
+			hidden_effect = {
+				load_oob = "SWE_landstorm"
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 10
+				has_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_political_power < 150
 			}
 		}
 	}
@@ -7769,38 +7936,34 @@ SWE_varnplikten_decisions = {
 				var = SWE_mil_army_attack_factor
 				value = 0.05
 			}
-			add_to_variable = {
-				tooltip = supply_consumption_factor_tt
-				var = SWE_mil_supply_consumption_factor
-				value = 0.02
-			}
 		}
 		
 		ai_will_do = {
 			base = 1
 			modifier = {
-				factor = 2
-				has_reached_maximum_divisions = yes
+				add = 1
+				has_war = yes
 			}
 		}
 	}
 	SWE_avoid_mistakes_of_cautiousness = {
 		# Knut Bildts was convinced the slowness of the western front was cuz everyone bunkered down, and it could have been avoided with more offense mindset at first
 		# Essentially entrenchment made things deadlier than it needed to be in his opinion
+		# Mobile warfare essentially
 		allowed = {
 			tag = SWE
 		}
 		available = {
 			has_war_support > 0.3
 			has_army_experience > 24
-			OR = {
-				is_great_war_ongoing = yes
-				has_global_flag = great_war_ends
-			}
 			NOT = { has_country_flag = swe_recent_army_improvement }
 		}
 		visible = {
 			has_completed_focus = SWE_knut_bildts_reforms
+			OR = {
+				is_great_war_ongoing = yes
+				has_global_flag = great_war_ends
+			}
 		}
 		fire_only_once = yes
 		
@@ -7837,9 +8000,14 @@ SWE_varnplikten_decisions = {
 				value = 0.05
 			}
 			add_to_variable = {
+				tooltip = army_attack_speed_factor_tt
+				var = SWE_mil_army_attack_speed_factor
+				value = 0.05
+			}
+			add_to_variable = {
 				tooltip = dig_in_speed_tt
 				var = SWE_mil_dig_in_speed
-				value = -0.10
+				value = -0.15
 			}
 		}
 		ai_will_do = {
@@ -7855,12 +8023,11 @@ SWE_varnplikten_decisions = {
 			}
 		}
 	}
-	SWE_importance_of_shock = {
+	SWE_nighttime_operation_training = {
 		allowed = {
 			tag = SWE
 		}
 		available = {
-			has_war_support > 0.5
 			has_army_experience > 49
 			NOT = { has_country_flag = swe_recent_army_improvement }
 		}
@@ -7881,6 +8048,8 @@ SWE_varnplikten_decisions = {
 		
 		custom_cost_text = decision_cost_CP_50
 		
+		modifier = { army_org_factor = -0.05 }
+		
 		complete_effect = {
 			army_experience = -50
 			hidden_effect = {
@@ -7896,19 +8065,83 @@ SWE_varnplikten_decisions = {
 		remove_effect = {
 			custom_effect_tooltip = adjust_swe_military_tt
 			add_to_variable = {
+				tooltip = land_night_attack_tt
+				var = SWE_mil_land_night_attack
+				value = 0.05
+			}
+			add_to_variable = {
 				tooltip = army_attack_factor_tt
 				var = SWE_mil_army_attack_factor
-				value = 0.03
+				value = -0.05
+			}
+			add_to_variable = {
+				tooltip = training_time_factor_tt
+				var = SWE_mil_training_time_factor
+				value = 0.05
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				date < 1913.1.1
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1916.1.1
+			}
+		}
+	}
+	SWE_importance_of_mobility = {
+		allowed = {
+			tag = SWE
+		}
+		available = {
+			has_war_support > 0.5
+			has_army_experience > 49
+			NOT = { has_country_flag = swe_recent_army_improvement }
+		}
+		visible = {
+			OR = {
+				has_global_flag = great_war_ends
+				date > 1920.1.1
+			}
+			has_completed_focus = SWE_knut_bildts_reforms
+		}
+		fire_only_once = yes
+		
+		days_remove = 50
+		
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		
+		custom_cost_text = decision_cost_CP_50
+		
+		complete_effect = {
+			army_experience = -50
+			hidden_effect = {
+				add_command_power = -50
+			}
+			set_country_flag = {
+				flag = swe_recent_army_improvement
+				days = 70
+				value = 1
+			}
+		}
+		
+		remove_effect = {
+			custom_effect_tooltip = adjust_swe_military_tt
+			add_to_variable = {
+				tooltip = army_attack_speed_factor_tt
+				var = SWE_mil_army_attack_speed_factor
+				value = 0.05
 			}
 			add_to_variable = {
 				tooltip = cavalry_attack_factor_tt
 				var = SWE_mil_cavalry_attack_factor
 				value = 0.05
-			}
-			add_to_variable = {
-				tooltip = army_defence_factor_tt
-				var = SWE_mil_army_defence_factor
-				value = -0.05
 			}
 		}
 		ai_will_do = {
@@ -7925,6 +8158,7 @@ SWE_varnplikten_decisions = {
 		}
 	}
 	SWE_reorganise_use_of_artillery = {
+		# Mobile warfare + art
 		allowed = {
 			tag = SWE
 		}
@@ -7935,6 +8169,7 @@ SWE_varnplikten_decisions = {
 		visible = {
 			has_completed_focus = SWE_knut_bildts_reforms
 		}
+		
 		fire_only_once = yes
 		
 		days_remove = 60
@@ -7961,7 +8196,7 @@ SWE_varnplikten_decisions = {
 			add_to_variable = {
 				tooltip = army_attack_factor_tt
 				var = SWE_mil_army_attack_factor
-				value = 0.03
+				value = 0.05
 			}
 		}
 		ai_will_do = {
@@ -8273,6 +8508,7 @@ SWE_varnplikten_decisions = {
 				cost_reduction = 0.5
 				uses = 1
 				category = air_doctrine
+				category = naval_doctrine
 			}
 		}
 		
@@ -8284,30 +8520,69 @@ SWE_varnplikten_decisions = {
 			}
 		}
 	}
-	SWE_observe_the_fronts_of_great_war = {
+	SWE_enhance_northern_defensive_positions = {
+		allowed = {
+			original_tag = SWE
+		}
+		visible = {
+			has_completed_focus = SWE_return_to_northern_strategy
+		}
+		available = {
+			OR = {
+				has_war = yes
+				has_war_support > 0.5
+			}
+			has_tech = fortification1
+			666 = { is_fully_controlled_by = ROOT }
+			NOT = { has_idea = idea_army_restrictions }
+		}
+		
+		cost = 10
+		
+		days_remove = 35
+		fire_only_once = yes
+		
+		modifier = { consumer_goods_factor = 0.1 }
+		
+		remove_effect = {
+			666 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 3104
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 9108
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+		}
+	}
+	SWE_the_lessons_of_great_war = {
 		allowed = {
 			tag = SWE
 		}
 		available = {
 			has_war = no
-			has_war_support > 0.35
 			has_completed_focus = SWE_modernise_the_army
-			is_great_war_ongoing = yes
 			NOT = { has_country_flag = swe_recent_army_improvement }
 		}
 		visible = {
-			has_war = no
-			is_great_war_ongoing = yes
-			NOT = {
-				has_country_flag = { 
-					flag = sweden_observe_the_fronts_amount
-					value = 6
-				}
-			}
+			has_global_flag = great_war
+			NOT = { has_country_flag = sweden_observe_the_fronts_amount }
+			NOT = { has_active_mission = SWE_military_lessons_of_great_war }
 		}
 		
 		days_remove = 30
 		
+
 		custom_cost_trigger = {
 			command_power > 24
 		}
@@ -8330,223 +8605,29 @@ SWE_varnplikten_decisions = {
 		}
 		
 		remove_effect = {
-			custom_effect_tooltip = repeatable_decision_tt
-			custom_effect_tooltip = adjust_swe_military_tt
-			add_to_variable = {
-				tooltip = army_org_factor_tt
-				var = SWE_mil_army_org_factor
-				value = 0.01
-			}
-			add_to_variable = {
-				tooltip = army_attack_factor_tt
-				var = SWE_mil_army_attack_factor
-				value = 0.02
-			}
-			add_to_variable = {
-				tooltip = experience_gain_army_factor_tt
-				var = SWE_mil_experience_gain_army_factor
-				value = 0.025
-			}
-			add_to_variable = {
-				tooltip = land_mastery_gain_factor_tt
-				var = SWE_mil_land_mastery_gain_factor
-				value = 0.01
-			}
-			if = {
-				limit = {
-					has_country_flag = sweden_observe_the_fronts_amount
+			# Was repeatable, but turned into mission that loops to reduce micro during war cuz it was annoying
+			activate_mission = SWE_military_lessons_of_great_war
+			custom_effect_tooltip = SWE_military_lessons_of_great_war_tt
+			effect_tooltip = {
+				add_to_temp_variable = {
+					tooltip = army_org_factor_tt
+					var = SWE_mil_army_org_factor_fake
+					value = 0.05
 				}
-				modify_country_flag = {
-					flag = sweden_observe_the_fronts_amount
-					value = 1
+				add_to_temp_variable = {
+					tooltip = army_attack_factor_tt
+					var = SWE_mil_army_attack_factor_fake
+					value = 0.10
 				}
-			}
-			else = {
-				set_country_flag = {
-					flag = sweden_observe_the_fronts_amount
-					value = 1
+				add_to_temp_variable = {
+					tooltip = experience_gain_army_factor_tt
+					var = SWE_mil_experience_gain_army_factor_fake
+					value = 0.10
 				}
-			}
-		}
-		ai_will_do = {
-			base = 1
-			modifier = {
-				factor = 0
-				command_power < 50
-			}
-		}
-	}
-	SWE_observe_the_fronts_of_great_war_alt = {
-		allowed = {
-			tag = SWE
-		}
-		available = {
-			has_war = yes
-			has_capitulated = no
-			has_completed_focus = SWE_modernise_the_army
-			is_great_war_ongoing = yes
-			NOT = { has_country_flag = swe_recent_army_improvement }
-		}
-		visible = {
-			has_war = yes
-			is_great_war_ongoing = yes
-			NOT = {
-				has_country_flag = { 
-					flag = sweden_observe_the_fronts_amount
-					value = 6
-				}
-			}
-		}
-		
-		days_remove = 40
-		
-		custom_cost_trigger = {
-			command_power > 49
-		}
-		
-		custom_cost_text = decision_cost_CP_50
-		
-		modifier = {
-			max_command_power = -50
-		}
-		
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -50
-			}
-			set_country_flag = {
-				flag = swe_recent_army_improvement
-				days = 60
-				value = 1
-			}
-		}
-		
-		remove_effect = {
-			custom_effect_tooltip = repeatable_decision_tt
-			custom_effect_tooltip = adjust_swe_military_tt
-			add_to_variable = {
-				tooltip = army_org_factor_tt
-				var = SWE_mil_army_org_factor
-				value = 0.01
-			}
-			add_to_variable = {
-				tooltip = army_attack_factor_tt
-				var = SWE_mil_army_attack_factor
-				value = 0.02
-			}
-			add_to_variable = {
-				tooltip = experience_gain_army_factor_tt
-				var = SWE_mil_experience_gain_army_factor
-				value = 0.02
-			}
-			add_to_variable = {
-				tooltip = land_mastery_gain_factor_tt
-				var = SWE_mil_land_mastery_gain_factor
-				value = 0.01
-			}
-			if = {
-				limit = {
-					has_country_flag = sweden_observe_the_fronts_amount
-				}
-				modify_country_flag = {
-					flag = sweden_observe_the_fronts_amount
-					value = 1
-				}
-			}
-			else = {
-				set_country_flag = {
-					flag = sweden_observe_the_fronts_amount
-					value = 1
-				}
-			}
-		}
-		ai_will_do = {
-			base = 1
-			modifier = {
-				factor = 0
-				surrender_progress > 0.1
-			}
-		}
-	}
-	SWE_observe_the_lessons_of_great_war = {
-		allowed = {
-			tag = SWE
-		}
-		available = {
-			has_war = no
-			has_completed_focus = SWE_modernise_the_army
-			has_global_flag = great_war_ends
-			NOT = { has_country_flag = swe_recent_army_improvement }
-		}
-		visible = {
-			has_global_flag = great_war_ends
-			NOT = {
-				has_country_flag = { 
-					flag = sweden_observe_the_fronts_amount
-					value = 6
-				}
-			}
-		}
-		
-		days_remove = 30
-		
-		custom_cost_trigger = {
-			command_power > 24
-		}
-		
-		custom_cost_text = decision_cost_CP_25
-		
-		modifier = {
-			max_command_power = -25
-		}
-		
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -25
-			}
-			set_country_flag = {
-				flag = swe_recent_army_improvement
-				days = 50
-				value = 1
-			}
-		}
-		
-		remove_effect = {
-			custom_effect_tooltip = repeatable_decision_tt
-			custom_effect_tooltip = adjust_swe_military_tt
-			add_to_variable = {
-				tooltip = army_org_factor_tt
-				var = SWE_mil_army_org_factor
-				value = 0.01
-			}
-			add_to_variable = {
-				tooltip = army_attack_factor_tt
-				var = SWE_mil_army_attack_factor
-				value = 0.02
-			}
-			add_to_variable = {
-				tooltip = experience_gain_army_factor_tt
-				var = SWE_mil_experience_gain_army_factor
-				value = 0.02
-			}
-			add_to_variable = {
-				tooltip = land_mastery_gain_factor_tt
-				var = SWE_mil_land_mastery_gain_factor
-				value = 0.01
-			}
-			if = {
-				limit = {
-					has_country_flag = sweden_observe_the_fronts_amount
-				}
-				modify_country_flag = {
-					flag = sweden_observe_the_fronts_amount
-					value = 1
-				}
-			}
-			else = {
-				set_country_flag = {
-					flag = sweden_observe_the_fronts_amount
-					value = 1
+				add_to_temp_variable = {
+					tooltip = land_mastery_gain_factor_tt
+					var = SWE_mil_land_mastery_gain_factor_fake
+					value = 0.05
 				}
 			}
 		}

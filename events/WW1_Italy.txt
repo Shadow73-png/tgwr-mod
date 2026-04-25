@@ -2650,25 +2650,50 @@ country_event = {
 		set_global_flag = libyan_crisis_resolved
 		set_global_flag = italo_turkish_war_ends
 		hidden_effect = {
-			white_peace = TUR
-			white_peace = LBA
-			every_country = {
-				limit = {
-					OR = {
-						is_ally_with = TUR
-						AND = {
-							tag = LBA
-							has_war_with = ITA
+			TUR = {
+				white_peace = ITA
+				ITA = {
+					every_allied_country = {
+						PREV.PREV = {
+							white_peace = PREV
 						}
 					}
 				}
-				white_peace = ITA
-			}
-			every_country = {
-				limit = {
-					is_ally_with = ITA
+				every_allied_country = {
+					white_peace = ITA
+					ITA = {
+						every_allied_country = {
+							PREV.PREV = {
+								white_peace = PREV
+							}
+						}
+					}
 				}
-				white_peace = TUR
+				every_owned_state = {
+					limit = {
+						region = 225
+					}
+					teleport_armies = {
+						limit = { original_tag = TUR }
+						to_state_array = owned_controlled_states
+					}
+				}
+				ottoman_minority_variable_check = yes
+			}
+			if = {
+				limit = { 
+					LBA = {
+						has_war_with = ITA
+					}
+				}
+				white_peace = ITA
+				ITA = {
+					every_allied_country = {
+						PREV.PREV = {
+							white_peace = PREV
+						}
+					}
+				}
 			}
 			# TUR = {
 			# 	diplomatic_relation = {
@@ -2691,73 +2716,75 @@ country_event = {
 					days = 5
 				}
 			}
-			every_state = {
-				limit = {
-					is_owned_by = TUR
-					has_state_flag = fallen_to_italy_ITA_TUR_war
-				}
-				transfer_state_to = ITA
-				add_claim_by = ITA
-				if = {
-					limit = { 
-						is_core_of = TUR 
+			TUR = {
+				every_owned_state = {
+					limit = {
+						has_state_flag = fallen_to_italy_ITA_TUR_war
 					}
-					remove_core_of = TUR
-					add_claim_by = TUR				
+					transfer_state_to = ITA
+					add_claim_by = ITA
+					if = {
+						limit = { 
+							is_core_of = TUR 
+						}
+						remove_core_of = TUR
+						add_claim_by = TUR				
+					}
 				}
 			}
 			if = {
 				limit = {
-					any_state = {
-						is_owned_by = TUR
-						has_state_flag = fallen_to_italy_ITA_TUR_war
+					TUR = {
+						any_owned_state = {
+							has_state_flag = fallen_to_italy_ITA_TUR_war
+						}
 					}
 				}
 				activate_mission = ITA_return_rhodes_mission
 			}
-			every_state = {
-				limit = {
-					is_owned_by = TUR
-					OR = {
-						state = 448
-						state = 450
-						state = 1060
-						state = 1157
-						state = 1156
-						state = 663
-						state = 1061
-					}
-				}
-				transfer_state_to = ITA
-				add_claim_by = ITA
-				if = {
-					limit = { 
-						is_core_of = TUR 
-					}
-					remove_core_of = TUR
-					add_claim_by = TUR				
-				}
-				if = {
+			TUR = {
+				every_owned_state = {
 					limit = {
-						has_resistance = yes
-						has_global_flag = libyan_compliance
+						OR = {
+							state = 448
+							state = 450
+							state = 1060
+							state = 1157
+							state = 1156
+							state = 663
+							state = 1061
+						}
 					}
-					add_compliance = 20
-				}
-			}
-			every_state = {
-				limit = {
-					is_owned_by = TUR
-					is_core_of = LBA
-				}
-				if = {
-					limit = { 
-						is_core_of = TUR 
+					transfer_state_to = ITA
+					add_claim_by = ITA
+					if = {
+						limit = { 
+							is_core_of = TUR 
+						}
+						remove_core_of = TUR
+						add_claim_by = TUR				
 					}
-					remove_core_of = TUR
-					add_claim_by = TUR				
+					if = {
+						limit = {
+							has_resistance = yes
+							has_global_flag = libyan_compliance
+						}
+						add_compliance = 20
+					}
 				}
-				transfer_state_to = LBA
+				every_owned_state = {
+					limit = {
+						is_core_of = LBA
+					}
+					if = {
+						limit = { 
+							is_core_of = TUR 
+						}
+						remove_core_of = TUR
+						add_claim_by = TUR				
+					}
+					transfer_state_to = LBA
+				}
 			}
 			LBA = {
 				add_opinion_modifier = {
@@ -2770,13 +2797,14 @@ country_event = {
 				    limit = {
 					    has_country_flag = TUR_italo_turkish_war_arab_minorities
 				    }
-			        every_state = {
-				        limit = {
-					        is_core_of = LBA
-					        has_state_flag = TUR_removed_libyan_minority
-				        }
-				        set_state_flag = TUR_arab_state
-			        }
+					LBA = {
+						every_core_state = {
+							limit = {
+								has_state_flag = TUR_removed_libyan_minority
+							}
+							set_state_flag = TUR_arab_state
+						}
+					}
 			    }
 			    #delete_unit_template_and_units = { division_template = "Trablusgarp Milisi" }
 				diplomatic_relation = {
@@ -2786,16 +2814,6 @@ country_event = {
 				}
 				country_event = { id = ww1_ottoman.138 days = 90 }
 			}
-			every_state = {
-				limit = {
-					region = 225
-				}
-				teleport_armies = {
-					limit = { original_tag = TUR }
-					to_state_array = owned_controlled_states
-				}
-			}
-			ottoman_minority_variable_check = yes
 		}
 	}
 	option = {
@@ -6878,7 +6896,7 @@ country_event = {
 					add_dynamic_modifier = {
 						modifier = unknown_lands_2
 						scope = ITA
-						days = 180
+						days = 90
 					}
 				}
 			}
@@ -8040,9 +8058,10 @@ country_event = {
 			show_ideas_tooltip = societa_anonima_nieuport_macchi
 		}
 		custom_effect_tooltip = empty_space_tt
-		unlock_decision_tooltip = ITA_build_nieuport_fighters
-		custom_effect_tooltip = when_taken
-		custom_effect_tooltip = ITA_build_nieuport_fighters.tt
+		unlock_decision_tooltip = {
+			decision = ITA_build_nieuport_fighters
+			show_effect_tooltip = yes
+		}
 	}
 }
 
@@ -9180,7 +9199,7 @@ country_event = {
 		text = ww1_italy.341.d1
 		trigger = {
 			divisions_in_state = {
-				size > 1
+				size > 0
 				state = 244
 			}
 		}
@@ -9207,7 +9226,7 @@ country_event = {
 		name = ww1_italy.341.a
 		trigger = {
 			divisions_in_state = {
-				size > 1
+				size > 0
 				state = 244
 			}
 		}
@@ -11530,6 +11549,9 @@ country_event = {
 	#picture = GFX_cadorna 
 	fire_only_once = yes
 	is_triggered_only = yes
+	trigger = {
+		has_character = ITA_luigi_cadorna
+	}
 	option = {
 		name = ww1_italy.442.a
 		activate_advisor = ITA_luigi_cadorna
@@ -21743,6 +21765,16 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
+			every_owned_state = {
+			limit = {
+				OR = {
+					state = 158
+					state = 159
+					state = 1216
+				}
+			}
+			set_demilitarized_zone = yes
+		}
 			country_event = {
 				id = ww1_red_italy.1
 				days = 12
@@ -21958,7 +21990,7 @@ country_event = {
 						owner = PREV
 					}
 				}
-				#add_ideas = partial_economic_mobilisation
+				add_ideas = partial_economic_mobilisation
 				news_event = garibaldi.7
 				country_event = {
 					id = ww1_red_italy.2
@@ -21971,13 +22003,20 @@ country_event = {
 				}	
 				add_timed_idea = {
 					idea = ITA_revolutionary_fervor
-					days = 400
+					days = 450
 				}
 				complete_national_focus = ITA_arise_workers_of_italy
 				mark_focus_tree_layout_dirty = yes
 				ITA_civil_war_idea_transfer = yes
 			}
 			ITA = {
+				transfer_units_fraction = {
+					target = SRI
+					army_ratio = 0.25
+					stockpile_ratio = 0
+					navy_ratio = 0
+					air_ratio = 0
+				}
 				declare_war_on = {
 					target = SRI
 					type = civil_war
@@ -25699,17 +25738,17 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_iw_italy.6.a
-		custom_effect_tooltip = ITA_br_rev_progress_5_minus
 		add_to_variable = {
 			ITA_br_rev_progress = -5
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
-		custom_effect_tooltip = ITA_br_bargain_2
 		add_to_variable = {
 			ITA_br_reforms_level = 2
+			tooltip = ITA_br_bargain_modify_tt
 		}
-		custom_effect_tooltip = ITA_br_reformist_2
 		add_to_variable = {
 			ITA_br_reformist_relations = 2
+			tooltip = ITA_br_reformist_modify_tt
 		}
 	}
 }
@@ -25923,9 +25962,9 @@ country_event = {
 			ITA_stability_var = 0.1
 			tooltip = stability_factor_tt
 		}
-		custom_effect_tooltip = ITA_br_bargain_1
 		add_to_variable = {
 			ITA_br_reforms_level = 1
+			tooltip = ITA_br_bargain_modify_tt
 		}
 	}
 	option = {
@@ -25950,9 +25989,9 @@ country_event = {
 		add_stability = -0.02
 		ITA_help_far_left = yes
 		ITA_help_combat_party = yes
-		custom_effect_tooltip = ITA_br_rev_progress_5
 		add_to_variable = {
 			ITA_br_rev_progress = 5
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
 		random_list = {
 			50 = {
@@ -26058,9 +26097,9 @@ country_event = {
 			idea = ITA_bailing_out_farmers
 			days = 180
 		}
-		custom_effect_tooltip = ITA_br_bargain_1
 		add_to_variable = {
 			ITA_br_reforms_level = 1
+			tooltip = ITA_br_bargain_modify_tt
 		}
 	}
 }
@@ -26139,9 +26178,9 @@ country_event = {
 	}
 	option = {
 		name = ww1_iw_br_italy.20.a
-		custom_effect_tooltip = ITA_br_rev_progress_3
 		add_to_variable = {
 			ITA_br_rev_progress = 3
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
 	}
 	option = {
@@ -26155,13 +26194,13 @@ country_event = {
 			add_stability = 0.02
 			add_to_variable = {
 				ITA_br_reformist_relations = -1
+				tooltip = ITA_br_reformist_modify_tt
 			}
-			custom_effect_tooltip = ITA_br_reformist_1_minus
 		}
 		else = {
-			custom_effect_tooltip = ITA_br_rev_progress_3
 			add_to_variable = {
 				ITA_br_rev_progress = 3
+				tooltip = ITA_br_rev_progress_modify_tt
 			}
 			custom_effect_tooltip = ITA_not_enough_reformist_relations
 		}
@@ -26177,13 +26216,13 @@ country_event = {
 			add_stability = 0.02
 			add_to_variable = {
 				ITA_br_suppress_power = -1
+				tooltip = ITA_br_suppress_modify_tt
 			}
-			custom_effect_tooltip = ITA_br_suppress_1_minus
 		}
 		else = {
-			custom_effect_tooltip = ITA_br_rev_progress_3
 			add_to_variable = {
 				ITA_br_rev_progress = 3
+				tooltip = ITA_br_rev_progress_modify_tt
 			}
 			custom_effect_tooltip = ITA_not_enough_suppress
 		}
@@ -26205,9 +26244,9 @@ country_event = {
 	}
 	option = {
 		name = ww1_iw_br_italy.21.a
-		custom_effect_tooltip = ITA_br_rev_progress_5
 		add_to_variable = {
 			ITA_br_rev_progress = 5
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
 		hidden_effect = {
 			country_event = {
@@ -26227,9 +26266,9 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_iw_br_italy.22.a
-		custom_effect_tooltip = ITA_br_rev_progress_3
 		add_to_variable = {
 			ITA_br_rev_progress = 3
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
 		hidden_effect = {
 			country_event = {
@@ -26249,13 +26288,13 @@ country_event = {
 			add_stability = 0.02
 			add_to_variable = {
 				ITA_br_reformist_relations = -1
+				tooltip = ITA_br_reformist_modify_tt
 			}
-			custom_effect_tooltip = ITA_br_reformist_1_minus
 		}
 		else = {
-			custom_effect_tooltip = ITA_br_rev_progress_3
 			add_to_variable = {
 				ITA_br_rev_progress = 3
+				tooltip = ITA_br_rev_progress_modify_tt
 			}
 			custom_effect_tooltip = ITA_not_enough_reformist_relations
 		}
@@ -26573,9 +26612,9 @@ country_event = {
 		name = ww1_iw_br_italy.31.a
 		add_stability = -0.03
 		add_political_power = -20
-		custom_effect_tooltip = ITA_br_rev_progress_3_minus
 		add_to_variable = {
 			ITA_br_rev_progress = -3
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
 		hidden_effect = {
 			country_event = {
@@ -26610,16 +26649,16 @@ country_event = {
 			ITA_ind_consumer_goods = 0.05
 			tooltip = consumer_goods_factor_tt
 		}
-		custom_effect_tooltip = ITA_br_bargain_1
 		add_to_variable = {
 			ITA_br_reforms_level = 1
+			tooltip = ITA_br_bargain_modify_tt
 		}
 	}
 	option = {
 		name = ww1_iw_br_italy.32.b
-		custom_effect_tooltip = ITA_br_rev_progress_3
 		add_to_variable = {
 			ITA_br_rev_progress = 3
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
 	}
 }
@@ -26699,9 +26738,9 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_iw_br_italy.35.a
-		custom_effect_tooltip = ITA_br_rev_progress_10
 		add_to_variable = {
 			ITA_br_rev_progress = 10
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
 		custom_effect_tooltip = ITA_let_happen_risk
 		hidden_effect = {
@@ -26764,8 +26803,8 @@ country_event = {
 			}
 			add_to_variable = {
 				ITA_br_suppress_power = -1
+				tooltip = ITA_br_suppress_modify_tt
 			}
-			custom_effect_tooltip = ITA_br_suppress_1_minus
 		}
 		else = {
 			custom_effect_tooltip = ITA_modify_industry_tt
@@ -26799,9 +26838,9 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_iw_br_italy.38.a
-		custom_effect_tooltip = ITA_br_rev_progress_10
 		add_to_variable = {
 			ITA_br_rev_progress = 10
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
 	}
 }
@@ -26815,9 +26854,9 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_iw_br_italy.39.a
-		custom_effect_tooltip = ITA_br_rev_progress_10
 		add_to_variable = {
 			ITA_br_rev_progress = 10
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
 	}
 }
@@ -26831,9 +26870,9 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_iw_br_italy.40.a
-		custom_effect_tooltip = ITA_br_rev_progress_minus_30
 		add_to_variable = {
 			ITA_br_rev_progress = -30
+			tooltip = ITA_br_rev_progress_modify_tt
 		}
 		add_stability = 0.1
 		custom_effect_tooltip = ITA_revolution_organizes_5
@@ -27228,9 +27267,6 @@ country_event = {
 			103 = {
 				transfer_state_to = SER
 			}
-			102 = {
-				transfer_state_to = ITA
-			}
 		}
 		SER = {
 			country_event = ww1_iw_br_italy.56
@@ -27339,6 +27375,9 @@ country_event = {
 			1214 = {
 				transfer_state_to = ALB
 			}
+			1240 = {
+				transfer_state_to = ALB
+			}
 		}
 		if = {
 			limit = {
@@ -27354,6 +27393,9 @@ country_event = {
 				transfer_state_to = ALB
 			}
 			1214 = {
+				transfer_state_to = ALB
+			}
+			1240 = {
 				transfer_state_to = ALB
 			}
 			870 = {

@@ -1573,6 +1573,7 @@
  SOV_recruit_militia_category: "Militia Recruitment"
  SOV_recruit_militia_category_desc: "With the nation at war and the Red Army's ranks stretched thin, local militias must be called upon to defend the revolution. These volunteer forces, hastily organized from workers, peasants, and dedicated party members, will bolster our frontline defenses and secure key areas. Though lacking the formal training and equipment of regular soldiers, their unbreakable revolutionary spirit will fuel their fight to protect the Motherland."
  SOV_recruit_militia: "Raise Militia in [FROM.getName]"
+ SOV_has_mobilized_militia: "Has already mobilized militia in this state"
  SOV_recruiting_militia: "Already recruiting militia"
  possible_soviet_militia_recruitment: "Possible Militia Recruitment"
  SOV_industrial_focus: "Industrial Reorganization"
@@ -1915,9 +1916,9 @@
  SER_integrated_count: "You have Integrated §Y[?SER_integrated_nations]§! Nations."
  
  SER_form_yugoslavia_desc: "In order to be recognized as the mother nation of the Yugoslavs, we must make sure to welcome as many peoples as possible in order to obtain international credibility."
- SER_form_yugoslavia2: "Form £ww1_game_rule_flag_YUG  Yugoslavia"
+ SER_form_yugoslavia2: "Form Yugoslavia"
  SER_asked_us_to_merge: "Already asked to merge"
- SER_yugoslavia_formed: "£ww1_game_rule_flag_YUG Yugoslavia is formed"
+ SER_yugoslavia_formed: "§YYugoslavia§! has been formed\n"
  
  
  SER_form_the_general_staff: "Form the General Staff"
@@ -8294,7 +8295,7 @@
  TUR_provide_higher_government_positions_for_egyptians: "Provide Higher Government Positions for Egyptians"
  TUR_reach_out_to_trablus_muslims_decision: "Reach out to Trablus Muslims"
  TUR_confiscate_christian_properties: "Confiscate Christian Properties"
- TUR_increase_garrison_in_anatolia_2: "Increased Garrisons in Anatooia"
+ TUR_increase_garrison_in_anatolia_2: "Increased Garrisons in Anatolia"
  TUR_encourage_muslim_minorities_in_caucasus_decision: "Encourage Muslim Minority in Caucasus"
  TUR_increase_garrison_in_caucasus_2: "Increased Garrisons in Caucasus"
  TUR_hand_thrace_administration_to_turks_decision: "Hand Thrace Administration to Turks"
@@ -8979,6 +8980,7 @@
  JAP_cat_siberian_intervention: "Intervention in Siberia"
  JAP_take_northern_sakhalin: "Take Kita-Karafuto"
  JAP_start_siberian_intervention: "Start Intervention in [FROM.GetName]"
+ JAP_send_manpower_to_siberia: "Send Manpower to [FROM.GetName]"
  JAP_send_rifles_to_siberia: "Send Rifles to [FROM.GetName]"
  JAP_end_siberian_intervention: "End Intervention in [FROM.GetName]"
  JAP_soviet_japanese_war_timer: "Siberian Intervention Timeout"
@@ -9336,6 +9338,7 @@
  refused_by_league_of_nations: "Has been rejected by §4the League of Nations§! within 365 days"
  leave_the_league_of_nations: "Leave from League of Nations"
  leave_the_league_of_nations_desc: "The League of Nations is only an illusion with a good cause, and it is just a helpless one without any actual power to force the world peace. All they do is flip through reports, sip coffee, and have fun maintaining colonial empires with keeping their interests."
+ is_league_of_nations_member_tt_NOT: "Not a member of the League of Nations"
  left_from_league_of_nations: "Has withdrawn from §4the League of Nations§! within 365 days"
  embargo_threatening_country: "Call for Embargo on [FROM.GetName]"
  embargo_threatening_country_desc: "It is necessary to condemn [FROM.GetNameDef], which disturbs world order and peace, and to ban the export of war materials."
@@ -9391,8 +9394,17 @@
 
  ROM_sue_for_peace_BUL: "Surrender to [BUL.getNamedef]"
 
- #Volunteer Army
+ #Russian Civil War
+ RCW_terrtorial_management: "Terrtorial Management"
+ RCW_core_states: "Restore administration in [FROM.getName]"
+ SRA_RCW_core_states: "Appoint General-Governor in [FROM.getName]"
+ RCW_transfer_states: "Claim ownership of [FROM.getName]"
 
+ possible_RCW_core_states: "Possible states to core"
+ possible_RCW_claim_states: "Possible states to claim"
+
+
+ #Volunteer Army
  SRA_first_kuban_campaign: "First Kuban Campaign"
  SRA_first_kuban_campaign_desc: "The retreat through the treacherous, frozen lands of Southern Russia tests our resolve. We must strategically navigate these harsh conditions, seeking alliances and support in our struggle against the Bolsheviks. This daunting campaign is not just a military maneuver; it's a testament to our army's resilience and determination in the face of overwhelming challenges."
  SRA_second_kuban_campaign: "Second Kuban Campaign"
@@ -9464,7 +9476,6 @@
  SRA_has_atleast_50_rada_loyalty: "§YRada loyalty§! is §Y50§! or more."
  SRA_has_atleast_40_rada_favours: "§YRada favours§! is §Y40§! or more."
 
- SRA_core_states: "Appoint General-Governor in [FROM.getName]"
  SRA_recruit_units: "Raise volunteers in [FROM.getName]"
  SRA_3_infantry_unit: "Deploy a division with §Y3 Infantry batallions§! with §Yartillery, recon and engineer support§!."
 
@@ -9522,9 +9533,6 @@
  SIB_buy_FROM_infantry_weapons: "Buy [FROM.GetAdjective] infantry equipment"
  SIB_buy_FROM_support_equipment: "Buy [FROM.GetAdjective] support equipment"
  SIB_buy_FROM_artillery_equipment: "Buy [FROM.GetAdjective] artillery"
- SIB_add_05_to_var: "This will cost us §H2.5%§! from our §HGold Reserve§!"
- SIB_add_02_to_var: "This will cost us §H2%§! from our §HGold Reserve§!"
- SIB_has_more_than_024: "We have more than §H2.4%§! in our §HGold Reserve§!"
  SIB_ongoing_infantry_import: "Already importing infantry equipment"
  SIB_ongoing_support_import: "Already importing support equipment"
  SIB_ongoing_artillery_import: "Already importing artillery"
@@ -9547,6 +9555,7 @@
  NWA_raise_reserve_regiments: "Raise reserve regiments"
  
  FRA_IND_shared_tree: "§YThis Tree§! is shared between §Y[FRA.getFlag]France§! and §Y[IND.getFlag]Indochina§!."
+ IND_separatism: "Indochinese Separatism"
  IND_gather_guns: "Gather Guns"
  IND_prepare_equipment: "Prepare Equipment"
  IND_train_partisans: "Train Partisans"

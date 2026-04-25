@@ -90,22 +90,6 @@ NDefines.NAI.DEPLOY_MIN_EQUIPMENT_WAR_FACTOR = 0.85						-- Required percentage 
 NDefines.NAI.DEPLOY_MIN_EQUIPMENT_CAP_DEPLOY_FACTOR = 0.85				-- If training is capped by equipment deficit and we have reached that cap, deploy unit anyway if percentage is above this (reinforce in field instead).
 
 --------------------------------------------------------------------------------------------------------------
--- SHIPS
---------------------------------------------------------------------------------------------------------------
-
-NDefines.NAI.SHIPS_PRODUCTION_BASE_COST = 1
-NDefines.NAI.NEEDED_NAVAL_FACTORIES_EXPENSIVE_SHIP_BONUS = 1000
-NDefines.NAI.PRODUCTION_MAX_PROGRESS_TO_SWITCH_NAVAL = 0.001 -- temp fix
-NDefines.NAI.PRODUCTION_WAIT_TO_FINISH_IF_EXPENSIVE = 0.01
-NDefines.NAI.PRODUCTION_WAIT_TO_FINISH_IF_CHEAP = 0.01
-NDefines.NAI.REFIT_SHIP_RELUCTANCE = 5000							-- How often to consider refitting to new equipment variants for ships in the field
-NDefines.NAI.REFIT_SHIP_PERCENTAGE_OF_FORCES = 0.33				-- How big part of the navy that should be considered for refitting
-
-NDefines.NAI.NAVAL_DOCKYARDS_SHIP_FACTOR = 1000			-- The extent to which number of dockyards play into amount of sips a nation wants
-NDefines.NAI.NAVAL_BASES_SHIP_FACTOR = 1000				-- The extent to which number of naval bases play into amount of sips a nation wants
-NDefines.NAI.NAVAL_STATES_SHIP_FACTOR = 1000			-- The extent to which number of states play into amount of sips a nation wants
-
---------------------------------------------------------------------------------------------------------------
 -- DIPLOMACY
 --------------------------------------------------------------------------------------------------------------
 
@@ -171,84 +155,12 @@ NDefines.NAI.RECON_PLANES_NAVAL = 0.1
 NDefines.NAI.RECON_PLANES_LAND_COMBAT = 100
 
 NDefines.NAI.LOW_PRIO_TEMPLATE_BONUS_FOR_GARRISONS = 300000
-NDefines.NAI.LOW_PRIO_TEMPLATE_PENALTY_FOR_FRONTS = -2000
+NDefines.NAI.LOW_PRIO_TEMPLATE_PENALTY_FOR_FRONTS = 300000
 NDefines.NAITheatre.AI_THEATRE_SUPPLY_CRISIS_LIMIT = 0.25
 
 NDefines.NAI.FRONT_BULGE_RATIO_LOWER_CUTOFF = 1.2
 NDefines.NAI.FRONT_BULGE_RATIO_UPPER_CUTOFF = 1.8
 NDefines.NAI.FRONT_CUTOFF_MIN_EDGE_PROXIMITY = 1
---------------------------------------------------------------------------------------------------------------
--- OlD COAST DEFENSE AI
---------------------------------------------------------------------------------------------------------------
-
-
--- these are all 3 numbers for min, desired, max unit need weights for area defense
-NDefines.NAI.AREA_DEFENSE_CAPITAL_PEACE_VP_WEIGHT = { 1.0, 1.0, 1.0 }
-NDefines.NAI.AREA_DEFENSE_CAPITAL_VP_WEIGHT = { 0.0, 1.5, 2.0 }
-NDefines.NAI.AREA_DEFENSE_HOME_VP_WEIGHT = { 0.0, 0.75, 1.0 }
-NDefines.NAI.AREA_DEFENSE_OTHER_VP_WEIGHT = { 0.0, 0.5, 1.0 }
-
-NDefines.NAI.AREA_DEFENSE_CAPITAL_PEACE_COAST_WEIGHT = { 0.25, 1.0, 2.0 } 
-NDefines.NAI.AREA_DEFENSE_CAPITAL_COAST_WEIGHT = { 0.0, 0.3, 1.0 }
-NDefines.NAI.AREA_DEFENSE_HOME_COAST_WEIGHT = { 0.0, 0.2, 0.75 }
-NDefines.NAI.AREA_DEFENSE_OTHER_COAST_WEIGHT = { 0.0, 0.0, 0.0 }
-
-NDefines.NAI.AREA_DEFENSE_CAPITAL_PEACE_BASE_WEIGHT = { 0.0, 0.0, 0.0 }
-NDefines.NAI.AREA_DEFENSE_CAPITAL_BASE_WEIGHT = { 0.5, 1.5, 1.5 }
-NDefines.NAI.AREA_DEFENSE_HOME_BASE_WEIGHT = { 0.5, 1.5, 1.5 }
-NDefines.NAI.AREA_DEFENSE_OTHER_BASE_WEIGHT = { 0.5, 1.0, 1.0 }
-
---------------------------------------------------------------------------------------------------------------
--- NAVY AI
---------------------------------------------------------------------------------------------------------------
-
-NDefines.NAI.MAX_SCREEN_TASKFORCES_FOR_MINE_SWEEPING = 0.10 -- maximum ratio of screens forces to be used in mine sweeping
-
-NDefines.NAI.MAX_SCREEN_TASKFORCES_FOR_MINE_SWEEPING_PRIO_MAX_MINES = 250 -- highest mines for highest prio for mine missions
-
-NDefines.NAI.MAX_SCREEN_TASKFORCES_FOR_MINE_LAYING = 0.05 -- maximum ratio of screens forces to be used in mine laying
-
-
-NDefines.NAI.MISSING_CONVOYS_BOOST_FACTOR = 0.0
-
-NDefines.NAI.MIN_NAVAL_MISSION_PRIO_TO_ASSIGN = {  -- priorities for regions to get assigned to a mission
-	0, -- HOLD (consumes fuel HOLD_MISSION_MOVEMENT_COST fuel while moving)
-	300, -- PATROL		
-	200, -- STRIKE FORCE 
-	200, -- CONVOY RAIDING
-	100, -- CONVOY ESCORT
-	100, -- MINES PLANTING	
-	100, -- MINES SWEEPING	
-	0, -- TRAIN
-	0, -- RESERVE_FLEET
-	100, -- NAVAL INVASION SUPPORT
-}
-
-NDefines.NAI.HIGH_PRIO_NAVAL_MISSION_SCORES = {  -- priorities for regions to get assigned to a mission
-	0, -- HOLD (consumes fuel HOLD_MISSION_MOVEMENT_COST fuel while moving)
-	100000, -- PATROL
-	1000, -- STRIKE FORCE
-	1000, -- CONVOY RAIDING
-	1000, -- CONVOY ESCORT
-	-1, -- MINES PLANTING
-	300, -- MINES SWEEPING
-	0, -- TRAIN
-	0, -- RESERVE_FLEET
-	1000, -- NAVAL INVASION SUPPORT
-}
-
-NDefines.NAI.MAX_MISSION_PER_TASKFORCE = {  -- max mission region/taskforce ratio
-	0, -- HOLD (consumes fuel HOLD_MISSION_MOVEMENT_COST fuel while moving)
-	1, -- PATROL
-	4, -- STRIKE FORCE
-	1.5, -- CONVOY RAIDING
-	4, -- CONVOY ESCORT
-	2, -- MINES PLANTING
-	2, -- MINES SWEEPING
-	0, -- TRAIN
-	0, -- RESERVE_FLEET
-	10, -- NAVAL INVASION SUPPORT
-}
 
 -------------------------
 -- naval invasions
@@ -270,9 +182,6 @@ NDefines.NAI.INVASION_COASTAL_PROVS_PER_ORDER = 12 --24								-- AI will consid
 
 NDefines.NAI.REGION_THREAT_LEVEL_TO_BLOCK_REGION = 25 * 200		-- How much threat must be generated in region ( by REGION_THREAT_PER_SUNK_CONVOY ) so the AI will decide to mark the region as avoid
 NDefines.NAI.REGION_CONVOY_DANGER_DAILY_DECAY = 2				-- When convoys are sunk it generates threat in the region which the AI uses to prio nalval missions
-
-NDefines.NAI.CONVOY_ESCORT_MUL_FROM_NO_CONVOYS = 0 -- score multiplier when no convoys are around
-
 
 NDefines.NAI.MAX_SCREEN_TASKFORCES_FOR_CONVOY_DEFENSE_MIN = 0.20 --0.20 -- maximum ratio of all screen-ships forces to be used in convoy defense (increases up to max as AI loses convoys).
 NDefines.NAI.MAX_SCREEN_TASKFORCES_FOR_CONVOY_DEFENSE_MAX = 0.6 --0.70 -- maximum ratio of all screen-ships forces to be used in convoy defense (increases up to max as AI loses convoys).
@@ -300,6 +209,9 @@ NDefines.NAI.DAYS_BETWEEN_AIR_PRIORITIES_UPDATE = 7
 
 NDefines.NAI.LAND_DEFENSE_FIGHERS_PER_PLANE = 2.5
 
+
+NDefines.NAI.AI_AIR_MISSION_COVERAGE_TO_STAY_PUT = 0.2			-- lower than vanilla due to small range of our aviation, vanilla 0.5
+NDefines.NAI.AIR_AI_ENEMY_PROV_RATIO_FOR_COMBAT_REGION = 0.1 	-- vanilla 0.15
 -------------------------
 -- Defense
 -------------------------
@@ -309,24 +221,10 @@ NDefines.NAI.LAND_DEFENSE_FIGHERS_PER_PLANE = 2.5
 --NDefines.NAI.LAND_DEFENSE_MILITARY_FACTORY_IMPORTANCE = 880 -- 70		-- Strategic importance of military factories
 --NDefines.NAI.LAND_DEFENSE_NAVAL_FACTORY_IMPORTANCE = 420 -- 30			-- Strategic importance of naval factories
 
-
--------------------------
--- Str bombing
--------------------------
-
-NDefines.NAI.STR_BOMB_PLANES_PER_CIV_FACTORY = 0				-- Amount of planes requested per enemy civ factory
-NDefines.NAI.STR_BOMB_PLANES_PER_MIL_FACTORY = 0				-- Amount of planes requested per enemy military factory
-NDefines.NAI.STR_BOMB_PLANES_PER_NAV_FACTORY = 0				-- Amount of planes requested per enemy naval factory
-NDefines.NAI.STR_BOMB_CIVIL_FACTORY_IMPORTANCE = 0				-- Amount of planes requested per enemy naval factory
-NDefines.NAI.STR_BOMB_MILITARY_FACTORY_IMPORTANCE = 0				-- Amount of planes requested per enemy naval factory
-NDefines.NAI.STR_BOMB_NAVAL_FACTORY_IMPORTANCE = 0				-- Amount of planes requested per enemy naval factory
---NDefines.NAI.STR_BOMB_PLANES_PER_SUPPLY_HUB = 3                 -- Amount of planes requested per enemy supply node
-NDefines.NAI.STR_BOMB_MIN_EXCORT_PLANES = 0					-- Min amount of planes requested to excort operations
 	
 -------------------------
 -- Naval air
 -------------------------
-NDefines.NAI.SUPPLY_PRIO_FACTOR = -100 --100 						--	AI is bad with that
 NDefines.NAI.NAVAL_SHIP_AIR_IMPORTANCE = 1 --2.0					-- Naval ship air importance
 NDefines.NAI.STR_BOMB_IMPORTANCE_SCALE = 5 --1.0
 NDefines.NAI.NAVAL_IMPORTANCE_SCALE = 0.5 --0.65						-- Naval total importance scale (every naval score get's multiplied by it)
@@ -343,9 +241,6 @@ NDefines.NAI.MAX_MICRO_ATTACKS_PER_ORDER = 5
 NDefines.NAI.PLAN_STEP_COST_LIMIT = 15
 
 --- Navy Defines
-NDefines.NAI.ESTIMATED_CONVOYS_PER_DIVISION = 18			-- Not always correct, but mainly used to make sure AI does not go crazy vanilla 6
-NDefines.NAI.MAX_DISTANCE_NAVAL_INVASION = 200.0				-- AI is extremely unwilling to plan naval invasions above this naval distance limit. van 250 this value is multiplied by 15.92 I think for the actual km distance, aka 250 ='s almost 4k km.
-NDefines.NAI.NAVY_PREFERED_MAX_SIZE = 50
 NDefines.NAI.RESEARCH_NAVAL_DOCTRINE_NEED_GAIN_FACTOR = 0.075 -- Multiplies value based on relative naval industry size / country size.
 
 --- Diplo Defines
@@ -360,19 +255,17 @@ NDefines.NAI.TRADEABLE_FACTORIES_FRACTION = 0.6			-- Will at most trade away thi
 NDefines.NDiplomacy.NOT_READY_FOR_WAR_BASE = -100 		-- AI should be unwilling to enter accept a call to war if not ready ---for war against the relevant enemies. vanilla -50 - suggested define by SensitiveDannyBoi
 
 --- AI Defines
-NDefines.NAI.MICRO_POCKET_SIZE = 1						-- Pockets with a size equal to or lower than this will be mocroed by the AI, for efficiency.
+NDefines.NAI.MICRO_POCKET_SIZE = 3						-- Pockets with a size equal to or lower than this will be mocroed by the AI, for efficiency.
 NDefines.NAI.UPGRADE_DIVISION_RELUCTANCE = 3 			-- How often to consider upgrading to new templates for units in the field vanila - 7
 NDefines.NAI.RESEARCH_BONUS_FACTOR = 4.5 				-- To which extent AI should care about bonuses to research
 NDefines.NAI.RESEARCH_AHEAD_OF_TIME_FACTOR = 7.0 		-- To which extent AI should care about ahead of time penalties to research
 NDefines.NAI.MAX_SUPPLY_DIVISOR = 1.5					-- To make sure the AI does not overdeploy divisions. Higher number means more supply per unit. van 2.0
-NDefines.NAI.PLAN_FACTION_WEAK_TO_ABORT = 0.50			-- % or more of units in an order to consider ececuting the plan
-NDefines.NAI.PLAN_FACTION_NORMAL_TO_EXECUTE = 0.50
 
 --------------------------------------------------------------------------------------------------------------
--- AMRS MARKET AI
+-- ARMS MARKET AI
 --------------------------------------------------------------------------------------------------------------
 
-NDefines.NAI.EQUIPMENT_MARKET_MAX_CIVS_FOR_PURCHASES_RATIO = 0.2            -- Ratio of available civilian factories to max use for equipment purchases (0.2 = 20 %, so 50 available civs would mean max ca 10 civs to spend on purchases at any one time). Gets modified by equipment_market_spend_factories AI strategy.
+NDefines.NAI.EQUIPMENT_MARKET_MAX_CIVS_FOR_PURCHASES_RATIO = 0.1            -- vanilla
 NDefines.NAI.EQUIPMENT_MARKET_NR_DELIVERIES_SOFT_MAX = 7                   -- AI tries to adjust assigned factories and amount of equipment to keep nr deliveries at max this
 	
 
@@ -390,8 +283,8 @@ NDefines.NAI.AIFC_CA_DIVISIONS_PER_PROVINCE = 2.5
 NDefines.NAI.AIFC_ACTIVATE_AVG_ORG_RATIO_THRESHOLD = 0.4
 NDefines.NAI.AIFC_ACTIVATE_IN_POSITION_RATIO_THRESHOLD = 0.3
 NDefines.NAI.AIFC_TARGET_SUPPLY_HUB_BASE_SCORE = 30.0
-NDefines.NAI.AIFC_TARGET_NAVAL_BASE_BASE_SCORE = 15.0
-NDefines.NAI.AIFC_TARGET_NAVAL_BASE_SCORE_PER_LEVEL = 2.0
+NDefines.NAI.AIFC_TARGET_NAVAL_BASE_BASE_SCORE = 10.0
+NDefines.NAI.AIFC_TARGET_NAVAL_BASE_SCORE_PER_LEVEL = 1.5
 NDefines.NAI.AIFC_REFRESH_NEED_PER_DAY = 2.0
 NDefines.NAI.AIFC_REFRESH_NEED_SUPPLY_FACTOR_PER_DAY = 1.10
 
