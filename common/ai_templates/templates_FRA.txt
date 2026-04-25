@@ -21,37 +21,32 @@ light_armor_FRA = {
 			factor = 25
 			modifier = {
 				factor = 0
-				has_completed_focus = FRA_ww1_favor_peugeot_tank
 				NOT = {
-					has_global_flag = great_war_ends
-				}
-			}
-			modifier = {
-				factor = 0
-				NOT = {
-					num_of_military_factories > 15
 					has_tech = basic_light_tank_chassis
 				}
 			}
 		}
 
-		target_template = {
+		target_template = {			
 			support = {
+				field_gun = 1
 				engineer = 1
-				logistics_company = 1
+				logistics_company = 1 #from 1916 eg: battle of the somme
+				armored_car_recon = 1 #peugeot AM, AM canon, White AM
 				maintenance_company = 1
 			}
 			
 			regiments = {
-				light_armor = 4
-				infantry = 4
+				light_armor = 1
+				infantry = 9	#its 3 regiments of 3 infantry so 9 batallions
+				field_gun_brigade = 2 #36 75mm canons + 12 105mm canons
 			}
 		}
 	}
 
 	#small independant companies of ~75 tanks
 	#budget saver very small brigade formation
-	light_armor_interwar_FRA = {
+	light_armor_interwar_FRA_1 = {
 
 		can_upgrade_in_field = {
 			always = no
@@ -85,7 +80,7 @@ light_armor_FRA = {
 	}
 
 	#formation of the first permanent armored brigade (even in peacetime)
-	light_armor_interwar_FRA = {
+	light_armor_interwar_FRA_2 = {
 
 		can_upgrade_in_field = {
 			always = no
@@ -183,7 +178,6 @@ medium_armor_FRA = {
 			modifier = {
 				factor = 0
 				NOT = {
-					num_of_military_factories > 15
 					has_tech = basic_medium_tank_chassis
 				}
 			}
@@ -191,14 +185,17 @@ medium_armor_FRA = {
 
 		target_template = {
 			support = {
+				field_gun = 1
 				engineer = 1
-				logistics_company = 1
+				logistics_company = 1 #from 1916 eg: battle of the somme
+				armored_car_recon = 1 #peugeot AM, AM canon, White AM
 				maintenance_company = 1
 			}
 			
 			regiments = {
-				medium_armor = 4
-				infantry = 4
+				medium_armor = 1
+				infantry = 9	#its 3 regiments of 3 infantry so 9 batallions
+				field_gun_brigade = 2 #36 75mm canons + 12 105mm canons
 			}
 		}
 	}
@@ -228,7 +225,6 @@ heavy_armor_FRA = {
 			modifier = {
 				factor = 0
 				NOT = {
-					num_of_military_factories > 15
 					has_tech = basic_heavy_tank_chassis
 				}
 			}
@@ -236,14 +232,17 @@ heavy_armor_FRA = {
 
 		target_template = {
 			support = {
+				field_gun = 1
 				engineer = 1
-				logistics_company = 1
+				logistics_company = 1 #from 1916 eg: battle of the somme
+				armored_car_recon = 1 #peugeot AM, AM canon, White AM
 				maintenance_company = 1
 			}
 			
 			regiments = {
 				heavy_armor = 1
-				infantry = 4
+				infantry = 9	#its 3 regiments of 3 infantry so 9 batallions
+				field_gun_brigade = 2 #36 75mm canons + 12 105mm canons
 			}
 		}
 	}

@@ -300,6 +300,31 @@ country_event = {
 					add_idea = RUS_threat_of_revolution3
 				}
 			}
+			if = {
+				limit = {
+					CAU = {
+						OR = {
+							is_subject_of = ROOT
+							exists = no
+						}					
+					}
+				}
+				CAU = {
+					set_cosmetic_tag = TSCN
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = no
+						long_name = TSCN_committee_party_long
+						name = TSCN_committee_party 
+					}
+				}
+				DON = {
+					DON_vasiliy_kharlamov = {
+						set_nationality = CAU
+						promote_character = civilian_dictatorship
+					}
+				}
+			}
 			news_event = {
 				hours = 6
 				id = rusrevolt.5
@@ -1043,13 +1068,12 @@ country_event = {
 	}
 	option = {
 		name = rusrevolt.602.e
-		GEO = {
+		CAU = {
 			change_tag_from = ROOT
 		}
 		trigger = {
 			is_ai = no
-			GEO = {
-				has_cosmetic_tag = GEO_TSCN_committee
+			CAU = {
 				exists = yes
 				is_ai = yes
 			}
