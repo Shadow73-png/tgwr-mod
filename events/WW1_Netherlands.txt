@@ -892,7 +892,7 @@ country_event = {
 		}
 	}
 }
-#war fucks up everything
+#war fucks up everything neutral
 country_event = {
 	id = ww1_holland.29
 	title = ww1_holland.29.t
@@ -901,9 +901,9 @@ country_event = {
 	trigger = {
 		tag = HOL
 		has_global_flag = great_war
+		has_war = no
 		NOT = {
 			has_global_flag = great_war_ends
-			has_country_flag = HOL_flag_entente
 		}
 	}
 	option = {
@@ -1351,6 +1351,11 @@ country_event = {
 		name = ww1_holland.45.a
 		complete_national_focus = HOL_align_with_entente
 		complete_national_focus = HOL_war_at_the_doorstep
+		HOL = {
+			add_dynamic_modifier = {
+				modifier = HOL_dm_economy_on_lockdown
+			}
+		}
 		if = {
 			limit = { has_country_flag = HOL_flag_vestingholland }
 			7 = {
@@ -1379,6 +1384,11 @@ country_event = {
 		name = ww1_holland.46.a
 		complete_national_focus = HOL_align_with_germany
 		complete_national_focus = HOL_war_at_the_doorstep
+		HOL = {
+			add_dynamic_modifier = {
+				modifier = HOL_dm_economy_on_lockdown
+			}
+		}
 		if = {
 			limit = { has_country_flag = HOL_flag_vestingholland }
 			7 = {
@@ -2468,6 +2478,9 @@ country_event = {
 		FRA = {
 			add_to_faction = HOL
 		}
+		HOL = {
+			country_event = ww1_holland.94
+		}
 	}
 }
 #wartime dutch join centrals
@@ -2484,6 +2497,55 @@ country_event = {
 		name = ww1_holland.93.a
 		GER = {
 			add_to_faction = HOL
+		}
+		HOL = {
+			country_event = ww1_holland.95
+		}
+	}
+}
+#wartime dutch join entente 2
+country_event = {
+	id = ww1_holland.94
+	title = ww1_holland.94.t
+	desc = ww1_holland.94.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		
+	}
+	option = {
+		name = ww1_holland.94.a
+		unlock_national_focus = HOL_align_with_entente
+		HOL = {
+			remove_dynamic_modifier = {
+				modifier = HOL_dm_war_at_the_gates
+			}
+			remove_dynamic_modifier = {
+				modifier = HOL_dm_soldier_without_borders
+			}
+		}
+	}
+}
+#wartime dutch join central 2
+country_event = {
+	id = ww1_holland.95
+	title = ww1_holland.95.t
+	desc = ww1_holland.95.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		
+	}
+	option = {
+		name = ww1_holland.95.a
+		unlock_national_focus = HOL_align_with_germany
+		HOL = {
+			remove_dynamic_modifier = {
+				modifier = HOL_dm_war_at_the_gates
+			}
+			remove_dynamic_modifier = {
+				modifier = HOL_dm_soldier_without_borders
+			}
 		}
 	}
 }
