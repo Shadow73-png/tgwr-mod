@@ -427,6 +427,7 @@ is_arab_core = {
 		is_core_of = MOR
 		is_core_of = RIF
 		is_core_of = TRP
+		is_core_of = GUD
 	}
 }
 is_islamic_nation = {
@@ -1129,6 +1130,19 @@ is_generic_character = {
 	has_character_flag = is_generic
 }
 
-has_start_date_1914 = {
-	has_start_date > 1914.1.1
+is_in_colonial_war = {
+	custom_trigger_tooltip = {
+		tooltip = is_in_colonial_war_tt
+		has_dynamic_modifier = colonial_war
+	}
+}
+is_in_major_war = {
+	custom_trigger_tooltip = {
+		tooltip = is_in_major_war_tt
+		has_war = yes
+		any_enemy_country = {
+			is_government_in_exile = no
+		}
+		NOT = { has_dynamic_modifier = colonial_war }
+	}
 }

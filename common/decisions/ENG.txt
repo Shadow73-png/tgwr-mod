@@ -1138,39 +1138,52 @@ operations = {
 		}
 		remove_effect = {
 			add_state_claim = 413
+			add_state_claim = 1246
 			add_state_claim = 410
+			add_state_claim = 1248
+			add_state_claim = 1249
 			RUS = {
 				add_state_claim = 420
 				add_state_claim = 419
 				add_state_claim = 266
 				add_state_claim = 416
+				add_state_claim = 1242
+				add_state_claim = 1243
 				add_state_claim = 418
+				add_state_claim = 1241
 				add_state_claim = 877
 				add_state_claim = 1212
+				add_state_claim = 1245
+				add_state_claim = 1250
+				add_state_claim = 1251
 			}
 			hidden_effect = {
-				every_state = {
-					limit = {
-						is_owned_by = PER
-						OR =  {
-							state = 413
-							state = 410
+				PER = {
+					every_owned_state = {
+						limit = {
+							OR = {
+								state = 410
+								state = 1248
+								state = 1249
+							}
 						}
-					}
-					transfer_state_to = ENG
-				}
-				every_state = {
-					limit = {
-						is_owned_by = PER
-						OR =  {
-							state = 420
-							state = 419
-							state = 877
-							state = 1212
+						transfer_state_to = ROOT
+					}		
+					every_owned_state = {
+						limit = {
+							OR =  {
+								state = 420
+								state = 419
+								state = 877
+								state = 1212
+								state = 1245
+								state = 1250
+								state = 1251
+							}
 						}
+						transfer_state_to = RUS
 					}
-					transfer_state_to = RUS
-				}
+				}			
 				RUS = { country_event = ww1_russia.72 }
 			}
 			set_global_flag = rus_eng_partition_of_persia
@@ -1944,7 +1957,7 @@ foreign_influence = {
 	}
 }
 
-GER_great_war = {
+TGWR_great_power_politics = {
 	ENG_renounce_neutrality = {
 		icon = GFX_decision_hol_exchange_intelligence_data
 		cost = 200
@@ -1961,6 +1974,7 @@ GER_great_war = {
 		}
 		visible = {
 			has_idea = neutrality_idea
+			great_power_politics_great_war_visible = yes
 		}
 		days_remove = 180
 		remove_effect = {
@@ -1969,9 +1983,11 @@ GER_great_war = {
 		}
 	}
 	unlock_armored_cars_for_ENG = {
-		visible = {
-			is_ai = yes
+		allowed = {
 			tag = ENG
+		}
+		visible = {
+			is_ai = yes		
 		}
 		available = {
 			has_tech = improved_armored_car

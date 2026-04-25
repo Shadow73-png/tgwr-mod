@@ -2553,6 +2553,7 @@ focus_tree = {
 				has_global_flag = somaliland_campaign
 			}	
 		}
+		will_lead_to_war_with = SOM
 		completion_reward = {
 			set_global_flag = somaliland_campaign
 			declare_war_on = {
@@ -3928,6 +3929,17 @@ focus_tree = {
 				type = ignore_claim
 				id = AMR
 				value = 1
+			}
+			if = {
+				limit = {
+					owns_state = 183
+					TUR = {
+						has_contested_owner = 183
+					}
+				}
+				183 = {
+					remove_contested_owner = TUR
+				}
 			}
 		}
 		search_filters = {
@@ -5597,6 +5609,7 @@ focus_tree = {
 						limit = {
 							OR = {
 								owns_state = 413
+								owns_state = 1246
 								owns_state = 412
 							}
 						}
@@ -5634,6 +5647,24 @@ focus_tree = {
 								give_resource_rights = {
 									receiver = ENG
 									state = 412
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							OR = {
+								owns_state = 1246
+								any_subject_country = {
+									owns_state = 1246
+								}
+							}			
+						}
+						1246 = {
+							OWNER = {
+								give_resource_rights = {
+									receiver = ENG
+									state = 1246
 								}
 							}
 						}
