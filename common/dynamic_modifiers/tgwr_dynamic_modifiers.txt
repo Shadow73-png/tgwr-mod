@@ -2364,7 +2364,7 @@ ROM_khotyn_uprising = {
 # }
 RUS_armistice_effect = {
 	enable = {
-		OWNER = {
+		controller = {
 			OR = {
 				has_idea = RUS_idea_armistice_cp
 				has_idea = RUS_idea_armistice_rus
@@ -2372,7 +2372,7 @@ RUS_armistice_effect = {
 		}
 	}
 	remove_trigger = {
-		OWNER = {
+		controller = {
 			NOT = {
 				has_idea = RUS_idea_armistice_cp
 				has_idea = RUS_idea_armistice_rus
@@ -2391,7 +2391,7 @@ HUN_demarcation_line = {
 		always = yes
 	}
 	remove_trigger = {
-		OWNER = {
+		controller = {
 			NOT = {
 				original_tag = ROM
 				original_tag = HUN
@@ -3716,4 +3716,22 @@ SIA_french_sphere = {
 	state_production_speed_buildings_factor = 0.10
 	state_resources_factor = -0.15
 	local_factories = -0.15
+}
+
+colonial_war = {
+	enable = {
+		has_offensive_war = yes
+		all_enemy_country = {
+			capital_scope = {
+				OR = {
+					is_on_continent = africa
+					is_on_continent = middle_east
+					is_on_continent = asia
+				}
+			}
+			is_actual_major = no
+		}	
+	}
+	war_stability_factor = 0.1
+	war_support_factor = 0.1
 }
