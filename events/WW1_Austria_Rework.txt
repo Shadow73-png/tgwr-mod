@@ -1141,6 +1141,57 @@ country_event = {
 		}
 	}
 }
+# Galicia agriculture worsened by Russian invasion
+country_event = {
+	id = ww1_austriahungary_war.40
+	title = ww1_austriahungary_war.40.t
+	desc = ww1_austriahungary_war.40.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		has_active_mission = AUS_worsening_food_shortages
+		ROOT = {
+			owns_state = 91 #Lemberg
+		}
+		RUS = {
+			controls_state = 91
+		}
+	}
+	option = {
+		name = ww1_austriahungary_war.40.a
+		add_to_variable = {
+			AUS_intensity_of_food_shortages = 1
+			tooltip = AUS_intensity_of_food_shortages_tt
+		}
+		hidden_effect = {
+			AUS_update_food = yes
+		}
+	}
+}
+country_event = {
+	id = ww1_austriahungary_war.41
+	title = ww1_austriahungary_war.41.t
+	desc = ww1_austriahungary_war.41.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		has_active_mission = AUS_worsening_food_shortages
+		ROOT = {
+			owns_state = 88 #Krakau
+		}
+		RUS = {
+			controls_state = 88
+		}
+	}
+	option = {
+		name = ww1_austriahungary_war.40.a
+		add_to_variable = {
+			AUS_intensity_of_food_shortages = 1
+			tooltip = AUS_intensity_of_food_shortages_tt
+		}
+		hidden_effect = {
+			AUS_update_food = yes
+		}
+	}
+}
 # Stephan Burian Resigns from Position
 country_event = {
 	id = ww1_austriahungary.1
