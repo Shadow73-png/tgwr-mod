@@ -1114,6 +1114,33 @@ country_event = {
 			}
 	}
 }
+# Conscription causing farmer shortage
+country_event = {
+	id = ww1_austriahungary_war.39
+	title = ww1_austriahungary_war.39.t
+	desc = ww1_austriahungary_war.39.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		has_completed_focus = AUS_draft_exemptions
+		has_war_with_major = yes
+		NOT = {
+			has_global_flag = great_war_ends
+		}
+	}
+	mean_time_to_happen = {
+		days = 365
+	}
+	option = {
+		name = ww1_austriahungary_war.39.a
+		add_to_variable = {
+			AUS_intensity_of_food_shortages = 2
+			tooltip = AUS_intensity_of_food_shortages_tt
+		}
+		hidden_effect = {
+			AUS_update_food = yes
+		}
+	}
+}
 # Stephan Burian Resigns from Position
 country_event = {
 	id = ww1_austriahungary.1
