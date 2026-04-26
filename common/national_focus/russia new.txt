@@ -13,7 +13,7 @@ focus_tree = {
 			}
 		}
 	}
-	shared_focus = GER_RUS_potsdam_meeting
+	shared_focus = RUS_persian_campaign
 
 	#shortcuts
 	shortcut = {
@@ -2910,6 +2910,11 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			country_event = ww1_kokovtsov.16
+			add_political_power = 100
+			swap_ideas = {
+				remove_idea = RUS_june_third_political_system
+				add_idea = RUS_kokovtsovs_political_system
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -3622,17 +3627,42 @@ focus_tree = {
 	# FOREIGN POLICY
 	#####################
 	focus = {
+		id = RUS_persian_campaign
+		icon = GFX_focus_attack_iran
+		cost = 0
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		bypass = {
+			PER = {
+				has_country_leader = {
+					character = PER_mohammad_ali_shah
+				}
+			}
+		}
+		x = 0
+		y = 0
+		available_if_capitulated = yes
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
 		id = RUS_support_mohammed_ali_shah
 		icon = GFX_focus_PER_the_pahlavi_imperium
 		cost = 6
 		prerequisite = {
-			focus = GER_RUS_potsdam_meeting
+			focus = RUS_persian_campaign
 		}
 		available = {
 			
-		}
-		allow_branch = {
-			has_focus_tree = russian_empire_focus
 		}
 		bypass = {
 			PER = {
@@ -3643,7 +3673,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
-		relative_position_id = GER_RUS_potsdam_meeting
+		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
 		completion_reward = {
 			PER = {
@@ -3686,7 +3716,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
-		relative_position_id = GER_RUS_potsdam_meeting
+		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
 		completion_reward = {
 			PER = {
@@ -3705,7 +3735,7 @@ focus_tree = {
 		icon = GFX_focus_convention
 		cost = 6
 		prerequisite = {
-			focus = GER_RUS_potsdam_meeting
+			focus = RUS_persian_campaign
 		}
 		prerequisite = {
 			focus = RUS_unity_of_the_entente
@@ -3720,7 +3750,7 @@ focus_tree = {
 		}
 		x = 2
 		y = 1
-		relative_position_id = GER_RUS_potsdam_meeting
+		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
 		completion_reward = {
 			CHI = {
@@ -3746,7 +3776,7 @@ focus_tree = {
 		}
 		x = 2
 		y = 2
-		relative_position_id = GER_RUS_potsdam_meeting
+		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
 		completion_reward = {
 			set_autonomy = {
@@ -3772,7 +3802,7 @@ focus_tree = {
 		icon = GFX_focus_ARM_united_and_ready
 		cost = 6
 		prerequisite = {
-			focus = GER_RUS_potsdam_meeting
+			focus = RUS_persian_campaign
 		}
 		prerequisite = {
 			focus = RUS_unity_of_the_entente
@@ -3787,7 +3817,7 @@ focus_tree = {
 		}
 		x = 4
 		y = 1
-		relative_position_id = GER_RUS_potsdam_meeting
+		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
 		completion_reward = {
 			custom_effect_tooltip = armenian_reforms_start_negotiations_tt
@@ -3819,12 +3849,9 @@ focus_tree = {
 		available = {
 			
 		}
-		allow_branch = {
-			has_focus_tree = russian_empire_focus
-		}
 		x = 7
 		y = 0
-		relative_position_id = GER_RUS_potsdam_meeting
+		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
 		completion_reward = {
 			
