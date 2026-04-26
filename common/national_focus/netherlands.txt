@@ -1541,6 +1541,10 @@ focus_tree = {
 				HOL_variable_army_arty_attack = 0.05
 				tooltip = army_attack_factor_tt
 			}
+			add_equipment_to_stockpile = {
+				type = num_artillery
+				amount = 100
+			}
 			add_tech_bonus = {
     			bonus = 0.5
     			uses = 1
@@ -1651,7 +1655,44 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = -5
+		x = -6
+		y = 2
+	}
+	focus = {
+		id = HOL_higher_officer_pay
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = {
+			focus = HOL_militia_law
+		}
+		relative_position_id = HOL_koninklijk_landmacht
+		available = {
+
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_political_power = -50
+			custom_effect_tooltip = HOL_modify_dutch_military_tt
+			add_to_variable = {
+				HOL_variable_army_conscription = 0.1
+				tooltip = conscription_factor_tt
+			}
+			random_army_leader = {
+				add_skill_level = 1
+				add_defense = 1
+			}
+			random_army_leader = {
+				add_skill_level = 1
+				add_attack = 1
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -4
 		y = 2
 	}
 	focus = {
@@ -1853,6 +1894,11 @@ focus_tree = {
 				HOL_variable_army_supply = 0.05
 				tooltip = supply_consumption_factor_tt
 			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				name = land_doctrine
+				uses = 1
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -1868,7 +1914,7 @@ focus_tree = {
 		id = HOL_expand_marechaussee
 		icon = GFX_focus_chi_army_reform
 		prerequisite = {
-			focus = HOL_landstorm_law
+			focus = HOL_landstorm_law focus = HOL_higher_officer_pay
 		}
 		mutually_exclusive = {
 			focus = HOL_protect_marechaussee_prestige
@@ -1900,7 +1946,7 @@ focus_tree = {
 		id = HOL_protect_marechaussee_prestige
 		icon = GFX_SOV_muster_the_old_guard_ccp_2d_sov_compatibility
 		prerequisite = {
-			focus = HOL_landstorm_law
+			focus = HOL_landstorm_law focus = HOL_higher_officer_pay
 		}
 		mutually_exclusive = {
 			focus = HOL_expand_marechaussee
@@ -2144,7 +2190,32 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			if = {
+				limit = {
+					has_tech = scout_plane
+				}
+				add_equipment_to_stockpile = {
+					type = scout_plane_equipment
+					amount = 35
+				}
+			}
+			else = {
+				add_tech_bonus = {
+				category = cat_scout_plane
+				bonus = 0.5
+				uses = 1
+				}
+			}
+			add_tech_bonus = {
+				category = light_fighter
+				bonus = 0.5
+				uses = 1
+			}
+			add_tech_bonus = {
+				category = cat_strategic_bomber
+				bonus = 0.5
+				uses = 1
+			}
 		}
 		ai_will_do = {
 			factor = 500
