@@ -925,6 +925,10 @@ country_event = {
 				id = ww1_holland.33
 				days = 5
 			}
+			country_event = {
+				id = ww1_holland.32
+				days = 10
+			}
 		}
 	}
 }
@@ -993,7 +997,12 @@ country_event = {
 	}
 	option = {
 		name = ww1_holland.32.a
-		
+		35 = {
+			add_manpower = -50000
+		}
+		7 = {
+			add_manpower = 50000
+		}
 	}
 }
 #godsvrede
@@ -2547,5 +2556,74 @@ country_event = {
 				modifier = HOL_dm_soldier_without_borders
 			}
 		}
+	}
+}
+#potato rebellion
+country_event = {
+	id = ww1_holland.96
+	title = ww1_holland.96.t
+	desc = ww1_holland.96.d
+	fire_only_once = yes
+	trigger = {
+		tag = HOL
+		HOL = {
+			has_war = no
+		}
+		GER = {
+			has_war_with = ENG
+			war_length_with = {
+				tag = FRA
+				months > 26
+			}
+		}
+	}
+	option = {
+		name = ww1_holland.96.a
+		add_stability = -0.05
+		add_political_power = -100
+	}
+}
+#harskamp rebellion
+country_event = {
+	id = ww1_holland.97
+	title = ww1_holland.97.t
+	desc = ww1_holland.97.d
+	fire_only_once = yes
+	trigger = {
+		tag = HOL
+		HOL = {
+			has_war = no
+		}
+		GER = {
+			has_war_with = ENG
+			war_length_with = {
+				tag = FRA
+				months > 36
+			}
+		}
+	}
+	option = {
+		name = ww1_holland.96.a
+		add_stability = -0.05
+		add_political_power = -75
+		army_experience = -20
+	}
+}
+#snow rebellion in groningen
+country_event = {
+	id = ww1_holland.98
+	title = ww1_holland.98.t
+	desc = ww1_holland.98.d
+	fire_only_once = yes
+	trigger = {
+		tag = HOL
+		HOL = {
+			has_war = no
+		}
+		date > 1918.1.17
+	}
+	option = {
+		name = ww1_holland.98.a
+		add_political_power = -50
 	}
 }
