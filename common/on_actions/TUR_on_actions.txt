@@ -586,17 +586,6 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					FROM.FROM = {
-						has_state_flag = TUR_1910_starting_state
-						NOT = { is_controlled_by = TUR }
-					}
-				}
-				set_global_flag = TUR_lost_a_state
-			}
-		}
-		effect = {
-			if = {
-				limit = {
 					FROM = { tag = TRS }
 					OR = {
 						TUR = { surrender_progress > 0.1 }
@@ -738,390 +727,376 @@ on_actions = {
 		effect = {
  			#Check for Turkish state modifiers for non-Turkish occupiers
 			if = {
-				limit = { ROOT = { TUR_has_minority_system = no } }
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_vilayet_centralization } } }
-					FROM.FROM = {
-						remove_dynamic_modifier = { modifier = TUR_vilayet_centralization }
-						set_state_flag = TUR_vilayet_centralization_no_control
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_vilayet_centralization } }
+				}
+				FROM.FROM = {
+					remove_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+					set_state_flag = TUR_vilayet_centralization_no_control
+				}
+				FROM = { ottoman_centralization_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							TUR_has_minority_system = no
+							original_tag = ARM
+						}
 					}
-					FROM = { ottoman_centralization_variable_check = yes }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_armenian_minority } }
 				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_armenian_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_armenian_minority } }
-					FROM = { ottoman_armenian_variable_check = yes }
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_armenian_minority } }
+				FROM = { ottoman_armenian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_greek_minority } }
 				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_greek_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_greek_minority } }
-					FROM = { ottoman_greek_variable_check = yes }
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_greek_minority } }
+				FROM = { ottoman_greek_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_arab_minority } }
 				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_arab_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_arab_minority } }
-					FROM = { ottoman_arab_variable_check = yes }
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_arab_minority } }
+				FROM = { ottoman_arab_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_jewish_minority } }
 				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_jewish_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_jewish_minority } }
-					FROM = { ottoman_jewish_variable_check = yes }
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_jewish_minority } }
+				FROM = { ottoman_jewish_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
 				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_bulgarian_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
-					FROM = { ottoman_bulgarian_variable_check = yes }
-				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_albanian_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_albanian_minority } }
-					FROM = { ottoman_albanian_variable_check = yes }
-				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_serbian_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_serbian_minority } }
-					FROM = { ottoman_serbian_variable_check = yes }
-				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_kurdish_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_kurdish_minority } }
-					FROM = { ottoman_kurdish_variable_check = yes }
-				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_assyrian_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_assyrian_minority } }
-					FROM = { ottoman_assyrian_variable_check = yes }
-				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_georgian_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_georgian_minority } }
-					FROM = { ottoman_georgian_variable_check = yes }
-				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_turkish_minority } } }
-					FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_turkish_minority } }
-					FROM = { ottoman_turkish_variable_check = yes }
-				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon } } }
-					FROM.FROM = {
-						remove_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
-						set_demilitarized_zone = no
-						set_state_flag = TUR_autonomous_vilayet_lebanon_no_control
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
+				FROM = { ottoman_bulgarian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							TUR_has_minority_system = no
+							original_tag = ALB
+						}
 					}
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_albanian_minority } }
 				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_autonomous_vilayet } } }
-					FROM.FROM = {
-						remove_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-						set_state_flag = TUR_autonomous_vilayet_no_control
-					}
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_albanian_minority } }
+				FROM = { ottoman_albanian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_serbian_minority } }
 				}
-				if = {
-					limit = { FROM.FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
-					FROM.FROM = {
-						remove_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
-						set_state_flag = TUR_semi_autonomous_vilayet_no_control
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_serbian_minority } }
+				FROM = { ottoman_serbian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_kurdish_minority } }
+				}
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_kurdish_minority } }
+				FROM = { ottoman_kurdish_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_assyrian_minority } }
+				}
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_assyrian_minority } }
+				FROM = { ottoman_assyrian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_georgian_minority } }
+				}
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_georgian_minority } }
+				FROM = { ottoman_georgian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							TUR_has_minority_system = no
+							AND = {
+								original_tag = TUR
+								NOT = { has_country_flag = TUR_turkish_minority }
+							}
+						}
 					}
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_turkish_minority } }
+				}
+				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_turkish_minority } }
+				FROM = { ottoman_turkish_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon } }
+				}
+				FROM.FROM = {
+					remove_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+					set_demilitarized_zone = no
+					set_state_flag = TUR_autonomous_vilayet_lebanon_no_control
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_autonomous_vilayet } }
+				}
+				FROM.FROM = {
+					remove_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					set_state_flag = TUR_autonomous_vilayet_no_control
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = no }
+					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+				}
+				FROM.FROM = {
+					remove_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
+					set_state_flag = TUR_semi_autonomous_vilayet_no_control
 				}
 			}
 			#Check for lost Turkish state modifiers
+		}
+		effect = {
 			if = {
-				limit = { ROOT = { TUR_has_minority_system = yes } }
-				if = {
-					limit = { FROM.FROM = { has_state_flag = TUR_vilayet_centralization_no_control } }
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_vilayet_centralization_no_control }
+				}
+				FROM.FROM = {
+					add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+					clr_state_flag = TUR_vilayet_centralization_no_control
+				}
+				ROOT = { ottoman_centralization_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						TUR_has_minority_system = yes
+						NOT = { original_tag = ARM }
+					}
 					FROM.FROM = {
-						add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
-						clr_state_flag = TUR_vilayet_centralization_no_control
+						NOT = { has_dynamic_modifier = { modifier = TUR_armenian_minority } }
+						check_variable = { TUR_armenian_state_level > 0 }
 					}
-					ROOT = { ottoman_centralization_variable_check = yes }
 				}
-				if = {
-					limit = {
-						ROOT = { NOT = { original_tag = ARM } }
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_armenian_minority } }
-							check_variable = { TUR_armenian_state_level > 0 }
-						}
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_armenian_minority } }
+				ROOT = { ottoman_armenian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = {
+						NOT = { has_dynamic_modifier = { modifier = TUR_greek_minority } }
+						check_variable = { TUR_greek_state_level > 0 }
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_armenian_minority } }
-					ROOT = { ottoman_armenian_variable_check = yes }
 				}
-				if = {
-					limit = {
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_greek_minority } }
-							check_variable = { TUR_greek_state_level > 0 }
-						}
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_greek_minority } }
+				ROOT = { ottoman_greek_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = {
+						NOT = { has_dynamic_modifier = { modifier = TUR_arab_minority } }
+						check_variable = { TUR_arab_state_level > 0 }
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_greek_minority } }
-					ROOT = { ottoman_greek_variable_check = yes }
 				}
-				if = {
-					limit = {
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_arab_minority } }
-							check_variable = { TUR_arab_state_level > 0 }
-						}
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_arab_minority } }
+				ROOT = { ottoman_arab_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = {
+						NOT = { has_dynamic_modifier = { modifier = TUR_jewish_minority } }
+						check_variable = { TUR_jewish_state_level > 0 }
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_arab_minority } }
-					ROOT = { ottoman_arab_variable_check = yes }
 				}
-				if = {
-					limit = {
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_jewish_minority } }
-							check_variable = { TUR_jewish_state_level > 0 }
-						}
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_jewish_minority } }
+				ROOT = { ottoman_jewish_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = {
+						NOT = { has_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
+						check_variable = { TUR_bulgarian_state_level > 0 }
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_jewish_minority } }
-					ROOT = { ottoman_jewish_variable_check = yes }
 				}
-				if = {
-					limit = {
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
-							check_variable = { TUR_bulgarian_state_level > 0 }
-						}
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
+				ROOT = { ottoman_bulgarian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						TUR_has_minority_system = yes
+						NOT = { original_tag = ALB }
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
-					ROOT = { ottoman_bulgarian_variable_check = yes }
-				}
-				if = {
-					limit = {
-						ROOT = { NOT = { original_tag = ALB } }
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_albanian_minority } }
-							check_variable = { TUR_albanian_state_level > 0 }
-						}
+					FROM.FROM = {
+						NOT = { has_dynamic_modifier = { modifier = TUR_albanian_minority } }
+						check_variable = { TUR_albanian_state_level > 0 }
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_albanian_minority } }
-					ROOT = { ottoman_albanian_variable_check = yes }
 				}
-				if = {
-					limit = {
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_serbian_minority } }
-							check_variable = { TUR_serbian_state_level > 0 }
-						}
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_albanian_minority } }
+				ROOT = { ottoman_albanian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = {
+						NOT = { has_dynamic_modifier = { modifier = TUR_serbian_minority } }
+						check_variable = { TUR_serbian_state_level > 0 }
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_serbian_minority } }
-					ROOT = { ottoman_serbian_variable_check = yes }
 				}
-				if = {
-					limit = {
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_kurdish_minority } }
-							check_variable = { TUR_kurdish_state_level > 0 }
-						}
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_serbian_minority } }
+				ROOT = { ottoman_serbian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = {
+						NOT = { has_dynamic_modifier = { modifier = TUR_kurdish_minority } }
+						check_variable = { TUR_kurdish_state_level > 0 }
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_kurdish_minority } }
-					ROOT = { ottoman_kurdish_variable_check = yes }
 				}
-				if = {
-					limit = {
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_assyrian_minority } }
-							check_variable = { TUR_assyrian_state_level > 0 }
-						}
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_kurdish_minority } }
+				ROOT = { ottoman_kurdish_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = {
+						NOT = { has_dynamic_modifier = { modifier = TUR_assyrian_minority } }
+						check_variable = { TUR_assyrian_state_level > 0 }
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_assyrian_minority } }
-					ROOT = { ottoman_assyrian_variable_check = yes }
 				}
-				if = {
-					limit = {
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_georgian_minority } }
-							check_variable = { TUR_georgian_state_level > 0 }
-						}
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_assyrian_minority } }
+				ROOT = { ottoman_assyrian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = {
+						NOT = { has_dynamic_modifier = { modifier = TUR_georgian_minority } }
+						check_variable = { TUR_georgian_state_level > 0 }
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_georgian_minority } }
-					ROOT = { ottoman_georgian_variable_check = yes }
 				}
-				if = {
-					limit = {
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_georgian_minority } }
+				ROOT = { ottoman_georgian_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						TUR_has_minority_system = yes
 						has_country_flag = TUR_turkish_minority
-						FROM.FROM = {
-							NOT = { has_dynamic_modifier = { modifier = TUR_turkish_minority } }
-							check_variable = { TUR_turkish_state_level > 0 }
-						}
 					}
-					FROM.FROM = { add_dynamic_modifier = { modifier = TUR_turkish_minority } }
-					ROOT = { ottoman_turkish_variable_check = yes }
-				}
-				if = {
-					limit = { FROM.FROM = { has_state_flag = TUR_autonomous_vilayet_lebanon_no_control } }
 					FROM.FROM = {
-						add_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
-						if = {
-							limit = {
-								ROOT = {
-									OR = {
-										has_war = no
-										all_enemy_country = { has_country_flag = TUR_revolting_country }
-									}
-								}
-							}
-							set_demilitarized_zone = yes
-						}
-						clr_state_flag = TUR_autonomous_vilayet_lebanon_no_control
-					}
-				}
-				if = {
-					limit = { FROM.FROM = { has_state_flag = TUR_autonomous_vilayet_no_control } }
-					FROM.FROM = {
-						add_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-						clr_state_flag = TUR_autonomous_vilayet_no_control
-					}
-				}
-				if = {
-					limit = { FROM.FROM = { has_state_flag = TUR_semi_autonomous_vilayet_no_control } }
-					FROM.FROM = {
-						add_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
-						clr_state_flag = TUR_semi_autonomous_vilayet_no_control
-					}
-				}
-			}
-		}
-		effect = {
-			#ottoman achievement
-			if = {
-				limit = {
-					any_state = {
-						has_state_flag = TUR_1910_starting_state
-						NOT = {
-							is_owned_by = TUR
-							is_owned_by = ALB
-							is_owned_by = HJZ
-							is_owned_by = ASR
-							is_owned_by = UAS
-							is_owned_by = YEM
-						}
-					}
-				}
-				set_global_flag = TUR_1910_lost_a_starting_state
-			}
-			if = {
-				limit = {
-					has_global_flag = italo_turkish_war
-					NOT = {
-						has_global_flag = libyan_crisis_resolved
-					}
-					any_state = {
-						has_state_flag = TUR_1910_starting_state
-						NOT = {
-							state = 448
-							state = 450
-							state = 1060
-							state = 1061
-						}
-						NOT = {
-							is_owned_by = TUR
-							is_owned_by = ALB
-							is_owned_by = HJZ
-							is_owned_by = ASR
-							is_owned_by = UAS
-							is_owned_by = YEM
-						}
-					}
-				}
-				set_global_flag = TUR_1910_lost_a_starting_state
-			}
-		}
-		effect = { #kuvay-i milliye
-			if = {
-				limit = {
-					FROM.FROM = {
+						NOT = { has_dynamic_modifier = { modifier = TUR_turkish_minority } }
 						check_variable = { TUR_turkish_state_level > 0 }
-						has_dynamic_modifier = { modifier = TUR_turkish_resistance }
-						controller = {
-							OR = {
-								has_country_flag = TUR_turkish_resistance_ally
-								any_country = {
-									has_country_flag = TUR_turkish_resistance_ally
-									NOT = { has_war_with = PREV }
+					}
+				}
+				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_turkish_minority } }
+				ROOT = { ottoman_turkish_variable_check = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_autonomous_vilayet_lebanon_no_control }
+				}
+				FROM.FROM = {
+					add_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+					if = {
+						limit = {
+							ROOT = {
+								OR = {
+									has_war = no
+									all_enemy_country = { has_country_flag = TUR_revolting_country }
 								}
 							}
 						}
+						set_demilitarized_zone = yes
 					}
+					clr_state_flag = TUR_autonomous_vilayet_lebanon_no_control
 				}
-				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_turkish_resistance } }
 			}
-			else_if = {
+			if = {
 				limit = {
-					FROM.FROM = {
-						check_variable = { TUR_turkish_state_level > 0 }
-						NOT = { has_dynamic_modifier = { modifier = TUR_turkish_resistance } }
-						controller = {
-							any_country = {
-								has_country_flag = TUR_turkish_resistance_ally
-								has_war_with = PREV
-							}
-						}
-					}
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_autonomous_vilayet_no_control }
 				}
-				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_turkish_resistance } }
+				FROM.FROM = {
+					add_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					clr_state_flag = TUR_autonomous_vilayet_no_control
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_semi_autonomous_vilayet_no_control }
+				}
+				FROM.FROM = {
+					add_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
+					clr_state_flag = TUR_semi_autonomous_vilayet_no_control
+				}
 			}
 		}
 		effect = {
 			if = {
 				limit = {
+					ROOT = { has_country_flag = TUR_mustafa_rahmi_committee }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_mustafa_rahmi_committee } }
-						controller = { has_country_flag = TUR_mustafa_rahmi_committee }
-						OR = {
-							state = 339
-							state = 824
-							state = 340
-							state = 342
-						}
+						has_state_flag = TUR_aydin
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_mustafa_rahmi_committee } }
 			}
 			if = {
 				limit = {
+					ROOT = { has_country_flag = TUR_cemal_azmi_committee }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_cemal_azmi_committee } }
-						controller = { has_country_flag = TUR_cemal_azmi_committee }
-						OR = {
-							state = 355
-							state = 354
-							state = 1034
-						}
+						has_state_flag = TUR_trabzon
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_cemal_azmi_committee } }
 			}
 			if = {
 				limit = {
+					ROOT = { has_country_flag = TUR_mehmed_resid_committee }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_mehmed_resid_committee } }
-						controller = { has_country_flag = TUR_mehmed_resid_committee }
-						OR = {
-							state = 350
-							state = 1028
-							state = 884
-						}
+						has_state_flag = TUR_diyarbakir
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_mehmed_resid_committee } }
 			}
 			if = {
 				limit = {
+					ROOT = { has_country_flag = TUR_haci_adil_committee }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_haci_adil_committee } }
-						controller = { has_country_flag = TUR_haci_adil_committee }
-						OR = {
-							state = 756
-							state = 341
-							state = 860
-							state = 200
-							state = 849
-							state = 757
-							state = 451
-							state = 212
-						}
+						has_state_flag = TUR_edirne
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_haci_adil_committee } }
@@ -3434,28 +3409,6 @@ on_actions = {
 		}
 	}
 	on_peaceconference_ended = {
-		effect = {
-			if = {
-				limit = {
-					ROOT = {
-						any_controlled_state = { has_dynamic_modifier = { modifier = TUR_turkish_resistance } }
-						NOT = { has_war_with = FROM }
-					}
-					FROM = { has_country_flag = TUR_turkish_resistance_ally }
-				}
-				ROOT = { every_controlled_state = { remove_dynamic_modifier = { modifier = TUR_turkish_resistance } } }
-			}
-			if = {
-				limit = {
-					FROM = {
-						any_controlled_state = { has_dynamic_modifier = { modifier = TUR_turkish_resistance } }
-						NOT = { has_war_with = FROM }
-					}
-					ROOT = { has_country_flag = TUR_turkish_resistance_ally }
-				}
-				FROM = { every_controlled_state = { remove_dynamic_modifier = { modifier = TUR_turkish_resistance } } }
-			}
-		}
 		effect = {
 			if = {
 				limit = {
