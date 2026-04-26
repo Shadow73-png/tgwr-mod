@@ -1078,6 +1078,26 @@ country_event = {
 		custom_effect_tooltip = AUS_war_worsens.tt
 	}
 }
+country_event = {
+	id = ww1_austriahungary_war.37
+	title = ww1_austriahungary_war.37.t
+	desc = ww1_austriahungary_war.37.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary_war.37.a
+		custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.02
+				tooltip = consumer_goods_factor_tt
+			}
+		add_political_power = -20
+		add_days_mission_timeout = {
+			mission = AUS_worsening_food_shortages
+			days = -20
+		}
+	}
+}
 # Stephan Burian Resigns from Position
 country_event = {
 	id = ww1_austriahungary.1
