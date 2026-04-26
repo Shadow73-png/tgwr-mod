@@ -1894,11 +1894,6 @@ focus_tree = {
 				HOL_variable_army_supply = 0.05
 				tooltip = supply_consumption_factor_tt
 			}
-			add_doctrine_cost_reduction = {
-				cost_reduction = 0.5
-				name = land_doctrine
-				uses = 1
-			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -2066,6 +2061,10 @@ focus_tree = {
 			add_equipment_to_stockpile = {
 				type = train_equipment
 				amount = 15
+			}
+			add_equipment_to_stockpile = {
+				type = early_truck_equipment
+				amount = 60
 			}
 		}
 		ai_will_do = {
@@ -5766,6 +5765,39 @@ focus_tree = {
 		cost = 5
 		x = 0
 		y = 3
+	}
+	focus = {
+		id = HOL_ban_export_medication
+		icon = GFX_SOV_japanese_overtures_ccp_2d_sov_compatibility
+		prerequisite = {
+			focus = HOL_restrict_travel_rights
+		}
+		relative_position_id = HOL_defending_neutrality_at_all_cost
+		available = {
+			has_global_flag = great_war
+			has_war = no
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = HOL_modify_war_in_europe_tt
+			add_to_variable = {
+				HOL_variable_wag_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+			add_to_variable = {
+				HOL_wag_monthly_pop = 0.1
+				tooltip = monthly_population_tt
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -2
+		y = 4
 	}
 	focus = {
 		id = HOL_create_anti_smuggling_laws
