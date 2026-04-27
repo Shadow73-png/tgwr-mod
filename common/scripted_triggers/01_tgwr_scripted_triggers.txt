@@ -1128,3 +1128,30 @@ protectorate_type_subject = {
 is_generic_character = {
 	has_character_flag = is_generic
 }
+
+is_in_colonial_war = {
+	custom_trigger_tooltip = {
+		tooltip = is_in_colonial_war_tt
+		has_offensive_war = yes
+		all_enemy_country = {
+			capital_scope = {
+				OR = {
+					is_on_continent = africa
+					is_on_continent = middle_east
+					is_on_continent = asia
+				}
+			}
+			is_actual_major = no
+		}	
+	}
+}
+is_in_major_war = {
+	custom_trigger_tooltip = {
+		tooltip = is_in_major_war_tt
+		has_war = yes
+		any_enemy_country = {
+			is_government_in_exile = no
+		}
+		is_in_colonial_war = no
+	}
+}

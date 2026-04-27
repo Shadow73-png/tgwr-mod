@@ -239,10 +239,15 @@ focus_tree = {
 				ideology = fascism
 				popularity = 0.05
 			}
-			swap_ideas = {
-				remove_idea = SER_petar_i
-				add_idea = SER_petar_i2
-			}
+			if = {
+				limit = { 
+					has_idea = SER_petar_i
+				}
+				swap_ideas = {
+					remove_idea = SER_petar_i
+					add_idea = SER_petar_i_2
+				}
+			}			
 		}
 		ai_will_do = {
 			factor = 50
@@ -1189,9 +1194,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SER_law_modernizations
 		}
+		available = {
+			has_global_flag = kis_firstbalkanwar_victory
+		}
 		relative_position_id = SER_investigate_Pasic_family
 		completion_reward = {
 			country_event = ww1_serbia.21
+			custom_effect_tooltip = which_will_give_tt
+			event_option_tooltip = ww1_serbia.21.a
 		}
 	}
 	focus = {
@@ -1507,7 +1517,6 @@ focus_tree = {
 		available = {
 			has_country_leader = {
 				character = SER_ljubomir_stojanovic
-				ruling_only = yes
 			}
 		}
 		completion_reward = {
@@ -1860,7 +1869,7 @@ focus_tree = {
 			focus = SER_divide_the_radicals
 		}
 		available = {
-			democratic < 0.03
+			democratic < 0.3
 		}
 		bypass = {
 			has_government = neutrality
@@ -1870,6 +1879,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = ww1_serbia.19
+			custom_effect_tooltip = which_will_give_tt
+			event_option_tooltip = ww1_serbia.19.a
 		}
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
@@ -1997,6 +2008,12 @@ focus_tree = {
 					id = ww1_serbia.22
 					days = 2
 				}
+				custom_effect_tooltip = needs_approval
+				custom_effect_tooltip = if_they_accept_tt
+				custom_effect_tooltip = escape_line
+				event_option_tooltip = ww1_serbia.22.a
+				custom_effect_tooltip = if_they_refuse_tt
+				event_option_tooltip = ww1_serbia.22.b
 			}
 		}
 		x = -3
@@ -2038,6 +2055,10 @@ focus_tree = {
 					id = ww1_serbia.41
 					days = 2
 				}
+				custom_effect_tooltip = needs_approval
+				custom_effect_tooltip = if_they_accept_tt
+				custom_effect_tooltip = escape_line
+				event_option_tooltip = ww1_serbia.41.a
 			}
 		}
 		ai_will_do = {
@@ -2105,6 +2126,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = ww1_serbia.21
+			custom_effect_tooltip = which_will_give_tt
+			event_option_tooltip = ww1_serbia.21.a
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -2218,6 +2241,8 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.05
 			country_event = ww1_balkan.24
+			custom_effect_tooltip = which_will_give_tt
+			event_option_tooltip = ww1_serbia.24.a
 		}
 		ai_will_do = {
 			factor = 100
@@ -2295,6 +2320,12 @@ focus_tree = {
 					id = ww1_balkan.25
 					hours = 3
 				}
+				custom_effect_tooltip = needs_approval
+				custom_effect_tooltip = if_they_accept_tt
+				custom_effect_tooltip = escape_line
+				event_option_tooltip = ww1_serbia.25.a
+				custom_effect_tooltip = if_they_refuse_tt
+				event_option_tooltip = ww1_serbia.25.b
 			}
 		}
 		search_filters = {
@@ -2647,12 +2678,17 @@ focus_tree = {
 			focus = SER_depoliticize_the_army
 		}
 		available = {
+			has_character = SER_petar_i
 			NOT = {
 				has_country_leader = {
 					character = SER_dorde_obrenovic
-					ruling_only = yes
 				}
 			}
+		}
+		bypass = {
+			NOT = {
+				has_character = SER_petar_i
+			}		
 		}
 		completion_reward = {
 			custom_effect_tooltip = SER_regency_choice
@@ -2679,6 +2715,12 @@ focus_tree = {
 		relative_position_id = SER_the_regency_question
 		prerequisite = {
 			focus = SER_the_regency_question
+		}
+		available = {
+			NOT = {
+				has_cosmetic_tag = SER_republic
+				has_government = communism
+			}
 		}
 		completion_reward = {
 			add_political_power = 120
@@ -2724,6 +2766,8 @@ focus_tree = {
 			has_war = no
 			NOT = {
 				has_country_leader_with_trait = foreign_leader
+				has_cosmetic_tag = SER_republic
+				has_government = communism
 			}
 		}
 		completion_reward = {
@@ -2744,6 +2788,12 @@ focus_tree = {
 		relative_position_id = SER_royal_tour
 		prerequisite = {
 			focus = SER_royal_tour
+		}
+		available = {
+			NOT = {
+				has_cosmetic_tag = SER_republic
+				has_government = communism
+			}
 		}
 		completion_reward = {
 			add_stability = 0.1
@@ -2766,6 +2816,8 @@ focus_tree = {
 			has_war = no
 			NOT = {
 				has_country_leader_with_trait = foreign_leader
+				has_cosmetic_tag = SER_republic
+				has_government = communism
 			}
 		}
 		completion_reward = {
@@ -2813,13 +2865,15 @@ focus_tree = {
 		prerequisite = {
 			focus = SER_the_regency_question
 		}
+		available = {
+			NOT = {
+				has_cosmetic_tag = SER_republic
+				has_government = communism
+			}
+		}
 		allow_branch = {
-			OR = {
-				has_country_flag = SER_alexander_regency
-				has_country_flag = SER_george_regency
-				NOT = {
-					has_country_flag = SER_helen_regency
-				}
+			NOT = {
+				has_country_flag = SER_helen_regency
 			}
 		}
 		search_filters = {
@@ -2837,7 +2891,27 @@ focus_tree = {
 					level = 1
 				}
 			}
-			add_country_leader_trait = SER_rearmer
+			if = {
+				limit = { 
+					has_country_flag = SER_alexander_regency
+				}
+				SER_aleksandar_karadjordjevic = {
+					add_country_leader_trait = SER_rearmer
+				}
+			}		
+			else_if = {
+				limit = { 
+					has_country_flag = SER_arsenije_regency
+				}
+				SER_arsenije_karadjordjevic = {
+					add_country_leader_trait = SER_rearmer
+				}
+			}
+			else = {
+				SER_dorde_karadjordjevic = {
+					add_country_leader_trait = SER_rearmer
+				}
+			}
 		}
 		y = 1
 		x = 2
@@ -2853,14 +2927,25 @@ focus_tree = {
 		allow_branch = {
 			has_country_flag = SER_helen_regency
 		}
+		available = {
+			OR = {
+				has_idea = SER_jelena_karadjordjevic
+				has_country_leader = {
+					character = SER_jelena_karadjordjevic
+				}
+			}		
+		}
 		completion_reward = {
 			SER_jelena_karadjordjevic = {
 				add_country_leader_trait = SER_mother_serbia
 			}
-			hidden_effect = {
+			if = {
+				limit = { 
+					has_idea = SER_jelena_karadjordjevic
+				}
 				swap_ideas = {
-					remove_idea = SER_idea_Jelena_karadjordjevic
-					add_idea = SER_idea_Jelena_karadjordjevic2
+					remove_idea = SER_jelena_karadjordjevic
+					add_idea = SER_jelena_karadjordjevic_2
 				}
 			}
 		}
@@ -2881,7 +2966,6 @@ focus_tree = {
 		available = {
 			has_country_leader = {
 				character = SER_jelena_karadjordjevic
-				ruling_only = yes
 			}
 		}
 		completion_reward = {
@@ -2907,16 +2991,37 @@ focus_tree = {
 		prerequisite = {
 			focus = SER_reinforce_military_state
 		}
+		available = {
+			NOT = {
+				has_cosmetic_tag = SER_republic
+				has_government = communism
+			}
+		}
 		completion_reward = {
 			add_popularity = {
 				ideology = neutrality
 				popularity = 0.15
 			}
-			every_character = {
-				limit = {
-					has_ideology = absolute_monarchy
+			if = {
+				limit = { 
+					has_country_flag = SER_alexander_regency
 				}
-				add_country_leader_trait = SER_strongman
+				SER_aleksandar_karadjordjevic = {
+					add_country_leader_trait = SER_strongman
+				}
+			}		
+			else_if = {
+				limit = { 
+					has_country_flag = SER_arsenije_regency
+				}
+				SER_arsenije_karadjordjevic = {
+					add_country_leader_trait = SER_strongman
+				}
+			}
+			else = {
+				SER_dorde_karadjordjevic = {
+					add_country_leader_trait = SER_strongman
+				}
 			}
 		}
 		search_filters = {
@@ -3119,6 +3224,8 @@ focus_tree = {
 			add_stability = -0.15
 			custom_effect_tooltip = SER_not_cancer_warning
 			country_event = ww1_serbia.58
+			custom_effect_tooltip = which_will_give_tt
+			event_option_tooltip = ww1_serbia.58.a
 			if = {
 				limit = {
 					has_stability < 0.6
@@ -3280,6 +3387,20 @@ focus_tree = {
 					id = ww1_serbia.102
 					days = 2
 				}
+				custom_effect_tooltip = needs_approval
+				custom_effect_tooltip = if_they_accept_tt
+			}		
+			effect_tooltip = {
+				annex_country = {
+					target = MNT
+				}
+			}
+			custom_effect_tooltip = if_they_refuse_tt
+			effect_tooltip = {
+				create_wargoal = {
+					type = annex_everything
+					target = ROOT
+				}
 			}
 		}
 		search_filters = {
@@ -3424,19 +3545,12 @@ focus_tree = {
 			ROM = {
 				country_event = {
 					id = ww1_serbia.105
-					days = 2
+					days = 2				
 				}
 				custom_effect_tooltip = needs_approval
-			}
-			custom_effect_tooltip = escape_line
-			custom_effect_tooltip = effect_if_accepted
-			effect_tooltip = {
-				ROM = {
-					give_guarantee = SER
-				}
-				SER = {
-					give_guarantee = ROM
-				}
+				custom_effect_tooltip = if_they_accept_tt
+				custom_effect_tooltip = escape_line
+				event_option_tooltip = ww1_serbia.105.a
 			}
 			custom_effect_tooltip = ROM_support_against_auh
 		}
@@ -3480,22 +3594,9 @@ focus_tree = {
 					days = 2
 				}
 				custom_effect_tooltip = needs_approval
-			}
-			custom_effect_tooltip = escape_line
-			custom_effect_tooltip = effect_if_accepted
-			effect_tooltip = {
-				SER = {
-					add_equipment_to_stockpile = {
-						type = infantry_equipment
-						amount = 5000
-						producer = RUS
-					}
-					add_equipment_to_stockpile = {
-						type = support_equipment
-						amount = 1000
-						producer = RUS
-					}
-				}
+				custom_effect_tooltip = if_they_accept_tt
+				custom_effect_tooltip = escape_line
+				event_option_tooltip = ww1_serbia.109.a
 			}
 		}
 	}
@@ -3659,6 +3760,8 @@ focus_tree = {
 		x = 1
 		y = 1
 		available = {
+			has_character = SER_petar_i
+			has_character = SER_arsenije_karadjordjevic
 			NOT = {
 				has_completed_focus = SER_Stojanovic_plan
 			}
@@ -3672,6 +3775,8 @@ focus_tree = {
 				id = ww1_serbia.20
 				days = 2
 			}
+			custom_effect_tooltip = which_will_give_tt
+			event_option_tooltip = ww1_serbia.20.a
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -3692,15 +3797,13 @@ focus_tree = {
 		relative_position_id = SER_ties_to_dynasty
 		available = {
 			OR = {
-				has_idea = SER_idea_arsenije_karadjordjevic
+				has_idea = SER_arsenije_karadjordjevic
 				has_country_leader = {
 					character = SER_arsenije_karadjordjevic
 				}
 			}
 			NOT = {
 				has_completed_focus = SER_Stojanovic_plan
-			}
-			NOT = {
 				has_completed_focus = SER_Solun_process
 			}
 		}
@@ -4850,21 +4953,15 @@ focus_tree = {
 		}
 		bypass_if_unavailable = yes
 		completion_reward = {
-			custom_effect_tooltip = agree_effect_tooltip
-			effect_tooltip = {
-				SER_bozidar_jankovic = {
-					set_nationality = MNT
-					promote_leader = yes
-				}
-				SER_petar_pesic = {
-					set_nationality = MNT
-				}
-			}
 			MNT = {
 				country_event = {
 					id = ww1_serbia.53
 					hours = 5
 				}
+				custom_effect_tooltip = needs_approval
+				custom_effect_tooltip = if_they_accept_tt
+				custom_effect_tooltip = escape_line
+				event_option_tooltip = ww1_serbia.53.a
 			}
 		}
 		x = 0
@@ -5329,22 +5426,11 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			GRE = { country_event = ww1_serbia.43 }
-			effect_tooltip = {
-				FROM = {
-					transfer_state = 187
-					187 = { add_dynamic_modifier = { modifier = SER_serbian_exile } }
-					swap_ideas = {
-						remove_idea = SER_idea_exodus
-						add_idea = SER_idea_exile
-					}
-					GRE = {
-						add_opinion_modifier = {
-							target = ROOT
-							modifier = large_increase
-						}
-					}
-				}
+			GRE = { 
+				country_event = ww1_serbia.43 
+				custom_effect_tooltip = which_will_give_tt
+				custom_effect_tooltip = escape_line
+				event_option_tooltip = ww1_serbia.43.a
 			}
 		}
 		ai_will_do = {
@@ -5512,6 +5598,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SER_blame_regent
 		}
+		available = {
+			has_country_flag = SER_blame_black_hand
+		}
 		select_effect = {
 			country_event = {
 				id = ww1_serbia.49
@@ -5551,6 +5640,8 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = SER_solun_process_tt
 			country_event = ww1_serbia.50
+			custom_effect_tooltip = which_will_give_tt
+			event_option_tooltip = ww1_serbia.50.a
 		}
 		ai_will_do = {
 			base = 50
@@ -5602,6 +5693,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SER_blame_black_hand
 		}
+		available = {
+			has_country_flag = SER_blame_regent
+		}
 		available_if_capitulated = yes
 		completion_reward = {
 			add_war_support = -0.1
@@ -5632,6 +5726,12 @@ focus_tree = {
 		prerequisite = {
 			focus = SER_blame_regent
 		}
+		available = {
+			has_character = SER_petar_i
+			NOT = {
+				has_government = neutrality
+			}
+		}
 		completion_reward = {
 			if = {
 				limit = {
@@ -5640,16 +5740,59 @@ focus_tree = {
 				SER_aleksandar_karadjordjevic = {
 					remove_unit_leader_role = yes
 				}
+				if = {
+					limit = { 
+						has_idea = SER_aleksandar_karadjordjevic
+					}
+					remove_ideas = SER_aleksandar_karadjordjevic
+				}
 			}
-			if = {
+			else_if = {
 				limit = {
 					has_country_flag = SER_george_regency
 				}
 				SER_dorde_karadjordjevic = {
 					remove_unit_leader_role = yes
 				}
+				if = {
+					limit = { 
+						has_idea = SER_dorde_karadjordjevic
+					}
+					remove_ideas = SER_dorde_karadjordjevic
+				}
 			}
-			add_ideas = SER_petar_i2
+			else_if = {
+				limit = {
+					has_country_flag = SER_helen_regency
+				}
+				if = {
+					limit = { 
+						has_idea = SER_jelena_karadjordjevic
+					}
+					remove_ideas = SER_jelena_karadjordjevic
+				}
+				else_if = {
+					limit = { 
+						has_idea = SER_jelena_karadjordjevic_2
+					}
+					remove_ideas = SER_jelena_karadjordjevic_2
+				}	
+			}
+			else_if = {
+				limit = {
+					has_country_flag = SER_arsenije_regency
+				}
+				SER_arsenije_karadjordjevic = {
+					remove_unit_leader_role = yes
+				}
+				if = {
+					limit = { 
+						has_idea = SER_arsenije_karadjordjevic
+					}
+					remove_ideas = SER_arsenije_karadjordjevicSER_arsenije_karadjordjevic
+				}
+			}
+			add_ideas = SER_petar_i_2
 		}
 		available_if_capitulated = yes
 		x = 1

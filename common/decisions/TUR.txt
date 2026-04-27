@@ -68,9 +68,11 @@ debug_decisions = {
 	}
 }
 
-GER_great_war = {
+TGWR_great_power_politics = {
 	TUR_offer_surrender_terms = {
-		allowed = { tag = TUR }
+		allowed = {
+			tag = TUR
+		}
 		icon = GFX_decision_eng_trade_unions_support
 		fire_only_once = yes
 		activation = {
@@ -475,6 +477,7 @@ GER_great_war = {
 			}
 		}
 	}
+	#great_power_politics_great_war
 	TUR_declare_jihad = {
 		icon = GFX_decision_generic_nationalism
 		allowed = { tag = TUR }
@@ -490,6 +493,7 @@ GER_great_war = {
 			}
 		}
 		visible = {
+			great_power_politics_great_war_visible = yes
 			OR = {
 				has_idea_with_trait = tgwr_caliph
 				has_country_leader_with_trait = tgwr_caliph
@@ -738,6 +742,7 @@ GER_great_war = {
 		available = { has_war_with = RUS }
 		fire_only_once = yes
 		visible = {
+			great_power_politics_great_war_visible = yes
 			is_in_faction_with = GER
 			has_completed_focus = TUR_schellendorfs_plan
 			NOT = {
@@ -857,7 +862,10 @@ GER_great_war = {
 		days_remove = 720
 		available = { has_war_with = RUS }
 		fire_only_once = yes
-		visible = { has_completed_focus = TUR_hafiz_hakkis_plan }
+		visible = {
+			has_completed_focus = TUR_hafiz_hakkis_plan
+			great_power_politics_great_war_visible = yes
+		}
 		complete_effect = {
 			every_state = {
 				limit = {
@@ -934,6 +942,7 @@ GER_great_war = {
 				has_war_with = FRA
 				has_global_flag = great_war_ends
 			}
+			great_power_politics_great_war_visible = yes
 		}
 		complete_effect = {
 			every_state = {
@@ -1007,7 +1016,10 @@ GER_great_war = {
 		days_remove = 720
 		available = { has_war_with = BUL }
 		fire_only_once = yes
-		visible = { has_completed_focus = TUR_balkan_push }
+		visible = {
+			has_completed_focus = TUR_balkan_push
+			great_power_politics_great_war_visible = yes
+		}
 		complete_effect = {
 			every_state = {
 				limit = {
@@ -1205,6 +1217,7 @@ GER_great_war = {
 		fire_only_once = yes
 		visible = {
 			has_global_flag = great_war
+			great_power_politics_great_war_visible = yes
 			is_subject = no
 			NOT = {
 				has_global_flag = great_war_ends

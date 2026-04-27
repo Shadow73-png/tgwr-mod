@@ -1154,6 +1154,8 @@ operations = {
 				add_state_claim = 877
 				add_state_claim = 1212
 				add_state_claim = 1245
+				add_state_claim = 1250
+				add_state_claim = 1251
 			}
 			hidden_effect = {
 				PER = {
@@ -1175,6 +1177,8 @@ operations = {
 								state = 877
 								state = 1212
 								state = 1245
+								state = 1250
+								state = 1251
 							}
 						}
 						transfer_state_to = RUS
@@ -1953,7 +1957,7 @@ foreign_influence = {
 	}
 }
 
-GER_great_war = {
+TGWR_great_power_politics = {
 	ENG_renounce_neutrality = {
 		icon = GFX_decision_hol_exchange_intelligence_data
 		cost = 200
@@ -1970,6 +1974,7 @@ GER_great_war = {
 		}
 		visible = {
 			has_idea = neutrality_idea
+			great_power_politics_great_war_visible = yes
 		}
 		days_remove = 180
 		remove_effect = {
@@ -1978,9 +1983,11 @@ GER_great_war = {
 		}
 	}
 	unlock_armored_cars_for_ENG = {
-		visible = {
-			is_ai = yes
+		allowed = {
 			tag = ENG
+		}
+		visible = {
+			is_ai = yes		
 		}
 		available = {
 			has_tech = improved_armored_car
