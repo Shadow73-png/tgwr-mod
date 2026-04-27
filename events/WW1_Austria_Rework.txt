@@ -1204,7 +1204,7 @@ mean_time_to_happen = {
 days = 90
 }
 	option = {
-		name = ww1_austriahungary_war.40.a
+		name = ww1_austriahungary_war.42.a
 add_political_power = -20
 add_stability = 0.02
 add_war_support = -0.01
@@ -1212,6 +1212,60 @@ add_popularity = {
 			ideology = democratic
 			popularity = 0.03
 		}
+	}
+}
+country_event = {
+	id = ww1_austriahungary_war.43
+	title = ww1_austriahungary_war.43.t
+	desc = ww1_austriahungary_war.43.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+	has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
+	}
+    mean_time_to_happen = {
+    days = 700
+    }
+	option = {
+		name = ww1_austriahungary_war.43.a
+add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 1900
+			producer = AUS
+		}
+		add_equipment_to_stockpile = {
+			type = motorbike_equipment_1
+			amount = 150
+			producer = AUS
+		}
+		add_war_support = -0.05
+		add_to_variable = {
+				AUS_war_time_financial_measure = 1
+			}
+			add_to_variable = {
+				AUS_ruthenian_loyalty = -5
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_pole_loyalty = -5
+				tooltip = AUS_loyalty_pole_tt
+			}
+			add_to_variable = {
+				AUS_czechoslovak_loyalty = -5
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			add_to_variable = {
+				AUS_serb_loyalty = -5
+				tooltip = AUS_loyalty_serb_tt
+			}
+			add_to_variable = {
+				AUS_croat_loyalty = -5
+				tooltip = AUS_loyalty_croatian_tt
+			}
+			add_to_variable = {
+				AUS_romanian_loyalty = -5
+				tooltip = AUS_loyalty_romanians_tt
+			}
+			AUS_update_state_of_realm = yes
 	}
 }
 # Stephan Burian Resigns from Position
