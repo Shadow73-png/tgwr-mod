@@ -1375,6 +1375,7 @@ country_event = {
 		}
 	}
 }
+#german alignment
 country_event = {
 	id = ww1_holland.46
 	title = ww1_holland.46.t
@@ -1440,14 +1441,9 @@ country_event = {
 	title = ww1_holland.50.t
 	desc = ww1_holland.50.d
 	fire_only_once = yes
+	is_triggered_only = yes
 	trigger = {
 		tag = HOL
-		has_war_with = GER
-		has_global_flag = great_war
-		NOT = {
-			has_global_flag = great_war_ends
-			has_country_flag = HOL_flag_entente
-		}
 	}
 	option = {
 		name = ww1_holland.51.a
@@ -2625,5 +2621,30 @@ country_event = {
 	option = {
 		name = ww1_holland.98.a
 		add_political_power = -50
+	}
+}
+#germany invades the netherlands
+country_event = {
+	id = ww1_holland.99
+	title = ww1_holland.99.t
+	desc = ww1_holland.99.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = HOL
+	}
+	option = {
+		name = ww1_holland.99.a
+		add_stability = -0.05
+		if = {
+			limit = { has_country_flag = HOL_flag_vestingholland }
+			7 = {
+				add_dynamic_modifier = {
+					modifier = HOL_vesting_holland
+				}
+			}
+		}
+		unlock_national_focus = HOL_war_at_the_doorstep
+		unlock_national_focus = HOL_align_with_germany
 	}
 }
