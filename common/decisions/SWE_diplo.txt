@@ -32,231 +32,6 @@ foreign_politics = {
 			activate_mission = SWE_neutrality_of_sweden_mission
 		}
 	}
-	SWE_join_the_great_war_ger = {
-		allowed = {
-			original_tag = SWE
-		}
-		visible = {
-			has_completed_focus = SWE_prepare_entry_into_the_conflicts
-			is_in_faction = no
-			NOT = { has_global_flag = great_war_ends }
-		}
-		available = {
-			has_war = no
-			is_subject = no
-			has_stability > 0.25
-			has_war_support > 0.4
-			is_great_war_ongoing = yes
-			GER = { surrender_progress < 0.1 }
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = finland_has_risen_up_against_russia_tt
-					FIN = {
-						has_war_with = RUS
-						surrender_progress < 0.15
-						NOT = { has_war_with = GER }
-						NOT = { has_war_with = ROOT }
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = germany_has_taken_out_russia_or_france_tt
-					OR = {
-						FRA = {
-							has_country_flag = great_war_loser
-						}
-						FRA = {
-							has_country_flag = FRA_surrender_alone
-						}
-						RUS = {
-							has_country_flag = great_war_loser
-						}
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = russia_has_been_pushed_back_or_revolution_tt
-					AND = {
-						GER = { has_war_with = RUS }
-						OR = {
-							RUS = {
-								surrender_progress > 0.3
-							}
-							AND = {
-								has_global_flag = october_revolution
-								SOV = { has_war_with = GER }
-							}
-						}
-					}
-				}
-				# Pushed far enough into Russian land
-				AND = {
-					has_country_leader = {
-						character = SWE_sven_hedin
-						ruling_only = yes
-					}
-					has_completed_focus = SWE_military_control
-					has_war_support > 0.7
-				}
-			}
-		}
-		cancel_trigger = {
-			hidden_trigger = {
-				has_global_flag = great_war_ends
-			}
-		}
-		
-		fire_only_once = yes
-		
-		days_remove = 14
-		
-		remove_effect = {
-			add_political_power = -50
-			if = {
-				limit = {
-					GER = {
-						is_ai = yes
-					}
-				}
-				GER = {
-					add_to_faction = SWE
-				}
-			}
-			else = {
-				GER = {
-					country_event = { id = generic.2 }
-				}
-			}
-			if = {
-				limit = { GER = { has_war_with = RUS } }
-				add_to_war = {
-					targeted_alliance = GER
-					enemy = RUS
-				}
-			}
-			else_if = {	# For now
-				limit = { GER = { has_war_with = SOV } }
-				add_to_war = {
-					targeted_alliance = GER
-					enemy = SOV
-				}
-			}
-			if = {
-				limit = {
-					GER = {
-						NOT = { has_war_with = RUS }
-						NOT = { has_war_with = SOV }
-					}
-				}
-				if = {
-					limit = { GER = { has_war_with = FRA } }
-					add_to_war = {
-						targeted_alliance = GER
-						enemy = FRA
-					}
-				}
-				else_if = {
-					limit = { GER = { has_war_with = ENG } }
-					add_to_war = {
-						targeted_alliance = GER
-						enemy = ENG
-					}
-				}
-			}
-		}
-		
-		ai_will_do = {
-			base = 0
-			modifier = {	# For now won't join war unless Germany is at war with Russia
-				add = 1
-				OR = {
-					GER = { has_war_with = RUS }
-					GER = { has_war_with = SOV }
-				}
-			}
-		}
-	}
-	SWE_support_entente_volunteer_regiments = {
-		allowed = {
-			tag = SWE
-		}
-		visible = {
-			has_completed_focus = SWE_offer_indirect_aid
-			NOT = { has_global_flag = great_war_ends }
-		}
-		available = {
-			has_manpower > 1000
-			is_in_faction = no
-			FROM = {
-				exists = yes
-				has_war_with = GER
-				is_in_faction_with = FRA
-				has_capitulated = no
-				NOT = {
-					# war participants must get affected
-					has_active_mission = versallies_conference
-					has_active_mission = frankfurt_conference
-					# you lost the war
-					has_country_flag = great_war_loser
-				}
-			}
-			is_great_war_ongoing = yes
-		}
-		
-		cost = 25
-		fire_only_once = yes
-		
-		target_trigger = {
-			FROM = {
-				OR = {
-					tag = ENG
-					tag = NOR
-					tag = DEN
-					tag = ICE
-					tag = AST
-					tag = CAN
-				}
-			}
-		}
-		target_non_existing = yes
-		
-		days_remove = 14
-		
-		complete_effect = {
-			add_manpower = -700
-		}
-		
-		remove_effect = {
-			army_experience = 2
-			FROM = {
-				# Event notifying about Swedish volunteers
-				country_event = { id = ww_sverige.32 }
-				effect_tooltip = { add_manpower = 700 }
-			}
-			# Maybe have variable keeping track of decision
-				# And once great war is over return a % of manpower
-					# If lost a lower %
-					# also give some army exp
-		}
-		
-		ai_will_do = {
-			base = 1
-			modifier = {
-				add = 1
-				FROM = {
-					is_neighbor_of = ROOT
-				}
-			}
-			modifier = {
-				add = 1
-				FROM = {
-					has_manpower < 49999
-				}
-			}
-			modifier = {
-				factor = 2
-				FROM = { tag = ENG }
-			}
-		}
-	}
 	# Decision to help organise 1 proper regiment in France/UK
 		# This will possibly give them a small infantry-only regiment?
 	SWE_exportforbjud = {
@@ -601,59 +376,6 @@ foreign_politics = {
 	}
 	# Agreement Between Great Britain and Sweden Relating to the Suppression of the Capitulations in Egypt
 		# Only if Sweden didn't go  to war with UK and UK has egypt
-	# Other
-	SWE_call_for_support_of_russian_democracy = {
-		allowed = {
-			original_tag = SWE
-		}
-		visible = {
-			has_global_flag = october_revolution
-			NOT = {
-				has_completed_focus = SWE_ties_with_revolution
-			}
-		}
-		available = {
-			OR = {
-				RUS = {
-					exists = yes
-					has_government = democratic
-				}
-				USS = {
-					exists = yes
-					has_government = democratic
-				}
-			}
-			OR = {
-				has_government = democratic
-				has_country_leader = {
-					character = SWE_hjalmar_branting
-					ruling_only = yes
-				}
-			}
-			OR = {
-				has_completed_focus = SWE_condemn_the_bolshevik
-				has_completed_focus = SWE_careful_approach_to_russia
-			}
-		}
-		
-		cost = 10
-		
-		fire_only_once = yes
-		
-		complete_effect = {
-			# Event to appeal to the major democracies to support Russian democracy
-				# Most will just say no
-				# If they say yes maybe give pp to Russian democratic states?
-		}
-		
-		ai_will_do = {
-			base = 0
-			modifier = {
-				add = 1
-				has_completed_focus = SWE_condemn_the_bolshevik
-			}
-		}
-	}
 	# Shared Nordic temp mission
 	SWE_the_scandinavian_monetary_union = {
 		allowed = {
@@ -715,11 +437,153 @@ foreign_politics = {
 		}
 	}
 }
-operations = {
-	# Decisions
+TGWR_great_power_politics = {
+	SWE_join_the_great_war_ger = {
+		icon = great_war
+		allowed = {
+			original_tag = SWE
+		}
+		visible = {
+			great_power_politics_great_war_visible = yes
+			has_completed_focus = SWE_prepare_entry_into_the_conflicts
+			is_in_faction = no
+			NOT = { has_global_flag = great_war_ends }
+		}
+		available = {
+			has_war = no
+			is_subject = no
+			has_stability > 0.25
+			has_war_support > 0.4
+			is_great_war_ongoing = yes
+			GER = { surrender_progress < 0.1 }
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = finland_has_risen_up_against_russia_tt
+					FIN = {
+						has_war_with = RUS
+						surrender_progress < 0.15
+						NOT = { has_war_with = GER }
+						NOT = { has_war_with = ROOT }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = germany_has_taken_out_russia_or_france_tt
+					OR = {
+						FRA = {
+							has_country_flag = great_war_loser
+						}
+						FRA = {
+							has_country_flag = FRA_surrender_alone
+						}
+						RUS = {
+							has_country_flag = great_war_loser
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = russia_has_been_pushed_back_or_revolution_tt
+					AND = {
+						GER = { has_war_with = RUS }
+						OR = {
+							RUS = {
+								surrender_progress > 0.3
+							}
+							AND = {
+								has_global_flag = october_revolution
+								SOV = { has_war_with = GER }
+							}
+						}
+					}
+				}
+				# Pushed far enough into Russian land
+				AND = {
+					has_country_leader = {
+						character = SWE_sven_hedin
+						ruling_only = yes
+					}
+					has_completed_focus = SWE_military_control
+					has_war_support > 0.7
+				}
+			}
+		}
+		cancel_trigger = {
+			hidden_trigger = {
+				has_global_flag = great_war_ends
+			}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 14
+		
+		remove_effect = {
+			add_political_power = -50
+			if = {
+				limit = {
+					GER = {
+						is_ai = yes
+					}
+				}
+				GER = {
+					add_to_faction = SWE
+				}
+			}
+			else = {
+				GER = {
+					country_event = { id = generic.2 }
+				}
+			}
+			if = {
+				limit = { GER = { has_war_with = RUS } }
+				add_to_war = {
+					targeted_alliance = GER
+					enemy = RUS
+				}
+			}
+			else_if = {	# For now
+				limit = { GER = { has_war_with = SOV } }
+				add_to_war = {
+					targeted_alliance = GER
+					enemy = SOV
+				}
+			}
+			if = {
+				limit = {
+					GER = {
+						NOT = { has_war_with = RUS }
+						NOT = { has_war_with = SOV }
+					}
+				}
+				if = {
+					limit = { GER = { has_war_with = FRA } }
+					add_to_war = {
+						targeted_alliance = GER
+						enemy = FRA
+					}
+				}
+				else_if = {
+					limit = { GER = { has_war_with = ENG } }
+					add_to_war = {
+						targeted_alliance = GER
+						enemy = ENG
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {	# For now won't join war unless Germany is at war with Russia
+				add = 1
+				OR = {
+					GER = { has_war_with = RUS }
+					GER = { has_war_with = SOV }
+				}
+			}
+		}
+	}
 	SWE_join_german_war_effort_over_aland = {
-		priority = 100
-		icon = generic_civil_support
+		icon = great_war
 		
 		allowed = {
 			always = no
@@ -741,7 +605,7 @@ operations = {
 			NOT = { has_global_flag = great_war_ends }
 		}
 		visible = {
-			original_tag = SWE
+			great_power_politics_great_war_visible = yes
 			GER = {
 				exists = yes
 				is_faction_leader = yes
@@ -789,6 +653,301 @@ operations = {
 			}
 		}
 	}
+	SWE_support_entente_volunteer_regiments = {
+		icon = misc
+		allowed = {
+			tag = SWE
+		}
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = SWE_offer_indirect_aid
+			NOT = { has_global_flag = great_war_ends }
+		}
+		available = {
+			has_manpower > 1000
+			is_in_faction = no
+			FROM = {
+				exists = yes
+				has_war_with = GER
+				is_in_faction_with = FRA
+				has_capitulated = no
+				NOT = {
+					# war participants must get affected
+					has_active_mission = versallies_conference
+					has_active_mission = frankfurt_conference
+					# you lost the war
+					has_country_flag = great_war_loser
+				}
+			}
+			is_great_war_ongoing = yes
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = ENG
+					tag = NOR
+					tag = DEN
+					tag = ICE
+					tag = AST
+					tag = CAN
+				}
+			}
+		}
+		target_non_existing = yes
+		
+		days_remove = 14
+		
+		complete_effect = {
+			add_manpower = -700
+		}
+		
+		remove_effect = {
+			army_experience = 2
+			FROM = {
+				# Event notifying about Swedish volunteers
+				country_event = { id = ww_sverige.32 }
+				effect_tooltip = { add_manpower = 700 }
+			}
+			# Maybe have variable keeping track of decision
+				# And once great war is over return a % of manpower
+					# If lost a lower %
+					# also give some army exp
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 1
+				FROM = {
+					is_neighbor_of = ROOT
+				}
+			}
+			modifier = {
+				add = 1
+				FROM = {
+					has_manpower < 49999
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = { tag = ENG }
+			}
+		}
+	}
+	SWE_secretly_bring_in_finnish_volunteers = {
+		icon = misc
+		allowed = {
+			original_tag = SWE
+		}
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = SWE_support_finnish_resistance
+		}
+		available = {
+			OR = {
+				FIN = {
+					exists = yes
+					is_subject_of = RUS
+				}
+				RUS = {
+					any_owned_state = { is_core_of = FIN }
+				}
+			}
+		}
+		cancel_trigger = {
+			has_war_with = FIN
+		}
+		
+		custom_cost_trigger = {
+			command_power > 49
+			has_political_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_50
+		
+		modifier = {
+			max_command_power = -50
+			weekly_manpower = 150
+		}
+		
+		cost = 100
+		days_remove = 210
+		fire_only_once = yes
+		
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+				add_political_power = -50
+			}
+			set_country_flag = SWE_inviting_finnish_volunteers
+			unlock_decision_tooltip = SWE_german_training_for_finnish_volunteers
+		}
+		remove_effect = {
+			add_manpower = 500
+		}	
+		
+		ai_will_do = {
+			base = 1
+		}
+	}
+	SWE_german_training_for_finnish_volunteers = {
+		icon = misc
+		allowed = {
+			original_tag = SWE
+		}
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = SWE_support_finnish_resistance
+		}
+		available = {
+			has_country_flag = SWE_inviting_finnish_volunteers
+		}
+		
+		custom_cost_trigger = {
+			command_power > 49
+			has_political_power > 49
+		}
+		custom_cost_text = decision_cost_CP_50_pp_50
+		
+		days_remove = 50
+		fire_only_once = yes
+		
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+				add_political_power = -50
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = will_gain_two_finnish_divisions_when_at_war_with_russia
+			set_country_flag = SWE_finland_units_with_russia
+		}
+		
+		ai_will_do = {
+			base = 1
+		}
+	}
+	SWE_bring_back_persian_volunteers = {
+		icon = strangling_of_persia
+		allowed = {
+			tag = SWE
+		}
+		visible = {
+			great_power_politics_strangling_of_persia_visible = yes
+			PER = {
+				has_idea = PER_idea_government_gendarmerie
+			}
+		}
+		available = {
+			date > 1914.1.1
+			OR = {
+				has_completed_focus = SWE_rally_to_neutrality
+				has_completed_focus = SWE_pro_entente_stance
+			}
+			has_stability > 0.25
+		}
+		
+		cost = 25
+		fire_only_once = yes
+		
+		days_remove = 365
+		
+		remove_effect = {
+			PER = {
+				# Event notifying about Swedish being called back
+				remove_ideas = PER_idea_government_gendarmerie
+				# This was going to happen but then some stayed behind
+			}
+			# Opinion boost of RUS/ENG
+			# Gotta check how many returned
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				date > 1916.1.1
+				has_war = no
+				OR = {
+					has_completed_focus = SWE_rally_to_neutrality
+					has_completed_focus = SWE_pro_entente_stance
+				}
+			}
+			modifier = {
+				add = 1
+				has_completed_focus = SWE_pro_entente_stance
+			}
+			modifier = {
+				factor = 0
+				NOT = { has_global_flag = great_war }
+			}
+			modifier = {
+				factor = 0
+				always = no	# Until I looked into those Perisan events, don't touch this ai pls
+			}
+		}
+	}
+	SWE_call_for_support_of_russian_democracy = {
+		icon = red_scare
+		allowed = {
+			original_tag = SWE
+		}
+		visible = {
+			has_global_flag = october_revolution
+			great_power_politics_red_scare_visible = yes
+			NOT = {
+				has_completed_focus = SWE_ties_with_revolution
+			}
+		}
+		available = {
+			OR = {
+				RUS = {
+					exists = yes
+					has_government = democratic
+				}
+				USS = {
+					exists = yes
+					has_government = democratic
+				}
+			}
+			OR = {
+				has_government = democratic
+				has_country_leader = {
+					character = SWE_hjalmar_branting
+					ruling_only = yes
+				}
+			}
+			OR = {
+				has_completed_focus = SWE_condemn_the_bolshevik
+				has_completed_focus = SWE_careful_approach_to_russia
+			}
+		}
+		
+		cost = 10
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			# Event to appeal to the major democracies to support Russian democracy
+				# Most will just say no
+				# If they say yes maybe give pp to Russian democratic states?
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				has_completed_focus = SWE_condemn_the_bolshevik
+			}
+		}
+	}
+}
+
+operations = {
+	# Decisions
 	SWE_intervention_in_finland = {
 		priority = 100
 		icon = generic_civil_support

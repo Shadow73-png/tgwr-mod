@@ -5555,6 +5555,11 @@ focus_tree = {
 				target = RUS
 			}
 			add_ideas = SWE_pro_entente_minority
+			
+			unlock_decision_tooltip = {
+				decision = SWE_bring_back_persian_volunteers
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = skip_line
 			custom_effect_tooltip = SWE_entente_path_information
 		}
@@ -5930,6 +5935,10 @@ focus_tree = {
 				custom_effect_tooltip = available_political_advisor
 				show_ideas_tooltip = SWE_rudolf_kjellen
 			}
+			unlock_decision_tooltip = {
+				decision = SWE_bring_back_persian_volunteers
+				show_effect_tooltip = yes
+			}
 		}
 	}
 	focus = {
@@ -5988,13 +5997,7 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = SWE_neutralitetsvakt
-			#custom_effect_tooltip = adjust_swe_military_tt
-			#add_to_variable = {
-			#	tooltip = training_time_factor_tt
-			#	var = SWE_mil_training_time_factor
-			#	value = -0.05
-			#}
-			# Get decision to establish Landstorm (just gies war support)?
+			# Get decision to establish Landstorm (just gives war support)?
 		}
 	}
 	focus = {
@@ -6195,21 +6198,25 @@ focus_tree = {
 			# Entente however reassured that any base would be dismantled after war
 			# This put an end to attempts
 			custom_effect_tooltip = if_gambit_pays_off_tt
-			effect_tooltip = {
-				add_war_support = 0.10
-				# Possibly unlock decision instead to join at high enough war support
-				GER = {
-					add_to_faction = ROOT
-				}
-				if = {
-					limit = { GER = { has_war_with = RUS } }
-					add_to_war = {
-						targeted_alliance = GER
-						enemy = RUS
-						hostility_reason = asked_to_join
-					}
-				}
+			unlock_decision_tooltip = {
+				decision = SWE_join_german_war_effort_over_aland
+				show_effect_tooltip = yes
 			}
+			#effect_tooltip = {
+				#add_war_support = 0.10
+				# Possibly unlock decision instead to join at high enough war support
+				#GER = {
+				#	add_to_faction = ROOT
+				#}
+				#if = {
+				#	limit = { GER = { has_war_with = RUS } }
+				#	add_to_war = {
+				#		targeted_alliance = GER
+				#		enemy = RUS
+				#		hostility_reason = asked_to_join
+				#	}
+				#}
+			#}
 			custom_effect_tooltip = if_entente_folds_tt
 			effect_tooltip = {
 				add_political_power = 15
@@ -6249,7 +6256,7 @@ focus_tree = {
 				# Possibly Germany needs to do a focus?
 				AND = {
 					has_government = fascism
-					has_war_support > 0.6
+					has_war_support > 0.5
 				}
 			}
 			GER = {
@@ -6728,6 +6735,7 @@ focus_tree = {
 				modifier = large_increase
 				target = SOV
 			}
+			# Maybe decision to join Soviet
 		}
 	}
 	focus = {

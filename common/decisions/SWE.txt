@@ -1839,8 +1839,14 @@ SWE_riksdagens_decisions = {
 			has_completed_focus = SWE_fuel_to_the_fire
 		}
 		available = {
-			democratic > 0.1
-			communism > 0.4
+			has_government = democratic
+			OR = {
+				SWE_has_majority_for_reform_socialist = yes
+				AND = {
+					democratic < 0.2
+					communism > 0.4
+				}
+			}
 		}
 		
 		cost = 75
@@ -1848,6 +1854,8 @@ SWE_riksdagens_decisions = {
 		fire_only_once = yes
 		
 		remove_effect = {
+			add_stability = -0.05
+			add_war_support = -0.05
 			set_temp_variable = {
 				var = neutrality_support_var
 				value = party_popularity_100@neutrality
@@ -2787,6 +2795,10 @@ SWE_riksdagens_decisions = {
 					}
 				}
 				SWE_has_majority_for_reform_socialist = yes
+			}
+			else = {
+				SWE_has_majority_for_reform_socialist = yes
+				hidden_trigger = { always = no }
 			}
 		}
 		fire_only_once = yes
@@ -4189,6 +4201,72 @@ SWE_riksdagens_decisions = {
 			modifier = {	# Let's not do this right now
 				factor = 0.1
 				has_reached_maximum_divisions = yes
+			}
+			modifier = {
+				factor = 0
+				has_political_power < 150
+			}
+		}
+	}
+	SWE_extensively_expand_army_budget = {
+		allowed = {
+			original_tag = SWE
+		}
+		visible = {
+			has_completed_focus = SWE_favor_gustaf_hammarskjold
+		}
+		available = {
+			OR = {
+				threat > 0.4
+				has_war = yes
+			}
+			has_war_support > 0.7
+			SWE_has_majority_for_reform_war = yes
+			NOT = {
+				has_idea = idea_armistice
+				has_idea = idea_army_restrictions
+			}
+		}
+		
+		cost = 100
+		
+		days_remove = 140
+		fire_only_once = yes
+		
+		modifier = {
+			stability_factor = -0.05
+		}
+		
+		remove_effect = {
+			custom_effect_tooltip = adjust_swe_political_tt
+			add_to_variable = {
+				tooltip = war_support_factor_tt
+				var = SWE_pol_war_support_factor
+				value = -0.05
+			}
+			custom_effect_tooltip = adjust_swe_economic_tt
+			add_to_variable = {
+				tooltip = consumer_goods_factor_tt
+				var = SWE_consumer_goods
+				value = 0.10
+			}
+			add_to_variable = {
+				tooltip = industrial_capacity_factory_tt
+				var = SWE_mil_industrial_capacity_factory
+				value = 0.05
+			}
+			add_to_variable = {
+				tooltip = industrial_capacity_dockyard_tt
+				var = SWE_mil_industrial_capacity_dockyard
+				value = 0.05
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 10
+				has_war = yes
 			}
 			modifier = {
 				factor = 0
@@ -6175,94 +6253,6 @@ operations = {
 			base = 2
 		}
 	}
-	SWE_secretly_bring_in_finnish_volunteers = {
-		allowed = {
-			original_tag = SWE
-		}
-		visible = {
-			has_completed_focus = SWE_support_finnish_resistance
-		}
-		available = {
-			OR = {
-				FIN = {
-					exists = yes
-					is_subject_of = RUS
-				}
-				RUS = {
-					any_owned_state = { is_core_of = FIN }
-				}
-			}
-		}
-		cancel_trigger = {
-			has_war_with = FIN
-		}
-		
-		custom_cost_trigger = {
-			command_power > 49
-			has_political_power > 49
-		}
-		custom_cost_text = decision_cost_CP_50_pp_50
-		
-		modifier = {
-			max_command_power = -50
-			weekly_manpower = 150
-		}
-		
-		cost = 100
-		days_remove = 210
-		fire_only_once = yes
-		
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -50
-				add_political_power = -50
-			}
-			set_country_flag = SWE_inviting_finnish_volunteers
-			unlock_decision_tooltip = SWE_german_training_for_finnish_volunteers
-		}
-		remove_effect = {
-			add_manpower = 500
-		}	
-		
-		ai_will_do = {
-			base = 1
-		}
-	}
-	SWE_german_training_for_finnish_volunteers = {
-		allowed = {
-			original_tag = SWE
-		}
-		visible = {
-			has_completed_focus = SWE_support_finnish_resistance
-		}
-		available = {
-			has_country_flag = SWE_inviting_finnish_volunteers
-		}
-		
-		custom_cost_trigger = {
-			command_power > 49
-			has_political_power > 49
-		}
-		custom_cost_text = decision_cost_CP_50_pp_50
-		
-		days_remove = 50
-		fire_only_once = yes
-		
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -50
-				add_political_power = -50
-			}
-		}
-		remove_effect = {
-			custom_effect_tooltip = will_gain_two_finnish_divisions_when_at_war_with_russia
-			set_country_flag = SWE_finland_units_with_russia
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-	}
 }
 economy_decisions = {
 	SWE_untraverket_construction = {
@@ -7596,77 +7586,6 @@ SWE_varnplikten_decisions = {
 			modifier = {
 				factor = 0
 				has_stability < 0.6
-			}
-		}
-	}
-	SWE_extensively_expand_army_budget = {
-		allowed = {
-			original_tag = SWE
-		}
-		visible = {
-			has_completed_focus = SWE_favor_gustaf_hammarskjold
-		}
-		available = {
-			threat > 0.4
-			has_war_support > 0.7
-			SWE_has_majority_for_reform_war = yes
-			NOT = {
-				has_idea = idea_armistice
-				has_idea = idea_army_restrictions
-			}
-		}
-		
-		cost = 100
-		
-		days_remove = 160
-		fire_only_once = yes
-		
-		modifier = {
-			stability_factor = -0.05
-		}
-		
-		complete_effect = {
-			set_country_flag = {
-				flag = swe_recent_army_improvement
-				days = 180
-				value = 1
-			}
-		}
-		
-		remove_effect = {
-			custom_effect_tooltip = adjust_swe_political_tt
-			add_to_variable = {
-				tooltip = war_support_factor_tt
-				var = SWE_pol_war_support_factor
-				value = -0.05
-			}
-			custom_effect_tooltip = adjust_swe_economic_tt
-			add_to_variable = {
-				tooltip = consumer_goods_factor_tt
-				var = SWE_consumer_goods
-				value = 0.10
-			}
-			add_to_variable = {
-				tooltip = industrial_capacity_factory_tt
-				var = SWE_mil_industrial_capacity_factory
-				value = 0.05
-			}
-			add_to_variable = {
-				tooltip = industrial_capacity_dockyard_tt
-				var = SWE_mil_industrial_capacity_dockyard
-				value = 0.05
-			}
-		}
-		
-		ai_will_do = {
-			base = 1
-			modifier = {
-				factor = 10
-				has_war = yes
-			}
-			modifier = {
-				factor = 0
-				has_political_power < 150
 			}
 		}
 	}
