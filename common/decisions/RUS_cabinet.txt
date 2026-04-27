@@ -30,25 +30,25 @@ RUS_parliament_gui_decision_category = {
 						RUS_zemstvo_reform_progress_temp_var = 50
 					}
 					check_variable = {
-						var = RUS_agrariran_reform_progress_var
+						var = RUS_agrarian_reform_progress
 						value = RUS_agrarian_reform_progress_temp_var
 						compare = greater_than_or_equals
 						tooltip = has_agrarian_reform_progress_tt
 					}
 					check_variable = {
-						var = RUS_education_reform_progress_var
+						var = RUS_education_reform_progress
 						value = RUS_education_reform_progress_temp_var
 						compare = greater_than_or_equals
 						tooltip = has_education_reform_progress_tt
 					}
 					check_variable = {
-						var = RUS_labour_reform_progress_temp_var
+						var = RUS_labour_reform_progress
 						value = RUS_labour_reform_progress_temp_var
 						compare = greater_than_or_equals
 						tooltip = has_labour_reform_progress_tt
 					}
 					check_variable = {
-						var = RUS_zemstvo_reform_progress_var
+						var = RUS_zemstvo_reform_progress
 						value = RUS_zemstvo_reform_progress_temp_var
 						compare = greater_than_or_equals
 						tooltip = has_zemstvo_reform_progress_tt
@@ -77,13 +77,13 @@ RUS_parliament_gui_decision_category = {
 						RUS_zemstvo_reform_progress_temp_var = 40
 					}
 					check_variable = {
-						var = RUS_agrariran_reform_progress_var
+						var = RUS_agrarian_reform_progress
 						value = RUS_agrarian_reform_progress_temp_var
 						compare = greater_than_or_equals
 						tooltip = has_agrarian_reform_progress_tt
 					}
 					check_variable = {
-						var = RUS_zemstvo_reform_progress_var
+						var = RUS_zemstvo_reform_progress
 						value = RUS_zemstvo_reform_progress_temp_var
 						compare = greater_than_or_equals
 						tooltip = has_zemstvo_reform_progress_tt
@@ -111,7 +111,7 @@ RUS_parliament_gui_decision_category = {
 						RUS_police_reform_progress_temp_var = 25
 					}
 					check_variable = {
-						var = RUS_police_reform_progress_var
+						var = RUS_police_reform_progress
 						value = RUS_police_reform_progress_temp_var
 						compare = greater_than_or_equals
 						tooltip = has_police_reform_progress_tt
@@ -166,7 +166,7 @@ RUS_parliament_gui_decision_category = {
 				}
 			}
 		}
-		cancel_trigger = {
+		available = {
 			set_temp_variable = {
 				RUS_center_left_loyalty_trigger_var = 40
 			}
@@ -240,7 +240,7 @@ RUS_parliament_gui_decision_category = {
 				far_right_loyalty < 40
 			}
 		}
-		cancel_trigger = {
+		available = {
 			set_temp_variable = {
 				RUS_far_right_loyalty_trigger_var = 40
 			}
@@ -278,11 +278,6 @@ RUS_parliament_gui_decision_category = {
 			}
 		}
 		available = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		cancel_trigger = {
 			OR = {
 				NOT = {
 					has_idea = RUS_drunken_budget
@@ -312,7 +307,6 @@ RUS_parliament_gui_decision_category = {
 
 		}
 		visible = {
-			duma_is_active = yes
 			has_completed_focus = RUS_electoral_strategy
 			has_country_flag = RUS_election_interference
 			RUS_vladimir_kokovtsov = {
@@ -344,11 +338,8 @@ RUS_parliament_gui_decision_category = {
 		days_remove = 30
 		days_re_enable = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				RUS_aleksandr_makarov = {
-					is_minister_of_internal_affairs = no
-				}
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = no
 			}
 		}
 	}
@@ -361,7 +352,6 @@ RUS_parliament_gui_decision_category = {
 
 		}
 		visible = {
-			duma_is_active = yes
 			has_completed_focus = RUS_electoral_strategy
 			has_country_flag = RUS_election_interference
 			RUS_vladimir_kokovtsov = {
@@ -393,11 +383,8 @@ RUS_parliament_gui_decision_category = {
 		days_remove = 30
 		days_re_enable = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				RUS_aleksandr_makarov = {
-					is_minister_of_internal_affairs = no
-				}
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = no
 			}
 		}
 	}
@@ -410,7 +397,6 @@ RUS_parliament_gui_decision_category = {
 
 		}
 		visible = {
-			duma_is_active = yes
 			has_completed_focus = RUS_electoral_strategy
 			has_country_flag = RUS_election_interference
 			RUS_vladimir_kokovtsov = {
@@ -442,11 +428,8 @@ RUS_parliament_gui_decision_category = {
 		days_remove = 30
 		days_re_enable = 30
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				RUS_aleksandr_makarov = {
-					is_minister_of_internal_affairs = no
-				}
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = no
 			}
 		}
 	}
@@ -485,11 +468,8 @@ RUS_parliament_gui_decision_category = {
 		days_remove = 90
 		days_re_enable = 30
 		cancel_trigger = {
-			RUS_aleksandr_makarov = {
-				is_minister_of_internal_affairs = no
-			}
-			RUS_nikolay_maklakov = {
-				is_minister_of_internal_affairs = no
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = no
 			}
 		}
 	}
@@ -546,11 +526,6 @@ RUS_parliament_gui_decision_category = {
 			has_idea = RUS_progressive_bloc
 		}
 		available = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		cancel_trigger = {
 			OR = {
 				any_character = {
 					is_prime_minister = yes

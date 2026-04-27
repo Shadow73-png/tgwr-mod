@@ -2708,7 +2708,7 @@ focus_tree = {
 		completion_reward = {
 			set_country_flag = RUS_coalition_with_liberals
 			set_temp_variable = {
-				RUS_modify_loyalty_center_left_var = 50
+				RUS_modify_loyalty_center_left_var = 60
 			}
 			RUS_modify_loyalty_center_left = yes
 			custom_effect_tooltip = RUS_coalition_with_liberals_tt
@@ -2772,7 +2772,7 @@ focus_tree = {
 		completion_reward = {
 			set_country_flag = RUS_coalition_with_rightists
 			set_temp_variable = {
-				RUS_modify_loyalty_far_right_var = 50
+				RUS_modify_loyalty_far_right_var = 60
 			}
 			RUS_modify_loyalty_far_right = yes
 			custom_effect_tooltip = RUS_coalition_with_rightists_tt
@@ -2834,7 +2834,6 @@ focus_tree = {
 			factor = 3
 		}
 		search_filters = {
-			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
 		}
 	}
@@ -3178,7 +3177,6 @@ focus_tree = {
 			factor = 3
 		}
 		search_filters = {
-			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
 		}
 	}
@@ -3230,7 +3228,6 @@ focus_tree = {
 			factor = 3
 		}
 		search_filters = {
-			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
 		}
 	}
@@ -3244,7 +3241,7 @@ focus_tree = {
 				always = no
 			}
 		}
-		x = 0
+		x = 5
 		y = 3
 		relative_position_id = RUS_june_third_coup
 		available_if_capitulated = yes
@@ -3267,11 +3264,12 @@ focus_tree = {
 			focus = RUS_smooth_sailing
 		}
 		available = {
-			RUS_ivan_goremykin = {
+			any_character = {
+				is_conservative = yes
 				is_prime_minister = yes
 			}
 		}
-		x = 1
+		x = -2
 		y = 1
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
@@ -3299,11 +3297,12 @@ focus_tree = {
 			focus = RUS_arrest_the_bolsheviks
 		}
 		available = {
-			RUS_ivan_goremykin = {
+			any_character = {
+				is_conservative = yes
 				is_prime_minister = yes
 			}
 		}
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = RUS_arrest_the_bolsheviks
 		available_if_capitulated = yes
@@ -3328,11 +3327,12 @@ focus_tree = {
 			focus = RUS_smooth_sailing
 		}
 		available = {
-			RUS_ivan_goremykin = {
+			any_character = {
+				is_conservative = yes
 				is_prime_minister = yes
 			}
 		}
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
@@ -3356,14 +3356,15 @@ focus_tree = {
 			focus = RUS_smooth_sailing
 		}
 		available = {
-			RUS_ivan_goremykin = {
+			any_character = {
+				is_conservative = yes
 				is_prime_minister = yes
 			}
 			RUS_alexander_krivoshein = {
 				is_part_of_the_cabinet = yes
 			}
 		}
-		x = 5
+		x = 2
 		y = 1
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
@@ -3424,17 +3425,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = RUS_give_reforms_a_chance
-		icon = GFX_focus_generic_self_management
+		id = RUS_keep_the_radicals_out
+		icon = GFX_focus_generic_anti_fascist_diplomacy
 		cost = 6
 		prerequisite = {
-			focus = RUS_keep_the_radicals_out
-		}
-		mutually_exclusive = {
-			focus = RUS_strong_leadership
+			focus = RUS_meet_with_duma_members
 		}
 		available = {
-			RUS_ivan_goremykin = {
+			any_character = {
+				is_conservative = yes
 				is_prime_minister = yes
 			}
 			RUS_alexander_krivoshein = {
@@ -3442,6 +3441,94 @@ focus_tree = {
 			}
 		}
 		x = -1
+		y = 1
+		relative_position_id = RUS_meet_with_duma_members
+		available_if_capitulated = yes
+		completion_reward = {
+			hidden_effect = {
+				every_character = {
+					limit = {
+						is_minister_of_internal_affairs = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				RUS_nikolai_shcherbatov = {
+					RUS_appoint_interior_minister = yes
+				}
+			}
+			custom_effect_tooltip = appointed_as_interior_minister_tt
+			show_ideas_tooltip = RUS_nikolai_shcherbatov
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_negotiations_with_liberals
+		icon = GFX_focus_generic_self_management
+		cost = 6
+		prerequisite = {
+			focus = RUS_meet_with_duma_members
+		}
+		available = {
+			any_character = {
+				is_conservative = yes
+				is_prime_minister = yes
+			}
+			RUS_alexander_krivoshein = {
+				is_part_of_the_cabinet = yes
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = RUS_meet_with_duma_members
+		available_if_capitulated = yes
+		completion_reward = {
+			every_character = {
+				limit = {
+					is_prime_minister = yes
+					is_conservative = yes
+				}
+				RUS_remove_from_the_cabinet = yes
+			}
+			custom_effect_tooltip = appointed_as_prime_minister_tt
+			show_ideas_tooltip = RUS_alexander_krivoshein
+			RUS_alexander_krivoshein = {
+				RUS_appoint_chairman = yes
+			}
+			custom_effect_tooltip = if_reforms_fail_tt
+			custom_effect_tooltip = unlocks_conservative_ministers_tt
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_government_of_public_trust
+		icon = GFX_focus_generic_self_management
+		cost = 6
+		prerequisite = {
+			focus = RUS_keep_the_radicals_out
+		}
+		prerequisite = {
+			focus = RUS_negotiations_with_liberals
+		}
+		mutually_exclusive = {
+			focus = RUS_strong_leadership
+		}
+		available = {
+			RUS_alexander_krivoshein = {
+				is_part_of_the_cabinet = yes
+			}
+		}
+		x = 0
 		y = 2
 		relative_position_id = RUS_meet_with_duma_members
 		available_if_capitulated = yes
@@ -3468,6 +3555,50 @@ focus_tree = {
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
 		}
 	}
+	#IVAN SHIPOV
+	focus = {
+		id = RUS_strength_in_moderation
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 6
+		prerequisite = {
+			focus = RUS_smooth_sailing
+		}
+		available = {
+			any_character = {
+				is_conservative = yes
+				is_prime_minister = yes
+			}
+			RUS_vladimir_kokovtsov = {
+				is_part_of_the_cabinet = no
+			}
+		}
+		x = -4
+		y = 1
+		relative_position_id = RUS_smooth_sailing
+		available_if_capitulated = yes
+		completion_reward = {
+			hidden_effect = {
+				every_character = {
+					limit = {
+						is_minister_of_finance = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				RUS_pyotr_bark = {
+					RUS_appoint_finance_minister = yes
+				}
+				set_variable = { RUS_cabinet_gui_finance_name_var = token:RUS_pyotr_bark }
+			}
+			custom_effect_tooltip = appointed_as_minister_of_finance_tt
+			show_ideas_tooltip = RUS_pyotr_bark
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
 	#PYOTR BARK
 	focus = {
 		id = RUS_reform_the_finance
@@ -3478,17 +3609,14 @@ focus_tree = {
 		}
 		available = {
 			any_character = {
+				is_conservative = yes
 				is_prime_minister = yes
-				OR = {
-					is_conservative = yes
-					is_reformist = yes
-				}
 			}
 			RUS_vladimir_kokovtsov = {
 				is_part_of_the_cabinet = no
 			}
 		}
-		x = 7
+		x = 4
 		y = 1
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
@@ -3516,56 +3644,47 @@ focus_tree = {
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
 		}
 	}
+	########################
+	#STURMER'S CABINET
+	########################
 	focus = {
-		id = RUS_new_course
-		icon = GFX_focus_generic_central_planning
-		cost = 5
+		id = RUS_no_more_obstruction
+		icon = GFX_focus_generic_sympathetic_judges
+		cost = 6
 		prerequisite = {
-			focus = RUS_reform_the_finance
+			focus = RUS_arrest_the_bolsheviks
 		}
 		available = {
-			RUS_pyotr_bark = {
-				is_minister_of_finance = yes
+			any_character = {
+				is_conservative = yes
+				is_prime_minister = yes
+			}
+			RUS_alexander_krivoshein = {
+				is_part_of_the_cabinet = yes
 			}
 		}
-		x = -1
-		y = 1
-		relative_position_id = RUS_reform_the_finance
-		available_if_capitulated = yes
-		completion_reward = {
-			add_timed_idea = {
-				idea = RUS_new_course_idea
-				days = 365
-			}
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_FINANCE
-		}
-	}
-	focus = {
-		id = RUS_land_amelioration
-		icon = GFX_focus_generic_central_planning
-		cost = 5
-		prerequisite = {
-			focus = RUS_reform_the_finance
-		}
-		available = {
-			RUS_pyotr_bark = {
-				is_minister_of_finance = yes
+		bypass = {
+			RUS_alexander_krivoshein = {
+				is_part_of_the_cabinet = no
 			}
 		}
 		x = 1
 		y = 1
-		relative_position_id = RUS_reform_the_finance
+		relative_position_id = RUS_arrest_the_bolsheviks
 		available_if_capitulated = yes
 		completion_reward = {
-			add_timed_idea = {
-				idea = RUS_land_development_idea
-				days = 365
+			if = {
+				limit = {
+					RUS_vladimir_kokovtsov = {
+						is_prime_minister = yes
+					}
+				}
+				every_character = {
+					limit = {
+						is_character = RUS_alexander_krivoshein
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
 			}
 		}
 		ai_will_do = {
@@ -3573,31 +3692,32 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_AGRARIAN_REFORM
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
 		}
 	}
-	########################
-	#STURMER'S CABINET/CONSERVATIVE TAKEOVER
-	########################
 	focus = {
 		id = RUS_strong_leadership
 		icon = GFX_focus_generic_sympathetic_judges
 		cost = 6
 		prerequisite = {
+			focus = RUS_no_more_obstruction
+		}
+		prerequisite = {
 			focus = RUS_dismiss_the_duma
 		}
 		mutually_exclusive = {
-			focus = RUS_give_reforms_a_chance
+			focus = RUS_government_of_public_trust
 		}
 		available = {
-			RUS_ivan_goremykin = {
+			any_character = {
+				is_conservative = yes
 				is_prime_minister = yes
 			}
 			RUS_alexander_krivoshein = {
 				is_part_of_the_cabinet = no
 			}
 		}
-		x = 1
+		x = 0
 		y = 2
 		relative_position_id = RUS_arrest_the_bolsheviks
 		available_if_capitulated = yes
@@ -3620,6 +3740,7 @@ focus_tree = {
 			factor = 3
 		}
 		search_filters = {
+			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
 		}
 	}
