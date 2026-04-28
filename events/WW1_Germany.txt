@@ -14991,18 +14991,36 @@ country_event = {
 	# Reject Ultimatum
 	option = {
 		name = ww1_germanrework.201.a
-		custom_effect_tooltip = HOL_tt_war_germany_warning
-		GER = {
-			country_event = {
-				id = ww1_germanrework.197
-				days = 1
+		if = {
+			limit = {
+				HOL_cornelis_snijders = {
+					is_hired_as_advisor = yes
+				}
+			}
+			country_event = ww1_holland.100
+			GER = {
+				country_event = ww1_germanrework.198
+			}
+			ENT = {
+				country_event = {
+					id = ww1_germanrework.202
+					days = 1
+				}
 			}
 		}
-		effect_tooltip = {
+		else = {
 			GER = {
-				declare_war_on = {
-					target = HOL
-					type = puppet_wargoal_focus
+				country_event = {
+					id = ww1_germanrework.197
+					days = 1
+				}
+			}
+			effect_tooltip = {
+				GER = {
+					declare_war_on = {
+						target = HOL
+						type = puppet_wargoal_focus
+					}
 				}
 			}
 		}

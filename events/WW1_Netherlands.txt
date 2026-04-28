@@ -2311,6 +2311,9 @@ country_event = {
 			long_name = HOL_army_long
 			name = HOL_army
 		}
+		HOL_cornelis_snijders = {
+			promote_character = yes
+		}
 	}
 	}
 #coastal_defence_plan stronger
@@ -2646,5 +2649,39 @@ country_event = {
 		}
 		unlock_national_focus = HOL_war_at_the_doorstep
 		unlock_national_focus = HOL_align_with_germany
+	}
+}
+#snijders coups netherlands on german invasion
+country_event = {
+	id = ww1_holland.100
+	title = ww1_holland.100.t
+	desc = ww1_holland.100.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = HOL
+	}
+	option = {
+		name = ww1_holland.100.a
+		add_stability = -0.1
+		if = {
+			limit = { has_country_flag = HOL_flag_vestingholland }
+			7 = {
+				add_dynamic_modifier = {
+					modifier = HOL_vesting_holland
+				}
+			}
+		}
+		unlock_national_focus = HOL_war_at_the_doorstep
+		unlock_national_focus = HOL_align_with_germany
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+			long_name = HOL_army_long
+			name = HOL_army
+		}
+		HOL_cornelis_snijders = {
+			promote_character = yes
+		}
 	}
 }
