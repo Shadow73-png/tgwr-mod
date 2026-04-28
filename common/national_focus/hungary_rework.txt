@@ -5235,7 +5235,7 @@ focus_tree = {
 		cost = 1
 		relative_position_id = HUN_great_war_focus
 		x = 0
-		y = 2
+		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -5506,11 +5506,24 @@ focus_tree = {
 		}
 		available = {
 			has_war_with_major = yes
+			has_active_mission = HUN_fading_food_stability_mission
+			controls_state = 154
 		}
 		prerequisite = {
 			focus = HUN_secure_the_state
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_stability = 0.03
+			add_war_support = 0.03
+			add_to_variable = {
+				HUN_food_stab_var = 5
+				tooltip = HUN_food_var_plus_3.tt
+			}
+			add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 100
+			}
+		}
 	 }
 	 #Set Price Restrictions
 	 focus = {
@@ -5910,6 +5923,9 @@ joint_focus = {
 				is_owned_and_controlled_by = ROOT
 			}
 		}
+		BOS = {
+			has_completed_focus = BOS_third_times_the_charm
+		}
 	}
 	prerequisite = {
 		focus = HUN_prioritize_heartlands
@@ -6045,7 +6061,7 @@ joint_focus = {
 		trigger = {
 			original_tag = AUS
 		}
-		x = -12
+		x = -11
 		y = -9
 	}
 	search_filters = {
