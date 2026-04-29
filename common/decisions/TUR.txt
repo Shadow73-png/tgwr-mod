@@ -4,7 +4,10 @@ debug_decisions = {
 		available = {
 		}
 		complete_effect = {
-			puppet = KHI
+			set_variable = { global.TUR_hudavendigar_max_centralization = 100 }
+			set_temp_variable = { TUR_christian_centralization_value_hudavendigar = ROOT.TUR_political_power_value_hudavendigar }
+			multiply_temp_variable = { TUR_christian_centralization_value_hudavendigar = 1000 }
+			add_to_variable = { global.TUR_hudavendigar_max_centralization = TUR_christian_centralization_value_hudavendigar }
 		}
 		ai_will_do = { base = 0 }
 	}
@@ -1462,7 +1465,6 @@ TUR_millet_system = {
 					state = 803
 					state = 871
 					state = 187
-					state = 185
 				}
 				OR = {
 					TUR_is_controlled_by_us_or_committee_government = yes
@@ -3017,7 +3019,6 @@ TUR_millet_system = {
 			106
 			758
 			870
-			185
 			790
 			183
 			104
@@ -3817,7 +3818,6 @@ TUR_millet_system = {
 							state = 758
 							state = 803
 							state = 187
-							state = 185
 						}
 					}
 				}

@@ -748,7 +748,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_armenian_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_armenian_minority } }
-				FROM = { ottoman_armenian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -756,7 +755,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_greek_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_greek_minority } }
-				FROM = { ottoman_greek_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -764,7 +762,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_arab_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_arab_minority } }
-				FROM = { ottoman_arab_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -772,7 +769,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_jewish_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_jewish_minority } }
-				FROM = { ottoman_jewish_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -780,7 +776,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
-				FROM = { ottoman_bulgarian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -793,7 +788,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_albanian_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_albanian_minority } }
-				FROM = { ottoman_albanian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -801,7 +795,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_serbian_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_serbian_minority } }
-				FROM = { ottoman_serbian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -809,7 +802,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_kurdish_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_kurdish_minority } }
-				FROM = { ottoman_kurdish_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -817,7 +809,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_assyrian_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_assyrian_minority } }
-				FROM = { ottoman_assyrian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -825,7 +816,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_georgian_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_georgian_minority } }
-				FROM = { ottoman_georgian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -841,7 +831,6 @@ on_actions = {
 					FROM.FROM = { has_dynamic_modifier = { modifier = TUR_turkish_minority } }
 				}
 				FROM.FROM = { remove_dynamic_modifier = { modifier = TUR_turkish_minority } }
-				FROM = { ottoman_turkish_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -875,6 +864,20 @@ on_actions = {
 				}
 			}
 			#Check for lost Turkish state modifiers
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_kosova }
+				}
+				FROM = { TUR_minority_system_kosova = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_kosova }
+				}
+				ROOT = { TUR_minority_system_kosova = yes }
+			}
 		}
 		effect = {
 			if = {
@@ -900,7 +903,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_armenian_minority } }
-				ROOT = { ottoman_armenian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -911,7 +913,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_greek_minority } }
-				ROOT = { ottoman_greek_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -922,7 +923,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_arab_minority } }
-				ROOT = { ottoman_arab_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -933,7 +933,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_jewish_minority } }
-				ROOT = { ottoman_jewish_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -944,7 +943,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
-				ROOT = { ottoman_bulgarian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -958,7 +956,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_albanian_minority } }
-				ROOT = { ottoman_albanian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -969,7 +966,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_serbian_minority } }
-				ROOT = { ottoman_serbian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -980,7 +976,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_kurdish_minority } }
-				ROOT = { ottoman_kurdish_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -991,7 +986,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_assyrian_minority } }
-				ROOT = { ottoman_assyrian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -1002,7 +996,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_georgian_minority } }
-				ROOT = { ottoman_georgian_variable_check = yes }
 			}
 			if = {
 				limit = {
@@ -1016,7 +1009,6 @@ on_actions = {
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_turkish_minority } }
-				ROOT = { ottoman_turkish_variable_check = yes }
 			}
 			if = {
 				limit = {
