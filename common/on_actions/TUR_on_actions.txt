@@ -863,21 +863,6 @@ on_actions = {
 					set_state_flag = TUR_semi_autonomous_vilayet_no_control
 				}
 			}
-			#Check for lost Turkish state modifiers
-			if = {
-				limit = {
-					FROM = { TUR_has_minority_system = yes }
-					FROM.FROM = { has_state_flag = TUR_kosova }
-				}
-				FROM = { TUR_minority_system_kosova = yes }
-			}
-			if = {
-				limit = {
-					ROOT = { TUR_has_minority_system = yes }
-					FROM.FROM = { has_state_flag = TUR_kosova }
-				}
-				ROOT = { TUR_minority_system_kosova = yes }
-			}
 		}
 		effect = {
 			if = {
@@ -1050,6 +1035,582 @@ on_actions = {
 					add_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
 					clr_state_flag = TUR_semi_autonomous_vilayet_no_control
 				}
+			}
+		}
+		effect = { #calculate sublime realm
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_kosova }
+				}
+				FROM = { TUR_minority_system_kosova = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_kosova }
+				}
+				ROOT = { TUR_minority_system_kosova = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_iskodra }
+				}
+				FROM = { TUR_minority_system_iskodra = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_iskodra }
+				}
+				ROOT = { TUR_minority_system_iskodra = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_yanya }
+				}
+				FROM = { TUR_minority_system_yanya = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_yanya }
+				}
+				ROOT = { TUR_minority_system_yanya = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_manastir }
+				}
+				FROM = { TUR_minority_system_manastir = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_manastir }
+				}
+				ROOT = { TUR_minority_system_manastir = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_selanik }
+				}
+				FROM = { TUR_minority_system_selanik = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_selanik }
+				}
+				ROOT = { TUR_minority_system_selanik = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_edirne }
+				}
+				FROM = { TUR_minority_system_edirne = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_edirne }
+				}
+				ROOT = { TUR_minority_system_edirne = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_archipelago }
+				}
+				FROM = { TUR_minority_system_archipelago = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_archipelago }
+				}
+				ROOT = { TUR_minority_system_archipelago = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_crete }
+				}
+				FROM = { TUR_minority_system_crete = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_crete }
+				}
+				ROOT = { TUR_minority_system_crete = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_cyprus }
+				}
+				FROM = { TUR_minority_system_cyprus = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_cyprus }
+				}
+				ROOT = { TUR_minority_system_cyprus = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_catalca }
+				}
+				FROM = { TUR_minority_system_catalca = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_catalca }
+				}
+				ROOT = { TUR_minority_system_catalca = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_kostnatiniyye }
+				}
+				FROM = { TUR_minority_system_kostantiniyye = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_kostnatiniyye }
+				}
+				ROOT = { TUR_minority_system_kostantiniyye = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_izmit }
+				}
+				FROM = { TUR_minority_system_izmit = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_izmit }
+				}
+				ROOT = { TUR_minority_system_izmit = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_hudavendigar }
+				}
+				FROM = { TUR_minority_system_hudavendigar = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_hudavendigar }
+				}
+				ROOT = { TUR_minority_system_hudavendigar = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_biga }
+				}
+				FROM = { TUR_minority_system_biga = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_biga }
+				}
+				ROOT = { TUR_minority_system_biga = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_kastamonu }
+				}
+				FROM = { TUR_minority_system_kastamonu = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_kastamonu }
+				}
+				ROOT = { TUR_minority_system_kastamonu = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_ankara }
+				}
+				FROM = { TUR_minority_system_ankara = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_ankara }
+				}
+				ROOT = { TUR_minority_system_ankara = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_konya }
+				}
+				FROM = { TUR_minority_system_konya = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_konya }
+				}
+				ROOT = { TUR_minority_system_konya = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_trabzon }
+				}
+				FROM = { TUR_minority_system_trabzon = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_trabzon }
+				}
+				ROOT = { TUR_minority_system_trabzon = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_sivas }
+				}
+				FROM = { TUR_minority_system_sivas = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_sivas }
+				}
+				ROOT = { TUR_minority_system_sivas = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_adana }
+				}
+				FROM = { TUR_minority_system_adana = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_adana }
+				}
+				ROOT = { TUR_minority_system_adana = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_erzurum }
+				}
+				FROM = { TUR_minority_system_erzurum = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_erzurum }
+				}
+				ROOT = { TUR_minority_system_erzurum = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_mamuret_ul_aziz }
+				}
+				FROM = { TUR_minority_system_mamuret_ul_aziz = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_mamuret_ul_aziz }
+				}
+				ROOT = { TUR_minority_system_mamuret_ul_aziz = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_diyarbakir }
+				}
+				FROM = { TUR_minority_system_diyarbakir = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_diyarbakir }
+				}
+				ROOT = { TUR_minority_system_diyarbakir = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_bitlis }
+				}
+				FROM = { TUR_minority_system_bitlis = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_bitlis }
+				}
+				ROOT = { TUR_minority_system_bitlis = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_van }
+				}
+				FROM = { TUR_minority_system_van = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_van }
+				}
+				ROOT = { TUR_minority_system_van = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_aleppo }
+				}
+				FROM = { TUR_minority_system_aleppo = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_aleppo }
+				}
+				ROOT = { TUR_minority_system_aleppo = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_mosul }
+				}
+				FROM = { TUR_minority_system_mosul = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_mosul }
+				}
+				ROOT = { TUR_minority_system_mosul = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_deir_ez_zor }
+				}
+				FROM = { TUR_minority_system_deir_ez_zor = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_deir_ez_zor }
+				}
+				ROOT = { TUR_minority_system_deir_ez_zor = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_beirut }
+				}
+				FROM = { TUR_minority_system_beirut = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_beirut }
+				}
+				ROOT = { TUR_minority_system_beirut = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_damascus }
+				}
+				FROM = { TUR_minority_system_damascus = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_damascus }
+				}
+				ROOT = { TUR_minority_system_damascus = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_jerusalem }
+				}
+				FROM = { TUR_minority_system_jerusalem = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_jerusalem }
+				}
+				ROOT = { TUR_minority_system_jerusalem = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_baghdad }
+				}
+				FROM = { TUR_minority_system_baghdad = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_baghdad }
+				}
+				ROOT = { TUR_minority_system_baghdad = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_basra }
+				}
+				FROM = { TUR_minority_system_basra = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_basra }
+				}
+				ROOT = { TUR_minority_system_basra = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_hejaz }
+				}
+				FROM = { TUR_minority_system_hejaz = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_hejaz }
+				}
+				ROOT = { TUR_minority_system_hejaz = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_yemen }
+				}
+				FROM = { TUR_minority_system_yemen = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_yemen }
+				}
+				ROOT = { TUR_minority_system_yemen = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_suez }
+				}
+				FROM = { TUR_minority_system_suez = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_suez }
+				}
+				ROOT = { TUR_minority_system_suez = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_alexandria }
+				}
+				FROM = { TUR_minority_system_alexandria = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_alexandria }
+				}
+				ROOT = { TUR_minority_system_alexandria = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_cairo }
+				}
+				FROM = { TUR_minority_system_cairo = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_cairo }
+				}
+				ROOT = { TUR_minority_system_cairo = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_aswan }
+				}
+				FROM = { TUR_minority_system_aswan = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_aswan }
+				}
+				ROOT = { TUR_minority_system_aswan = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_khartoum }
+				}
+				FROM = { TUR_minority_system_khartoum = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_khartoum }
+				}
+				ROOT = { TUR_minority_system_khartoum = yes }
+			}
+			if = {
+				limit = {
+					FROM = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_trablusgarp }
+				}
+				FROM = { TUR_minority_system_trablusgarp = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { TUR_has_minority_system = yes }
+					FROM.FROM = { has_state_flag = TUR_trablusgarp }
+				}
+				ROOT = { TUR_minority_system_trablusgarp = yes }
 			}
 		}
 		effect = {
