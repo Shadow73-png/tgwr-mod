@@ -1133,7 +1133,17 @@ is_generic_character = {
 is_in_colonial_war = {
 	custom_trigger_tooltip = {
 		tooltip = is_in_colonial_war_tt
-		has_dynamic_modifier = colonial_war
+		has_offensive_war = yes
+		all_enemy_country = {
+			capital_scope = {
+				OR = {
+					is_on_continent = africa
+					is_on_continent = middle_east
+					is_on_continent = asia
+				}
+			}
+			is_actual_major = no
+		}	
 	}
 }
 is_in_major_war = {
@@ -1143,6 +1153,6 @@ is_in_major_war = {
 		any_enemy_country = {
 			is_government_in_exile = no
 		}
-		NOT = { has_dynamic_modifier = colonial_war }
+		is_in_colonial_war = no
 	}
 }
