@@ -211,10 +211,9 @@ crisis = {
 				remove_ideas = SWE_fbaten_fragan
 			}
 			# Event to start production if this happens
-				# Causes -25 loss for the Staaff approval
-			add_power_balance_value = {
-				id = SWE_staaf_approval
-				value = -0.25
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.10
 			}
 			country_event = { id = ww_sverige.7 days = 3 }
 		}
@@ -4158,7 +4157,10 @@ SWE_riksdagens_decisions = {
 				}
 			}
 			SWE_has_majority_for_reform_war_light = yes
-			threat > 0.2
+			OR = {
+				threat > 0.15
+				has_war = yes
+			}
 			NOT = {
 				has_idea = idea_armistice
 				has_idea = idea_army_restrictions
@@ -4176,7 +4178,7 @@ SWE_riksdagens_decisions = {
 		
 		complete_effect = {
 			SWE_increase_riksdag_rigidity = yes
-			add_stability = -0.03
+			add_stability = -0.05
 			hidden_effect = {
 				add_command_power = -25
 				add_political_power = -75
@@ -4197,10 +4199,10 @@ SWE_riksdagens_decisions = {
 		}
 		
 		ai_will_do = {
-			base = 10
-			modifier = {	# Let's not do this right now
-				factor = 0.1
-				has_reached_maximum_divisions = yes
+			base = 2
+			modifier = {
+				factor = 5
+				has_war = yes
 			}
 			modifier = {
 				factor = 0
@@ -4478,7 +4480,6 @@ SWE_riksdagens_decisions = {
 			}
 			neutrality < 0.25
 			fascism < 0.25
-			#SWE_has_majority_for_reform_radical = yes
 			SWE_has_majority_for_reform_social_liberal = yes
 			NOT = { has_country_flag = riksdag_decisions_are_blocked }
 		}
@@ -4501,16 +4502,6 @@ SWE_riksdagens_decisions = {
 				tooltip = political_power_factor_tt
 				var = SWE_pol_political_power_factor
 				value = 0.05
-			}
-			add_to_variable = {
-				tooltip = democratic_drift_tt
-				var = SWE_pol_democratic_drift
-				value = 0.01
-			}
-			add_to_variable = {
-				tooltip = communism_drift_tt
-				var = SWE_pol_communism_drift
-				value = 0.01
 			}
 			if = {
 				limit = { NOT = { has_idea = SWE_class_conflict } }
@@ -4625,6 +4616,10 @@ SWE_riksdagens_decisions = {
 			modifier = {
 				add = 1
 				has_completed_focus = SWE_ban_dangerous_socialist_organisations
+			}
+			modifier = {
+				add = 1
+				has_completed_focus = SWE_military_control
 			}
 		}
 	}
@@ -4881,7 +4876,7 @@ SWE_riksdagens_decisions = {
 			add_to_variable = {
 				tooltip = monthly_population_tt
 				var = SWE_emigration_monthly_population
-				value = 0.04
+				value = 0.06
 			}
 			add_to_variable = {
 				tooltip = stability_factor_tt
@@ -5968,34 +5963,24 @@ political_actions = {
 		
 		days_remove = 35
 		
-		modifier = { communism_drift = -0.03 }
+		modifier = {
+			political_power_factor = -0.05
+			communism_drift = -0.01
+		}
 		
 		complete_effect = {
 			# Critical of censorship
 		}
 		
 		remove_effect = {
-			if = {
-				limit = { has_idea = SWE_liberal_opposition_2 }
-				remove_ideas = SWE_liberal_opposition_2
-			}
-			else_if = {
-				limit = { has_idea = SWE_liberal_opposition_1 }
-				swap_ideas = {
-					add_idea = SWE_liberal_opposition_2
-					remove_idea = SWE_liberal_opposition_1
-				}
-			}
-			else_if = {
-				limit = { has_idea = SWE_liberal_opposition }
-				swap_ideas = {
-					add_idea = SWE_liberal_opposition_1
-					remove_idea = SWE_liberal_opposition
-				}
-			}
+			SWE_lower_leftwing_opposition = yes
 		}
 		ai_will_do = {
 			base = 1
+			modifier = {
+				add = 1
+				has_stability > 0.5
+			}
 			modifier = {
 				add = 1
 				communism > 0.05
@@ -6047,6 +6032,7 @@ political_actions = {
 		
 		modifier = {
 			stability_factor = -0.05
+			communism_drift = -0.01
 		}
 		
 		complete_effect = {
@@ -6054,28 +6040,15 @@ political_actions = {
 		}
 		
 		remove_effect = {
-			if = {
-				limit = { has_idea = SWE_liberal_opposition_2 }
-				remove_ideas = SWE_liberal_opposition_2
-			}
-			else_if = {
-				limit = { has_idea = SWE_liberal_opposition_1 }
-				swap_ideas = {
-					add_idea = SWE_liberal_opposition_2
-					remove_idea = SWE_liberal_opposition_1
-				}
-			}
-			else_if = {
-				limit = { has_idea = SWE_liberal_opposition }
-				swap_ideas = {
-					add_idea = SWE_liberal_opposition_1
-					remove_idea = SWE_liberal_opposition
-				}
-			}
+			SWE_lower_leftwing_opposition = yes
 		}
 		
 		ai_will_do = {
 			base = 1
+			modifier = {
+				add = 1
+				has_stability > 0.5
+			}
 			modifier = {
 				add = 1
 				communism > 0.05
@@ -6751,7 +6724,8 @@ SWE_varnplikten_decisions = {
 		days_mission_timeout = 90
 		
 		complete_effect = {
-			army_experience = 5
+			army_experience = 10
+			add_war_support = 0.05
 		}
 		
 		timeout_effect = {
@@ -7382,8 +7356,8 @@ SWE_varnplikten_decisions = {
 		ai_will_do = {
 			base = 1
 			modifier = {
-				factor = 2
-				has_reached_maximum_divisions = yes
+				add = 1
+				has_war = yes
 			}
 		}
 	}
@@ -7568,7 +7542,7 @@ SWE_varnplikten_decisions = {
 			add_to_variable = {
 				tooltip = mobilization_laws_cost_factor_tt
 				var = SWE_mil_mobilization_laws_cost_factor
-				value = -0.10
+				value = -0.20
 			}
 			add_to_variable = {
 				tooltip = conscription_tt
@@ -7580,12 +7554,16 @@ SWE_varnplikten_decisions = {
 		ai_will_do = {
 			base = 1
 			modifier = {
-				factor = 0
-				has_political_power < 120
+				add = 1
+				surrender_progress > 0.1
 			}
 			modifier = {
 				factor = 0
 				has_stability < 0.6
+			}
+			modifier = {
+				factor = 0
+				has_political_power < 110
 			}
 		}
 	}
@@ -7643,7 +7621,7 @@ SWE_varnplikten_decisions = {
 		}
 		
 		ai_will_do = {
-			base = 5
+			base = 0.5
 		}
 	}
 	SWE_importance_of_entrenchment = {

@@ -15,6 +15,27 @@ SWE_decrease_emigration = {
 		value = 0.03
 	}
 }
+SWE_lower_leftwing_opposition = {
+	if = {
+		limit = { has_idea = SWE_liberal_opposition_2 }
+		remove_ideas = SWE_liberal_opposition_2
+		
+	}
+	else_if = {
+		limit = { has_idea = SWE_liberal_opposition_1 }
+		swap_ideas = {
+			add_idea = SWE_liberal_opposition_2
+			remove_idea = SWE_liberal_opposition_1
+		}
+	}
+	else_if = {
+		limit = { has_idea = SWE_liberal_opposition }
+		swap_ideas = {
+			add_idea = SWE_liberal_opposition_1
+			remove_idea = SWE_liberal_opposition
+		}
+	}
+}
 
 # Riksdagen
 # Figure out best way to show these

@@ -164,9 +164,9 @@ country_event = {
 	option = {	# Ignore the workers plight
 		name = ww_sverige.2.a
 		ai_chance = {
-			base = 30
+			base = 3
 			modifier = {
-				add = 40
+				add = 4
 				communism < 0.2
 			}
 		}
@@ -179,6 +179,27 @@ country_event = {
 		add_to_variable = {
 			tooltip = swe_soc_dem_vote_a_tt
 			var = SWE_soc_dem_votes_a
+			value = 0.02
+		}
+		add_to_variable = {
+			tooltip = swe_con_dem_vote_a_tt
+			var = SWE_con_dem_votes_a
+			value = -0.02
+		}
+	}
+	option = {	# Make a token effort towards the workers
+		name = ww_sverige.2.b
+		ai_chance = {
+			base = 3
+			modifier = {
+				add = 4
+				communism > 0.199
+			}
+		}
+		add_political_power = -35
+		add_to_variable = {
+			tooltip = swe_soc_dem_vote_a_tt
+			var = SWE_soc_dem_votes_a
 			value = 0.01
 		}
 		add_to_variable = {
@@ -186,17 +207,6 @@ country_event = {
 			var = SWE_con_dem_votes_a
 			value = -0.01
 		}
-	}
-	option = {	# Make a token effort towards the workers
-		name = ww_sverige.2.b
-		ai_chance = {
-			base = 30
-			modifier = {
-				add = 40
-				communism > 0.2
-			}
-		}
-		add_political_power = -35
 	}
 }
 
@@ -361,7 +371,7 @@ country_event = {
 			popularity = 0.03
 		}
 		add_political_power = -50
-		country_event = { id = ww_sverige.7 days = 1 }
+		country_event = { id = ww_sverige.7 days = 2 }
 	}
 }
 
@@ -378,7 +388,7 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			set_country_flag = fbaten_fragan_solved
-			country_event = { id = ww_sverige.6 days = 14 }
+			country_event = { id = ww_sverige.6 days = 112 }
 		}
 	}
 	
@@ -436,7 +446,7 @@ country_event = {
 		if = {
 			limit = { has_country_flag = SWE_people_collect_for_fbaten }
 			custom_effect_tooltip = cost_has_been_reduced_from_twentyfive_thanks_to_donations
-			add_political_power = -20
+			add_political_power = -10
 		}
 		else = {
 			add_political_power = -25
@@ -499,7 +509,7 @@ country_event = {
 		else = {
 			add_equipment_production = {
 				equipment = {
-					type = heavy_cruiser_2
+					type = heavy_cruiser_1
 				}
 				name = "Sverige"
 				requested_factories = 1
@@ -508,7 +518,7 @@ country_event = {
 			}
 			add_equipment_production = {
 				equipment = {
-					type = heavy_cruiser_2
+					type = heavy_cruiser_1
 				}
 				name = "Drottning Victoria"
 				requested_factories = 1
@@ -517,7 +527,7 @@ country_event = {
 			}
 			add_equipment_production = {
 				equipment = {
-					type = heavy_cruiser_2
+					type = heavy_cruiser_1
 				}
 				name = "Gustaf V"
 				requested_factories = 1
@@ -1218,7 +1228,7 @@ country_event = {
 			name = SWE_democratic_national_party
 		}
 		SWE_small_riksdag_increase = yes
-		if = {	# Represents Acceptance of Parliamentalism
+		if = {	# Represents Acceptance of Parliamentalism, will be moved to follow-up event later
 			limit = { has_idea = SWE_unofficial_parliamentalism }
 			swap_ideas = {
 				add_idea = SWE_parliamentalism
