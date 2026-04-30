@@ -18,7 +18,10 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_armenian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -36,7 +39,7 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_greek_state_level > 0 }
+					check_variable = { TUR_greek_orthodox_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -54,7 +57,13 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_arab_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -72,7 +81,7 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_jewish_state_level > 0 }
+					check_variable = { TUR_jewish_judaic_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -90,7 +99,7 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_bulgarian_state_level > 0 }
+					check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -108,7 +117,11 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_albanian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -126,7 +139,12 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_serbian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_serbian_orthodox_state_variable < 0 }
+						check_variable = { TUR_serbian_sunni_state_variable < 0 }
+						check_variable = { TUR_serbian_catholic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_serbian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -144,7 +162,7 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_kurdish_state_level > 0 }
+					check_variable = { TUR_kurdish_sunni_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -162,7 +180,10 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_assyrian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_assyrian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -180,7 +201,10 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_georgian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_georgian_sunni_state_variable < 0 }
+						check_variable = { TUR_georgian_orthodox_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -198,7 +222,10 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_turkish_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_sunni_state_variable < 0 }
+						check_variable = { TUR_turkish_shia_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -216,7 +243,14 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_sunni_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_serbian_sunni_state_variable < 0 }
+						check_variable = { TUR_georgian_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -234,7 +268,14 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_orthodox_state_level > 0 }
+					OR = {
+						check_variable = { TUR_greek_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_serbian_orthodox_state_variable < 0 }
+						check_variable = { TUR_georgian_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -252,7 +293,10 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_apostolic_state_level > 0 }
+					OR = {
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -270,7 +314,7 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_judaic_state_level > 0 }
+					check_variable = { TUR_jewish_judaic_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -288,7 +332,10 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_syriac_state_level > 0 }
+					OR = {
+						check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_assyrian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -306,7 +353,10 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_shia_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_shia_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -324,7 +374,11 @@ TUR_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_catholic_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+						check_variable = { TUR_serbian_catholic_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -352,7 +406,10 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_armenian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -370,7 +427,7 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_greek_state_level > 0 }
+					check_variable = { TUR_greek_orthodox_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -388,7 +445,13 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_arab_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -406,7 +469,7 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_jewish_state_level > 0 }
+					check_variable = { TUR_jewish_judaic_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -424,7 +487,7 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_bulgarian_state_level > 0 }
+					check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -442,7 +505,11 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_albanian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -460,7 +527,12 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_serbian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_serbian_orthodox_state_variable < 0 }
+						check_variable = { TUR_serbian_sunni_state_variable < 0 }
+						check_variable = { TUR_serbian_catholic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_serbian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -478,7 +550,7 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_kurdish_state_level > 0 }
+					check_variable = { TUR_kurdish_sunni_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -496,7 +568,10 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_assyrian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_assyrian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -514,7 +589,10 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_georgian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_georgian_sunni_state_variable < 0 }
+						check_variable = { TUR_georgian_orthodox_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -532,7 +610,10 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_turkish_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_sunni_state_variable < 0 }
+						check_variable = { TUR_turkish_shia_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -550,7 +631,14 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_sunni_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_serbian_sunni_state_variable < 0 }
+						check_variable = { TUR_georgian_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -568,7 +656,14 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_orthodox_state_level > 0 }
+					OR = {
+						check_variable = { TUR_greek_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_serbian_orthodox_state_variable < 0 }
+						check_variable = { TUR_georgian_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -586,7 +681,10 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_apostolic_state_level > 0 }
+					OR = {
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -604,7 +702,7 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_judaic_state_level > 0 }
+					check_variable = { TUR_jewish_judaic_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -622,7 +720,10 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_syriac_state_level > 0 }
+					OR = {
+						check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_assyrian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -640,7 +741,10 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_shia_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_shia_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -658,7 +762,11 @@ ALB_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_catholic_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+						check_variable = { TUR_serbian_catholic_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -686,7 +794,10 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_armenian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -704,7 +815,7 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_greek_state_level > 0 }
+					check_variable = { TUR_greek_orthodox_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -722,7 +833,13 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_arab_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -740,7 +857,7 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_jewish_state_level > 0 }
+					check_variable = { TUR_jewish_judaic_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -758,7 +875,7 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_bulgarian_state_level > 0 }
+					check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -776,7 +893,11 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_albanian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -794,7 +915,12 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_serbian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_serbian_orthodox_state_variable < 0 }
+						check_variable = { TUR_serbian_sunni_state_variable < 0 }
+						check_variable = { TUR_serbian_catholic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_serbian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -812,7 +938,7 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_kurdish_state_level > 0 }
+					check_variable = { TUR_kurdish_sunni_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -830,7 +956,10 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_assyrian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_assyrian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -848,7 +977,10 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_georgian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_georgian_sunni_state_variable < 0 }
+						check_variable = { TUR_georgian_orthodox_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -866,7 +998,10 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_turkish_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_sunni_state_variable < 0 }
+						check_variable = { TUR_turkish_shia_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -884,7 +1019,14 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_sunni_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_serbian_sunni_state_variable < 0 }
+						check_variable = { TUR_georgian_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -902,7 +1044,14 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_orthodox_state_level > 0 }
+					OR = {
+						check_variable = { TUR_greek_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_serbian_orthodox_state_variable < 0 }
+						check_variable = { TUR_georgian_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -920,7 +1069,10 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_apostolic_state_level > 0 }
+					OR = {
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -938,7 +1090,7 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_judaic_state_level > 0 }
+					check_variable = { TUR_jewish_judaic_state_variable < 0 }
 				}
 			}
 			else = { always = no }
@@ -956,7 +1108,10 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_syriac_state_level > 0 }
+					OR = {
+						check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+						has_dynamic_modifier = { modifier = TUR_assyrian_minority }
+					}
 				}
 			}
 			else = { always = no }
@@ -974,7 +1129,10 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_shia_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_shia_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
@@ -992,7 +1150,11 @@ ARM_millet_system = {
 				}
 				FROM = {
 					TUR_is_controlled_by_us_or_committee_government = yes
-					check_variable = { TUR_catholic_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+						check_variable = { TUR_serbian_catholic_state_variable < 0 }
+					}
 				}
 			}
 			else = { always = no }
