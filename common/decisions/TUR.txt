@@ -19,7 +19,7 @@ debug_decisions = {
 				tag = ARA
 			}
 		}
-		complete_effect = { ottoman_minority_variable_check = yes }
+		complete_effect = { TUR_new_system_trial = yes }
 		ai_will_do = { base = 0 }
 	}
 	TUR_reload_centralization_values = {
@@ -2876,7 +2876,13 @@ TUR_millet_system = {
 				custom_effect_tooltip = probably_lead_to_war_with_rus_tt
 			}
 			set_country_flag = TUR_lift_the_armenian_reforms
-			ottoman_minority_variable_check = yes
+			TUR_minority_system_trabzon = yes
+			TUR_minority_system_sivas = yes
+			TUR_minority_system_erzurum = yes
+			TUR_minority_system_van = yes
+			TUR_minority_system_bitlis = yes
+			TUR_minority_system_mamuret_ul_aziz = yes
+			TUR_minority_system_diyarbakir = yes
 		}
 		ai_will_do = {
 			base = 50
@@ -4083,7 +4089,7 @@ TUR_millet_system = {
 				force_update_dynamic_modifier = yes
 			}
 			FROM_add_1_centralization = yes
-			ottoman_greek_variable_check_only = yes
+			TUR_minority_system_greek = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -4196,7 +4202,7 @@ TUR_millet_system = {
 				force_update_dynamic_modifier = yes
 			}
 			FROM_add_1_centralization = yes
-			ottoman_greek_variable_check_only = yes
+			TUR_minority_system_greek = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -6142,7 +6148,10 @@ TUR_millet_system = {
 					clr_state_flag = TUR_semi_autonomous_vilayet
 				}
 			}
-			ottoman_minority_variable_check = yes
+			TUR_minority_system_kosova = yes
+			TUR_minority_system_iskodra = yes
+			TUR_minority_system_yanya = yes
+			TUR_minority_system_manastir = yes
 		}
 		ai_will_do = {
 			base = 0
@@ -7126,7 +7135,7 @@ TUR_millet_system = {
 				}
 				else = { set_variable = { TUR_integrate_jewish_citizens = 0.001 } }
 			}
-			ottoman_jewish_variable_check_only = yes
+			TUR_minority_system_jewish = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		ai_will_do = { base = 30 }
@@ -25216,7 +25225,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 				custom_effect_tooltip = TUR_utilize_kozmidi_efendi_tt2
 				hidden_effect = { add_to_variable = { TUR_greek_temp_variable = 0.0025 } }
 			}
-			ottoman_greek_variable_check_only = yes
+			TUR_minority_system_greek = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -25291,7 +25300,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 				custom_effect_tooltip = TUR_dismiss_kozmidi_efendi_tt2
 				hidden_effect = { add_to_variable = { TUR_greek_temp_variable = -0.0025 } }
 			}
-			ottoman_greek_variable_check_only = yes
+			TUR_minority_system_greek = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_kozmidi_efendi
 			if = {
@@ -25390,7 +25399,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 				custom_effect_tooltip = TUR_utilize_sava_stojanovic_tt2
 				hidden_effect = { add_to_variable = { TUR_serbian_temp_variable = 0.0025 } }
 			}
-			ottoman_serbian_variable_check_only = yes
+			TUR_minority_system_serbian = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -25460,7 +25469,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 				custom_effect_tooltip = TUR_dismiss_sava_stojanovic_tt2
 				hidden_effect = { add_to_variable = { TUR_serbian_temp_variable = -0.0025 } }
 			}
-			ottoman_serbian_variable_check_only = yes
+			TUR_minority_system_serbian = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_sava_stojanovic
 			if = {
