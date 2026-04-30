@@ -3095,6 +3095,336 @@ TUR_reload_vilayet_with_at_least_15_centralization = {
 	}
 }
 
+TUR_minority_system_albania = {
+	hidden_effect = {
+		#KOSOVA
+		subtract_from_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_kosova }
+		subtract_from_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_kosova }
+		set_variable = { ROOT.TUR_albanian_sunni_minority_value_kosova = 0 }
+		every_state = {
+			limit = {
+				TUR_is_controlled_by_us_or_committee_government = yes
+				has_state_flag = TUR_kosova
+				has_dynamic_modifier = { modifier = TUR_albanian_minority }
+				check_variable = { TUR_albanian_sunni_state_variable < 0 }
+			}
+			add_to_variable = { ROOT.TUR_albanian_sunni_minority_value_kosova = TUR_albanian_sunni_state_variable }
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+				multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_kosova = 0 }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+				divide_variable = { ROOT.TUR_albanian_sunni_minority_value_kosova = 2 }
+			}
+		}
+		multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_kosova = TUR_albanian_population_factor_new }
+		multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_kosova = TUR_sunni_population_factor_new }
+		divide_variable = { ROOT.TUR_albanian_sunni_minority_value_kosova = 100 }
+		#CALCULATE TOTAL VALUE
+		set_variable = { ROOT.TUR_minority_value_kosova = 0 }
+		if = {
+			limit = { has_completed_focus = TUR_autonomy_in_non_muslim_vilayets }
+			set_variable = { ROOT.TUR_political_power_value_kosova = 0 }
+			add_to_variable = { ROOT.TUR_political_power_value_kosova = ROOT.TUR_serbian_orthodox_minority_value_kosova }
+			add_to_variable = { ROOT.TUR_political_power_value_kosova = ROOT.TUR_bulgarian_orthodox_minority_value_kosova }
+			#
+			add_to_variable = { ROOT.TUR_minority_value_kosova = ROOT.TUR_albanian_sunni_minority_value_kosova }
+			add_to_variable = { ROOT.TUR_minority_value_kosova = ROOT.TUR_turkish_sunni_minority_value_kosova }
+			#
+			set_variable = { global.TUR_kosova_max_centralization = 100 }
+			set_temp_variable = { TUR_christian_centralization_value_kosova = ROOT.TUR_political_power_value_kosova }
+			multiply_temp_variable = { TUR_christian_centralization_value_kosova = 1000 }
+			add_to_variable = { global.TUR_kosova_max_centralization = TUR_christian_centralization_value_kosova }
+		}
+		else = {
+			if = {
+				limit = { has_completed_focus = TUR_adem_i_merkeziyetcilik }
+				set_variable = { ROOT.TUR_political_power_value_kosova = -0.005 }
+				divide_variable = { ROOT.TUR_albanian_sunni_minority_value_kosova = 2 }
+				divide_variable = { ROOT.TUR_serbian_orthodox_minority_value_kosova = 2 }
+				divide_variable = { ROOT.TUR_bulgarian_orthodox_minority_value_kosova = 2 }
+				divide_variable = { ROOT.TUR_turkish_sunni_minority_value_kosova = 2 }
+			}
+			add_to_variable = { ROOT.TUR_minority_value_kosova = ROOT.TUR_albanian_sunni_minority_value_kosova }
+			add_to_variable = { ROOT.TUR_minority_value_kosova = ROOT.TUR_serbian_orthodox_minority_value_kosova }
+			add_to_variable = { ROOT.TUR_minority_value_kosova = ROOT.TUR_bulgarian_orthodox_minority_value_kosova }
+			add_to_variable = { ROOT.TUR_minority_value_kosova = ROOT.TUR_turkish_sunni_minority_value_kosova }
+		}
+		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_kosova }
+		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_kosova }
+		#SHKODER
+		subtract_from_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_iskodra }
+		subtract_from_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_iskodra }
+		set_variable = { ROOT.TUR_albanian_sunni_minority_value_iskodra = 0 }
+		every_state = {
+			limit = {
+				TUR_is_controlled_by_us_or_committee_government = yes
+				has_state_flag = TUR_iskodra
+				has_dynamic_modifier = { modifier = TUR_albanian_minority }
+				check_variable = { TUR_albanian_sunni_state_variable < 0 }
+			}
+			add_to_variable = { ROOT.TUR_albanian_sunni_minority_value_iskodra = TUR_albanian_sunni_state_variable }
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+				multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_iskodra = 0 }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+				divide_variable = { ROOT.TUR_albanian_sunni_minority_value_iskodra = 2 }
+			}
+		}
+		multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_iskodra = TUR_albanian_population_factor_new }
+		multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_iskodra = TUR_sunni_population_factor_new }
+		divide_variable = { ROOT.TUR_albanian_sunni_minority_value_iskodra = 100 }
+		set_variable = { ROOT.TUR_albanian_catholic_minority_value_iskodra = 0 }
+		every_state = {
+			limit = {
+				TUR_is_controlled_by_us_or_committee_government = yes
+				has_state_flag = TUR_iskodra
+				has_dynamic_modifier = { modifier = TUR_albanian_minority }
+				check_variable = { TUR_albanian_catholic_state_variable < 0 }
+			}
+			add_to_variable = { ROOT.TUR_albanian_catholic_minority_value_iskodra = TUR_albanian_catholic_state_variable }
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+				multiply_variable = { ROOT.TUR_albanian_catholic_minority_value_iskodra = 0 }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+				divide_variable = { ROOT.TUR_albanian_catholic_minority_value_iskodra = 2 }
+			}
+		}
+		multiply_variable = { ROOT.TUR_albanian_catholic_minority_value_iskodra = TUR_albanian_population_factor_new }
+		multiply_variable = { ROOT.TUR_albanian_catholic_minority_value_iskodra = TUR_catholic_population_factor_new }
+		divide_variable = { ROOT.TUR_albanian_catholic_minority_value_iskodra = 100 }
+		#CALCULATE TOTAL VALUE
+		if = {
+			limit = { has_completed_focus = TUR_autonomy_in_non_muslim_vilayets }
+			set_variable = { ROOT.TUR_minority_value_iskodra = 0 }
+			set_variable = { ROOT.TUR_political_power_value_iskodra = 0 }
+			add_to_variable = { ROOT.TUR_political_power_value_iskodra = ROOT.TUR_albanian_catholic_minority_value_iskodra }
+			#
+			add_to_variable = { ROOT.TUR_minority_value_iskodra = ROOT.TUR_albanian_sunni_minority_value_iskodra }
+			#
+			set_variable = { global.TUR_iskodra_max_centralization = 100 }
+			set_temp_variable = { TUR_christian_centralization_value_iskodra = ROOT.TUR_political_power_value_iskodra }
+			multiply_temp_variable = { TUR_christian_centralization_value_iskodra = 1000 }
+			add_to_variable = { global.TUR_iskodra_max_centralization = TUR_christian_centralization_value_iskodra }
+		}
+		else = {
+			set_variable = { ROOT.TUR_albanian_minority_value_iskodra = ROOT.TUR_albanian_sunni_minority_value_iskodra }
+			add_to_variable = { ROOT.TUR_albanian_minority_value_iskodra = ROOT.TUR_albanian_catholic_minority_value_iskodra }
+			if = {
+				limit = { has_completed_focus = TUR_adem_i_merkeziyetcilik }
+				set_variable = { ROOT.TUR_political_power_value_iskodra = -0.005 }
+				divide_variable = { ROOT.TUR_albanian_sunni_minority_value_iskodra = 2 }
+				divide_variable = { ROOT.TUR_albanian_catholic_minority_value_iskodra = 2 }
+			}
+			set_variable = { ROOT.TUR_minority_value_iskodra = 0 }
+			add_to_variable = { ROOT.TUR_minority_value_iskodra = ROOT.TUR_albanian_sunni_minority_value_iskodra }
+			add_to_variable = { ROOT.TUR_minority_value_iskodra = ROOT.TUR_albanian_catholic_minority_value_iskodra }
+		}
+		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_iskodra }
+		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_iskodra }
+		#MANASTIR
+		subtract_from_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_manastir }
+		subtract_from_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_manastir }
+		set_variable = { ROOT.TUR_albanian_sunni_minority_value_manastir = 0 }
+		every_state = {
+			limit = {
+				TUR_is_controlled_by_us_or_committee_government = yes
+				has_state_flag = TUR_manastir
+				has_dynamic_modifier = { modifier = TUR_albanian_minority }
+				check_variable = { TUR_albanian_sunni_state_variable < 0 }
+			}
+			add_to_variable = { ROOT.TUR_albanian_sunni_minority_value_manastir = TUR_albanian_sunni_state_variable }
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+				multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_manastir = 0 }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+				divide_variable = { ROOT.TUR_albanian_sunni_minority_value_manastir = 2 }
+			}
+		}
+		multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_manastir = TUR_albanian_population_factor_new }
+		multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_manastir = TUR_sunni_population_factor_new }
+		divide_variable = { ROOT.TUR_albanian_sunni_minority_value_manastir = 100 }
+		set_variable = { ROOT.TUR_albanian_orthodox_minority_value_manastir = 0 }
+		every_state = {
+			limit = {
+				TUR_is_controlled_by_us_or_committee_government = yes
+				has_state_flag = TUR_manastir
+				has_dynamic_modifier = { modifier = TUR_albanian_minority }
+				check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+			}
+			add_to_variable = { ROOT.TUR_albanian_orthodox_minority_value_manastir = TUR_albanian_orthodox_state_variable }
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+				multiply_variable = { ROOT.TUR_albanian_orthodox_minority_value_manastir = 0 }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+				divide_variable = { ROOT.TUR_albanian_orthodox_minority_value_manastir = 2 }
+			}
+		}
+		multiply_variable = { ROOT.TUR_albanian_orthodox_minority_value_manastir = TUR_albanian_population_factor_new }
+		multiply_variable = { ROOT.TUR_albanian_orthodox_minority_value_manastir = TUR_orthodox_population_factor_new }
+		divide_variable = { ROOT.TUR_albanian_orthodox_minority_value_manastir = 100 }
+		#CALCULATE TOTAL VALUE
+		if = {
+			limit = { has_completed_focus = TUR_autonomy_in_non_muslim_vilayets }
+			set_variable = { ROOT.TUR_minority_value_manastir = 0 }
+			set_variable = { ROOT.TUR_political_power_value_manastir = 0 }
+			add_to_variable = { ROOT.TUR_political_power_value_manastir = ROOT.TUR_greek_orthodox_minority_value_manastir }
+			add_to_variable = { ROOT.TUR_political_power_value_manastir = ROOT.TUR_bulgarian_orthodox_minority_value_manastir }
+			add_to_variable = { ROOT.TUR_political_power_value_manastir = ROOT.TUR_albanian_orthodox_minority_value_manastir }
+			#
+			add_to_variable = { ROOT.TUR_minority_value_manastir = ROOT.TUR_albanian_sunni_minority_value_manastir }
+			add_to_variable = { ROOT.TUR_minority_value_manastir = ROOT.TUR_turkish_sunni_minority_value_manastir }
+			#
+			set_variable = { global.TUR_manastir_max_centralization = 100 }
+			set_temp_variable = { TUR_christian_centralization_value_manastir = ROOT.TUR_political_power_value_manastir }
+			multiply_temp_variable = { TUR_christian_centralization_value_manastir = 1000 }
+			add_to_variable = { global.TUR_manastir_max_centralization = TUR_christian_centralization_value_manastir }
+		}
+		else = {
+			set_variable = { ROOT.TUR_albanian_minority_value_manastir = ROOT.TUR_albanian_sunni_minority_value_manastir }
+			add_to_variable = { ROOT.TUR_albanian_minority_value_manastir = ROOT.TUR_albanian_orthodox_minority_value_manastir }
+			if = {
+				limit = { has_completed_focus = TUR_adem_i_merkeziyetcilik }
+				set_variable = { ROOT.TUR_political_power_value_manastir = -0.005 }
+				divide_variable = { ROOT.TUR_greek_orthodox_minority_value_manastir = 2 }
+				divide_variable = { ROOT.TUR_bulgarian_orthodox_minority_value_manastir = 2 }
+				divide_variable = { ROOT.TUR_albanian_sunni_minority_value_manastir = 2 }
+				divide_variable = { ROOT.TUR_albanian_orthodox_minority_value_manastir = 2 }
+				divide_variable = { ROOT.TUR_turkish_sunni_minority_value_manastir = 2 }
+			}
+			set_variable = { ROOT.TUR_minority_value_manastir = 0 }
+			add_to_variable = { ROOT.TUR_minority_value_manastir = ROOT.TUR_greek_orthodox_minority_value_manastir }
+			add_to_variable = { ROOT.TUR_minority_value_manastir = ROOT.TUR_bulgarian_orthodox_minority_value_manastir }
+			add_to_variable = { ROOT.TUR_minority_value_manastir = ROOT.TUR_albanian_sunni_minority_value_manastir }
+			add_to_variable = { ROOT.TUR_minority_value_manastir = ROOT.TUR_albanian_orthodox_minority_value_manastir }
+			add_to_variable = { ROOT.TUR_minority_value_manastir = ROOT.TUR_turkish_sunni_minority_value_manastir }
+		}
+		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_manastir }
+		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_manastir }
+		#YANYA
+		subtract_from_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_yanya }
+		subtract_from_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_yanya }
+		set_variable = { ROOT.TUR_albanian_orthodox_minority_value_yanya = 0 }
+		every_state = {
+			limit = {
+				TUR_is_controlled_by_us_or_committee_government = yes
+				has_state_flag = TUR_yanya
+				has_dynamic_modifier = { modifier = TUR_albanian_minority }
+				check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+			}
+			add_to_variable = { ROOT.TUR_albanian_orthodox_minority_value_yanya = TUR_albanian_orthodox_state_variable }
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+				multiply_variable = { ROOT.TUR_albanian_orthodox_minority_value_yanya = 0 }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+				divide_variable = { ROOT.TUR_albanian_orthodox_minority_value_yanya = 2 }
+			}
+		}
+		multiply_variable = { ROOT.TUR_albanian_orthodox_minority_value_yanya = TUR_albanian_population_factor_new }
+		multiply_variable = { ROOT.TUR_albanian_orthodox_minority_value_yanya = TUR_orthodox_population_factor_new }
+		divide_variable = { ROOT.TUR_albanian_orthodox_minority_value_yanya = 100 }
+		set_variable = { ROOT.TUR_albanian_sunni_minority_value_yanya = 0 }
+		every_state = {
+			limit = {
+				TUR_is_controlled_by_us_or_committee_government = yes
+				has_state_flag = TUR_yanya
+				has_dynamic_modifier = { modifier = TUR_albanian_minority }
+				check_variable = { TUR_albanian_sunni_state_variable < 0 }
+			}
+			add_to_variable = { ROOT.TUR_albanian_sunni_minority_value_yanya = TUR_albanian_sunni_state_variable }
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+				multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_yanya = 0 }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+				divide_variable = { ROOT.TUR_albanian_sunni_minority_value_yanya = 2 }
+			}
+		}
+		multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_yanya = TUR_albanian_population_factor_new }
+		multiply_variable = { ROOT.TUR_albanian_sunni_minority_value_yanya = TUR_sunni_population_factor_new }
+		divide_variable = { ROOT.TUR_albanian_sunni_minority_value_yanya = 100 }
+		#CALCULATE TOTAL VALUE
+		if = {
+			limit = { has_completed_focus = TUR_autonomy_in_non_muslim_vilayets }
+			set_variable = { ROOT.TUR_minority_value_yanya = 0 }
+			set_variable = { ROOT.TUR_political_power_value_yanya = 0 }
+			add_to_variable = { ROOT.TUR_political_power_value_yanya = ROOT.TUR_greek_orthodox_minority_value_yanya }
+			add_to_variable = { ROOT.TUR_political_power_value_yanya = ROOT.TUR_albanian_orthodox_minority_value_yanya }
+			#
+			add_to_variable = { ROOT.TUR_minority_value_yanya = ROOT.TUR_albanian_sunni_minority_value_yanya }
+			#
+			set_variable = { global.TUR_yanya_max_centralization = 100 }
+			set_temp_variable = { TUR_christian_centralization_value_yanya = ROOT.TUR_political_power_value_yanya }
+			multiply_temp_variable = { TUR_christian_centralization_value_yanya = 1000 }
+			add_to_variable = { global.TUR_yanya_max_centralization = TUR_christian_centralization_value_yanya }
+		}
+		else = {
+			set_variable = { ROOT.TUR_albanian_minority_value_yanya = ROOT.TUR_albanian_sunni_minority_value_iskodra }
+			add_to_variable = { ROOT.TUR_albanian_minority_value_yanya = ROOT.TUR_albanian_orthodox_minority_value_iskodra }
+			if = {
+				limit = { has_completed_focus = TUR_adem_i_merkeziyetcilik }
+				set_variable = { ROOT.TUR_political_power_value_yanya = -0.005 }
+				divide_variable = { ROOT.TUR_greek_orthodox_minority_value_yanya = 2 }
+				divide_variable = { ROOT.TUR_albanian_orthodox_minority_value_yanya = 2 }
+				divide_variable = { ROOT.TUR_albanian_sunni_minority_value_yanya = 2 }
+			}
+			set_variable = { ROOT.TUR_minority_value_yanya = 0 }
+			add_to_variable = { ROOT.TUR_minority_value_yanya = ROOT.TUR_greek_orthodox_minority_value_yanya }
+			add_to_variable = { ROOT.TUR_minority_value_yanya = ROOT.TUR_albanian_orthodox_minority_value_yanya }
+			add_to_variable = { ROOT.TUR_minority_value_yanya = ROOT.TUR_albanian_sunni_minority_value_yanya }
+		}
+		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_yanya }
+		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_yanya }
+	}
+}
+
 TUR_minority_system_kosova = {
 	hidden_effect = {
 		subtract_from_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_kosova }
