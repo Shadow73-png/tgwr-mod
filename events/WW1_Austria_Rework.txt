@@ -1268,6 +1268,33 @@ add_equipment_to_stockpile = {
 			AUS_update_state_of_realm = yes
 	}
 }
+country_event = {
+	id = ww1_austriahungary_war.44
+	title = ww1_austriahungary_war.44.t
+	desc = ww1_austriahungary_war.44.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+	has_idea = AUS_noticeable_food_shortages_idea
+	}
+    mean_time_to_happen = {
+    days = 30
+    }
+	option = {
+		name = ww1_austriahungary_war.43.a
+		add_stability = -0.05
+		add_war_support = -0.05
+	}
+	option = {
+		trigger = {
+			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
+		}
+		name = ww1_austriahungary_war.43.a
+custom_effect_tooltip = AUS_it_unlocked_military
+add_political_power = -20
+add_stability = -0.03
+		add_war_support = -0.03
+	}
+}
 # Stephan Burian Resigns from Position
 country_event = {
 	id = ww1_austriahungary.1
