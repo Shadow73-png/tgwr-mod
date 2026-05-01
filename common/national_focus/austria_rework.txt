@@ -11564,45 +11564,45 @@ joint_focus = {
 			BOS_update_austria_relations = yes
 		}
 	}
-}
 
-completion_reward_joint_member = {
-	if = {
-		limit = {
-			has_focus_tree = austria_tree
+	completion_reward_joint_member = {
+		if = {
+			limit = {
+				has_focus_tree = austria_tree
+			}
+			add_stability = 0.05
+			add_political_power = 50
 		}
-		add_stability = 0.05
-		add_political_power = 50
+		if = {
+			limit = {
+				has_focus_tree = bosnia_focus
+			}
+			add_stability = 0.1
+			add_political_power = 100
+			custom_effect_tooltip = modify_BOS_diet_tt
+			add_to_variable = {
+				BOS_diet_training = -0.15
+				tooltip = training_time_factor_tt
+			}
+			add_to_variable = {
+				BOS_diet_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+			add_to_variable = {
+				global.BOS_austria_relations = 3
+				tooltip = BOS_austria_relations_tt
+			}
+			BOS_update_austria_relations = yes
+		}
 	}
-	if = {
-		limit = {
-			has_focus_tree = bosnia_focus
-		}
-		add_stability = 0.1
-		add_political_power = 100
-		custom_effect_tooltip = modify_BOS_diet_tt
-		add_to_variable = {
-			BOS_diet_training = -0.15
-			tooltip = training_time_factor_tt
-		}
-		add_to_variable = {
-			BOS_diet_stab = 0.05
-			tooltip = stability_factor_tt
-		}
-		add_to_variable = {
-			global.BOS_austria_relations = 3
-			tooltip = BOS_austria_relations_tt
-		}
-		BOS_update_austria_relations = yes
+
+	ai_will_do = {
+		base = 1
 	}
-}
 
-ai_will_do = {
-	base = 1
-}
-
-search_filters = {
-	FOCUS_FILTER_HISTORICAL
+	search_filters = {
+		FOCUS_FILTER_HISTORICAL
+	}
 }
 
 joint_focus = {
