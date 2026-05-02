@@ -1289,6 +1289,7 @@ country_event = {
     mean_time_to_happen = {
     days = 30
     }
+	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.44.a
 		add_stability = -0.05
@@ -1305,6 +1306,102 @@ add_stability = -0.03
 		add_war_support = -0.03
 	}
 }
+country_event = {
+	id = ww1_austriahungary_war.45
+	title = ww1_austriahungary_war.45.t
+	desc = ww1_austriahungary_war.45.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+    
+	option = {
+		name = ww1_austriahungary_war.45.a
+		add_war_support = 0.03
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary_war.46
+	title = ww1_austriahungary_war.46.t
+	desc = ww1_austriahungary_war.46.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		has_war_with_major = yes
+		has_global_flag = great_war
+	}
+	mean_time_to_happen = {
+		days = 210
+	}
+    fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.47.a
+		add_war_support = 0.02
+			add_popularity = {
+			ideology = communism
+			popularity = 0.01
+		}
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary_war.48
+	title = ww1_austriahungary_war.48.t
+	desc = ww1_austriahungary_war.48.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		has_war_with_major = yes
+		has_global_flag = great_war
+
+	}
+	mean_time_to_happen = {
+		days = 365
+	}
+    fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.48.a
+		add_war_support = -0.02
+			add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary_war.49
+	title = ww1_austriahungary_war.49.t
+	desc = ww1_austriahungary_war.49.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		has_war_with_major = yes
+		has_global_flag = great_war
+OR = {
+	has_global_flag = AUS_mp_austria_autocrat
+	has_completed_focus = AUS_suspend_civil_liberties
+	has_completed_focus = AUS_soft_authoritarianism
+}
+	}
+	mean_time_to_happen = {
+		days = 853
+	}
+    fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.49.a
+		add_war_support = -0.03
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		add_stability = -0.05
+		add_political_power = -100
+		
+	}
+	
+}
+
 # Stephan Burian Resigns from Position
 country_event = {
 	id = ww1_austriahungary.1
@@ -7035,7 +7132,23 @@ country_event = {
 		custom_effect_tooltip = AUS_pole_loyalty_cap_removed.tt
 	}
 }
-
+country_event = {
+	id = ww1_austriahungary.200
+	title = ww1_austriahungary.200.t
+	desc = ww1_austriahungary.200.d
+	picture = GFX_report_event_generic_naval_treaty
+	trigger = {
+		date > 1913.8.1
+		not = {
+			has_global_flag = great_war
+		}
+	}
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.199.a
+		custom_effect_tooltip = AUS_this_is_not_fucking_good
+	}
+}
 add_namespace = ww1_austria_quests
 # forts dispatch event
 #country_event = {

@@ -725,7 +725,44 @@ add_war_support = -0.05
 			}
 		}
 	}
-	
+	AUS_import_hungarian_products = {
+		
+		icon = GFX_decision_steel
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 20
+		visible = {
+					has_war_with_major = yes
+has_global_flag = great_war
+		}
+		available = {
+			has_war_with_major = yes
+		HUN = {
+			NOT = {
+				has_completed_focus = HUN_implement_trade_restrictions
+			}
+		}
+		}
+		fire_only_once = no
+		days_remove = 180
+		cost = 50
+		ai_will_do = {
+			base = 80
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+		
+			add_to_variable = {
+				AUS_intensity_of_food_shortages = -1
+				tooltip = AUS_intensity_of_food_shortages_tt
+			}
+			hidden_effect = {
+				AUS_update_food = yes
+			}
+		}
+	}
 
 	AUS_convert_economy_d = {
 		icon = GFX_decision_generic_electricity
