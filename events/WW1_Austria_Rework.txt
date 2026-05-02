@@ -1514,9 +1514,36 @@ mean_time_to_happen = {
 }
     fire_only_once = yes
 	option = {
-		name = ww1_austriahungary_war.52.a
+		name = ww1_austriahungary_war.53.a
 add_political_power = -10
 
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary_war.54
+	title = ww1_austriahungary_war.54.t
+	desc = ww1_austriahungary_war.54.d
+	#picture = GFX_report_event_generic_read_write
+trigger = {
+	
+	tag = AUS
+	has_global_flag = great_war
+	has_war_with = ITA
+}
+mean_time_to_happen = {
+	days = 10
+}
+    fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.54.a
+	set_variable = {
+				AUS_croat_loyalty = 70
+				tooltip = AUS_loyalty_croatian_tt
+			}
+			AUS_update_state_of_realm = yes
+add_stability = 0.08
+add_political_power = 50
 	}
 	
 }
