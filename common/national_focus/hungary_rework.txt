@@ -5517,7 +5517,7 @@ focus_tree = {
 			add_war_support = 0.03
 			add_to_variable = {
 				HUN_food_stab_var = 5
-				tooltip = HUN_food_var_plus_3.tt
+				tooltip = HUN_food_var_plus_5.tt
 			}
 			add_days_mission_timeout = {
 				mission = HUN_fading_food_stability_mission
@@ -5544,7 +5544,22 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_secure_grain
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_to_variable = {
+				HUN_eco_effeciency_max = -0.03
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				HUN_food_stab_var = 5
+				tooltip = HUN_food_var_plus_5.tt
+			}
+			add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 100
+			}
+			add_stability = 0.02
+			add_war_support = 0.02
+		}
 	 }
 	 #Use POW's for labor
 	 focus = {
@@ -5636,7 +5651,18 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_secure_grain
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_stability = -0.02
+			add_war_support = -0.02
+			add_to_variable = {
+				HUN_food_stab_var = 15
+				tooltip = HUN_food_var_plus_15.tt
+			}
+			add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 225
+			}
+		}
 	 }
 	 #Purchase Mass Grain & Flour
 	 focus = {
