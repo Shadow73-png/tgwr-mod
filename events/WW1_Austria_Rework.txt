@@ -70,6 +70,12 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_war.5.a
 		activate_mission = AUS_defeat_serbia_early
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary_war.50
+				days = 10
+			}
+		}
 	}
 }
 
@@ -1401,7 +1407,72 @@ OR = {
 	}
 	
 }
-
+country_event = {
+	id = ww1_austriahungary_war.50
+	title = ww1_austriahungary_war.50.t
+	desc = ww1_austriahungary_war.50.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+    fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.50.a
+		add_to_variable = {
+				AUS_serb_loyalty = -10
+				tooltip = AUS_loyalty_serb_tt
+			}
+			AUS_update_state_of_realm = yes
+			hidden_effect = {
+				country_event = {
+					id = ww1_austriahungary_war.51
+					days = 40
+				}
+				BOS = {
+					country_event = {
+					id = ww1_austriahungary_war.51
+					days = 40
+				}
+				}
+			}
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary_war.51
+	title = ww1_austriahungary_war.51.t
+	desc = ww1_austriahungary_war.51.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+    fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.51.a
+		if = {
+			limit = {
+				tag = AUS
+			}
+			BOS = {
+			add_stability = -0.1
+		}
+		add_to_variable = {
+				AUS_serb_loyalty = -20
+				tooltip = AUS_loyalty_serb_tt
+			}
+			AUS_update_state_of_realm = yes
+		}
+		else = {
+			effect_tooltip = {
+					BOS = {
+			add_stability = -0.1
+		}
+		add_to_variable = {
+				AUS_serb_loyalty = -20
+				tooltip = AUS_loyalty_serb_tt
+			}
+			AUS_update_state_of_realm = yes
+			}
+		}
+	}
+	
+}
 # Stephan Burian Resigns from Position
 country_event = {
 	id = ww1_austriahungary.1
