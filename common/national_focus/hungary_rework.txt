@@ -3536,7 +3536,7 @@ focus_tree = {
 				tooltip = stability_factor_tt
 			}
 			add_to_variable = {
-				HUN_eco_trade_opinion = -0.05
+				HUN_eco_trade_opinion = -0.1
 				tooltip = trade_opinion_factor_tt
 			}
 			add_to_variable = {
@@ -5545,10 +5545,8 @@ focus_tree = {
 			focus = HUN_secure_grain
 		}
 		completion_reward = { 
-			add_to_variable = {
-				HUN_eco_effeciency_max = -0.03
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
+			add_stability = 0.02
+			add_war_support = 0.02
 			add_to_variable = {
 				HUN_food_stab_var = 5
 				tooltip = HUN_food_var_plus_5.tt
@@ -5557,8 +5555,11 @@ focus_tree = {
 				mission = HUN_fading_food_stability_mission
 				days = 100
 			}
-			add_stability = 0.02
-			add_war_support = 0.02
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_effeciency_max = -0.03
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
 		}
 	 }
 	 #Use POW's for labor
@@ -5582,11 +5583,23 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_pin_all_hopes_on_russian_defeat
-		}
-		prerequisite = {
 			focus = HUN_price_regulations
 		}
-		completion_reward = { }
+		completion_reward = { 
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_construction_speed = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_consumer_good = 0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_mil_speed = 0.03
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+		}
 	 }
 	 #Implement Trade Restrictions
 	 focus = {
@@ -5608,7 +5621,21 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_price_regulations
 		}
-		completion_reward = { }
+		completion_reward = { 
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_stab = 0.03
+				tooltip = stability_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_trade_opinion = -0.35
+				tooltip = trade_opinion_factor_tt
+			}
+		}
 	 }
 	 #Limit Malt Production
 	 focus = {
@@ -5629,7 +5656,21 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_implement_trade_restrictions
 		}
-		completion_reward = { }
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 50
+			} 
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.02
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_stab = 0.01
+				tooltip = stability_factor_tt
+			}
+		}
 	 }
 	 #Cut Welfare Programs
 	 focus = {
@@ -5686,13 +5727,23 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_cut_welfare_programs
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_political_power = 150
+			add_to_variable = {
+				HUN_food_stab_var = 5
+				tooltip = HUN_food_var_plus_5.tt
+			}
+			add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 100
+			}
+		}
 	 }
 	 #Gather Metallic Resources
 	 focus = {
 		id = HUN_organize_metal_production
 		icon = GFX_focus_generic_steel
-		cost = 5
+		cost = 2
 		relative_position_id = HUN_purchase_mass_grain_and_flour
 		x = -1
 		y = 1
@@ -5709,7 +5760,20 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_purchase_mass_grain_and_flour
 		}
-		completion_reward = { }
+		completion_reward = { 
+			every_owned_state = {
+				limit = {
+					has_resources_amount = {
+						resource = steel
+						amount > 2
+					}
+				}
+				add_resource = {
+					type = steel
+					amount = 2
+				}
+			}
+		}
 	 }
 	 #Decree Against Usury
 	 focus = {
