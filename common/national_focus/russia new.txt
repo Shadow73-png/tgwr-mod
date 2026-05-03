@@ -3402,19 +3402,27 @@ focus_tree = {
 		relative_position_id = RUS_meet_with_duma_members
 		available_if_capitulated = yes
 		completion_reward = {
-			hidden_effect = {
-				every_character = {
-					limit = {
+			if = {
+				limit = {
+					any_character = {
 						is_minister_of_internal_affairs = yes
+						is_reformist = no
 					}
-					RUS_remove_from_the_cabinet = yes
 				}
-				RUS_nikolai_shcherbatov = {
-					RUS_appoint_interior_minister = yes
+				hidden_effect = {
+					every_character = {
+						limit = {
+							is_minister_of_internal_affairs = yes
+						}
+						RUS_remove_from_the_cabinet = yes
+					}
+					RUS_nikolai_shcherbatov = {
+						RUS_appoint_interior_minister = yes
+					}
 				}
+				custom_effect_tooltip = appointed_as_interior_minister_tt
+				show_ideas_tooltip = RUS_nikolai_shcherbatov
 			}
-			custom_effect_tooltip = appointed_as_interior_minister_tt
-			show_ideas_tooltip = RUS_nikolai_shcherbatov
 		}
 		ai_will_do = {
 			factor = 3
