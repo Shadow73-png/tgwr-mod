@@ -21,7 +21,7 @@ focus_tree = {
 		id = MGS_new_sheriff_in_town
 		icon = GFX_focus_AUH_parliament
 		cost = 0
-		x = 0
+		x = 1
 		y = 0
 		available = {
 			
@@ -45,6 +45,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MGS_building_a_civilian_administration
+		#a BOP decision to appoint conservative serbians giving legitimiacy to the government and pushing the bop towards civilian rule. Austria proper will be able to restrict this decision being taken through a decision of their own
 		icon = GFX_focus_AUH_parliament
 		cost = 0
 		x = 1
@@ -72,4 +73,230 @@ focus_tree = {
 		}
 		
 	}
+		focus = {
+		id = MGS_centralwoltatigkeits_komitee
+		#a BOP decision to appoint conservative serbians giving legitimiacy to the government and pushing the bop towards civilian rule. Austria proper will be able to restrict this decision being taken through a decision of their own
+		icon = GFX_focus_AUH_parliament
+		cost = 5
+		x = 3
+		y = 1
+		prerequisite = {
+			focus = MGS_new_sheriff_in_town
+		}
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_yugoslav_civil_servants
+		icon = GFX_focus_AUH_parliament
+		cost = 5
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = MGS_building_a_civilian_administration
+		}
+		prerequisite = {
+			focus = MGS_centralwoltatigkeits_komitee
+		}
+		prerequisite = {
+			focus = MGS_reopening_the_schools
+		}
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_a_more_permanent_governance
+		icon = GFX_focus_AUH_parliament
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = MGS_yugoslav_civil_servants
+			mutually_exclusive = {
+			focus = MGS_civilian_commissioner
+		}
+		prerequisite = {
+			focus = MGS_yugoslav_civil_servants
+		}
+		
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+		focus = {
+		id = MGS_closer_ties_to_the_empire
+		icon = GFX_focus_AUH_parliament
+		cost = 5
+		x = -1
+		y = 2
+		relative_position_id = MGS_yugoslav_civil_servants
+		prerequisite = {
+			focus = MGS_a_more_permanent_governance
+		}
+		
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_civilian_commissioner
+		icon = GFX_focus_AUH_parliament
+		mutually_exclusive = {
+			focus = MGS_a_more_permanent_governance
+		}
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = MGS_yugoslav_civil_servants
+		prerequisite = {
+			focus = MGS_yugoslav_civil_servants
+		}
+		
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+		focus = {
+		id = MGS_seperate_governance_from_military
+		icon = GFX_focus_AUH_parliament
+		cost = 5
+		x = 1
+		y = 2
+		relative_position_id = MGS_yugoslav_civil_servants
+		prerequisite = {
+			focus = MGS_civilian_commissioner
+		}
+		
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_reopening_the_schools
+		icon = GFX_focus_AUH_parliament
+		cost = 5
+		#read the school section of the main source
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = MGS_new_sheriff_in_town
+		}
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+		
 }
