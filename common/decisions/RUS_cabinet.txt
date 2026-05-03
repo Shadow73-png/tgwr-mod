@@ -159,11 +159,20 @@ RUS_parliament_gui_decision_category = {
 		timeout_effect = {
 			country_event = ww1_kokovtsov.20
 		}
+		cancel_trigger = {
+			hidden_trigger = {
+				has_revolution = yes
+			}
+		}
 	}
 	RUS_liberals_leave_the_coalition_mission = {
 		icon = GFX_decision_generic_political_discourse
 		allowed = { original_tag = RUS }
 		activation = {
+			has_revolution = no
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
 			has_country_flag = RUS_coalition_with_liberals
 			OR = {
 				AND = {
@@ -201,11 +210,20 @@ RUS_parliament_gui_decision_category = {
 			set_temp_variable = { RUS_modify_loyalty_center_left_var = -60 }
 			RUS_modify_loyalty_center_left = yes
 		}
+		cancel_trigger = {
+			hidden_trigger = {
+				has_revolution = yes
+			}
+		}
 	}
 	RUS_centrists_leave_the_coalition_mission = {
 		icon = GFX_decision_generic_political_discourse
 		allowed = { original_tag = RUS }
 		activation = {
+			has_revolution = no
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
 			has_country_flag = RUS_coalition_with_centrists
 			OR = {
 				has_country_flag = RUS_liberals_left_the_coalition
@@ -239,11 +257,20 @@ RUS_parliament_gui_decision_category = {
 			}
 			RUS_recalculate_sway = yes
 		}
+		cancel_trigger = {
+			hidden_trigger = {
+				has_revolution = yes
+			}
+		}
 	}
 	RUS_rightists_leave_the_coalition_mission = {
 		icon = GFX_decision_generic_political_discourse
 		allowed = { original_tag = RUS }
 		activation = {
+			has_revolution = no
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
 			has_country_flag = RUS_coalition_with_rightists
 			check_variable = {
 				far_right_loyalty < 40
@@ -272,11 +299,17 @@ RUS_parliament_gui_decision_category = {
 			set_temp_variable = { RUS_modify_loyalty_far_right_var = -50 }
 			RUS_modify_loyalty_far_right = yes
 		}
+		cancel_trigger = {
+			hidden_trigger = {
+				has_revolution = yes
+			}
+		}
 	}
 	RUS_markov_denounces_the_wine_monopoly = {
 		icon = GFX_decision_generic_political_discourse
 		allowed = { original_tag = RUS }
 		activation = {
+			has_revolution = no
 			RUS_vladimir_kokovtsov = {
 				is_prime_minister = yes
 			}
@@ -305,6 +338,11 @@ RUS_parliament_gui_decision_category = {
 			}
 			RUS_modify_loyalty_far_right = yes
 		}
+		cancel_trigger = {
+			hidden_trigger = {
+				has_revolution = yes
+			}
+		}
 	}
 	#Sway the election
 	RUS_socialist_crackdown = {
@@ -316,6 +354,7 @@ RUS_parliament_gui_decision_category = {
 
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_electoral_strategy
 			has_country_flag = RUS_election_interference
 			RUS_vladimir_kokovtsov = {
@@ -346,6 +385,7 @@ RUS_parliament_gui_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				OR = {
+					has_revolution = yes
 					RUS_vladimir_kokovtsov = {
 						is_prime_minister = no
 					}
@@ -363,6 +403,7 @@ RUS_parliament_gui_decision_category = {
 
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_electoral_strategy
 			has_country_flag = RUS_election_interference
 			RUS_vladimir_kokovtsov = {
@@ -393,6 +434,7 @@ RUS_parliament_gui_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				OR = {
+					has_revolution = yes
 					RUS_vladimir_kokovtsov = {
 						is_prime_minister = no
 					}
@@ -410,6 +452,7 @@ RUS_parliament_gui_decision_category = {
 
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_electoral_strategy
 			has_country_flag = RUS_election_interference
 			RUS_vladimir_kokovtsov = {
@@ -440,6 +483,7 @@ RUS_parliament_gui_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				OR = {
+					has_revolution = yes
 					RUS_vladimir_kokovtsov = {
 						is_prime_minister = no
 					}
@@ -458,6 +502,7 @@ RUS_parliament_gui_decision_category = {
 
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_censor_liberal_press
 			RUS_vladimir_kokovtsov = {
 				is_prime_minister = yes
@@ -483,8 +528,13 @@ RUS_parliament_gui_decision_category = {
 		days_remove = 90
 		days_re_enable = 30
 		cancel_trigger = {
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = no
+			hidden_trigger = {
+				OR = {
+					has_revolution = yes
+				}
+				RUS_vladimir_kokovtsov = {
+					is_prime_minister = no
+				}
 			}
 		}
 	}

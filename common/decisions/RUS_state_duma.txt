@@ -99,12 +99,18 @@ RUS_parliament_gui_decision_category = {
 		allowed = {
 			original_tag = RUS
 		}
+		available = {
+			duma_is_active = yes
+		}
 		visible = {
 			
 			duma_exists = yes
-			NOT = {
-				has_government = fascism
-				has_government = neutrality
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_socialist = yes
+					is_liberal = yes
+				}
 			}
 		}
 		remove_effect = {
@@ -115,14 +121,22 @@ RUS_parliament_gui_decision_category = {
 		days_remove = 30
 		days_re_enable = 60
 		modifier = {
-			political_power_cost = 0.1
-			consumer_goods_factor = 0.1
+			political_power_cost = 0.2
 		}
 		cost = 25
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					any_character = {
+						is_prime_minister = yes
+						OR = {
+							is_centrist = yes
+							is_rightist = yes
+						}
+					}
+				}
 			}
 		}
 	}
@@ -132,12 +146,20 @@ RUS_parliament_gui_decision_category = {
 		allowed = {
 			original_tag = RUS
 		}
+		available = {
+			duma_is_active = yes
+		}
 		visible = {
 			
 			duma_exists = yes
 			
-			NOT = {
-				has_government = fascism
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_socialist = yes
+					is_liberal = yes
+					is_centrist = yes
+				}
 			}
 		}
 		remove_effect = {
@@ -148,15 +170,21 @@ RUS_parliament_gui_decision_category = {
 		days_remove = 30
 		days_re_enable = 60
 		modifier = {
-			political_power_cost = 0.1
-			consumer_goods_factor = 0.1
+			political_power_cost = 0.2
 		}
 		cost = 25
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					any_character = {
+						is_prime_minister = yes
+						OR = {
+							is_rightist = yes
+						}
+					}
+				}
 			}
 		}
 	}
@@ -166,12 +194,20 @@ RUS_parliament_gui_decision_category = {
 		allowed = {
 			original_tag = RUS
 		}
+		available = {
+			duma_is_active = yes
+		}
 		visible = {
 			
 			duma_exists = yes
 			
-			NOT = {
-				has_government = communism
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_liberal = yes
+					is_centrist = yes
+					is_rightist = yes
+				}
 			}
 		}
 		remove_effect = {
@@ -182,15 +218,21 @@ RUS_parliament_gui_decision_category = {
 		days_remove = 30
 		days_re_enable = 60
 		modifier = {
-			political_power_cost = 0.1
-			consumer_goods_factor = 0.1
+			political_power_cost = 0.2
 		}
 		cost = 25
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					any_character = {
+						is_prime_minister = yes
+						OR = {
+							is_socialist = yes
+						}
+					}
+				}
 			}
 		}
 	}
@@ -200,13 +242,19 @@ RUS_parliament_gui_decision_category = {
 		allowed = {
 			original_tag = RUS
 		}
+		available = {
+			duma_is_active = yes
+		}
 		visible = {
 			
 			duma_exists = yes
 			
-			NOT = {
-				has_government = communism
-				has_government = democratic
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_centrist = yes
+					is_rightist = yes
+				}
 			}
 		}
 		remove_effect = {
@@ -217,15 +265,22 @@ RUS_parliament_gui_decision_category = {
 		days_remove = 30
 		days_re_enable = 60
 		modifier = {
-			political_power_cost = 0.1
-			consumer_goods_factor = 0.1
+			political_power_cost = 0.2
 		}
 		cost = 25
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					any_character = {
+						is_prime_minister = yes
+						OR = {
+							is_socialist = yes
+							is_liberal = yes
+						}
+					}
+				}
 			}
 		}
 	}

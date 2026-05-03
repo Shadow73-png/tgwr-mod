@@ -15,6 +15,7 @@ RUS_reforms_decision_category = {
 				}
 			}
 			has_agrarian_question = yes
+			has_revolution = no
 		}
 		remove_effect = {
 			set_temp_variable = { RUS_add_agrarian_reform_progress_var = 1 }
@@ -76,6 +77,7 @@ RUS_reforms_decision_category = {
 				}
 			}
 			has_illiteracy = yes
+			has_revolution = no
 		}
 		remove_effect = {
 			set_temp_variable = { RUS_add_education_reform_progress_var = 1 }
@@ -128,6 +130,7 @@ RUS_reforms_decision_category = {
 				}
 				has_idea = RUS_complete_police_reform
 			}
+			has_revolution = no
 		}
 		remove_effect = {
 			set_temp_variable = { RUS_add_police_reform_progress_var = 7 }
@@ -157,12 +160,10 @@ RUS_reforms_decision_category = {
 			}
 		}
 		visible = {
+			duma_exists = no
+			has_revolution = no
 			has_completed_focus = RUS_complete_police_reform
-			check_variable = { 
-				RUS_police_reform_progress > 99.9
-			}
 			NOT = {
-				has_government = communism
 				has_idea = RUS_complete_police_reform
 				has_country_flag = RUS_law_on_reformation_of_police_passed_in_sc
 			}
@@ -181,11 +182,15 @@ RUS_reforms_decision_category = {
 			
 		}
 		visible = {
-			has_country_flag = RUS_law_on_workers_insurance_passed_in_sc
 			has_labour_question = yes
-			NOT = {
-				has_idea = RUS_controlled_unions
+			duma_exists = yes
+			
+			any_character = {
+				is_prime_minister = yes
+				is_reactionary = no
 			}
+			has_country_flag = RUS_law_on_workers_insurance_passed_in_sc
+			has_completed_focus = RUS_worker_insurance_reform
 		}
 		remove_effect = {
 			set_temp_variable = { RUS_add_labour_reform_progress_var = 20 }
@@ -198,7 +203,19 @@ RUS_reforms_decision_category = {
 			consumer_goods_factor = 0.2
 		}
 		cost = 50
-		fire_only_once = yes
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					has_labour_question = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reactionary = yes
+					}
+				}
+			}
+		}
 	}
 	RUS_expansion_of_insurance_funds = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -207,12 +224,15 @@ RUS_reforms_decision_category = {
 			
 		}
 		visible = {
-			has_country_flag = RUS_insurance_funds_created
-			has_country_flag = RUS_law_on_expanded_insurance_passed_in_sc
 			has_labour_question = yes
-			NOT = {
-				has_idea = RUS_controlled_unions
+			duma_exists = yes
+			
+			any_character = {
+				is_prime_minister = yes
+				is_reformist = yes
 			}
+			has_country_flag = RUS_law_on_expanded_insurance_passed_in_sc
+			has_completed_focus = RUS_expanded_insurance
 		}
 		remove_effect = {
 			set_temp_variable = { RUS_add_labour_reform_progress_var = 20 }
@@ -225,7 +245,19 @@ RUS_reforms_decision_category = {
 			consumer_goods_factor = 0.2
 		}
 		cost = 50
-		fire_only_once = yes
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					has_labour_question = no
+					duma_exists = no
+					
+					any_character = {
+						is_prime_minister = yes
+						is_reformist = no
+					}
+				}
+			}
+		}
 	}
 	#EDICTS
 	RUS_edict_on_grand_fleet_programme = {
@@ -235,7 +267,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			duma_exists = no
-			
+			has_revolution = no
 			RUS_vladimir_sukhomlinov = {
 				is_part_of_the_cabinet = yes
 			}
@@ -261,7 +293,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			duma_exists = no
-			
+			has_revolution = no
 			RUS_vladimir_sukhomlinov = {
 				is_part_of_the_cabinet = yes
 			}
@@ -287,7 +319,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			duma_exists = no
-			
+			has_revolution = no
 			RUS_vladimir_sukhomlinov = {
 				is_part_of_the_cabinet = yes
 			}
@@ -316,7 +348,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			duma_exists = no
-			
+			has_revolution = no
 			RUS_vladimir_sukhomlinov = {
 				is_part_of_the_cabinet = yes
 			}
@@ -349,7 +381,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			duma_exists = no
-			
+			has_revolution = no
 			FIN = {
 				is_subject_of = ROOT
 				NOT = {
@@ -389,7 +421,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			duma_exists = no
-			
+			has_revolution = no
 			FIN = {
 				is_subject_of = ROOT
 				NOT = {
@@ -429,7 +461,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			duma_exists = no
-			
+			has_revolution = no
 			FIN = {
 				is_subject_of = ROOT
 				NOT = {
@@ -469,7 +501,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			duma_exists = no
-			
+			has_revolution = no
 			FIN = {
 				is_subject_of = ROOT
 				NOT = {
@@ -514,6 +546,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			has_monopolies = yes
+			has_revolution = no
 			has_country_flag = RUS_law_on_syndicates_passed_in_sc
 		}
 		complete_effect = {
@@ -534,8 +567,9 @@ RUS_reforms_decision_category = {
 		fire_only_once = yes
 		cancel_trigger = {
 			hidden_trigger = {
-				NOT = {
-					has_monopolies = yes
+				OR = {
+					has_monopolies = no
+					has_revolution = yes
 				}
 			}
 		}
@@ -553,6 +587,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			has_monopolies = yes
+			has_revolution = no
 			has_country_flag = RUS_law_on_syndicates_passed_in_sc
 		}
 		complete_effect = {
@@ -572,8 +607,9 @@ RUS_reforms_decision_category = {
 		fire_only_once = yes
 		cancel_trigger = {
 			hidden_trigger = {
-				NOT = {
-					has_monopolies = yes
+				OR = {
+					has_monopolies = no
+					has_revolution = yes
 				}
 			}
 		}
@@ -591,6 +627,7 @@ RUS_reforms_decision_category = {
 		}
 		visible = {
 			has_monopolies = yes
+			has_revolution = no
 			has_country_flag = RUS_law_on_syndicates_passed_in_sc
 		}
 		complete_effect = {
@@ -611,8 +648,9 @@ RUS_reforms_decision_category = {
 		fire_only_once = yes
 		cancel_trigger = {
 			hidden_trigger = {
-				NOT = {
-					has_monopolies = yes
+				OR = {
+					has_monopolies = no
+					has_revolution = yes
 				}
 			}
 		}
@@ -638,6 +676,13 @@ RUS_reforms_decision_category = {
 			consumer_goods_factor = 0.2
 		}
 		cost = 25
+		cancel_trigger = {
+			hidden_trigger = {
+				NOT = {
+					has_idea = RUS_famine
+				}
+			}
+		}
 	}
 	#SETTLEMENT IN SIBERIA
 	RUS_settlement_in_FROM = {
@@ -651,24 +696,22 @@ RUS_reforms_decision_category = {
 			FROM = {
 				is_owned_and_controlled_by = ROOT
 				OR = {
+					region = 136
 					region = 147
 					region = 148
 					region = 149
 					region = 151
 				}
+				is_core_of = ROOT
 				NOT = {
+					has_state_category = enclave
 					has_state_category = wasteland
-					has_state_category = large_town
-					has_state_flag = RUS_finished_state_settlement
 				}
 			}
 		}
 		on_map_mode = map_only
-		days_remove = 120
+		days_remove = 180
 		available = {
-			FROM = {
-				is_owned_and_controlled_by = ROOT
-			}
 			NOT = {
 				has_country_flag = RUS_currently_settling_a_state
 			}
@@ -678,13 +721,16 @@ RUS_reforms_decision_category = {
 		}
 		modifier = {
 			consumer_goods_factor = 0.15
-			civilian_factory_use = 1
-			monthly_population = -0.05
+			civilian_factory_use = 2
+			monthly_population = -0.02
 		}
 		cancel_trigger = {
-			NOT = {
-				FROM = {
-					is_owned_and_controlled_by = ROOT
+			hidden_trigger = {
+				NOT = {
+					FROM = {
+						is_owned_and_controlled_by = ROOT
+					}
+					has_revolution = no
 				}
 			}
 		}
@@ -695,7 +741,11 @@ RUS_reforms_decision_category = {
 			set_country_flag = RUS_currently_settling_a_state
 		}
 		remove_effect = {
-			RUS_settle_state = yes
+			FROM = {
+				add_manpower = 50000
+			}
+			set_temp_variable = { RUS_add_agrarian_reform_progress_var = 1 }
+			RUS_add_agrarian_reform_progress = yes
 			clr_country_flag = RUS_currently_settling_a_state
 		}
 	}
@@ -723,26 +773,27 @@ RUS_reforms_decision_category = {
 		on_map_mode = map_only
 		days_remove = 120
 		available = {
-			FROM = {
-				is_owned_and_controlled_by = ROOT
+			NOT = {
+				has_country_flag = RUS_currently_exporpriating_land_in_a_state
 			}
 		}
 		visible = {
 			has_completed_focus = RUS_settle_turkestan
+			has_revolution = no
 		}
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.05
 			civilian_factory_use = 1
-			monthly_population = -0.01
+			monthly_population = -0.005
 		}
 		cancel_trigger = {
-			NOT = {
-				FROM = {
-					is_owned_and_controlled_by = ROOT
+			hidden_trigger = {
+				NOT = {
+					FROM = {
+						is_owned_and_controlled_by = ROOT
+					}
+					has_revolution = no
 				}
-			}
-			NOT = {
-				has_country_flag = RUS_currently_exporpriating_land_in_a_state
 			}
 		}
 		cancel_effect = {
@@ -754,10 +805,9 @@ RUS_reforms_decision_category = {
 		remove_effect = {
 			FROM = {
 				add_manpower = 10000
-				add_extra_state_shared_building_slots = 1
-				set_temp_variable = { RUS_add_agrarian_reform_progress_var = 0.5 }
-				RUS_add_agrarian_reform_progress = yes
 			}
+			set_temp_variable = { RUS_add_agrarian_reform_progress_var = 1 }
+			RUS_add_agrarian_reform_progress = yes
 		}
 	}
 	#RAILWAYS
@@ -783,6 +833,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_railroad_expansion
 			926 = {
 				any_province_building_level = {
@@ -811,6 +862,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_state = 926
 					controls_state = 216
 					926 = {
@@ -889,6 +941,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_railroad_expansion
 			216 = {
 				any_province_building_level = {
@@ -947,6 +1000,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_state = 216
 					controls_state = 215
 					controls_state = 213
@@ -1058,6 +1112,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_railroad_expansion
 			233 = {
 				any_province_building_level = {
@@ -1098,6 +1153,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_state = 940
 					controls_state = 233
 					controls_state = 231
@@ -1176,6 +1232,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_railroad_expansion
 			403 = {
 				any_province_building_level = {
@@ -1197,6 +1254,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_state = 403
 					controls_state = 571
 					403 = {
@@ -1258,6 +1316,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_railroad_expansion
 			578 = {
 				any_province_building_level = {
@@ -1297,6 +1356,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_state = 578
 					controls_state = 40
 					controls_state = 588
@@ -1384,6 +1444,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_railroad_expansion
 			589 = {
 				any_province_building_level = {
@@ -1422,6 +1483,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_state = 585
 					controls_state = 589
 					controls_state = 1219
@@ -1506,6 +1568,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_railroad_expansion
 			588 = {
 				any_province_building_level = {
@@ -1552,6 +1615,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_state = 588
 					controls_state = 589
 					588 = {
@@ -1647,6 +1711,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_railroad_expansion
 			563 = {
 				any_province_building_level = {
@@ -1694,6 +1759,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_state = 563
 					controls_state = 561
 					controls_state = 967
@@ -1791,6 +1857,11 @@ RUS_reforms_decision_category = {
 		on_map_mode = map_and_decisions_view 
 		days_remove = 365
 		visible = {
+			has_revolution = no
+			any_character = {
+				is_minister_of_finance = yes
+				is_reformist = yes
+			}
 			226 = {
 				is_owned_and_controlled_by = ROOT
 			}
@@ -1807,9 +1878,16 @@ RUS_reforms_decision_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				226 = {
-					NOT = {
-						is_owned_and_controlled_by = ROOT
+				OR = {
+					has_revolution = yes
+					any_character = {
+						is_minister_of_finance = yes
+						is_reformist = no
+					}
+					226 = {
+						NOT = {
+							is_owned_and_controlled_by = ROOT
+						}
 					}
 				}
 			}
@@ -1852,6 +1930,11 @@ RUS_reforms_decision_category = {
 		on_map_mode = map_and_decisions_view 
 		days_remove = 180
 		visible = {
+			has_revolution = no
+			any_character = {
+				is_minister_of_finance = yes
+				is_reformist = yes
+			}
 			926 = {
 				is_owned_and_controlled_by = ROOT
 			}
@@ -1868,9 +1951,18 @@ RUS_reforms_decision_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				926 = {
-					NOT = {
-						is_owned_and_controlled_by = ROOT
+				hidden_trigger = {
+					OR = {
+						has_revolution = yes
+						any_character = {
+							is_minister_of_finance = yes
+							is_reformist = no
+						}
+						926 = {
+							NOT = {
+								is_owned_and_controlled_by = ROOT
+							}
+						}
 					}
 				}
 			}
@@ -1910,6 +2002,7 @@ RUS_reforms_decision_category = {
 		}
 		on_map_mode = map_only
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_reinforce_western_fortresses
 			10 = {
 				is_owned_and_controlled_by = RUS
@@ -1928,6 +2021,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_province = 3544
 					owns_state = 10
 				}
@@ -1962,6 +2056,7 @@ RUS_reforms_decision_category = {
 		}
 		on_map_mode = map_only
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_reinforce_western_fortresses
 			10 = {
 				is_owned_and_controlled_by = RUS
@@ -1980,6 +2075,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_province = 3458
 					owns_state = 1201
 				}
@@ -2012,6 +2108,7 @@ RUS_reforms_decision_category = {
 		}
 		on_map_mode = map_only
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_reinforce_western_fortresses
 			189 = {
 				is_owned_and_controlled_by = RUS
@@ -2030,6 +2127,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_province = 6296
 					owns_state = 189
 				}
@@ -2062,6 +2160,7 @@ RUS_reforms_decision_category = {
 		}
 		on_map_mode = map_only
 		visible = {
+			has_revolution = no
 			has_completed_focus = RUS_reinforce_western_fortresses
 			808 = {
 				is_owned_and_controlled_by = RUS
@@ -2080,6 +2179,7 @@ RUS_reforms_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
+					has_revolution = yes
 					controls_province = 3392
 					owns_state = 808
 				}
@@ -2099,13 +2199,13 @@ RUS_reforms_decision_category = {
 		}
 	}
 	#SUPPRESS STRIKES
-	#Suppress strikes
 	RUS_suppress_strikes = {
 		icon = GFX_decision_oppression
 		allowed = {
 			original_tag = RUS
 		}
 		visible = {
+			has_revolution = no
 			has_labour_question = yes
 			has_completed_focus = RUS_crack_down_on_strikes
 			RUS_vladimir_kokovtsov = {
@@ -2127,6 +2227,7 @@ RUS_reforms_decision_category = {
 			original_tag = RUS
 		}
 		visible = {
+			has_revolution = no
 			has_labour_question = yes
 			has_completed_focus = RUS_crack_down_on_strikes
 			RUS_vladimir_kokovtsov = {

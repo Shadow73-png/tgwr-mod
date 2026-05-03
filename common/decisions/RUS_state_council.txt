@@ -83,11 +83,7 @@ RUS_state_council_gui_decision_category = {
 			}
 		}
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-			}
+			duma_exists = no
 		}
 		fire_only_once = no
 		is_good = no
@@ -117,9 +113,10 @@ RUS_state_council_gui_decision_category = {
 				has_decision = RUS_shift_left
 				has_country_flag = RUS_vote_in_state_council 
 			}
+			
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
 		}
@@ -210,13 +207,10 @@ RUS_state_council_gui_decision_category = {
 		days_re_enable = 60
 		cost = 50
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
 				}
 			}
 		}
@@ -240,9 +234,10 @@ RUS_state_council_gui_decision_category = {
 				has_country_flag = RUS_vote_in_state_council 
 			}
 			NOT = { check_variable = { state_council_dominant_faction < 1 } }
+	
+			duma_is_active = yes
 		}
 		visible = {
-			duma_is_active = yes
 			duma_exists = yes
 			
 		}
@@ -333,13 +328,10 @@ RUS_state_council_gui_decision_category = {
 		days_re_enable = 60
 		cost = 50
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				
-				any_character = {
-					is_prime_minister = yes
-					is_reactionary = yes
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
 				}
 			}
 		}
@@ -349,7 +341,6 @@ RUS_state_council_gui_decision_category = {
 		allowed = { original_tag = RUS }
 		visible = {
 			has_country_flag = RUS_vote_in_state_council
-			original_tag = RUS
 			duma_is_active = yes
 			duma_exists = yes
 			
@@ -358,9 +349,12 @@ RUS_state_council_gui_decision_category = {
 				check_variable = { socialists_loyalty = 2.5 }
 				check_variable = { socialists_loyalty > 2.5 }
 			}
-			NOT = {
-				has_government = fascism
-				has_government = neutrality
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_socialist = yes
+					is_liberal = yes
+				}
 			}
 		}
 		complete_effect = {
@@ -368,10 +362,9 @@ RUS_state_council_gui_decision_category = {
 			RUS_add_law_acceptance = yes
 			set_temp_variable = { RUS_modify_loyalty_socialists_var = -2.5 }
 			RUS_modify_loyalty_socialists = yes
-			custom_effect_tooltip = back_in_30_days
 			#RUS_update_state_council_gui = yes
 		}
-		days_re_enable = 30
+		days_remove = 30
 		cost = 20
 	}
 	RUS_discussion_center_left = {
@@ -388,8 +381,13 @@ RUS_state_council_gui_decision_category = {
 				check_variable = { center_left_loyalty = 2.5 }
 				check_variable = { center_left_loyalty > 2.5 }
 			}
-			NOT = {
-				has_government = fascism
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_socialist = yes
+					is_liberal = yes
+					is_centrist = yes
+				}
 			}
 		}
 		complete_effect = {
@@ -397,10 +395,9 @@ RUS_state_council_gui_decision_category = {
 			RUS_add_law_acceptance = yes
 			set_temp_variable = { RUS_modify_loyalty_center_left_var = -2.5 }
 			RUS_modify_loyalty_center_left = yes
-			custom_effect_tooltip = back_in_30_days
 			#RUS_update_state_council_gui = yes
 		}
-		days_re_enable = 30
+		days_remove = 30
 		cost = 20
 	}
 	RUS_discussion_right = {
@@ -417,8 +414,13 @@ RUS_state_council_gui_decision_category = {
 				check_variable = { center_right_loyalty = 2.5 }
 				check_variable = { center_right_loyalty > 2.5 }
 			}
-			NOT = {
-				has_government = communism
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_liberal = yes
+					is_centrist = yes
+					is_rightist = yes
+				}
 			}
 		}
 		complete_effect = {
@@ -426,10 +428,9 @@ RUS_state_council_gui_decision_category = {
 			RUS_add_law_acceptance = yes
 			set_temp_variable = { RUS_modify_loyalty_center_right_var = -2.5 }
 			RUS_modify_loyalty_center_right = yes
-			custom_effect_tooltip = back_in_30_days
 			#RUS_update_state_council_gui = yes
 		}
-		days_re_enable = 30
+		days_remove = 30
 		cost = 20
 	}
 	RUS_discussion_far_right = {
@@ -446,9 +447,12 @@ RUS_state_council_gui_decision_category = {
 				check_variable = { far_right_loyalty = 2.5 }
 				check_variable = { far_right_loyalty > 2.5 }
 			}
-			NOT = {
-				has_government = communism
-				has_government = democratic
+			any_character = {
+				is_prime_minister = yes
+				OR = {
+					is_centrist = yes
+					is_rightist = yes
+				}
 			}
 		}
 		complete_effect = {
@@ -456,10 +460,9 @@ RUS_state_council_gui_decision_category = {
 			RUS_add_law_acceptance = yes
 			set_temp_variable = { RUS_modify_loyalty_far_right_var = -2.5 }
 			RUS_modify_loyalty_far_right = yes
-			custom_effect_tooltip = back_in_30_days
 			#RUS_update_state_council_gui = yes
 		}
-		days_re_enable = 30
+		days_remove = 30
 		cost = 20
 	}
 	RUS_prolong_vote = {
@@ -475,9 +478,8 @@ RUS_state_council_gui_decision_category = {
 		}
 		complete_effect = {
 			RUS_prolong_the_vote = yes
-			custom_effect_tooltip = back_in_30_days
 		}
-		days_re_enable = 30
+		days_remove = 30
 		cost = 50
 	}
 	#Russification of Finland Laws
