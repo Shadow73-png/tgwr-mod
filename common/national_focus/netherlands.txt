@@ -8169,11 +8169,14 @@ focus = {
 	id = HOL_recover_from_insurgency
 	icon = GFX_focus_GER_liberate_exploited_colonial_workers
 	available = {
-		
+		has_country_flag = HOL_coup_snijders_revolution
 	}
 	available_if_capitulated = yes
 	prerequisite = {
 		focus = HOL_the_military_government
+	}
+	mutually_exclusive = {
+		focus = HOL_cooperate_with_germany
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
@@ -8201,7 +8204,10 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = HOL_recovery
+			days = 180
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -8225,7 +8231,9 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		add_ideas = HOL_wilhelmina
+		add_political_power = 25
+		add_stability = 0.05
 	}
 	ai_will_do = {
 	factor = 500
@@ -8249,7 +8257,14 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		add_popularity = {
+			ideology = communism
+			popularity = -0.15
+		}
+		add_timed_idea = {
+			idea = HOL_leftist_witchhunt
+			days = 180
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -8276,7 +8291,7 @@ focus = {
 		focus = HOL_pursue_absolute_power
 	}
 	completion_reward = {
-		
+		add_stability = 0.1
 	}
 	ai_will_do = {
 	factor = 500
@@ -8303,7 +8318,13 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		add_political_power = 150
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+			long_name = HOL_fascism2_long
+			name = HOL_fascism2
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -8319,13 +8340,16 @@ focus = {
 	id = HOL_cooperate_with_germany
 	icon = GFX_focus_GER_liberate_exploited_colonial_workers
 	available = {
-		
+		has_country_flag = HOL_coup_snijders_ww1
 	}
 	available_if_capitulated = yes
 	prerequisite = {
 		focus = HOL_the_military_government
 	}
 	relative_position_id = HOL_the_military_government
+	mutually_exclusive = {
+		focus = HOL_recover_from_insurgency
+	}
 	completion_reward = {
 		
 	}
