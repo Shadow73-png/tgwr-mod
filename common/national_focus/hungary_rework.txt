@@ -5415,17 +5415,29 @@ focus_tree = {
 		}
 		available = {
 			has_war_with_major = yes
+			has_dynamic_modifier = HUN_treuga_dei_modifier
 		}
 		prerequisite = {
 			focus = HUN_secure_the_state
 		}
-		completion_reward = { }
+		bypass_if_unavailable = yes
+		completion_reward = { 
+			custom_effect_tooltip = HUN_modify_truega_tt
+			set_variable = {
+				HUN_treuga_dei_neu_drift = 0.02
+				tooltip = neutrality_drift_tt
+			}
+			set_variable = {
+				HUN_treuga_dei_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+		}
 	 }
 	 #Enlist Civillian Doctors
 	 focus = {
 		id = HUN_enlist_civ_doctors
 		icon = GFX_goal_generic_improve_relations
-		cost = 2
+		cost = 1
 		relative_position_id = HUN_village_police
 		x = 1
 		y = 1
@@ -5445,7 +5457,19 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_village_police
 		}
-		completion_reward = { }
+		completion_reward = { 
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.025
+				tooltip = consumer_goods_factor_tt
+			}
+			add_tech_bonus = {
+				name = HUN_enlist_civ_doctors
+				category = hospital_tech
+				bonus = 2
+				uses = 1
+			}
+		}
 	 }
 	 #Subsidize Agriculture
 	 focus = {
@@ -5555,6 +5579,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
+			longest_war_length > 3
 			OR = {
 				has_war_with = RUS
 				has_war_with = ROM
@@ -5631,6 +5656,7 @@ focus_tree = {
 		}
 		available = {
 			has_war_with_major = yes
+			longest_war_length > 6
 		}
 		prerequisite = {
 			focus = HUN_implement_trade_restrictions
@@ -5789,7 +5815,23 @@ focus_tree = {
 			focus = HUN_limit_malt_production
 			focus = HUN_organize_metal_production
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_popularity = {
+				ideology = democracy
+				popularity = 0.05
+			}
+			add_political_power = 25
+			if = {
+				limit = { 
+					has_dynamic_modifier = HUN_treuga_dei_modifier
+				}
+				custom_effect_tooltip = HUN_modify_truega_tt
+				set_variable = {
+					HUN_treuga_dei_stab = 0.05
+					tooltip = stability_factor_tt
+				}
+			}
+		}
 	 }
 	 #Secure the East
 	 focus = {
