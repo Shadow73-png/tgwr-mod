@@ -1,464 +1,4 @@
 RUS_reforms_decision_category = {
-	RUS_mission_revolution = {
-		icon = eng_support_imperialist_coup
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			OR = {
-				AND = {
-					NOT = {
-						has_agrarian_question = yes
-					}
-					NOT = {
-						has_labour_question = yes
-					}
-				}
-				if = {
-					limit = {
-						has_war_with_major = no
-					}
-					has_stability > 0.05
-				}
-			}
-		}
-		days_mission_timeout = 30
-		activation = {
-			tag = RUS
-			OR = {
-				has_agrarian_question = yes
-				has_labour_question = yes
-			}
-			NOT = {
-				has_government = communism
-			}
-			OR = {
-				AND = {
-					has_war_with_major = no
-					has_stability < 0.05
-				}
-				AND = {
-					war_length_with = { 
-						tag = GER 
-						months > 28 
-					}
-					surrender_progress > 0.04
-					casualties > 1500000
-				}
-				AND = {
-					surrender_progress > 0.2
-					casualties > 1000000
-				}	
-				surrender_progress > 0.35
-			}
-			SOV = { exists = no }
-			NOT = { has_global_flag = russian_revolution }
-		}
-		fire_only_once = no
-		is_good = no
-		timeout_effect = {
-			if = {
-				limit = {
-					has_war_with_major = no
-				}
-				RUS_petrograd_commune = yes
-			}
-			set_country_flag = RUS_revolution
-			set_global_flag = russian_revolution
-		}	
-	}
-	RUS_revolution_spreads = {
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = RUS
-		}
-		available = {
-			has_revolution = no
-		}
-		days_mission_timeout = 15
-		activation = {
-			always = no
-		}
-		fire_only_once = no
-		is_good = no
-		highlight_states = {
-			highlight_state_targets = {
-				state = 219
-				state = 223
-				state = 224
-				state = 239
-				state = 247
-				state = 248
-				state = 249
-				state = 252
-				state = 253
-				state = 397
-				state = 398
-				state = 399
-				state = 400
-				state = 653
-			}
-		}
-		timeout_effect = {
-			activate_mission = RUS_revolution_spreads
-			if = {
-				limit = {
-					219 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 50000
-						state = 219
-					}
-				}
-				219 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					219 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 7
-							allow_spawning_on_enemy_provs = yes
-						}
-						create_unit = {
-							division = "name = \"Revolutionnaya Diviziya\" division_template = \"Pekhotnaya Diviziya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 3
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					223 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 223
-					}
-				}
-				223 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					223 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					224 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 224
-					}
-				}
-				224 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					224 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					239 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 239
-					}
-				}
-				239 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					239 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					247 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 247
-					}
-				}
-				247 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					247 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					248 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 248
-					}
-				}
-				248 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					248 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					249 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 249
-					}
-				}
-				249 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					249 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					252 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 252
-					}
-				}
-				252 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					252 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					253 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 252
-					}
-				}
-				253 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					253 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					397 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 397
-					}
-				}
-				397 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					397 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					398 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 398
-					}
-				}
-				398 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					398 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					399 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 399
-					}
-				}
-				399 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					399 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					400 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 400
-					}
-				}
-				400 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					400 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					653 = {
-						is_owned_and_controlled_by = RUS
-					}
-					army_manpower_in_state = {
-						amount < 20000
-						state = 653
-					}
-				}
-				653 = {
-					custom_effect_tooltip = RUS_revolution_spreads_tt
-				}
-				hidden_effect = {
-					653 = {
-						transfer_state_to = PET
-						create_unit = {
-							division = "name = \"Brigada Narodnogo Opolcheniya\" division_template = \"Brigada Narodnogo Opolcheniya\" start_manpower_factor = 0.8"
-							owner = PET
-							count = 4
-							allow_spawning_on_enemy_provs = yes
-						}
-					}
-				}
-			}
-		}
-	}
 	RUS_agrarian_reform_decision = {
 		icon = GFX_decision_eng_trade_unions_support
 		allowed = { original_tag = RUS }
@@ -687,87 +227,24 @@ RUS_reforms_decision_category = {
 		cost = 50
 		fire_only_once = yes
 	}
-	RUS_edict_on_income_tax = {
-		icon = GFX_decision_eng_trade_unions_support
-		allowed = { original_tag = RUS }
-		available = {
-			
-		}
-		visible = {
-			has_completed_focus = RUS_income_tax
-			duma_is_active = no
-			has_revolution = no
-			any_character = {
-				is_minister_of_finance = yes
-				is_reformist = yes
-			}
-			NOT = {
-				has_government = communism
-				has_idea = RUS_income_tax
-				has_idea = RUS_progressive_tax
-				has_country_flag = RUS_law_on_introduction_of_the_income_tax_passed_in_sc
-			}
-		}
-		complete_effect = {
-			add_ideas = RUS_income_tax
-			set_country_flag = RUS_law_on_introduction_of_the_income_tax_passed_in_sc
-		}
-		cost = 50
-		fire_only_once = yes
-	}
-	RUS_edict_on_progressive_tax = {
-		icon = GFX_decision_eng_trade_unions_support
-		allowed = { original_tag = RUS }
-		available = {
-			
-		}
-		visible = {
-			has_completed_focus = RUS_progressive_taxation
-			duma_is_active = no
-			has_revolution = no
-			has_idea = RUS_income_tax
-			any_character = {
-				is_minister_of_finance = yes
-				is_reformist = yes
-			}
-			NOT = {
-				has_government = communism
-				has_idea = RUS_progressive_tax
-				has_country_flag = RUS_law_on_temporary_progressive_taxation_passed_in_sc
-			}
-		}
-		complete_effect = {
-			if = {
-				limit = {
-					has_idea = RUS_income_tax
-				}
-				swap_ideas = {
-					remove_idea = RUS_income_tax
-					add_idea = RUS_progressive_tax
-				}
-			}
-			else = {
-				add_ideas = RUS_progressive_tax
-			}
-			set_country_flag = RUS_law_on_temporary_progressive_taxation_passed_in_sc
-		}
-		cost = 50
-		fire_only_once = yes
-	}
+	#EDICTS
 	RUS_edict_on_grand_fleet_programme = {
 		icon = GFX_decision_eng_trade_unions_support
 		allowed = { original_tag = RUS }
 		available = {
 		}
 		visible = {
-			has_completed_focus = RUS_grand_fleet_programme
-			duma_is_active = no
-			has_revolution = no
-			NOT = {
-				has_government = communism
-				has_idea = RUS_idea_naval_arms_race
-				has_country_flag = RUS_grand_fleet_programme_passed_in_sc
+			duma_exists = no
+			
+			RUS_vladimir_sukhomlinov = {
+				is_part_of_the_cabinet = yes
 			}
+			NOT = {
+				has_country_flag = RUS_grand_fleet_programme_passed_in_sc
+				has_country_flag = RUS_failed_army_reforms
+				has_war_with_major = yes
+			}
+			has_completed_focus = RUS_grand_fleet_programme
 		}
 		complete_effect = {
 			add_ideas = RUS_idea_naval_arms_race
@@ -783,14 +260,17 @@ RUS_reforms_decision_category = {
 			
 		}
 		visible = {
-			has_completed_focus = RUS_new_conscription_law
-			duma_is_active = no
-			has_revolution = no
-			NOT = {
-				has_government = communism
-				has_idea = RUS_increased_conscription
-				has_country_flag = RUS_new_conscription_law_passed_in_sc
+			duma_exists = no
+			
+			RUS_vladimir_sukhomlinov = {
+				is_part_of_the_cabinet = yes
 			}
+			NOT = {
+				has_country_flag = RUS_new_conscription_law_passed_in_sc
+				has_country_flag = RUS_failed_army_reforms
+				has_war_with_major = yes
+			}
+			has_completed_focus = RUS_new_conscription_law
 		}
 		complete_effect = {
 			add_ideas = RUS_increased_conscription
@@ -806,14 +286,17 @@ RUS_reforms_decision_category = {
 			
 		}
 		visible = {
-			has_completed_focus = RUS_lesser_rearmament_programme
-			duma_is_active = no
-			has_revolution = no
-			NOT = {
-				has_government = communism
-				has_idea = RUS_lesser_rearmament_programme
-				has_country_flag = RUS_lesser_rearmament_programme_passed_in_sc	
+			duma_exists = no
+			
+			RUS_vladimir_sukhomlinov = {
+				is_part_of_the_cabinet = yes
 			}
+			NOT = {
+				has_country_flag = RUS_failed_army_reforms
+				has_country_flag = RUS_lesser_rearmament_programme_passed_in_sc
+				has_war_with_major = yes
+			}
+			has_completed_focus = RUS_lesser_rearmament_programme
 		}
 		complete_effect = {
 			add_timed_idea = {
@@ -832,52 +315,28 @@ RUS_reforms_decision_category = {
 			
 		}
 		visible = {
-			has_completed_focus = RUS_great_army_programme
-			duma_is_active = no
-			has_revolution = no
-			has_idea = RUS_lesser_rearmament_programme
-			NOT = {
-				has_government = communism
-				has_idea = RUS_great_army_programme
-				has_country_flag = RUS_great_army_programme_passed_in_sc
+			duma_exists = no
+			
+			RUS_vladimir_sukhomlinov = {
+				is_part_of_the_cabinet = yes
 			}
+			NOT = {
+				has_country_flag = RUS_failed_army_reforms
+				has_country_flag = RUS_great_army_programme_passed_in_sc
+				has_war_with_major = yes
+			}
+			has_completed_focus = RUS_great_army_programme
+			has_country_flag = RUS_lesser_rearmament_programme_passed_in_sc
 		}
 		complete_effect = {
 			add_timed_idea = {
 				idea = RUS_great_army_programme
 				days = 1080
 			}
+			hidden_effect = {
+				remove_ideas = RUS_lesser_rearmament_programme
+			}
 			set_country_flag = RUS_great_army_programme_passed_in_sc
-		}
-		cost = 50
-		fire_only_once = yes
-	}
-	RUS_edict_on_kholm_governorate = {
-		icon = GFX_decision_eng_trade_unions_support
-		allowed = { original_tag = RUS }
-		available = {
-			
-		}
-		visible = {
-			has_completed_focus = RUS_kholm_governorate
-			duma_is_active = no
-			has_revolution = no
-			766 = {
-				is_owned_by = RUS
-				has_dynamic_modifier = {
-					modifier = RUS_tsardom_of_poland	
-				}
-			}
-			NOT = {
-				has_government = communism
-				has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
-			}
-		}
-		complete_effect = {
-			766 = {
-				remove_dynamic_modifier = { modifier = RUS_tsardom_of_poland }
-			}
-			set_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
 		}
 		cost = 50
 		fire_only_once = yes
@@ -889,8 +348,14 @@ RUS_reforms_decision_category = {
 			
 		}
 		visible = {
-			duma_is_active = no
-			has_revolution = no
+			duma_exists = no
+			
+			FIN = {
+				is_subject_of = ROOT
+				NOT = {
+					has_autonomy_state = autonomy_tgwr_personal_union
+				}
+			}
 			OR = {
 				any_character = {
 					is_prime_minister = yes
@@ -900,16 +365,10 @@ RUS_reforms_decision_category = {
 					is_prime_minister = yes
 				}
 			}
-			FIN = {
-				is_subject_of = ROOT
-				NOT = {
-					has_autonomy_state = autonomy_tgwr_personal_union
-				}
-			}
 			NOT = {
-				has_government = communism
 				has_country_flag = RUS_law_on_finnish_autonomy_passed_in_sc
 			}
+			has_completed_focus = RUS_crack_down_on_finnish_autonomy
 		}
 		complete_effect = {
 			FIN = {
@@ -929,9 +388,14 @@ RUS_reforms_decision_category = {
 			
 		}
 		visible = {
-			has_completed_focus = RUS_law_of_equality_of_russians_in_finland
-			duma_is_active = no
-			has_revolution = no
+			duma_exists = no
+			
+			FIN = {
+				is_subject_of = ROOT
+				NOT = {
+					has_autonomy_state = autonomy_tgwr_personal_union
+				}
+			}
 			OR = {
 				any_character = {
 					is_prime_minister = yes
@@ -941,16 +405,10 @@ RUS_reforms_decision_category = {
 					is_prime_minister = yes
 				}
 			}
-			FIN = {
-				is_subject_of = ROOT
-				NOT = {
-					has_autonomy_state = autonomy_tgwr_personal_union
-				}
-			}
 			NOT = {
-				has_government = communism
 				has_country_flag = RUS_law_of_equality_passed_in_sc
 			}
+			has_completed_focus = RUS_law_of_equality_of_russians_in_finland
 		}
 		complete_effect = {
 			FIN = {
@@ -970,18 +428,8 @@ RUS_reforms_decision_category = {
 			
 		}
 		visible = {
-			has_completed_focus = RUS_annex_terijoki
-			duma_is_active = no
-			has_revolution = no
-			OR = {
-				any_character = {
-					is_prime_minister= yes
-					is_reformist = no
-				}
-				RUS_pyotr_stolypin = {
-					is_prime_minister = yes
-				}
-			}
+			duma_exists = no
+			
 			FIN = {
 				is_subject_of = ROOT
 				NOT = {
@@ -989,10 +437,20 @@ RUS_reforms_decision_category = {
 				}
 				owns_state = 957
 			}
+			OR = {
+				any_character = {
+					is_prime_minister = yes
+					is_reformist = no
+				}
+				RUS_pyotr_stolypin = {
+					is_prime_minister = yes
+				}
+			}
 			NOT = {
-				has_government = communism
 				has_country_flag = RUS_law_on_annexation_of_terijoki_passed_in_sc
 			}
+			has_completed_focus = RUS_annex_terijoki
+
 		}
 		complete_effect = {
 			957 = {
@@ -1010,23 +468,23 @@ RUS_reforms_decision_category = {
 			
 		}
 		visible = {
-			has_completed_focus = RUS_finish_finland_off
-			duma_is_active = no
-			has_revolution = no
-			any_character = {
-				is_prime_minister = yes
-				is_reactionary = yes
-			}
+			duma_exists = no
+			
 			FIN = {
 				is_subject_of = ROOT
 				NOT = {
 					has_autonomy_state = autonomy_tgwr_personal_union
 				}
 			}
-			NOT = {
-				has_government = communism
-				has_country_flag = RUS_law_on_abolition_of_finnish_autonomy_passed_in_sc				
+			any_character = {
+				is_prime_minister = yes
+				is_reactionary = yes
 			}
+			NOT = {
+				has_country_flag = RUS_law_on_abolition_of_finnish_autonomy_passed_in_sc
+			}
+			has_completed_focus = RUS_finish_finland_off
+
 		}
 		complete_effect = {
 			effect_tooltip = {
@@ -1045,6 +503,7 @@ RUS_reforms_decision_category = {
 		cost = 50
 		fire_only_once = yes
 	}
+	#MONOPOLIES
 	RUS_prosecute_produgol_decision = {
 		icon = GFX_decision_eng_trade_unions_demand
 		allowed = { original_tag = RUS }
@@ -1158,6 +617,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 	}
+	#FAMINE RELIEF
 	RUS_famine_relief = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = { original_tag = RUS }
@@ -1179,6 +639,7 @@ RUS_reforms_decision_category = {
 		}
 		cost = 25
 	}
+	#SETTLEMENT IN SIBERIA
 	RUS_settlement_in_FROM = {
 		icon = GFX_decision_generic_operation
 		allowed = {
@@ -1238,6 +699,7 @@ RUS_reforms_decision_category = {
 			clr_country_flag = RUS_currently_settling_a_state
 		}
 	}
+	#SETTLEMENT IN TURKESTAN
 	RUS_exporpriation_of_native_land_in_FROM = {
 		icon = GFX_decision_generic_operation
 		allowed = {
@@ -1298,6 +760,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 	}
+	#RAILWAYS
 	RUS_olonets_railway = {
 		icon = GFX_decision_generic_train
 		allowed = {
@@ -1318,7 +781,6 @@ RUS_reforms_decision_category = {
 			NOT = {
 				has_country_flag = RUS_currently_building_a_railway
 			}
-			has_country_flag = RUS_has_funding_for_railways
 		}
 		visible = {
 			has_completed_focus = RUS_railroad_expansion
@@ -1425,7 +887,6 @@ RUS_reforms_decision_category = {
 			NOT = {
 				has_country_flag = RUS_currently_building_a_railway
 			}
-			has_country_flag = RUS_has_funding_for_railways
 		}
 		visible = {
 			has_completed_focus = RUS_railroad_expansion
@@ -1595,7 +1056,6 @@ RUS_reforms_decision_category = {
 			NOT = {
 				has_country_flag = RUS_currently_building_a_railway
 			}
-			has_country_flag = RUS_has_funding_for_railways
 		}
 		visible = {
 			has_completed_focus = RUS_railroad_expansion
@@ -1714,7 +1174,6 @@ RUS_reforms_decision_category = {
 			NOT = {
 				has_country_flag = RUS_currently_building_a_railway
 			}
-			has_country_flag = RUS_has_funding_for_railways
 		}
 		visible = {
 			has_completed_focus = RUS_railroad_expansion
@@ -1797,7 +1256,6 @@ RUS_reforms_decision_category = {
 			NOT = {
 				has_country_flag = RUS_currently_building_a_railway
 			}
-			has_country_flag = RUS_has_funding_for_railways
 		}
 		visible = {
 			has_completed_focus = RUS_railroad_expansion
@@ -1924,7 +1382,6 @@ RUS_reforms_decision_category = {
 			NOT = {
 				has_country_flag = RUS_currently_building_a_railway
 			}
-			has_country_flag = RUS_has_funding_for_railways
 		}
 		visible = {
 			has_completed_focus = RUS_railroad_expansion
@@ -2047,7 +1504,6 @@ RUS_reforms_decision_category = {
 			NOT = {
 				has_country_flag = RUS_currently_building_a_railway
 			}
-			has_country_flag = RUS_has_funding_for_railways
 		}
 		visible = {
 			has_completed_focus = RUS_railroad_expansion
@@ -2189,7 +1645,6 @@ RUS_reforms_decision_category = {
 			NOT = {
 				has_country_flag = RUS_currently_building_a_railway
 			}
-			has_country_flag = RUS_has_funding_for_railways
 		}
 		visible = {
 			has_completed_focus = RUS_railroad_expansion
@@ -2317,6 +1772,7 @@ RUS_reforms_decision_category = {
 			clr_country_flag = RUS_has_funding_for_railways_sc
 		}
 	}
+	#DAMS
 	RUS_dnieper_dam_construction = {
 		icon = GFX_decision_generic_construction
 		allowed = {
@@ -2334,11 +1790,6 @@ RUS_reforms_decision_category = {
 		}
 		on_map_mode = map_and_decisions_view 
 		days_remove = 365
-		available = {
-			226 = {
-				is_owned_and_controlled_by = ROOT
-			}
-		}
 		visible = {
 			226 = {
 				is_owned_and_controlled_by = ROOT
@@ -2400,11 +1851,6 @@ RUS_reforms_decision_category = {
 		}
 		on_map_mode = map_and_decisions_view 
 		days_remove = 180
-		available = {
-			926 = {
-				is_owned_and_controlled_by = ROOT
-			}
-		}
 		visible = {
 			926 = {
 				is_owned_and_controlled_by = ROOT
@@ -2463,18 +1909,10 @@ RUS_reforms_decision_category = {
 			highlight_provinces = { 3544 }
 		}
 		on_map_mode = map_only
-		available = {
-			if = {
-				limit = {
-					duma_is_active = yes
-				}
-				has_country_flag = RUS_has_funding_for_fortresses
-			}
-			controls_province = 3544
-		}
 		visible = {
 			has_completed_focus = RUS_reinforce_western_fortresses
 			10 = {
+				is_owned_and_controlled_by = RUS
 				any_province_building_level = {
 					province = {
 						id = 3544
@@ -2488,8 +1926,11 @@ RUS_reforms_decision_category = {
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
-			NOT = {
-				controls_province = 3544
+			hidden_trigger = {
+				NOT = {
+					controls_province = 3544
+					owns_state = 10
+				}
 			}
 		}
 		remove_effect = {
@@ -2520,18 +1961,10 @@ RUS_reforms_decision_category = {
 			highlight_provinces = { 3458 }
 		}
 		on_map_mode = map_only
-		available = {
-			if = {
-				limit = {
-					duma_is_active = yes
-				}
-				has_country_flag = RUS_has_funding_for_fortresses
-			}
-			controls_province = 3458
-		}
 		visible = {
 			has_completed_focus = RUS_reinforce_western_fortresses
 			10 = {
+				is_owned_and_controlled_by = RUS
 				any_province_building_level = {
 					province = {
 						id = 3458
@@ -2545,8 +1978,11 @@ RUS_reforms_decision_category = {
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
-			NOT = {
-				controls_province = 3458
+			hidden_trigger = {
+				NOT = {
+					controls_province = 3458
+					owns_state = 1201
+				}
 			}
 		}
 		remove_effect = {
@@ -2560,8 +1996,6 @@ RUS_reforms_decision_category = {
 					}
 				}
 			}
-			clr_country_flag = RUS_has_funding_for_fortresses
-			clr_country_flag = RUS_has_funding_for_fortresses_sc
 		}
 	}
 	RUS_reinforce_kaunas_fortress = {
@@ -2577,18 +2011,10 @@ RUS_reforms_decision_category = {
 			highlight_provinces = { 6296 }
 		}
 		on_map_mode = map_only
-		available = {
-			if = {
-				limit = {
-					duma_is_active = yes
-				}
-				has_country_flag = RUS_has_funding_for_fortresses
-			}
-			controls_province = 6296
-		}
 		visible = {
 			has_completed_focus = RUS_reinforce_western_fortresses
 			189 = {
+				is_owned_and_controlled_by = RUS
 				any_province_building_level = {
 					province = {
 						id = 6296
@@ -2602,8 +2028,11 @@ RUS_reforms_decision_category = {
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
-			NOT = {
-				controls_province = 6296
+			hidden_trigger = {
+				NOT = {
+					controls_province = 6296
+					owns_state = 189
+				}
 			}
 		}
 		remove_effect = {
@@ -2617,8 +2046,6 @@ RUS_reforms_decision_category = {
 					}
 				}
 			}
-			clr_country_flag = RUS_has_funding_for_fortresses
-			clr_country_flag = RUS_has_funding_for_fortresses_sc
 		}
 	}
 	RUS_reinforce_brest_fortress = {
@@ -2634,18 +2061,10 @@ RUS_reforms_decision_category = {
 			highlight_provinces = { 3392 }
 		}
 		on_map_mode = map_only
-		available = {
-			if = {
-				limit = {
-					duma_is_active = yes
-				}
-				has_country_flag = RUS_has_funding_for_fortresses
-			}
-			controls_province = 3392
-		}
 		visible = {
 			has_completed_focus = RUS_reinforce_western_fortresses
 			808 = {
+				is_owned_and_controlled_by = RUS
 				any_province_building_level = {
 					province = {
 						id = 3392
@@ -2659,12 +2078,15 @@ RUS_reforms_decision_category = {
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
-			NOT = {
-				controls_province = 3392
+			hidden_trigger = {
+				NOT = {
+					controls_province = 3392
+					owns_state = 808
+				}
 			}
 		}
 		remove_effect = {
-			10 = {
+			808 = {
 				add_building_construction = {
 					type = bunker
 					level = 1
@@ -2674,8 +2096,47 @@ RUS_reforms_decision_category = {
 					}
 				}
 			}
-			clr_country_flag = RUS_has_funding_for_fortresses
-			clr_country_flag = RUS_has_funding_for_fortresses_sc
+		}
+	}
+	#SUPPRESS STRIKES
+	#Suppress strikes
+	RUS_suppress_strikes = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+		visible = {
+			has_labour_question = yes
+			has_completed_focus = RUS_crack_down_on_strikes
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
+			NOT = {
+				has_idea = RUS_strikes_suppression
+			}
+		}
+		cost = 25
+		complete_effect = {
+			add_ideas = RUS_strikes_suppression
+		}
+	}
+	#Stop suppressing strikes
+	RUS_stop_strikes_suppression = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+		visible = {
+			has_labour_question = yes
+			has_completed_focus = RUS_crack_down_on_strikes
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
+			has_idea = RUS_strikes_suppression
+		}
+		cost = 25
+		complete_effect = {
+			remove_ideas = RUS_strikes_suppression
 		}
 	}
 }

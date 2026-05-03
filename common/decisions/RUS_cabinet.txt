@@ -334,8 +334,6 @@ RUS_parliament_gui_decision_category = {
 				}
 				set_country_flag = RUS_rigged_the_election
 			}
-		}
-		remove_effect = {
 			add_popularity = {
 				ideology = communism
 				popularity = -0.025
@@ -344,8 +342,7 @@ RUS_parliament_gui_decision_category = {
 			RUS_modify_loyalty_socialists = yes
 		}
 		cost = 25
-		days_remove = 30
-		days_re_enable = 30
+		days_remove = 60
 		cancel_trigger = {
 			hidden_trigger = {
 				OR = {
@@ -384,8 +381,6 @@ RUS_parliament_gui_decision_category = {
 				}
 				set_country_flag = RUS_rigged_the_election
 			}
-		}
-		remove_effect = {
 			add_popularity = {
 				ideology = democratic
 				popularity = -0.025
@@ -394,8 +389,7 @@ RUS_parliament_gui_decision_category = {
 			RUS_modify_loyalty_center_left = yes
 		}
 		cost = 25
-		days_remove = 30
-		days_re_enable = 30
+		days_remove = 60
 		cancel_trigger = {
 			hidden_trigger = {
 				OR = {
@@ -434,8 +428,6 @@ RUS_parliament_gui_decision_category = {
 				}
 				set_country_flag = RUS_rigged_the_election
 			}
-		}
-		remove_effect = {
 			add_popularity = {
 				ideology = fascism
 				popularity = 0.025
@@ -444,8 +436,7 @@ RUS_parliament_gui_decision_category = {
 			RUS_modify_loyalty_far_right = yes
 		}
 		cost = 25
-		days_remove = 30
-		days_re_enable = 30
+		days_remove = 60
 		cancel_trigger = {
 			hidden_trigger = {
 				OR = {
@@ -495,46 +486,6 @@ RUS_parliament_gui_decision_category = {
 			RUS_vladimir_kokovtsov = {
 				is_prime_minister = no
 			}
-		}
-	}
-	#Suppress strikes
-	RUS_suppress_strikes = {
-		icon = GFX_decision_oppression
-		allowed = {
-			original_tag = RUS
-		}
-		visible = {
-			has_labour_question = yes
-			has_completed_focus = RUS_crack_down_on_strikes
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = yes
-			}
-			NOT = {
-				has_idea = RUS_strikes_suppression
-			}
-		}
-		cost = 25
-		complete_effect = {
-			add_ideas = RUS_strikes_suppression
-		}
-	}
-	#Stop suppressing strikes
-	RUS_stop_strikes_suppression = {
-		icon = GFX_decision_oppression
-		allowed = {
-			original_tag = RUS
-		}
-		visible = {
-			has_labour_question = yes
-			has_completed_focus = RUS_crack_down_on_strikes
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = yes
-			}
-			has_idea = RUS_strikes_suppression
-		}
-		cost = 25
-		complete_effect = {
-			remove_ideas = RUS_strikes_suppression
 		}
 	}
 }
