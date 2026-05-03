@@ -5271,7 +5271,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_mobilization_plan
 		cost = 2
 		relative_position_id = HUN_treuga_dei
-		x = 8
+		x = 7
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -5405,7 +5405,7 @@ focus_tree = {
 		icon = GFX_goal_generic_improve_relations
 		cost = 2
 		relative_position_id = HUN_secure_the_state
-		x = 3
+		x = 1
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -5417,28 +5417,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_secure_the_state
-			focus = HUN_to_the_eastern_flank
-		}
-		completion_reward = { }
-	 }
-	 #Fight Rampant Disease
-	 focus = {
-		id = HUN_fight_rampant_disease
-		icon = GFX_focus_medical_corps
-		cost = 2
-		relative_position_id = HUN_village_police
-		x = 0
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-		}
-		available = {
-			has_war_with_major = yes
-			longest_war_length > 6
-		}
-		prerequisite = {
-			focus = HUN_village_police
 		}
 		completion_reward = { }
 	 }
@@ -5447,8 +5425,8 @@ focus_tree = {
 		id = HUN_enlist_civ_doctors
 		icon = GFX_goal_generic_improve_relations
 		cost = 2
-		relative_position_id = HUN_fight_rampant_disease
-		x = 0
+		relative_position_id = HUN_village_police
+		x = 1
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -5464,7 +5442,7 @@ focus_tree = {
 			}
 		}
 		prerequisite = {
-			focus = HUN_fight_rampant_disease
+			focus = HUN_village_police
 		}
 		completion_reward = { }
 	 }
@@ -5473,8 +5451,8 @@ focus_tree = {
 		id = HUN_subsidize_agriculture_works
 		icon = GFX_focus_generic_agricultural_subsidies
 		cost = 5
-		relative_position_id = HUN_fight_rampant_disease
-		x = -2
+		relative_position_id = HUN_cut_welfare_programs
+		x = 1
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -5487,7 +5465,7 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_cut_welfare_programs
-			focus = HUN_fight_rampant_disease
+			focus = HUN_enlist_civ_doctors
 		}
 		completion_reward = { }
 	 }
@@ -5771,6 +5749,22 @@ focus_tree = {
 				add_resource = {
 					type = steel
 					amount = 2
+				}
+			}
+			unlock_decision_tooltip = HUN_organize_aluminium
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				43 = {
+					add_resource = {
+						type = aluminium
+						amount = 4
+					}
+				}
+				82 = {
+					add_resource = {
+						type = aluminium
+						amount = 4
+					}
 				}
 			}
 		}
