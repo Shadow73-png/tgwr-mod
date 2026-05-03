@@ -2030,12 +2030,7 @@ country_event = {
 	option = {
 		name = ww1_holland.75.a
 		add_political_power = -10
-		hidden_effect = {
-			country_event = {
-				days = 14
-				id = ww1_holland.76
-			}
-		}
+		set_country_flag = hol_event76
 	}
 	}
 	#german right supports counterrevolution
@@ -2044,9 +2039,11 @@ country_event = {
 	title = ww1_holland.76.t
 	desc = ww1_holland.76.d
 	fire_only_once = yes
-	is_triggered_only = yes
 	trigger = {
-		
+		GER = {
+			has_government = neutrality
+		}
+		has_country_flag = hol_event76
 	}
 	option = {
 		name = ww1_holland.75.a
@@ -2447,22 +2444,22 @@ country_event = {
 		has_global_flag = july_crisis_alert
 	}
 	option = {
-		name = ww1_holland.90.a
+		name = ww1_holland.91.a
 		add_political_power = -10
 	}
 }
 #look to germany accepted
 country_event = {
-	id = ww1_holland.91
-	title = ww1_holland.91.t
-	desc = ww1_holland.91.d
+	id = ww1_holland.103
+	title = ww1_holland.103.t
+	desc = ww1_holland.103.d
 	fire_only_once = yes
 	is_triggered_only = yes
 	trigger = {
 		tag = HOL
 	}
 	option = {
-		name = ww1_holland.90.a
+		name = ww1_holland.103.a
 		GER = {
 			add_to_faction = HOL
 		}
