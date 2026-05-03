@@ -1423,11 +1423,18 @@ AUH_automatic_mechanics = {
 			always = no
 		}
 		timeout_effect = {
-			AUS_increase_southern_admin = yes
+			if = {
+				limit = {
+					AUS_southern_admin_negative = yes
+				}
+							AUS_increase_southern_admin = yes
+
+			}
 			add_political_power = AUS_cost_for_stabilization_effort_decision2
 			activate_mission = AUS_stabilization_effort_mission
 		}
 		cancel_trigger = {
+
 			has_political_power < AUS_cost_for_stabilization_effort_decision
 		}
 		cancel_effect = {
