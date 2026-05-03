@@ -21,6 +21,8 @@ focus_tree = {
 		id = MGS_new_sheriff_in_town
 		icon = GFX_focus_AUH_parliament
 		cost = 0
+		x = 0
+		y = 0
 		available = {
 			
 		}
@@ -39,8 +41,35 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		x = 13
-		y = 0
+		
 	}
-	
+	focus = {
+		id = MGS_building_a_civilian_administration
+		icon = GFX_focus_AUH_parliament
+		cost = 0
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = MGS_new_sheriff_in_town
+		}
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
 }
