@@ -3265,8 +3265,8 @@ focus_tree = {
 		}
 		available = {
 			any_character = {
-				is_conservative = yes
 				is_prime_minister = yes
+				is_conservative = yes
 			}
 		}
 		x = -2
@@ -3298,8 +3298,8 @@ focus_tree = {
 		}
 		available = {
 			any_character = {
-				is_conservative = yes
 				is_prime_minister = yes
+				is_conservative = yes
 			}
 		}
 		x = -1
@@ -3328,8 +3328,8 @@ focus_tree = {
 		}
 		available = {
 			any_character = {
-				is_conservative = yes
 				is_prime_minister = yes
+				is_conservative = yes
 			}
 		}
 		x = 0
@@ -3357,8 +3357,8 @@ focus_tree = {
 		}
 		available = {
 			any_character = {
-				is_conservative = yes
 				is_prime_minister = yes
+				is_conservative = yes
 			}
 			RUS_alexander_krivoshein = {
 				is_part_of_the_cabinet = yes
@@ -3390,8 +3390,9 @@ focus_tree = {
 			focus = RUS_meet_with_duma_members
 		}
 		available = {
-			RUS_ivan_goremykin = {
+			any_character = {
 				is_prime_minister = yes
+				is_conservative = yes
 			}
 			RUS_alexander_krivoshein = {
 				is_part_of_the_cabinet = yes
@@ -3419,53 +3420,11 @@ focus_tree = {
 					RUS_nikolai_shcherbatov = {
 						RUS_appoint_interior_minister = yes
 					}
+					set_variable = { RUS_cabinet_gui_internal_affairs_name_var = token:RUS_nikolai_shcherbatov }
 				}
 				custom_effect_tooltip = appointed_as_interior_minister_tt
 				show_ideas_tooltip = RUS_nikolai_shcherbatov
 			}
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
-		}
-	}
-	focus = {
-		id = RUS_keep_the_radicals_out
-		icon = GFX_focus_generic_anti_fascist_diplomacy
-		cost = 6
-		prerequisite = {
-			focus = RUS_meet_with_duma_members
-		}
-		available = {
-			any_character = {
-				is_conservative = yes
-				is_prime_minister = yes
-			}
-			RUS_alexander_krivoshein = {
-				is_part_of_the_cabinet = yes
-			}
-		}
-		x = -1
-		y = 1
-		relative_position_id = RUS_meet_with_duma_members
-		available_if_capitulated = yes
-		completion_reward = {
-			hidden_effect = {
-				every_character = {
-					limit = {
-						is_minister_of_internal_affairs = yes
-					}
-					RUS_remove_from_the_cabinet = yes
-				}
-				RUS_nikolai_shcherbatov = {
-					RUS_appoint_interior_minister = yes
-				}
-			}
-			custom_effect_tooltip = appointed_as_interior_minister_tt
-			show_ideas_tooltip = RUS_nikolai_shcherbatov
 		}
 		ai_will_do = {
 			factor = 3
@@ -3484,8 +3443,8 @@ focus_tree = {
 		}
 		available = {
 			any_character = {
-				is_conservative = yes
 				is_prime_minister = yes
+				is_conservative = yes
 			}
 			RUS_alexander_krivoshein = {
 				is_part_of_the_cabinet = yes
@@ -3573,11 +3532,11 @@ focus_tree = {
 		}
 		available = {
 			any_character = {
-				is_conservative = yes
 				is_prime_minister = yes
+				is_conservative = yes
 			}
-			RUS_vladimir_kokovtsov = {
-				is_part_of_the_cabinet = no
+			all_character = {
+				is_minister_of_finance = no
 			}
 		}
 		x = -4
@@ -3617,11 +3576,11 @@ focus_tree = {
 		}
 		available = {
 			any_character = {
-				is_conservative = yes
 				is_prime_minister = yes
+				is_conservative = yes
 			}
-			RUS_vladimir_kokovtsov = {
-				is_part_of_the_cabinet = no
+			all_character = {
+				is_minister_of_finance = no
 			}
 		}
 		x = 4
@@ -3664,8 +3623,8 @@ focus_tree = {
 		}
 		available = {
 			any_character = {
-				is_conservative = yes
 				is_prime_minister = yes
+				is_conservative = yes
 			}
 			RUS_alexander_krivoshein = {
 				is_part_of_the_cabinet = yes
@@ -3718,8 +3677,8 @@ focus_tree = {
 		}
 		available = {
 			any_character = {
-				is_conservative = yes
 				is_prime_minister = yes
+				is_conservative = yes
 			}
 			RUS_alexander_krivoshein = {
 				is_part_of_the_cabinet = no
