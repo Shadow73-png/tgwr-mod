@@ -1,5 +1,6 @@
 add_namespace = ww1_austriahungary
 add_namespace = ww1_austriahungary_war
+add_namespace = ww1_occupiedserbia
 #war time search start
 country_event = {
 	id = ww1_austriahungary_war.1
@@ -7746,5 +7747,54 @@ country_event = {
 		activate_mission = AUS_contain_the_SPDAO
 		activate_mission = AUS_increase_public_perception_of_war
 		activate_mission = AUS_improve_vienna_armament
+	}
+}
+
+#MGS
+country_event = {
+	id = ww1_occupiedserbia.1
+	title = ww1_occupiedserbia.1.t
+	desc = ww1_occupiedserbia.1.d
+	#picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		original_tag = AUS
+		has_war_with = SER
+		876 = {
+			is_controlled_by_ROOT_or_ally = yes
+		}
+		809 = {
+			is_controlled_by_ROOT_or_ally = yes
+		}
+		107 = {
+			is_controlled_by_ROOT_or_ally = yes
+		}
+	}
+	option = {
+		name = ww1_occupiedserbia.1.a
+		create_dynamic_country = {
+			original_tag = SER
+			set_country_flag = AUH_serbia_govnerate_flag
+			set_cosmetic_tag = MGS_fascism
+			set_research_slots = 2
+			set_politics = {
+				ruling_party = neutrality
+				long_name = GUD_neutrality_party
+				name = GUD_neutrality_party
+				elections_allowed = no
+			}
+			reserve_dynamic_country = yes
+			load_focus_tree = mgs_focus
+			set_capital = {
+				state = 107
+			}
+		}
+		add_to_faction = MGS
+		876 = {
+			transfer_state_to = MGS
+		}
 	}
 }
