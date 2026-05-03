@@ -29,6 +29,9 @@ RUS_parliament_gui_decision_category = {
 					set_temp_variable = {
 						RUS_zemstvo_reform_progress_temp_var = 50
 					}
+					set_temp_variable = {
+						RUS_center_left_loyalty_trigger_var = 40
+					}
 					check_variable = {
 						var = RUS_agrarian_reform_progress
 						value = RUS_agrarian_reform_progress_temp_var
@@ -52,6 +55,12 @@ RUS_parliament_gui_decision_category = {
 						value = RUS_zemstvo_reform_progress_temp_var
 						compare = greater_than_or_equals
 						tooltip = has_zemstvo_reform_progress_tt
+					}
+					check_variable = {
+						var = center_left_loyalty
+						value = RUS_center_left_loyalty_trigger_var
+						compare = greater_than_or_equals
+						tooltip = RUS_center_left_loyalty_trigger_tt
 					}
 				}
 			}
@@ -119,7 +128,7 @@ RUS_parliament_gui_decision_category = {
 					has_country_flag = RUS_law_on_kholm_governorate_passed_in_sc
 					has_country_flag = RUS_law_of_equality_passed_in_sc
 					set_temp_variable = {
-						far_right_loyalty_temp_var = 40
+						RUS_far_right_loyalty_trigger_var = 40
 					}
 					check_variable = {
 						var = far_right_loyalty
@@ -148,7 +157,7 @@ RUS_parliament_gui_decision_category = {
 		days_mission_timeout = 338
 		selectable_mission = no
 		timeout_effect = {
-			country_event = ww1_kokovtsov.18
+			country_event = ww1_kokovtsov.20
 		}
 	}
 	RUS_liberals_leave_the_coalition_mission = {
@@ -185,11 +194,11 @@ RUS_parliament_gui_decision_category = {
 		days_mission_timeout = 60
 		selectable_mission = no
 		timeout_effect = {
-			country_event = ww1_kokovtsov.5
+			country_event = ww1_kokovtsov.6
 			clr_country_flag = RUS_coalition_with_liberals
 			set_country_flag = RUS_liberals_left_the_coalition
 			add_political_power = -50
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = -50 }
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = -60 }
 			RUS_modify_loyalty_center_left = yes
 		}
 	}
@@ -208,7 +217,7 @@ RUS_parliament_gui_decision_category = {
 		days_mission_timeout = 60
 		selectable_mission = no
 		timeout_effect = {
-			country_event = ww1_kokovtsov.7
+			country_event = ww1_kokovtsov.8
 			clr_country_flag = RUS_coalition_with_centrists
 			set_country_flag = RUS_centrists_left_the_coalition
 			add_political_power = -50
@@ -256,7 +265,7 @@ RUS_parliament_gui_decision_category = {
 		days_mission_timeout = 60
 		selectable_mission = no
 		timeout_effect = {
-			country_event = ww1_kokovtsov.10
+			country_event = ww1_kokovtsov.12
 			clr_country_flag = RUS_coalition_with_rightists
 			set_country_flag = RUS_rightists_left_the_coalition
 			add_political_power = -50
@@ -292,7 +301,7 @@ RUS_parliament_gui_decision_category = {
 		timeout_effect = {
 			add_political_power = -10
 			set_temp_variable = {
-				RUS_modify_loyalty_far_right_var = -1
+				RUS_modify_loyalty_far_right_var = -2.5
 			}
 			RUS_modify_loyalty_far_right = yes
 		}
@@ -331,15 +340,20 @@ RUS_parliament_gui_decision_category = {
 				ideology = communism
 				popularity = -0.025
 			}
-			set_temp_variable = { RUS_modify_loyalty_socialists_var = -10 }
+			set_temp_variable = { RUS_modify_loyalty_socialists_var = -5 }
 			RUS_modify_loyalty_socialists = yes
 		}
 		cost = 25
 		days_remove = 30
 		days_re_enable = 30
 		cancel_trigger = {
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = no
+			hidden_trigger = {
+				OR = {
+					RUS_vladimir_kokovtsov = {
+						is_prime_minister = no
+					}
+					has_country_flag = RUS_state_duma_election
+				}
 			}
 		}
 	}
@@ -376,15 +390,20 @@ RUS_parliament_gui_decision_category = {
 				ideology = democratic
 				popularity = -0.025
 			}
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = -10 }
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = -5 }
 			RUS_modify_loyalty_center_left = yes
 		}
 		cost = 25
 		days_remove = 30
 		days_re_enable = 30
 		cancel_trigger = {
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = no
+			hidden_trigger = {
+				OR = {
+					RUS_vladimir_kokovtsov = {
+						is_prime_minister = no
+					}
+					has_country_flag = RUS_state_duma_election
+				}
 			}
 		}
 	}
@@ -421,15 +440,20 @@ RUS_parliament_gui_decision_category = {
 				ideology = fascism
 				popularity = 0.025
 			}
-			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = 2.5 }
 			RUS_modify_loyalty_far_right = yes
 		}
 		cost = 25
 		days_remove = 30
 		days_re_enable = 30
 		cancel_trigger = {
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = no
+			hidden_trigger = {
+				OR = {
+					RUS_vladimir_kokovtsov = {
+						is_prime_minister = no
+					}
+					has_country_flag = RUS_state_duma_election
+				}
 			}
 		}
 	}
@@ -457,12 +481,12 @@ RUS_parliament_gui_decision_category = {
 				}
 				set_country_flag = RUS_censored_liberal_press
 			}
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = -2.5 }
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = -5 }
 			RUS_modify_loyalty_center_left = yes
 		}
 		modifier = {
-			democratic_drift = -0.02
-			consumer_goods_factor = 0.05
+			democratic_drift = -0.05
+			political_advisor_cost_factor = 0.25
 		}
 		cost = 50
 		days_remove = 90
@@ -484,6 +508,9 @@ RUS_parliament_gui_decision_category = {
 			has_completed_focus = RUS_crack_down_on_strikes
 			RUS_vladimir_kokovtsov = {
 				is_prime_minister = yes
+			}
+			NOT = {
+				has_idea = RUS_strikes_suppression
 			}
 		}
 		cost = 25

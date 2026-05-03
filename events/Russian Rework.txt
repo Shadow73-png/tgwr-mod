@@ -804,11 +804,17 @@ country_event = {
 				has_country_flag = RUS_western_zemstvo_crisis_duma_dismissed
 			}
 		}
+		hidden_effect = {
+			RUS_pyotr_durnovo = {
+				RUS_appoint_chairman = yes
+				RUS_appoint_interior_minister = yes
+			}
+		}
 		custom_effect_tooltip = appointed_as_prime_minister_tt
 		show_ideas_tooltip = RUS_pyotr_durnovo
-		RUS_pyotr_durnovo = {
-			RUS_appoint_chairman = yes
-		}
+		custom_effect_tooltip = appointed_as_interior_minister_tt
+		show_ideas_tooltip = RUS_pyotr_durnovo
+		mark_focus_tree_layout_dirty = yes
 		set_temp_variable = {
 			RUS_modify_loyalty_far_right_var = 10
 		}
@@ -817,11 +823,18 @@ country_event = {
 	#Conservative
 	option = {
 		name = ww1_stolypin.16.b
+		hidden_effect = {
+			RUS_vladimir_kokovtsov = {
+				RUS_appoint_chairman = yes
+			}
+			RUS_aleksandr_makarov = {
+				RUS_appoint_interior_minister = yes
+			}
+		}
 		custom_effect_tooltip = appointed_as_prime_minister_tt
 		show_ideas_tooltip = RUS_vladimir_kokovtsov
-		RUS_vladimir_kokovtsov = {
-			RUS_appoint_chairman = yes
-		}
+		custom_effect_tooltip = appointed_as_interior_minister_tt
+		show_ideas_tooltip = RUS_aleksandr_makarov
 		complete_national_focus = RUS_policy_of_reconciliation
 		mark_focus_tree_layout_dirty = yes
 		hidden_effect = {
@@ -842,11 +855,19 @@ country_event = {
 	#Reformist
 	option = {
 		name = ww1_stolypin.16.c
+		hidden_effect = {
+			RUS_alexander_krivoshein = {
+				RUS_appoint_chairman = yes
+			}
+			RUS_sergei_kryzhanovsky = {
+				RUS_appoint_interior_minister = yes
+			}
+		}
 		custom_effect_tooltip = appointed_as_prime_minister_tt
 		show_ideas_tooltip = RUS_alexander_krivoshein
-		RUS_alexander_krivoshein = {
-			RUS_appoint_chairman = yes
-		}
+		custom_effect_tooltip = appointed_as_prime_minister_tt
+		show_ideas_tooltip = RUS_sergei_kryzhanovsky
+		mark_focus_tree_layout_dirty = yes
 		set_temp_variable = {
 			RUS_modify_loyalty_center_right_var = 10
 		}
@@ -979,25 +1000,7 @@ country_event = {
 		name = ww1_kokovtsov.2.a
 	}
 }
-#Rightists leave the coalition
-country_event = {
-	id = ww1_kokovtsov.9
-	title = ww1_kokovtsov.9.t
-	desc = ww1_kokovtsov.9.d
-	picture = GFX_report_event_german_reichstag_gathering
-	is_triggered_only = yes
-	fire_only_once = yes
-	#We'll push the duma in the right direction
-	option = {
-		name = ww1_kokovtsov.9.a
-		set_country_flag = RUS_election_interference
-	}
-	#How about no
-	option = {
-		name = ww1_kokovtsov.9.b
-	}
-}
-#Liberals join the coalition
+#Electoral Strategy
 country_event = {
 	id = ww1_kokovtsov.3
 	title = ww1_kokovtsov.3.t
@@ -1005,18 +1008,43 @@ country_event = {
 	picture = GFX_report_event_german_reichstag_gathering
 	is_triggered_only = yes
 	fire_only_once = yes
-	#Glad to have them onboard
+	#We'll push the duma in the right direction
 	option = {
 		name = ww1_kokovtsov.3.a
+		set_country_flag = RUS_election_interference
+	}
+	#How about no
+	option = {
+		name = ww1_kokovtsov.3.b
 	}
 }
-#Liberals refuse the coalition
+#Liberals join the coalition
 country_event = {
 	id = ww1_kokovtsov.4
 	title = ww1_kokovtsov.4.t
 	desc = ww1_kokovtsov.4.d
 	picture = GFX_report_event_german_reichstag_gathering
 	is_triggered_only = yes
+	fire_only_once = yes
+	#Glad to have them onboard
+	option = {
+		name = ww1_kokovtsov.4.a
+	}
+}
+#Liberals refuse the coalition
+country_event = {
+	id = ww1_kokovtsov.5
+	title = ww1_kokovtsov.5.t
+	desc = ww1_kokovtsov.5.d
+	picture = GFX_report_event_german_reichstag_gathering
+	trigger = {
+		tag = RUS
+		has_country_flag = RUS_rigged_the_election
+		focus_progress = {
+			focus = RUS_rebuild_relations_with_liberals
+			progress > 0
+		}
+	}
 	fire_only_once = yes
 	immediate = {
 		hidden_effect = {
@@ -1028,7 +1056,7 @@ country_event = {
 	}
 	#Damn it!
 	option = {
-		name = ww1_kokovtsov.4.a
+		name = ww1_kokovtsov.5.a
 		effect_tooltip = {
 			add_political_power = -50
 			set_temp_variable = { RUS_modify_loyalty_center_left_var = -5 }
@@ -1038,15 +1066,15 @@ country_event = {
 }
 #Liberals leave the coalition
 country_event = {
-	id = ww1_kokovtsov.5
-	title = ww1_kokovtsov.5.t
-	desc = ww1_kokovtsov.5.d
+	id = ww1_kokovtsov.6
+	title = ww1_kokovtsov.6.t
+	desc = ww1_kokovtsov.6.d
 	picture = GFX_report_event_german_reichstag_gathering
 	is_triggered_only = yes
 	fire_only_once = yes
 	#Damn it!
 	option = {
-		name = ww1_kokovtsov.5.a
+		name = ww1_kokovtsov.6.a
 		effect_tooltip = {
 			add_political_power = -50
 			set_temp_variable = { RUS_modify_loyalty_center_left_var = -50 }
@@ -1056,69 +1084,98 @@ country_event = {
 }
 #Centrists join the coalition
 country_event = {
-	id = ww1_kokovtsov.6
-	title = ww1_kokovtsov.6.t
-	desc = ww1_kokovtsov.6.d
-	picture = GFX_report_event_german_reichstag_gathering
-	is_triggered_only = yes
-	fire_only_once = yes
-	#Glad to have them onboard
-	option = {
-		name = ww1_kokovtsov.6.a
-	}
-}
-#Centrists leave the coalition
-country_event = {
 	id = ww1_kokovtsov.7
 	title = ww1_kokovtsov.7.t
 	desc = ww1_kokovtsov.7.d
 	picture = GFX_report_event_german_reichstag_gathering
 	is_triggered_only = yes
 	fire_only_once = yes
-	#Damn it!
+	#Glad to have them onboard
 	option = {
 		name = ww1_kokovtsov.7.a
 	}
 }
-#Rightists join the coalition
+#Centrists leave the coalition
 country_event = {
 	id = ww1_kokovtsov.8
 	title = ww1_kokovtsov.8.t
 	desc = ww1_kokovtsov.8.d
 	picture = GFX_report_event_german_reichstag_gathering
 	is_triggered_only = yes
-	#Glad to have them onboard
+	fire_only_once = yes
+	#Damn it!
 	option = {
 		name = ww1_kokovtsov.8.a
 	}
 }
-#Rightists leave the coalition
+#Rightists join the coalition
+country_event = {
+	id = ww1_kokovtsov.9
+	title = ww1_kokovtsov.9.t
+	desc = ww1_kokovtsov.9.d
+	picture = GFX_report_event_german_reichstag_gathering
+	is_triggered_only = yes
+	#Glad to have them onboard
+	option = {
+		name = ww1_kokovtsov.9.a
+	}
+}
+#Markov demands no balanced budget!
 country_event = {
 	id = ww1_kokovtsov.10
 	title = ww1_kokovtsov.10.t
 	desc = ww1_kokovtsov.10.d
 	picture = GFX_report_event_german_reichstag_gathering
-	is_triggered_only = yes
-	fire_only_once = yes
-	#Damn it!
+	trigger = {
+		tag = RUS
+		RUS_vladimir_kokovtsov = {
+			is_prime_minister = yes
+		}
+		has_country_flag = RUS_coalition_with_rightists
+		has_decision = RUS_law_on_balanced_budget_sc
+	}
+	timeout_days = 5
+	#Lol no
 	option = {
 		name = ww1_kokovtsov.10.a
+		hidden_effect = {
+			country_event = {
+				id = ww1_kokovtsov.11
+				days = 1
+			}
+		}
+	}
+	#Whatever you say
+	option = {
+		name = ww1_kokovtsov.10.b
+		remove_decision = RUS_law_on_balanced_budget_sc
 	}
 }
-#Nikolai Maklakov
+#Rightists protest! 
 country_event = {
 	id = ww1_kokovtsov.11
 	title = ww1_kokovtsov.11.t
 	desc = ww1_kokovtsov.11.d
 	picture = GFX_report_event_german_reichstag_gathering
 	is_triggered_only = yes
-	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			add_political_power = -50
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = -20 }
+			RUS_modify_loyalty_far_right = yes
+		}
+	}
 	#Damn it!
 	option = {
 		name = ww1_kokovtsov.11.a
+		effect_tooltip = {
+			add_political_power = -50
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = -20 }
+			RUS_modify_loyalty_far_right = yes
+		}
 	}
 }
-#Sergei Kryzhanovsky
+#Rightists leave the coalition
 country_event = {
 	id = ww1_kokovtsov.12
 	title = ww1_kokovtsov.12.t
@@ -1131,11 +1188,37 @@ country_event = {
 		name = ww1_kokovtsov.12.a
 	}
 }
-#Krivoshein's speech
+#Nikolai Maklakov
 country_event = {
 	id = ww1_kokovtsov.13
 	title = ww1_kokovtsov.13.t
 	desc = ww1_kokovtsov.13.d
+	picture = GFX_report_event_german_reichstag_gathering
+	is_triggered_only = yes
+	fire_only_once = yes
+	#Damn it!
+	option = {
+		name = ww1_kokovtsov.13.a
+	}
+}
+#Sergei Kryzhanovsky
+country_event = {
+	id = ww1_kokovtsov.14
+	title = ww1_kokovtsov.14.t
+	desc = ww1_kokovtsov.14.d
+	picture = GFX_report_event_german_reichstag_gathering
+	is_triggered_only = yes
+	fire_only_once = yes
+	#Damn it!
+	option = {
+		name = ww1_kokovtsov.14.a
+	}
+}
+#Krivoshein's speech
+country_event = {
+	id = ww1_kokovtsov.15
+	title = ww1_kokovtsov.15.t
+	desc = ww1_kokovtsov.15.d
 	picture = GFX_report_event_german_reichstag_gathering
 	fire_only_once = yes
 	trigger = {
@@ -1166,9 +1249,9 @@ country_event = {
 }
 #Maklakov's Plan
 country_event = {
-	id = ww1_kokovtsov.14
-	title = ww1_kokovtsov.14.t
-	desc = ww1_kokovtsov.14.d
+	id = ww1_kokovtsov.16
+	title = ww1_kokovtsov.16.t
+	desc = ww1_kokovtsov.16.d
 	picture = GFX_report_event_german_reichstag_gathering
 	fire_only_once = yes
 	trigger = {
@@ -1192,41 +1275,15 @@ country_event = {
 	}
 	#Sounds like a perfect plan!
 	option = {
-		name = ww1_kokovtsov.14.a
+		name = ww1_kokovtsov.16.a
 		set_country_flag = RUS_maklakovs_plan_approved
 	}
 	#Duly noted
 	option = {
-		name = ww1_kokovtsov.14.b
+		name = ww1_kokovtsov.16.b
 	}
 }
 #Krivoshein resigns
-country_event = {
-	id = ww1_kokovtsov.15
-	title = ww1_kokovtsov.15.t
-	desc = ww1_kokovtsov.15.d
-	picture = GFX_report_event_german_reichstag_gathering
-	fire_only_once = yes
-	is_triggered_only = yes
-	#Good riddance
-	option = {
-		name = ww1_kokovtsov.15.a
-	}
-}
-#Krivoshein resigns
-country_event = {
-	id = ww1_kokovtsov.16
-	title = ww1_kokovtsov.16.t
-	desc = ww1_kokovtsov.16.d
-	picture = GFX_report_event_german_reichstag_gathering
-	fire_only_once = yes
-	is_triggered_only = yes
-	#Good riddance
-	option = {
-		name = ww1_kokovtsov.16.a
-	}
-}
-#A new political order
 country_event = {
 	id = ww1_kokovtsov.17
 	title = ww1_kokovtsov.17.t
@@ -1239,7 +1296,7 @@ country_event = {
 		name = ww1_kokovtsov.17.a
 	}
 }
-#Kokovtsov's Fall
+#Krivoshein resigns
 country_event = {
 	id = ww1_kokovtsov.18
 	title = ww1_kokovtsov.18.t
@@ -1249,7 +1306,33 @@ country_event = {
 	is_triggered_only = yes
 	#Good riddance
 	option = {
-		name = ww1_kokovtsov.18.a
+		name = ww1_kokovtsov.16.a
+	}
+}
+#A new political order
+country_event = {
+	id = ww1_kokovtsov.19
+	title = ww1_kokovtsov.19.t
+	desc = ww1_kokovtsov.19.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#Good riddance
+	option = {
+		name = ww1_kokovtsov.17.a
+	}
+}
+#Kokovtsov's Fall
+country_event = {
+	id = ww1_kokovtsov.20
+	title = ww1_kokovtsov.20.t
+	desc = ww1_kokovtsov.20.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#Good riddance
+	option = {
+		name = ww1_kokovtsov.20.a
 		RUS_vladimir_kokovtsov = {
 			RUS_remove_from_the_cabinet = yes
 		}
@@ -1257,22 +1340,23 @@ country_event = {
 			limit = {
 				is_goremykin_available_as_pm = yes
 			}
-			RUS_ivan_goremykin = {
-				RUS_appoint_chairman = yes
+			hidden_effect = {
+				RUS_ivan_goremykin = {
+					RUS_appoint_chairman = yes
+				}
 			}
-			set_variable = { RUS_cabinet_gui_chairman_name_var = token:RUS_ivan_goremykin }
 			custom_effect_tooltip = appointed_as_prime_minister_tt
 			show_ideas_tooltip = RUS_ivan_goremykin
 		}
 		else = {
-			RUS_boris_sturmer = {
-				RUS_appoint_chairman = yes
+			hidden_effect = {
+				RUS_boris_sturmer = {
+					RUS_appoint_chairman = yes
+				}
 			}
-			set_variable = { RUS_cabinet_gui_chairman_name_var = token:RUS_boris_sturmer }
 			custom_effect_tooltip = appointed_as_prime_minister_tt
 			show_ideas_tooltip = RUS_boris_sturmer
 		}
-		set_variable = { RUS_cabinet_gui_finance_name_var = token:RUS_vacant }
 		complete_national_focus = RUS_smooth_sailing
 		mark_focus_tree_layout_dirty = yes
 	}

@@ -389,6 +389,16 @@ RUS_prolong_the_vote = {
 				days = 30
 			}
 		}
+		#BUDGET
+		else_if = {
+			limit = {
+				has_decision = RUS_law_on_balanced_budget_sc
+			}
+			add_days_remove  = {
+				decision = RUS_law_on_balanced_budget_sc
+				days = 30
+			}
+		}
 	}
 	#RUS_update_state_council_gui = yes
 }
@@ -738,6 +748,15 @@ RUS_end_the_vote = {
 				has_decision = RUS_great_army_programme_sc
 			}
 			remove_decision = RUS_great_army_programme_sc
+			clr_country_flag = RUS_vote_in_state_council
+			set_variable = { law_acceptance_progress = 0 }
+		}
+		#BUDGET
+		else_if = {
+			limit = {
+				has_decision = RUS_law_on_balanced_budget_sc
+			}
+			remove_decision = RUS_law_on_balanced_budget_sc
 			clr_country_flag = RUS_vote_in_state_council
 			set_variable = { law_acceptance_progress = 0 }
 		}
