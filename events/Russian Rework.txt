@@ -774,10 +774,26 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
-			set_variable = { var = far_right_loyalty  value = 0 }
-			set_variable = { var = center_right_loyalty  value = 80 }
-			set_variable = { var = center_left_loyalty  value = 0 }
-			set_variable = { var = socialists_loyalty value = 0 }
+			set_temp_variable = {
+				RUS_modify_loyalty_socialists_var = -100
+			}
+			RUS_modify_loyalty_socialists = yes
+			set_temp_variable = {
+				RUS_modify_loyalty_center_left_var = -100
+			}
+			RUS_modify_loyalty_center_left = yes
+			set_temp_variable = {
+				RUS_modify_loyalty_center_right_var = -100
+			}
+			RUS_modify_loyalty_center_right = yes
+			set_temp_variable = {
+				RUS_modify_loyalty_far_right_var = -100
+			}
+			RUS_modify_loyalty_far_right = yes
+			set_temp_variable = {
+				RUS_modify_loyalty_center_right_var = 70
+			}
+			RUS_modify_loyalty_center_right = yes
 		}
 	}
 	#Reactionary
@@ -793,6 +809,10 @@ country_event = {
 		RUS_pyotr_durnovo = {
 			RUS_appoint_chairman = yes
 		}
+		set_temp_variable = {
+			RUS_modify_loyalty_far_right_var = 10
+		}
+		RUS_modify_loyalty_far_right = yes
 	}
 	#Conservative
 	option = {
@@ -810,6 +830,14 @@ country_event = {
 				days = 1
 			}
 		}
+		set_temp_variable = {
+			RUS_modify_loyalty_center_right_var = 5
+		}
+		RUS_modify_loyalty_center_right = yes
+		set_temp_variable = {
+			RUS_modify_loyalty_far_right_var = 5
+		}
+		RUS_modify_loyalty_far_right = yes
 	}
 	#Reformist
 	option = {
@@ -819,6 +847,10 @@ country_event = {
 		RUS_alexander_krivoshein = {
 			RUS_appoint_chairman = yes
 		}
+		set_temp_variable = {
+			RUS_modify_loyalty_center_right_var = 10
+		}
+		RUS_modify_loyalty_center_right = yes
 	}
 }
 #Stolypin check
@@ -930,8 +962,8 @@ country_event = {
 	#Weirdo
 	option = {
 		name = ww1_kokovtsov.1.a
-		add_political_power = -50
 		activate_mission = RUS_kokovtsov_resignation_mission
+		custom_effect_tooltip = kokovtsov_mechanic_tt
 	}
 }
 #Kokovtsov's Course
