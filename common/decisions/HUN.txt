@@ -12,6 +12,33 @@ debug_decisions = {
 		}
 		fire_only_once = no
 	}
+	HUN_set_national_work_party_flag = {
+		fire_only_once = no
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			is_ai = no
+		}
+		complete_effect = {
+			set_country_flag = HUN_national_work_party_yes
+		}
+	}
+	HUN_remove_national_work_party_flag = {
+		fire_only_once = no
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			is_ai = no
+		}
+		visible = {
+			has_country_flag = HUN_national_work_party_yes
+		}
+		complete_effect = {
+			clr_country_flag = HUN_national_work_party_yes
+		}
+	}
 	HUN_set_food_stab_mission = {
 		allowed = {
 			original_tag = HUN
@@ -2531,6 +2558,15 @@ HUN_war_economy_cat = {
 				tooltip = HUN_food_var_minus_3.tt
 			}
 			add_political_power = -40
+			if = {
+				limit = { 
+					has_country_flag = HUN_national_work_party_yes
+				}
+				add_to_variable = {
+					HUN_national_work_party_authority_var = -10
+					tooltip = HUN_modify_national_work_party_tt
+				}
+			}
 			hidden_effect = {
 				activate_mission = HUN_fading_food_stability_mission
 			}
