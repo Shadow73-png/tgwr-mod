@@ -864,7 +864,7 @@ focus_tree = {
 	#Concede to the All-Right Party
 	focus = {
 		id = HUN_concede_to_the_all_right_party
-		icon = GFX_focus_SER_army_debate_2
+		icon = GFX_focus_YUG_deal
 		cost = 5
 		relative_position_id = HUN_an_interim_solution
 		x = -1
@@ -1010,7 +1010,14 @@ focus_tree = {
 		}
 		completion_reward = { 
 			country_event = ww1_hungary.17
-			activate_advisor = HUN_istvan_tisza
+			if = {
+				limit = {
+					NOT = {
+						has_idea = HUN_istvan_tisza
+					}
+				}
+				activate_advisor = HUN_istvan_tisza
+			}
 		}
 	 }
 	#Accept Galacian Refugees
@@ -1875,7 +1882,7 @@ focus_tree = {
 		completion_reward = { 
 			custom_effect_tooltip = HUN_modify_eco_tt
 			add_to_variable = {
-				HUN_eco_consumer_good = 0.05
+				HUN_eco_consumer_good = 0.1
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -5266,6 +5273,132 @@ focus_tree = {
 			}
 		}
 	 }
+	 #Failure of Treguga Dei
+	 focus = {
+		id = HUN_failure_of_treuga_dei
+		icon = GFX_focus_SWE_organize_a_putsch
+		cost = 0
+		relative_position_id = HUN_treuga_dei
+		x = 16
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		prerequisite = {
+			focus = HUN_treuga_dei
+		}
+		completion_reward = { }
+	 }
+	 #Stand with the Tisza gov
+	 focus = {
+		allow_branch = {
+			has_country_flag = HUN_national_work_party_yes
+		}
+		id = HUN_stand_with_tisza_gov
+		icon = GFX_focus_generic_advanced_military_studies
+		cost = 5
+		relative_position_id = HUN_failure_of_treuga_dei
+		x = -2
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_country_leader = HUN_istvan_tisza
+		}
+		prerequisite = {
+			focus = HUN_failure_of_treuga_dei
+		}
+		mutually_exclusive = {
+			focus = HUN_look_for_a_way_out
+		}
+		completion_reward = { }
+	 }
+	 #Tour the Serb Govnerate
+	 focus = {
+		id = HUN_tour_serb_govnerate
+		icon = GFX_focus_SER_army_debate_2
+		cost = 2
+		relative_position_id = HUN_stand_with_tisza_gov
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_BALANCE_OF_POWER
+		}
+		available = {
+			has_war_with_major = yes
+			has_country_leader = HUN_istvan_tisza
+			has_global_flag = MGS_exists
+		}
+		prerequisite = {
+			focus = HUN_stand_with_tisza_gov
+		}
+		completion_reward = { }
+	 }
+	 #Secure Party Loyalty
+	 focus = {
+		id = HUN_secure_party_loyalty
+		icon = GFX_focus_PER_embrace_opulence
+		cost = 5
+		relative_position_id = HUN_stand_with_tisza_gov
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_war_with_major = yes
+			has_country_leader = HUN_istvan_tisza
+		}
+		prerequisite = {
+			focus = HUN_stand_with_tisza_gov
+		}
+		completion_reward = { 
+			add_to_variable = {
+				HUN_national_work_party_authority_var = 20
+				tooltip = HUN_modify_national_work_party_tt
+			}
+		}
+	 }
+	 #Look for a way out
+	 focus = {
+		allow_branch = {
+			has_country_flag = HUN_national_work_party_yes
+		}
+		id = HUN_look_for_a_way_out
+		icon = GFX_goal_unkown
+		cost = 5
+		relative_position_id = HUN_failure_of_treuga_dei
+		x = 2
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			
+		}
+		prerequisite = {
+			focus = HUN_failure_of_treuga_dei
+		}
+		mutually_exclusive = {
+			focus = HUN_stand_with_tisza_gov
+		}
+		completion_reward = { }
+	 }
 	 #To the Easter Flank
 	 focus = {
 		id = HUN_to_the_eastern_flank
@@ -5281,9 +5414,9 @@ focus_tree = {
 		available = {
 			has_war_with = RUS
 		}
-		#bypass = {
-		#	is_in_faction_with = RUS
-		#}
+		bypass = {
+			is_in_faction_with = RUS
+		}
 		prerequisite = {
 			focus = HUN_treuga_dei
 		}
@@ -5309,6 +5442,26 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_to_the_eastern_flank
 			focus = HUN_hazai_leadership
+		}
+		completion_reward = { }
+	 }
+	 #Bolster Artillery Regiments
+	 focus = {
+		id = HUN_bolster_artilley_regiments
+		icon = GFX_focus_PHI_battalion_combat_teams
+		cost = 5
+		relative_position_id = HUN_mobilize_the_hussars
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		prerequisite = {
+			focus = HUN_mobilize_the_hussars
+			focus = HUN_whip_honved_into_shape
 		}
 		completion_reward = { }
 	 }
@@ -5403,7 +5556,7 @@ focus_tree = {
 	 #Village Police
 	 focus = {
 		id = HUN_village_police
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_focus_CZE_build_infantry
 		cost = 2
 		relative_position_id = HUN_secure_the_state
 		x = 1
@@ -5436,7 +5589,7 @@ focus_tree = {
 	 #Enlist Civillian Doctors
 	 focus = {
 		id = HUN_enlist_civ_doctors
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_focus_generic_bad_medical
 		cost = 1
 		relative_position_id = HUN_village_police
 		x = 1
@@ -5492,7 +5645,21 @@ focus_tree = {
 			focus = HUN_cut_welfare_programs
 			focus = HUN_enlist_civ_doctors
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_to_variable = {
+				HUN_food_stab_var = 5
+				tooltip = HUN_food_var_plus_5.tt
+			}
+			add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 100
+			}
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+		}
 	 }
 	 #Secure the Grain
 	 focus = {
@@ -5568,7 +5735,7 @@ focus_tree = {
 	 #Use POW's for labor
 	 focus = {
 		id = HUN_pow_labor
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_focus_SOV_penal_battalions
 		cost = 3
 		relative_position_id = HUN_price_regulations
 		x = -3
