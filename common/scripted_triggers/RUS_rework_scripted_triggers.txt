@@ -181,9 +181,10 @@ duma_exists = {
 	custom_trigger_tooltip = {
 		tooltip = duma_exists_scripted_trigger_tt
 		OR = {
-			has_idea = RUS_june_third_political_system
-			has_idea = RUS_kokovtsovs_political_system
-			has_idea = RUS_progressive_bloc
+			has_idea = RUS_june_third_political_system_idea
+			has_idea = RUS_kokovtsovs_political_system_idea
+			has_idea = RUS_progressive_bloc_idea
+			has_idea = RUS_government_of_public_trust_idea
 		}
 	}
 }
@@ -354,6 +355,9 @@ RUS_centrist_demands = {
 			RUS_agrarian_reform_progress_temp_var = 15
 		}
 		set_temp_variable = {
+			RUS_education_reform_progress_temp_var = 15
+		}
+		set_temp_variable = {
 			RUS_zemstvo_reform_progress_temp_var = 40
 		}
 		check_variable = {
@@ -361,6 +365,12 @@ RUS_centrist_demands = {
 			value = RUS_agrarian_reform_progress_temp_var
 			compare = greater_than_or_equals
 			tooltip = has_agrarian_reform_progress_tt
+		}
+		check_variable = {
+			var = RUS_education_reform_progress
+			value = RUS_education_reform_progress_temp_var
+			compare = greater_than_or_equals
+			tooltip = has_education_reform_progress_tt
 		}
 		check_variable = {
 			var = RUS_zemstvo_reform_progress
@@ -384,6 +394,9 @@ RUS_centrists_satisfied = {
 			RUS_agrarian_reform_progress_temp_var = 15
 		}
 		set_temp_variable = {
+			RUS_education_reform_progress_temp_var = 15
+		}
+		set_temp_variable = {
 			RUS_zemstvo_reform_progress_temp_var = 40
 		}
 		check_variable = {
@@ -391,6 +404,12 @@ RUS_centrists_satisfied = {
 			value = RUS_agrarian_reform_progress_temp_var
 			compare = greater_than_or_equals
 			tooltip = has_agrarian_reform_progress_tt
+		}
+		check_variable = {
+			var = RUS_education_reform_progress
+			value = RUS_education_reform_progress_temp_var
+			compare = greater_than_or_equals
+			tooltip = has_education_reform_progress_tt
 		}
 		check_variable = {
 			var = RUS_zemstvo_reform_progress
@@ -486,9 +505,6 @@ is_krivoshein_available_as_pm = {
 	RUS_alexander_krivoshein = {
 		is_part_of_the_cabinet = yes
 	}
-	NOT = {
-		has_completed_focus = RUS_give_reforms_a_chance
-	}
 }
 
 is_durnovo_available_as_pm = {
@@ -496,9 +512,6 @@ is_durnovo_available_as_pm = {
 		character_name = token:RUS_pyotr_durnovo
 	}
 	is_character_available_as_pm = yes
-	NOT = {
-		has_completed_focus = RUS_give_reforms_a_chance
-	}
 }
 
 is_markov_available_as_pm = {
@@ -506,7 +519,4 @@ is_markov_available_as_pm = {
 		character_name = token:RUS_nikolai_markov
 	}
 	is_character_available_as_pm = yes
-	NOT = {
-		has_completed_focus = RUS_give_reforms_a_chance
-	}
 }

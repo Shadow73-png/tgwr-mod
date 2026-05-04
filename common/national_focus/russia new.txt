@@ -2369,7 +2369,7 @@ focus_tree = {
 		y = 0
 		completion_reward = {
 			effect_tooltip = {
-				add_ideas = RUS_june_third_political_system
+				add_ideas = RUS_june_third_political_system_idea
 			}
 		}
 		ai_will_do = {
@@ -2575,6 +2575,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 	}
 	focus = {
@@ -2645,9 +2646,13 @@ focus_tree = {
 					RUS_agrarian_reform_progress_temp_var = 15
 				}
 				set_temp_variable = {
+					RUS_education_reform_progress_temp_var = 15
+				}
+				set_temp_variable = {
 					RUS_zemstvo_reform_progress_temp_var = 40
 				}
 				custom_effect_tooltip = has_agrarian_reform_progress_tt
+				custom_effect_tooltip = has_education_reform_progress_tt
 				custom_effect_tooltip = has_zemstvo_reform_progress_tt
 				custom_effect_tooltip = RUS_law_on_kholm_governorate_passed_in_sc
 				custom_effect_tooltip = RUS_law_of_equality_passed_in_sc
@@ -2855,6 +2860,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			country_event = ww1_kokovtsov.19
+			swap_ideas = {
+				remove_idea = RUS_june_third_political_system_idea
+				add_idea = RUS_autocracy_in_all_but_name_idea
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -2901,9 +2910,10 @@ focus_tree = {
 			country_event = ww1_kokovtsov.18
 			add_political_power = 100
 			swap_ideas = {
-				remove_idea = RUS_june_third_political_system
-				add_idea = RUS_kokovtsovs_political_system
+				remove_idea = RUS_june_third_political_system_idea
+				add_idea = RUS_kokovtsovs_political_system_idea
 			}
+			remove_mission = RUS_kokovtsov_resignation_mission
 		}
 		ai_will_do = {
 			factor = 3
@@ -3242,6 +3252,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 	}
 	focus = {
