@@ -60,12 +60,16 @@ AUH_great_war_bullshit = {
 		}
 		state_target = yes
 		target_trigger = {
-			FROM = {
-					owner = {
-						has_war_with = ROOT
-					}
-				
-			}
+			Is_controlled_by = root
+NOT = {
+is_owned_by = root
+}
+any_neighbor_state = {
+Owner = {
+ has_war_with = root
+ controls_state = PREV
+}
+}
 		}
 		fire_only_once = yes
 		days_remove = 10
