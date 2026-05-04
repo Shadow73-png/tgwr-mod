@@ -468,7 +468,6 @@ RUS_parliament_gui_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				OR = {
-					OR = {
 					has_revolution = yes
 					RUS_vladimir_kokovtsov = {
 						is_part_of_the_cabinet = no
@@ -578,7 +577,7 @@ RUS_parliament_gui_decision_category = {
 RUS_parliament_gui_decision_category = {
 	RUS_growing_frustration_mission = {
 		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = RUS }
+		allowed = { always = no }
 		activation = {
 			always = no
 		}
@@ -620,7 +619,7 @@ RUS_parliament_gui_decision_category = {
 	}
 	RUS_krivoshein_resigns_mission = {
 		icon = GFX_decision_generic_political_discourse
-		allowed = { original_tag = RUS }
+		allowed = { always = no }
 		activation = {
 			always = no
 		}
@@ -703,6 +702,7 @@ RUS_parliament_gui_decision_category = {
 		complete_effect = {
 			add_stability = -0.025
 			set_country_flag = RUS_duma_dismissed
+			country_event = ww1_conservative.5
 		}
 		cost = 50
 	}
@@ -726,6 +726,7 @@ RUS_parliament_gui_decision_category = {
 		}
 		complete_effect = {
 			clr_country_flag = RUS_duma_dismissed
+			country_event = ww1_conservative.6
 		}
 		cost = 50
 	}

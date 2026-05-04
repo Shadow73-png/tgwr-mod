@@ -1412,6 +1412,324 @@ country_event = {
 		name = ww1_conservative.3.a
 	}
 }
+#Arrest of Bolshevik Deputies
+country_event = {
+	id = ww1_conservative.4
+	title = ww1_conservative.4.t
+	desc = ww1_conservative.4.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#Good riddance
+	option = {
+		name = ww1_conservative.4.a
+	}
+}
+#State Duma Dismissed
+country_event = {
+	id = ww1_conservative.5
+	title = ww1_conservative.5.t
+	desc = ww1_conservative.5.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#Good riddance
+	option = {
+		name = ww1_conservative.5.a
+	}
+}
+#State Duma Reconvenes
+country_event = {
+	id = ww1_conservative.6
+	title = ww1_conservative.6.t
+	desc = ww1_conservative.6.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#Good riddance
+	option = {
+		name = ww1_conservative.6.a
+	}
+}
+#Ivan Shipov
+country_event = {
+	id = ww1_conservative.7
+	title = ww1_conservative.7.t
+	desc = ww1_conservative.7.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#Good riddance
+	option = {
+		name = ww1_conservative.7.a
+	}
+}
+#Pyotr Bark
+country_event = {
+	id = ww1_conservative.8
+	title = ww1_conservative.8.t
+	desc = ww1_conservative.8.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#Good riddance
+	option = {
+		name = ww1_conservative.8.a
+	}
+}
+#Meeting with Duma Members
+country_event = {
+	id = ww1_conservative.9
+	title = ww1_conservative.9.t
+	desc = ww1_conservative.9.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#Good riddance
+	option = {
+		name = ww1_conservative.9.a
+	}
+}
+#Shcherbatov Appointed
+country_event = {
+	id = ww1_conservative.10
+	title = ww1_conservative.10.t
+	desc = ww1_conservative.10.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#Good riddance
+	option = {
+		name = ww1_conservative.10.a
+	}
+}
+#Negotiations with Liberals
+country_event = {
+	id = ww1_conservative.11
+	title = ww1_conservative.11.t
+	desc = ww1_conservative.11.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	timeout_days = 4
+	#Let's begin
+	option = {
+		name = ww1_conservative.11.a
+		hidden_effect = {
+			country_event = {
+				id = ww1_conservative.12
+				days = 1
+			}
+		}
+	}
+}
+#Negotiations with Liberals - the question of Chairman
+country_event = {
+	id = ww1_conservative.12
+	title = ww1_conservative.12.t
+	desc = ww1_conservative.12.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	timeout_days = 4
+	#Krivoshein will do well to moderate the liberals
+	option = {
+		name = ww1_conservative.12.a
+		set_country_flag = krivoshein_chairman_flag
+		hidden_effect = {
+			country_event = {
+				id = ww1_conservative.13
+				days = 1
+			}
+		}
+	}
+	#Lvov is a more popular candidate
+	option = {
+		name = ww1_conservative.12.b
+		set_country_flag = lvov_chairman_flag
+		hidden_effect = {
+			country_event = {
+				id = ww1_conservative.13
+				days = 1
+			}
+		}
+	}
+}
+#Negotiations with Liberals - the question of internal affairs
+country_event = {
+	id = ww1_conservative.13
+	title = ww1_conservative.13.t
+	desc = ww1_conservative.13.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	timeout_days = 4
+	#Kryzhanovsky will do just fine
+	option = {
+		name = ww1_conservative.13.a
+		set_country_flag = kryzhanovsky_internal_affairs_flag
+		hidden_effect = {
+			country_event = {
+				id = ww1_conservative.14
+				days = 1
+			}
+		}
+	}
+	#Lvov is a more popular candidate
+	option = {
+		name = ww1_conservative.13.b
+		set_country_flag = lvov_internal_affairs_flag
+		hidden_effect = {
+			country_event = {
+				id = ww1_conservative.14
+				days = 1
+			}
+		}
+	}
+}
+#Negotiations with Liberals - the question of finance
+country_event = {
+	id = ww1_conservative.14
+	title = ww1_conservative.14.t
+	desc = ww1_conservative.14.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	timeout_days = 4
+	#No reason to change Bark
+	option = {
+		name = ww1_conservative.14.a
+		set_country_flag = bark_finance_flag
+		hidden_effect = {
+			if = {
+				limit = {
+					AND = {
+						has_country_flag = lvov_chairman_flag
+						has_country_flag = lvov_internal_affairs_flag
+						has_country_flag = shingarev_finance_flag
+					}
+				}
+				country_event = {
+					id = ww1_conservative.17
+					days = 1
+				}
+			}
+			else_if = {
+				limit = {
+					count_triggers = {
+						amount = 2
+						has_country_flag = lvov_chairman_flag
+						has_country_flag = lvov_internal_affairs_flag
+						has_country_flag = shingarev_finance_flag
+					}
+				}
+				country_event = {
+					id = ww1_conservative.16
+					days = 1
+				}
+			}
+			else = {
+				country_event = {
+					id = ww1_conservative.15
+					days = 1
+				}
+			}
+		}
+	}
+	#Shingarev is a smart man
+	option = {
+		name = ww1_conservative.14.b
+		set_country_flag = shingarev_finance_flag
+		hidden_effect = {
+			if = {
+				limit = {
+					AND = {
+						has_country_flag = lvov_chairman_flag
+						has_country_flag = lvov_internal_affairs_flag
+						has_country_flag = shingarev_finance_flag
+					}
+				}
+				country_event = {
+					id = ww1_conservative.17
+					days = 1
+				}
+			}
+			else_if = {
+				limit = {
+					count_triggers = {
+						amount = 2
+						has_country_flag = lvov_chairman_flag
+						has_country_flag = lvov_internal_affairs_flag
+						has_country_flag = shingarev_finance_flag
+					}
+				}
+				country_event = {
+					id = ww1_conservative.16
+					days = 1
+				}
+			}
+			else = {
+				country_event = {
+					id = ww1_conservative.15
+					days = 1
+				}
+			}
+		}
+	}
+}
+#Negotiations with Liberals - Failure
+country_event = {
+	id = ww1_conservative.15
+	title = ww1_conservative.15.t
+	desc = ww1_conservative.15.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_country_flag = negotiations_with_liberals_failed
+		}
+	}
+	#Good riddance
+	option = {
+		name = ww1_conservative.15.a
+		add_political_power = -50
+	}
+}
+#Negotiations with Liberals - Success
+country_event = {
+	id = ww1_conservative.16
+	title = ww1_conservative.16.t
+	desc = ww1_conservative.16.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	#Good riddance
+	option = {
+		name = ww1_conservative.16.a
+		add_political_power = 50
+	}
+}
+#Negotiations with Liberals - Emperor shuts down negotiations
+country_event = {
+	id = ww1_conservative.17
+	title = ww1_conservative.17.t
+	desc = ww1_conservative.17.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_country_flag = negotiations_with_liberals_failed
+		}
+	}
+	#Good riddance
+	option = {
+		name = ww1_conservative.17.a
+		add_political_power = -50
+	}
+}
 #WORLD WAR I
 #####################
 #SECOND PATRIOTIC WAR
