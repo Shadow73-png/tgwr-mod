@@ -37,8 +37,6 @@ TGWR_great_power_politics = {
 	}
 }
 
-
-
 AUH_great_war_bullshit = {
 	AUS_place_state_under_military = {
 		icon = GFX_decision_generic_decision
@@ -47,7 +45,7 @@ AUH_great_war_bullshit = {
 		}
 		#priority = 19
 		on_map_mode = map_only
-		target_root_trigger = {
+		visible = {
 			has_completed_focus = AUS_suspend_civil_liberties
 		}
 		available = {
@@ -61,9 +59,12 @@ AUH_great_war_bullshit = {
 		state_target = yes
 		target_trigger = {
 			FROM = {
+				Is_controlled_by = root
+
 				any_neighbor_state = {
-					controller = {
-						has_war_with = ROOT
+					Owner = {
+						has_war_with = root
+						controls_state = PREV
 					}
 				}
 			}
@@ -194,7 +195,7 @@ AUH_great_war_bullshit = {
 			has_war = no
 		}
 		timeout_effect = {
-						custom_effect_tooltip = AUS_modify_eco.tt
+			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_consumer_goods = 0.025
 				tooltip = consumer_goods_factor_tt
@@ -270,13 +271,11 @@ AUH_great_war_bullshit = {
 			}
 		}
 		visible = {
-			
 		}
 		activation = {
-		always = no
+			always = no
 		}
 		cancel_trigger = {
-			
 		}
 		timeout_effect = {
 			country_event = ww1_austriahungary_war.6
@@ -308,7 +307,7 @@ AUH_great_war_bullshit = {
 		complete_effect = {
 		}
 		remove_effect = {
-		custom_effect_tooltip = AUS_modify_eco.tt
+			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_factory_output = 0.05
 				tooltip = industrial_capacity_factory_tt
@@ -344,7 +343,7 @@ AUH_great_war_bullshit = {
 		complete_effect = {
 		}
 		remove_effect = {
-		custom_effect_tooltip = AUS_modify_eco.tt
+			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_consumer_goods = -0.08
 				tooltip = consumer_goods_factor_tt
@@ -385,7 +384,7 @@ AUH_great_war_bullshit = {
 			remove_ideas = AUS_population_demanding_price_caps
 			hidden_effect = {
 				country_event = {
-					id =  ww1_austriahungary_war.37
+					id = ww1_austriahungary_war.37
 					days = 90
 				}
 			}
@@ -444,7 +443,7 @@ AUH_great_war_bullshit = {
 				AUS_intensity_of_food_shortages = -1
 				tooltip = AUS_intensity_of_food_shortages_tt
 			}
-add_war_support = -0.05
+			add_war_support = -0.05
 		}
 	}
 	AUS_expand_rationing_to_sugar_milk_and_fats = {
@@ -501,7 +500,6 @@ add_war_support = -0.05
 			}
 		}
 	}
-	
 	AUS_establish_the_metal_central = {
 		icon = GFX_decision_steel
 		allowed = {
@@ -725,45 +723,6 @@ add_war_support = -0.05
 			}
 		}
 	}
-	AUS_import_hungarian_products = {
-		
-		icon = GFX_decision_steel
-		allowed = {
-			original_tag = AUS
-		}
-		priority = 20
-		visible = {
-					has_war_with_major = yes
-has_global_flag = great_war
-		}
-		available = {
-			has_war_with_major = yes
-		HUN = {
-			NOT = {
-				has_completed_focus = HUN_implement_trade_restrictions
-			}
-		}
-		}
-		fire_only_once = no
-		days_remove = 180
-		cost = 50
-		ai_will_do = {
-			base = 80
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-		
-			add_to_variable = {
-				AUS_intensity_of_food_shortages = -1
-				tooltip = AUS_intensity_of_food_shortages_tt
-			}
-			hidden_effect = {
-				AUS_update_food = yes
-			}
-		}
-	}
-
 	AUS_convert_economy_d = {
 		icon = GFX_decision_generic_electricity
 		allowed = {
@@ -793,7 +752,6 @@ has_global_flag = great_war
 				AUS_EP_factory_output = 0.02
 				tooltip = industrial_capacity_factory_tt
 			}
-			
 		}
 	}
 }
@@ -1427,14 +1385,12 @@ AUH_automatic_mechanics = {
 				limit = {
 					AUS_southern_admin_negative = yes
 				}
-							AUS_increase_southern_admin = yes
-
+				AUS_increase_southern_admin = yes
 			}
 			add_political_power = AUS_cost_for_stabilization_effort_decision2
 			activate_mission = AUS_stabilization_effort_mission
 		}
 		cancel_trigger = {
-
 			has_political_power < AUS_cost_for_stabilization_effort_decision
 		}
 		cancel_effect = {
@@ -4819,7 +4775,7 @@ debug_decisions = {
 				set_politics = {
 					ruling_party = neutrality
 					long_name = GUD_neutrality_party
-	 				name = GUD_neutrality_party
+					name = GUD_neutrality_party
 					elections_allowed = no
 				}
 				reserve_dynamic_country = yes

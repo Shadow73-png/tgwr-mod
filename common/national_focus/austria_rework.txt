@@ -8686,12 +8686,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_tech_bonus = {
-				name = AUS_expand_the_marine_budget
-				bonus = 1
-				uses = 1
-				category = naval_equipment
-			}
 			736 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -8703,12 +8697,6 @@ focus_tree = {
 		}
 		ai_will_do = {
 			factor = 10
-			modifier = {
-				has_country_leader = {
-					character = AUH_conrad_von_hotzendorf
-				}
-				factor = 1				#navy is shit
-			}
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -8803,12 +8791,6 @@ focus_tree = {
 			dockyard > 0
 		}
 		completion_reward = {
-			add_tech_bonus = {
-				name = AUS_expand_tegetthof_class
-				bonus = 1
-				uses = 1
-				category = bb_tech
-			}
 			custom_effect_tooltip = AUH_add_production_of_prinz_eugen_and_szent_istvan
 			hidden_effect = {
 				add_equipment_production = {
@@ -8955,14 +8937,17 @@ focus_tree = {
 				is_controlled_by_ROOT_or_subject = yes
 				is_coastal = yes
 			}
+			NOT = {
+				has_global_flag = great_war
+			}
 			dockyard > 0
 		}
 		completion_reward = {
 			add_tech_bonus = {
-				name = AUS_expand_tegetthof_class
+				name = AUS_begin_new_dreadnought_constructions
 				bonus = 1
 				uses = 1
-				category = naval_equipment
+				category = bb_tech
 			}
 			create_equipment_variant = {
 				name = "Ersatz Monarch Class"
@@ -9054,10 +9039,10 @@ focus_tree = {
 		completion_reward = {
 			navy_experience = 25
 			add_tech_bonus = {
-				name = AUS_submarines_experiments
+				name = AUS_naval_technical_military_committee
 				bonus = 1
-				uses = 2
-				category = ss_tech
+				uses = 1
+				category = naval_equipment
 			}
 		}
 		ai_will_do = {
@@ -9084,11 +9069,10 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			navy_experience = 25
 			add_tech_bonus = {
 				name = AUS_submarines_experiments
 				bonus = 1
-				uses = 1
+				uses = 2
 				category = ss_tech
 			}
 		}
