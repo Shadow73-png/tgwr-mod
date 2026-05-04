@@ -7786,4 +7786,46 @@ country_event = {
 		add_to_faction = MGS
 		puppet = MGS
 	}
+	option = {
+		name = ww1_occupiedserbia.1.b
+		set_global_flag = MGS_exists
+		create_dynamic_country = {
+			original_tag = SER
+			set_country_flag = AUH_serbia_govnerate_flag
+			set_cosmetic_tag = MGS_fascism
+			set_research_slots = 2
+			set_politics = {
+				ruling_party = neutrality
+				long_name = GUD_neutrality_party
+				name = GUD_neutrality_party
+				elections_allowed = no
+			}
+			reserve_dynamic_country = yes
+			set_capital = {
+				state = 107
+			}
+		}
+		107 = {
+			transfer_state_to = MGS
+		}
+		MGS = {
+			set_state_controller = 107
+			set_state_controller = 847
+			set_state_controller = 760
+			if = {
+				limit = { 
+					NOT = {
+						is_in_faction_with = BUL
+					}
+				}
+				set_state_controller = 821
+				set_state_controller = 809
+				set_state_controller = 876
+			}
+		}
+		add_to_faction = MGS
+		puppet = MGS
+		custom_effect_tooltip = empty_space_tt
+	MGS = { change_tag_from = AUS }
+	}
 }
