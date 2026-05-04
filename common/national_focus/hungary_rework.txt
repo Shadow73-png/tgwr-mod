@@ -5273,6 +5273,86 @@ focus_tree = {
 			}
 		}
 	 }
+	 #Failure of Treguga Dei
+	 focus = {
+		id = HUN_failure_of_treuga_dei
+		icon = GFX_goal_unkown
+		cost = 0
+		relative_position_id = HUN_treuga_dei
+		x = 16
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		prerequisite = {
+			focus = HUN_treuga_dei
+		}
+		completion_reward = { }
+	 }
+	 #Stand with the Tisza gov
+	 focus = {
+		allow_branch = {
+			NOT = {
+				has_global_flag = HUN_istvan_tisza_killed
+			}
+		}
+		id = HUN_stand_with_tisza_gov
+		icon = GFX_goal_unkown
+		cost = 5
+		relative_position_id = HUN_failure_of_treuga_dei
+		x = -2
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_country_leader = HUN_istvan_tisza
+		}
+		prerequisite = {
+			focus = HUN_failure_of_treuga_dei
+		}
+		mutually_exclusive = {
+			focus = HUN_look_for_a_way_out
+		}
+		completion_reward = { }
+	 }
+	 #Look for a way out
+	 focus = {
+		allow_branch = {
+			NOT = {
+				has_global_flag = HUN_istvan_tisza_killed
+			}
+		}
+		id = HUN_look_for_a_way_out
+		icon = GFX_goal_unkown
+		cost = 5
+		relative_position_id = HUN_failure_of_treuga_dei
+		x = 2
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			
+		}
+		prerequisite = {
+			focus = HUN_failure_of_treuga_dei
+		}
+		mutually_exclusive = {
+			focus = HUN_stand_with_tisza_gov
+		}
+		completion_reward = { }
+	 }
 	 #To the Easter Flank
 	 focus = {
 		id = HUN_to_the_eastern_flank
@@ -5288,9 +5368,9 @@ focus_tree = {
 		available = {
 			has_war_with = RUS
 		}
-		#bypass = {
-		#	is_in_faction_with = RUS
-		#}
+		bypass = {
+			is_in_faction_with = RUS
+		}
 		prerequisite = {
 			focus = HUN_treuga_dei
 		}
@@ -5499,7 +5579,21 @@ focus_tree = {
 			focus = HUN_cut_welfare_programs
 			focus = HUN_enlist_civ_doctors
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_to_variable = {
+				HUN_food_stab_var = 5
+				tooltip = HUN_food_var_plus_5.tt
+			}
+			add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 100
+			}
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+		}
 	 }
 	 #Secure the Grain
 	 focus = {
