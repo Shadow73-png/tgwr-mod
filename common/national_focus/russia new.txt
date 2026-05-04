@@ -3279,6 +3279,12 @@ focus_tree = {
 			}
 			add_political_power = 75
 			add_stability = -0.015
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
+			RUS_modify_loyalty_far_right = yes
+			add_days_mission_timeout = {
+				mission = RUS_growing_frustration_mission
+				days = -60
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -3309,6 +3315,12 @@ focus_tree = {
 			unlock_decision_tooltip = RUS_dismiss_the_state_duma
 			unlock_decision_tooltip = RUS_reconvene_the_state_duma
 			custom_effect_tooltip = RUS_dismiss_the_duma_tt
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
+			RUS_modify_loyalty_far_right = yes
+			add_days_mission_timeout = {
+				mission = RUS_growing_frustration_mission
+				days = -60
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -3368,10 +3380,14 @@ focus_tree = {
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
 		completion_reward = {
-			set_temp_variable = { RUS_modify_loyalty_center_right_var = 10 }
+			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
 			RUS_modify_loyalty_center_right = yes
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = 10 }
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
 			RUS_modify_loyalty_center_left = yes
+			add_days_mission_timeout = {
+				mission = RUS_growing_frustration_mission
+				days = 60
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -3423,6 +3439,14 @@ focus_tree = {
 				custom_effect_tooltip = appointed_as_interior_minister_tt
 				show_ideas_tooltip = RUS_nikolai_shcherbatov
 			}
+			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
+			RUS_modify_loyalty_center_right = yes
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
+			RUS_modify_loyalty_center_left = yes
+			add_days_mission_timeout = {
+				mission = RUS_growing_frustration_mission
+				days = 60
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -3453,20 +3477,14 @@ focus_tree = {
 		relative_position_id = RUS_meet_with_duma_members
 		available_if_capitulated = yes
 		completion_reward = {
-			every_character = {
-				limit = {
-					is_prime_minister = yes
-					is_conservative = yes
-				}
-				RUS_remove_from_the_cabinet = yes
+			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
+			RUS_modify_loyalty_center_right = yes
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
+			RUS_modify_loyalty_center_left = yes
+			add_days_mission_timeout = {
+				mission = RUS_growing_frustration_mission
+				days = 60
 			}
-			custom_effect_tooltip = appointed_as_prime_minister_tt
-			show_ideas_tooltip = RUS_alexander_krivoshein
-			RUS_alexander_krivoshein = {
-				RUS_appoint_chairman = yes
-			}
-			custom_effect_tooltip = if_reforms_fail_tt
-			custom_effect_tooltip = unlocks_conservative_ministers_tt
 		}
 		ai_will_do = {
 			factor = 3
@@ -3498,20 +3516,24 @@ focus_tree = {
 		relative_position_id = RUS_meet_with_duma_members
 		available_if_capitulated = yes
 		completion_reward = {
-			every_character = {
+			if = {
 				limit = {
-					is_prime_minister = yes
-					is_conservative = yes
+					has_idea = RUS_june_third_political_system_idea
 				}
-				RUS_remove_from_the_cabinet = yes
+				swap_ideas = {
+					remove_idea = RUS_june_third_political_system_idea
+					add_idea = RUS_government_of_public_trust_idea
+				}
 			}
-			custom_effect_tooltip = appointed_as_prime_minister_tt
-			show_ideas_tooltip = RUS_alexander_krivoshein
-			RUS_alexander_krivoshein = {
-				RUS_appoint_chairman = yes
+			else_if = {
+				limit = {
+					has_idea = RUS_progressive_bloc_idea
+				}
+				swap_ideas = {
+					remove_idea = RUS_progressive_bloc_idea
+					add_idea = RUS_government_of_public_trust_idea
+				}
 			}
-			custom_effect_tooltip = if_reforms_fail_tt
-			custom_effect_tooltip = unlocks_conservative_ministers_tt
 		}
 		ai_will_do = {
 			factor = 3
@@ -3638,17 +3660,23 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
-					RUS_vladimir_kokovtsov = {
-						is_prime_minister = yes
+					RUS_alexander_krivoshein = {
+						is_part_of_the_cabinet = yes
 					}
 				}
-				every_character = {
-					limit = {
-						is_character = RUS_alexander_krivoshein
+				hidden_effect = {
+					RUS_alexander_krivoshein = {
+						RUS_remove_from_the_cabinet = yes
 					}
-					RUS_remove_from_the_cabinet = yes
 				}
 			}
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
+			RUS_modify_loyalty_far_right = yes
+			add_days_mission_timeout = {
+				mission = RUS_growing_frustration_mission
+				days = -60
+			}
+			country_event = ww1_conservative.3
 		}
 		ai_will_do = {
 			factor = 3

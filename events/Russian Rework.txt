@@ -3,7 +3,7 @@ add_namespace = ww1_russia_foreign
 add_namespace = ww1_russia_war
 add_namespace = ww1_stolypin
 add_namespace = ww1_kokovtsov
-add_namespace = ww1_goremykin
+add_namespace = ww1_conservative
 add_namespace = ww1_krivoshein
 
 #Law passed in the State Duma
@@ -1361,6 +1361,55 @@ country_event = {
 		}
 		complete_national_focus = RUS_smooth_sailing
 		mark_focus_tree_layout_dirty = yes
+		hidden_effect = {
+			country_event = {
+				id = ww1_conservative.1
+				days = 1
+			}
+		}
+	}
+}
+#CONSERVATIVE PATH
+#####################
+#Growing Frustration in the State Duma
+country_event = {
+	id = ww1_conservative.1
+	title = ww1_conservative.1.t
+	desc = ww1_conservative.1.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#We have to do something about this
+	option = {
+		name = ww1_conservative.1.a
+		activate_mission = RUS_growing_frustration_mission
+		custom_effect_tooltip = conservative_mechanic_tt
+	}
+}
+#Progressive Bloc formed
+country_event = {
+	id = ww1_conservative.2
+	title = ww1_conservative.2.t
+	desc = ww1_conservative.2.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#An unfortunate development
+	option = {
+		name = ww1_conservative.2.a
+	}
+}
+#Krivoshein resigns
+country_event = {
+	id = ww1_conservative.3
+	title = ww1_conservative.3.t
+	desc = ww1_conservative.3.d
+	picture = GFX_report_event_german_reichstag_gathering
+	fire_only_once = yes
+	is_triggered_only = yes
+	#Good riddance
+	option = {
+		name = ww1_conservative.3.a
 	}
 }
 #WORLD WAR I
