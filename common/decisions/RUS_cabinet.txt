@@ -170,7 +170,12 @@ RUS_parliament_gui_decision_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				has_revolution = yes
+				OR = {
+					has_revolution = yes
+					RUS_vladimir_kokovtsov = {
+						is_part_of_the_cabinet = no
+					}
+				}
 			}
 		}
 	}
@@ -221,7 +226,12 @@ RUS_parliament_gui_decision_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				has_revolution = yes
+				OR = {
+					has_revolution = yes
+					RUS_vladimir_kokovtsov = {
+						is_part_of_the_cabinet = no
+					}
+				}
 			}
 		}
 	}
@@ -268,7 +278,12 @@ RUS_parliament_gui_decision_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				has_revolution = yes
+				OR = {
+					has_revolution = yes
+					RUS_vladimir_kokovtsov = {
+						is_part_of_the_cabinet = no
+					}
+				}
 			}
 		}
 	}
@@ -310,7 +325,12 @@ RUS_parliament_gui_decision_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				has_revolution = yes
+				OR = {
+					has_revolution = yes
+					RUS_vladimir_kokovtsov = {
+						is_part_of_the_cabinet = no
+					}
+				}
 			}
 		}
 	}
@@ -349,7 +369,12 @@ RUS_parliament_gui_decision_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				has_revolution = yes
+				OR = {
+					has_revolution = yes
+					RUS_vladimir_kokovtsov = {
+						is_part_of_the_cabinet = no
+					}
+				}
 			}
 		}
 	}
@@ -396,7 +421,7 @@ RUS_parliament_gui_decision_category = {
 				OR = {
 					has_revolution = yes
 					RUS_vladimir_kokovtsov = {
-						is_prime_minister = no
+						is_part_of_the_cabinet = no
 					}
 					has_country_flag = RUS_state_duma_election
 				}
@@ -443,9 +468,10 @@ RUS_parliament_gui_decision_category = {
 		cancel_trigger = {
 			hidden_trigger = {
 				OR = {
+					OR = {
 					has_revolution = yes
 					RUS_vladimir_kokovtsov = {
-						is_prime_minister = no
+						is_part_of_the_cabinet = no
 					}
 					has_country_flag = RUS_state_duma_election
 				}
@@ -494,7 +520,7 @@ RUS_parliament_gui_decision_category = {
 				OR = {
 					has_revolution = yes
 					RUS_vladimir_kokovtsov = {
-						is_prime_minister = no
+						is_part_of_the_cabinet = no
 					}
 					has_country_flag = RUS_state_duma_election
 				}
@@ -540,9 +566,9 @@ RUS_parliament_gui_decision_category = {
 			hidden_trigger = {
 				OR = {
 					has_revolution = yes
-				}
-				RUS_vladimir_kokovtsov = {
-					is_prime_minister = no
+					RUS_vladimir_kokovtsov = {
+						is_part_of_the_cabinet = no
+					}
 				}
 			}
 		}
@@ -561,6 +587,11 @@ RUS_parliament_gui_decision_category = {
 				always = no
 			}
 			has_idea = RUS_government_of_public_trust_idea
+		}
+		cancel_trigger = {
+			hidden_trigger = {
+				has_revolution = yes
+			}
 		}
 		fire_only_once = yes
 		is_good = no
@@ -598,6 +629,16 @@ RUS_parliament_gui_decision_category = {
 				always = no
 			}
 			has_idea = RUS_government_of_public_trust_idea
+		}
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					has_revolution = yes
+					RUS_alexander_krivoshein = {
+						is_part_of_the_cabinet = no
+					}
+				}
+			}
 		}
 		fire_only_once = yes
 		is_good = no
