@@ -3271,7 +3271,6 @@ focus_tree = {
 				freedom_level = 0.2
 			}
 			#country_event = ottoman.184
-			TUR_new_system_trial = yes
 			ottoman_centralization_variable_check = yes
 		}
 		ai_will_do = { base = 20 }
@@ -3367,7 +3366,6 @@ focus_tree = {
 				freedom_level = 0.2
 			}
 			#country_event = ottoman.183
-			TUR_new_system_trial = yes
 			ottoman_centralization_variable_check = yes
 		}
 		ai_will_do = { base = 20 }
@@ -7590,15 +7588,93 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_oppose_the_unitary_state_armenian = old_armenian_value }
+				divide_temp_variable = { TUR_oppose_the_unitary_state_armenian = TUR_armenian_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.1 }
+				multiply_temp_variable = { TUR_oppose_the_unitary_state_armenian = TUR_armenian_population_factor_focus }
+				
+				TUR_set_old_greek_value = yes
+				set_temp_variable = { TUR_oppose_the_unitary_state_greek = old_greek_value }
+				divide_temp_variable = { TUR_oppose_the_unitary_state_greek = TUR_greek_population_factor_new }
+				set_temp_variable = { TUR_greek_population_factor_focus = TUR_greek_population_factor_new }
+				add_to_temp_variable = { TUR_greek_population_factor_focus = -0.1 }
+				multiply_temp_variable = { TUR_oppose_the_unitary_state_greek = TUR_greek_population_factor_focus }
+
+				TUR_set_old_bulgarian_value = yes
+				set_temp_variable = { TUR_oppose_the_unitary_state_bulgarian = old_bulgarian_value }
+				divide_temp_variable = { TUR_oppose_the_unitary_state_bulgarian = TUR_bulgarian_population_factor_new }
+				set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
+				add_to_temp_variable = { TUR_bulgarian_population_factor_focus = -0.1 }
+				multiply_temp_variable = { TUR_oppose_the_unitary_state_bulgarian = TUR_bulgarian_population_factor_focus }
+
+				TUR_set_old_albanian_value = yes
+				set_temp_variable = { TUR_oppose_the_unitary_state_albanian = old_albanian_value }
+				divide_temp_variable = { TUR_oppose_the_unitary_state_albanian = TUR_albanian_population_factor_new }
+				set_temp_variable = { TUR_albanian_population_factor_focus = TUR_albanian_population_factor_new }
+				add_to_temp_variable = { TUR_albanian_population_factor_focus = -0.1 }
+				multiply_temp_variable = { TUR_oppose_the_unitary_state_albanian = TUR_albanian_population_factor_focus }
+
+				TUR_set_old_serbian_value = yes
+				set_temp_variable = { TUR_oppose_the_unitary_state_serbian = old_serbian_value }
+				divide_temp_variable = { TUR_oppose_the_unitary_state_serbian = TUR_serbian_population_factor_new }
+				set_temp_variable = { TUR_serbian_population_factor_focus = TUR_serbian_population_factor_new }
+				add_to_temp_variable = { TUR_serbian_population_factor_focus = -0.1 }
+				multiply_temp_variable = { TUR_oppose_the_unitary_state_serbian = TUR_serbian_population_factor_focus }
+
+				TUR_set_old_assyrian_value = yes
+				set_temp_variable = { TUR_oppose_the_unitary_state_assyrian = old_assyrian_value }
+				divide_temp_variable = { TUR_oppose_the_unitary_state_assyrian = TUR_assyrian_population_factor_new }
+				set_temp_variable = { TUR_assyrian_population_factor_focus = TUR_assyrian_population_factor_new }
+				add_to_temp_variable = { TUR_assyrian_population_factor_focus = -0.1 }
+				multiply_temp_variable = { TUR_oppose_the_unitary_state_assyrian = TUR_assyrian_population_factor_focus }
+
+				TUR_set_old_georgian_value = yes
+				set_temp_variable = { TUR_oppose_the_unitary_state_georgian = old_georgian_value }
+				divide_temp_variable = { TUR_oppose_the_unitary_state_georgian = TUR_georgian_population_factor_new }
+				set_temp_variable = { TUR_georgian_population_factor_focus = TUR_georgian_population_factor_new }
+				add_to_temp_variable = { TUR_georgian_population_factor_focus = -0.1 }
+				multiply_temp_variable = { TUR_oppose_the_unitary_state_georgian = TUR_georgian_population_factor_focus }
+
+				TUR_set_old_turkish_value = yes
+				set_temp_variable = { TUR_oppose_the_unitary_state_turkish = old_turkish_value }
+				divide_temp_variable = { TUR_oppose_the_unitary_state_turkish = TUR_turkish_population_factor_new }
+				set_temp_variable = { TUR_turkish_population_factor_focus = TUR_turkish_population_factor_new }
+				add_to_temp_variable = { TUR_turkish_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_oppose_the_unitary_state_turkish = TUR_turkish_population_factor_focus }
+				
+				set_temp_variable = { TUR_oppose_the_unitary_state = TUR_oppose_the_unitary_state_armenian }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state = TUR_oppose_the_unitary_state_greek }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state = TUR_oppose_the_unitary_state_albanian }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state = TUR_oppose_the_unitary_state_bulgarian }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state = TUR_oppose_the_unitary_state_serbian }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state = TUR_oppose_the_unitary_state_assyrian }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state = TUR_oppose_the_unitary_state_georgian }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state = TUR_oppose_the_unitary_state_turkish }
+
+				set_temp_variable = { TUR_oppose_the_unitary_state_old = old_armenian_value }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state_old = old_greek_value }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state_old = old_albanian_value }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state_old = old_bulgarian_value }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state_old = old_serbian_value }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state_old = old_assyrian_value }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state_old = old_georgian_value }
+				add_to_temp_variable = { TUR_oppose_the_unitary_state_old = old_turkish_value }
+
+				subtract_from_temp_variable = { TUR_oppose_the_unitary_state = TUR_oppose_the_unitary_state_old }
+			}
 			custom_effect_tooltip = TUR_oppose_the_unitary_state_tt
-			add_to_variable = { TUR_armenian_population_factor = 0.001 }
-			add_to_variable = { TUR_greek_population_factor = 0.001 }
-			add_to_variable = { TUR_bulgarian_population_factor = 0.001 }
-			add_to_variable = { TUR_albanian_population_factor = 0.001 }
-			add_to_variable = { TUR_serbian_population_factor = 0.001 }
-			add_to_variable = { TUR_assyrian_population_factor = 0.001 }
-			add_to_variable = { TUR_georgian_population_factor = 0.001 }
-			add_to_variable = { TUR_turkish_population_factor = -0.001 }
+			add_to_variable = { TUR_armenian_population_factor_new = -0.1 }
+			add_to_variable = { TUR_greek_population_factor_new = -0.1 }
+			add_to_variable = { TUR_bulgarian_population_factor_new = -0.1 }
+			add_to_variable = { TUR_albanian_population_factor_new = -0.1 }
+			add_to_variable = { TUR_serbian_population_factor_new = -0.1 }
+			add_to_variable = { TUR_assyrian_population_factor_new = -0.1 }
+			add_to_variable = { TUR_georgian_population_factor_new = -0.1 }
+			add_to_variable = { TUR_turkish_population_factor_new = 0.1 }
 			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
 			add_to_variable = {
 				tooltip = political_power_factor_minus_10
@@ -8145,15 +8221,25 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = -0.1
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_sunni_value = yes
+				set_temp_variable = { TUR_ensure_ulema_support = old_sunni_value }
+				divide_temp_variable = { TUR_ensure_ulema_support = TUR_sunni_population_factor_new }
+				set_temp_variable = { TUR_sunni_population_factor_focus = TUR_sunni_population_factor_new }
+				add_to_temp_variable = { TUR_sunni_population_factor_focus = -0.1 }
+				multiply_temp_variable = { TUR_ensure_ulema_support = TUR_sunni_population_factor_focus }
+				subtract_from_temp_variable = { TUR_ensure_ulema_support = old_sunni_value }
+			}
+			add_to_variable = { TUR_sunni_population_factor_new = -0.1 }
 			custom_effect_tooltip = TUR_ensure_ulema_support_tt
-			add_to_variable = { TUR_sunni_population_factor = 0.001 }
+			TUR_new_system_trial = yes
 			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
 			add_to_variable = {
 				tooltip = political_power_factor_5
 				TUR_sce_political_power_factor = 0.05
 			}
 			custom_effect_tooltip = empty_space
-			TUR_new_system_trial = yes
 			add_power_balance_value = {
 				id = TUR_munevveran_struggle
 				value = -0.3
@@ -8585,9 +8671,33 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_sunni_value = yes
+				set_temp_variable = { TUR_maintain_muslim_hegemony_sunni = old_sunni_value }
+				divide_temp_variable = { TUR_maintain_muslim_hegemony_sunni = TUR_sunni_population_factor_new }
+				set_temp_variable = { TUR_sunni_population_factor_focus = TUR_sunni_population_factor_new }
+				add_to_temp_variable = { TUR_sunni_population_factor_focus = -0.1 }
+				multiply_temp_variable = { TUR_maintain_muslim_hegemony_sunni = TUR_sunni_population_factor_focus }
+
+				TUR_set_old_shia_value = yes
+				set_temp_variable = { TUR_maintain_muslim_hegemony_shia = old_shia_value }
+				divide_temp_variable = { TUR_maintain_muslim_hegemony_shia = TUR_shia_population_factor_new }
+				set_temp_variable = { TUR_shia_population_factor_focus = TUR_shia_population_factor_new }
+				add_to_temp_variable = { TUR_shia_population_factor_focus = -0.1 }
+				multiply_temp_variable = { TUR_maintain_muslim_hegemony_shia = TUR_shia_population_factor_focus }
+
+				set_temp_variable = { TUR_maintain_muslim_hegemony = TUR_maintain_muslim_hegemony_shia }
+				add_to_temp_variable = { TUR_maintain_muslim_hegemony = TUR_maintain_muslim_hegemony_sunni }
+
+				set_temp_variable = { TUR_maintain_muslim_hegemony_old = old_shia_value }
+				add_to_temp_variable = { TUR_maintain_muslim_hegemony_old = old_sunni_value }
+
+				subtract_from_temp_variable = { TUR_maintain_muslim_hegemony = TUR_maintain_muslim_hegemony_old }
+			}
+			add_to_variable = { TUR_sunni_population_factor_new = -0.1 }
+			add_to_variable = { TUR_shia_population_factor_new = -0.1 }
 			custom_effect_tooltip = TUR_maintain_muslim_hegemony_tt
-			add_to_variable = { TUR_sunni_population_factor = 0.001 }
-			add_to_variable = { TUR_shia_population_factor = 0.001 }
 			TUR_new_system_trial = yes
 			add_political_power = 50
 			add_stability = -0.15
@@ -8621,19 +8731,94 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			custom_effect_tooltip = TUR_ittihat_i_anasir_tt
-			add_to_variable = { TUR_turkish_population_factor = -0.007 }
-			add_to_variable = { TUR_sunni_population_factor = -0.002 }
-			add_to_variable = { TUR_orthodox_population_factor = 0.003 }
-			add_to_variable = { TUR_apostolic_population_factor = 0.003 }
-			add_to_variable = { TUR_judaic_population_factor = 0.003 }
-			add_to_variable = { TUR_syriac_population_factor = 0.003 }
-			add_to_variable = { TUR_catholic_population_factor = 0.003 }
 			every_controlled_state = {
 				limit = { check_variable = { TUR_turkish_state_level > 0 } }
 				add_dynamic_modifier = { modifier = TUR_turkish_minority }
 				set_state_flag = TUR_ittihat_i_anasir
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_new_turkish_value = yes
+				set_temp_variable = { TUR_ittihat_i_anasir_turkish = new_turkish_value }
+				TUR_set_old_turkish_value = yes
+
+				TUR_set_old_sunni_value = yes
+				set_temp_variable = { TUR_ittihat_i_anasir_sunni = old_sunni_value }
+				divide_temp_variable = { TUR_ittihat_i_anasir_sunni = TUR_sunni_population_factor_new }
+				set_temp_variable = { TUR_sunni_population_factor_focus = TUR_sunni_population_factor_new }
+				add_to_temp_variable = { TUR_sunni_population_factor_focus = 0.2 }
+				multiply_temp_variable = { TUR_ittihat_i_anasir_sunni = TUR_sunni_population_factor_focus }
+
+				TUR_set_old_shia_value = yes
+				set_temp_variable = { TUR_ittihat_i_anasir_shia = old_shia_value }
+				divide_temp_variable = { TUR_ittihat_i_anasir_shia = TUR_shia_population_factor_new }
+				set_temp_variable = { TUR_shia_population_factor_focus = TUR_shia_population_factor_new }
+				add_to_temp_variable = { TUR_shia_population_factor_focus = 0.2 }
+				multiply_temp_variable = { TUR_ittihat_i_anasir_shia = TUR_shia_population_factor_focus }
+				
+				TUR_set_old_orthodox_value = yes
+				set_temp_variable = { TUR_ittihat_i_anasir_orthodox = old_orthodox_value }
+				divide_temp_variable = { TUR_ittihat_i_anasir_orthodox = TUR_orthodox_population_factor_new }
+				set_temp_variable = { TUR_orthodox_population_factor_focus = TUR_orthodox_population_factor_new }
+				add_to_temp_variable = { TUR_orthodox_population_factor_focus = -0.3 }
+				multiply_temp_variable = { TUR_ittihat_i_anasir_orthodox = TUR_orthodox_population_factor_focus }
+
+				TUR_set_old_catholic_value = yes
+				set_temp_variable = { TUR_ittihat_i_anasir_catholic = old_catholic_value }
+				divide_temp_variable = { TUR_ittihat_i_anasir_catholic = TUR_catholic_population_factor_new }
+				set_temp_variable = { TUR_catholic_population_factor_focus = TUR_catholic_population_factor_new }
+				add_to_temp_variable = { TUR_catholic_population_factor_focus = -0.3 }
+				multiply_temp_variable = { TUR_ittihat_i_anasir_catholic = TUR_catholic_population_factor_focus }
+
+				TUR_set_old_jewish_value = yes
+				set_temp_variable = { TUR_ittihat_i_anasir_jewish = old_jewish_value }
+				divide_temp_variable = { TUR_ittihat_i_anasir_jewish = TUR_apostolic_population_factor_new }
+				set_temp_variable = { TUR_jewish_population_factor_focus = TUR_apostolic_population_factor_new }
+				add_to_temp_variable = { TUR_jewish_population_factor_focus = -0.3 }
+				multiply_temp_variable = { TUR_ittihat_i_anasir_jewish = TUR_jewish_population_factor_focus }
+
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_ittihat_i_anasir_armenian = old_armenian_value }
+				divide_temp_variable = { TUR_ittihat_i_anasir_armenian = TUR_apostolic_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_apostolic_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.3 }
+				multiply_temp_variable = { TUR_ittihat_i_anasir_armenian = TUR_armenian_population_factor_focus }
+
+				TUR_set_old_assyrian_value = yes
+				set_temp_variable = { TUR_ittihat_i_anasir_assyrian = old_assyrian_value }
+				divide_temp_variable = { TUR_ittihat_i_anasir_assyrian = TUR_syriac_population_factor_new }
+				set_temp_variable = { TUR_assyrian_population_factor_focus = TUR_syriac_population_factor_new }
+				add_to_temp_variable = { TUR_assyrian_population_factor_focus = -0.3 }
+				multiply_temp_variable = { TUR_ittihat_i_anasir_assyrian = TUR_assyrian_population_factor_focus }
+
+				set_temp_variable = { TUR_ittihat_i_anasir = TUR_ittihat_i_anasir_turkish }
+				add_to_temp_variable = { TUR_ittihat_i_anasir = TUR_ittihat_i_anasir_sunni }
+				add_to_temp_variable = { TUR_ittihat_i_anasir = TUR_ittihat_i_anasir_shia }
+				add_to_temp_variable = { TUR_ittihat_i_anasir = TUR_ittihat_i_anasir_catholic }
+				add_to_temp_variable = { TUR_ittihat_i_anasir = TUR_ittihat_i_anasir_orthodox }
+				add_to_temp_variable = { TUR_ittihat_i_anasir = TUR_ittihat_i_anasir_jewish }
+				add_to_temp_variable = { TUR_ittihat_i_anasir = TUR_ittihat_i_anasir_armenian }
+				add_to_temp_variable = { TUR_ittihat_i_anasir = TUR_ittihat_i_anasir_assyrian }
+
+				set_temp_variable = { TUR_ittihat_i_anasir_old = old_turkish_value }
+				add_to_temp_variable = { TUR_ittihat_i_anasir_old = old_sunni_value }
+				add_to_temp_variable = { TUR_ittihat_i_anasir_old = old_shia_value }
+				add_to_temp_variable = { TUR_ittihat_i_anasir_old = old_catholic_value }
+				add_to_temp_variable = { TUR_ittihat_i_anasir_old = old_orthodox_value }
+				add_to_temp_variable = { TUR_ittihat_i_anasir_old = old_jewish_value }
+				add_to_temp_variable = { TUR_ittihat_i_anasir_old = old_armenian_value }
+				add_to_temp_variable = { TUR_ittihat_i_anasir_old = old_assyrian_value }
+
+				subtract_from_temp_variable = { TUR_ittihat_i_anasir = TUR_ittihat_i_anasir_old }
+			}
+			add_to_variable = { TUR_sunni_population_factor_new = 0.1 }
+			add_to_variable = { TUR_shia_population_factor_new = 0.1 }
+			add_to_variable = { TUR_orthodox_population_factor_new = 0.1 }
+			add_to_variable = { TUR_apostolic_population_factor_new = 0.1 }
+			add_to_variable = { TUR_syriac_population_factor_new = 0.1 }
+			add_to_variable = { TUR_catholic_population_factor_new = 0.1 }
+			custom_effect_tooltip = TUR_ittihat_i_anasir_tt
+			TUR_new_system_trial = yes
 			set_country_flag = TUR_turkish_minority
 			TUR_new_system_trial = yes
 		}
@@ -9187,12 +9372,64 @@ focus_tree = {
 		y = 1
 		relative_position_id = TUR_tend_the_arabian_realm
 		completion_reward = {
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_orthodox_value = yes
+				set_temp_variable = { TUR_reintroduce_jizya_orthodox = old_orthodox_value }
+				divide_temp_variable = { TUR_reintroduce_jizya_orthodox = TUR_orthodox_population_factor_new }
+				set_temp_variable = { TUR_orthodox_population_factor_focus = TUR_orthodox_population_factor_new }
+				add_to_temp_variable = { TUR_orthodox_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_reintroduce_jizya_orthodox = TUR_orthodox_population_factor_focus }
+
+				TUR_set_old_catholic_value = yes
+				set_temp_variable = { TUR_reintroduce_jizya_catholic = old_catholic_value }
+				divide_temp_variable = { TUR_reintroduce_jizya_catholic = TUR_catholic_population_factor_new }
+				set_temp_variable = { TUR_catholic_population_factor_focus = TUR_catholic_population_factor_new }
+				add_to_temp_variable = { TUR_catholic_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_reintroduce_jizya_catholic = TUR_catholic_population_factor_focus }
+
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_reintroduce_jizya_armenian = old_armenian_value }
+				divide_temp_variable = { TUR_reintroduce_jizya_armenian = TUR_apostolic_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_apostolic_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_reintroduce_jizya_armenian = TUR_armenian_population_factor_focus }
+
+				TUR_set_old_assyrian_value = yes
+				set_temp_variable = { TUR_reintroduce_jizya_assyrian = old_assyrian_value }
+				divide_temp_variable = { TUR_reintroduce_jizya_assyrian = TUR_syriac_population_factor_new }
+				set_temp_variable = { TUR_assyrian_population_factor_focus = TUR_syriac_population_factor_new }
+				add_to_temp_variable = { TUR_assyrian_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_reintroduce_jizya_assyrian = TUR_assyrian_population_factor_focus }
+
+				TUR_set_old_jewish_value = yes
+				set_temp_variable = { TUR_reintroduce_jizya_jewish = old_jewish_value }
+				divide_temp_variable = { TUR_reintroduce_jizya_jewish = TUR_syriac_population_factor_new }
+				set_temp_variable = { TUR_jewish_population_factor_focus = TUR_syriac_population_factor_new }
+				add_to_temp_variable = { TUR_jewish_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_reintroduce_jizya_jewish = TUR_jewish_population_factor_focus }
+
+				set_temp_variable = { TUR_reintroduce_jizya = TUR_reintroduce_jizya_catholic }
+				add_to_temp_variable = { TUR_reintroduce_jizya = TUR_reintroduce_jizya_orthodox }
+				add_to_temp_variable = { TUR_reintroduce_jizya = TUR_reintroduce_jizya_armenian }
+				add_to_temp_variable = { TUR_reintroduce_jizya = TUR_reintroduce_jizya_assyrian }
+				add_to_temp_variable = { TUR_reintroduce_jizya = TUR_reintroduce_jizya_jewish }
+
+				set_temp_variable = { TUR_reintroduce_jizya_old = old_catholic_value }
+				add_to_temp_variable = { TUR_reintroduce_jizya_old = old_orthodox_value }
+				add_to_temp_variable = { TUR_reintroduce_jizya_old = old_armenian_value }
+				add_to_temp_variable = { TUR_reintroduce_jizya_old = old_assyrian_value }
+				add_to_temp_variable = { TUR_reintroduce_jizya_old = old_jewish_value }
+
+				subtract_from_temp_variable = { TUR_reintroduce_jizya = TUR_reintroduce_jizya_old }
+			}
+			add_to_variable = { TUR_orthodox_population_factor_new = 0.1 }
+			add_to_variable = { TUR_apostolic_population_factor_new = 0.1 }
+			add_to_variable = { TUR_judaic_population_factor_new = 0.1 }
+			add_to_variable = { TUR_syriac_population_factor_new = 0.1 }
+			add_to_variable = { TUR_catholic_population_factor_new = 0.1 }
 			custom_effect_tooltip = TUR_reintroduce_jizya_tt
-			add_to_variable = { TUR_orthodox_population_factor = -0.001 }
-			add_to_variable = { TUR_apostolic_population_factor = -0.001 }
-			add_to_variable = { TUR_judaic_population_factor = -0.001 }
-			add_to_variable = { TUR_syriac_population_factor = -0.001 }
-			add_to_variable = { TUR_catholic_population_factor = -0.001 }
+			TUR_reintroduce_jizya_effect = yes
 			add_dynamic_modifier = { modifier = TUR_jizya_tax }
 			hidden_effect = {
 				if = {
@@ -14426,11 +14663,53 @@ focus_tree = {
 		relative_position_id = TUR_iron_fist_of_the_empire
 		available = { has_country_leader = { character = TUR_mahmud_sevket } }
 		completion_reward = {
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_orthodox_value = yes
+				set_temp_variable = { TUR_christian_recruitments_orthodox = old_orthodox_value }
+				divide_temp_variable = { TUR_christian_recruitments_orthodox = TUR_orthodox_population_factor_new }
+				set_temp_variable = { TUR_orthodox_population_factor_focus = TUR_orthodox_population_factor_new }
+				add_to_temp_variable = { TUR_orthodox_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_christian_recruitments_orthodox = TUR_orthodox_population_factor_focus }
+
+				TUR_set_old_catholic_value = yes
+				set_temp_variable = { TUR_christian_recruitments_catholic = old_catholic_value }
+				divide_temp_variable = { TUR_christian_recruitments_catholic = TUR_catholic_population_factor_new }
+				set_temp_variable = { TUR_catholic_population_factor_focus = TUR_catholic_population_factor_new }
+				add_to_temp_variable = { TUR_catholic_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_christian_recruitments_catholic = TUR_catholic_population_factor_focus }
+
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_christian_recruitments_armenian = old_armenian_value }
+				divide_temp_variable = { TUR_christian_recruitments_armenian = TUR_apostolic_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_apostolic_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_christian_recruitments_armenian = TUR_armenian_population_factor_focus }
+
+				TUR_set_old_assyrian_value = yes
+				set_temp_variable = { TUR_christian_recruitments_assyrian = old_assyrian_value }
+				divide_temp_variable = { TUR_christian_recruitments_assyrian = TUR_syriac_population_factor_new }
+				set_temp_variable = { TUR_assyrian_population_factor_focus = TUR_syriac_population_factor_new }
+				add_to_temp_variable = { TUR_assyrian_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_christian_recruitments_assyrian = TUR_assyrian_population_factor_focus }
+
+				set_temp_variable = { TUR_christian_recruitments = TUR_christian_recruitments_catholic }
+				add_to_temp_variable = { TUR_christian_recruitments = TUR_christian_recruitments_orthodox }
+				add_to_temp_variable = { TUR_christian_recruitments = TUR_christian_recruitments_armenian }
+				add_to_temp_variable = { TUR_christian_recruitments = TUR_christian_recruitments_assyrian }
+
+				set_temp_variable = { TUR_christian_recruitments_old = old_catholic_value }
+				add_to_temp_variable = { TUR_christian_recruitments_old = old_orthodox_value }
+				add_to_temp_variable = { TUR_christian_recruitments_old = old_armenian_value }
+				add_to_temp_variable = { TUR_christian_recruitments_old = old_assyrian_value }
+
+				subtract_from_temp_variable = { TUR_christian_recruitments = TUR_christian_recruitments_old }
+			}
+			add_to_variable = { TUR_orthodox_population_factor_new = 0.1 }
+			add_to_variable = { TUR_apostolic_population_factor_new = 0.1 }
+			add_to_variable = { TUR_syriac_population_factor_new = 0.1 }
+			add_to_variable = { TUR_catholic_population_factor_new = 0.1 }
 			custom_effect_tooltip = TUR_christian_recruitments_tt
-			add_to_variable = { TUR_orthodox_population_factor = -0.001 }
-			add_to_variable = { TUR_apostolic_population_factor = -0.001 }
-			add_to_variable = { TUR_syriac_population_factor = -0.001 }
-			add_to_variable = { TUR_catholic_population_factor = -0.001 }
 			TUR_new_system_trial = yes
 			add_power_balance_value = {
 				id = TUR_government_committee_struggle
@@ -17253,7 +17532,6 @@ focus_tree = {
 			add_to_variable = { TUR_catholic_population_factor_new = -0.3 }
 			custom_effect_tooltip = TUR_revive_the_ottomanism_dream_tt
 			TUR_new_system_trial = yes
-			add_political_power = -50
 		}
 		ai_will_do = {
 			base = 30
