@@ -1,0 +1,181 @@
+equipments = {
+
+	rigid_airship_frame = {
+		year = 1910
+
+		is_archetype = yes
+		is_convertable = yes
+		picture = archetype_fighter_equipment
+		is_buildable = no
+		type = strategic_bomber
+		type_override = fixed_main_weapon_slot
+		allowed_types = {
+			strategic_bomber
+			maritime_patrol_plane
+			scout_plane
+		}
+		allow_mission_type = training
+		group_by = archetype
+		sprite = airship
+		air_map_icon_frame = 1
+		interface_category = interface_category_air
+		
+		interface_overview_category_index = 1
+		
+		max_military_factories = 5
+		air_superiority = 0.1
+		reliability = 0.55
+		surface_detection = 20 # For airwing of 100 planes (Destroyer I: 20 surface detection)
+		sub_detection = 5 # For airwing of 100 planes (Destroyer I: 5 sub detection )
+
+		lend_lease_cost = 10
+		
+		fuel_consumption = 0.45
+		
+		resources = {
+			steel = 1
+			aluminium = 3
+		}
+		
+		manpower = 80
+
+		module_slots = {
+			fixed_main_weapon_slot = {
+				required = no
+				allowed_module_categories = {
+					recon_camera
+				}
+			}
+
+			fixed_auxiliary_weapon_slot_1 = { 
+				required = no
+				allowed_module_categories = {
+					
+				}
+			}
+
+			engine_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_main_weapon_slot = empty
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+		}
+	}
+
+	rigid_airship_frame_0 = { #early
+		abbreviation = "abf0"
+		derived_variant_name = fighter_equipment_0
+		year = 1911
+
+		archetype = rigid_airship_frame
+		module_slots = inherit
+		priority = 5
+
+		air_range = 1400
+		maximum_speed = 80
+		air_agility = 20
+		air_defence = 3
+		weight = 2
+		naval_strike_attack = 1
+		naval_strike_targetting = 1
+		build_cost_ic = 80
+		resources = {
+			steel = 1
+			aluminium = 3
+		}
+	}	
+
+	rigid_airship_frame_1 = { #basic
+		abbreviation = "abf1"
+		derived_variant_name = fighter_equipment_0
+		year = 1915
+		parent = rigid_airship_frame_0
+
+		archetype = rigid_airship_frame
+		module_slots = inherit
+		priority = 5
+
+		air_range = 1400
+		maximum_speed = 80
+		air_agility = 20
+		air_defence = 3
+		weight = 2
+		naval_strike_attack = 1
+		naval_strike_targetting = 1
+		build_cost_ic = 80
+		resources = {
+			steel = 1
+			aluminium = 3
+		}
+	}
+
+	rigid_airship_frame_2 = { #improved
+		abbreviation = "abf2"
+		derived_variant_name = fighter_equipment_0
+		year = 1919
+		parent = rigid_airship_frame_1
+
+		archetype = rigid_airship_frame
+		module_slots = inherit
+		priority = 5
+
+		air_range = 1400
+		maximum_speed = 80
+		air_agility = 20
+		air_defence = 3
+		weight = 2
+		naval_strike_attack = 1
+		naval_strike_targetting = 1
+		build_cost_ic = 80
+		resources = {
+			steel = 1
+			aluminium = 3
+		}
+	}	
+
+	rigid_airship_frame_3 = { # intercontinental
+		abbreviation = "abfi"
+		derived_variant_name = fighter_equipment_0
+		year = 1919
+
+		archetype = rigid_airship_frame
+		module_slots = inherit
+		priority = 5
+
+		air_range = 1400
+		maximum_speed = 80
+		air_agility = 20
+		air_defence = 3
+		weight = 2
+		naval_strike_attack = 1
+		naval_strike_targetting = 1
+		build_cost_ic = 80
+		resources = {
+			steel = 1
+			aluminium = 3
+		}
+	}	
+}
