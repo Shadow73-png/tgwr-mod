@@ -213,149 +213,50 @@ country_event = {
 	}
 }
 
-# #Nikola Petrović da li da pita Austrijance da promeni stranu #idk this is some old schizo stuff will look into
-# country_event = {
-# 	id = ww1_montenegro.8
-# 	title = ww1_montenegro.8.t
-# 	desc = ww1_montenegro.8.d
-# 	fire_only_once = yes
-# 	trigger = {
-# 		tag = MNT
-# 		has_war_with = AUS
-# 		has_war_together_with = SER
-# 		has_capitulated = yes
-# 		SER = {
-# 			has_war_with = AUS
-# 			has_capitulated = yes
-# 		}
-# 	}
-# 	option = {
-# 		#yes, this is perfect opportunity
-# 		name = ww1_montenegro.8.a
-# 		AUS = {
-# 			country_event = ww1_montenegro.9
-# 		}
-# 		add_stability = -0.2
-# 		ai_chance = {
-# 			factor = 40
-# 			modifier = {
-# 				factor = 0
-# 				is_historical_focus_on = yes
-# 			}
-# 		}
-# 	}
-# 	option = {
-# 		#no, that is betrayal of our people who died in war
-# 		name = ww1_montenegro.8.b
-# 		add_stability = 0.05
-# 		add_war_support = 0.05
-# 		ai_chance = {
-# 			factor = 60
-# 		}
-# 	}
-# }
-
-# #Austrian answer to this all
-# country_event = {
-# 	id = ww1_montenegro.9
-# 	title = ww1_montenegro.9.t
-# 	desc = ww1_montenegro.9.d
-# 	is_triggered_only = yes
-# 	fire_only_once = yes
-# 	option = {
-# 		#Jej
-# 		name = ww1_montenegro.9.a
-# 		MNT = {
-# 			set_cosmetic_tag = MNT_SER
-# 			every_country = {
-# 				limit = {
-# 					has_war_with = MNT
-# 					NOT = {
-# 						has_war_with = AUS
-# 					}
-# 				}
-# 				white_peace = PREV
-# 			}
-# 			set_country_flag = MNT_serbia
-# 			add_opinion_modifier = {
-# 				target = SER
-# 				modifier = faction_traitor
-# 			}
-# 			add_country_leader_trait = unpopular_monarch
-# 		}
-# 		every_state = {
-# 			limit = {
-# 				is_core_of = SER
-# 			}
-# 			add_core_of = MNT
-# 		}
-# 		every_state = {
-# 			limit = {
-# 				is_owned_by = SER
-# 				is_controlled_by = AUS
-# 			}
-# 			MNT = {
-# 				set_state_controller = PREV
-# 			}
-# 		}
-# 		every_state = {
-# 			limit = {
-# 				is_owned_by = MNT
-# 			}
-# 			add_core_of = SER
-# 		}
-# 		set_autonomy = {
-# 			target = MNT
-# 			autonomy_state = autonomy_satellite
-# 			freedom_level = 0.4
-# 		}
-# 		SER = {
-# 			country_event = ww1_montenegro.10
-# 			add_opinion_modifier = {
-# 				target = MNT
-# 				modifier = faction_traitor
-# 			}
-# 		}
-# 		ai_chance = {
-# 			factor = 40
-# 			modifier = {
-# 				factor = 0
-# 				is_historical_focus_on = yes
-# 			}
-# 		}
-# 	}
-# 	option = {
-# 		#he is still enemy tho
-# 		name = ww1_montenegro.9.b
-# 		ai_chance = {
-# 			factor = 80
-# 		}
-# 	}
-# }
-
-# #Serbian reaction
-# country_event = {
-# 	id = ww1_montenegro.10
-# 	title = ww1_montenegro.10.t
-# 	desc = ww1_montenegro.10.d
-# 	is_triggered_only = yes
-# 	option = {
-# 		#tag switch
-# 		name = ww1_montenegro.10.a
-# 		MNT = {
-# 			change_tag_from = SER
-# 		}
-# 		ai_chance = {
-# 			factor = 0
-# 		}
-# 	}
-# 	option = {
-# 		name = ww1_montenegro.10.b
-# 		ai_chance = {
-# 			factor = 100
-# 		}
-# 	}
-# }
+country_event = {
+	id = ww1_montenegro.7
+	title = ww1_montenegro.7.t
+	desc = ww1_montenegro.7.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_montenegro.7.a
+		#pp+- eco spirit
+	}
+}
+country_event = {
+	id = ww1_montenegro.8
+	title = ww1_montenegro.8.t
+	desc = ww1_montenegro.8.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_montenegro.8.a
+		#unlock loan decisions, slight change in eco spirit?
+	}
+}
+country_event = {
+	id = ww1_montenegro.9
+	title = ww1_montenegro.9.t
+	desc = ww1_montenegro.9.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_montenegro.9.a
+		#unlock recon and pioneers get research bonus of 50% on hospital, logistics, military police
+	}
+}
+country_event = {
+	id = ww1_montenegro.10
+	title = ww1_montenegro.10.t
+	desc = ww1_montenegro.10.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_montenegro.10.a
+		#pp+- eco spirit
+	}
+}
 
 ###Kingdom of Montenegro proclaimed
 country_event = {
