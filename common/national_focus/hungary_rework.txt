@@ -600,7 +600,7 @@ focus_tree = {
 				HUN_croat_pp_advisor = 0.1
 				tooltip = political_advisor_cost_factor_tt
 			}
-			208 = {
+			575 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1154,7 +1154,7 @@ focus_tree = {
 				tooltip = line_change_production_efficiency_factor_tt
 			}
 			add_to_variable = {
-				HUN_eco_lack_of_resources_penalty = 0.05
+				HUN_eco_lack_of_resources_penalty = -0.05
 				tooltip = production_lack_of_resource_penalty_factor_tt
 			}
 			add_to_variable = {
@@ -1303,7 +1303,7 @@ focus_tree = {
 	focus = {
 		id = HUN_prepare_for_balkan_volatility
 		icon = GFX_TUR_balkan_war_experience
-		cost = 4
+		cost = 5
 		relative_position_id = HUN_pass_through_the_army_bill
 		x = 0
 		y = 3
@@ -1565,7 +1565,7 @@ focus_tree = {
 				hidden_effect = {
 					HUN_istvan_tisza = {
 						swap_country_leader_traits = {
-							remove = HUN_iron_earl
+							remove = HUN_iron_earl3
 							add = HUN_iron_earl2
 						}
 					}
@@ -2090,7 +2090,7 @@ focus_tree = {
 	focus = {
 		id = HUN_break_up_labour_movements
 		icon = GFX_focus_spr_crush_the_revolution
-		cost = 5
+		cost = 3
 		relative_position_id = HUN_disrupt_opp_efforts
 		x = 1
 		y = 1
@@ -3400,7 +3400,7 @@ focus_tree = {
 	focus = {
 		id = HUN_continue_rail_mandates
 		icon = GFX_focus_generic_train
-		cost = 5
+		cost = 3
 		relative_position_id = HUN_promote_free_market
 		x = -1
 		y = 1
@@ -3817,7 +3817,7 @@ focus_tree = {
 	focus = {
 		id = HUN_phylaxia
 		icon = GFX_focus_generic_field_hostpital
-		cost = 2.9
+		cost = 1
 		relative_position_id = HUN_limited_worker_rights
 		x = 0
 		y = 2
@@ -4780,10 +4780,6 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = HUN_army_tree_unlock_flag
-			OR = {
-				threat > 0.1
-				has_war_support > 0.25
-			}
 		}
 		prerequisite = {
 			focus = HUN_overshadowed_army
@@ -5185,8 +5181,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_refine_our_officers
-		}
-		prerequisite = {
 			focus = HUN_promote_local_arms_makers
 		}
 		completion_reward = { 
