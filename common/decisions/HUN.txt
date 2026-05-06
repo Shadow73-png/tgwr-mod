@@ -524,18 +524,30 @@ TGWR_great_power_politics = {
 			always = no
 		}
 		available = {
-			NOT = {
-				AUS = {
-					OR = {
-						controls_state = 91
-						controls_state = 89
-						controls_state = 562
+			if = {
+				limit = { 
+					AUS_HUN_exists = yes
+				}
+				NOT = {
+					AUS = {
+						OR = {
+							controls_state = 91
+							controls_state = 89
+							controls_state = 562
+						}
 					}
 				}
 			}
 		}
+		complete_effect = {
+			add_stability = -0.05
+			add_war_support = -0.05
+			add_political_power = -150
+		}
 		timeout_effect = {
-			add_war_support = 0.05
+			add_war_support = 0.1
+			add_political_power = 100
+			add_stability = 0.05
 			add_to_variable = {
 				global.AUH_HUN_aus_relations = 5
 				tooltip = AUH_HUN_aus_relations_tt
