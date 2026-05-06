@@ -864,7 +864,7 @@ focus_tree = {
 	#Concede to the All-Right Party
 	focus = {
 		id = HUN_concede_to_the_all_right_party
-		icon = GFX_focus_YUG_deal
+		icon = GFX_focus_SER_army_debate_2
 		cost = 5
 		relative_position_id = HUN_an_interim_solution
 		x = -1
@@ -3604,7 +3604,7 @@ focus_tree = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		available = {
-			num_of_factories > 15
+			num_of_factories > 20
 		}
 		prerequisite = {
 			focus = HUN_rudabanya_mining
@@ -3616,7 +3616,7 @@ focus_tree = {
 			custom_effect_tooltip = HUN_heavy_machinery_works.tt
 			every_owned_state = {
 				limit = {
-					infrastructure > 3
+					infrastructure > 4
 				}
 				add_building_construction = {
 					type = industrial_complex
@@ -4780,6 +4780,7 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = HUN_army_tree_unlock_flag
+			has_tech = machine_tools2
 		}
 		prerequisite = {
 			focus = HUN_overshadowed_army
@@ -4788,7 +4789,7 @@ focus_tree = {
 			custom_effect_tooltip = HUN_stimulate_our_industrial_potential.tt
 			every_owned_state = {
 				limit = {
-					infrastructure > 3
+					infrastructure > 4
 				}
 				add_building_construction = {
 					type = arms_factory
@@ -5060,13 +5061,8 @@ focus_tree = {
 			add_doctrine_cost_reduction = {
 				cost_reduction = 1
 				name = HUN_refine_our_officers
-				uses = 1
+				uses = 2
 				category = land_doctrine
-			}
-			AUH_franz_rohr_von_denta = {
-				add_trait = {
-					trait = trait_mountaineer
-				}
 			}
 			HUN_friedrich_csanady_von_bekes = {
 				add_trait = {
@@ -5319,8 +5315,8 @@ focus_tree = {
 	 }
 	 #Renew Grain Rationing
 	 focus = {
-		id = HUN_renew_grain_rationing
-		icon = GFX_goal_unkown
+		id = HUN_review_grain_rationing
+		icon = GFX_focus_PRC_establish_shorter_market_plans
 		cost = 4
 		relative_position_id = HUN_stand_with_tisza_gov
 		x = 2
@@ -5336,6 +5332,41 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_stand_with_tisza_gov
 			focus = HUN_look_for_a_way_out
+		}
+		completion_reward = { }
+	 }
+	 #Push for Military Readiness in the east
+	 focus = {
+		id = HUN_prepare_trans_for_war
+		icon = GFX_goal_unkown
+		cost = 4
+		relative_position_id = HUN_failure_of_treuga_dei
+		x = -4
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			NOT = {
+				is_in_faction_with = ROM
+				has_war_with = ROM
+			}
+			any_owned_state = {
+				is_core_of = TRA
+			}
+			has_completed_focus = HUN_secure_the_east
+		}
+		prerequisite = {
+			focus = HUN_failure_of_treuga_dei
+		}
+		prerequisite = {
+			focus = HUN_hazai_leadership
+		}
+		bypass_if_unavailable = yes
+		bypass_effect = {
+			
 		}
 		completion_reward = { }
 	 }
@@ -5355,6 +5386,7 @@ focus_tree = {
 		available = {
 			has_war_with_major = yes
 			has_country_leader = HUN_istvan_tisza
+			has_country_flag = HUN_national_work_party_yes
 		}
 		prerequisite = {
 			focus = HUN_stand_with_tisza_gov
@@ -5365,6 +5397,113 @@ focus_tree = {
 				tooltip = HUN_modify_national_work_party_tt
 			}
 		}
+	 }
+	 #Raise War Taxes
+	 focus = {
+		id = HUN_raise_war_taxes
+		icon = GFX_focus_generic_stockpile_currency
+		cost = 5
+		relative_position_id = HUN_secure_party_loyalty
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+
+		}
+		prerequisite = {
+			focus = HUN_secure_party_loyalty
+		}
+		completion_reward = { }
+	 }
+	 #Gyor Arms Works
+	 focus = {
+		id = HUN_gyor_arms_works
+		icon = GFX_focus_generic_reorient_production
+		cost = 5
+		relative_position_id = HUN_secure_party_loyalty
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			owns_state = 155
+			has_country_flag = HUN_national_work_party_yes
+		}
+		prerequisite = {
+			focus = HUN_stand_with_tisza_gov
+		}
+		completion_reward = { 
+			155 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_dynamic_modifier = {
+					modifier = generic_local_investments
+					days = 365
+				}
+			}
+		}
+	 }
+	 #Diósgyőr Steel works
+	 focus = {
+		id = HUN_diosgyor_steel_works
+		icon = GFX_focus_generic_steel_mill
+		cost = 5
+		relative_position_id = HUN_gyor_arms_works
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_HISTORICAL
+		}
+		available = {
+			owns_state = 43
+			has_country_flag = HUN_national_work_party_yes
+		}
+		prerequisite = {
+			focus = HUN_gyor_arms_works
+		}
+		completion_reward = { 
+			add_resource = {
+				type = steel
+				amount = 8
+				state = 43
+			}
+		}
+	 }
+	 #Establish a Public Service Office
+	 focus = {
+		id = HUN_public_service_office
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 5
+		relative_position_id = HUN_gyor_arms_works
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_country_flag = HUN_national_work_party_yes
+		}
+		prerequisite = {
+			focus = HUN_gyor_arms_works
+		}
+		completion_reward = { }
 	 }
 	 #Look for a way out
 	 focus = {
@@ -5395,7 +5534,7 @@ focus_tree = {
 	 #To the Easter Flank
 	 focus = {
 		id = HUN_to_the_eastern_flank
-		icon = GFX_focus_SOV_mobilization_plan
+		icon = GFX_focus_attack_russia
 		cost = 2
 		relative_position_id = HUN_treuga_dei
 		x = 7
@@ -5413,15 +5552,27 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_treuga_dei
 		}
+		bypass_effect = {
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_mobilization_speed = 0.1
+				tooltip = mobilization_speed_tt
+			}
+		}
 		completion_reward = { 
 			activate_mission = HUN_stop_the_steamroller
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_mobilization_speed = 0.1
+				tooltip = mobilization_speed_tt
+			}
 		}
 	 }
 	 #Mobilize Hussars
 	 focus = {
 		id = HUN_mobilize_the_hussars
 		icon = GFX_focus_HABSBURG_defensive_hussars
-		cost = 4
+		cost = 3
 		relative_position_id = HUN_to_the_eastern_flank
 		x = 1
 		y = 1
@@ -5436,7 +5587,34 @@ focus_tree = {
 			focus = HUN_to_the_eastern_flank
 			focus = HUN_hazai_leadership
 		}
-		completion_reward = { }
+		completion_reward = { 
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_hussar_attack = 0.1
+				tooltip = HUN_mobilize_the_hussars.tt
+			}
+			add_to_variable = {
+				HUN_hussar_defense = 0.1
+				tooltip = HUN_mobilize_the_hussars.tt2
+			}
+			custom_effect_tooltip = HUN_mobilize_the_hussars.tt3
+			hidden_effect = {
+				43 = {
+					create_unit = {
+						division = "division_template = \"Lovashadosztály\"	start_experience_factor = 0.4	start_equipment_factor = 0.5"
+						owner = ROOT
+						count = 1
+					}
+				}
+				1139 = {
+					create_unit = {
+						division = "division_template = \"Lovasdandár\"	start_experience_factor = 0.4	start_equipment_factor = 0.8"
+						owner = ROOT
+						count = 1
+					}
+				}
+			}
+		}
 	 }
 	 #Bolster Artillery Regiments
 	 focus = {
@@ -5456,7 +5634,25 @@ focus_tree = {
 			focus = HUN_mobilize_the_hussars
 			focus = HUN_whip_honved_into_shape
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_tech_bonus = {
+				name = HUN_bolster_artilley_regiments
+				category = cat_field_gun
+				bonus = 1.5
+				uses = 1
+			}
+			add_tech_bonus = {
+				name = HUN_bolster_artilley_regiments
+				category = cat_artillery
+				bonus = 1.5
+				uses = 1
+			}
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_arty_attack = 0.1
+				tooltip = army_artillery_attack_factor_tt
+			}
+		}
 	 }
 	 #Mountain Regiments
 	 focus = {
@@ -5479,7 +5675,86 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_to_the_eastern_flank
 		}
+		completion_reward = { 
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_army_core_defense = 0.05
+				tooltip = HUN_carpathian_fighting_forces.tt
+			}
+			add_tech_bonus = {
+				name = HUN_carpathian_fighting_forces
+				category = mountaineers_tech
+				uses = 1
+				bonus = 1.5
+			}
+			add_tech_bonus = {
+				name = HUN_carpathian_fighting_forces
+				category = mountaineers_tech
+				uses = 1
+				bonus = 0.5
+			}
+			AUH_franz_rohr_von_denta = {
+				add_trait = {
+					trait = trait_mountaineer
+				}
+			}
+		}
+	 }
+	 #Expand Ludovika Military Academy
+	 focus = {
+		id = HUN_ludovika_academy 
+		icon = GFX_focus_generic_military_academy
+		cost = 5
+		relative_position_id = HUN_carpathian_fighting_forces
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_ARMY_XP
+		}
+		available = {
+			has_war_with_major = yes
+			longest_war_length > 18
+		}
+		prerequisite = {
+			focus = HUN_carpathian_fighting_forces
+		}
+		prerequisite = {
+			focus = HUN_bolster_artilley_regiments
+		}
+		prerequisite = {
+			focus = HUN_mobilize_the_hussars
+		}
 		completion_reward = { }
+	 }
+	 #Helicopter Experiments
+	 focus = {
+		id = HUN_helicopter_experiments
+		icon = GFX_focus_BEL_early_helicopters
+		cost = 5
+		relative_position_id = HUN_ludovika_academy
+		x = 0
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_HISTORICAL
+		}
+		available = {
+			longest_war_length > 30
+			has_tech = tech_maintenance_company3
+		}
+		prerequisite = {
+			focus = HUN_ludovika_academy
+		}
+		completion_reward = { 
+			custom_effect_tooltip = HUN_helicopter_experiments.tt
+			set_technology = {
+				multicylinder_engine = 1
+			}
+			set_technology = {
+				turbocharger = 1
+			}
+		}
 	 }
 	 #Hazai's Leadership
 	 focus = {
@@ -5501,7 +5776,20 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_treuga_dei
 		}
-		completion_reward = { }
+		completion_reward = { 
+			army_experience = 50
+			add_command_power = 25
+			complete_national_focus = HUN_hazai_army_reform
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_slow_army = 0.1
+				tooltip = HUN_hazai_leadership.tt
+			}
+			add_to_variable = {
+				HUN_max_cp = 50
+				tooltip = HUN_hazai_leadership.tt2
+			}
+		}
 	 }
 	 #Whip Honved into Shape
 	 focus = {
@@ -5521,7 +5809,18 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_hazai_leadership
 		}
-		completion_reward = { }
+		completion_reward = { 
+			army_experience = 25
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_army_org = 0.2
+				tooltip = army_org_factor_tt
+			}
+			add_to_variable = {
+				HUN_planning_speed = 0.2
+				tooltip = planning_speed_factor_tt
+			}
+		}
 	 }
 	 #Secure the State
 	 focus = {
@@ -5568,6 +5867,11 @@ focus_tree = {
 		}
 		bypass_if_unavailable = yes
 		completion_reward = { 
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_recruitable_pop = 0.2
+				tooltip = HUN_village_police.tt
+			}
 			custom_effect_tooltip = HUN_modify_truega_tt
 			set_variable = {
 				HUN_treuga_dei_neu_drift = 0.02
@@ -5858,7 +6162,7 @@ focus_tree = {
 			focus = HUN_secure_grain
 		}
 		completion_reward = { 
-			add_stability = -0.02
+			add_stability = -0.05
 			add_war_support = -0.02
 			add_to_variable = {
 				HUN_food_stab_var = 15
@@ -6040,6 +6344,8 @@ focus_tree = {
 			FOCUS_FILTER_INTERNATIONAL_TRADE
 		}
 		available = {
+			has_war_with_major = yes
+			longest_war_length > 12
 			hidden_trigger = {
 				country_exists = BUL
 			}
@@ -6084,7 +6390,10 @@ focus_tree = {
 		bypass = {
 			is_in_faction_with = RUS
 		}
-		completion_reward = { }
+		completion_reward = { 
+			custom_effect_tooltip = HUN_pin_all_hopes_on_russian_defeat.tt
+			activate_mission = HUN_pin_hope_on_russian_defeat_mission
+		}
 	 }
 	 #Purchase Civillian Weapons
 	 focus = {
