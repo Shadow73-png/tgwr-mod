@@ -74,7 +74,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MGS_resoration
-		icon = GFX_focus_generic_agricultural_subsidies
+		icon = GFX_focus_generic_field_hostpital
 		cost = 5
 		x = -1
 		y = 1
@@ -102,9 +102,135 @@ focus_tree = {
 		}
 		
 	}
+		focus = {
+		id = MGS_international_aid_efforts
+		icon = GFX_focus_generic_democratic_europe
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = MGS_resoration
+		}
+		relative_position_id = MGS_resoration
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_maximum_rationing
+		icon = GFX_focus_RAJ_union_busting
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = MGS_resoration
+		}
+		relative_position_id = MGS_resoration
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_feeding_the_people
+		icon = GFX_focus_generic_central_planning
+		cost = 5
+		x = 0
+		y = 2
+		mutually_exclusive = {
+			focus = MGS_domination_of_austrian_companies
+		}
+		prerequisite = {
+			focus = MGS_maximum_rationing
+		}
+		prerequisite = {
+			focus = MGS_international_aid_efforts
+		}
+		relative_position_id = MGS_resoration
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+		focus = {
+		id = MGS_restoration_of_a_national_economy
+		icon = GFX_focus_generic_agricultural_subsidies
+		cost = 5
+		x = -1
+		y = 3
+		prerequisite = {
+			focus = MGS_feeding_the_people
+		}
+		relative_position_id = MGS_resoration
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
 	focus = {
 		id = MGS_exploitation
-		icon = GFX_focus_generic_agricultural_subsidies
+		icon = GFX_focus_generic_annex_country
 		cost = 5
 		x = 2
 		y = 1
@@ -132,9 +258,224 @@ focus_tree = {
 		}
 		
 	}
+	focus = {
+		id = MGS_the_field_workers
+		icon = GFX_focus_socialist_worker
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = MGS_exploitation
+		}
+		relative_position_id = MGS_exploitation
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_seize_property
+		icon = GFX_focus_SWE_hygienic_housing
+		cost = 5
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = MGS_exploitation
+		}
+		relative_position_id = MGS_exploitation
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_domination_of_austrian_companies
+		icon = GFX_focus_economic_self_reliance
+		cost = 5
+		x = -1
+		y = 2
+		mutually_exclusive = {
+			focus = MGS_feeding_the_people
+		}
+		prerequisite = {
+			focus = MGS_exploitation
+		}
+		relative_position_id = MGS_exploitation
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_exploit_forests_and_mines
+		icon = GFX_focus_CHL_expand_the_forestry
+		cost = 5
+		x = -2
+		y = 3
+		prerequisite = {
+			focus = MGS_domination_of_austrian_companies
+		}
+		relative_position_id = MGS_exploitation
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_requisition_of_resources
+		icon = GFX_focus_generic_coal_mining
+		cost = 5
+		x = 0
+		y = 3
+		prerequisite = {
+			focus = MGS_seize_property
+			focus = MGS_domination_of_austrian_companies
+		}
+		relative_position_id = MGS_exploitation
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_the_suchdetaschement
+		icon = GFX_focus_AUS_raid_military_storages
+		cost = 5
+		x = 1
+		y = 4
+		prerequisite = {
+			focus = MGS_seize_property
+		}
+		relative_position_id = MGS_exploitation
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_wahren_verkehrs_zentrale
+		icon = GFX_goal_generic_trade
+		cost = 5
+		x = -1
+		y = 4
+		prerequisite = {
+			focus = MGS_requisition_of_resources
+			focus = MGS_exploit_forests_and_mines
+		}
+		relative_position_id = MGS_exploitation
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
 		focus = {
 		id = MGS_order
-		icon = GFX_focus_generic_agricultural_subsidies
+		icon = GFX_generic_police_state
 		cost = 5
 		x = 5
 		y = 1
@@ -164,7 +505,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MGS_utilize_loyal_minorities
-		icon = GFX_focus_generic_agricultural_subsidies
+		icon = GFX_goal_generic_forceful_treaty
 		cost = 5
 		x = -1
 		y = 1
@@ -195,7 +536,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MGS_denationalization
-		icon = GFX_focus_generic_agricultural_subsidies
+		icon = GFX_generic_dissolve_parliament
 		cost = 5
 		x = 1
 		y = 1
@@ -223,11 +564,131 @@ focus_tree = {
 		}
 		
 	}
+	focus = {
+		id = MGS_network_of_trusted_persons
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 5
+		x = -1
+		y = 3
+		prerequisite = {
+			focus = MGS_utilize_loyal_minorities
+		}
+		relative_position_id = MGS_order
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+		focus = {
+		id = MGS_support_from_the_motherland
+		icon = GFX_focus_AUH_conrad
+		cost = 5
+		x = 3
+		y = 1
+		prerequisite = {
+			focus = MGS_order
+		}
+		relative_position_id = MGS_order
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
 		focus = {
 		id = MGS_military_rule_of_law
-		icon = GFX_focus_generic_agricultural_subsidies
+		icon = GFX_focus_generic_full_social_mobilization
 		cost = 5
 		x = 0
+		y = 2
+		prerequisite = {
+			focus = MGS_denationalization
+		}
+		relative_position_id = MGS_order
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_hostage_taking
+		icon = GFX_focus_generic_subjugation
+		cost = 5
+		x = 1
+		y = 3
+		prerequisite = {
+			focus = MGS_military_rule_of_law
+		}
+		relative_position_id = MGS_order
+		available = {
+			
+		}
+		bypass = {
+			always = yes
+		}
+		
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		
+	}
+	focus = {
+		id = MGS_deportation_orders
+		icon = GFX_focus_secret_rearmament
+		cost = 5
+		x = 2
 		y = 2
 		prerequisite = {
 			focus = MGS_denationalization
