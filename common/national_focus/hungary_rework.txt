@@ -5675,6 +5675,7 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_to_the_eastern_flank
 		}
+		bypass_if_unavailable = yes
 		completion_reward = { 
 			custom_effect_tooltip = HUN_modify_army_tt
 			add_to_variable = {
@@ -5725,7 +5726,24 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_mobilize_the_hussars
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				name = HUN_ludovika_academy
+				uses = 1
+				category = land_doctrine
+			}
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_army_attack = 0.2
+				tooltip = army_attack_factor_tt
+			}
+			add_to_variable = {
+				HUN_army_defence = 0.2
+				tooltip = army_defence_factor_tt
+
+			}
+		}
 	 }
 	 #Helicopter Experiments
 	 focus = {
@@ -5748,11 +5766,12 @@ focus_tree = {
 		}
 		completion_reward = { 
 			custom_effect_tooltip = HUN_helicopter_experiments.tt
+			air_experience = 40
 			set_technology = {
 				multicylinder_engine = 1
 			}
 			set_technology = {
-				turbocharger = 1
+				advanced_aircraft_design = 1
 			}
 		}
 	 }
