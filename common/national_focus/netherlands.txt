@@ -6864,6 +6864,9 @@ focus = {
 	icon = GFX_focus_NOR_broken_gun_policies
 	available = {
 		has_country_flag = HOL_flag_rebellion_ended
+		NOT = {
+			has_completed_focus = HOL_fan_flames_revolutions
+		}
 	}
 	available_if_capitulated = yes
 	prerequisite = {
@@ -6927,6 +6930,231 @@ focus = {
 	cost = 5
 	x = 1
 	y = 2
+}
+focus = {
+	id = HOL_fan_flames_revolutions
+	icon = GFX_goal_generic_neutrality_focus
+	available = {
+		NOT = {
+			has_completed_focus = HOL_demilitarisation
+		}
+		has_country_flag = HOL_flag_rebellion_ended
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_question_of_leadership
+	}
+	relative_position_id = HOL_question_of_leadership
+	completion_reward = {
+		add_ideas = HOL_expand_the_revolution
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -10
+	y = 1
+}
+focus = {
+	id = HOL_communist_bloc
+	icon = GFX_goal_generic_neutrality_focus
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_fan_flames_revolutions
+	}
+	relative_position_id = HOL_question_of_leadership
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -10
+	y = 2
+}
+focus = {
+	id = HOL_support_growing_movement
+	icon = GFX_goal_generic_neutrality_focus
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_communist_bloc
+	}
+	relative_position_id = HOL_question_of_leadership
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -10
+	y = 3
+}
+focus = {
+	id = HOL_comrades_next_to_us
+	icon = GFX_goal_generic_neutrality_focus
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_fan_flames_revolutions
+	}
+	relative_position_id = HOL_question_of_leadership
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -8
+	y = 2
+}
+focus = {
+	id = HOL_recognise_ussr
+	icon = GFX_goal_generic_neutrality_focus
+	available = {
+		has_global_flag = russian_civil_war_ends
+		SOV = {
+			has_capitulated = no
+		}
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_fan_flames_revolutions focus = HOL_reestablish_classic_relations
+	}
+	relative_position_id = HOL_question_of_leadership
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -12
+	y = 2
+}
+focus = {
+	id = HOL_reestablish_classic_relations
+	icon = GFX_goal_generic_neutrality_focus
+	available = {
+		NOT = {
+			has_completed_focus = HOL_demilitarisation
+		}
+		has_country_flag = HOL_flag_rebellion_ended
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_question_of_leadership
+	}
+	relative_position_id = HOL_question_of_leadership
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -13
+	y = 1
+}
+focus = {
+	id = HOL_normalise_trade_relations
+	icon = GFX_goal_generic_neutrality_focus
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_reestablish_classic_relations
+	}
+	relative_position_id = HOL_question_of_leadership
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -14
+	y = 2
+}
+focus = {
+	id = HOL_attract_investment
+	icon = GFX_goal_generic_neutrality_focus
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_normalise_trade_relations
+	}
+	relative_position_id = HOL_question_of_leadership
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -14
+	y = 4
+}
+focus = {
+	id = HOL_secure_our_indenpendence
+	icon = GFX_goal_generic_neutrality_focus
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_reestablish_classic_relations
+	}
+	relative_position_id = HOL_question_of_leadership
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -13
+	y = 3
 }
 focus = {
 	id = HOL_draft_new_constitution
