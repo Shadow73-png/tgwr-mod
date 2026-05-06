@@ -5340,8 +5340,8 @@ focus_tree = {
 		id = HUN_prepare_trans_for_war
 		icon = GFX_goal_unkown
 		cost = 4
-		relative_position_id = HUN_review_grain_rationing
-		x = 0
+		relative_position_id = HUN_failure_of_treuga_dei
+		x = -4
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -5353,9 +5353,16 @@ focus_tree = {
 				is_in_faction_with = ROM
 				has_war_with = ROM
 			}
+			any_owned_state = {
+				is_core_of = TRA
+			}
+			has_completed_focus = HUN_secure_the_east
 		}
 		prerequisite = {
-			focus = HUN_review_grain_rationing
+			focus = HUN_failure_of_treuga_dei
+		}
+		prerequisite = {
+			focus = HUN_hazai_leadership
 		}
 		bypass_if_unavailable = yes
 		bypass_effect = {
@@ -5387,6 +5394,68 @@ focus_tree = {
 			add_to_variable = {
 				HUN_national_work_party_authority_var = 20
 				tooltip = HUN_modify_national_work_party_tt
+			}
+		}
+	 }
+	 #Gyor Arms Works
+	 focus = {
+		id = HUN_gyor_arms_works
+		icon = GFX_goal_unkown
+		cost = 5
+		relative_position_id = HUN_secure_party_loyalty
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			owns_state = 155
+		}
+		prerequisite = {
+			focus = HUN_stand_with_tisza_gov
+		}
+		completion_reward = { 
+			155 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_dynamic_modifier = {
+					modifier = generic_local_investments
+					days = 365
+				}
+			}
+		}
+	 }
+	 #Diósgyőr Steel works
+	 focus = {
+		id = HUN_diosgyor_steel_works
+		icon = GFX_goal_unkown
+		cost = 5
+		relative_position_id = HUN_gyor_arms_works
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_HISTORICAL
+		}
+		available = {
+			owns_state = 43
+		}
+		prerequisite = {
+			focus = HUN_gyor_arms_works
+		}
+		completion_reward = { 
+			add_resource = {
+				type = steel
+				amount = 8
+				state = 43
 			}
 		}
 	 }
@@ -6173,6 +6242,8 @@ focus_tree = {
 			FOCUS_FILTER_INTERNATIONAL_TRADE
 		}
 		available = {
+			has_war_with_major = yes
+			longest_war_length > 12
 			hidden_trigger = {
 				country_exists = BUL
 			}
@@ -6217,7 +6288,10 @@ focus_tree = {
 		bypass = {
 			is_in_faction_with = RUS
 		}
-		completion_reward = { }
+		completion_reward = { 
+			custom_effect_tooltip = HUN_pin_all_hopes_on_russian_defeat.tt
+			activate_mission = HUN_pin_hope_on_russian_defeat_mission
+		}
 	 }
 	 #Purchase Civillian Weapons
 	 focus = {
