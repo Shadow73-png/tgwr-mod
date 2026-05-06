@@ -2843,3 +2843,55 @@ country_event = {
 		add_political_power = 25
 	}
 }
+#investment communism
+country_event = {
+	id = ww1_holland.110
+	title = ww1_holland.110.t
+	desc = ww1_holland.110.d
+	is_triggered_only = yes
+	option = {
+		name = ww1_holland.110.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.01
+		}
+		HOL = {
+			country_event = ww1_holland.111
+		}
+	}
+	option = {
+		name = ww1_holland.110.b
+		add_political_power = 5
+		HOL = {
+			country_event = ww1_holland.112
+		}
+	}
+}
+#investment communism accept
+country_event = {
+	id = ww1_holland.111
+	title = ww1_holland.111.t
+	desc = ww1_holland.111.d
+	is_triggered_only = yes
+	option = {
+		name = ww1_holland.111.a
+		random_core_state = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+    			instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+}
+#investment communism reject
+country_event = {
+	id = ww1_holland.112
+	title = ww1_holland.112.t
+	desc = ww1_holland.112.d
+	is_triggered_only = yes
+	option = {
+		name = ww1_holland.112.a
+	}
+}
