@@ -6973,7 +6973,17 @@ focus = {
 	}
 	relative_position_id = HOL_question_of_leadership
 	completion_reward = {
-		
+		else = {
+			create_faction_from_template = faction_template_third_international
+		}
+		if = {
+			limit = {
+				ITA = {
+					has_completed_focus = ITA_form_the_international
+				}
+			}
+			country_event = ww1_holland.106
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -6993,11 +7003,14 @@ focus = {
 	}
 	available_if_capitulated = yes
 	prerequisite = {
-		focus = HOL_communist_bloc
+		focus = HOL_communist_bloc focus = HOL_recognise_ussr
 	}
 	relative_position_id = HOL_question_of_leadership
 	completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = HOL_expand_the_revolution
+			add_idea = HOL_expand_the_revolution2
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -7006,7 +7019,7 @@ focus = {
 		
 	}
 	cost = 5
-	x = -10
+	x = -11
 	y = 3
 }
 focus = {
@@ -7048,6 +7061,18 @@ focus = {
 	}
 	relative_position_id = HOL_question_of_leadership
 	completion_reward = {
+		add_opinion_modifier = {
+			target = SOV
+			modifier = large_increase
+		}
+		SOV = {
+			add_opinion_modifier = {
+				target = HOL
+				modifier = large_increase
+			}
+			country_event = ww1_holland.109
+		}
+		add_political_power = 25
 		
 	}
 	ai_will_do = {
@@ -7078,7 +7103,16 @@ focus = {
 	}
 	relative_position_id = HOL_question_of_leadership
 	completion_reward = {
-		
+		diplomatic_relation = {
+    		country = FRA
+    		relation = non_aggression_pact
+    		active = yes
+		}
+		diplomatic_relation = {
+    		country = ENG
+    		relation = non_aggression_pact
+    		active = yes
+		}
 	}
 	ai_will_do = {
 	factor = 500

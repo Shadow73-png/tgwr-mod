@@ -2818,29 +2818,76 @@ HOL_dc_communist_political_stuff = {
 			factor = 200
 		}
 	}
-	HOL_humanitarian_aid_mexico = {
-		icon = GFX_decision_eng_trade_unions_demand
+	HOL_invite_socialist_to_faction = {
+		icon = GFX_decision_hol_exchange_intelligence_data
 		allowed = {
-			original_tag = HOL
+			original_tag = ITA
 		}
 		available = {
-			has_completed_focus = HOL_communist_humanitarian_aid
-			has_government = communism
-		}
-		visible = {
-			has_completed_focus = HOL_communist_humanitarian_aid
-			has_government = communism
-		}
-		fire_only_once = yes
-		complete_effect = {
-			MEX = {
-				add_ideas = HOL_com_humanitarian_aid
+			FROM = {
+				is_in_faction = no
+			}
+			ROOT = {
+				is_in_faction = yes
+				is_faction_leader = yes
 			}
 		}
-		cost = 50
+		target_trigger = {
+			FROM = {
+				has_government = communism
+			}
+		}
+		fire_only_once = no
 		ai_will_do = {
-			factor = 200
+			base = 100
+			modifier = {
+				add = -80
+				FROM = {
+					is_major = yes
+					has_war = yes
+				}
+			}
+			modifier = {
+				add = 50
+				FROM = {
+					is_major = no
+					has_war = yes
+				}
+			}
+			modifier = {
+				factor = 0
+				has_opinion = {
+					target = FROM
+					value < 0
+				}
+			}
+		}
+		visible = {
+			has_country_flag = HOL_flag_revolution
+			FROM = {
+				is_subject = no
+				NOT = {
+					has_war_with = HOL
+					is_in_faction_with = ROOT
+					has_country_flag = HOL_asked_join_internationale
+				}
+			}
+		}
+		target_root_trigger = {
+			has_completed_focus = ITA_form_the_international
+		}
+		complete_effect = {
+			FROM = {
+				country_event = {
+					id = ww1_holland.103
+					hours = 8
+				}
+				set_country_flag = {
+					flag = HOL_asked_join_internationale
+					days = 180
+					value = 1
+				}
+			}
 		}
 	}
-	
 }

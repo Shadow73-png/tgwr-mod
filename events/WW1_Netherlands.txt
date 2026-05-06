@@ -2716,3 +2716,130 @@ country_event = {
 		add_political_power = -10
 	}
 }
+#thanks for the code leaf
+#invite country event
+country_event = {
+	id = ww1_holland.103
+	title = ww1_holland.103.t
+	desc = ww1_holland.103.d
+	is_triggered_only = yes
+	option = {
+		name = ww1_holland.103.a
+		if = {
+			limit = {
+				is_in_faction = yes
+			}
+			leave_faction = yes
+		}
+		ITA = {
+			add_to_faction = ROOT
+			country_event = {
+				id = ww1_holland.104
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = 10
+				ROOT = {
+					has_opinion = {
+						target = HOL
+						value > 45
+					}
+				}
+			}
+		}
+	}
+	option = {
+		#No
+		name = ww1_holland.103.b
+		HOL = {
+			country_event = {
+				id = ww1_holland.105
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 6
+		}
+	}
+}
+#invite accepted
+country_event = {
+	id = ww1_holland.104
+	title = ww1_holland.104.t
+	desc = ww1_holland.104.d
+	is_triggered_only = yes
+	option = {
+		name = ww1_holland.104.a
+		effect_tooltip = {
+			ROOT = {
+				add_to_faction = FROM
+			}
+		}
+	}
+}
+#invite rejected
+country_event = {
+	id = ww1_holland.105
+	title = ww1_holland.105.t
+	desc = ww1_holland.105.d
+	is_triggered_only = yes
+	option = {
+		name = ww1_holland.105.a
+		add_political_power = -25
+		custom_effect_tooltip = you_can_ask_again_180
+	}
+}
+#approach communist italy
+country_event = {
+	id = ww1_holland.106
+	title = ww1_holland.106.t
+	desc = ww1_holland.106.d
+	is_triggered_only = yes
+	option = {
+		name = ww1_holland.106.a
+		ITA = {
+			add_to_faction = HOL
+		}
+		HOL = { country_event = ww1_holland.107 }
+	}
+	option = {
+		name = ww1_holland.106.b
+		HOL = { country_event = ww1_holland.108 }
+	}
+}
+#com italy accepted
+country_event = {
+	id = ww1_holland.107
+	title = ww1_holland.107.t
+	desc = ww1_holland.107.d
+	is_triggered_only = yes
+	option = {
+		name = ww1_holland.107.a
+		add_political_power = 10
+	}
+}
+#com italy rejected
+country_event = {
+	id = ww1_holland.108
+	title = ww1_holland.108.t
+	desc = ww1_holland.108.d
+	is_triggered_only = yes
+	option = {
+		name = ww1_holland.108.a
+		add_political_power = -10
+	}
+}
+#ussr recognisedd by holland
+country_event = {
+	id = ww1_holland.109
+	title = ww1_holland.109.t
+	desc = ww1_holland.109.d
+	is_triggered_only = yes
+	option = {
+		name = ww1_holland.109.a
+		add_political_power = 25
+	}
+}
