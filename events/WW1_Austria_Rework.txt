@@ -276,7 +276,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 	}
 	mean_time_to_happen = {
@@ -301,7 +301,7 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with = ENG
 	}
 	mean_time_to_happen = {
@@ -323,7 +323,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 	}
 	fire_only_once = yes
@@ -342,7 +342,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		has_idea = AUS_initial_peace_movements
 	}
@@ -428,31 +428,31 @@ country_event = {
 	fire_only_once = yes
 		trigger = {
 		tag = AUS
-		has_global_flag = great_war
-				longest_war_length = 26
+		is_great_war_ongoing = yes
+		longest_war_length = 26
 		has_war_with_major = yes
 	}
 	
 	option = {
 		name = ww1_austriahungary_war.22.a
-	custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_consumer_goods = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_factory_output = -0.02
-				tooltip = industrial_capacity_factory_tt
-			}
-			add_to_variable = {
-				AUS_EP_prod_eff_cap = -0.02
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			add_to_variable = {
-				AUS_EP_prod_eff_growth = -0.02
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
+		custom_effect_tooltip = AUS_modify_eco.tt
+		add_to_variable = {
+			AUS_EP_consumer_goods = 0.1
+			tooltip = consumer_goods_factor_tt
+		}
+		custom_effect_tooltip = AUS_modify_eco.tt
+		add_to_variable = {
+			AUS_EP_factory_output = -0.02
+			tooltip = industrial_capacity_factory_tt
+		}
+		add_to_variable = {
+			AUS_EP_prod_eff_cap = -0.02
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+		add_to_variable = {
+			AUS_EP_prod_eff_growth = -0.02
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
 	}
 }
 country_event = {
@@ -462,7 +462,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 		trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		longest_war_length = 30
 	}
@@ -497,13 +497,12 @@ country_event = {
 	desc = ww1_austriahungary_war.24.d
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
-		tag = AUS
-		has_global_flag = great_war
+		original_tag = AUS
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
-				longest_war_length = 34
+		longest_war_length = 34
 	}
-
-		fire_only_once = yes
+	fire_only_once = yes
 
 	option = {
 		name = ww1_austriahungary_war.24.a
@@ -535,7 +534,7 @@ country_event = {
 	
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures < 1
@@ -569,7 +568,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures > 0
@@ -604,7 +603,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures > 1
@@ -648,7 +647,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures > 2
@@ -706,7 +705,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures > 3
@@ -764,7 +763,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures > 4
@@ -822,7 +821,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures > 4
@@ -880,7 +879,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures > 5
@@ -925,7 +924,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures > 6
@@ -970,7 +969,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures > 7
@@ -1003,7 +1002,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_war_time_financial_measures > 8
@@ -1047,7 +1046,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		has_war_with_major = yes
 		check_variable = {
 			AUS_worsening_food_shortages_timer > 91
@@ -1110,7 +1109,7 @@ country_event = {
 		has_completed_focus = AUS_draft_exemptions
 		has_war_with_major = yes
 		NOT = {
-			has_global_flag = great_war_ends
+			is_great_war_ongoing = yes_ends
 		}
 	}
 	mean_time_to_happen = {
@@ -1307,7 +1306,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		has_war_with_major = yes
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 	}
 	mean_time_to_happen = {
 		days = 210
@@ -1330,7 +1329,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		has_war_with_major = yes
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 
 	}
 	mean_time_to_happen = {
@@ -1354,7 +1353,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		has_war_with_major = yes
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 OR = {
 	has_global_flag = AUS_mp_austria_autocrat
 	has_completed_focus = AUS_suspend_civil_liberties
@@ -1481,7 +1480,7 @@ trigger = {
 		surrender_progress > 0.01
 	}
 	tag = AUS
-	has_global_flag = great_war
+	is_great_war_ongoing = yes
 	has_war_with = SER
 }
 mean_time_to_happen = {
@@ -1503,7 +1502,7 @@ country_event = {
 trigger = {
 	
 	tag = AUS
-	has_global_flag = great_war
+	is_great_war_ongoing = yes
 	has_war_with = ITA
 }
 mean_time_to_happen = {
@@ -1555,7 +1554,7 @@ country_event = {
 trigger = {
 	
 	tag = GER
-	has_global_flag = great_war
+	is_great_war_ongoing = yes
 	AUS = {
 		has_war_with = ITA
 	}
@@ -4923,7 +4922,7 @@ country_event = {
 		clr_global_flag = AUS_mp_austria_autocrat
 		clr_global_flag = AUS_mp_austria_reformist
 		custom_effect_tooltip = AUS_mp_is_neutral
-		complete_national_focus = AUS_endorse_project_1911
+		#complete_national_focus = AUS_endorse_project_1911
 	}
 }
 
@@ -5617,7 +5616,7 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		original_tag = AUS
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 	}
 	mean_time_to_happen = {
 		days = 210
@@ -7360,7 +7359,7 @@ country_event = {
 	trigger = {
 		date > 1913.8.1
 		not = {
-			has_global_flag = great_war
+			is_great_war_ongoing = yes
 		}
 	}
 	fire_only_once = yes
@@ -7732,7 +7731,7 @@ country_event = {
 		days = 30
 	}
 	trigger = {
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		original_tag = AUS
 		has_war_with = SER
 		876 = {
@@ -7850,7 +7849,7 @@ country_event = {
 		days = 30
 	}
 	trigger = {
-		has_global_flag = great_war
+		is_great_war_ongoing = yes
 		original_tag = AUS
 		has_war_with = MNT
 		105 = {
