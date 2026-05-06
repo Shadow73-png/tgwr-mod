@@ -1,6 +1,7 @@
 add_namespace = ww1_austriahungary
 add_namespace = ww1_austriahungary_war
 add_namespace = ww1_occupiedserbia
+add_namespace = ww1_occupiedmontenegro
 #war time search start
 country_event = {
 	id = ww1_austriahungary_war.1
@@ -7731,6 +7732,7 @@ country_event = {
 		days = 30
 	}
 	trigger = {
+		has_global_flag = great_war
 		original_tag = AUS
 		has_war_with = SER
 		876 = {
@@ -7830,8 +7832,78 @@ country_event = {
 		add_to_faction = MGS
 		puppet = MGS
 		custom_effect_tooltip = empty_space_tt
-	MGS = { change_tag_from = AUS }
+		MGS = { change_tag_from = AUS }
 		MGS = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+}
+
+#MGM
+country_event = {
+	id = ww1_occupiedmontenegro.1
+	title = ww1_occupiedmontenegro.1.t
+	desc = ww1_occupiedmontenegro.1.d
+	#picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		has_global_flag = great_war
+		original_tag = AUS
+		has_war_with = MNT
+		105 = {
+			is_controlled_by_ROOT_or_ally = yes
+		}
+		761 = {
+			is_controlled_by_ROOT_or_ally = yes
+		}
+		848 = {
+			is_controlled_by_ROOT_or_ally = yes
+		}
+	}
+	option = {
+		name = ww1_occupiedmontenegro.1.a
+		create_dynamic_country = {
+			original_tag = MNT
+			set_country_flag = AUH_mnt_govnerate_flag
+			set_cosmetic_tag = MGM_fascism
+			set_research_slots = 2
+			set_politics = {
+				ruling_party = neutrality
+				long_name = GUD_neutrality_party
+				name = GUD_neutrality_party
+				elections_allowed = no
+			}
+			reserve_dynamic_country = yes
+			set_capital = {
+				state = 105
+			}
+		}
+		105 = {
+			transfer_state_to = MGM
+		}
+		MGM = {
+			set_state_controller = 1205
+			if = {
+				limit = { 
+					NOT = {
+						TUR = {
+							owns_state = 761
+							owns_state = 848
+						}
+					}
+				}
+				set_state_controller = 761
+				set_state_controller = 848
+			}
+		}
+		add_to_faction = MGM
+		puppet = MGM
+		custom_effect_tooltip = empty_space_tt
+		MGM = { change_tag_from = AUS }
+		MGM = {
 			mark_focus_tree_layout_dirty = yes
 		}
 	}

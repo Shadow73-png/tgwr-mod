@@ -5386,6 +5386,7 @@ focus_tree = {
 		available = {
 			has_war_with_major = yes
 			has_country_leader = HUN_istvan_tisza
+			has_country_flag = HUN_national_work_party_yes
 		}
 		prerequisite = {
 			focus = HUN_stand_with_tisza_gov
@@ -5397,10 +5398,32 @@ focus_tree = {
 			}
 		}
 	 }
+	 #Raise War Taxes
+	 focus = {
+		id = HUN_raise_war_taxes
+		icon = GFX_focus_generic_stockpile_currency
+		cost = 5
+		relative_position_id = HUN_secure_party_loyalty
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+
+		}
+		prerequisite = {
+			focus = HUN_secure_party_loyalty
+		}
+		completion_reward = { }
+	 }
 	 #Gyor Arms Works
 	 focus = {
 		id = HUN_gyor_arms_works
-		icon = GFX_goal_unkown
+		icon = GFX_focus_generic_reorient_production
 		cost = 5
 		relative_position_id = HUN_secure_party_loyalty
 		x = 1
@@ -5413,6 +5436,7 @@ focus_tree = {
 		}
 		available = {
 			owns_state = 155
+			has_country_flag = HUN_national_work_party_yes
 		}
 		prerequisite = {
 			focus = HUN_stand_with_tisza_gov
@@ -5434,7 +5458,7 @@ focus_tree = {
 	 #Diósgyőr Steel works
 	 focus = {
 		id = HUN_diosgyor_steel_works
-		icon = GFX_goal_unkown
+		icon = GFX_focus_generic_steel_mill
 		cost = 5
 		relative_position_id = HUN_gyor_arms_works
 		x = 1
@@ -5447,6 +5471,7 @@ focus_tree = {
 		}
 		available = {
 			owns_state = 43
+			has_country_flag = HUN_national_work_party_yes
 		}
 		prerequisite = {
 			focus = HUN_gyor_arms_works
@@ -5458,6 +5483,27 @@ focus_tree = {
 				state = 43
 			}
 		}
+	 }
+	 #Establish a Public Service Office
+	 focus = {
+		id = HUN_public_service_office
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 5
+		relative_position_id = HUN_gyor_arms_works
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_country_flag = HUN_national_work_party_yes
+		}
+		prerequisite = {
+			focus = HUN_gyor_arms_works
+		}
+		completion_reward = { }
 	 }
 	 #Look for a way out
 	 focus = {
@@ -5651,6 +5697,62 @@ focus_tree = {
 				add_trait = {
 					trait = trait_mountaineer
 				}
+			}
+		}
+	 }
+	 #Expand Ludovika Military Academy
+	 focus = {
+		id = HUN_ludovika_academy 
+		icon = GFX_focus_generic_military_academy
+		cost = 5
+		relative_position_id = HUN_carpathian_fighting_forces
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_ARMY_XP
+		}
+		available = {
+			has_war_with_major = yes
+			longest_war_length > 18
+		}
+		prerequisite = {
+			focus = HUN_carpathian_fighting_forces
+		}
+		prerequisite = {
+			focus = HUN_bolster_artilley_regiments
+		}
+		prerequisite = {
+			focus = HUN_mobilize_the_hussars
+		}
+		completion_reward = { }
+	 }
+	 #Helicopter Experiments
+	 focus = {
+		id = HUN_helicopter_experiments
+		icon = GFX_focus_BEL_early_helicopters
+		cost = 5
+		relative_position_id = HUN_ludovika_academy
+		x = 0
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_HISTORICAL
+		}
+		available = {
+			longest_war_length > 30
+			has_tech = tech_maintenance_company3
+		}
+		prerequisite = {
+			focus = HUN_ludovika_academy
+		}
+		completion_reward = { 
+			custom_effect_tooltip = HUN_helicopter_experiments.tt
+			set_technology = {
+				multicylinder_engine = 1
+			}
+			set_technology = {
+				turbocharger = 1
 			}
 		}
 	 }
