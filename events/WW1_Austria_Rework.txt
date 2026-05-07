@@ -2,6 +2,7 @@ add_namespace = ww1_austriahungary
 add_namespace = ww1_austriahungary_war
 add_namespace = ww1_occupiedserbia
 add_namespace = ww1_occupiedmontenegro
+add_namespace = ww1_bulgaria
 #war time search start
 country_event = {
 	id = ww1_austriahungary_war.1
@@ -7717,6 +7718,251 @@ country_event = {
 		activate_mission = AUS_contain_the_SPDAO
 		activate_mission = AUS_increase_public_perception_of_war
 		activate_mission = AUS_improve_vienna_armament
+	}
+}
+#Bulgaria wants to join the Central Powers (Event for Germany)
+country_event = {
+	id = ww1_bulgaria.134
+	title = ww1_bulgaria.134.t
+	desc = ww1_bulgaria.134.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_report_event_generic_read_write
+	#Of Course!
+	option = {
+		name = ww1_bulgaria.134.a
+		ai_chance = {
+			base = 100
+		}
+		diplomatic_relation = {
+				country = BUL
+				relation = guarantee
+				active = yes
+		}
+		BUL = {
+			diplomatic_relation = {
+				country = GER
+				relation = non_aggression_pact
+				active = yes
+			}
+			country_event = {
+				id = ww1_bulgaria.135
+				hours = 2
+			}
+		}
+	}
+	#Hmmm... no
+	option = {
+		name = ww1_bulgaria.134.b
+		ai_chance = {
+			base = 0
+		}
+		custom_effect_tooltip = dangerous_tt
+		BUL = {
+			country_event = ww1_bulgaria.167
+		}
+	}
+}
+#Germany lets us join (Event for Bulgaria)
+country_event = {
+	id = ww1_bulgaria.135
+	title = ww1_bulgaria.135.t
+	desc = {
+		#Historical
+		text = ww1_bulgaria.135.d
+		trigger = {
+			always = yes
+		}
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_report_event_generic_read_write
+	#Historical option
+	option = {
+		name = ww1_bulgaria.135.a
+		trigger = {
+			NOT = {
+				has_global_flag = BUL_bulgarian_albania_agreemant
+				has_country_flag = SE_bul_bw2_winner
+				owns_state = 756
+			}
+		}
+		add_state_claim = 876
+		add_state_claim = 809
+		if = {
+			limit = { 
+				TUR = {
+					is_in_faction_with = GER
+				}
+			}
+			756 = {
+				transfer_state_to = TUR
+				remove_claim_by = BUL
+			}
+		}
+		country_event = {
+			id = ottoman.93
+			hours = 8
+		}
+		#activate_mission = BUL_declare_war_on_serbia_mission
+	}
+}
+#A Personal union with Albania?
+country_event = {
+	id = ww1_bulgaria.136
+	title = ww1_bulgaria.136.t
+	desc = ww1_bulgaria.136.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	#Worthy of Mentioning
+	option = {
+		name = ww1_bulgaria.136.a
+		ai_chance = {
+			base = 100
+		}
+		custom_effect_tooltip = historical_tt
+		GER = {
+			country_event = {
+				id = ww1_bulgaria.137
+				days = 2
+			}
+		}
+	}
+	#Nah
+	option = {
+		name = ww1_bulgaria.136.b
+		add_war_support = -0.05
+	}
+}
+#Bulgaria wonders about a personal Union with Albania (Event for Germany)
+country_event = {
+	id = ww1_bulgaria.137
+	title = ww1_bulgaria.137.t
+	desc = ww1_bulgaria.137.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	#As long as Austria doesn't decline
+	option = {
+		name = ww1_bulgaria.137.a
+		ai_chance = {
+			base = 100
+		}
+		trigger = {
+			is_in_faction_with = AUS
+		}
+		custom_effect_tooltip = historical_tt
+		AUS = {
+			country_event = {
+				id = ww1_bulgaria.138
+				days = 2
+			}
+		}
+	}
+}
+#A Bulgarian-Albanian union!? (Event for Austria)
+country_event = {
+	id = ww1_bulgaria.138
+	title = ww1_bulgaria.138.t
+	desc = ww1_bulgaria.138.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	#Hell no!
+	option = {
+		name = ww1_bulgaria.138.a
+		ai_chance = {
+			base = 100
+		}
+		GER = {
+			country_event = ww1_bulgaria.139
+		}
+		BUL = {
+			country_event = ww1_bulgaria.140
+		}
+	}
+	#Sure pal
+	#option = {
+		#name = ww1_bulgaria.138.b
+		#ai_chance = {
+			#base = 0
+			#modifier = {
+			#	BUL = {
+					#has_completed_focus = BUL_rally_ferdinand
+			#	}
+				#add = 30
+			#}
+			#modifier = {
+			#	ROOT = {
+			#		surrender_progress > 0.25
+			#	}
+			#	add = 100
+			#}
+		#}
+		#set_global_flag = BUL_bulgarian_albania_agreemant
+		#add_war_support = -0.1
+	#}
+}
+#Austria Declines Bulgarian Albania
+country_event = {
+	id = ww1_bulgaria.139
+	title = ww1_bulgaria.139.t
+	desc = ww1_bulgaria.139.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_bulgaria.139.a
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+#Our Albanian Ambitions not realized
+country_event = {
+	id = ww1_bulgaria.140
+	title = ww1_bulgaria.140.t
+	desc = ww1_bulgaria.140.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_bulgaria.140.a
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+#Our Albanian Ambitions Realized!
+country_event = {
+	id = ww1_bulgaria.141
+	title = ww1_bulgaria.141.t
+	desc = ww1_bulgaria.141.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_bulgaria.141.a
+		ai_chance = {
+			base = 100
+		}
+		every_state = {
+			limit = {
+				is_core_of = ALB
+			}
+			add_claim_by = ROOT
+		}
+	}
+}
+#Germany Declines Bulgarian Membership in the CP
+country_event = {
+	id = ww1_bulgaria.167
+	title = ww1_bulgaria.167.t
+	desc = ww1_bulgaria.167.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	#picture = ww1_bulgaria_6
+	option = {
+		name = ww1_bulgaria.167.a
+		set_country_flag = BUL_rejected_from_cp
+		uncomplete_national_focus = {
+			focus = BUL_join_central_powers
+		}
 	}
 }
 
