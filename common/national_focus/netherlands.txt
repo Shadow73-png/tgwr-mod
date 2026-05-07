@@ -1575,7 +1575,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = HOL_modify_dutch_military_tt
 			add_to_variable = {
-				HOL_variable_army_supply = 0.05
+				HOL_variable_army_supply = -0.05
 				tooltip = supply_consumption_factor_tt
 			}
 			add_to_variable = {
@@ -1891,7 +1891,7 @@ focus_tree = {
 				tooltip = army_org_factor_tt
 			}
 			add_to_variable = {
-				HOL_variable_army_supply = 0.05
+				HOL_variable_army_supply = -0.05
 				tooltip = supply_consumption_factor_tt
 			}
 		}
@@ -6787,6 +6787,9 @@ focus = {
 	prerequisite = {
 		focus = HOL_question_of_leadership
 	}
+	mutually_exclusive = {
+		focus = HOL_demilitarisation
+	}
 	relative_position_id = HOL_question_of_leadership
 	completion_reward = {
 		division_template = {
@@ -6867,6 +6870,10 @@ focus = {
 		NOT = {
 			has_completed_focus = HOL_fan_flames_revolutions
 		}
+		
+	}
+	mutually_exclusive = {
+		focus = HOL_create_red_militia
 	}
 	available_if_capitulated = yes
 	prerequisite = {

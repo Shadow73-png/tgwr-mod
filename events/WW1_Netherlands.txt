@@ -474,42 +474,6 @@ country_event = {
 		}
 	}
 }
-#welfare reforms pay of
-country_event = {
-	id = ww1_holland.15
-	title = ww1_holland.15.t
-	desc = ww1_holland.15.d
-	fire_only_once = yes
-	trigger = {
-		NOT = {
-			has_country_flag = HOL_flag_1913_election
-		}
-		tag = HOL
-		OR = {
-			has_completed_focus = HOL_ten_hour_workday
-			has_completed_focus = HOL_raden_van_arbeid
-			has_completed_focus = HOL_clamp_down_child_labour
-		}
-		NOT = {
-			has_country_flag = HOL_flag_welfare_reforms_rlly_payof
-		}
-		date > 1913.6.2
-	}
-	option = {
-		name = ww1_holland.15.a
-		custom_effect_tooltip = HOL_tooltip_ip_ag
-		add_to_variable = {
-			HOL_variable_ag_popularity = 1
-		}
-		custom_effect_tooltip = HOL_tooltip_ip_arp
-		add_to_variable = {
-			HOL_variable_arp_popularity = 1
-		}
-	}
-	option = {
-		name = ww1_holland.15.b
-	}
-}
 #welfare reform rlly pays of
 country_event = {
 	id = ww1_holland.22
@@ -538,7 +502,6 @@ country_event = {
 		add_to_variable = {
 			HOL_variable_arp_popularity = 1
 		}
-		set_country_flag = HOL_flag_welfare_reforms_rlly_payof
 	}
 	option = {
 		name = ww1_holland.22.b
@@ -788,7 +751,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = ww1_holland.23.a
+		name = ww1_holland.23.b
 		country_event = ww1_holland.88
 		add_power_balance_value = {
 			id = HOL_bop_neutrality
@@ -890,6 +853,9 @@ country_event = {
 		remove_power_balance = {
 			id = HOL_bop_neutrality
 		}
+	}
+	option = {
+		name = ww1_holland.28.b
 	}
 }
 #war fucks up everything neutral
