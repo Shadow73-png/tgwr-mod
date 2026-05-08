@@ -8086,7 +8086,39 @@ country_event = {
 		}
 	}
 }
-
+country_event = {
+	id = ww1_occupiedserbia.2
+	title = ww1_occupiedserbia.2.t
+	desc = ww1_occupiedserbia.2.d
+	#picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_occupiedserbia.2.a
+	if = {
+		limit = {
+			TAG = AUS
+		}
+        custom_effect_tooltip = AUS_modify_eco.tt
+		add_to_variable = {
+			AUS_EP_consumer_goods = -0.05
+			tooltip = consumer_goods_factor_tt
+			}
+	}
+	if = {
+		limit = { 
+			tag = HUN
+		}
+		custom_effect_tooltip = HUN_modify_eco_tt
+			
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+	}
+	}
+	
+}
 #MGM
 country_event = {
 	id = ww1_occupiedmontenegro.1
