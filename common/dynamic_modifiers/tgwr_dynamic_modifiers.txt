@@ -1140,6 +1140,18 @@ SER_serbian_exile = {
 	local_non_core_manpower = 0.7
 	local_manpower = 0.2
 }
+MNT_agrarian_society = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_GRE_agrarian_society
+	local_building_slots_factor = 0.2
+	global_building_slots_factor = -0.50
+	state_production_speed_buildings_factor = MNT_agr_build_speed
+	industrial_capacity_factory = MNT_agr_bad_factories
+	consumer_goods_factor = MNT_agr_good_factor
+	supply_consumption_factor = MNT_agr_army_eats
+}
 ALB_greek_minority = {
     enable = {
 		is_core_of = controller
@@ -3742,18 +3754,12 @@ SIA_french_sphere = {
 
 colonial_war = {
 	enable = {
-		has_offensive_war = yes
-		all_enemy_country = {
-			capital_scope = {
-				OR = {
-					is_on_continent = africa
-					is_on_continent = middle_east
-					is_on_continent = asia
-				}
-			}
-			is_actual_major = no
-		}	
+		is_in_colonial_war = yes
 	}
-	war_stability_factor = 0.1
-	war_support_factor = 0.1
+	war_stability_factor = 0.2
+	war_support_factor = 1
+	mobilization_speed = -0.3
+	army_core_attack_factor = -0.1
+	army_core_defence_factor = -0.1
+	command_power_gain_mult = -0.5
 }
