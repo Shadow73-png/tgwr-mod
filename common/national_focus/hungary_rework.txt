@@ -20,6 +20,7 @@ focus_tree = {
 	shared_focus = AUS_invest_in_new_jobs
 	shared_focus = AUS_mavag_armored_trains
 	shared_focus = AUS_expand_the_UFAG
+	shared_focus = HUN_eyes_on_croatia
 	#Shared Focus's with Bosnia
 	shared_focus = HUN_bosnian_rail_expansion
 	 #Shared Focus's with Austria & Germany
@@ -5324,8 +5325,8 @@ focus_tree = {
 			has_country_flag = HUN_national_work_party_yes
 		}
 		id = HUN_stand_with_tisza_gov
-		icon = GFX_focus_generic_advanced_military_studies
-		cost = 5
+		icon = GFX_SOV_romanov_reconstruction_ccp_2d_sov_compatibility
+		cost = 1
 		relative_position_id = HUN_failure_of_treuga_dei
 		x = -2
 		y = 1
@@ -5451,12 +5452,36 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		available = {
-
+			has_war_with_major = yes
 		}
 		prerequisite = {
 			focus = HUN_secure_party_loyalty
 		}
-		completion_reward = { }
+		completion_reward = { 
+			if = {
+				limit = { 
+					controls_state = 155
+				}
+				155 = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			add_stability = -0.05
+			add_war_support = -0.05
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_effeciency_gain = 0.1
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_mil_speed = 0.1
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+		}
 	 }
 	 #Gyor Arms Works
 	 focus = {
@@ -5480,6 +5505,12 @@ focus_tree = {
 			focus = HUN_stand_with_tisza_gov
 		}
 		completion_reward = { 
+			add_tech_bonus = {
+				category = infantry_tech
+				bonus = 1
+				uses = 1
+				name = HUN_gyor_arms_works
+			}
 			155 = {
 				add_building_construction = {
 					type = arms_factory
@@ -5515,10 +5546,20 @@ focus_tree = {
 			focus = HUN_gyor_arms_works
 		}
 		completion_reward = { 
-			add_resource = {
-				type = steel
-				amount = 8
-				state = 43
+			43 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+				add_resource = {
+					type = aluminium
+					amount = 3
+				}
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = generic_local_investments
+					days = 365
+				}
 			}
 		}
 	 }
@@ -5550,7 +5591,7 @@ focus_tree = {
 		}
 		id = HUN_look_for_a_way_out
 		icon = GFX_goal_unkown
-		cost = 5
+		cost = 1
 		relative_position_id = HUN_failure_of_treuga_dei
 		x = 2
 		y = 1
@@ -5566,6 +5607,27 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = HUN_stand_with_tisza_gov
+		}
+		completion_reward = { }
+	 }
+	 #The German Plan
+	 focus = {
+		id = HUN_the_german_plan
+		icon = GFX_focus_ger_weltpolitik_ww1
+		cost = 1
+		relative_position_id = HUN_look_for_a_way_out
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			is_in_faction_with = GER
+			is_subject_of = AUS
+		}
+		prerequisite = {
+			focus = HUN_look_for_a_way_out
 		}
 		completion_reward = { }
 	 }
@@ -6716,7 +6778,7 @@ joint_focus = {
 			original_tag = AUS
 		}
 		x = -11
-		y = -9
+		y = -8
 	}
 	search_filters = {
 		FOCUS_FILTER_HISTORICAL
@@ -6749,6 +6811,39 @@ joint_focus = {
 			has_war_with = ROM
 			is_in_faction_with = ROM
 		}
+	}
+	completion_reward = { }
+}
+joint_focus = {
+	id = HUN_eyes_on_croatia
+	icon = GFX_focus_generic_secret_service_agency
+	text_icon = joint_AUS_HUN_focus_style
+	cost = 3
+	relative_position_id = HUN_secure_the_east
+	x = -3
+	y = 1
+	offset = {
+		trigger = {
+			original_tag = AUS
+		}
+		x = 50
+		y = -9
+	}
+	search_filters = {
+		FOCUS_FILTER_HISTORICAL
+		FOCUS_FILTER_INTERNAL_AFFAIRS
+		FOCUS_FILTER_LOYALTY
+		FOCUS_FILTER_POLITICAL
+	}
+	available = {
+		AUS_HUN_exists = yes
+		HUN = {
+			has_dynamic_modifier = HUN_croatian_sabor
+		}
+	}
+	prerequisite = {		
+		focus = HUN_secure_the_east
+		focus = AUS_recruit_albania
 	}
 	completion_reward = { }
 }
