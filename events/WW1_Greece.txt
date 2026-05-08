@@ -129,6 +129,7 @@ country_event = {
 						#state = 731
 						state = 758
 						state = 826
+						state = 1257
 					}
 				}
 				prioritize = {
@@ -159,7 +160,7 @@ country_event = {
 					}
 				}
 				else_if = {
-					limit = { state = 826 }
+					limit = { state = 1257 }
 					add_building_construction = {
 						type = naval_base
 						level = 2
@@ -8180,6 +8181,32 @@ country_event = {
 					826 = { NOT = { is_owned_and_controlled_by = ROOT } }
 				}
 				activate_mission = GRE_expand_influence_in_the_olympos_garrison_mission
+			}
+			20 = {
+				modifier = {
+					factor = 0
+					has_completed_focus = GRE_negotiations_with_entente
+					1257 = { check_variable = { var = GRE_garrison_control value = 2 compare = less_than } }
+				}
+				modifier = {
+					factor = 0
+					has_completed_focus = GRE_commit_to_neutrality
+					1257 = { check_variable = { var = GRE_garrison_control value = 4 compare = equals } }
+				}
+				modifier = {
+					factor = 10
+					1257 = { has_state_flag = GRE_national_schism_recently_chosen }
+				}
+				modifier = {
+					factor = 10
+					has_completed_focus = GRE_negotiations_with_entente
+					is_historical_focus_on = yes
+				}
+				modifier = {
+					factor = 0
+					1257 = { NOT = { is_owned_and_controlled_by = ROOT } }
+				}
+				activate_mission = GRE_expand_influence_in_the_katerini_garrison_mission
 			}
 			20 = {
 				modifier = {
