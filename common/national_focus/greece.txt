@@ -1171,6 +1171,7 @@ focus = {
 							}
 						}
 						state = 345
+						state = 1255
 						state = 731
 						state = 758
 						state = 826
@@ -1188,6 +1189,7 @@ focus = {
 		bypass = {
 			731 = { is_core_of = ROOT }
 			345 = { is_core_of = ROOT }
+			1255 = { is_core_of = ROOT }
 			NOT = {
 				has_subject = IKR
 				has_subject = SMS
@@ -1232,6 +1234,7 @@ focus = {
 						OR = {
 							state = 731
 							state = 345
+							state = 1255
 							state = 184
 							state = 757
 						}
@@ -1433,6 +1436,7 @@ focus = {
 					OR = {
 						state = 731
 						state = 345
+						state = 1255
 						state = 184
 						state = 757
 					}
@@ -3026,6 +3030,7 @@ focus = {
 				limit = {
 					OR = {
 						state = 345
+						state = 1255
 						state = 731
 						state = 184
 					}
@@ -3057,6 +3062,7 @@ focus = {
 			has_war = no
 			OR = {
 				owns_state = 345
+				owns_state = 1255
 				owns_state = 731
 				owns_state = 184
 			}		
@@ -3064,12 +3070,17 @@ focus = {
 		bypass = {
 			OR = {
 				owns_state = 345
+				owns_state = 1255
 				owns_state = 731
 				owns_state = 184
 			}
 			if = {
 				limit = { owns_state = 345 }	
 				345 = { is_core_of = ROOT }				
+			}
+			if = {
+				limit = { owns_state = 1255 }	
+				1255 = { is_core_of = ROOT }				
 			}
 			if = {
 				limit = { owns_state = 731 }	
@@ -3086,6 +3097,7 @@ focus = {
 					limit = {
 						OR = {
 							state = 345
+							state = 1255
 							state = 731
 							state = 184
 						}
@@ -3099,6 +3111,7 @@ focus = {
 					limit = {
 						OR = {
 							state = 345
+							state = 1255
 							state = 731
 							state = 184
 						}
@@ -3922,6 +3935,7 @@ focus = {
 				OR = {
 					state = 731
 					state = 345
+					state = 1255
 					state = 184
 					state = 757
 				}
@@ -3950,6 +3964,7 @@ focus = {
 					OR = {
 						state = 731
 						state = 345
+						state = 1255
 						state = 184
 						state = 757
 					}
@@ -5532,6 +5547,7 @@ focus = {
 				OR = {
 					state = 731
 					state = 345
+					state = 1255
 					state = 184
 					state = 757
 				}
@@ -5569,6 +5585,28 @@ focus = {
 					add_core_of = ROOT
 					multiply_temp_variable = { state_manpower = -1 }
 					random_neighbor_state = { add_manpower = 345.state_manpower }
+					every_country = {
+						limit = {
+							NOT = { original_tag = GRE }
+							PREV = { is_core_of = PREV }
+						}
+						add_opinion_modifier = {
+							target = ROOT
+							modifier = small_decrease
+						}
+						remove_state_core = PREV
+					}
+				}
+			}
+			if = {
+				limit = { 1255 = { is_owned_and_controlled_by = ROOT } }
+				1255 = {
+					set_temp_variable = { state_manpower = state_population }
+					divide_temp_variable = { state_manpower = -5 }
+					add_manpower = state_manpower
+					add_core_of = ROOT
+					multiply_temp_variable = { state_manpower = -1 }
+					random_neighbor_state = { add_manpower = 1255.state_manpower }
 					every_country = {
 						limit = {
 							NOT = { original_tag = GRE }
@@ -5630,6 +5668,7 @@ focus = {
 				limit = {
 					731 = { NOT = { is_owned_and_controlled_by = ROOT } }
 					345 = { NOT = { is_owned_and_controlled_by = ROOT } }
+					1255 = { NOT = { is_owned_and_controlled_by = ROOT } }
 					184 = { NOT = { is_owned_and_controlled_by = ROOT } }
 					757 = { NOT = { is_owned_and_controlled_by = ROOT } }
 				}
@@ -5661,6 +5700,25 @@ focus = {
 						add_core_of = ROOT
 						multiply_temp_variable = { state_manpower = -1 }
 						random_neighbor_state = { add_manpower = 345.state_manpower }
+						every_country = {
+							limit = {
+								NOT = { original_tag = GRE }
+								PREV = { is_core_of = PREV }
+							}
+							add_opinion_modifier = {
+								target = ROOT
+								modifier = small_decrease
+							}
+							remove_state_core = PREV
+						}
+					}
+					1255 = {
+						set_temp_variable = { state_manpower = state_population }
+						divide_temp_variable = { state_manpower = -5 }
+						add_manpower = state_manpower
+						add_core_of = ROOT
+						multiply_temp_variable = { state_manpower = -1 }
+						random_neighbor_state = { add_manpower = 1255.state_manpower }
 						every_country = {
 							limit = {
 								NOT = { original_tag = GRE }

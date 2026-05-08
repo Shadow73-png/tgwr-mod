@@ -303,6 +303,7 @@ country_event = {
 								state = 225
 								state = 184
 								state = 345
+								state = 1255
 								state = 731
 								state = 788
 								state = 1140
@@ -492,6 +493,7 @@ country_event = {
 								}
 								OR = {
 									state = 345
+									state = 1255
 									state = 731
 								}
 							}
@@ -510,6 +512,7 @@ country_event = {
 								}
 								OR = {
 									state = 345
+									state = 1255
 									state = 731
 									state = 758
 									state = 826
@@ -583,6 +586,27 @@ country_event = {
 					345 = {
 						transfer_state_to = BUL
 					}
+					if = {
+						limit = { 
+							1255 = {
+								OWNER = {
+									NOT = {
+										original_tag = MAC
+										original_tag = BUL
+									}
+									OR = {
+										tag = FROM
+										is_subject_of = FROM
+										has_country_flag = BW1_loser
+										has_country_flag = BW1_winner
+									}													
+								}
+							}							
+						}
+						1255 = {
+							transfer_state_to = BUL
+						}
+					}
 				}		
 			}
 			# Remove ottoman cores
@@ -608,6 +632,7 @@ country_event = {
 						state = 451
 						# state = 731
 						state = 345
+						state = 1255
 						state = 184
 					}
 				}
@@ -4460,6 +4485,7 @@ country_event = {
 							state = 826
 							state = 1257
 							state = 345
+							state = 1255
 							state = 759
 							state = 225
 							state = 788
@@ -4544,6 +4570,7 @@ country_event = {
 					}
 					NOT = {
 						state = 345 #solun
+						state = 1255 #athos
 						state = 871 #vlore
 						state = 44 #albania
 						state = 1214 #albania

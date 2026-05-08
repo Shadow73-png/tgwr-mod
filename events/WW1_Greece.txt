@@ -7539,6 +7539,40 @@ country_event = {
 					factor = 0
 					has_completed_focus = GRE_negotiations_with_entente
 					OR = {
+						1255 = { check_variable = { var = GRE_garrison_control value = 2 compare = less_than } }
+						is_historical_focus_on = yes
+					}
+				}
+				modifier = {
+					factor = 0
+					has_completed_focus = GRE_commit_to_neutrality
+					1255 = { check_variable = { var = GRE_garrison_control value = 4 compare = equals } }
+				}
+				modifier = {
+					factor = 0
+					has_completed_focus = GRE_commit_to_neutrality
+					NOT = { has_country_flag = SPA_secure_the_northern_garrisons_flag }
+				}
+				modifier = {
+					factor = 10
+					1255 = { has_state_flag = GRE_national_schism_recently_chosen }
+				}
+				modifier = {
+					factor = 20
+					has_completed_focus = GRE_commit_to_neutrality
+					is_historical_focus_on = yes
+				}
+				modifier = {
+					factor = 0
+					1255 = { NOT = { is_owned_and_controlled_by = ROOT } }
+				}
+				activate_mission = GRE_expand_influence_in_the_athos_garrison_mission
+			}
+			20 = {
+				modifier = {
+					factor = 0
+					has_completed_focus = GRE_negotiations_with_entente
+					OR = {
 						731 = { check_variable = { var = GRE_garrison_control value = 2 compare = less_than } }
 						is_historical_focus_on = yes
 					}
@@ -8482,6 +8516,7 @@ country_event = {
 					OR = {
 						any_owned_state = {
 							NOT = { state = 345 }
+							NOT = { state = 1255 }
 							NOT = { state = 184 }
 							NOT = { state = 731 }
 							NOT = { state = 790 }
@@ -8506,6 +8541,7 @@ country_event = {
 					any_owned_state = {
 						OR = {
 							state = 345
+							state = 1255
 							state = 184
 							state = 731
 							state = 790
