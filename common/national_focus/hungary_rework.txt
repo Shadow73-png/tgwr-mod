@@ -5248,14 +5248,30 @@ focus_tree = {
 				tooltip = ITA_great_war_autocomplete.tt
 			}
 		}
-		completion_reward = { 
-			set_variable = {
-				HUN_food_stab_var = 72
-			}
+		bypass_effect = {
+			#set_variable = {
+			#	HUN_food_stab_var = 72
+			#}
 			clamp_variable = {
 				var = HUN_food_stab_var
 				min = 0
-				max = 90
+				max = 100
+			}
+			set_variable = {
+				HUN_fading_food_stability_timer = 70
+			}
+		}
+		completion_reward = { 
+			#set_variable = {
+			#	HUN_food_stab_var = 72
+			#}
+			clamp_variable = {
+				var = HUN_food_stab_var
+				min = 0
+				max = 100
+			}
+			set_variable = {
+				HUN_fading_food_stability_timer = 70
 			}
 		}
 	 }
@@ -5582,7 +5598,10 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_gyor_arms_works
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_ideas = HUN_public_service_office_idea
+			custom_effect_tooltip = HUN_public_service_office_idea.tt
+		}
 	 }
 	 #Look for a way out
 	 focus = {
