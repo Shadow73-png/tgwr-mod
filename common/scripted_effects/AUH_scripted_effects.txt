@@ -3389,14 +3389,16 @@ MGS_upgrade_nation_in_ruins = {
 MGS_worsen_nation_in_ruins = {
 
 	if = {
-		limit = { NOT = { has_any_idea = {
-			MGS_nation_in_ruins1
-			MGS_nation_in_ruins2
-			MGS_nation_in_ruins3
-			MGS_nation_in_ruins4
-			MGS_nation_in_ruins5
-			MGS_nation_in_ruins6
-		}}}
+		limit = { 
+			NOT = {
+				has_idea = MGS_nation_in_ruins1
+				has_idea = MGS_nation_in_ruins2
+				has_idea = MGS_nation_in_ruins3
+				has_idea = MGS_nation_in_ruins4
+				has_idea = MGS_nation_in_ruins5
+				has_idea = MGS_nation_in_ruins6
+			}
+		}
 		add_ideas = MGS_nation_in_ruins1
 	}
 	else_if = {
@@ -3440,13 +3442,11 @@ MGS_downgrade_government_legit = {
 	if = {
 		limit = {
 			NOT = {
-				has_any_idea = {
-					MGS_illegitimate_government_1
-					MGS_illegitimate_government_2
-					MGS_illegitimate_government_3
-					MGS_illegitimate_government_4
-					MGS_illegitimate_government_5
-				}
+				has_idea = MGS_illegitimate_government_1
+				has_idea = MGS_illegitimate_government_2
+				has_idea = MGS_illegitimate_government_3
+				has_idea = MGS_illegitimate_government_4
+				has_idea = MGS_illegitimate_government_5
 			}
 		}
 		add_ideas = MGS_illegitimate_government_1
@@ -3542,12 +3542,12 @@ MGS_upgrade_resistance_to_occupation = {
 		limit = { has_idea = MGS_resistance_to_occupation2 }
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation2
-			add_idea = MGS_resistance_to_occupation1
+			add_idea = MGS_resistance_to_occupation
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation1 }
-		remove_ideas = MGS_resistance_to_occupation1
+		limit = { has_idea = MGS_resistance_to_occupation }
+		remove_ideas = MGS_resistance_to_occupation
 	}
 }
 MGS_worsen_resistance_to_occupation = {
@@ -3555,26 +3555,25 @@ MGS_worsen_resistance_to_occupation = {
 	if = {
 		limit = {
 			NOT = {
-				has_any_idea = {
-					MGS_resistance_to_occupation1
-					MGS_resistance_to_occupation2
-					MGS_resistance_to_occupation3
-					MGS_resistance_to_occupation4
-					MGS_resistance_to_occupation5
-					MGS_resistance_to_occupation6
-					MGS_resistance_to_occupation7
-					MGS_resistance_to_occupation8
-					MGS_resistance_to_occupation9
-					MGS_resistance_to_occupation10
-				}
+				has_idea = MGS_resistance_to_occupation
+				has_idea = MGS_resistance_to_occupation2
+				has_idea = MGS_resistance_to_occupation3
+				has_idea = MGS_resistance_to_occupation4
+				has_idea = MGS_resistance_to_occupation5
+				has_idea = MGS_resistance_to_occupation6
+				has_idea = MGS_resistance_to_occupation7
+				has_idea = MGS_resistance_to_occupation8
+				has_idea = MGS_resistance_to_occupation9
+				has_idea = MGS_resistance_to_occupation10
+				
 			}
 		}
-		add_ideas = MGS_resistance_to_occupation1
+		add_ideas = MGS_resistance_to_occupation
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation1 }
+		limit = { has_idea = MGS_resistance_to_occupation }
 		swap_ideas = {
-			remove_idea = MGS_resistance_to_occupation1
+			remove_idea = MGS_resistance_to_occupation
 			add_idea = MGS_resistance_to_occupation2
 		}
 	}
