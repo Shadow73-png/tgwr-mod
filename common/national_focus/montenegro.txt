@@ -22,7 +22,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = ww1_montenegro.7
-			#dyn mod spirit smth
+			add_popularity = {
+				ideology = neutral
+				popularity = 0.015
+			}
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -38,7 +41,7 @@ focus_tree = {
 		}
 		relative_position_id = MNT_money
 		completion_reward = {
-			#offmap mil
+			country_event = ww1_montenegro.11
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -48,20 +51,21 @@ focus_tree = {
 		id = MNT_albania_situation1
 		icon = GFX_none
 		cost = 3
-		x = 4
-		y = 0
+		x = 1
+		y = 1
 		available = {
 			always = no
 			#albanian revolt ongoing
 		}
-		relative_position_id = MNT_russia_mil_treaty
+		relative_position_id = MNT_law_on_army
 		completion_reward = {
 			
 		}
+		#prerequitiste will be prob law on army and some serb thing idfk its 4am
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 		}
-		#if focus is not taken idk albanian revolt is weaker in 1911 or smth idk lesser chance of getting shkoder or smth
+		#if focus is not taken idk albanian revolt is weaker in 1911 or smth idk
 	}
 	focus = {
 		id = MNT_kingdom_proclamation
@@ -70,7 +74,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		available = {
-			#if nikola i is leader
 		}
 		relative_position_id = MNT_money
 		prerequisite = {
@@ -100,7 +103,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = ww1_montenegro.8
-			#event about state of the economy
 			#decision category unlocked full of begmaxxing stuff
 		}
 		search_filters = {
@@ -121,6 +123,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = ww1_montenegro.10
+			add_stability = 0.03
+			add_war_support = 0.02
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -130,9 +134,9 @@ focus_tree = {
 		id = MNT_law_on_army
 		icon = GFX_none
 		cost = 5
-		x = 2
+		x = 5
 		y = 0
-		relative_position_id = MNT_albania_situation1
+		relative_position_id = MNT_russia_mil_treaty
 		available = {
 			has_completed_focus = MNT_kingdom_proclamation
 		}
@@ -140,7 +144,6 @@ focus_tree = {
 			#increase army law
 			#pioneers and recon research bonuses
 			country_event = ww1_montenegro.9
-			#event
 			#hidden event report all reservists have emigrated or smth
 		}
 		search_filters = {
