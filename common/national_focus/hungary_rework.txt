@@ -2128,6 +2128,9 @@ focus_tree = {
 			focus = HUN_calm_the_socialist_push
 			focus = HUN_party_control_of_public_institutions
 		}
+		mutually_exclusive = {
+			focus = HUN_oa_cooperate_with_karyoli
+		}
 		completion_reward = { 
 			add_popularity = {
 				ideology = communism
@@ -2622,6 +2625,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_calm_the_socialist_push
+		}
+		mutually_exclusive = {
+			focus = HUN_break_up_labour_movements
 		}
 		completion_reward = { }
 	}
@@ -6145,6 +6151,12 @@ focus_tree = {
 		}
 		available = {
 			has_war_with_major = yes
+			if = {
+				limit = { 
+					has_country_leader = HUN_istvan_tisza
+				}
+				has_completed_focus = HUN_rule_through_decree
+			}
 		}
 		prerequisite = {
 			focus = HUN_secure_grain
@@ -6299,6 +6311,9 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_secure_grain
 		}
+		prerequisite = {
+			focus = HUN_village_police
+		}
 		completion_reward = { 
 			add_stability = -0.05
 			add_war_support = -0.02
@@ -6422,7 +6437,7 @@ focus_tree = {
 				ideology = democracy
 				popularity = 0.05
 			}
-			add_political_power = 25
+			add_political_power = 75
 			if = {
 				limit = { 
 					has_dynamic_modifier = HUN_treuga_dei_modifier
@@ -6837,7 +6852,7 @@ joint_focus = {
 	id = HUN_eyes_on_croatia
 	icon = GFX_focus_generic_secret_service_agency
 	text_icon = joint_AUS_HUN_focus_style
-	cost = 3
+	cost = 1
 	relative_position_id = HUN_secure_the_east
 	x = 3
 	y = 1
@@ -6846,7 +6861,7 @@ joint_focus = {
 			original_tag = AUS
 		}
 		x = 44
-		y = -9
+		y = -10
 	}
 	search_filters = {
 		FOCUS_FILTER_HISTORICAL
@@ -6862,8 +6877,18 @@ joint_focus = {
 	}
 	prerequisite = {		
 		focus = HUN_secure_the_east
-		focus = AUS_recruit_albania
+		focus = AUS_der_grobe_kriegsredux
 	}
-	completion_reward = { }
+	completion_reward_joint_member = {
+		if = {
+			limit = { 
+				original_tag = AUS
+			}
+			country_event = {
+				id = ww1_hungary.85
+				days = 1
+			}
+		}
+	}
 }
 
