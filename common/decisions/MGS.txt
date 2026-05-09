@@ -1,4 +1,50 @@
 MGS_serbian_resistance = {
+	AUS_partisans_destroy_railroads = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = MGS
+		}
+		priority = 10
+		days_mission_timeout = 15
+		available = {
+			always = no
+		}
+		activation = {
+			NOT = {
+				has_idea = MGS_partisans_sabotage_railroads
+			}
+			OR = {
+				has_idea = MGS_resistance_to_occupation3
+				has_idea = MGS_resistance_to_occupation4
+				has_idea = MGS_resistance_to_occupation5
+				has_idea = MGS_resistance_to_occupation6
+				has_idea = MGS_resistance_to_occupation7
+				has_idea = MGS_resistance_to_occupation8
+				has_idea = MGS_resistance_to_occupation9
+				has_idea = MGS_resistance_to_occupation10
+			}
+		}
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_timed_idea = {
+				idea = MGS_partisans_sabotage_railroads
+				days = 90
+			}
+			effect_tooltip = {
+				every_state = {
+					limit = {
+						is_controlled_by = root
+					}
+					add_dynamic_modifier = {
+						modifier = sabotaged_railways
+					}
+				}
+			}
+		}
+		fire_only_once = no
+		is_good = no
+	}
 	MGS_resistance_cells_organize = {
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
@@ -13,8 +59,8 @@ MGS_serbian_resistance = {
 			exists = yes
 		}
 		timeout_effect = {
-		MGS_worsen_resistance_to_occupation = yes
-		activate_mission = MGS_resistance_cells_organize
+			MGS_worsen_resistance_to_occupation = yes
+			activate_mission = MGS_resistance_cells_organize
 		}
 		complete_effect = {
 		}
