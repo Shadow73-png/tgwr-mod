@@ -255,6 +255,7 @@ focus_tree = {
 					}
 				}
 			}
+			MGS_worsen_resistance_to_occupation = yes
 		}
 		ai_will_do = {
 			factor = 50
@@ -307,6 +308,18 @@ focus_tree = {
 			always = yes
 		}
 		completion_reward = {
+				add_political_power = 35
+			custom_effect_tooltip = MGS_makes_austria_more_likely_to_help
+			AUS = {
+				country_event = {
+					id = ww1_occupiedserbia.6
+					days = 3
+				}
+				unlock_decision_tooltip = {
+					decision = AUS_seize_industries_from_serbia
+					show_effect_tooltip = yes
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 50

@@ -441,17 +441,12 @@ country_event = {
 			AUS_EP_consumer_goods = 0.1
 			tooltip = consumer_goods_factor_tt
 		}
-		custom_effect_tooltip = AUS_modify_eco.tt
 		add_to_variable = {
-			AUS_EP_factory_output = -0.02
-			tooltip = industrial_capacity_factory_tt
-		}
-		add_to_variable = {
-			AUS_EP_prod_eff_cap = -0.02
+			AUS_EP_prod_eff_cap = -0.1
 			tooltip = production_factory_max_efficiency_factor_tt
 		}
 		add_to_variable = {
-			AUS_EP_prod_eff_growth = -0.02
+			AUS_EP_prod_eff_growth = -0.1
 			tooltip = production_factory_efficiency_gain_factor_tt
 		}
 	}
@@ -478,18 +473,14 @@ country_event = {
 				tooltip = consumer_goods_factor_tt
 			}
 			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_factory_output = -0.02
-				tooltip = industrial_capacity_factory_tt
-			}
-			add_to_variable = {
-				AUS_EP_prod_eff_cap = -0.02
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			add_to_variable = {
-				AUS_EP_prod_eff_growth = -0.02
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
+		add_to_variable = {
+			AUS_EP_prod_eff_cap = -0.1
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+		add_to_variable = {
+			AUS_EP_prod_eff_growth = -0.1
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
 	}
 }
 country_event = {
@@ -513,18 +504,14 @@ country_event = {
 				tooltip = consumer_goods_factor_tt
 			}
 				custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_factory_output = -0.02
-				tooltip = industrial_capacity_factory_tt
-			}
-			add_to_variable = {
-				AUS_EP_prod_eff_cap = -0.02
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			add_to_variable = {
-				AUS_EP_prod_eff_growth = -0.02
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
+		add_to_variable = {
+			AUS_EP_prod_eff_cap = -0.1
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+		add_to_variable = {
+			AUS_EP_prod_eff_growth = -0.1
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
 	}
 }
 country_event = {
@@ -8168,16 +8155,6 @@ country_event = {
 		MGS_worsen_resistance_to_occupation = yes
 		custom_effect_tooltip = MGS_locks_the_focus_restoring_the_serbian_economy
 	}
-	option = {
-		name = ww1_occupiedserbia.3.b
-		MGS = {
-		country_event = {
-			id = ww1_occupiedserbia.5
-			days = 2
-		}
-		
-	}
-	}
 }
 country_event = {
 	id = ww1_occupiedserbia.5
@@ -8188,19 +8165,26 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_occupiedserbia.5.a
-		MGS_worsen_resistance_to_occupation = yes
-		custom_effect_tooltip = MGS_locks_the_focus_restoring_the_serbian_economy
 	}
+
+}
+country_event = {
+	id = ww1_occupiedserbia.6
+	title = ww1_occupiedserbia.6.t
+	desc = ww1_occupiedserbia.6.d
+	#picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
-		name = ww1_occupiedserbia.3.b
-		MGS = {
-		country_event = {
-			id = ww1_occupiedserbia.5
-			days = 2
-		}
-		
+		name = ww1_occupiedserbia.6.a
+		AUS = {
+				unlock_decision_tooltip = {
+					decision = AUS_seize_industries_from_serbia
+					show_effect_tooltip = yes
+				}
+			}
 	}
-	}
+
 }
 #MGM
 country_event = {
