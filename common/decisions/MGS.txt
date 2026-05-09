@@ -1,23 +1,24 @@
 MGS_serbian_resistance = {
-	MGS_decision = {
-		icon = GFX_decision_steel
+	MGS_resistance_cells_organize = {
+		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
-			tag = MGS
+			original_tag = MGS
 		}
-		priority = 20
-		visible = {
-		}
+		priority = 10
+		days_mission_timeout = 60
 		available = {
+			always = no
 		}
-		fire_only_once = yes
-		days_remove = 30
-		cost = 25
-		ai_will_do = {
-			base = 80
+		activation = {
+			exists = yes
+		}
+		timeout_effect = {
+		MGS_worsen_resistance_to_occupation = yes
+		activate_mission = MGS_resistance_cells_organize
 		}
 		complete_effect = {
 		}
-		remove_effect = {
-		}
+		fire_only_once = no
+		is_good = no
 	}
 }
