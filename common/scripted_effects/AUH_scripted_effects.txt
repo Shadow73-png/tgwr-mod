@@ -3344,6 +3344,297 @@ MGS_upgrade_government_legit = {
 		remove_ideas = MGS_illegitimate_government_1
 	}
 }
+MGS_upgrade_nation_in_ruins = {
+
+	if = {
+		limit = { has_idea = MGS_nation_in_ruins6 }
+		swap_ideas = {
+			remove_idea = MGS_nation_in_ruins6
+			add_idea = MGS_nation_in_ruins5
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_nation_in_ruins5 }
+		swap_ideas = {
+			remove_idea = MGS_nation_in_ruins5
+			add_idea = MGS_nation_in_ruins4
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_nation_in_ruins4 }
+		swap_ideas = {
+			remove_idea = MGS_nation_in_ruins4
+			add_idea = MGS_nation_in_ruins3
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_nation_in_ruins3 }
+		swap_ideas = {
+			remove_idea = MGS_nation_in_ruins3
+			add_idea = MGS_nation_in_ruins2
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_nation_in_ruins2 }
+		swap_ideas = {
+			remove_idea = MGS_nation_in_ruins2
+			add_idea = MGS_nation_in_ruins1
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_nation_in_ruins1 }
+		remove_ideas = MGS_nation_in_ruins1
+	}
+}
+MGS_worsen_nation_in_ruins = {
+
+	if = {
+		limit = { NOT = { has_any_idea = {
+			MGS_nation_in_ruins1
+			MGS_nation_in_ruins2
+			MGS_nation_in_ruins3
+			MGS_nation_in_ruins4
+			MGS_nation_in_ruins5
+			MGS_nation_in_ruins6
+		}}}
+		add_ideas = MGS_nation_in_ruins1
+	}
+	else_if = {
+		limit = { has_idea = MGS_nation_in_ruins1 }
+		swap_ideas = {
+			remove_idea = MGS_nation_in_ruins1
+			add_idea = MGS_nation_in_ruins2
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_nation_in_ruins2 }
+		swap_ideas = {
+			remove_idea = MGS_nation_in_ruins2
+			add_idea = MGS_nation_in_ruins3
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_nation_in_ruins3 }
+		swap_ideas = {
+			remove_idea = MGS_nation_in_ruins3
+			add_idea = MGS_nation_in_ruins4
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_nation_in_ruins4 }
+		swap_ideas = {
+			remove_idea = MGS_nation_in_ruins4
+			add_idea = MGS_nation_in_ruins5
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_nation_in_ruins5 }
+		swap_ideas = {
+			remove_idea = MGS_nation_in_ruins5
+			add_idea = MGS_nation_in_ruins6
+		}
+	}
+}
+MGS_downgrade_government_legit = {
+
+	if = {
+		limit = {
+			NOT = {
+				has_any_idea = {
+					MGS_illegitimate_government_1
+					MGS_illegitimate_government_2
+					MGS_illegitimate_government_3
+					MGS_illegitimate_government_4
+					MGS_illegitimate_government_5
+				}
+			}
+		}
+		add_ideas = MGS_illegitimate_government_1
+	}
+	else_if = {
+		limit = { has_idea = MGS_illegitimate_government_1 }
+		swap_ideas = {
+			remove_idea = MGS_illegitimate_government_1
+			add_idea = MGS_illegitimate_government_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_illegitimate_government_2 }
+		swap_ideas = {
+			remove_idea = MGS_illegitimate_government_2
+			add_idea = MGS_illegitimate_government_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_illegitimate_government_3 }
+		swap_ideas = {
+			remove_idea = MGS_illegitimate_government_3
+			add_idea = MGS_illegitimate_government_4
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_illegitimate_government_4 }
+		swap_ideas = {
+			remove_idea = MGS_illegitimate_government_4
+			add_idea = MGS_illegitimate_government_5
+		}
+	}
+}
+MGS_upgrade_resistance_to_occupation = {
+
+	if = {
+		limit = { has_idea = MGS_resistance_to_occupation10 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation10
+			add_idea = MGS_resistance_to_occupation9
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation9 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation9
+			add_idea = MGS_resistance_to_occupation8
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation8 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation8
+			add_idea = MGS_resistance_to_occupation7
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation7 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation7
+			add_idea = MGS_resistance_to_occupation6
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation6 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation6
+			add_idea = MGS_resistance_to_occupation5
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation5 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation5
+			add_idea = MGS_resistance_to_occupation4
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation4 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation4
+			add_idea = MGS_resistance_to_occupation3
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation3 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation3
+			add_idea = MGS_resistance_to_occupation2
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation2 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation2
+			add_idea = MGS_resistance_to_occupation1
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation1 }
+		remove_ideas = MGS_resistance_to_occupation1
+	}
+}
+MGS_worsen_resistance_to_occupation = {
+
+	if = {
+		limit = {
+			NOT = {
+				has_any_idea = {
+					MGS_resistance_to_occupation1
+					MGS_resistance_to_occupation2
+					MGS_resistance_to_occupation3
+					MGS_resistance_to_occupation4
+					MGS_resistance_to_occupation5
+					MGS_resistance_to_occupation6
+					MGS_resistance_to_occupation7
+					MGS_resistance_to_occupation8
+					MGS_resistance_to_occupation9
+					MGS_resistance_to_occupation10
+				}
+			}
+		}
+		add_ideas = MGS_resistance_to_occupation1
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation1 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation1
+			add_idea = MGS_resistance_to_occupation2
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation2 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation2
+			add_idea = MGS_resistance_to_occupation3
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation3 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation3
+			add_idea = MGS_resistance_to_occupation4
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation4 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation4
+			add_idea = MGS_resistance_to_occupation5
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation5 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation5
+			add_idea = MGS_resistance_to_occupation6
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation6 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation6
+			add_idea = MGS_resistance_to_occupation7
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation7 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation7
+			add_idea = MGS_resistance_to_occupation8
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation8 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation8
+			add_idea = MGS_resistance_to_occupation9
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_resistance_to_occupation9 }
+		swap_ideas = {
+			remove_idea = MGS_resistance_to_occupation9
+			add_idea = MGS_resistance_to_occupation10
+		}
+	}
+}
 AUS_national_unity_effect = {
 	if = {
 		limit = {
