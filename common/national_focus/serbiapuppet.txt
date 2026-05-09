@@ -15,7 +15,6 @@ focus_tree = {
 		focus = SER_grand_coalition
 	}
 	default = no
-
 	#Focus Path shortcuts
 	focus = {
 		id = MGS_new_sheriff_in_town
@@ -24,15 +23,16 @@ focus_tree = {
 		x = 1
 		y = 0
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-					add_ideas = MGS_illegitimate_government_5
-
+			effect_tooltip = {
+				add_ideas = MGS_illegitimate_government_5
+				add_ideas = MGS_nation_in_ruins4
+				add_ideas = MGS_resistance_to_occupation
+			}
 		}
 		ai_will_do = {
 			factor = 50
@@ -42,9 +42,8 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
-		focus = {
+	focus = {
 		id = MGS_centralwoltatigkeits_komitee
 		icon = GFX_focus_generic_agricultural_subsidies
 		cost = 5
@@ -54,13 +53,10 @@ focus_tree = {
 			focus = MGS_new_sheriff_in_town
 		}
 		available = {
-			
 		}
 		bypass = {
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -70,7 +66,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_resoration
@@ -83,14 +78,12 @@ focus_tree = {
 		}
 		relative_position_id = MGS_centralwoltatigkeits_komitee
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
+			MGS_upgrade_nation_in_ruins = yes
 		}
 		ai_will_do = {
 			factor = 50
@@ -100,9 +93,8 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
-		focus = {
+	focus = {
 		id = MGS_international_aid_efforts
 		icon = GFX_focus_generic_democratic_europe
 		cost = 5
@@ -113,14 +105,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_resoration
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -130,7 +119,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_maximum_rationing
@@ -143,14 +131,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_resoration
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -160,7 +145,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_feeding_the_people
@@ -179,14 +163,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_resoration
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -196,9 +177,8 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
-		focus = {
+	focus = {
 		id = MGS_restoration_of_a_national_economy
 		icon = GFX_focus_generic_agricultural_subsidies
 		cost = 5
@@ -209,14 +189,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_resoration
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -226,7 +203,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_exploitation
@@ -239,42 +215,38 @@ focus_tree = {
 		}
 		relative_position_id = MGS_centralwoltatigkeits_komitee
 		available = {
-			
 		}
 		bypass = {
 		}
-		
 		completion_reward = {
-		add_political_power = 100
-		custom_effect_tooltip = MGS_makes_austria_more_likely_to_help
-		AUS = {
-			country_event = {
-				id = ww1_occupiedserbia.2
-				days = 1
+			add_political_power = 100
+			custom_effect_tooltip = MGS_makes_austria_more_likely_to_help
+			AUS = {
+				country_event = {
+					id = ww1_occupiedserbia.2
+					days = 1
+				}
+				effect_tooltip = {
+					custom_effect_tooltip = AUS_modify_eco.tt
+					add_to_variable = {
+						AUS_EP_consumer_goods = -0.025
+						tooltip = consumer_goods_factor_tt
+					}
+				}
 			}
-			effect_tooltip = {
-				        custom_effect_tooltip = AUS_modify_eco.tt
-
-				add_to_variable = {
-			AUS_EP_consumer_goods = -0.025
-			tooltip = consumer_goods_factor_tt
+			HUN = {
+				country_event = {
+					id = ww1_occupiedserbia.2
+					days = 1
+				}
+				effect_tooltip = {
+					custom_effect_tooltip = HUN_modify_eco_tt
+					add_to_variable = {
+						HUN_eco_consumer_good = -0.025
+						tooltip = consumer_goods_factor_tt
+					}
+				}
 			}
-			}
-		}
-	HUN = {
-			country_event = {
-				id = ww1_occupiedserbia.2
-				days = 1
-			}
-			effect_tooltip = {
-						custom_effect_tooltip = HUN_modify_eco_tt
-
-				add_to_variable = {
-				HUN_eco_consumer_good = -0.025
-				tooltip = consumer_goods_factor_tt
-			}
-			}
-		}
 		}
 		ai_will_do = {
 			factor = 50
@@ -284,7 +256,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_the_field_workers
@@ -297,14 +268,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_exploitation
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -314,7 +282,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_seize_property
@@ -327,14 +294,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_exploitation
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -344,7 +308,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_domination_of_austrian_companies
@@ -360,14 +323,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_exploitation
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -377,7 +337,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_exploit_forests_and_mines
@@ -390,14 +349,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_exploitation
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -407,7 +363,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_requisition_of_resources
@@ -421,14 +376,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_exploitation
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -438,7 +390,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_the_suchdetaschement
@@ -451,14 +402,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_exploitation
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -468,7 +416,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_wahren_verkehrs_zentrale
@@ -482,14 +429,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_exploitation
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -499,9 +443,8 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
-		focus = {
+	focus = {
 		id = MGS_order
 		icon = GFX_generic_police_state
 		cost = 5
@@ -512,14 +455,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_centralwoltatigkeits_komitee
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -529,7 +469,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_utilize_loyal_minorities
@@ -543,14 +482,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_order
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -560,7 +496,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_denationalization
@@ -573,14 +508,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_order
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -590,7 +522,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_network_of_trusted_persons
@@ -603,14 +534,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_order
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -620,9 +548,8 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
-		focus = {
+	focus = {
 		id = MGS_support_from_the_motherland
 		icon = GFX_focus_AUH_conrad
 		cost = 5
@@ -633,14 +560,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_order
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -650,9 +574,8 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
-		focus = {
+	focus = {
 		id = MGS_military_rule_of_law
 		icon = GFX_focus_generic_full_social_mobilization
 		cost = 5
@@ -663,14 +586,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_order
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -680,7 +600,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_hostage_taking
@@ -693,14 +612,11 @@ focus_tree = {
 		}
 		relative_position_id = MGS_order
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -710,7 +626,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_deportation_orders
@@ -723,15 +638,13 @@ focus_tree = {
 		}
 		relative_position_id = MGS_order
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		effect_tooltip = {
-		}
+			effect_tooltip = {
+			}
 		}
 		ai_will_do = {
 			factor = 50
@@ -741,7 +654,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_building_a_civilian_administration
@@ -754,13 +666,11 @@ focus_tree = {
 			focus = MGS_new_sheriff_in_town
 		}
 		available = {
-			
 		}
 		bypass = {
 		}
-		
 		completion_reward = {
-		MGS_upgrade_government_legit = yes
+			MGS_upgrade_government_legit = yes
 		}
 		ai_will_do = {
 			factor = 50
@@ -770,9 +680,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
-	
 	focus = {
 		id = MGS_yugoslav_civil_servants
 		icon = GFX_focus_YUG_dissolve_serbia
@@ -786,14 +694,11 @@ focus_tree = {
 			focus = MGS_reopening_the_schools
 		}
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -803,7 +708,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_a_more_permanent_governance
@@ -812,22 +716,18 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = MGS_yugoslav_civil_servants
-			mutually_exclusive = {
+		mutually_exclusive = {
 			focus = MGS_civilian_commissioner
 		}
 		prerequisite = {
 			focus = MGS_yugoslav_civil_servants
 		}
-		
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -837,9 +737,8 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
-		focus = {
+	focus = {
 		id = MGS_closer_ties_to_the_empire
 		icon = GFX_focus_FRA_goverment_reform
 		cost = 5
@@ -849,16 +748,12 @@ focus_tree = {
 		prerequisite = {
 			focus = MGS_a_more_permanent_governance
 		}
-		
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -868,7 +763,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_civilian_commissioner
@@ -883,16 +777,12 @@ focus_tree = {
 		prerequisite = {
 			focus = MGS_yugoslav_civil_servants
 		}
-		
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -902,9 +792,8 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
-		focus = {
+	focus = {
 		id = MGS_seperate_governance_from_military
 		icon = GFX_goal_generic_neutrality_focus
 		cost = 5
@@ -914,16 +803,12 @@ focus_tree = {
 		prerequisite = {
 			focus = MGS_civilian_commissioner
 		}
-		
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -933,7 +818,6 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
 	focus = {
 		id = MGS_reopening_the_schools
@@ -946,14 +830,11 @@ focus_tree = {
 			focus = MGS_new_sheriff_in_town
 		}
 		available = {
-			
 		}
 		bypass = {
 			always = yes
 		}
-		
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			factor = 50
@@ -963,7 +844,5 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		
 	}
-		
 }
