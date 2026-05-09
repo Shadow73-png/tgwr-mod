@@ -46,19 +46,24 @@ MNT_king_shenanigans = {
 			original_tag = MNT
 		}
 		activation = {
-			has_start_date = 1910.05.02
+			has_start_date > 1910.1.1
+			NOT = {
+				has_country_flag = MNT_king_proclaimed
+			}
 		}
 		available = {
 			has_completed_focus = MNT_kingdom_proclamation
 		}
-		timeout_effect = {
-			add_stability = -0.05
-			add_political_power = -40
-		}
+		days_mission_timeout = 100 #sidz set this to a number
 		is_good = yes
 		complete_effect = {
 			add_political_power = 10
 			add_war_support = 0.02
+			set_country_flag = MNT_king_proclaimed
+		}
+		timeout_effect = {
+			add_stability = -0.05
+			add_political_power = -40
 		}
 	}
 }
