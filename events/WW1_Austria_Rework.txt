@@ -8130,11 +8130,76 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_occupiedserbia.3.a
-	
+	add_political_power = -20
+	MGS = {
+				custom_effect_tooltip = MGS_locks_the_focus_restoring_the_serbian_economy
+				custom_effect_tooltip = empty_space_tt
+								set_country_flag = MGS_no_taking_restore_serbian_economy
+		country_event = {
+			id = ww1_occupiedserbia.4
+			days = 2
+		}
+		effect_tooltip = {
+				MGS_worsen_resistance_to_occupation = yes
+		}
+
+	}
 	}
 	option = {
 		name = ww1_occupiedserbia.3.b
-	
+		MGS = {
+		country_event = {
+			id = ww1_occupiedserbia.5
+			days = 2
+		}
+		
+	}
+	}
+}
+country_event = {
+	id = ww1_occupiedserbia.4
+	title = ww1_occupiedserbia.4.t
+	desc = ww1_occupiedserbia.4.d
+	#picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_occupiedserbia.4.a
+		MGS_worsen_resistance_to_occupation = yes
+		custom_effect_tooltip = MGS_locks_the_focus_restoring_the_serbian_economy
+	}
+	option = {
+		name = ww1_occupiedserbia.3.b
+		MGS = {
+		country_event = {
+			id = ww1_occupiedserbia.5
+			days = 2
+		}
+		
+	}
+	}
+}
+country_event = {
+	id = ww1_occupiedserbia.5
+	title = ww1_occupiedserbia.5.t
+	desc = ww1_occupiedserbia.5.d
+	#picture = GFX_report_event_gathering_protest
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_occupiedserbia.5.a
+		MGS_worsen_resistance_to_occupation = yes
+		custom_effect_tooltip = MGS_locks_the_focus_restoring_the_serbian_economy
+	}
+	option = {
+		name = ww1_occupiedserbia.3.b
+		MGS = {
+		country_event = {
+			id = ww1_occupiedserbia.5
+			days = 2
+		}
+		
+	}
 	}
 }
 #MGM
