@@ -1561,6 +1561,42 @@ characters={
 			}
 		}
 	}
+	HUN_ivan_rakovszky = {
+		name="HUN_ivan_rakovszky"
+		advisor = {
+			slot = political_advisor
+			idea_token = HUN_ivan_rakovszky
+			cost = 175
+			allowed = {
+				original_tag = HUN
+			}
+			available = {
+				has_completed_focus = HUN_consolidate_nmp_party
+				has_government = neutrality
+				has_country_flag = HUN_national_work_party_yes
+				if = {
+					limit = {
+						NOT = {
+							has_country_flag = great_war_loser
+						}
+					}
+					check_variable = {
+						var = HUN_national_work_party_authority_var
+						value > 50
+						tooltip = HUN_national_work_party_greater_than_tt
+					}
+				}
+			}
+			visible = {
+				NOT = {
+					has_country_flag = great_war_loser
+				}
+			}
+			traits = { 
+				HUN_public_works_champion
+			}
+		}
+	}
 
 	HUN_franz_joseph_i={ #for country selection secren, not to be used in code
 		portraits={

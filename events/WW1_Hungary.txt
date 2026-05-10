@@ -3338,6 +3338,40 @@ country_event = {
 		}
 		AUS_update_state_of_realm = yes
 	}
+}#Leash Croatia
+country_event = {
+	id = ww1_hungary.89
+	title = ww1_hungary.89.t
+	desc = ww1_hungary.89.d
+#	picture = GFX_report_event_hungarian_parliment
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_hungary.89.a
+		add_political_power = 50
+		if = {
+			limit = {
+				has_country_flag = HUN_national_work_party_yes
+			 }
+			 add_to_variable = {
+				HUN_national_work_party_authority_var = 15
+				tooltip = HUN_modify_national_work_party_tt
+			 }
+		}
+		custom_effect_tooltip = ww1_croatia.8.tt
+		add_to_variable = {
+			HUN_croat_sabor_stab = -0.06
+		}
+		set_variable = {
+			HUN_croatian_dem_drift = -0.01
+		}
+		set_variable = {
+			HUN_croatian_neutrality_drift = 0.02
+		}
+		set_variable = {
+			HUN_croat_sabor_pp = 0.05
+		}
+	}
 }
 
 

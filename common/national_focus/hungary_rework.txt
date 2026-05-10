@@ -1174,6 +1174,27 @@ focus_tree = {
 			}
 		 }
 	 }
+	#Development of Cities Act 1912
+	focus = {
+		id = HUN_development_of_cities_act_1912
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 2.2
+		relative_position_id = HUN_tax_reform_of_get_year
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_country_flag = HUN_national_work_party_yes
+		}
+		prerequisite = {
+			focus = HUN_tax_reform_of_get_year
+		}
+		completion_reward = { }
+	}
 	#Push Through The Army Bill
 	focus = {
 		id = HUN_pass_through_the_army_bill
@@ -1311,7 +1332,7 @@ focus_tree = {
 	focus = {
 		id = HUN_prepare_for_balkan_volatility
 		icon = GFX_TUR_balkan_war_experience
-		cost = 5
+		cost = 2.9
 		relative_position_id = HUN_pass_through_the_army_bill
 		x = 0
 		y = 3
@@ -1392,6 +1413,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_prepare_for_balkan_volatility
+		}
+		prerequisite = {
+			focus = HUN_development_of_cities_act_1912
 		}
 		completion_reward = { 
 			custom_effect_tooltip = HUN_modify_army_tt
@@ -1507,6 +1531,8 @@ focus_tree = {
 				HUN_national_work_party_authority_var = 15
 				tooltip = HUN_modify_national_work_party_tt
 			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = HUN_ivan_rakovszky
 		}
 	} 
 	#Protect Voters Rights
@@ -5274,10 +5300,16 @@ focus_tree = {
 			clamp_variable = {
 				var = HUN_food_stab_var
 				min = 0
-				max = 100
+				max = 92
 			}
 			set_variable = {
 				HUN_fading_food_stability_timer = 70
+			}
+			if = {
+				limit = { 
+					has_country_flag = HUN_national_work_party_yes
+				}
+				activate_mission = HUN_great_war_discontent_mission
 			}
 		}
 	 }
@@ -5480,6 +5512,10 @@ focus_tree = {
 			focus = HUN_secure_party_loyalty
 		}
 		completion_reward = { 
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = -50
+			}
 			if = {
 				limit = { 
 					controls_state = 155
@@ -5605,6 +5641,10 @@ focus_tree = {
 			focus = HUN_gyor_arms_works
 		}
 		completion_reward = { 
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = 100
+			}
 			add_ideas = HUN_public_service_office_idea
 			custom_effect_tooltip = HUN_public_service_office_idea.tt
 		}
@@ -5987,6 +6027,10 @@ focus_tree = {
 		}
 		completion_reward = { 
 			country_event = ww1_hungary.80
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = 50
+			}
 		}
 	 }
 	 #Village Police
@@ -6052,6 +6096,10 @@ focus_tree = {
 			focus = HUN_village_police
 		}
 		completion_reward = { 
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = -25
+			}
 			custom_effect_tooltip = HUN_modify_eco_tt
 			add_to_variable = {
 				HUN_eco_consumer_good = -0.025
@@ -6162,6 +6210,10 @@ focus_tree = {
 			focus = HUN_secure_grain
 		}
 		completion_reward = { 
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = 25
+			}
 			add_stability = 0.02
 			add_war_support = 0.02
 			add_to_variable = {
@@ -6197,6 +6249,7 @@ focus_tree = {
 			OR = {
 				has_war_with = RUS
 				has_war_with = ROM
+				has_war_with = SER
 			}
 		}
 		prerequisite = {
@@ -6280,6 +6333,10 @@ focus_tree = {
 				mission = HUN_fading_food_stability_mission
 				days = 50
 			} 
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = -25
+			}
 			custom_effect_tooltip = HUN_modify_eco_tt
 			add_to_variable = {
 				HUN_eco_consumer_good = -0.02
@@ -6324,6 +6381,10 @@ focus_tree = {
 			add_days_mission_timeout = {
 				mission = HUN_fading_food_stability_mission
 				days = 225
+			}
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = -50
 			}
 		}
 	 }
@@ -6433,6 +6494,10 @@ focus_tree = {
 			focus = HUN_organize_metal_production
 		}
 		completion_reward = { 
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = 25
+			}
 			add_popularity = {
 				ideology = democracy
 				popularity = 0.05
@@ -6545,6 +6610,10 @@ focus_tree = {
 			is_in_faction_with = RUS
 		}
 		completion_reward = { 
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = 50
+			}
 			custom_effect_tooltip = HUN_pin_all_hopes_on_russian_defeat.tt
 			activate_mission = HUN_pin_hope_on_russian_defeat_mission
 		}
@@ -6628,6 +6697,10 @@ focus_tree = {
 			}
 			add_stability = -0.02
 			add_war_support = -0.02
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = -25
+			}
 		}
 	 }
 }
@@ -6878,6 +6951,17 @@ joint_focus = {
 	prerequisite = {		
 		focus = HUN_secure_the_east
 		focus = AUS_der_grobe_kriegsredux
+	}
+	completion_reward_joint_originator = {
+		if = {
+			limit = { 
+				original_tag = AUS
+			}
+			country_event = {
+				id = ww1_hungary.85
+				days = 1
+			}
+		}
 	}
 	completion_reward_joint_member = {
 		if = {
