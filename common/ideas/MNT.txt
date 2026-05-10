@@ -6,8 +6,24 @@ ideas={
 			allowed_civil_war = { always = yes }
 			removal_cost = -1	
 			modifier = {
-				army_morale_factor = 0.15
+				army_morale_factor = 0.1
 				army_core_defence_factor = 0.1
+				mountain_attack = 0.05
+				supply_consumption_factor = -0.05
+			}
+		}
+		serbian_sparta2 = {
+			picture = FRA_scw_intervention_republicans_focus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1	
+			modifier = {
+				army_morale_factor = 0.1
+				army_core_defence_factor = 0.075
+				mountain_attack = 0.05
+				mountain_speed = 0.03
+				mountain_defense = 0.05
+				supply_consumption_factor = -0.05
 			}
 		}
 		MNT_bomb_affair = {
@@ -19,7 +35,7 @@ ideas={
 				stability_factor = -0.05
 				war_support_factor = -0.05
 				experience_gain_army = -0.04
-				command_power_gain = -0.1
+				command_power_gain = -0.05
 			}
 		}
 		MNT_bomb_affair_mending = {#timed idea btw
@@ -51,6 +67,18 @@ ideas={
 				democratic_drift = 0.01
 				stability_factor = 0.05
 				political_power_gain = -0.02
+			}
+		}
+		MNT_russia_mil_coop = {
+			picture = gfx_none
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				add_offsite_building = {
+					type = arms_factory
+					level = 1
+				}
 			}
 		}
 	}
