@@ -20,7 +20,6 @@ focus_tree = {
 	shared_focus = AUS_invest_in_new_jobs
 	shared_focus = AUS_mavag_armored_trains
 	shared_focus = AUS_expand_the_UFAG
-	shared_focus = HUN_eyes_on_croatia
 	#Shared Focus's with Bosnia
 	shared_focus = HUN_bosnian_rail_expansion
 	 #Shared Focus's with Austria & Germany
@@ -6515,6 +6514,7 @@ focus_tree = {
 			}
 		}
 	 }
+	 #
 	 #Secure the East
 	 focus = {
 		id = HUN_secure_the_east
@@ -6921,58 +6921,3 @@ joint_focus = {
 	}
 	completion_reward = { }
 }
-joint_focus = {
-	id = HUN_eyes_on_croatia
-	icon = GFX_focus_generic_secret_service_agency
-	text_icon = joint_AUS_HUN_focus_style
-	cost = 1
-	relative_position_id = HUN_secure_the_east
-	x = 3
-	y = 1
-	offset = {
-		trigger = {
-			original_tag = AUS
-		}
-		x = 44
-		y = -10
-	}
-	search_filters = {
-		FOCUS_FILTER_HISTORICAL
-		FOCUS_FILTER_INTERNAL_AFFAIRS
-		FOCUS_FILTER_LOYALTY
-		FOCUS_FILTER_POLITICAL
-	}
-	available = {
-		AUS_HUN_exists = yes
-		HUN = {
-			has_dynamic_modifier = HUN_croatian_sabor
-		}
-	}
-	prerequisite = {		
-		focus = HUN_secure_the_east
-		focus = AUS_der_grobe_kriegsredux
-	}
-	completion_reward_joint_originator = {
-		if = {
-			limit = { 
-				original_tag = AUS
-			}
-			country_event = {
-				id = ww1_hungary.85
-				days = 1
-			}
-		}
-	}
-	completion_reward_joint_member = {
-		if = {
-			limit = { 
-				original_tag = AUS
-			}
-			country_event = {
-				id = ww1_hungary.85
-				days = 1
-			}
-		}
-	}
-}
-
