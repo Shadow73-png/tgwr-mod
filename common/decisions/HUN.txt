@@ -1658,8 +1658,34 @@ AUS_minorities_mechanic_HUN = {
 			}
 		}
 	}
+	HUN_police_reorg_mission = {
+		days_mission_timeout = 730
+		icon = GFX_decision_generic_police_action
+		is_good = no
+		allowed = {
+			original_tag = HUN
+		}
+		activation = {
+			always = no
+		}
+		available = {
+			date > 1916.1.1
+			has_completed_focus = HUN_finish_police_reorg
+			custom_trigger_tooltip = {
+				tooltip = HUN_police_reorg_mission.tt
+				always = no
+			}
+		}
+		complete_effect = {
+			add_political_power = 150
+		}
+		timeout_effect = {
+			add_political_power = -100
+			add_stability = -0.05
+		}
+	}
 	HUN_ausghleich_talk_mission = {
-		#icon = 
+		icon = GFX_decision_cat_generic_austria_hungary_icon 
 		is_good = yes
 		days_mission_timeout = 2491 
 		fire_only_once = yes
