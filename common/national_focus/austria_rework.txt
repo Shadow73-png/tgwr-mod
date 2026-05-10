@@ -10064,11 +10064,35 @@ focus_tree = {
 		#search_filters = {
 		#}
 	}
-	focus = {
-		id = AUS_universal_suffrage_in_hungary
+		focus = {
+		id = AUS_lay_our_cards_on_the_table
 		icon = GFX_focus_generic_universal_suffrage
 		cost = 5
-		x = -1
+		x = -2
+		y = 1
+		mutually_exclusive = {
+			focus = AUS_moves_in_the_shadows
+		}
+		prerequisite = {
+			focus = AUS_delay_the_coronation
+		}
+		relative_position_id = AUS_delay_the_coronation
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		#search_filters = {
+		#}
+	}
+	focus = {
+		id = AUS_moves_in_the_shadows
+		icon = GFX_focus_generic_universal_suffrage
+		mutually_exclusive = {
+			focus = AUS_lay_our_cards_on_the_table
+		}
+		cost = 5
+		x = 1
 		y = 1
 		prerequisite = {
 			focus = AUS_delay_the_coronation
@@ -10083,10 +10107,47 @@ focus_tree = {
 		#}
 	}
 	focus = {
+		id = AUS_universal_suffrage_in_hungary
+		icon = GFX_focus_generic_universal_suffrage
+		cost = 5
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = AUS_moves_in_the_shadows
+			focus = AUS_lay_our_cards_on_the_table
+		}
+		relative_position_id = AUS_delay_the_coronation
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		#search_filters = {
+		#}
+	}
+		focus = {
+		id = AUS_demand_genry_sanctions
+		icon = GFX_focus_generic_universal_suffrage
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = AUS_lay_our_cards_on_the_table
+		}
+		relative_position_id = AUS_lay_our_cards_on_the_table
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		#search_filters = {
+		#}
+	}
+	focus = {
 		id = AUS_intimidate_hungarian_politicians
 		icon = GFX_focus_AUH_Operation_Erlosung
 		cost = 5
-		x = 1
+		x = 3
 		y = 1
 		prerequisite = {
 			focus = AUS_delay_the_coronation
@@ -10140,7 +10201,7 @@ focus_tree = {
 		id = AUS_centralization_of_the_state
 		icon = GFX_focus_generic_monarchy_1
 		cost = 5
-		x = -2
+		x = -3
 		y = 1
 		prerequisite = {
 			focus = AUS_franz_ferdinand
@@ -10361,80 +10422,8 @@ focus_tree = {
 		#search_filters = {
 		#}
 	}
-	focus = {
-		id = AUS_the_congress_of_vienna
-		icon = GFX_notyet
-		cost = 5
-		x = 2
-		y = 1
-		prerequisite = {
-			focus = AUS_dismantle_the_dreams_of_febuary
-		}
-		prerequisite = {
-			focus = AUS_empower_croat_sabor
-		}
-		relative_position_id = AUS_dismantle_the_dreams_of_febuary
-		available = {
-			has_completed_focus = AUS_franz_ferdinand
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		#search_filters = {
-		#}
-	}
-	focus = {
-		id = AUS_trialism
-		icon = GFX_notyet
-		cost = 5
-		x = -3
-		y = 1
-		prerequisite = {
-			focus = AUS_the_congress_of_vienna
-		}
-		mutually_exclusive = {
-			focus = AUS_usa_of_austria
-		}
-		relative_position_id = AUS_the_congress_of_vienna
-		available = {
-			has_completed_focus = AUS_franz_ferdinand
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		#search_filters = {
-		#}
-	}
-	focus = {
-		id = AUS_usa_of_austria
-		icon = GFX_focus_AUH_federalism
-		cost = 5
-		x = 2
-		y = 1
-		prerequisite = {
-			focus = AUS_the_congress_of_vienna
-		}
-		mutually_exclusive = {
-			focus = AUS_trialism
-		}
-		relative_position_id = AUS_the_congress_of_vienna
-		available = {
-			has_completed_focus = AUS_franz_ferdinand
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		#search_filters = {
-		#}
-	}
-}
-
+	
+	
 joint_focus = {
 	id = AUS_expand_womens_education
 	icon = GFX_focus_SWE_education_reform
