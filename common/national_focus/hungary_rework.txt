@@ -5525,6 +5525,7 @@ focus_tree = {
 						level = 1
 						instant_build = yes
 					}
+					add_extra_state_shared_building_slots = 1
 				}
 			}
 			add_stability = -0.05
@@ -5574,6 +5575,7 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 2
 				add_dynamic_modifier = {
 					modifier = generic_local_investments
 					days = 365
@@ -5619,6 +5621,28 @@ focus_tree = {
 				}
 			}
 		}
+	 }
+	 #The Prison Question
+	 focus = {
+		id = HUN_prison_question
+		icon = GFX_focus_CHI_arrest_the_seven_gentlemen
+		cost = 3
+		relative_position_id = HUN_review_grain_rationing
+		x = 0
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_completed_focus = HUN_pow_labor
+		}
+		prerequisite = {
+			focus = HUN_review_grain_rationing
+		}
+		completion_reward = { }
 	 }
 	 #Establish a Public Service Office
 	 focus = {
