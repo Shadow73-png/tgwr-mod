@@ -3389,6 +3389,7 @@ focus_tree = {
 				mission = RUS_growing_frustration_mission
 				days = 60
 			}
+			country_event = ww1_conservative.10
 		}
 		ai_will_do = {
 			factor = 3
@@ -3439,6 +3440,7 @@ focus_tree = {
 				}
 				custom_effect_tooltip = appointed_as_interior_minister_tt
 				show_ideas_tooltip = RUS_nikolai_shcherbatov
+				country_event = ww1_conservative.11
 			}
 			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
 			RUS_modify_loyalty_center_right = yes
@@ -3481,7 +3483,7 @@ focus_tree = {
 		relative_position_id = RUS_meet_with_duma_members
 		available_if_capitulated = yes
 		select_effect = {
-			country_event = ww1_conservative.11
+			country_event = ww1_conservative.12
 		}
 		completion_reward = {
 			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
@@ -3716,7 +3718,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = appointed_as_minister_of_finance_tt
 			show_ideas_tooltip = RUS_pyotr_bark
-			country_event = ww1_conservative.7
+			country_event = ww1_conservative.8
 		}
 		ai_will_do = {
 			factor = 3
@@ -3760,7 +3762,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = appointed_as_minister_of_finance_tt
 			show_ideas_tooltip = RUS_pyotr_bark
-			country_event = ww1_conservative.8
+			country_event = ww1_conservative.9
 		}
 		ai_will_do = {
 			factor = 3
@@ -3799,25 +3801,26 @@ focus_tree = {
 		relative_position_id = RUS_arrest_the_bolsheviks
 		available_if_capitulated = yes
 		completion_reward = {
-			if = {
-				limit = {
-					RUS_alexander_krivoshein = {
-						is_part_of_the_cabinet = yes
+			hidden_effect = {
+				every_character = {
+					limit = {
+						is_minister_of_internal_affairs = yes
 					}
+					RUS_remove_from_the_cabinet = yes
 				}
-				hidden_effect = {
-					RUS_alexander_krivoshein = {
-						RUS_remove_from_the_cabinet = yes
-					}
+				RUS_alexei_khvostov = {
+					RUS_appoint_interior_minister = yes
 				}
 			}
+			custom_effect_tooltip = appointed_as_interior_minister_tt
+			show_ideas_tooltip = RUS_alexei_khvostov
 			set_temp_variable = { RUS_modify_loyalty_far_right_var = 15 }
 			RUS_modify_loyalty_far_right = yes
 			add_days_mission_timeout = {
 				mission = RUS_growing_frustration_mission
 				days = -60
 			}
-			country_event = ww1_conservative.3
+			country_event = ww1_conservative.7
 		}
 		ai_will_do = {
 			factor = 3
