@@ -11,13 +11,15 @@ RUS_state_council_gui_decision_category = {
 			}
 		}
 		cancel_trigger = {
-			OR = {
-				duma_is_active = no
-				duma_exists = no
-				RUS_pyotr_stolypin = {
-					is_prime_minister = no
+			hidden_trigger = {
+				OR = {
+					duma_is_active = no
+					duma_exists = no
+					RUS_pyotr_stolypin = {
+						is_prime_minister = no
+					}
+					has_decision = RUS_law_on_western_zemstvo_sc
 				}
-				has_decision = RUS_law_on_western_zemstvo_sc
 			}
 		}
 		cancel_effect = {
@@ -31,7 +33,6 @@ RUS_state_council_gui_decision_category = {
 			}
 		}
 		fire_only_once = yes
-		is_good = no
 		days_mission_timeout = 248
 		selectable_mission = no
 		timeout_effect = {
