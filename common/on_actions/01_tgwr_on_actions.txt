@@ -6530,6 +6530,32 @@
 					}
 				}
 			}
+			if = {
+				limit = { 
+					tag = MOR
+					FROM = {
+						tag = GUD
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = MOR
+						transfer_troops = no
+					}
+					ROOT = {
+						every_character = {
+							limit = {
+								is_generic_character = no
+							}
+							set_nationality = FROM
+						}
+						every_core_state = {
+							remove_core_of = ROOT
+							add_core_of = FROM
+						}
+					}
+				}
+			}
 			# kmt victorious over beiyang npa
 			if = {
 				limit = {
