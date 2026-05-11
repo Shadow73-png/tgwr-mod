@@ -226,6 +226,47 @@ RUS_parliament_gui_decision_category = {
 		selectable_mission = no
 		timeout_effect = {
 			country_event = ww1_kokovtsov.20
+			if = {
+				limit = {
+					has_country_flag = RUS_coalition_with_centrists
+				}
+				clr_country_flag = RUS_coalition_with_centrists
+				set_country_flag = RUS_centrists_left_the_coalition
+				custom_effect_tooltip = RUS_centrists_leave_the_coalition_mission
+				set_temp_variable = {
+					var = sway_value_tt
+					value = left_octobrists_var
+				}
+				set_temp_variable = {
+					var = parliament_loser
+					value = RUS_parliament_seat_center_right
+				}
+				set_temp_variable = {
+					var = parliament_winner
+					value = RUS_parliament_seat_center_left
+				}
+				RUS_recalculate_sway = yes
+			}
+			if = {
+				limit = {
+					has_country_flag = RUS_coalition_with_liberals
+				}
+				clr_country_flag = RUS_coalition_with_liberals
+				set_country_flag = RUS_liberals_left_the_coalition
+				custom_effect_tooltip = RUS_liberals_leave_the_coalition_mission
+				set_temp_variable = { RUS_modify_loyalty_center_left_var = -50 }
+				RUS_modify_loyalty_center_left = yes
+			}
+			if = {
+				limit = {
+					has_country_flag = RUS_coalition_with_rightists
+				}
+				clr_country_flag = RUS_coalition_with_rightists
+				set_country_flag = RUS_rightists_left_the_coalition
+				custom_effect_tooltip = RUS_rightists_leave_the_coalition_mission
+				set_temp_variable = { RUS_modify_loyalty_far_right_var = -50 }
+				RUS_modify_loyalty_far_right = yes
+			}
 		}
 		cancel_trigger = {
 			hidden_trigger = {
@@ -280,7 +321,7 @@ RUS_parliament_gui_decision_category = {
 			clr_country_flag = RUS_coalition_with_liberals
 			set_country_flag = RUS_liberals_left_the_coalition
 			add_political_power = -50
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = -60 }
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = -50 }
 			RUS_modify_loyalty_center_left = yes
 		}
 		cancel_trigger = {
@@ -319,11 +360,7 @@ RUS_parliament_gui_decision_category = {
 			add_political_power = -50
 			set_temp_variable = {
 				var = sway_value_tt
-				value = center_right
-			}
-			multiply_temp_variable = {
-				var = sway_value_tt
-				value = 0.22
+				value = left_octobrists_var
 			}
 			set_temp_variable = {
 				var = parliament_loser
