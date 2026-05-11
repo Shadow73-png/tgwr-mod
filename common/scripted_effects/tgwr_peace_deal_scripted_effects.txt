@@ -2043,6 +2043,16 @@ armistice_effect = {
 					limit = { is_claimed_by = PREV }
 					remove_claim_by = PREV
 				}
+				every_state = {
+					limit = { has_contested_owner = PREV }
+					remove_contested_owner = PREV
+					if = {
+						limit = {
+							NOT = { is_owned_by = GRM }
+						}
+						add_contested_owner = GRM
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -4126,21 +4136,9 @@ conference_effect = {
 						country_exists = TRP
 					}
 					TUR = {
-						set_autonomy = {
+						annex_country = {
 							target = TRP
-							autonomy_state = autonomy_tgwr_ottoman_emirate
-						}
-					}
-					TRP = {
-						set_politics = {
-							ruling_party = neutrality
-							elections_allowed = no
-						}
-						set_popularities = {
-							democratic = 0
-							fascism = 17
-							communism = 0
-							neutrality = 83
+							transfer_troops = no
 						}
 					}
 				}
@@ -5248,6 +5246,7 @@ conference_effect = {
 		}
 		else = {
 			345 = { set_state_flag = dont_transfer }
+			1256 = { set_state_flag = dont_transfer }
 		}
 	}
 	if = {
