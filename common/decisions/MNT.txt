@@ -69,28 +69,31 @@ MNT_king_shenanigans = {
 	#smth with reservists missing report 
 }
 
-#MNT_loansharking = {
-#	MNT_secure_enough_money = {
-#		allowed = {
-#			original_tag = MNT
-#		}
-#		activation = {
-#			has_completed_focus = MNT_begmaxxing
-#		}
-#		available = {
-#			has_completed_focus = MNT_begmaxxing
-#		}
-#		timeout_effect = {
-#			add_stability = -0.05
-#			add_political_power = -40
-#		}
-#		is_good = yes
-#		complete_effect = {
-#			add_political_power = 10
-#			add_war_support = 0.02
-#		}
-#	}
-#}
+MNT_loansharking = {
+	MNT_secure_enough_money = {
+		allowed = {
+			original_tag = MNT
+		}
+		activation = {
+			has_completed_focus = MNT_begmaxxing
+		}
+		available = {
+			has_completed_focus = MNT_begmaxxing
+		}
+		timeout_effect = {
+			add_stability = -0.05
+			add_political_power = -40
+			add_to_variable = {
+				MNT_agr_good_factor = 0.04
+			}
+		}
+		is_good = yes
+		complete_effect = {
+			add_political_power = 10
+			add_war_support = 0.02
+		}
+	}
+}
 
 #code this sector when albania update releases
 #MNT_albanian_category = {

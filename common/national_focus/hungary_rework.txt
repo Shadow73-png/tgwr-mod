@@ -169,7 +169,7 @@ focus_tree = {
 		completion_reward = {
 			add_days_mission_timeout = {
 				mission = HUN_army_question_crisis
-				days = 365
+				days = 265 
 			}
 			if = {
 				limit = { 
@@ -267,7 +267,7 @@ focus_tree = {
 	focus = {
 		id = HUN_judgement_reforms
 		icon = GFX_focus_AUS_lawmaking_leniency
-		cost = 4.4
+		cost = 2.9
 		relative_position_id = HUN_compromise_gov
 		x = 1
 		y = 1
@@ -513,15 +513,6 @@ focus_tree = {
 					modifier = HUN_serb_states_modifiers
 				}
 			}
-			unlock_decision_tooltip = HUN_serb_synod
-			custom_effect_tooltip = when_taken
-			effect_tooltip = {
-				add_stability = 0.035
-				add_popularity = {
-					ideology = democratic
-					popularity = 0.05
-				}
-			}
 		 }
 	 }
 	#Nullify Visa Requirements for Serbs
@@ -601,7 +592,7 @@ focus_tree = {
 				tooltip = political_power_factor_tt
 			}
 			add_to_variable = {
-				HUN_croat_pp_advisor = 0.1
+				HUN_croat_pp_advisor = 0.05
 				tooltip = political_advisor_cost_factor_tt
 			}
 			575 = {
@@ -609,6 +600,7 @@ focus_tree = {
 					type = infrastructure
 					level = 1
 				}
+				add_extra_state_shared_building_slots = 1
 			}
 			add_to_variable = {
 				HUN_national_work_party_authority_var = 15
@@ -845,6 +837,15 @@ focus_tree = {
 			focus = HUN_move_to_restore_croatian_order
 		}
 		completion_reward = { 
+			unlock_decision_tooltip = HUN_serb_synod
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				add_stability = 0.035
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.05
+				}
+			}
 			if = {
 				limit = { 
 					has_active_mission = HUN_pending_croatian_chaos
@@ -941,6 +942,7 @@ focus_tree = {
 					}
 					NOT = {
 						state = 45
+						state = 513
 					}
 				}
 				remove_core_of = ROOT
@@ -1093,7 +1095,7 @@ focus_tree = {
 					add_manpower = 3500
 				}
 				664 = {
-					add_manpower = 2000
+					add_manpower = 2800
 				}
 				70 = {
 					add_manpower = 2500
@@ -1192,7 +1194,21 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_tax_reform_of_get_year
 		}
-		completion_reward = { }
+		completion_reward = {
+			activate_mission = HUN_police_reorg_mission
+			43 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_infrastructure_construction_speed = 0.1
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_migration = 0.02
+				tooltip = monthly_population_tt
+			}
+		 }
 	}
 	#Push Through The Army Bill
 	focus = {
@@ -1613,7 +1629,7 @@ focus_tree = {
 	focus = {
 		id = HUN_limit_the_right_to_assembly
 		icon = GFX_focus_eng_move_to_secure_the_dominions
-		cost = 2
+		cost = 1
 		relative_position_id = HUN_ban_obstructionism
 		x = 1
 		y = 1
@@ -2963,7 +2979,7 @@ focus_tree = {
 	focus = {
 		id = HUN_second_industrial_revolution
 		icon = GFX_focus_generic_industry_3
-		cost = 2
+		cost = 3
 		relative_position_id = HUN_aftermath_of_werkle
 		x = 25
 		y = 0
@@ -5044,6 +5060,11 @@ focus_tree = {
 			focus = HUN_vickers_and_maxim_sponsor
 		}
 		completion_reward = { 
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment_1
+				amount = 100
+				producer = AUS
+			}
 			army_experience = 15
 			add_tech_bonus = {
 				name = HUN_honved_artilley
@@ -5270,7 +5291,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		bypass = {
-			#has_war_with_major = yes
+			has_war_with_major = yes
 			has_global_flag = great_war
 		}
 		available = {
@@ -5424,6 +5445,28 @@ focus_tree = {
 		}
 		completion_reward = { }
 	 }
+	  #The Prison Question
+	 focus = {
+		id = HUN_prison_question
+		icon = GFX_focus_CHI_arrest_the_seven_gentlemen
+		cost = 3
+		relative_position_id = HUN_review_grain_rationing
+		x = 0
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_completed_focus = HUN_pow_labor
+		}
+		prerequisite = {
+			focus = HUN_review_grain_rationing
+		}
+		completion_reward = { }
+	 }
 	 #Push for Military Readiness in the east
 	 focus = {
 		id = HUN_prepare_trans_for_war
@@ -5506,6 +5549,7 @@ focus_tree = {
 		}
 		available = {
 			has_war_with_major = yes
+			has_country_flag = HUN_national_work_party_yes
 		}
 		prerequisite = {
 			focus = HUN_secure_party_loyalty
@@ -5622,33 +5666,11 @@ focus_tree = {
 			}
 		}
 	 }
-	 #The Prison Question
+	#Finish Police Reorg
 	 focus = {
-		id = HUN_prison_question
-		icon = GFX_focus_CHI_arrest_the_seven_gentlemen
+		id = HUN_finish_police_reorg
+		icon = GFX_focus_secret_police
 		cost = 3
-		relative_position_id = HUN_review_grain_rationing
-		x = 0
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_INDUSTRY
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_POLITICAL
-		}
-		available = {
-			has_completed_focus = HUN_pow_labor
-		}
-		prerequisite = {
-			focus = HUN_review_grain_rationing
-		}
-		completion_reward = { }
-	 }
-	 #Establish a Public Service Office
-	 focus = {
-		id = HUN_public_service_office
-		icon = GFX_goal_generic_intelligence_exchange
-		cost = 5
 		relative_position_id = HUN_gyor_arms_works
 		x = -1
 		y = 1
@@ -5659,9 +5681,50 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = HUN_national_work_party_yes
+			has_active_mission = HUN_police_reorg_mission
 		}
 		prerequisite = {
 			focus = HUN_gyor_arms_works
+		}
+		bypass_if_unavailable = yes
+		completion_reward = {
+			remove_mission = HUN_police_reorg_mission
+			custom_effect_tooltip = HUN_modify_magyar_process_tt
+			add_to_variable = {
+				HUN_ethnicity_pp = 0.05
+				tooltip = political_power_factor_tt
+			}
+			add_to_variable = {
+				HUN_national_work_party_authority_var = 25
+				tooltip = HUN_modify_national_work_party_tt
+			}
+			513 = {
+				add_extra_state_shared_building_slots = 1
+				add_dynamic_modifier = {
+					modifier = generic_local_investments
+				}
+			}
+		 }
+	 }
+	 #Establish a Public Service Office
+	 focus = {
+		id = HUN_public_service_office
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 5
+		relative_position_id = HUN_finish_police_reorg
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_country_flag = HUN_national_work_party_yes
+			has_war_with_major = yes
+		}
+		prerequisite = {
+			focus = HUN_finish_police_reorg
 		}
 		completion_reward = { 
 			add_days_mission_timeout = {
@@ -5670,6 +5733,68 @@ focus_tree = {
 			}
 			add_ideas = HUN_public_service_office_idea
 			custom_effect_tooltip = HUN_public_service_office_idea.tt
+		}
+	 }
+	 #Confirm our Committment to Germany
+	 focus = {
+		allow_branch = {
+			is_in_faction_with = GER
+		}
+		id = HUN_confirm_our_committment_to_germany
+		icon = GFX_focus_align_germany
+		cost = 3
+		relative_position_id = HUN_diosgyor_steel_works
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			is_in_faction_with = GER
+			AUS_HUN_exists = yes
+			has_war_with_major = yes
+			has_country_flag = HUN_national_work_party_yes
+		}
+		prerequisite = {
+			focus = HUN_finish_police_reorg
+		}
+		prerequisite = {
+			focus = HUN_diosgyor_steel_works
+		}
+		bypass_if_unavailable = yes
+		completion_reward = { }
+	 }
+	 #Perpetuating the Memory of Heroes
+	 focus = {
+		id = HUN_perpetuate_memory_of_heroes
+		icon = GFX_SOV_depoliticize_the_military_ccp_2d_sov_compatibility
+		cost = 3
+		relative_position_id = HUN_confirm_our_committment_to_germany
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		available = {
+			has_war_with_major = yes
+			has_country_flag = HUN_national_work_party_yes
+		}
+		prerequisite = {
+			focus = HUN_confirm_our_committment_to_germany
+		}
+		prerequisite = {
+			focus = HUN_public_service_office
+		}
+		completion_reward = { 
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = 100
+			}
+			add_war_support = 0.05
 		}
 	 }
 	 #Look for a way out
@@ -6292,6 +6417,12 @@ focus_tree = {
 			add_to_variable = {
 				HUN_eco_mil_speed = 0.03
 				tooltip = production_speed_arms_factory_factor_tt
+			}
+			hidden_effect = {
+				country_event = {
+					id = ww1_hungary.90
+					days = 30
+				}
 			}
 		}
 	 }
