@@ -1425,10 +1425,10 @@ focus_tree = {
 		y = 1
 		relative_position_id = TUR_harbiye_nezareti
 		available = {
-#			custom_trigger_tooltip = {
-#				tooltip = TUR_jihad_declared_tt
-#				has_country_flag = TUR_jihad_declared
-#			}
+			#custom_trigger_tooltip = {
+			#	tooltip = TUR_jihad_declared_tt
+			#	has_country_flag = TUR_jihad_declared
+			#}
 			has_decision = TUR_declare_jihad
 		}
 		completion_reward = {
@@ -8811,12 +8811,12 @@ focus_tree = {
 
 				subtract_from_temp_variable = { TUR_ittihat_i_anasir = TUR_ittihat_i_anasir_old }
 			}
-			add_to_variable = { TUR_sunni_population_factor_new = 0.1 }
-			add_to_variable = { TUR_shia_population_factor_new = 0.1 }
-			add_to_variable = { TUR_orthodox_population_factor_new = 0.1 }
-			add_to_variable = { TUR_apostolic_population_factor_new = 0.1 }
-			add_to_variable = { TUR_syriac_population_factor_new = 0.1 }
-			add_to_variable = { TUR_catholic_population_factor_new = 0.1 }
+			add_to_variable = { TUR_sunni_population_factor_new = 0.2 }
+			add_to_variable = { TUR_shia_population_factor_new = 0.2 }
+			add_to_variable = { TUR_orthodox_population_factor_new = -0.3 }
+			add_to_variable = { TUR_apostolic_population_factor_new = -0.3 }
+			add_to_variable = { TUR_syriac_population_factor_new = -0.3 }
+			add_to_variable = { TUR_catholic_population_factor_new = -0.3 }
 			custom_effect_tooltip = TUR_ittihat_i_anasir_tt
 			TUR_new_system_trial = yes
 			set_country_flag = TUR_turkish_minority
@@ -8867,6 +8867,8 @@ focus_tree = {
 		y = 1
 		relative_position_id = TUR_ittihat_i_anasir
 		completion_reward = {
+			set_temp_variable = { TUR_adem_i_merkeziyetcilik = TUR_sublime_realm_variable }
+			divide_temp_variable = { TUR_adem_i_merkeziyetcilik = -2 }
 			custom_effect_tooltip = TUR_adem_i_merkeziyetcilik_tt
 			set_variable = { global.TUR_kostantiniyye_max_centralization = 100 }
 			set_variable = { global.TUR_catalca_max_centralization = 100 }
@@ -9470,6 +9472,64 @@ focus_tree = {
 		y = 1
 		relative_position_id = TUR_pursue_muslim_unity
 		completion_reward = {
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_orthodox_value = yes
+				set_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_orthodox = old_orthodox_value }
+				divide_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_orthodox = TUR_orthodox_population_factor_new }
+				set_temp_variable = { TUR_orthodox_population_factor_focus = TUR_orthodox_population_factor_new }
+				add_to_temp_variable = { TUR_orthodox_population_factor_focus = -1 }
+				multiply_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_orthodox = TUR_orthodox_population_factor_focus }
+
+				TUR_set_old_catholic_value = yes
+				set_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_catholic = old_catholic_value }
+				divide_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_catholic = TUR_catholic_population_factor_new }
+				set_temp_variable = { TUR_catholic_population_factor_focus = TUR_catholic_population_factor_new }
+				add_to_temp_variable = { TUR_catholic_population_factor_focus = -1 }
+				multiply_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_catholic = TUR_catholic_population_factor_focus }
+
+				TUR_set_old_jewish_value = yes
+				set_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_jewish = old_jewish_value }
+				divide_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_jewish = TUR_apostolic_population_factor_new }
+				set_temp_variable = { TUR_jewish_population_factor_focus = TUR_apostolic_population_factor_new }
+				add_to_temp_variable = { TUR_jewish_population_factor_focus = -1 }
+				multiply_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_jewish = TUR_jewish_population_factor_focus }
+
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_armenian = old_armenian_value }
+				divide_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_armenian = TUR_apostolic_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_apostolic_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = -1 }
+				multiply_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_armenian = TUR_armenian_population_factor_focus }
+
+				TUR_set_old_assyrian_value = yes
+				set_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_assyrian = old_assyrian_value }
+				divide_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_assyrian = TUR_syriac_population_factor_new }
+				set_temp_variable = { TUR_assyrian_population_factor_focus = TUR_syriac_population_factor_new }
+				add_to_temp_variable = { TUR_assyrian_population_factor_focus = -1 }
+				multiply_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_assyrian = TUR_assyrian_population_factor_focus }
+
+				set_temp_variable = { TUR_autonomy_in_non_muslim_vilayets = TUR_autonomy_in_non_muslim_vilayets_catholic }
+				add_to_temp_variable = { TUR_autonomy_in_non_muslim_vilayets = TUR_autonomy_in_non_muslim_vilayets_orthodox }
+				add_to_temp_variable = { TUR_autonomy_in_non_muslim_vilayets = TUR_autonomy_in_non_muslim_vilayets_jewish }
+				add_to_temp_variable = { TUR_autonomy_in_non_muslim_vilayets = TUR_autonomy_in_non_muslim_vilayets_armenian }
+				add_to_temp_variable = { TUR_autonomy_in_non_muslim_vilayets = TUR_autonomy_in_non_muslim_vilayets_assyrian }
+
+				set_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_old = old_catholic_value }
+				add_to_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_old = old_orthodox_value }
+				add_to_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_old = old_jewish_value }
+				add_to_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_old = old_armenian_value }
+				add_to_temp_variable = { TUR_autonomy_in_non_muslim_vilayets_old = old_assyrian_value }
+
+				subtract_from_temp_variable = { TUR_autonomy_in_non_muslim_vilayets = TUR_autonomy_in_non_muslim_vilayets_old }
+			}
+			add_to_variable = { TUR_sunni_population_factor_new = 0.2 }
+			add_to_variable = { TUR_shia_population_factor_new = 0.2 }
+			add_to_variable = { TUR_orthodox_population_factor_new = -0.3 }
+			add_to_variable = { TUR_apostolic_population_factor_new = -0.3 }
+			add_to_variable = { TUR_syriac_population_factor_new = -0.3 }
+			add_to_variable = { TUR_catholic_population_factor_new = -0.3 }
+			
 			custom_effect_tooltip = TUR_autonomy_in_non_muslim_vilayets_tt
 			TUR_autonomy_in_non_muslim_vilayets_effect = yes
 			ottoman_centralization_variable_check = yes
@@ -9489,26 +9549,655 @@ focus_tree = {
 		relative_position_id = TUR_maintain_muslim_hegemony
 		completion_reward = {
 			every_state = {
-				limit = {
-					check_variable = { TUR_kurdish_state_level > 0 }
-					check_variable = { TUR_kurdish_sunni_state_level > 0 }
+				limit = { check_variable = { TUR_kurdish_sunni_state_variable < -0.02 } }
+				custom_effect_tooltip = TUR_modify_kurdish_minority
+				custom_effect_tooltip = TUR_minority_mobilization_speed_kurdish_down
+				add_to_variable = { TUR_ottoman_mobilization_speed_kurdish = 0.1 }
+				clamp_variable = {
+					var = TUR_ottoman_mobilization_speed_kurdish
+					max = 0
 				}
-				TUR_reduce_kurdish_muslim_level = yes
+				custom_effect_tooltip = TUR_minority_resistance_target_down
+				add_to_variable = { TUR_ottoman_resistance_target_kurdish = 0.05 }
+				custom_effect_tooltip = TUR_minority_resistance_decay_kurdish_down
+				add_to_variable = { TUR_ottoman_resistance_decay_kurdish = 0.05 }
+				clamp_variable = {
+					var = TUR_ottoman_resistance_decay_kurdish
+					max = 0
+				}
+				custom_effect_tooltip = empty_space
+				add_to_variable = { TUR_kurdish_sunni_state_variable = 0.03 }
 			}
 			every_state = {
 				limit = {
-					check_variable = { TUR_georgian_state_level > 0 }
-					check_variable = { TUR_georgian_sunni_state_level > 0 }
+					check_variable = { TUR_kurdish_sunni_state_variable > -0.03 }
+					check_variable = { TUR_kurdish_sunni_state_variable < 0 }
 				}
-				TUR_reduce_georgian_muslim_level = yes
+				remove_dynamic_modifier = { modifier = TUR_kurdish_minority }
+				clear_variable = TUR_kurdish_sunni_state_variable
+			}
+			every_state = {
+				limit = { check_variable = { TUR_georgian_sunni_state_variable < -0.02 } }
+				custom_effect_tooltip = TUR_modify_georgian_minority
+				if = {
+					limit = {
+						has_variable = TUR_georgian_sunni_state_level
+						NOT = { check_variable = { TUR_georgian_sunni_state_level = 0 } }
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target_down
+					add_to_variable = { TUR_ottoman_resistance_target_georgian = 0.05 }
+				}
+				custom_effect_tooltip = TUR_minority_army_speed_factor_for_controller_down
+				add_to_variable = { TUR_ottoman_army_speed_factor_for_controller_georgian = 0.03 }
+				clamp_variable = {
+					var = TUR_ottoman_army_speed_factor_for_controller_georgian
+					max = 0
+				}
+				custom_effect_tooltip = TUR_minority_enemy_local_supplies_down2
+				add_to_variable = { TUR_ottoman_enemy_local_supplies_georgian = 0.05 }
+				clamp_variable = {
+					var = TUR_ottoman_enemy_local_supplies_georgian
+					max = 0
+				}
+				custom_effect_tooltip = TUR_minority_recruitable_population_georgian_down
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_georgian = 0.05 }
+				clamp_variable = {
+					var = TUR_ottoman_recruitable_population_factor_georgian
+					max = 0
+				}
+				custom_effect_tooltip = empty_space
+				add_to_variable = { TUR_georgian_sunni_state_variable = 0.03 }
 			}
 			every_state = {
 				limit = {
-					check_variable = { TUR_greek_state_level > 0 }
-					check_variable = { TUR_greek_sunni_state_level > 0 }
+					check_variable = { TUR_georgian_sunni_state_variable > -0.03 }
+					check_variable = { TUR_georgian_sunni_state_variable < 0 }
 				}
-				TUR_reduce_greek_muslim_level = yes
+				remove_dynamic_modifier = { modifier = TUR_georgian_minority }
+				clear_variable = TUR_georgian_sunni_state_variable
 			}
+			hidden_effect = {
+				set_temp_variable = { TUR_unify_around_the_caliph_kurdish = 0 }
+				if = {
+					limit = {
+						350 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_350 = 350.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_350 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_350
+						max = 0
+					}
+					if = {
+						limit = {
+							350 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_350 = 0 }
+					}
+					if = {
+						limit = { 350 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_350 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_350 }
+				}
+				if = {
+					limit = {
+						352 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_352 = 352.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_352 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_352
+						max = 0
+					}
+					if = {
+						limit = {
+							352 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_352 = 0 }
+					}
+					if = {
+						limit = { 352 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_352 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_352 }
+				}
+				if = {
+					limit = {
+						353 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_353 = 353.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_353 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_353
+						max = 0
+					}
+					if = {
+						limit = {
+							353 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_353 = 0 }
+					}
+					if = {
+						limit = { 353 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_353 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_353 }
+				}
+				if = {
+					limit = {
+						676 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_676 = 676.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_676 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_676
+						max = 0
+					}
+					if = {
+						limit = {
+							676 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_676 = 0 }
+					}
+					if = {
+						limit = { 676 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_676 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_676 }
+				}
+				if = {
+					limit = {
+						680 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_680 = 680.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_680 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_680
+						max = 0
+					}
+					if = {
+						limit = {
+							680 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_680 = 0 }
+					}
+					if = {
+						limit = { 680 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_680 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_680 }
+				}
+				if = {
+					limit = {
+						806 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_806 = 806.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_806 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_806
+						max = 0
+					}
+					if = {
+						limit = {
+							806 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_806 = 0 }
+					}
+					if = {
+						limit = { 806 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_806 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_806 }
+				}
+				if = {
+					limit = {
+						828 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_828 = 828.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_828 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_828
+						max = 0
+					}
+					if = {
+						limit = {
+							828 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_828 = 0 }
+					}
+					if = {
+						limit = { 828 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_828 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_828 }
+				}
+				if = {
+					limit = {
+						829 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_829 = 829.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_829 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_829
+						max = 0
+					}
+					if = {
+						limit = {
+							829 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_829 = 0 }
+					}
+					if = {
+						limit = { 829 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_829 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_829 }
+				}
+				if = {
+					limit = {
+						879 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_879 = 879.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_879 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_879
+						max = 0
+					}
+					if = {
+						limit = {
+							879 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_879 = 0 }
+					}
+					if = {
+						limit = { 879 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_879 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_879 }
+				}
+				if = {
+					limit = {
+						881 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_881 = 881.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_881 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_881
+						max = 0
+					}
+					if = {
+						limit = {
+							881 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_881 = 0 }
+					}
+					if = {
+						limit = { 881 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_881 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_881 }
+				}
+				if = {
+					limit = {
+						883 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_883 = 883.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_883 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_883
+						max = 0
+					}
+					if = {
+						limit = {
+							883 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_883 = 0 }
+					}
+					if = {
+						limit = { 883 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_883 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_883 }
+				}
+				if = {
+					limit = {
+						884 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_884 = 884.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_884 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_884
+						max = 0
+					}
+					if = {
+						limit = {
+							884 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_884 = 0 }
+					}
+					if = {
+						limit = { 884 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_884 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_884 }
+				}
+				if = {
+					limit = {
+						1022 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_1022 = 1022.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_1022 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_1022
+						max = 0
+					}
+					if = {
+						limit = {
+							1022 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_1022 = 0 }
+					}
+					if = {
+						limit = { 1022 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_1022 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_1022 }
+				}
+				if = {
+					limit = {
+						1025 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_1025 = 1025.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_1025 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_1025
+						max = 0
+					}
+					if = {
+						limit = {
+							1025 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_1025 = 0 }
+					}
+					if = {
+						limit = { 1025 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_1025 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_1025 }
+				}
+				if = {
+					limit = {
+						1027 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_1027 = 1027.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_1027 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_1027
+						max = 0
+					}
+					if = {
+						limit = {
+							1027 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_1027 = 0 }
+					}
+					if = {
+						limit = { 1027 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_1027 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_1027 }
+				}
+				if = {
+					limit = {
+						1028 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_1028 = 1028.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_1028 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_1028
+						max = 0
+					}
+					if = {
+						limit = {
+							1028 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_1028 = 0 }
+					}
+					if = {
+						limit = { 1028 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_1028 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_1028 }
+				}
+				if = {
+					limit = {
+						1029 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_1029 = 1029.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_1029 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_1029
+						max = 0
+					}
+					if = {
+						limit = {
+							1029 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_1029 = 0 }
+					}
+					if = {
+						limit = { 1029 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_1029 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_1029 }
+				}
+				if = {
+					limit = {
+						1033 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_unify_around_the_caliph_kurdish_1033 = 1033.TUR_kurdish_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish_1033 = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_kurdish_1033
+						max = 0
+					}
+					if = {
+						limit = {
+							1033 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish_1033 = 0 }
+					}
+					if = {
+						limit = { 1033 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_kurdish_1033 = 2 }
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_unify_around_the_caliph_kurdish_1033 }
+				}
+				multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_kurdish_population_factor_new }
+				multiply_temp_variable = { TUR_unify_around_the_caliph_kurdish = TUR_sunni_population_factor_new }
+				divide_temp_variable = { TUR_unify_around_the_caliph_kurdish = -100 }
+				set_temp_variable = { TUR_unify_around_the_caliph_georgian = 0 }
+				if = {
+					limit = {
+						1034 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_georgian_sunni_state_variable < 0 }
+						}
+					}
+					add_to_temp_variable = { TUR_unify_around_the_caliph_georgian = 1034.TUR_georgian_sunni_state_variable }
+					add_to_temp_variable = { TUR_unify_around_the_caliph_georgian = 0.03 }
+					clamp_temp_variable = {
+						var = TUR_unify_around_the_caliph_georgian
+						max = 0
+					}
+					if = {
+						limit = {
+							1034 = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_unify_around_the_caliph_georgian = 0 }
+					}
+					if = {
+						limit = { 1034 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_unify_around_the_caliph_georgian = 2 }
+					}
+					multiply_temp_variable = { TUR_unify_around_the_caliph_georgian = TUR_georgian_population_factor_new }
+					multiply_temp_variable = { TUR_unify_around_the_caliph_georgian = TUR_sunni_population_factor_new }
+					divide_temp_variable = { TUR_unify_around_the_caliph_georgian = -100 }
+				}
+				set_temp_variable = { TUR_unify_around_the_caliph = TUR_unify_around_the_caliph_kurdish }
+				add_to_temp_variable = { TUR_unify_around_the_caliph = TUR_unify_around_the_caliph_georgian }
+			}
+			custom_effect_tooltip = TUR_unify_around_the_caliph_tt
 			TUR_new_system_trial = yes
 		}
 		ai_will_do = { base = 30 }
@@ -9696,26 +10385,26 @@ focus_tree = {
 				}
 				custom_effect_tooltip = empty_space
 				add_dynamic_modifier = { modifier = ALB_sublime_realm }
-				set_variable = { TUR_armenian_population_factor = -0.007 }
-				set_variable = { TUR_greek_population_factor = -0.007 }
-				set_variable = { TUR_jewish_population_factor = -0.007 }
-				set_variable = { TUR_arab_population_factor = -0.007 }
-				set_variable = { TUR_bulgarian_population_factor = -0.007 }
-				set_variable = { TUR_albanian_population_factor = 0 }
-				set_variable = { TUR_serbian_population_factor = -0.007 }
-				set_variable = { TUR_kurdish_population_factor = -0.007 }
-				set_variable = { TUR_assyrian_population_factor = -0.007 }
-				set_variable = { TUR_georgian_population_factor = -0.007 }
-				set_variable = { TUR_turkish_population_factor = -0.007 }
-
-				set_variable = { TUR_sunni_population_factor = 0.002 }
-				set_variable = { TUR_orthodox_population_factor = -0.003 }
-				set_variable = { TUR_apostolic_population_factor = -0.003 }
-				set_variable = { TUR_judaic_population_factor = -0.003 }
-				set_variable = { TUR_syriac_population_factor = -0.003 }
-				set_variable = { TUR_shia_population_factor = 0 }
-				set_variable = { TUR_catholic_population_factor = -0.003 }
 				hidden_effect = {
+					set_variable = { TUR_armenian_population_factor_new = 1 }
+					set_variable = { TUR_greek_population_factor_new = 1 }
+					set_variable = { TUR_jewish_population_factor_new = 0.9 }
+					set_variable = { TUR_arab_population_factor_new = 0.9 }
+					set_variable = { TUR_bulgarian_population_factor_new = 1 }
+					set_variable = { TUR_albanian_population_factor_new = 0 }
+					set_variable = { TUR_serbian_population_factor_new = 1 }
+					set_variable = { TUR_kurdish_population_factor_new = 0.8 }
+					set_variable = { TUR_assyrian_population_factor_new = 1 }
+					set_variable = { TUR_georgian_population_factor_new = 1 }
+					set_variable = { TUR_turkish_population_factor_new = 0.7 }
+
+					set_variable = { TUR_sunni_population_factor_new = 0.9 }
+					set_variable = { TUR_orthodox_population_factor_new = 1.5 }
+					set_variable = { TUR_apostolic_population_factor_new = 1.5 }
+					set_variable = { TUR_judaic_population_factor_new = 1.5 }
+					set_variable = { TUR_syriac_population_factor_new = 1.5 }
+					set_variable = { TUR_shia_population_factor_new = 1.1 }
+					set_variable = { TUR_catholic_population_factor_new = 1.5 }
 					if = {
 						limit = { ROOT = { has_country_flag = TUR_millet_system_population_selected } }
 						set_country_flag = TUR_millet_system_population_selected
