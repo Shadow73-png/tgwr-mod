@@ -43,11 +43,12 @@ equipments = {
 
 		module_slots = {
 			fixed_main_weapon_slot = {
-				required = no
+				required = yes
 				allowed_module_categories = {
 					fighter_weapon
 					nav_bomber_weapon
 					cas_weapon
+					hand_grenade_module
 					recon_camera
 				}
 			}
@@ -74,10 +75,32 @@ equipments = {
 			}
 		}
 
+		module_count_limit = {
+			module = flying_boat_medium
+			count < 2
+		}
+
+		module_count_limit = {
+			module = recon_camera
+			count < 2
+		}
+
+		module_count_limit = {
+			category = nav_bomber_weapon
+			count < 2
+		}
+
+		module_count_limit = {
+			category = plane_special_module_radio_navigation
+			count < 2
+		}
+
+		module_count_limit = {
+			category = plane_special_module_defense_turret
+			count < 2
+		}
+
 		default_modules = {
-			fixed_main_weapon_slot = empty
-			engine_type_slot = empty
-			plane_material_slot = empty
 			wing_configuration_slot = monoplane
 		}
 	}
@@ -97,6 +120,8 @@ equipments = {
 		weight = 2
 		naval_strike_attack = 1
 		naval_strike_targetting = 1
+
+		module_slots = inherit
 	}	
 
 	small_plane_airframe_1 = { #Prewar
@@ -119,11 +144,12 @@ equipments = {
 
 		module_slots = {
 			fixed_main_weapon_slot = {
-				required = no
+				required = yes
 				allowed_module_categories = {
 					fighter_weapon
 					nav_bomber_weapon
 					cas_weapon
+					hand_grenade_module
 					recon_camera
 				}
 			}
@@ -133,6 +159,7 @@ equipments = {
 				allowed_module_categories = {
 					recon_camera
 					cas_weapon
+					hand_grenade_module
 				}
 			}
 	
@@ -186,6 +213,7 @@ equipments = {
 				allowed_module_categories = {
 					fighter_weapon
 					cas_weapon
+					hand_grenade_module
 					nav_bomber_weapon
 					recon_camera
 				}
@@ -197,6 +225,7 @@ equipments = {
 					recon_camera
 					fighter_weapon
 					cas_weapon
+					hand_grenade_module
 					nav_bomber_weapon
 				}
 			}
@@ -261,6 +290,7 @@ equipments = {
 				allowed_module_categories = {
 					fighter_weapon
 					cas_weapon
+					hand_grenade_module
 					nav_bomber_weapon
 					recon_camera
 				}
@@ -272,6 +302,7 @@ equipments = {
 					recon_camera
 					fighter_weapon
 					cas_weapon
+					hand_grenade_module
 					nav_bomber_weapon
 				}
 			}
@@ -325,7 +356,7 @@ equipments = {
 		year = 1942
 
 		archetype = small_plane_airframe
-		parent = small_plane_airframe_2
+		parent = small_plane_airframe_4
 		priority = 5
 
 		air_range = 750
@@ -346,6 +377,7 @@ equipments = {
 				allowed_module_categories = {
 					fighter_weapon
 					cas_weapon
+					hand_grenade_module
 					nav_bomber_weapon
 					recon_camera
 				}
@@ -357,6 +389,7 @@ equipments = {
 					recon_camera
 					fighter_weapon
 					cas_weapon
+					hand_grenade_module
 					nav_bomber_weapon
 				}
 			}
@@ -462,23 +495,13 @@ equipments = {
 
 		module_slots = {
 			fixed_main_weapon_slot = {
-				required = yes
-				allowed_module_categories = {
-					fighter_weapon
-					cas_weapon
-					nav_bomber_weapon
-					
-				}
-			}
-
-			fixed_auxiliary_weapon_slot_1 = { 
 				required = no
 				allowed_module_categories = {
-					recon_camera
 					fighter_weapon
-					cas_weapon
 					nav_bomber_weapon
-					
+					cas_weapon
+					hand_grenade_module
+					recon_camera
 				}
 			}
 
@@ -486,7 +509,6 @@ equipments = {
 				required = yes
 				allowed_module_categories = {
 					plane_engine_type
-					twin_plane_engine_type
 				}
 			}
 
@@ -503,85 +525,11 @@ equipments = {
 					wing_configuration
 				}
 			}
-
-			special_type_slot_1 = {
-				required = no
-				allowed_module_categories = {
-					plane_special_module_small
-					
-					plane_special_module_radio_navigation
-					
-					
-					plane_special_module_defense_turret
-				}
-			}
-
-			special_type_slot_2 = {
-				required = no
-				allowed_module_categories = {
-					plane_special_module_small
-					plane_special_module_defense_turret
-					
-					plane_special_module_radio_navigation
-					
-					
-				}
-			}
 		}
 
 		module_count_limit = {
-			module = guided_anti_ship_missile
+			module = flying_boat_medium
 			count < 2
-		}
-
-		module_count_limit = {
-			module = fixed_explosive_charge
-			count < 2
-		}
-
-		module_count_limit = {
-			module = self_sealing_fuel_tanks_small
-			count < 2
-		}
-
-		module_count_limit = {
-			module = non_strategic_materials_small
-			count < 2
-		}
-
-		module_count_limit = {
-			module = drop_tanks
-			count < 2
-		}
-
-		module_count_limit = {
-			module = dive_brakes_small
-			count < 2
-		}
-
-		module_count_limit = {
-			module = torpedo_mounting
-			count < 2
-		}
-
-		module_count_limit = {
-			module = tank_buster_1
-			count < 3
-		}
-
-		module_count_limit = {
-			module = tank_buster_2
-			count < 2
-		}
-
-		module_count_limit = {
-			module = small_bomb_bay
-			count < 3
-		}
-
-		module_count_limit = {
-			module = floats #can't put floats on carrier planes, that would be silly
-			count < 1
 		}
 
 		module_count_limit = {
@@ -606,12 +554,9 @@ equipments = {
 
 		default_modules = {
 			fixed_main_weapon_slot = empty
-			fixed_auxiliary_weapon_slot_1 = empty
-			engine_type_slot = engine_1_1x
-			plane_material_slot = fabric_covering
+			engine_type_slot = empty
+			plane_material_slot = empty
 			wing_configuration_slot = monoplane
-			special_type_slot_1 = empty
-			special_type_slot_2 = empty
 		}
 	}
 
@@ -658,69 +603,43 @@ equipments = {
 		}
 		module_slots = {
 			fixed_main_weapon_slot = {
-				required = yes
+				required = no
 				allowed_module_categories = {
 					fighter_weapon
-					cas_weapon
 					nav_bomber_weapon
-					
+					cas_weapon
+					hand_grenade_module
+					recon_camera
 				}
 			}
-
+	
 			fixed_auxiliary_weapon_slot_1 = { 
 				required = no
 				allowed_module_categories = {
 					recon_camera
-					fighter_weapon
 					cas_weapon
-					nav_bomber_weapon
-					
+					hand_grenade_module
 				}
 			}
-
+	
 			engine_type_slot = {
 				required = yes
 				allowed_module_categories = {
 					plane_engine_type
-					twin_plane_engine_type
 				}
 			}
-
+	
 			plane_material_slot = {
 				required = yes
 				allowed_module_categories = {
 					plane_material
 				}
 			}
-
+	
 			wing_configuration_slot = {
 				required = yes
 				allowed_module_categories = {
 					wing_configuration
-				}
-			}
-
-			special_type_slot_1 = {
-				required = no
-				allowed_module_categories = {
-					plane_special_module_small
-					plane_special_module_defense_turret
-					
-					plane_special_module_radio_navigation
-					
-					
-				}
-			}
-
-			special_type_slot_2 = {
-				required = no
-				allowed_module_categories = {
-					plane_special_module_small
-					plane_special_module_defense_turret
-					
-					plane_special_module_radio_navigation
-					
-					
 				}
 			}
 		}
@@ -753,8 +672,9 @@ equipments = {
 				allowed_module_categories = {
 					fighter_weapon
 					cas_weapon
+					hand_grenade_module
 					nav_bomber_weapon
-					
+					recon_camera
 				}
 			}
 
@@ -764,20 +684,8 @@ equipments = {
 					recon_camera
 					fighter_weapon
 					cas_weapon
+					hand_grenade_module
 					nav_bomber_weapon
-					
-					
-				}
-			}
-			fixed_auxiliary_weapon_slot_2 = { 
-				required = no
-				allowed_module_categories = {
-					recon_camera
-					fighter_weapon
-					cas_weapon
-					nav_bomber_weapon
-					
-					
 				}
 			}
 
@@ -785,9 +693,6 @@ equipments = {
 				required = yes
 				allowed_module_categories = {
 					plane_engine_type
-					twin_plane_engine_type
-					
-					
 				}
 			}
 			
@@ -797,7 +702,7 @@ equipments = {
 					plane_material
 				}
 			}
-
+	
 			wing_configuration_slot = {
 				required = yes
 				allowed_module_categories = {
@@ -808,36 +713,10 @@ equipments = {
 			special_type_slot_1 = {
 				required = no
 				allowed_module_categories = {
-					plane_special_module_small
-					plane_special_module_defense_turret
-					
+					seaplane_module
 					plane_special_module_radio_navigation
-					
-					
-				}
-			}
-
-			special_type_slot_2 = {
-				required = no
-				allowed_module_categories = {
-					plane_special_module_small
 					plane_special_module_defense_turret
-					
-					plane_special_module_radio_navigation
-					
-					
-				}
-			}
-
-			special_type_slot_3 = {
-				required = no
-				allowed_module_categories = {
-					plane_special_module_small
-					plane_special_module_defense_turret
-					
-					plane_special_module_radio_navigation
-					
-					
+					handgun_special_module
 				}
 			}
 		}
@@ -870,8 +749,9 @@ equipments = {
 				allowed_module_categories = {
 					fighter_weapon
 					cas_weapon
+					hand_grenade_module
 					nav_bomber_weapon
-					
+					recon_camera
 				}
 			}
 
@@ -881,28 +761,8 @@ equipments = {
 					recon_camera
 					fighter_weapon
 					cas_weapon
+					hand_grenade_module
 					nav_bomber_weapon
-					
-					
-				}
-			}
-			fixed_auxiliary_weapon_slot_2 = { 
-				required = no
-				allowed_module_categories = {
-					recon_camera
-					fighter_weapon
-					cas_weapon
-					nav_bomber_weapon
-					
-					
-				}
-			}
-
-			fixed_auxiliary_weapon_slot_3 = { 
-				required = no
-				allowed_module_categories = {
-					recon_camera
-					cas_weapon
 				}
 			}
 
@@ -910,9 +770,6 @@ equipments = {
 				required = yes
 				allowed_module_categories = {
 					plane_engine_type
-					twin_plane_engine_type
-					
-					
 				}
 			}
 			
@@ -922,7 +779,7 @@ equipments = {
 					plane_material
 				}
 			}
-
+	
 			wing_configuration_slot = {
 				required = yes
 				allowed_module_categories = {
@@ -933,35 +790,116 @@ equipments = {
 			special_type_slot_1 = {
 				required = no
 				allowed_module_categories = {
-					plane_special_module_small
-					plane_special_module_defense_turret
-					
+					seaplane_module
 					plane_special_module_radio_navigation
-					
-					
+					plane_special_module_defense_turret
+					handgun_special_module
 				}
 			}
 
 			special_type_slot_2 = {
 				required = no
 				allowed_module_categories = {
-					plane_special_module_small
-					plane_special_module_defense_turret
-					
+					seaplane_module
 					plane_special_module_radio_navigation
-					
-					
+					plane_special_module_defense_turret
+					handgun_special_module
 				}
 			}
+		}
+	}
+
+	cv_small_plane_airframe_4 = { #modern
+		abbreviation = "afc4"
+		year = 1945
+
+		archetype = cv_small_plane_airframe
+		parent = cv_small_plane_airframe_3
+		priority = 5
+
+		air_range = 900
+		maximum_speed = 500
+		air_agility = 50
+		air_defence = 18
+		weight = 6
+		naval_strike_attack = 1
+		naval_strike_targetting = 1
+		build_cost_ic = 14.5
+		resources = {
+			aluminium = 4
+			rubber = 1
+		}
+		module_slots = {
+			fixed_main_weapon_slot = {
+				required = yes
+				allowed_module_categories = {
+					fighter_weapon
+					cas_weapon
+					hand_grenade_module
+					nav_bomber_weapon
+					recon_camera
+				}
+			}
+
+			fixed_auxiliary_weapon_slot_1 = { 
+				required = no
+				allowed_module_categories = {
+					recon_camera
+					fighter_weapon
+					cas_weapon
+					hand_grenade_module
+					nav_bomber_weapon
+				}
+			}
+
+			engine_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					plane_engine_type
+				}
+			}
+			
+			plane_material_slot = {
+				required = yes
+				allowed_module_categories = {
+					plane_material
+				}
+			}
+	
+			wing_configuration_slot = {
+				required = yes
+				allowed_module_categories = {
+					wing_configuration
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					seaplane_module
+					plane_special_module_radio_navigation
+					plane_special_module_defense_turret
+					handgun_special_module
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					seaplane_module
+					plane_special_module_radio_navigation
+					plane_special_module_defense_turret
+					handgun_special_module
+				}
+			}
+
 			special_type_slot_3 = {
 				required = no
 				allowed_module_categories = {
-					plane_special_module_small
-					plane_special_module_defense_turret
-					
+					seaplane_module
 					plane_special_module_radio_navigation
-					
-					
+					plane_special_module_defense_turret
+					handgun_special_module
 				}
 			}
 		}
@@ -1013,8 +951,9 @@ equipments = {
 				required = yes
 				allowed_module_categories = {
 					tac_weapon
-					fighter_weapon
 					recon_camera
+					hand_grenade_module
+					nav_bomber_weapon
 				}
 			}
 
@@ -1024,8 +963,6 @@ equipments = {
 					
 					recon_camera
 					tac_weapon
-					fighter_weapon
-					cas_weapon
 					nav_bomber_weapon
 				}
 			}
@@ -1055,9 +992,8 @@ equipments = {
 			engine_type_slot = {
 				required = yes
 				allowed_module_categories = {
+					plane_engine_type
 					twin_plane_engine_type
-					medium_plane_engine_type
-					quad_large_plane_engine_type
 				}
 			}
 			
@@ -1078,56 +1014,44 @@ equipments = {
 			special_type_slot_1 = {
 				required = no
 				allowed_module_categories = {
-					
-					
+					seaplane_module
 					plane_special_module_radio_navigation
-					
-					
-					plane_special_module_medium
 					plane_special_module_defense_turret
 					plane_special_module_defense_turret_x2
+					handgun_special_module
 				}
 			}
 
 			special_type_slot_2 = {
 				required = no
 				allowed_module_categories = {
-					
+					seaplane_module
+					plane_special_module_radio_navigation
 					plane_special_module_defense_turret
 					plane_special_module_defense_turret_x2
-					
-					plane_special_module_radio_navigation
-					
-					
-					plane_special_module_medium
+					handgun_special_module
 				}
 			}
 
 			special_type_slot_3 = {
 				required = no
 				allowed_module_categories = {
-					
+					seaplane_module
+					plane_special_module_radio_navigation
 					plane_special_module_defense_turret
 					plane_special_module_defense_turret_x2
-					
-					plane_special_module_radio_navigation
-					
-					
-					plane_special_module_medium
+					handgun_special_module
 				}
 			}
 
 			special_type_slot_4 = {
 				required = no
 				allowed_module_categories = {
-					
+					seaplane_module
+					plane_special_module_radio_navigation
 					plane_special_module_defense_turret
 					plane_special_module_defense_turret_x2
-					
-					plane_special_module_radio_navigation
-					
-					
-					plane_special_module_medium
+					handgun_special_module
 				}
 			}
 		}
@@ -1143,11 +1067,6 @@ equipments = {
 		}
 
 		module_count_limit = {
-			module = torpedo_mounting
-			count < 3
-		}
-
-		module_count_limit = {
 			category = nav_bomber_weapon
 			count < 3
 		}
@@ -1159,17 +1078,15 @@ equipments = {
 
 		module_count_limit = {
 			category = plane_special_module_defense_turret
-			count < 3
+			count < 2
+		}
+		module_count_limit = {
+			category = plane_special_module_defense_turret_x2
+			count < 2
 		}
 
 		default_modules = {
-			fixed_main_weapon_slot = empty
-			fixed_auxiliary_weapon_slot_1 = empty
-			engine_type_slot = engine_1_2x
-			plane_material_slot = fabric_covering
 			wing_configuration_slot = monoplane
-			special_type_slot_1 = empty
-			special_type_slot_2 = empty
 		}
 	}
 
