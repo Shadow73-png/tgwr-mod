@@ -369,14 +369,17 @@ HUN_corpus_separatum_fiume = {
 ##########
 #BOSNIA
 BOS_agrarian_colonists_dm = {
-	#remove_trigger = {
-	#	NOT = {
-	#		OR = {
-	#			is_subject_of = AUS
-	#			is_subject_of = HUN
-	#		}
-	#	}
-	#}
+	remove_trigger = {
+		OR = {
+			NOT = {
+				OR = {
+					is_subject_of = AUS
+					is_subject_of = HUN
+				}
+			}
+			has_war = yes
+		}
+	}
 	icon = GFX_idea_generic_agrarian_society
 	production_speed_buildings_factor = BOS_agr_conspeed
 	monthly_population = BOS_monthly_pop
