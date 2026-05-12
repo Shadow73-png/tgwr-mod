@@ -29,10 +29,20 @@ TGWR_great_power_politics = {
 			tag = FRA
 		}
 		activation = {
-			always = no
+			NOT = {
+				controls_state = 16
+			}
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = surrendered_alone
+			}
 		}
 		is_good = no
 		days_mission_timeout = 30
+		timeout_effect = {
+			FRA_armistice_effects = yes
+		}
 	}
 }
 #Russia

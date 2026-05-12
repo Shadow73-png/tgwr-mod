@@ -1,112 +1,114 @@
  on_actions = {
+	#ROOT is the winner, FROM is the loser.
+	#Is also triggered by the white_peace effect is used or when a conditional surrender is accepted.
 	on_peaceconference_ended = {
 		effect = {
-			if = {
-				limit = {
-					tag = FRA
-					FROM = {
-						tag = GER
-					}					#loser
-					is_great_war_ongoing = yes
-					NOT = {
-						has_global_flag = FRA_surrender_alone
-						has_country_flag = jaures_neutrality
-						has_country_leader = {
-							character = FRA_jean_jaures
-						}
-					}
-				}
-				set_global_flag = great_war_ends
-				set_global_flag = versailles_treaty
-				set_global_flag = GER_capitulation
-				FROM = {
-					GER_change_wilhelm_ii_portrait = yes
-				}
-				every_country = {
-					limit = {
-						OR = {
-							tag = FROM
-							is_subject_of = FROM
-							AND = {
-								is_in_faction_with = FROM
-								NOT = {
-									is_in_faction_with = ROOT
-								}
-							}
-						}
-						NOT = {
-							has_country_flag = great_war_winner
-						}
-					}
-					set_country_flag = great_war_loser
-					add_ideas = idea_armistice
-				}
-				every_country = {
-					limit = {
-						OR = {
-							tag = ROOT
-							is_ally_with = ROOT
-						}
-						NOT = {
-							has_country_flag = great_war_loser
-						}
-					}
-					set_country_flag = great_war_winner
-					add_ideas = idea_armistice
-				}
-			}
-			if = {
-				limit = {
-					tag = GER					#winner
-					FROM = {
-						tag = FRA
-					}					#loser
-					is_great_war_ongoing = yes
-					NOT = {
-						has_global_flag = FRA_surrender_alone
-						has_country_flag = jaures_neutrality
-						has_country_leader = {
-							character = FRA_jean_jaures
-						}
-					}
-				}
-				set_global_flag = great_war_ends
-				set_global_flag = frankfurt_treaty
-				set_global_flag = ENT_capitulation
-				GER_change_wilhelm_ii_portrait = yes
-				every_country = {
-					limit = {
-						OR = {
-							tag = FROM
-							is_subject_of = FROM
-							AND = {
-								is_in_faction_with = FROM
-								NOT = {
-									is_in_faction_with = ROOT
-								}
-							}
-						}
-						NOT = {
-							has_country_flag = great_war_winner
-						}
-					}
-					set_country_flag = great_war_loser
-					add_ideas = idea_armistice
-				}
-				every_country = {
-					limit = {
-						OR = {
-							tag = ROOT
-							is_ally_with = ROOT
-						}
-						NOT = {
-							has_country_flag = great_war_loser
-						}
-					}
-					set_country_flag = great_war_winner
-					add_ideas = idea_armistice
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		tag = FRA
+			# 		FROM = {
+			# 			tag = GER
+			# 		}					#loser
+			# 		is_great_war_ongoing = yes
+			# 		NOT = {
+			# 			has_global_flag = FRA_surrender_alone
+			# 			has_country_flag = jaures_neutrality
+			# 			has_country_leader = {
+			# 				character = FRA_jean_jaures
+			# 			}
+			# 		}
+			# 	}
+			# 	set_global_flag = great_war_ends
+			# 	set_global_flag = versailles_treaty
+			# 	set_global_flag = GER_capitulation
+			# 	FROM = {
+			# 		GER_change_wilhelm_ii_portrait = yes
+			# 	}
+			# 	every_country = {
+			# 		limit = {
+			# 			OR = {
+			# 				tag = FROM
+			# 				is_subject_of = FROM
+			# 				AND = {
+			# 					is_in_faction_with = FROM
+			# 					NOT = {
+			# 						is_in_faction_with = ROOT
+			# 					}
+			# 				}
+			# 			}
+			# 			NOT = {
+			# 				has_country_flag = great_war_winner
+			# 			}
+			# 		}
+			# 		set_country_flag = great_war_loser
+			# 		add_ideas = idea_armistice
+			# 	}
+			# 	every_country = {
+			# 		limit = {
+			# 			OR = {
+			# 				tag = ROOT
+			# 				is_ally_with = ROOT
+			# 			}
+			# 			NOT = {
+			# 				has_country_flag = great_war_loser
+			# 			}
+			# 		}
+			# 		set_country_flag = great_war_winner
+			# 		add_ideas = idea_armistice
+			# 	}
+			# }
+			# if = {
+			# 	limit = {
+			# 		tag = GER					#winner
+			# 		FROM = {
+			# 			tag = FRA
+			# 		}					#loser
+			# 		is_great_war_ongoing = yes
+			# 		NOT = {
+			# 			has_global_flag = FRA_surrender_alone
+			# 			has_country_flag = jaures_neutrality
+			# 			has_country_leader = {
+			# 				character = FRA_jean_jaures
+			# 			}
+			# 		}
+			# 	}
+			# 	set_global_flag = great_war_ends
+			# 	set_global_flag = frankfurt_treaty
+			# 	set_global_flag = ENT_capitulation
+			# 	GER_change_wilhelm_ii_portrait = yes
+			# 	every_country = {
+			# 		limit = {
+			# 			OR = {
+			# 				tag = FROM
+			# 				is_subject_of = FROM
+			# 				AND = {
+			# 					is_in_faction_with = FROM
+			# 					NOT = {
+			# 						is_in_faction_with = ROOT
+			# 					}
+			# 				}
+			# 			}
+			# 			NOT = {
+			# 				has_country_flag = great_war_winner
+			# 			}
+			# 		}
+			# 		set_country_flag = great_war_loser
+			# 		add_ideas = idea_armistice
+			# 	}
+			# 	every_country = {
+			# 		limit = {
+			# 			OR = {
+			# 				tag = ROOT
+			# 				is_ally_with = ROOT
+			# 			}
+			# 			NOT = {
+			# 				has_country_flag = great_war_loser
+			# 			}
+			# 		}
+			# 		set_country_flag = great_war_winner
+			# 		add_ideas = idea_armistice
+			# 	}
+			# }
 			if = {
 				limit = {
 					original_tag = QIN					#winner
@@ -603,23 +605,6 @@
 					remove_ideas = standing_alone
 				}
 			}
-			# if = {
-			# 	limit = {
-			# 		original_tag = FRA
-			# 		has_country_flag = FRA_nationalist_france_flag
-			# 		FROM = {
-			# 			original_tag = FRA
-			# 			has_country_flag = FRA_socialist_france_flag
-			# 			OR = {
-			# 				is_subject = no
-			# 				is_subject_of = ROOT
-			# 			}		
-			# 		}
-			# 	}
-			# 	annex_country = {
-			# 		target = FRC
-			# 	}
-			# }
 			if = {
 				limit = {
 					tag = TUR					#winner
@@ -5514,6 +5499,8 @@
 			}
 		}
 	}
+	#ROOT is capitulated country, FROM is winner.
+	#Several processes such as the deletion of units and transfer of equipment have already been executed by this point.
 	on_capitulation = {
 		effect = {
 			if = {
@@ -12475,6 +12462,8 @@
 		}
 	}
 
+	#ROOT is the winner, FROM is the loser.
+	#Is also triggered by the white_peace effect is used or when a conditional surrender is accepted.
 	on_peaceconference_started = {
 		effect = {
 			if = {
