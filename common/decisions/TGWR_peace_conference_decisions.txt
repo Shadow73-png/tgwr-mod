@@ -26,7 +26,8 @@ TGWR_great_power_politics = {
 			}
 		}
 		allowed = {
-			tag = FRA		
+			# tag = FRA		
+			always = no
 		}
 		targets = {
 			GER
@@ -112,7 +113,8 @@ TGWR_great_power_politics = {
 		name = FRA_armistice
 		icon = GFX_decision_eng_trade_unions_support
 		allowed = {
-			tag = RUS
+			# tag = RUS
+			always = no
 		}
 		targets = {
 			GER
@@ -206,10 +208,11 @@ TGWR_great_power_politics = {
 		desc = FRA_armistice_desc
 		icon = GFX_decision_eng_trade_unions_support
 		allowed = {
-			NOT = {
-				tag = FRA
-				tag = RUS
-			}
+			# NOT = {
+			# 	tag = FRA
+			# 	tag = RUS
+			# }
+			always = no
 		}
 		available = {
 			has_global_flag = great_war
@@ -431,6 +434,9 @@ TGWR_great_power_politics = {
 	#ENTENTE - REFUSE TO SURRENDER
 	member_of_entente_armistice = {
 		icon = GFX_decision_generic_break_treaty
+		allowed = {
+			always = no
+		}
 		available = {
 			has_war_with = GER
 			has_global_flag = ENT_capitulation
@@ -490,14 +496,16 @@ TGWR_great_power_politics = {
 			}
 		}
 		allowed = {
-			always = yes
+			# always = yes
+			always = no
 		}
 		days_mission_timeout = 5
 		activation = {
-			GER = {
-				has_war_with = ENT
-				has_global_flag = GER_accepts_ENT_capitulation
-			}
+			# GER = {
+			# 	has_war_with = ENT
+			# 	has_global_flag = GER_accepts_ENT_capitulation
+			# }
+			always = no
 		}
 		visible = {
 			OR = {
@@ -744,17 +752,19 @@ TGWR_great_power_politics = {
 			}
 		}
 		allowed = {
-			always = yes
+			# always = yes
+			always = no
 		}
 		days_mission_timeout = 90
 		activation = {
-			GER = {
-				has_global_flag = frankfurt_armistice
-				OR = {
-					has_country_flag = great_war_winner
-					has_country_flag = great_war_loser
-				}
-			}
+			# GER = {
+			# 	has_global_flag = frankfurt_armistice
+			# 	OR = {
+			# 		has_country_flag = great_war_winner
+			# 		has_country_flag = great_war_loser
+			# 	}
+			# }
+			always = no
 		}
 		visible = {
 			OR = {
@@ -835,7 +845,8 @@ TGWR_great_power_politics = {
 			}
 		}
 		allowed = {
-			tag = GER
+			# tag = GER
+			always = no
 		}
 		target_trigger = {
 			FROM = {
@@ -1283,13 +1294,17 @@ TGWR_great_power_politics = {
 				has_global_flag = compiegne_armistice
 			}
 		}
-		allowed = { always = yes }
+		allowed = {
+			# always = yes
+			always = no
+		}
 		days_mission_timeout = 5
 		activation = {
-			ENT = {
-				has_global_flag = ENT_accepts_GER_capitulation
-				has_war_with = GER
-			}
+			# ENT = {
+			# 	has_global_flag = ENT_accepts_GER_capitulation
+			# 	has_war_with = GER
+			# }
+			always = no
 		}
 		visible = {
 			OR = {
@@ -1544,6 +1559,9 @@ TGWR_great_power_politics = {
 	#CP - REFUSE TO SURRENDER
 	member_of_centre_armistice = {
 		icon = GFX_decision_generic_break_treaty
+		allowed = {
+			always = no
+		}
 		available = {
 			has_war_with = ENT
 			has_global_flag = GER_capitulation
@@ -1616,17 +1634,19 @@ TGWR_great_power_politics = {
 			}
 		}
 		allowed = {
-			always = yes
+			# always = yes
+			always = no
 		}
 		days_mission_timeout = 90
 		activation = {
-			ENT = {
-				has_global_flag = compiegne_armistice
-				OR = {
-					has_country_flag = great_war_winner
-					has_country_flag = great_war_loser
-				}
-			}
+			# ENT = {
+			# 	has_global_flag = compiegne_armistice
+			# 	OR = {
+			# 		has_country_flag = great_war_winner
+			# 		has_country_flag = great_war_loser
+			# 	}
+			# }
+			always = no
 		}
 		visible = {
 			OR = {
