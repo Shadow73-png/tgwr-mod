@@ -3684,3 +3684,67 @@ AUS_national_unity_effect = {
 		}
 	}
 }
+
+
+AUS_spawn_MGS = {
+	set_global_flag = MGS_exists
+	create_dynamic_country = {
+		original_tag = SER
+		set_country_flag = AUH_serbia_governate_flag
+		set_cosmetic_tag = MGS_fascism
+		set_research_slots = 2
+		set_politics = {
+			ruling_party = neutrality
+			long_name = GUD_neutrality_party
+			name = GUD_neutrality_party
+			elections_allowed = no
+		}
+		reserve_dynamic_country = yes
+		set_capital = {
+			state = 107
+		}
+	}
+	107 = {
+		transfer_state_to = MGS
+	}
+	MGS = {
+		get_current_government_type = yes
+		AUS = {
+			set_autonomy = {
+				target = MGS
+				autonomy_state = autonomy_tgwr_governorate_general
+			}
+		}
+		restore_previous_government_type = yes
+		set_state_controller = 107
+		set_state_controller = 847
+		set_state_controller = 760
+
+		add_ideas = idea_army_restrictions
+		add_ideas = disarmed_nation
+		add_ideas = MGS_illegitimate_government_5
+		add_ideas = MGS_nation_in_ruins4
+		add_ideas = MGS_resistance_to_occupation
+		set_country_flag = monarchist_puppet
+		if = {
+			limit = { 
+				NOT = {
+					AUS = {
+						NOT = {
+							is_in_faction_with = BUL
+						}
+					}
+				}
+			}
+			set_state_controller = 821
+			set_state_controller = 809
+			set_state_controller = 876
+		}
+		load_focus_tree = mgs_focus
+		MGS = {
+			set_power_balance = {
+    			id = MGS_austria_hungary_interests
+			}
+		}
+	}
+}
