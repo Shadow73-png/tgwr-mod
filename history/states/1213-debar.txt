@@ -5,25 +5,51 @@ state={
 	resources={
 		chromium=3
 	}
-	history={
+	history = {
+		add_dynamic_modifier = { modifier = TUR_bulgarian_minority }
+		add_dynamic_modifier = { modifier = TUR_albanian_minority }
+		set_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = -0.05 }
+		set_variable = { TUR_ottoman_required_garrison_factor_bulgarian = 0.05 }
+		set_variable = { TUR_ottoman_resistance_decay_bulgarian = -0.1 }
+		set_variable = { TUR_ottoman_attrition_bulgarian = 0.1 }
+		set_variable = { TUR_ottoman_resistance_growth_albanian = 0.4 }
+		#set_variable = { TUR_ottoman_resistance_target_albanian = 0.2 }
+		set_variable = { TUR_bulgarian_state_level = 1 }
+		set_variable = { TUR_bulgarian_orthodox_state_level = 100 }
+		set_variable = { TUR_albanian_state_level = 4 }
+		set_variable = { TUR_albanian_sunni_state_level = 100 }
+		set_variable = { TUR_orthodox_state_level = 1 }
+		set_variable = { TUR_sunni_state_level = 4 }
+
+		#NEW SYSTEM#
+		#max -0.4% stability
+		set_variable = { TUR_bulgarian_orthodox_state_variable = -0.1 }
+		set_variable = { TUR_albanian_sunni_state_variable = -0.2 }
+		set_variable = { TUR_turkish_sunni_state_variable = -0.1 }
+
+		set_state_flag = TUR_manastir
+		add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
 		owner = TUR
-		add_core_of = SER
-		add_core_of = BUL
+		add_core_of = MAC
 		add_core_of = ALB
+		add_core_of = TUR
+		add_claim_by = BUL
+		add_claim_by = SER
 		victory_points = { 833 1 } #Debar
 		buildings = {
 			infrastructure = 2
 		}
+		1910.1.1 = { ALB = { set_province_controller = 867 } }
 		1913.5.30 = {
 			owner = SER
 			controller = SER
 		}
 	}
 	provinces={
-		833 
+		833 867 
 	}
-	manpower=157072
+	manpower= 147452 #Tetovo, Debre-i Bala, Ohri, Kičevo
 	buildings_max_level_factor=1.000
-	state_category=rural
+	state_category=pastoral
 	local_supplies=0.0 
 }

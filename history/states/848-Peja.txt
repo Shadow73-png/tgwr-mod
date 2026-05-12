@@ -1,14 +1,34 @@
 state={
 	id=848
 	name="STATE_848"
-	history={
+	history = {
+		set_variable = { TUR_ottoman_recruitable_population_factor_serbian = -0.1 }
+		set_variable = { TUR_ottoman_required_garrison_factor_serbian = 0.1 }
+		set_variable = { TUR_ottoman_resistance_decay_serbian = -0.2 }
+		set_variable = { TUR_ottoman_resistance_growth_albanian = 0.3 }
+		#set_variable = { TUR_ottoman_resistance_target_albanian = 0.2 }
+		set_variable = { TUR_serbian_state_level = 2 }
+		set_variable = { TUR_serbian_orthodox_state_level = 100 }
+		set_variable = { TUR_albanian_state_level = 3 }
+		set_variable = { TUR_albanian_sunni_state_level = 100 }
+		set_variable = { TUR_orthodox_state_level = 2 }
+		set_variable = { TUR_sunni_state_level = 3 }
+
+		#NEW SYSTEM#
+		#max -0.3% stability
+		set_variable = { TUR_albanian_sunni_state_variable = -0.2 }
+		set_variable = { TUR_serbian_orthodox_state_variable = -0.1 }
+
+		set_state_flag = TUR_kosova
+		set_state_flag = TUR_vilayet_centralization_no_control
 		victory_points = { 6913 1 } #Peja
-		owner = TUR
-		add_core_of = MNT
+		owner = ALB
 		add_core_of = ALB
+		add_core_of = TUR
+		add_claim_by = MNT
 		add_claim_by = SER
 		buildings = {
-			infrastructure = 2
+			infrastructure = 1
 		}
 		1913.5.30 = {
 			owner = MNT
@@ -18,7 +38,7 @@ state={
 	provinces={
 		6913 
 	}
-	manpower=104945
+	manpower=89899 #peja, gjakova
 	buildings_max_level_factor=1.000
-	state_category=pastoral 
+	state_category=pastoral
 }

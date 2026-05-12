@@ -1018,7 +1018,7 @@ country_event = {
 				factor = 0
 				is_historical_focus_on = yes
 				has_country_leader = {
-					character = ALB_essad_pasha_toptani
+					character = ALB_esad_toptani
 					ruling_only = yes
 				}
 			}
@@ -1044,7 +1044,7 @@ country_event = {
 				or = {
 					state = 106
 					state = 203
-					state = 1258
+					state = 1213
 					state = 759
 					state = 847
 					state = 44
@@ -1739,10 +1739,7 @@ country_event = {
 	trigger = {
 		original_tag = SER
 		has_global_flag = kis_secondbalkanwar_victory
-		OR = {
-			owns_state = 203
-			owns_state = 1258
-		}
+		owns_state = 203
 		country_exists = ALB
 		has_war = no
 		NOT = {
@@ -1755,23 +1752,9 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			set_global_flag = ohrid_debar
-			if = {
-				limit = { 
-					owns_state = 203
-				}
-				203 = {
-					transfer_state_to = MAC
-					add_core_of = MAC
-				}
-			}
-			if = {
-				limit = { 
-					owns_state = 1258
-				}
-				1258 = {
-					transfer_state_to = MAC
-					add_core_of = MAC
-				}
+			203 = {
+				transfer_state_to = MAC
+				add_core_of = MAC
 			}
 			MAC = {
 				load_oob = VMRO_ohrid_debar

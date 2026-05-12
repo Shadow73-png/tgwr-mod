@@ -2,13 +2,34 @@
 state={
 	id=761
 	name="STATE_761"
-	history={
+	history = {
+		add_dynamic_modifier = { modifier = TUR_serbian_minority }
+		add_dynamic_modifier = { modifier = TUR_albanian_minority }
+		set_variable = { TUR_ottoman_recruitable_population_factor_serbian = -0.1 }
+		set_variable = { TUR_ottoman_required_garrison_factor_serbian = 0.1 }
+		set_variable = { TUR_ottoman_resistance_decay_serbian = -0.2 }
+		set_variable = { TUR_ottoman_resistance_growth_albanian = 0.3 }
+		set_variable = { TUR_serbian_state_level = 4 }
+		set_variable = { TUR_serbian_orthodox_state_level = 50 }
+		set_variable = { TUR_albanian_state_level = 1 }
+		set_variable = { TUR_albanian_sunni_state_level = 100 }
+		set_variable = { TUR_orthodox_state_level = 2 }
+		set_variable = { TUR_sunni_state_level = 3 }
+
+		#NEW SYSTEM#
+		#max -0.3% stability
+		set_variable = { TUR_albanian_sunni_state_variable = -0.1 }
+		set_variable = { TUR_serbian_orthodox_state_variable = -0.2 }
+
+		set_state_flag = TUR_kosova
+		add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
 		victory_points = { 937 1 } #Pljevlja
 		owner = TUR
 		add_core_of = MNT
+		add_core_of = TUR
 		add_claim_by = SER
 		buildings = {
-			infrastructure = 2
+			infrastructure = 1
 		}
 		1913.5.30 = {
 			owner = MNT
@@ -18,7 +39,7 @@ state={
 	provinces={
 		937
 	}
-	manpower=104945
+	manpower=79771 #taslica, kolaşin, akova, berane, rozaje
 	buildings_max_level_factor=1.000
 	state_category=pastoral 
 }

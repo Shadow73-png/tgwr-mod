@@ -196,7 +196,6 @@
 				AND = {
 					owns_state = 106
 					owns_state = 203
-					owns_state = 1258
 					owns_state = 1213
 				}
 				has_subject = MAC
@@ -218,7 +217,7 @@
 	}
 	focus = {
 		id = BUL_anti_ottoman_crusade
-		icon = GFX_focus_TUR_misak_i_milli
+		icon = GFX_focus_balkan_league_defense
 		cost = 5
 		prerequisite = {
 			focus = BUL_confront_great_serbia
@@ -432,7 +431,6 @@
 		ai_will_do = {
 			factor = 100
 		}
-		will_lead_to_war_with = TUR
 		completion_reward = {
 			if = {
 				limit = {
@@ -483,7 +481,7 @@
 					create_wargoal = {
 						target = TUR
 						type = take_claimed_state
-						generator = { 788 451 200 756 849 759 106 203 1258 184 757 345 225 731 1256 1140 1141 1213 }
+						generator = { 788 451 200 756 849 759 106 203 184 757 345 225 731 1140 1141 1213 }
 					}
 				}
 				hidden_effect = {
@@ -524,10 +522,7 @@
 				AND = {
 					is_in_faction_with = SER
 					NOT = {
-						AND = {
-							owns_state = 203
-							owns_state = 1258
-						}
+						owns_state = 203
 					}
 				}
 				has_global_flag = balkan_league_fail
@@ -546,10 +541,7 @@
 		bypass = {
 			has_global_flag = kis_firstbalkanwar_victory
 			OR = {
-				AND = {
-					owns_state = 203
-					owns_state = 1258
-				}
+				owns_state = 203						
 				custom_trigger_tooltip = {
 					tooltip = autonomous_macedonia_happened
 					has_global_flag = autonomous_macedonia
@@ -571,7 +563,6 @@
 		will_lead_to_war_with = SER
 		completion_reward = {
 			add_state_claim = 731
-			add_state_claim = 1256
 			effect_tooltip = {
 				country_event = {
 					days = 2
@@ -630,7 +621,6 @@
 				has_global_flag = lone_liberator_victorious
 			}	
 			owns_state = 203
-			owns_state = 1258
 			owns_state = 106
 			owns_state = 1213
 			has_war = no
@@ -656,14 +646,8 @@
 			has_global_flag = kis_firstbalkanwar_victory
 			has_war = no
 			OR = {
-				AND = {
-					owns_state = 203
-					owns_state = 1258
-				}
-				AND = {
-					203 = { is_owned_by = MAC }
-					1258 = { is_owned_by = MAC }
-				}
+				owns_state = 203
+				203 = { is_owned_by = MAC }
 			}
 		}
 		relative_position_id = BUL_thieving_allies
@@ -688,7 +672,7 @@
 	}
 	focus = {
 		id = BUL_our_darkest_hours
-		icon = GFX_TUR_vatan_icin
+		icon = GFX_goal_generic_attack_allies
 		cost = 5
 		available = {
 			OR = {
@@ -741,7 +725,7 @@
 				OR = {
 					owns_state = 106
 					owns_state = 203
-					owns_state = 1258
+					owns_state = 1213
 					owns_state = 759
 					owns_state = 821
 					owns_state = 1140
@@ -824,7 +808,7 @@
 			}
 			106 = { is_owned_or_subject_trigger = yes }
 			203 = { is_owned_or_subject_trigger = yes }
-			1258 = { is_owned_or_subject_trigger = yes }
+			1213 = { is_owned_or_subject_trigger = yes }
 			759 = { is_owned_or_subject_trigger = yes }
 			788 = { is_owned_or_subject_trigger = yes }
 			821 = { is_owned_or_subject_trigger = yes }
@@ -1454,7 +1438,6 @@
 						owns_state = 760
 						owns_state = 106
 						owns_state = 731
-						owns_state = 1256
 						owns_state = 48
 						owns_state = 212
 						owns_state = 211
@@ -1492,7 +1475,6 @@
 						state = 760
 						state = 106
 						state = 731
-						state = 1256
 						state = 48
 						state = 212
 						state = 211
@@ -2699,7 +2681,7 @@
 		available = {
 			controls_state = 48
 			controls_state = 203
-			controls_state = 1258
+			controls_state = 1213
 			controls_state = 212
 			controls_state = 211
 			controls_state = 225
@@ -2726,6 +2708,7 @@
 					NOT = {
 						state = 513
 						state = 870
+						state = 1214
 						is_core_of = ROOT
 					}
 				}
@@ -3262,7 +3245,7 @@
 			203 = {
 				is_core_of = ROOT
 			}
-			1258 = {
+			1213 = {
 				is_core_of = ROOT
 			}
 			759 = {
@@ -3271,16 +3254,10 @@
 			731 = {
 				is_core_of = ROOT
 			}
-			1256 = {
-				is_core_of = ROOT
-			}
 			184 = {
 				is_core_of = ROOT
 			}
 			345 = {
-				is_core_of = ROOT
-			}
-			1255 = {
 				is_core_of = ROOT
 			}
 			1140 = {
@@ -3300,13 +3277,11 @@
 			ROOT = {
 				add_state_core = 106
 				add_state_core = 203
-				add_state_core = 1258
+				add_state_core = 1213
 				add_state_core = 759
 				add_state_core = 184
-				add_state_core = 345 
-				add_state_core = 1255 
+				add_state_core = 345
 				add_state_core = 731
-				add_state_core = 1256
 				add_state_core = 1140
 				add_state_core = 1141
 				add_state_core = 1213

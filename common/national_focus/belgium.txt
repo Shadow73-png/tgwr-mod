@@ -158,22 +158,21 @@ focus_tree = {
 					days = 25
 				}
 			}
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_cwr
+			add_to_variable = {
+				BEL_variable_local_org_regain = 0.05
+			}
 			add_to_variable = {
 				BEL_variable_org = 0.05
-				tooltip = army_org_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_xp_gain_unit = 0.05
-				tooltip = experience_gain_army_unit_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_xp_gain_army = 0.05
-				tooltip = experience_gain_army_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_speed = 0.05
-				tooltip = army_speed_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -205,10 +204,9 @@ focus_tree = {
 		relative_position_id = BEL_the_belgian_army
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_afhc
 			add_to_variable = {
 				BEL_variable_speed = 0.1
-				tooltip = army_speed_factor_tt
 			}
 			add_command_power = 5
 			remove_ideas = BEL_joseph_hellebaut
@@ -244,22 +242,18 @@ focus_tree = {
 		relative_position_id = BEL_the_belgian_army
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_tw
 			add_to_variable = {
 				BEL_variable_attack = 0.05
-				tooltip = army_attack_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_defence = 0.05
-				tooltip = army_defence_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_org = 0.1
-				tooltip = army_org_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_speed = 0.1
-				tooltip = army_speed_factor_tt
 			}
 			army_experience = 20
 		}
@@ -287,17 +281,16 @@ focus_tree = {
 		relative_position_id = BEL_the_belgian_army
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
-			add_to_variable = {
-				BEL_variable_defence = 0.05
-				tooltip = army_defence_factor_tt
-			}
+			custom_effect_tooltip = BEL_tooltip_egd
 			army_experience = 15
 			add_doctrine_cost_reduction = {
 				name = BEL_doctrines_modernization
 				category = land_doctrine
 				cost_reduction = 0.5
 				uses = 2
+			}
+			add_to_variable = {
+				BEL_variable_defence = 0.05
 			}
 		}
 		ai_will_do = {
@@ -343,22 +336,21 @@ focus_tree = {
 				}
 			}
 			army_experience = 25
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_dr
 			add_to_variable = {
 				BEL_variable_org = 0.1
-				tooltip = army_org_factor_tt
+			}
+			add_to_variable = {
+				BEL_variable_local_org_regain = 0.1
 			}
 			add_to_variable = {
 				BEL_variable_xp_gain_unit = 0.1
-				tooltip = experience_gain_army_unit_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_xp_gain_army = 0.1
-				tooltip = experience_gain_army_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_speed = 0.1
-				tooltip = army_speed_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -385,10 +377,12 @@ focus_tree = {
 		relative_position_id = BEL_the_belgian_army
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_bd
 			add_to_variable = {
 				BEL_variable_speed = 0.1
-				tooltip = army_speed_factor_tt
+			}
+			add_to_variable = {
+				BEL_variable_local_org_regain = 0.05
 			}
 			set_technology = {
 				bicycle_infantry = 1
@@ -416,10 +410,9 @@ focus_tree = {
 		relative_position_id = BEL_the_belgian_army
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_ci
 			add_to_variable = {
 				BEL_variable_arty_attack = 0.05
-				tooltip = army_artillery_attack_factor_tt
 			}
 			if = {
 				limit = {
@@ -532,10 +525,9 @@ focus_tree = {
 		relative_position_id = BEL_the_belgian_army
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_mac
 			add_to_variable = {
 				BEL_variable_speed = 0.05
-				tooltip = army_speed_factor_tt
 			}
 			if = {
 				limit = {
@@ -561,10 +553,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					OR = {
-						has_tech = basic_armored_car
-						has_tech = basic_armored_car_chassis
-					}
+					has_tech = basic_armored_car
 				}
 				add_tech_bonus = {
 					name = BEL_minerva_armored_cars
@@ -573,15 +562,7 @@ focus_tree = {
 					uses = 1
 				}			
 				else = {
-					if = {
-						limit = { 
-							has_dlc = "No Step Back"
-						}
-						set_technology = { basic_armored_car_chassis = 1 }						
-					}
-					else = {
-						set_technology = { basic_armored_car = 1 }
-					}
+					set_technology = { basic_armored_car = 1 }
 				}
 			}				
 			add_equipment_to_stockpile = {
@@ -614,16 +595,15 @@ focus_tree = {
 		relative_position_id = BEL_the_belgian_army
 		available_if_capitulated = yes
 		completion_reward = {
+			set_country_flag = BEL_unlock_decision_lacking_equipment
 			unlock_decision_tooltip = BEL_create_the_new_uniform
 			unlock_decision_tooltip = BEL_buy_barbed_wire
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_acle
 			add_to_variable = {
 				BEL_variable_xp_gain_unit = 0.1
-				tooltip = experience_gain_army_unit_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_xp_gain_army = 0.1
-				tooltip = experience_gain_army_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -1141,11 +1121,10 @@ focus_tree = {
 		relative_position_id = BEL_the_soldier_king
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
 			add_to_variable = {
 				BEL_variable_defence = 0.2
-				tooltip = army_defence_factor_tt
 			}
+			custom_effect_tooltip = BEL_tooltip_dae
 		}
 		ai_will_do = {
 			factor = 500
@@ -1176,11 +1155,10 @@ focus_tree = {
 		relative_position_id = BEL_the_soldier_king
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
 			add_to_variable = {
-				BEL_variable_attack = 0.15
-				tooltip = army_attack_factor_tt
+				BEL_variable_attack = 0.2
 			}
+			custom_effect_tooltip = BEL_tooltip_cao
 		}
 		ai_will_do = {
 			factor = 500
@@ -1206,15 +1184,13 @@ focus_tree = {
 		relative_position_id = BEL_the_soldier_king
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
 			add_to_variable = {
 				BEL_variable_xp_gain_unit = 0.1
-				tooltip = experience_gain_army_unit_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_xp_gain_army = 0.1
-				tooltip = experience_gain_army_factor_tt
 			}
+			custom_effect_tooltip = BEL_tooltip_raw
 			custom_effect_tooltip = BEL_tooltip_requeststuff
 			if = {
 				limit = {
@@ -1258,14 +1234,12 @@ focus_tree = {
 		relative_position_id = BEL_the_soldier_king
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_br
 			add_to_variable = {
 				BEL_variable_xp_gain_unit = 0.05
-				tooltip = experience_gain_army_unit_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_xp_gain_army = 0.05
-				tooltip = experience_gain_army_factor_tt
 			}
 			custom_effect_tooltip = BEL_tooltip_free_pow
 			if = {
@@ -1330,11 +1304,13 @@ focus_tree = {
 		relative_position_id = BEL_the_soldier_king
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
 			add_to_variable = {
 				BEL_variable_org = 0.1
-				tooltip = army_org_factor_tt
 			}
+			add_to_variable = {
+				BEL_variable_local_org_regain = 0.1
+			}
+			custom_effect_tooltip = BEL_tooltip_ms
 		}
 		ai_will_do = {
 			factor = 500
@@ -1358,11 +1334,13 @@ focus_tree = {
 		relative_position_id = BEL_the_soldier_king
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_army
 			add_to_variable = {
 				BEL_variable_org = 0.05
-				tooltip = army_org_factor_tt
 			}
+			add_to_variable = {
+				BEL_variable_local_org_regain = 0.05
+			}
+			custom_effect_tooltip = BEL_tooltip_mu
 		}
 		ai_will_do = {
 			factor = 500
@@ -1370,7 +1348,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 		}
-		cost = 4
+		cost = 8
 		x = 10
 		y = 4
 	}
@@ -1395,11 +1373,10 @@ focus_tree = {
     			uses = 1
     			category = electronics	
 			}
-			custom_effect_tooltip = BEL_modify_army
 			add_to_variable = {
 				BEL_variable_org = 0.1
-				tooltip = army_org_factor_tt
 			}
+			custom_effect_tooltip = BEL_tooltip_twc
 		}
 		ai_will_do = {
 			factor = 500
@@ -1420,24 +1397,19 @@ focus_tree = {
 		relative_position_id = BEL_the_soldier_king
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = BEL_learn_from_russians
-			unlock_decision_tooltip = BEL_learn_from_french
-			custom_effect_tooltip = BEL_modify_army
+			set_country_flag = BEL_learning_from_people
+			custom_effect_tooltip = BEL_tooltip_snd
 			add_to_variable = {
 				BEL_variable_xp_gain_unit = 0.1
-				tooltip = experience_gain_army_unit_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_xp_gain_army = 0.1
-				tooltip = experience_gain_army_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_defence = 0.1
-				tooltip = army_defence_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_attack = 0.1
-				tooltip = army_attack_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -2060,7 +2032,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_POLITICAL
 		}
-		cost = 1
+		cost = 10
 		x = 2
 		y = 1
 	}
@@ -2291,6 +2263,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = cockerill
+			set_country_flag = BEL_expand_cockerill_sambre_works
 		}
 		ai_will_do = {
 			factor = 500
@@ -2551,6 +2524,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			custom_effect_tooltip = BEL_liberal_alliance
+			set_country_flag = BEL_liberal_alliance
 			custom_effect_tooltip = BEL_tooltip_increase_liberal_support
 		}
 		ai_will_do = {
@@ -2701,9 +2675,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_days_mission_timeout = {
-   				mission = BEL_coalitionlifespan
-   				days = 100
-			}
+   				 mission = BEL_coalitionlifespan
+   				 days = 100
+					}
+			set_country_flag = BEL_socialist_reforms
 			add_popularity = {
 				ideology = communism
 				popularity = 0.04
@@ -2744,11 +2719,10 @@ focus_tree = {
 				}
 				add_research_slot = 1
 			}
-			custom_effect_tooltip = BEL_modify_labour_conditions
 			add_to_variable = {
 				BEL_variable_research_speed = 0.05
-				tooltip = research_speed_factor_tt
 			}
+			custom_effect_tooltip = BEL_tooltip_pss
 		}
 		ai_will_do = {
 			factor = 50
@@ -2879,6 +2853,7 @@ focus_tree = {
 			unlock_decision_tooltip = BEL_maternity_funds
 			unlock_decision_tooltip = BEL_unemployment_benefits
 			unlock_decision_tooltip = BEL_family_allowances
+			set_country_flag = BEL_increase_welfare_pol
 			add_days_mission_timeout = {
    				 mission = BEL_coalitionlifespan
    				 days = 100
@@ -3004,6 +2979,7 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			set_country_flag = BEL_congo_decisions_unlocked
 			add_political_power = 35
 			unlock_decision_category_tooltip = BEL_the_colony
 		}
@@ -3035,6 +3011,7 @@ focus_tree = {
 				add_resistance = -10
 				add_core_of = KAT
 			}
+			set_country_flag = BEL_completed_decision_ck
 			unlock_decision_tooltip = BEL_take_over_katanga_services
 		}
 		ai_will_do = {
@@ -3094,6 +3071,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			set_country_flag = BEL_lorrand_appointed
+			set_country_flag = BEL_congo_investment_unlocked
 			swap_ideas = {
     			remove_idea = BEL_congo_profits
     			add_idea = BEL_congo_profitsw1
@@ -3131,6 +3109,7 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			set_country_flag = BEL_clamp_down_on_companies
 			swap_ideas = {
     			remove_idea = BEL_congo_profitsw1
     			add_idea = BEL_congo_profitsw2
@@ -3208,6 +3187,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 1
 				set_state_flag = BEL_expand_the_agricultural_sector
 			}
+			set_country_flag = BEL_eas_completed
 			custom_effect_tooltip = BEL_tooltip_reduce_rubber_crisis
 			effect_tooltip = {
 				swap_ideas = {
@@ -3244,6 +3224,7 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			set_country_flag = BEL_congo_investment_unlocked
 			unlock_decision_tooltip = BEL_link_major_cities_wireless_telegraph
 			unlock_decision_tooltip = BEL_oil_in_matadi
 			unlock_decision_tooltip = BEL_extend_leopoldville_port
@@ -3273,6 +3254,7 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			set_country_flag = BEL_invite_companies
 			unlock_decision_tooltip = {
 				decision = BEL_sell_kasai_shares
 				show_effect_tooltip = yes
@@ -3839,11 +3821,10 @@ focus = {
 		}
 		relative_position_id = BEL_foundation_of_christian_democracy
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_labour_conditions
 			add_to_variable = {
 				BEL_variable_research_speed = 0.05
-				tooltip = research_speed_factor_tt
 			}
+			custom_effect_tooltip = BEL_tooltip_fsl
 		}
 		ai_will_do = {
 			factor = 500
@@ -3936,14 +3917,12 @@ focus = {
 		}
 		relative_position_id = BEL_foundation_of_christian_democracy
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_labour_conditions
+			custom_effect_tooltip = BEL_tooltip_profpo
 			add_to_variable = {
 				BEL_variable_stab = 0.075
-				tooltip = stability_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_pp_gain = 0.02
-				tooltip = political_power_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -3968,10 +3947,9 @@ focus = {
 		}
 		relative_position_id = BEL_foundation_of_christian_democracy
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_labour_conditions
+			custom_effect_tooltip = BEL_tooltip_lonv
 			add_to_variable = {
 				BEL_variable_efficiency_gain = 0.05
-				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -3996,14 +3974,12 @@ focus = {
 		}
 		relative_position_id = BEL_foundation_of_christian_democracy
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_labour_conditions
+			custom_effect_tooltip = BEL_tooltip_cfvu
 			add_to_variable = {
 				BEL_variable_efficiency_base = -0.05
-				tooltip = production_factory_start_efficiency_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_efficiency_gain = 0.075
-				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -4029,14 +4005,12 @@ focus = {
 		}
 		relative_position_id = BEL_foundation_of_christian_democracy
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_labour_conditions
+			custom_effect_tooltip = BEL_tooltip_bwnw
 			add_to_variable = {
 				BEL_variable_pp_gain = 0.05
-				tooltip = political_power_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_stab = 0.05
-				tooltip = stability_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -4062,18 +4036,15 @@ focus = {
 		}
 		relative_position_id = BEL_foundation_of_christian_democracy
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_labour_conditions
+			custom_effect_tooltip = BEL_tooltip_bclm
 			add_to_variable = {
 				BEL_variable_pp_gain = 0.1
-				tooltip = political_power_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_consumers = 0.05
-				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_stab = 0.025
-				tooltip = stability_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -4101,18 +4072,15 @@ focus = {
 		}
 		relative_position_id = BEL_foundation_of_christian_democracy
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_labour_conditions
+			custom_effect_tooltip = BEL_tooltip_minerpen
 			add_to_variable = {
 				BEL_variable_pp_gain = 0.02
-				tooltip = political_power_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_consumers = 0.05
-				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_construction_speed = 0.05
-				tooltip = production_speed_buildings_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -4142,14 +4110,12 @@ focus = {
 		}
 		relative_position_id = BEL_schollart_1910_cabinet
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_labour_conditions
+			custom_effect_tooltip = BEL_tooltip_nppr
 			add_to_variable = {
 				BEL_variable_pp_gain = 0.05
-				tooltip = political_power_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_stab = 0.05
-				tooltip = stability_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -4174,14 +4140,10 @@ focus = {
 		}
 		relative_position_id = BEL_continue_non_partisan_progressive_reforms
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_labour_conditions
+			custom_effect_tooltip = BEL_tooltip_bcln
 			add_to_variable = {
 				BEL_variable_research_speed = 0.05
-				tooltip = research_speed_factor_tt
-			}
-			add_to_variable = {
 				BEL_variable_consumers = 0.05
-				tooltip = consumer_goods_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -4298,14 +4260,12 @@ focus = {
 		relative_position_id = BEL_foundation_of_christian_democracy
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = BEL_modify_labour_conditions
+			custom_effect_tooltip = BEL_tooltip_mlp
 			add_to_variable = {
 				BEL_variable_excavation_efficiency = 0.075
-				tooltip = local_resources_factor_tt
 			}
 			add_to_variable = {
 				BEL_variable_consumers = 0.025
-				tooltip = consumer_goods_factor_tt
 			}
 		}
 		ai_will_do = {

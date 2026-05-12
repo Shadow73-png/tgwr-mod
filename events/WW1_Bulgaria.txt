@@ -1157,8 +1157,69 @@ country_event = {
 			ideology = communism
 			popularity = 0.08
 		}
-		add_war_support = -0.20
-		add_ideas = mutiny_3
+
+		# Armistice of Salonika
+		if = {
+			limit = {
+				has_war_with = FRA
+				is_in_faction = yes
+				is_faction_leader = no
+				is_great_war_ongoing = yes
+			}
+			if = {
+				limit = {
+					OR = {
+						has_war_support < 0.3
+						surrender_progress > 0.10
+						casualties > 150000
+					}
+				}
+				add_ideas = idea_armistice
+				leave_faction = yes
+				every_other_country = {
+					limit = { PREV = { has_wargoal_against = PREV } }
+					PREV = {
+						remove_wargoal = {
+							type = all
+							target = PREV
+						}
+					}
+				}
+				set_country_flag = great_war_loser
+				set_country_flag = member_of_central_powers
+				if = {
+					limit = {
+						any_enemy_country = { original_tag = TUR }
+						any_owned_state = {
+							OR = {
+								is_claimed_by = TUR
+								is_core_of = TUR
+								state = 757
+								state = 451
+								state = 200
+							}
+							any_neighbor_state = { is_owned_by = TUR }
+						}
+					}
+					random_other_country = {
+						limit = {
+							original_tag = TUR
+							has_war_with = ROOT
+						}
+						country_event = { id = ottoman.245 hours = 8 }
+					}
+				}
+				hidden_effect = {
+					set_country_flag = army_should_be_restricted
+					country_lock_all_division_template = yes
+					news_event = { id = ww1_bulgaria.65 hours = 6 }
+				}
+			}
+			else = {
+				add_war_support = -0.20
+				add_ideas = mutiny_3
+			}
+		}
 	}
 	option = {
 		name = ww1_bulgaria.26.b
@@ -1879,7 +1940,7 @@ country_event = {
 # Ottoman surrender orestiada TUR vesion
 country_event = {
 	id = ww1_bulgaria.52
-	title = ww1_bulgaria.51.t
+	title = ww1_bulgaria.52.t
 	desc = ww1_bulgaria.52.d
 	picture = GFX_report_event_bul_troops_macedonia
 	is_triggered_only = yes
@@ -2093,7 +2154,6 @@ country_event = {
 						is_core_of = MAC
 						state = 759
 						state = 203
-						state = 1258
 					}
 					any_neighbor_state = {
 						is_controlled_by = BUL #avoid floating states isolated from mainland
@@ -2195,7 +2255,7 @@ country_event = {
 			create_wargoal = {
 				target = ROOT
 				type = take_claimed_state
-				generator = {788 451 200 756 849 759 106 203 1258 184 757 345 1255 225 731 1256 1140 1141 1213}
+				generator = {788 451 200 756 849 759 106 203 184 757 345 225 731 1140 1141 1213 }
 			}
 		}
 	}

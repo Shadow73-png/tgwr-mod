@@ -822,14 +822,13 @@ BEL_army_reform = {
 	BEL_learn_from_french = {
 		icon = GFX_decision_generic_fort
 		fire_only_once = yes
-		days_remove = 100
+		days_remove = 200
 		allowed = {
 			original_tag = BEL
 		}
-		cost = 50
+		cost = 100
 		visible = {
-			is_in_faction_with = FRA
-			has_completed_focus = BEL_study_new_doctrines
+			has_country_flag = BEL_learning_from_people
 		}
 		
 		
@@ -837,34 +836,33 @@ BEL_army_reform = {
 			factor = 200
 		}
 		remove_effect = {
-			custom_effect_tooltip = BEL_modify_army
 			add_to_variable = {
 				BEL_variable_defence = 0.1
-				tooltip = army_defence_factor_tt
 			}
+			custom_effect_tooltip = BEL_tooltip_lernfrench
 		}
 	}
 	BEL_learn_from_russians = {
 		icon = GFX_decision_generic_fort
 		fire_only_once = yes
-		days_remove = 100
+		days_remove = 200
 		allowed = {
 			original_tag = BEL
 		}
-		cost = 50
+		cost = 100
 		visible = {
-			is_in_faction_with = RUS
-			has_completed_focus = BEL_study_new_doctrines
+			has_country_flag = BEL_learning_from_people
 		}
+		
+		
 		ai_will_do = {
 			factor = 200
 		}
 		remove_effect = {
-			custom_effect_tooltip = BEL_modify_army
 			add_to_variable = {
-				BEL_variable_attack = 0.05
-				tooltip = army_attack_factor_tt
+				BEL_variable_attack = 0.1
 			}
+			custom_effect_tooltip = BEL_tooltip_lernrussian
 		}
 	}
 	BEL_save_men_fra = {
@@ -948,7 +946,7 @@ BEL_army_reform = {
 		allowed = {
 			original_tag = BEL
 		}
-		cost = 40
+		cost = 50
 		visible = {
 			has_country_flag = BEL_buy_german_stuff
 		}
@@ -974,7 +972,7 @@ BEL_army_reform = {
 		allowed = {
 			original_tag = BEL
 		}
-		cost = 40
+		cost = 50
 		visible = {
 			has_country_flag = BEL_buy_german_stuff
 		}
@@ -1000,7 +998,7 @@ BEL_army_reform = {
 		allowed = {
 			original_tag = BEL
 		}
-		cost = 40
+		cost = 50
 		visible = {
 			has_country_flag = BEL_buy_german_stuff
 		}
@@ -1026,7 +1024,7 @@ BEL_army_reform = {
 		allowed = {
 			original_tag = BEL
 		}
-		cost = 40
+		cost = 50
 		visible = {
 			has_country_flag = BEL_buy_french_stuff
 		}
@@ -1052,7 +1050,7 @@ BEL_army_reform = {
 		allowed = {
 			original_tag = BEL
 		}
-		cost = 40
+		cost = 50
 		visible = {
 			has_country_flag = BEL_buy_french_stuff
 		}
@@ -1078,7 +1076,7 @@ BEL_army_reform = {
 		allowed = {
 			original_tag = BEL
 		}
-		cost = 40
+		cost = 50
 		visible = {
 			has_country_flag = BEL_buy_french_stuff
 		}
@@ -1104,9 +1102,9 @@ BEL_army_reform = {
 		allowed = {
 			original_tag = BEL
 		}
-		cost = 25
+		cost = 50
 		visible = {
-			has_completed_focus = BEL_acquire_lacking_equipment
+			has_country_flag = BEL_unlock_decision_lacking_equipment
 		}
 		
 		
@@ -1114,10 +1112,9 @@ BEL_army_reform = {
 			factor = 200
 		}
 		remove_effect = {
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_barbedw
 			add_to_variable = {
 				BEL_variable_defence = 0.025
-				tooltip = army_defence_factor_tt
 			}
 		}
 	}
@@ -1128,9 +1125,9 @@ BEL_army_reform = {
 		allowed = {
 			original_tag = BEL
 		}
-		cost = 25
+		cost = 50
 		visible = {
-			has_completed_focus = BEL_acquire_lacking_equipment
+			has_country_flag = BEL_unlock_decision_lacking_equipment
 		}
 		
 		
@@ -1138,10 +1135,9 @@ BEL_army_reform = {
 			factor = 200
 		}
 		remove_effect = {
-			custom_effect_tooltip = BEL_modify_army
+			custom_effect_tooltip = BEL_tooltip_uniformnew
 			add_to_variable = {
 				BEL_variable_org = 0.025
-				tooltip = army_org_factor_tt
 			}
 		}
 	}
@@ -1373,7 +1369,7 @@ BEL_social_reforms = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_socialist_reforms
+			has_country_flag = BEL_socialist_reforms
 		}
 		available = {
 			OR = {
@@ -1406,7 +1402,7 @@ BEL_social_reforms = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_socialist_reforms
+			has_country_flag = BEL_socialist_reforms
 		}
 		available = {
 			OR = {
@@ -1448,7 +1444,7 @@ BEL_social_reforms = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_socialist_reforms
+			has_country_flag = BEL_socialist_reforms
 		}
 		available = {
 			OR = {
@@ -1481,7 +1477,7 @@ BEL_social_reforms = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_socialist_reforms
+			has_country_flag = BEL_socialist_reforms
 		}
 		available = {
 			OR = {
@@ -1511,7 +1507,7 @@ BEL_social_reforms = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_increase_welfare_policies
+			has_country_flag = BEL_increase_welfare_pol
 		}
 		available = {
 			OR = {
@@ -1556,7 +1552,7 @@ BEL_social_reforms = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_increase_welfare_policies
+			has_country_flag = BEL_increase_welfare_pol
 		}
 		available = {
 			OR = {
@@ -1600,7 +1596,7 @@ BEL_social_reforms = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_increase_welfare_policies
+			has_country_flag = BEL_increase_welfare_pol
 		}
 		available = {
 			OR = {
@@ -1694,7 +1690,7 @@ BEL_the_colony = {
 		icon = GFX_decision_oppression
 		fire_only_once = no
 		days_remove = 30
-		cost = 30
+		cost = 50
 		allowed = {
 			original_tag = BEL
 		}
@@ -1747,7 +1743,7 @@ BEL_the_colony = {
 		icon = GFX_decision_generic_electricity
 		fire_only_once = yes
 		days_remove = 70
-		cost = 50
+		cost = 100
 		allowed = {
 			original_tag = BEL
 		}
@@ -1755,10 +1751,8 @@ BEL_the_colony = {
 			factor = 500
 		}
 		visible = {
-			OR = {
-				has_completed_focus = BEL_continue_exploition
-				has_completed_focus = BEL_appoint_lorrand
-			}
+			has_country_flag = BEL_congo_investment_unlocked
+			
 		}
 		available = {
 			owns_state = 295
@@ -1802,7 +1796,7 @@ BEL_the_colony = {
 		icon = GFX_decision_oil
 		fire_only_once = yes
 		days_remove = 70
-		cost = 40
+		cost = 50
 		allowed = {
 			original_tag = BEL
 		}
@@ -1810,10 +1804,8 @@ BEL_the_colony = {
 			factor = 500
 		}
 		visible = {
-			OR = {
-				has_completed_focus = BEL_continue_exploition
-				has_completed_focus = BEL_appoint_lorrand
-			}
+			has_country_flag = BEL_congo_investment_unlocked
+			
 		}
 		available = {
 			owns_state = 295
@@ -1832,7 +1824,7 @@ BEL_the_colony = {
 		icon = GFX_decision_generic_construction
 		fire_only_once = yes
 		days_remove = 70
-		cost = 25
+		cost = 50
 		allowed = {
 			original_tag = BEL
 		}
@@ -1840,10 +1832,8 @@ BEL_the_colony = {
 			factor = 500
 		}
 		visible = {
-			OR = {
-				has_completed_focus = BEL_continue_exploition
-				has_completed_focus = BEL_appoint_lorrand
-			}
+			has_country_flag = BEL_congo_investment_unlocked
+			
 		}
 		available = { owns_state = 295 }
 		
@@ -1869,10 +1859,7 @@ BEL_the_colony = {
 			factor = 500
 		}
 		visible = {
-			OR = {
-				has_completed_focus = BEL_continue_exploition
-				has_completed_focus = BEL_appoint_lorrand
-			}
+			has_country_flag = BEL_congo_investment_unlocked
 		}
 		available = { owns_state = 295 }
 		remove_effect = {
@@ -1906,7 +1893,7 @@ BEL_the_colony = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_clamp_down_on_the_companies
+			has_country_flag = BEL_clamp_down_on_companies
 		}
 		available = {
 			owns_state = 295
@@ -1976,7 +1963,7 @@ BEL_the_colony = {
 		icon = GFX_decision_gre_investment_decisions
 		fire_only_once = yes
 		days_remove = 100
-		cost = 30
+		cost = 50
 		allowed = {
 			original_tag = BEL
 		}
@@ -1984,11 +1971,11 @@ BEL_the_colony = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_invite_concession_companies
+			has_country_flag = BEL_invite_companies
 		}
 		available = { owns_state = 295 }
 		modifier = {
-			consumer_goods_factor = -0.15
+			consumer_goods_factor = -0.05
 		}
 		remove_effect = {
 			
@@ -1998,7 +1985,7 @@ BEL_the_colony = {
 		icon = GFX_decision_hol_exchange_intelligence_data
 		fire_only_once = yes
 		days_remove = 100
-		cost = 30
+		cost = 50
 		allowed = {
 			original_tag = BEL
 		}
@@ -2006,11 +1993,12 @@ BEL_the_colony = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_invite_concession_companies
+			has_country_flag = BEL_invite_companies
+			
 		}
 		
 		modifier = {
-			consumer_goods_factor = -0.15
+			consumer_goods_factor = -0.05
 		}
 		remove_effect = {
 			
@@ -2020,7 +2008,7 @@ BEL_the_colony = {
 		icon = GFX_decision_generic_fundraising
 		fire_only_once = yes
 		days_remove = 100
-		cost = 10
+		cost = 40
 		allowed = {
 			original_tag = BEL
 		}
@@ -2028,7 +2016,8 @@ BEL_the_colony = {
 			factor = 500
 		}
 		visible = {
-			has_completed_focus = BEL_where_belgium_is_big
+			has_country_flag = BEL_congo_decisions_unlocked
+			
 		}
 		
 		modifier = {
@@ -2066,7 +2055,7 @@ BEL_the_colony = {
 		icon = GFX_decision_generic_railway
 		fire_only_once = yes
 		days_remove = 70
-		cost = 25
+		cost = 50
 		allowed = { original_tag = BEL }
 		visible = { has_completed_focus = BEL_BCK_works }
 		available = { controls_state = 718 }
@@ -2101,7 +2090,7 @@ BEL_the_colony = {
 		icon = GFX_decision_generic_railway
 		fire_only_once = yes
 		days_remove = 70
-		cost = 25
+		cost = 50
 		allowed = { original_tag = BEL }
 		visible = { has_completed_focus = BEL_BCK_works }
 		available = { controls_state = 1221 }
@@ -2142,7 +2131,7 @@ BEL_the_colony = {
 		icon = GFX_decision_generic_railway
 		fire_only_once = yes
 		days_remove = 70
-		cost = 25
+		cost = 50
 		allowed = { original_tag = BEL }
 		visible = { has_completed_focus = BEL_BCK_works }
 		available = { controls_state = 1221 }
@@ -2182,7 +2171,7 @@ BEL_the_colony = {
 		icon = GFX_decision_generic_railway
 		fire_only_once = yes
 		days_remove = 70
-		cost = 25
+		cost = 50
 		allowed = { original_tag = BEL }
 		visible = { has_completed_focus = BEL_BCK_works }
 		available = {

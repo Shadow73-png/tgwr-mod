@@ -1,22 +1,63 @@
 state={
 	id=184
 	name="STATE_184"
-	manpower = 204746
+	manpower = 380585 #Avrethisar, doyran, Demirhisar, siroz, zihne, drama, sarıbaşan, Pravişte, Reşadiye
 	state_category=rural
 	provinces={ 6990 9791 9930 3526 }
 	resources={
 		chromium=5
 	}
-	history={
+	history = {
+		add_dynamic_modifier = { modifier = TUR_greek_minority }
+		add_dynamic_modifier = { modifier = TUR_bulgarian_minority }
+		set_variable = { TUR_ottoman_recruitable_population_factor_greek = -0.05 }
+		set_variable = { TUR_ottoman_local_intel_to_enemies_greek = 0.1 }
+		set_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = 0.02 }
+		set_variable = { TUR_ottoman_local_resources_factor_greek = -0.05 }
+		set_variable = { TUR_ottoman_attrition_greek = 0.1 }
+		set_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = -0.05 }
+		set_variable = { TUR_ottoman_required_garrison_factor_bulgarian = 0.05 }
+		set_variable = { TUR_ottoman_resistance_decay_bulgarian = -0.1 }
+		set_variable = { TUR_ottoman_attrition_bulgarian = 0.1 }
+		set_variable = { TUR_greek_state_level = 1 }
+		set_variable = { TUR_greek_orthodox_state_level = 100 }
+		set_variable = { TUR_bulgarian_state_level = 1 }
+		set_variable = { TUR_bulgarian_orthodox_state_level = 100 }
+		set_variable = { TUR_ottoman_resistance_growth_kuvay_i_milliye = 0.15 }
+		set_variable = { TUR_ottoman_resistance_target_kuvay_i_milliye = 0.3 }
+		set_variable = { TUR_ottoman_compliance_growth_kuvay_i_milliye = -0.09 }
+		set_variable = { TUR_ottoman_attrition_for_controller_kuvay_i_milliye = 0.09 }
+		set_variable = { TUR_turkish_state_level = 3 }
+		set_variable = { TUR_ottoman_compliance_growth_turkish = -0.06 }
+		set_variable = { TUR_ottoman_local_building_slots_factor_turkish = -0.15 }
+		set_variable = { TUR_turkish_sunni_state_level = 100 }
+		set_variable = { TUR_orthodox_state_level = 2 }
+		set_variable = { TUR_sunni_state_level = 3 }
+
+		#NEW SYSTEM#
+		#max -0.5% stability
+		set_variable = { TUR_greek_orthodox_state_variable = -0.1 }
+		set_variable = { TUR_bulgarian_orthodox_state_variable = -0.1 }
+		set_variable = { TUR_turkish_sunni_state_variable = -0.3 }
+
+		set_state_flag = TUR_selanik
+		add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
 		owner = TUR
+		add_core_of = MAC
 		add_core_of = TUR
-		add_core_of = BUL
+		add_claim_by = BUL
 		add_claim_by = GRE
 		victory_points = { 9930 2 }
 		victory_points = { 3526 1 }
 		buildings={
-			infrastructure = 2
+			infrastructure = 1
 			9930={ naval_base=1 }
+		}
+		add_province_modifier = {
+			static_modifiers = { historical_castle }
+			province = {
+				id = 9930
+			}
 		}
 		1913.5.30 = {
 			owner = BUL

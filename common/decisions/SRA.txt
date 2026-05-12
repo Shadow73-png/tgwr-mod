@@ -610,13 +610,8 @@ RUS_civil_war = {
 		available = {
 			OR = {
 				controls_province = 6380 #moscow
-				if = {
-					limit = { 
-						is_subject = yes
-					}
-					OVERLORD = {
-						controls_province = 6380 #moscow
-					}
+				OVERLORD = {
+					controls_province = 6380 #moscow
 				}
 			}
 		}
@@ -677,7 +672,7 @@ RUS_civil_war = {
 		is_good = no
 
 		activation = {
-			always = no
+			has_country_flag = SRA_moscow_directive_phase_1
 		}
 
 		timeout_effect = {	
