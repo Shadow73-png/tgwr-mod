@@ -4075,6 +4075,39 @@ country_event = {
 	}
 }
 
+# Battle of Tiznit
+country_event = {
+	id = ww1_morocco.88
+	title = ww1_morocco.88.t
+	desc = ww1_morocco.88.d
+	picture = GFX_report_event_arab_revolt
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			tag = GUD
+			has_war_with = GUD
+		}
+	}
+	option = {
+		name = ww1_morocco.88.a
+		if = {
+			limit = { 
+				ROOT = { tag = GUD }
+			}
+			every_enemy_country = {
+				PREV = {
+					white_peace = PREV
+				}
+			}			
+		}
+		else = {	
+			effect_tooltip = {
+				GUD = { white_peace = ROOT }
+			}
+		}
+	}
+}
+
 # Death of Ma al-'Aynayn
 unit_leader_event = {
 	id = ww1_morocco.89

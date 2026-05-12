@@ -6533,9 +6533,11 @@
 					ROOT = {
 						every_character = {
 							limit = {
-								is_generic_character = no
-								NOT = {
-									is_character = MOR_harry_aubrey_de_vere_maclean
+								OR = {
+									is_generic_character = no
+									NOT = {
+										is_character = MOR_harry_aubrey_de_vere_maclean
+									}
 								}
 							}
 							set_nationality = FROM
@@ -12326,6 +12328,33 @@
 				}
 				ROOT = {
 					country_event = ww1_china.303
+				}
+			}
+			# Battle of Tiznit
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = battle_of_tiznit
+					}
+					has_start_date < 1914.1.1
+					ROOT = {
+						has_war_with = GUD
+					}
+					FROM.FROM = {
+						state = 1237
+					}
+				}
+				set_global_flag = battle_of_tiznit
+				every_country = {
+					limit = {
+						any_owned_state = {
+							region = 182
+						}
+					}
+					country_event = {
+						id = ww1_morocco.88
+						hours = 3
+					}
 				}
 			}
 		}
