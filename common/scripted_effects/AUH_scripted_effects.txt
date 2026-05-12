@@ -738,34 +738,142 @@ AUS_loyalty_max_min_calculation = {
 			AUS_cze_max_loyalty = -10
 		}
 	}
-
-
+	####################################
 	clamp_variable = {
 	    var = AUS_czechoslovak_loyalty
 	    min = AUS_cze_min_loyalty
 	    max = AUS_cze_max_loyalty
 	}
 
-
+	#Croat Clamp Calc
+	set_variable = {
+		AUS_cro_min_loyalty = 0
+	}
+	if = {
+		limit = {
+			is_great_war_ongoing = no
+		}
+		add_to_variable = {
+			AUS_cro_min_loyalty = 20
+		}
+	}
+	# add here
+	set_variable = {
+		AUS_cro_max_loyalty = 100
+	}
+	# add here sidz
 	clamp_variable = {
 	    var = AUS_croat_loyalty
 	    min = AUS_cro_min_loyalty
 	    max = AUS_cro_max_loyalty
 	}
+	####################################
+	#serb Clamp Calc
+	set_variable = {
+		AUS_ser_min_loyalty = 0
+	}
+	if = {
+		limit = {
+			is_great_war_ongoing = no
+		}
+		add_to_variable = {
+			AUS_ser_min_loyalty = 20
+		}
+	}
+	# add here
+	set_variable = {
+		AUS_ser_max_loyalty = 100
+	}
+	# add here sidz
 	clamp_variable = {
-	    var = AUS_croat_loyalty
+	    var = AUS_serb_loyalty
 	    min = AUS_ser_min_loyalty
 	    max = AUS_ser_max_loyalty
 	}
+	####################################
+	#POLES Clamp calc
+	set_variable = {
+		AUS_pol_min_loyalty = 0
+	}
+	if = {
+		limit = {
+			is_great_war_ongoing = no
+		}
+		add_to_variable = {
+			AUS_pol_min_loyalty = 20
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = AUS_pol_politically_privileged
+		}
+		add_to_variable = {
+			AUS_pol_min_loyalty = 20
+		}
+	}
+
+	set_variable = {
+		AUS_pol_max_loyalty = 100
+	}
+	if = {
+		limit = {
+			has_country_flag = AUS_pol_ambitions
+		}
+		add_to_variable = {
+			AUS_pol_max_loyalty = -20
+		}
+	}
+
 	clamp_variable = {
 	    var = AUS_pole_loyalty
 	    min = AUS_pol_min_loyalty
 	    max = AUS_pol_max_loyalty
 	}
+	####################################
+	set_variable = {
+		AUS_ukr_min_loyalty = 0
+	}
+	if = {
+		limit = {
+			is_great_war_ongoing = no
+		}
+		add_to_variable = {
+			AUS_pol_min_loyalty = 20
+		}
+	}
+
+	set_variable = {
+		AUS_ukr_max_loyalty = 100
+	}
+	if = {
+		limit = {
+			has_country_flag = AUS_ukr_underrepresented
+		}
+		add_to_variable = {
+			AUS_ukr_max_loyalty = -30
+		}
+	}
+
 	clamp_variable = {
 	    var = AUS_ruthenian_loyalty
 	    min = AUS_ukr_min_loyalty
 	    max = AUS_ukr_max_loyalty
+	}
+	####################################
+	set_variable = {
+		AUS_rom_min_loyalty = 0
+	}
+	if = {
+		limit = {
+			is_great_war_ongoing = no
+		}
+		add_to_variable = {
+			AUS_rom_min_loyalty = 20
+		}
+	}
+
+	set_variable = {
+		AUS_rom_max_loyalty = 100
 	}
 	clamp_variable = {
 	    var = AUS_romanian_loyalty
