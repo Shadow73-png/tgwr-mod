@@ -11229,6 +11229,7 @@
 			log = "[GetDateText]: [ROOT.GetName] has changed ruling party from [ROOT.old_ideology_token] to [ROOT.GetRulingIdeologyName]"
 		}
 	}
+	#FROM is faction leader, ROOT and THIS are the country that joins.
 	on_join_faction = {
 		effect = {
 			if = {
@@ -11443,6 +11444,18 @@
 					news_event = { id = kis_news.113 hours = 1 }
 				}			
 			}
+			if = {
+				limit = {
+					FROM = { has_country_flag = entente_leader }
+				}
+				set_country_flag = entente_member
+			}
+			if = {
+				limit = {
+					FROM = { has_country_flag = central_powers_leader }
+				}
+				set_country_flag = central_powers_member
+			}
 			every_subject_country = {
 				if = {
 					limit = {
@@ -11464,6 +11477,7 @@
 			log = "[GetDateText]: [ROOT.GetName] has joined [FROM.GetFactionName] which leader is [FROM.GetName]"
 		}
 	}
+	#FROM is the faction Leader, ROOT is the country leaving the faction
 	on_leave_faction = {
 		effect = {
 			if = {
@@ -11512,12 +11526,15 @@
 			}
 			if = {
 				limit = {
-					has_country_flag = entente_leader
+					has_country_flag = entente_member
 				}
-				clr_country_flag = entente_leader
-				FROM = {
-					set_country_flag = entente_leader
+				clr_country_flag = entente_member
+			}
+			if = {
+				limit = {
+					has_country_flag = central_powers_member
 				}
+				clr_country_flag = central_powers_member
 			}
 			log = "[GetDateText]: [ROOT.GetName] has left [FROM.GetFactionName] which leader is [FROM.GetName]"
 		}
