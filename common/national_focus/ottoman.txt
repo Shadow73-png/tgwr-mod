@@ -8772,8 +8772,8 @@ focus_tree = {
 
 				TUR_set_old_jewish_value = yes
 				set_temp_variable = { TUR_ittihat_i_anasir_jewish = old_jewish_value }
-				divide_temp_variable = { TUR_ittihat_i_anasir_jewish = TUR_apostolic_population_factor_new }
-				set_temp_variable = { TUR_jewish_population_factor_focus = TUR_apostolic_population_factor_new }
+				divide_temp_variable = { TUR_ittihat_i_anasir_jewish = TUR_judaic_population_factor_new }
+				set_temp_variable = { TUR_jewish_population_factor_focus = TUR_judaic_population_factor_new }
 				add_to_temp_variable = { TUR_jewish_population_factor_focus = -0.3 }
 				multiply_temp_variable = { TUR_ittihat_i_anasir_jewish = TUR_jewish_population_factor_focus }
 
@@ -8814,6 +8814,7 @@ focus_tree = {
 			add_to_variable = { TUR_sunni_population_factor_new = 0.2 }
 			add_to_variable = { TUR_shia_population_factor_new = 0.2 }
 			add_to_variable = { TUR_orthodox_population_factor_new = -0.3 }
+			add_to_variable = { TUR_judaic_population_factor_new = -0.3 }
 			add_to_variable = { TUR_apostolic_population_factor_new = -0.3 }
 			add_to_variable = { TUR_syriac_population_factor_new = -0.3 }
 			add_to_variable = { TUR_catholic_population_factor_new = -0.3 }
@@ -17558,8 +17559,8 @@ focus_tree = {
 								has_state_flag = TUR_jerusalem
 							}
 						}
-						set_variable = { TUR_syria_resistance = THIS.resistance }
-						set_variable = { TUR_syria_compliance = THIS.compliance }
+						set_temp_variable = { TUR_syria_resistance = THIS.resistance }
+						set_temp_variable = { TUR_syria_compliance = THIS.compliance }
 						if = {
 							limit = { is_core_of = TUR }
 							add_core_of = TRS
@@ -17604,6 +17605,7 @@ focus_tree = {
 							set_occupation_law = local_police_force_garrison
 							set_resistance = TUR_syria_resistance
 							set_compliance = TUR_syria_compliance
+							set_garrison_strength = 1
 						}
 						clear_variable = TUR_syria_resistance
 						clear_variable = TUR_syria_compliance
@@ -17820,6 +17822,9 @@ focus_tree = {
 					set_variable = { TUR_ci_research_speed_factor = -0.35 }
 					set_variable = { TUR_ci_industrial_capacity_factory = -0.15 }
 
+					set_variable = { TUR_sublime_realm_variable = 0 }
+					set_variable = { TUR_sublime_realm_pp_variable = 0 }
+
 					set_variable = { TUR_armenian_population_factor_new = PREV.TUR_armenian_population_factor_new }
 					set_variable = { TUR_greek_population_factor_new = PREV.TUR_greek_population_factor_new }
 					set_variable = { TUR_jewish_population_factor_new = PREV.TUR_jewish_population_factor_new }
@@ -17840,25 +17845,17 @@ focus_tree = {
 					set_variable = { TUR_shia_population_factor_new = PREV.TUR_shia_population_factor_new }
 					set_variable = { TUR_catholic_population_factor_new = PREV.TUR_catholic_population_factor_new }
 
-					multiply_variable = { TUR_armenian_population_factor_new = 6 }
-					multiply_variable = { TUR_greek_population_factor_new = 6 }
-					multiply_variable = { TUR_jewish_population_factor_new = 6 }
-					multiply_variable = { TUR_arab_population_factor_new = 6 }
-					multiply_variable = { TUR_bulgarian_population_factor_new = 6 }
-					multiply_variable = { TUR_albanian_population_factor_new = 6 }
-					multiply_variable = { TUR_serbian_population_factor_new = 6 }
-					multiply_variable = { TUR_kurdish_population_factor_new = 6 }
-					multiply_variable = { TUR_assyrian_population_factor_new = 6 }
-					multiply_variable = { TUR_georgian_population_factor_new = 6 }
-					multiply_variable = { TUR_turkish_population_factor_new = 6 }
-
-					multiply_variable = { TUR_sunni_population_factor_new = 6 }
-					multiply_variable = { TUR_orthodox_population_factor_new = 6 }
-					multiply_variable = { TUR_apostolic_population_factor_new = 6 }
-					multiply_variable = { TUR_judaic_population_factor_new = 6 }
-					multiply_variable = { TUR_syriac_population_factor_new = 6 }
-					multiply_variable = { TUR_shia_population_factor_new = 6 }
-					multiply_variable = { TUR_catholic_population_factor_new = 6 }
+					multiply_variable = { TUR_armenian_population_factor_new = 4 }
+					multiply_variable = { TUR_greek_population_factor_new = 4 }
+					multiply_variable = { TUR_jewish_population_factor_new = 4 }
+					multiply_variable = { TUR_arab_population_factor_new = 4 }
+					multiply_variable = { TUR_bulgarian_population_factor_new = 4 }
+					multiply_variable = { TUR_albanian_population_factor_new = 4 }
+					multiply_variable = { TUR_serbian_population_factor_new = 4 }
+					multiply_variable = { TUR_kurdish_population_factor_new = 4 }
+					multiply_variable = { TUR_assyrian_population_factor_new = 4 }
+					multiply_variable = { TUR_georgian_population_factor_new = 4 }
+					multiply_variable = { TUR_turkish_population_factor_new = 4 }
 
 					add_dynamic_modifier = { modifier = neutrality_party_popularity }
 					add_dynamic_modifier = { modifier = democratic_party_popularity }
