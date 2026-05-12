@@ -6261,6 +6261,46 @@ focus_tree = {
 			}
 		}
 	 }
+	 #Cut Welfare Programs
+	 focus = {
+		id = HUN_cut_welfare_programs
+		icon = GFX_focus_rom_parties_end
+		cost = 2
+		relative_position_id = HUN_secure_grain
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		prerequisite = {
+			focus = HUN_secure_grain
+		}
+		prerequisite = {
+			focus = HUN_village_police
+		}
+		completion_reward = { 
+			add_stability = -0.05
+			add_war_support = -0.02
+			add_to_variable = {
+				HUN_food_stab_var = 15
+				tooltip = HUN_food_var_plus_15.tt
+			}
+			add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 225
+			}
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = -50
+			}
+		}
+	 }
 	 #Subsidize Agriculture
 	 focus = {
 		id = HUN_subsidize_agriculture_works
@@ -6499,46 +6539,6 @@ focus_tree = {
 			add_to_variable = {
 				HUN_eco_stab = 0.01
 				tooltip = stability_factor_tt
-			}
-		}
-	 }
-	 #Cut Welfare Programs
-	 focus = {
-		id = HUN_cut_welfare_programs
-		icon = GFX_focus_rom_parties_end
-		cost = 2
-		relative_position_id = HUN_secure_grain
-		x = 1
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_INDUSTRY
-			FOCUS_FILTER_POLITICAL
-		}
-		available = {
-			has_war_with_major = yes
-		}
-		prerequisite = {
-			focus = HUN_secure_grain
-		}
-		prerequisite = {
-			focus = HUN_village_police
-		}
-		completion_reward = { 
-			add_stability = -0.05
-			add_war_support = -0.02
-			add_to_variable = {
-				HUN_food_stab_var = 15
-				tooltip = HUN_food_var_plus_15.tt
-			}
-			add_days_mission_timeout = {
-				mission = HUN_fading_food_stability_mission
-				days = 225
-			}
-			add_days_mission_timeout = {
-				mission = HUN_great_war_discontent_mission
-				days = -50
 			}
 		}
 	 }
