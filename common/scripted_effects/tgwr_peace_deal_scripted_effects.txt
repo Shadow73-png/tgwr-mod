@@ -1909,6 +1909,7 @@ armistice_effect = {
 					owns_state = 184
 					owns_state = 200
 					owns_state = 345
+					owns_state = 1255
 					owns_state = 757
 				}
 			}
@@ -1936,6 +1937,7 @@ armistice_effect = {
 						OR = {
 							state = 184
 							state = 345
+							state = 1255
 						}
 					}
 					transfer_state_to = PREV
@@ -2008,6 +2010,16 @@ armistice_effect = {
 				every_state = {
 					limit = { is_claimed_by = PREV }
 					remove_claim_by = PREV
+				}
+				every_state = {
+					limit = { has_contested_owner = PREV }
+					remove_contested_owner = PREV
+					if = {
+						limit = {
+							NOT = { is_owned_by = GRM }
+						}
+						add_contested_owner = GRM
+					}
 				}
 			}
 			if = {
@@ -4262,21 +4274,9 @@ conference_effect = {
 						country_exists = TRP
 					}
 					TUR = {
-						set_autonomy = {
+						annex_country = {
 							target = TRP
-							autonomy_state = autonomy_tgwr_ottoman_emirate
-						}
-					}
-					TRP = {
-						set_politics = {
-							ruling_party = neutrality
-							elections_allowed = no
-						}
-						set_popularities = {
-							democratic = 0
-							fascism = 17
-							communism = 0
-							neutrality = 83
+							transfer_troops = no
 						}
 					}
 				}
@@ -5386,6 +5386,36 @@ conference_effect = {
 		}
 		else = {
 			345 = { set_state_flag = dont_transfer }
+			1256 = { set_state_flag = dont_transfer }
+		}
+	}
+	if = {
+		limit = {
+			1255 = {
+				OWNER = {
+					has_country_flag = great_war_loser
+				}
+			}
+		}
+		if = {
+			limit = {
+				BUL = { has_country_flag = great_war_winner }
+				OR = {
+					BUL = { has_completed_focus = BUL_claim_salonika }
+					has_global_flag = greek_defeated_in_ww1
+				}
+			}
+			BUL = { transfer_state = 1255 }
+		}
+		else_if = {
+			limit = {
+				TUR = { has_country_flag = great_war_winner }
+				has_global_flag = greek_defeated_in_ww1
+			}
+			TUR = { transfer_state = 1255 }
+		}
+		else = {
+			1255 = { set_state_flag = dont_transfer }
 		}
 	}
 	if = {

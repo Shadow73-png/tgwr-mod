@@ -1,91 +1,34 @@
-TUR_has_minority_system = {
-	OR = {
-		has_dynamic_modifier = { modifier = TUR_sublime_realm }
-		has_dynamic_modifier = { modifier = ALB_sublime_realm }
-		has_dynamic_modifier = { modifier = ARM_sublime_realm }
+TUR_is_controlled_armenian_state = {
+	custom_trigger_tooltip = {
+		tooltip = TUR_is_controlled_armenian_state
+		has_state_flag = TUR_armenian_uprising_state
+		OR = {		
+            is_controlled_by = TUR
+			is_controlled_by = OTT
+		}	
 	}
 }
-
-TUR_is_controlled_by_us_or_committee_government = {
-	OR = {
-		is_controlled_by = ROOT
-		custom_trigger_tooltip = {
-			tooltip = TUR_is_controlled_by_committee_government_of_ROOT
-			controller = {
-				is_subject_of = ROOT
-				has_autonomy_state = autonomy_tgwr_ottoman_committee_government
-			}
-		}
-	}
-}
-
-TUR_is_controlled_by_us_or_autonomous_vilayet_committee_government = {
-	OR = {
-		is_controlled_by = ROOT
-		custom_trigger_tooltip = {
-			tooltip = TUR_is_controlled_by_autonomous_vilayet_committee_government_of_ROOT
-			controller = {
-				is_subject_of = ROOT
-				OR = {
-					has_autonomy_state = autonomy_tgwr_ottoman_autonomous_vilayet
-					has_autonomy_state = autonomy_tgwr_ottoman_committee_government
-				}
-			}
-		}
-	}
-}
-
-
-TUR_is_owned_by_us_or_committee_government = {
-	OR = {
-		is_owned_by = ROOT
-		custom_trigger_tooltip = {
-			tooltip = TUR_is_owned_by_committee_government_of_ROOT
-			AND = {
-				is_owned_by = TRS
-				TRS = {
-					is_subject_of = ROOT
-					has_autonomy_state = autonomy_tgwr_ottoman_committee_government
-				}
-			}
-		}
-	}
-}
-
-TUR_is_owned_by_us_or_autonomous_vilayet_committee_government = {
-	OR = {
-		is_owned_by = ROOT
-		custom_trigger_tooltip = {
-			tooltip = TUR_is_owned_by_autonomous_vilayet_committee_government_of_ROOT
-			OR = {
-				AND = {
-					is_owned_by = TRS
-					TRS = {
-						is_subject_of = ROOT
-						OR = {
-							has_autonomy_state = autonomy_tgwr_ottoman_autonomous_vilayet
-							has_autonomy_state = autonomy_tgwr_ottoman_committee_government
-						}
+TUR_has_minority_state_modifier = {
+	custom_trigger_tooltip = {
+		tooltip = TUR_has_minority_state_modifier_tt
+		all_state = {
+			if = {
+				limit = {
+					NOT = {
+						is_owned_by = TUR 
+						is_owned_by = OTT 
 					}
-				}
-				AND = {
-					is_owned_by = ALB
-					ALB = {
-						is_subject_of = ROOT
-						OR = {
-							has_autonomy_state = autonomy_tgwr_ottoman_autonomous_vilayet
-							has_autonomy_state = autonomy_tgwr_ottoman_committee_government
-						}
-					}
-				}
-				AND = {
-					is_owned_by = ARM
-					ARM = {
-						is_subject_of = ROOT
-						OR = {
-							has_autonomy_state = autonomy_tgwr_ottoman_autonomous_vilayet
-							has_autonomy_state = autonomy_tgwr_ottoman_committee_government
-						}
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_arab_minority }
+						has_dynamic_modifier = { modifier = TUR_greek_minority }
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+						has_dynamic_modifier = { modifier = TUR_kurd_minority }
+						has_dynamic_modifier = { modifier = TUR_southslav_minority }
+						has_dynamic_modifier = { modifier = TUR_albanian_minority }
+						has_dynamic_modifier = { modifier = TUR_georgian_minority }
+						has_dynamic_modifier = { modifier = TUR_romanian_minority }
+						has_dynamic_modifier = { modifier = TUR_assyrian_minority }
+						has_dynamic_modifier = { modifier = TUR_turkish_minority }
 					}
 				}
 			}
@@ -93,450 +36,812 @@ TUR_is_owned_by_us_or_autonomous_vilayet_committee_government = {
 	}
 }
 
-TUR_state_has_minority = {
-	OR = {
-		check_variable = { TUR_armenian_state_level > 0 }
-		check_variable = { TUR_greek_state_level > 0 }
-		check_variable = { TUR_arab_state_level > 0 }
-		check_variable = { TUR_jewish_state_level > 0 }
-		check_variable = { TUR_bulgarian_state_level > 0 }
-		check_variable = { TUR_albanian_state_level > 0 }
-		check_variable = { TUR_serbian_state_level > 0 }
-		check_variable = { TUR_kurdish_state_level > 0 }
-		check_variable = { TUR_assyrian_state_level > 0 }
-		check_variable = { TUR_georgian_state_level > 0 }
-		check_variable = { TUR_turkish_state_level > 0 }
-	}
-}
-
-TUR_state_has_christian_minority = {
-	OR = {
-		check_variable = { TUR_greek_orthodox_state_level > 0 }
-		check_variable = { TUR_arab_orthodox_state_level > 0 }
-		check_variable = { TUR_bulgarian_orthodox_state_level > 0 }
-		check_variable = { TUR_albanian_orthodox_state_level > 0 }
-		check_variable = { TUR_serbian_orthodox_state_level > 0 }
-		check_variable = { TUR_romanian_orthodox_state_level > 0 }
-		check_variable = { TUR_georgian_orthodox_state_level > 0 }
-		check_variable = { TUR_armenian_apostolic_state_level > 0 }
-		check_variable = { TUR_assyrian_syriac_state_level > 0 }
-		check_variable = { TUR_arab_catholic_state_level > 0 }
-		check_variable = { TUR_albanian_catholic_state_level > 0 }
-		check_variable = { TUR_serbian_orthodox_state_level > 0 }
-	}
-}
-
-TUR_state_has_minority_modifier = {
+TUR_state_has_anyminority_modifier = {
 	OR = {
 		has_dynamic_modifier = { modifier = TUR_arab_minority }
 		has_dynamic_modifier = { modifier = TUR_greek_minority }
-		has_dynamic_modifier = { modifier = TUR_jewish_minority }
 		has_dynamic_modifier = { modifier = TUR_armenian_minority }
-		has_dynamic_modifier = { modifier = TUR_kurdish_minority }
-		has_dynamic_modifier = { modifier = TUR_bulgarian_minority }
+		has_dynamic_modifier = { modifier = TUR_kurd_minority }
+		has_dynamic_modifier = { modifier = TUR_southslav_minority }
 		has_dynamic_modifier = { modifier = TUR_albanian_minority }
-		has_dynamic_modifier = { modifier = TUR_serbian_minority }
 		has_dynamic_modifier = { modifier = TUR_georgian_minority }
+		has_dynamic_modifier = { modifier = TUR_romanian_minority }
 		has_dynamic_modifier = { modifier = TUR_assyrian_minority }
 		has_dynamic_modifier = { modifier = TUR_turkish_minority }
 	}
 }
 
-TUR_state_has_christian_minority_modifier = {
-	TUR_state_has_christian_minority = yes
-	TUR_state_has_minority_modifier = yes
+TUR_has_harbiyeli_officers = {
+	OR = {
+		has_idea = TUR_harbiyeli_officers_powerful_loyal
+		has_idea = TUR_harbiyeli_officers_powerful_neutral
+		has_idea = TUR_harbiyeli_officers_powerful_disloyal
+		has_idea = TUR_harbiyeli_officers_extended_power_loyal
+		has_idea = TUR_harbiyeli_officers_extended_power_neutral
+		has_idea = TUR_harbiyeli_officers_extended_power_disloyal
+		has_idea = TUR_harbiyeli_officers_limited_power_loyal
+		has_idea = TUR_harbiyeli_officers_limited_power_neutral
+		has_idea = TUR_harbiyeli_officers_limited_power_disloyal
+		has_idea = TUR_harbiyeli_officers_decreased_power_loyal
+		has_idea = TUR_harbiyeli_officers_decreased_power_neutral
+		has_idea = TUR_harbiyeli_officers_decreased_power_disloyal
+		has_idea = TUR_harbiyeli_officers_minimal_power_loyal
+		has_idea = TUR_harbiyeli_officers_minimal_power_neutral
+		has_idea = TUR_harbiyeli_officers_minimal_power_disloyal
+	}
 }
 
 TUR_has_former_minority_state_modifier = {
-	TUR_state_has_minority_modifier = no
-	TUR_state_has_minority = yes
-}
-
-TUR_state_has_minority_stability_factor = {
-	OR = {
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_armenian_minority }
-			NOT = { check_variable = { TUR_armenian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_greek_minority }
-			NOT = { check_variable = { TUR_greek_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_arab_minority }
-			NOT = { check_variable = { TUR_arab_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_jewish_minority }
-			NOT = { check_variable = { TUR_jewish_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_bulgarian_minority }
-			NOT = { check_variable = { TUR_bulgarian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_albanian_minority }
-			NOT = { check_variable = { TUR_albanian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_serbian_minority }
-			NOT = { check_variable = { TUR_serbian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_kurdish_minority }
-			NOT = { check_variable = { TUR_kurdish_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_assyrian_minority }
-			NOT = { check_variable = { TUR_assyrian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_georgian_minority }
-			NOT = { check_variable = { TUR_georgian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_turkish_minority }
-			NOT = { check_variable = { TUR_turkish_population_stability_factor = 0 } }
-		}
-	}
-}
-
-TUR_state_has_minority_war_support_factor = {
-	OR = {
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_armenian_minority }
-			NOT = { check_variable = { TUR_armenian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_greek_minority }
-			NOT = { check_variable = { TUR_greek_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_arab_minority }
-			NOT = { check_variable = { TUR_arab_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_jewish_minority }
-			NOT = { check_variable = { TUR_jewish_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_bulgarian_minority }
-			NOT = { check_variable = { TUR_bulgarian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_albanian_minority }
-			NOT = { check_variable = { TUR_albanian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_serbian_minority }
-			NOT = { check_variable = { TUR_serbian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_kurdish_minority }
-			NOT = { check_variable = { TUR_kurdish_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_assyrian_minority }
-			NOT = { check_variable = { TUR_assyrian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_georgian_minority }
-			NOT = { check_variable = { TUR_georgian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_turkish_minority }
-			NOT = { check_variable = { TUR_turkish_population_war_support_factor = 0 } }
-		}
-	}
-}
-
-TUR_state_has_minority_mtth = {
-	TUR_is_controlled_by_us_or_committee_government = yes
-	OR = {
-		has_dynamic_modifier = { modifier = TUR_arab_minority }
-		has_dynamic_modifier = { modifier = TUR_greek_minority }
-		has_dynamic_modifier = { modifier = TUR_jewish_minority }
-		has_dynamic_modifier = { modifier = TUR_armenian_minority }
-		has_dynamic_modifier = { modifier = TUR_kurdish_minority }
-		has_dynamic_modifier = { modifier = TUR_bulgarian_minority }
-		has_dynamic_modifier = { modifier = TUR_albanian_minority }
-		has_dynamic_modifier = { modifier = TUR_serbian_minority }
-		has_dynamic_modifier = { modifier = TUR_georgian_minority }
-		has_dynamic_modifier = { modifier = TUR_assyrian_minority }
-		has_dynamic_modifier = { modifier = TUR_turkish_minority }
-	}
-}
-
-TUR_state_has_autonomy_modifier = {
-	OR = {
-		has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
-		has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-		has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
-	}
-}
-
-TUR_state_has_autonomy_lebanon_mtth = {
-	TUR_is_controlled_by_us_or_committee_government = yes
-	has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
-}
-TUR_state_has_autonomy_mtth = {
-	TUR_is_controlled_by_us_or_committee_government = yes
-	has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-}
-TUR_state_has_semi_autonomy_mtth = {
-	TUR_is_controlled_by_us_or_committee_government = yes
-	has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
-}
-
-TUR_revolt_decision_trigger = {
-	OR = {
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_armenian_minority } } }
-			has_dynamic_modifier = { modifier = TUR_armenian_minority }
-		}
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_greek_minority } } }
-			has_dynamic_modifier = { modifier = TUR_greek_minority }
-		}
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_bulgarian_minority } } }
-			has_dynamic_modifier = { modifier = TUR_bulgarian_minority }
-		}
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_jewish_minority } } }
-			has_dynamic_modifier = { modifier = TUR_jewish_minority }
-		}
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_serbian_minority } } }
-			has_dynamic_modifier = { modifier = TUR_serbian_minority }
-		}
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_arab_minority } } }
-			has_dynamic_modifier = { modifier = TUR_arab_minority }
-		}
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_albanian_minority } } }
-			has_dynamic_modifier = { modifier = TUR_albanian_minority }
-		}
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_kurdish_minority } } }
-			has_dynamic_modifier = { modifier = TUR_kurdish_minority }
-		}
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_assyrian_minority } } }
-			has_dynamic_modifier = { modifier = TUR_assyrian_minority }
-		}
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_georgian_minority } } }
-			has_dynamic_modifier = { modifier = TUR_georgian_minority }
-		}
-		if = {
-			limit = { any_state = { has_dynamic_modifier = { modifier = TUR_turkish_minority } } }
-			has_dynamic_modifier = { modifier = TUR_turkish_minority }
-		}
-	}
-}
-
-TUR_is_committee_government_focus = {
-	original_tag = TUR
-	OR = {
-		any_country = {
-			has_autonomy_state = autonomy_tgwr_ottoman_committee_government
-			ROOT = { has_subject = PREV }
-		}
-		has_autonomy_state = autonomy_tgwr_ottoman_committee_government
-	}
-}
-
-TUR_has_mehmed_V = {
 	custom_trigger_tooltip = {
-		tooltip = TUR_has_mehmed_V
+		tooltip = TUR_has_former_minority_state_modifier_tt
+		any_state = {
+			if = {
+				limit = {
+					AND = {
+					    OR = {
+							is_owned_by = TUR
+							is_owned_by = OTT
+						}
+						OR = {
+							AND = {
+								has_state_flag = TUR_arab_state
+								has_state_flag = TUR_arab_state_nocontrol
+							}
+							AND = {
+								has_state_flag = TUR_greek_state
+								has_state_flag = TUR_greek_state_nocontrol
+							}
+							AND = {
+								has_state_flag = TUR_armenian_state
+								has_state_flag = TUR_armenian_state_nocontrol
+							}
+							AND = {
+								has_state_flag = TUR_kurd_state
+								has_state_flag = TUR_kurd_state_nocontrol
+							}
+							AND = {
+								has_state_flag = TUR_southslav_state
+								has_state_flag = TUR_southslav_state_nocontrol
+							}
+							AND = {
+								has_state_flag = TUR_albanian_state
+								has_state_flag = TUR_albanian_state_nocontrol
+							}
+							AND = {
+								has_state_flag = TUR_georgian_state
+								has_state_flag = TUR_georgian_state_nocontrol
+							}
+							AND = {
+								has_state_flag = TUR_romanian_state
+								has_state_flag = TUR_romanian_state_nocontrol
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+is_TUR_armenian_state = {
+	custom_trigger_tooltip = {
+		tooltip = is_TUR_armenian_state_tt
 		OR = {
-			has_idea = TUR_mehmed_V
-			has_idea = TUR_mehmed_V_1
-			has_idea = TUR_mehmed_V_1_c1
-			has_idea = TUR_mehmed_V_1_c2
-			has_idea = TUR_mehmed_V_1_c3
-			has_idea = TUR_mehmed_V_1_c4
-			has_idea = TUR_mehmed_V_1_c5
-			has_idea = TUR_mehmed_V_1_advisor
-			has_idea = TUR_mehmed_V_1_advisor_c1
-			has_idea = TUR_mehmed_V_1_advisor_c2
-			has_idea = TUR_mehmed_V_1_advisor_c3
-			has_idea = TUR_mehmed_V_1_advisor_c4
-			has_idea = TUR_mehmed_V_1_advisor_c5
-			has_idea = TUR_mehmed_V_1_army
-			has_idea = TUR_mehmed_V_1_army_c1
-			has_idea = TUR_mehmed_V_1_army_c2
-			has_idea = TUR_mehmed_V_1_army_c3
-			has_idea = TUR_mehmed_V_1_army_c4
-			has_idea = TUR_mehmed_V_1_army_c5
-			has_idea = TUR_mehmed_V_1_popular
-			has_idea = TUR_mehmed_V_1_popular_c1
-			has_idea = TUR_mehmed_V_1_popular_c2
-			has_idea = TUR_mehmed_V_1_popular_c3
-			has_idea = TUR_mehmed_V_1_popular_c4
-			has_idea = TUR_mehmed_V_1_popular_c5
-			has_idea = TUR_mehmed_V_1_popular_foreign_affairs
-			has_idea = TUR_mehmed_V_1_popular_foreign_affairs_c1
-			has_idea = TUR_mehmed_V_1_popular_foreign_affairs_c2
-			has_idea = TUR_mehmed_V_1_popular_foreign_affairs_c3
-			has_idea = TUR_mehmed_V_1_popular_foreign_affairs_c4
-			has_idea = TUR_mehmed_V_1_popular_foreign_affairs_c5
-			has_idea = TUR_mehmed_V_1_foreign_affairs
-			has_idea = TUR_mehmed_V_1_foreign_affairs_c1
-			has_idea = TUR_mehmed_V_1_foreign_affairs_c2
-			has_idea = TUR_mehmed_V_1_foreign_affairs_c3
-			has_idea = TUR_mehmed_V_1_foreign_affairs_c4
-			has_idea = TUR_mehmed_V_1_foreign_affairs_c5
-			has_idea = TUR_mehmed_V_1_advisor_army
-			has_idea = TUR_mehmed_V_1_advisor_army_c1
-			has_idea = TUR_mehmed_V_1_advisor_army_c2
-			has_idea = TUR_mehmed_V_1_advisor_army_c3
-			has_idea = TUR_mehmed_V_1_advisor_army_c4
-			has_idea = TUR_mehmed_V_1_advisor_army_c5
-			has_idea = TUR_mehmed_V_1_advisor_popular
-			has_idea = TUR_mehmed_V_1_advisor_popular_c1
-			has_idea = TUR_mehmed_V_1_advisor_popular_c2
-			has_idea = TUR_mehmed_V_1_advisor_popular_c3
-			has_idea = TUR_mehmed_V_1_advisor_popular_c4
-			has_idea = TUR_mehmed_V_1_advisor_popular_c5
-			has_idea = TUR_mehmed_V_1_advisor_foreign_affairs
-			has_idea = TUR_mehmed_V_1_advisor_foreign_affairs_c1
-			has_idea = TUR_mehmed_V_1_advisor_foreign_affairs_c2
-			has_idea = TUR_mehmed_V_1_advisor_foreign_affairs_c3
-			has_idea = TUR_mehmed_V_1_advisor_foreign_affairs_c4
-			has_idea = TUR_mehmed_V_1_advisor_foreign_affairs_c5
-			has_idea = TUR_mehmed_V_1_army_popular
-			has_idea = TUR_mehmed_V_1_army_popular_c1
-			has_idea = TUR_mehmed_V_1_army_popular_c2
-			has_idea = TUR_mehmed_V_1_army_popular_c3
-			has_idea = TUR_mehmed_V_1_army_popular_c4
-			has_idea = TUR_mehmed_V_1_army_popular_c5
-			has_idea = TUR_mehmed_V_1_army_foreign_affairs
-			has_idea = TUR_mehmed_V_1_army_foreign_affairs_c1
-			has_idea = TUR_mehmed_V_1_army_foreign_affairs_c2
-			has_idea = TUR_mehmed_V_1_army_foreign_affairs_c3
-			has_idea = TUR_mehmed_V_1_army_foreign_affairs_c4
-			has_idea = TUR_mehmed_V_1_army_foreign_affairs_c5
-			has_idea = TUR_mehmed_V_1_advisor_army_popular
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_c1
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_c2
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_c3
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_c4
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_c5
-			has_idea = TUR_mehmed_V_1_advisor_army_foreign_affairs
-			has_idea = TUR_mehmed_V_1_advisor_army_foreign_affairs_c1
-			has_idea = TUR_mehmed_V_1_advisor_army_foreign_affairs_c2
-			has_idea = TUR_mehmed_V_1_advisor_army_foreign_affairs_c3
-			has_idea = TUR_mehmed_V_1_advisor_army_foreign_affairs_c4
-			has_idea = TUR_mehmed_V_1_advisor_army_foreign_affairs_c5
-			has_idea = TUR_mehmed_V_1_advisor_popular_foreign_affairs
-			has_idea = TUR_mehmed_V_1_advisor_popular_foreign_affairs_c1
-			has_idea = TUR_mehmed_V_1_advisor_popular_foreign_affairs_c2
-			has_idea = TUR_mehmed_V_1_advisor_popular_foreign_affairs_c3
-			has_idea = TUR_mehmed_V_1_advisor_popular_foreign_affairs_c4
-			has_idea = TUR_mehmed_V_1_advisor_popular_foreign_affairs_c5
-			has_idea = TUR_mehmed_V_1_army_popular_foreign_affairs
-			has_idea = TUR_mehmed_V_1_army_popular_foreign_affairs_c1
-			has_idea = TUR_mehmed_V_1_army_popular_foreign_affairs_c2
-			has_idea = TUR_mehmed_V_1_army_popular_foreign_affairs_c3
-			has_idea = TUR_mehmed_V_1_army_popular_foreign_affairs_c4
-			has_idea = TUR_mehmed_V_1_army_popular_foreign_affairs_c5
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_foreign_affairs
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_foreign_affairs_c1
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_foreign_affairs_c2
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_foreign_affairs_c3
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_foreign_affairs_c4
-			has_idea = TUR_mehmed_V_1_advisor_army_popular_foreign_affairs_c5
+			state = 353
+			state = 352
+			state = 1022
+			state = 806
+			state = 787
+			state = 230
+			state = 818
+			state = 349
+			state = 348
+			state = 1025
+			state = 1024
+			state = 938
+			state = 939
+			state = 816
 		}
 	}
 }
-
-TRS_has_arab_opposition = {
+is_TUR_armenian_uprising_state = {
 	custom_trigger_tooltip = {
-		tooltip = TUR_has_arab_opposition
+		tooltip = is_TUR_armenian_uprising_state_tt
 		OR = {
-			has_idea = TRS_arab_opposition_0
-			has_idea = TRS_arab_opposition_1
-			has_idea = TRS_arab_opposition_2
-			has_idea = TRS_arab_opposition_3
-			has_idea = TRS_arab_opposition_4
-			has_idea = TRS_arab_opposition_5
-			has_idea = TRS_arab_opposition_6
-			has_idea = TRS_arab_opposition_7
-			has_idea = TRS_arab_opposition_8
-			has_idea = TRS_arab_opposition_9
-			has_idea = TRS_arab_opposition_10
+			state = 353
+			state = 352
+			state = 1022
+			state = 816
+			state = 806
+			state = 787
+			state = 230
+			state = 818
+			state = 938
+			state = 939
 		}
 	}
 }
-
-TUR_has_land_connection = {
+is_TUR_arab_state = {
 	custom_trigger_tooltip = {
-		tooltip = TUR_has_land_connection_tt
-		can_build_railway = {
-			start_state = ROOT.capital
-			target_state = FROM.capital
-			build_only_on_allied = yes
-		}
-	}
-}
-
-TUR_has_land_connection_GER = {
-	custom_trigger_tooltip = {
-		tooltip = TUR_has_land_connection_GER_tt
-		can_build_railway = {
-			start_state = ROOT.capital
-			target_state = GER.capital
-			build_only_on_allied = yes
-		}
-	}
-}
-
-TUR_has_army_factionalism = {
-	custom_trigger_tooltip = {
-		tooltip = TUR_has_army_factionalism_tt
+		tooltip = is_TUR_arab_state_tt
 		OR = {
-			has_idea = TUR_army_factionalism_seesh
-			has_idea = TUR_army_factionalism_0
-			has_idea = TUR_army_factionalism_1
-			has_idea = TUR_army_factionalism_2
-			has_idea = TUR_army_factionalism_3
-			has_idea = TUR_army_factionalism_4
+			state = 680
+			state = 1029
+			state = 1023
+			state = 857
+			state = 852
+			state = 859
+			state = 856
+			state = 858
+			state = 1021
+			state = 804
+			state = 291
+			state = 874
+			state = 885
+			state = 886
+			state = 677
+			state = 554
+			state = 454
+			state = 455
+			state = 679
+			state = 878
+			state = 676
+			state = 853
+			state = 747
+			state = 662
+			state = 654
+			state = 293
+			state = 448
+			state = 661
+			state = 1157
+			state = 1154
+			state = 1155
+			state = 663
+			state = 1156
+			state = 450
+			state = 273
+			state = 1122
+			state = 1124
+			state = 1128
+			state = 567
+			state = 1123
+			state = 831
+			state = 832
+			state = 675
+			state = 791
+			state = 292
+			state = 678
+			state = 659
+			state = 294
+			state = 882
+			state = 658
+			state = 765
+			state = 656
+			state = 413
+			state = 1246
+			state = 453
+			state = 1207
+			state = 447
+			state = 446
+			state = 452
+			state = 457
+			state = 456
+			state = 1129
+			state = 1132
+			state = 1133
+			state = 551
+			state = 552
+			state = 1131
+			state = 810
+			state = 754
+			state = 1121
+			state = 767
+			state = 1135
+			state = 1130
+			state = 1138
+			state = 775
+			state = 1125
+			state = 1126
+			state = 1127
+			state = 817
+			state = 904
+			state = 905
+			state = 916
+			state = 917
+			state = 914
+			state = 915
+			state = 918
+			state = 929
+			state = 930
+			state = 1060
+			state = 1061
 		}
 	}
 }
-
-TUR_has_army_ittihadist = {
+is_TUR_arab_state_for_modifier = {
 	custom_trigger_tooltip = {
-		tooltip = TUR_has_army_ittihadist_tt
+		tooltip = is_TUR_arab_state_tt
 		OR = {
-			has_idea = TUR_army_factionalism_ittihadist_1
-			has_idea = TUR_army_factionalism_ittihadist_2
-			has_idea = TUR_army_factionalism_ittihadist_3
+			state = 680
+			state = 1029
+			state = 1023
+			state = 857
+			state = 852
+			state = 859
+			state = 856
+			state = 858
+			state = 1021
+			state = 804
+			state = 291
+			state = 874
+			state = 885
+			state = 886
+			state = 677
+			state = 554
+			state = 454
+			state = 455
+			state = 679
+			state = 878
+			state = 676
+			state = 853
+			state = 747
+			state = 662
+			state = 654
+			state = 293
+			state = 448
+			state = 661
+			state = 1157
+			state = 1154
+			state = 1155
+			state = 663
+			state = 1156
+			state = 450
+			state = 273
+			state = 567
+			state = 1123
+			state = 831
+			state = 832
+			state = 675
+			state = 791
+			state = 292
+			state = 678
+			state = 659
+			state = 294
+			state = 882
+			state = 658
+			state = 765
+			state = 656
+			state = 413
+			state = 1246
+			state = 453
+			state = 1207
+			state = 447
+			state = 446
+			state = 452
+			state = 457
+			state = 456
+			state = 1129
+			state = 1132
+			state = 1133
+			state = 551
+			state = 552
+			state = 1131
+			state = 810
+			state = 754
+			state = 1121
+			state = 767
+			state = 1135
+			state = 1130
+			state = 1138
+			state = 775
+			state = 1125
+			state = 1126
+			state = 1127
+			state = 817
+			state = 904
+			state = 905
+			state = 916
+			state = 917
+			state = 914
+			state = 915
+			state = 918
+			state = 929
+			state = 930
+			state = 1060
+			state = 1061
 		}
 	}
 }
-
-TUR_has_army_itilafist = {
+is_TUR_greek_state = {
 	custom_trigger_tooltip = {
-		tooltip = TUR_has_army_itilafist_tt
+		tooltip = is_TUR_greek_state_tt
 		OR = {
-			has_idea = TUR_army_factionalism_itilafist_1
-			has_idea = TUR_army_factionalism_itilafist_2
-			has_idea = TUR_army_factionalism_itilafist_3
+			state = 758
+			state = 731
+			state = 1256
+			state = 826
+			state = 1257
+			state = 824
+			state = 345
+			state = 1255
+			state = 341
+			state = 347
+			state = 1018
+			state = 1019
+			state = 825
+			state = 860
+			state = 861
+			state = 790
+			state = 974
+			state = 975
+			state = 164
+			state = 899
+			state = 339
+			state = 342
+			state = 355
+			state = 354			
+			state = 187
+			state = 185
+			state = 47
+			state = 898
+			state = 900
+			state = 186
+			state = 182
+			state = 183
+		}
+	}
+}
+is_TUR_southslav_state = {
+	custom_trigger_tooltip = {
+		tooltip = is_TUR_southslav_state_tt
+		OR = {
+			state = 760
+			state = 761
+			state = 106
+			state = 203
+			state = 1258
+			state = 759
+			state = 788
+			state = 225
+			state = 451
+			state = 105
+			state = 104
+			state = 107
+			state = 809
+			state = 876
+			state = 821
+			state = 199
+			state = 48
+			state = 211
+			state = 212
+			state = 221
+			state = 77
+			state = 184
+			state = 757
+			state = 200
+			state = 849
+			state = 756
+			state = 1140
+			state = 1141
+		}
+	}
+}
+is_TUR_albanian_state = {
+	custom_trigger_tooltip = {
+		tooltip = is_TUR_albanian_state_tt
+		OR = {
+			state = 847
+			state = 848
+			state = 44
+			state = 871
+			state = 870
+			state = 803
+			state = 1225
+			state = 1213
+			state = 1214
+			state = 1240
+			state = 1215
+		}
+	}
+}
+is_TUR_turkish_state = {
+	custom_trigger_tooltip = {
+		tooltip = is_TUR_turkish_state_tt
+		OR = {
+			state = 356
+			state = 854
+			state = 340
+			state = 911
+			state = 830
+			state = 49
+			state = 346
+			state = 344
+		}
+	}
+}
+is_TUR_kurd_state = {
+	custom_trigger_tooltip = {
+		tooltip = is_TUR_kurd_state_tt
+		OR = {
+			state = 350
+			state = 829
+			state = 879
+			state = 881
+			state = 883
+			state = 884
+			state = 1027
+			state = 1028
+			state = 419
+			state = 421
+		}
+	}
+}
+is_TUR_kurd_state_for_modifier = {
+	custom_trigger_tooltip = {
+		tooltip = is_TUR_kurd_state_tt
+		OR = {
+			state = 350
+			state = 829
+			state = 879
+			state = 881
+			state = 883
+			state = 884
+			state = 1027
+			state = 1028
+			state = 419
+			state = 421
+		}
+	}
+}
+is_TUR_georgian_state = {
+	custom_trigger_tooltip = {
+		tooltip = is_TUR_georgian_state_tt
+		OR = {
+			state = 855
+			state = 1034
+			state = 748
+			state = 231
+			state = 233
+			state = 1068
+			state = 1069
+		}
+	}
+}
+is_TUR_romanian_state = {
+	custom_trigger_tooltip = {
+		tooltip = is_TUR_romanian_state_tt
+		OR = {
+			state = 846
+			state = 805
+			state = 46
+			state = 81
+			state = 79
+			state = 867
+			state = 866
+			state = 868
+		}
+	}
+}
+TUR_has_army_of_a_bygone_era = {
+	custom_trigger_tooltip = {
+		tooltip = has_idea_TUR_army_of_bygone_era
+		OR = {
+			has_idea = TUR_army_of_bygone_era
+			has_idea = TUR_army_of_bygone_era_2
+			has_idea = TUR_army_of_bygone_era_3
+			has_idea = TUR_army_of_bygone_era_4
+			has_idea = TUR_army_of_bygone_era_5
+			has_idea = TUR_army_of_bygone_era_6
+			has_idea = TUR_army_of_bygone_era_7
+			has_idea = TUR_army_of_bygone_era_8
+			has_idea = TUR_army_of_bygone_era_9
+			has_idea = TUR_army_of_bygone_era_10
+			has_idea = TUR_army_of_bygone_era_11
+			has_idea = TUR_army_of_bygone_era_12
+			has_idea = TUR_army_of_bygone_era_13
+			has_idea = TUR_army_of_bygone_era_14
+			has_idea = TUR_army_of_bygone_era_15
+			has_idea = TUR_army_of_bygone_era_16
+			has_idea = TUR_army_of_bygone_era_17
+			has_idea = TUR_army_of_bygone_era_18
+			has_idea = TUR_army_of_bygone_era_19
+			has_idea = TUR_army_of_bygone_era_20
+			has_idea = TUR_army_of_bygone_era_no_navy
+			has_idea = TUR_army_of_bygone_era_2_no_navy
+			has_idea = TUR_army_of_bygone_era_3_no_navy
+			has_idea = TUR_army_of_bygone_era_4_no_navy
+			has_idea = TUR_army_of_bygone_era_5_no_navy
+			has_idea = TUR_army_of_bygone_era_6_no_navy
+			has_idea = TUR_army_of_bygone_era_7_no_navy
+			has_idea = TUR_army_of_bygone_era_8_no_navy
+			has_idea = TUR_army_of_bygone_era_9_no_navy
+			has_idea = TUR_army_of_bygone_era_10_no_navy
+			has_idea = TUR_army_of_bygone_era_11_no_navy
+			has_idea = TUR_army_of_bygone_era_12_no_navy
+			has_idea = TUR_army_of_bygone_era_13_no_navy
+			has_idea = TUR_army_of_bygone_era_14_no_navy
+			has_idea = TUR_army_of_bygone_era_15_no_navy
+			has_idea = TUR_army_of_bygone_era_16_no_navy
+			has_idea = TUR_army_of_bygone_era_17_no_navy
+			has_idea = TUR_army_of_bygone_era_18_no_navy
+			has_idea = TUR_army_of_bygone_era_19_no_navy
+			has_idea = TUR_army_of_bygone_era_20_no_navy
+		}
+    }
+}
+TUR_not_has_army_of_a_bygone_era = {
+	custom_trigger_tooltip = {
+		tooltip = not_has_idea_TUR_army_of_bygone_era
+		NOT = {
+			has_idea = TUR_army_of_bygone_era
+			has_idea = TUR_army_of_bygone_era_2
+			has_idea = TUR_army_of_bygone_era_3
+			has_idea = TUR_army_of_bygone_era_4
+			has_idea = TUR_army_of_bygone_era_5
+			has_idea = TUR_army_of_bygone_era_6
+			has_idea = TUR_army_of_bygone_era_7
+			has_idea = TUR_army_of_bygone_era_8
+			has_idea = TUR_army_of_bygone_era_9
+			has_idea = TUR_army_of_bygone_era_10
+			has_idea = TUR_army_of_bygone_era_11
+			has_idea = TUR_army_of_bygone_era_12
+			has_idea = TUR_army_of_bygone_era_13
+			has_idea = TUR_army_of_bygone_era_14
+			has_idea = TUR_army_of_bygone_era_15
+			has_idea = TUR_army_of_bygone_era_16
+			has_idea = TUR_army_of_bygone_era_17
+			has_idea = TUR_army_of_bygone_era_18
+			has_idea = TUR_army_of_bygone_era_19
+			has_idea = TUR_army_of_bygone_era_20
+			has_idea = TUR_army_of_bygone_era_no_navy
+			has_idea = TUR_army_of_bygone_era_2_no_navy
+			has_idea = TUR_army_of_bygone_era_3_no_navy
+			has_idea = TUR_army_of_bygone_era_4_no_navy
+			has_idea = TUR_army_of_bygone_era_5_no_navy
+			has_idea = TUR_army_of_bygone_era_6_no_navy
+			has_idea = TUR_army_of_bygone_era_7_no_navy
+			has_idea = TUR_army_of_bygone_era_8_no_navy
+			has_idea = TUR_army_of_bygone_era_9_no_navy
+			has_idea = TUR_army_of_bygone_era_10_no_navy
+			has_idea = TUR_army_of_bygone_era_11_no_navy
+			has_idea = TUR_army_of_bygone_era_12_no_navy
+			has_idea = TUR_army_of_bygone_era_13_no_navy
+			has_idea = TUR_army_of_bygone_era_14_no_navy
+			has_idea = TUR_army_of_bygone_era_15_no_navy
+			has_idea = TUR_army_of_bygone_era_16_no_navy
+			has_idea = TUR_army_of_bygone_era_17_no_navy
+			has_idea = TUR_army_of_bygone_era_18_no_navy
+			has_idea = TUR_army_of_bygone_era_19_no_navy
+			has_idea = TUR_army_of_bygone_era_20_no_navy
+		}
+    }
+}
+
+TUR_has_army_of_a_bygone_era_navy = {
+	hidden_trigger = {
+		OR = {
+			has_idea = TUR_army_of_bygone_era
+			has_idea = TUR_army_of_bygone_era_2
+			has_idea = TUR_army_of_bygone_era_3
+			has_idea = TUR_army_of_bygone_era_4
+			has_idea = TUR_army_of_bygone_era_5
+			has_idea = TUR_army_of_bygone_era_6
+			has_idea = TUR_army_of_bygone_era_7
+			has_idea = TUR_army_of_bygone_era_8
+			has_idea = TUR_army_of_bygone_era_9
+			has_idea = TUR_army_of_bygone_era_10
+			has_idea = TUR_army_of_bygone_era_11
+			has_idea = TUR_army_of_bygone_era_12
+			has_idea = TUR_army_of_bygone_era_13
+			has_idea = TUR_army_of_bygone_era_14
+			has_idea = TUR_army_of_bygone_era_15
+			has_idea = TUR_army_of_bygone_era_16
+			has_idea = TUR_army_of_bygone_era_17
+			has_idea = TUR_army_of_bygone_era_18
+			has_idea = TUR_army_of_bygone_era_19
+			has_idea = TUR_army_of_bygone_era_20
+			has_idea = TUR_army_of_bygone_era_just_navy
 		}
 	}
 }
 
-TUR_appoint_opposing_officers_effect = {
+is_TUR_assyrian_state = {
+	custom_trigger_tooltip = {
+		tooltip = is_TUR_assyrian_state_tt
+		state = 828
+	}
+}
+holds_ahd_i_milli_state = {
 	if = {
-		limit = { has_decision = TUR_appoint_opposing_officers }
-		custom_trigger_tooltip = {
-			tooltip = disabled_military_ideas
-			NOT = { has_decision = TUR_appoint_opposing_officers }
+		limit = {
+			any_state = {
+				is_claimed_by = TUR
+				is_controlled_by = ENG
+			}
+			tag = ENG
 		}
+	}
+}
+
+has_not_initiated_border_incident_with_ROOT = {
+	custom_trigger_tooltip = {
+		tooltip = not_initiated_border_incident_with_ROOT
+		NOT = {
+			any_state = {
+				check_variable = { ROOT.defender_state_vs_@PREV = id }
+			}
+		}
+	}
+}
+
+TUR_has_negative_yildiz_teskilati_army_idea = {
+	OR = {
+		has_idea = TUR_officers_struggle_depoliticize
+		has_idea = TUR_officers_struggle_depoliticize_1_org
+		has_idea = TUR_officers_struggle_depoliticize_1_org_2
+		has_idea = TUR_officers_struggle_depoliticize_1_org_3
+		has_idea = TUR_officers_struggle_depoliticize_1_org_4
+		has_idea = TUR_officers_struggle_depoliticize_1_org_5
+		has_idea = TUR_officers_struggle_depoliticize_1_org_6
+		has_idea = TUR_officers_struggle_depoliticize_1_org_7
+		has_idea = TUR_officers_struggle_depoliticize_1_org_8
+		has_idea = TUR_officers_struggle_depoliticize_2
+		has_idea = TUR_officers_struggle_depoliticize_2_org
+		has_idea = TUR_officers_struggle_depoliticize_2_org_2
+		has_idea = TUR_officers_struggle_depoliticize_2_org_3
+		has_idea = TUR_officers_struggle_depoliticize_2_org_4
+		has_idea = TUR_officers_struggle_depoliticize_2_org_5
+		has_idea = TUR_officers_struggle_depoliticize_2_org_6
+		has_idea = TUR_officers_struggle_depoliticize_2_org_7
+		has_idea = TUR_officers_struggle_depoliticize_2_org_8
+		has_idea = TUR_officers_struggle_depoliticize_3
+		has_idea = TUR_officers_struggle_depoliticize_3_org
+		has_idea = TUR_officers_struggle_depoliticize_3_org_2
+		has_idea = TUR_officers_struggle_depoliticize_3_org_3
+		has_idea = TUR_officers_struggle_depoliticize_3_org_4
+		has_idea = TUR_officers_struggle_depoliticize_3_org_5
+		has_idea = TUR_officers_struggle_depoliticize_3_org_6
+		has_idea = TUR_officers_struggle_depoliticize_3_org_7
+		has_idea = TUR_officers_struggle_depoliticize_3_org_8
+		has_idea = TUR_officers_struggle_depoliticize_4
+		has_idea = TUR_officers_struggle_depoliticize_4_org
+		has_idea = TUR_officers_struggle_depoliticize_4_org_2
+		has_idea = TUR_officers_struggle_depoliticize_4_org_3
+		has_idea = TUR_officers_struggle_depoliticize_4_org_4
+		has_idea = TUR_officers_struggle_depoliticize_4_org_5
+		has_idea = TUR_officers_struggle_depoliticize_4_org_6
+		has_idea = TUR_officers_struggle_depoliticize_4_org_7
+		has_idea = TUR_officers_struggle_depoliticize_4_org_8
+		has_idea = TUR_officers_struggle_depoliticize_5
+		has_idea = TUR_officers_struggle_depoliticize_5_org
+		has_idea = TUR_officers_struggle_depoliticize_5_org_2
+		has_idea = TUR_officers_struggle_depoliticize_5_org_3
+		has_idea = TUR_officers_struggle_depoliticize_5_org_4
+		has_idea = TUR_officers_struggle_depoliticize_5_org_5
+		has_idea = TUR_officers_struggle_depoliticize_5_org_6
+		has_idea = TUR_officers_struggle_depoliticize_5_org_7
+		has_idea = TUR_officers_struggle_depoliticize_5_org_8
+		has_idea = TUR_officers_struggle_depoliticize_6
+		has_idea = TUR_officers_struggle_depoliticize_6_org
+		has_idea = TUR_officers_struggle_depoliticize_6_org_2
+		has_idea = TUR_officers_struggle_depoliticize_6_org_3
+		has_idea = TUR_officers_struggle_depoliticize_6_org_4
+		has_idea = TUR_officers_struggle_depoliticize_6_org_5
+		has_idea = TUR_officers_struggle_depoliticize_6_org_6
+		has_idea = TUR_officers_struggle_depoliticize_6_org_7
+		has_idea = TUR_officers_struggle_depoliticize_6_org_8
+		has_idea = TUR_officers_struggle_depoliticize_7
+		has_idea = TUR_officers_struggle_depoliticize_7_org
+		has_idea = TUR_officers_struggle_depoliticize_7_org_2
+		has_idea = TUR_officers_struggle_depoliticize_7_org_3
+		has_idea = TUR_officers_struggle_depoliticize_7_org_4
+		has_idea = TUR_officers_struggle_depoliticize_7_org_5
+		has_idea = TUR_officers_struggle_depoliticize_7_org_6
+		has_idea = TUR_officers_struggle_depoliticize_7_org_7
+		has_idea = TUR_officers_struggle_depoliticize_7_org_8
+		has_idea = TUR_officers_struggle_depoliticize_8
+		has_idea = TUR_officers_struggle_depoliticize_8_org
+		has_idea = TUR_officers_struggle_depoliticize_8_org_2
+		has_idea = TUR_officers_struggle_depoliticize_8_org_3
+		has_idea = TUR_officers_struggle_depoliticize_8_org_4
+		has_idea = TUR_officers_struggle_depoliticize_8_org_5
+		has_idea = TUR_officers_struggle_depoliticize_8_org_6
+		has_idea = TUR_officers_struggle_depoliticize_8_org_7
+		has_idea = TUR_officers_struggle_depoliticize_8_org_8
+		has_idea = TUR_officers_struggle_depoliticize_9
+		has_idea = TUR_officers_struggle_depoliticize_9_org
+		has_idea = TUR_officers_struggle_depoliticize_9_org_2
+		has_idea = TUR_officers_struggle_depoliticize_9_org_3
+		has_idea = TUR_officers_struggle_depoliticize_9_org_4
+		has_idea = TUR_officers_struggle_depoliticize_9_org_5
+		has_idea = TUR_officers_struggle_depoliticize_9_org_6
+		has_idea = TUR_officers_struggle_depoliticize_9_org_7
+	}
+}
+
+TUR_has_negative_yildiz_teskilati_command_idea = {
+	OR = {
+		has_idea = TUR_officers_struggle_depoliticize
+		has_idea = TUR_officers_struggle_depoliticize_1_org
+		has_idea = TUR_officers_struggle_depoliticize_1_org_2
+		has_idea = TUR_officers_struggle_depoliticize_1_org_3
+		has_idea = TUR_officers_struggle_depoliticize_1_org_4
+		has_idea = TUR_officers_struggle_depoliticize_1_org_5
+		has_idea = TUR_officers_struggle_depoliticize_1_org_6
+		has_idea = TUR_officers_struggle_depoliticize_1_org_7
+		has_idea = TUR_officers_struggle_depoliticize_1_org_8
+		has_idea = TUR_officers_struggle_depoliticize_1_org_9
+		has_idea = TUR_officers_struggle_depoliticize_2
+		has_idea = TUR_officers_struggle_depoliticize_2_org
+		has_idea = TUR_officers_struggle_depoliticize_2_org_2
+		has_idea = TUR_officers_struggle_depoliticize_2_org_3
+		has_idea = TUR_officers_struggle_depoliticize_2_org_4
+		has_idea = TUR_officers_struggle_depoliticize_2_org_5
+		has_idea = TUR_officers_struggle_depoliticize_2_org_6
+		has_idea = TUR_officers_struggle_depoliticize_2_org_7
+		has_idea = TUR_officers_struggle_depoliticize_2_org_8
+		has_idea = TUR_officers_struggle_depoliticize_2_org_9
+		has_idea = TUR_officers_struggle_depoliticize_3
+		has_idea = TUR_officers_struggle_depoliticize_3_org
+		has_idea = TUR_officers_struggle_depoliticize_3_org_2
+		has_idea = TUR_officers_struggle_depoliticize_3_org_3
+		has_idea = TUR_officers_struggle_depoliticize_3_org_4
+		has_idea = TUR_officers_struggle_depoliticize_3_org_5
+		has_idea = TUR_officers_struggle_depoliticize_3_org_6
+		has_idea = TUR_officers_struggle_depoliticize_3_org_7
+		has_idea = TUR_officers_struggle_depoliticize_3_org_8
+		has_idea = TUR_officers_struggle_depoliticize_3_org_9
+		has_idea = TUR_officers_struggle_depoliticize_4
+		has_idea = TUR_officers_struggle_depoliticize_4_org
+		has_idea = TUR_officers_struggle_depoliticize_4_org_2
+		has_idea = TUR_officers_struggle_depoliticize_4_org_3
+		has_idea = TUR_officers_struggle_depoliticize_4_org_4
+		has_idea = TUR_officers_struggle_depoliticize_4_org_5
+		has_idea = TUR_officers_struggle_depoliticize_4_org_6
+		has_idea = TUR_officers_struggle_depoliticize_4_org_7
+		has_idea = TUR_officers_struggle_depoliticize_4_org_8
+		has_idea = TUR_officers_struggle_depoliticize_4_org_9
+		has_idea = TUR_officers_struggle_depoliticize_5
+		has_idea = TUR_officers_struggle_depoliticize_5_org
+		has_idea = TUR_officers_struggle_depoliticize_5_org_2
+		has_idea = TUR_officers_struggle_depoliticize_5_org_3
+		has_idea = TUR_officers_struggle_depoliticize_5_org_4
+		has_idea = TUR_officers_struggle_depoliticize_5_org_5
+		has_idea = TUR_officers_struggle_depoliticize_5_org_6
+		has_idea = TUR_officers_struggle_depoliticize_5_org_7
+		has_idea = TUR_officers_struggle_depoliticize_5_org_8
+		has_idea = TUR_officers_struggle_depoliticize_5_org_9
+		has_idea = TUR_officers_struggle_depoliticize_6
+		has_idea = TUR_officers_struggle_depoliticize_6_org
+		has_idea = TUR_officers_struggle_depoliticize_6_org_2
+		has_idea = TUR_officers_struggle_depoliticize_6_org_3
+		has_idea = TUR_officers_struggle_depoliticize_6_org_4
+		has_idea = TUR_officers_struggle_depoliticize_6_org_5
+		has_idea = TUR_officers_struggle_depoliticize_6_org_6
+		has_idea = TUR_officers_struggle_depoliticize_6_org_7
+		has_idea = TUR_officers_struggle_depoliticize_6_org_8
+		has_idea = TUR_officers_struggle_depoliticize_6_org_9
+		has_idea = TUR_officers_struggle_depoliticize_7
+		has_idea = TUR_officers_struggle_depoliticize_7_org
+		has_idea = TUR_officers_struggle_depoliticize_7_org_2
+		has_idea = TUR_officers_struggle_depoliticize_7_org_3
+		has_idea = TUR_officers_struggle_depoliticize_7_org_4
+		has_idea = TUR_officers_struggle_depoliticize_7_org_5
+		has_idea = TUR_officers_struggle_depoliticize_7_org_6
+		has_idea = TUR_officers_struggle_depoliticize_7_org_7
+		has_idea = TUR_officers_struggle_depoliticize_7_org_8
+		has_idea = TUR_officers_struggle_depoliticize_7_org_9
+		has_idea = TUR_officers_struggle_depoliticize_8
+		has_idea = TUR_officers_struggle_depoliticize_8_org
+		has_idea = TUR_officers_struggle_depoliticize_8_org_2
+		has_idea = TUR_officers_struggle_depoliticize_8_org_3
+		has_idea = TUR_officers_struggle_depoliticize_8_org_4
+		has_idea = TUR_officers_struggle_depoliticize_8_org_5
+		has_idea = TUR_officers_struggle_depoliticize_8_org_6
+		has_idea = TUR_officers_struggle_depoliticize_8_org_7
+		has_idea = TUR_officers_struggle_depoliticize_8_org_8
+		has_idea = TUR_officers_struggle_depoliticize_8_org_9
 	}
 }
 
@@ -608,6 +913,14 @@ TUR_gave_us_access_dardanelles = {
 	}
 }
 
+is_turkish_nation = {
+	OR = {
+		original_tag = TUR
+		original_tag = WTH
+		original_tag = KRS
+	}
+}
+
 TRR_exists = {
 	custom_trigger_tooltip = {
 		tooltip = TRR_exists
@@ -620,1150 +933,255 @@ TRR_exists = {
 	}
 }
 
-TUR_has_unpromoted_officer = {
+is_turkish_heartlands = {
 	OR = {
-		AND = {
-			has_character = TUR_suleyman_faik
-			TUR_suleyman_faik = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_hasan_riza
-			TUR_hasan_riza = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_cevat_cobanli
-			TUR_cevat_cobanli = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_hasan_izzet
-			TUR_hasan_izzet = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_omer_fahreddin
-			TUR_omer_fahreddin = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_mustafa_hilmi_altinoklu
-			TUR_mustafa_hilmi_altinoklu = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_ahmed_cemal
-			TUR_ahmed_cemal = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_ahmed_cemal
-			TUR_ahmed_cemal = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_hafiz_hakki
-			TUR_hafiz_hakki = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_yusuf_izzet
-			TUR_yusuf_izzet = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_abdulkerim_pasha
-			TUR_abdulkerim_pasha = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_ali_sait_akbaytogan
-			TUR_ali_sait_akbaytogan = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_ismail_enver
-			TUR_ismail_enver = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_ahmet_niyazi_bey
-			TUR_ahmet_niyazi_bey = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_mustafa_fevzi
-			TUR_mustafa_fevzi = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_mustafa_kemal
-			TUR_mustafa_kemal = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_halil_kut
-			TUR_halil_kut = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_ahmet_fevzi
-			TUR_ahmet_fevzi = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_ali_fuat
-			TUR_ali_fuat = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_muhittin_akyuz
-			TUR_muhittin_akyuz = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_musa_kazim
-			TUR_musa_kazim = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_yasin_el_hasimi
-			TUR_yasin_el_hasimi = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_ali_ihsan_sabis
-			TUR_ali_ihsan_sabis = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_nuri_killigil
-			TUR_nuri_killigil = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_nurettin_konyar
-			TUR_nurettin_konyar = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_ali_galip_pasiner
-			TUR_ali_galip_pasiner = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_mustafa_ismet
-			TUR_mustafa_ismet = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_ibrahim_refet
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_ibrahim_refet = {  is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_selahattin_adil
-			TUR_selahattin_adil = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_izzettin_calislar
-			TUR_izzettin_calislar = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_kazim_orbay
-			TUR_kazim_orbay = { is_unit_leader = no }
-		}
-		AND = {
-			has_character = TUR_cafer_tayyar
-			TUR_cafer_tayyar = { is_unit_leader = no }
-			has_completed_focus = TUR_eradicate_the_opposition
-			TUR_is_ittihadist_regime = yes
-		}
-		AND = {
-			has_character = TUR_ali_fuat_erden
-			TUR_ali_fuat_erden = { is_unit_leader = no }
-		}
+		region = 129
+		#balkans
+		state = 164
+		state = 183
+		state = 200
+		state = 341
+		state = 347
+		state = 451
+		state = 756
+		state = 757
+		state = 790
+		state = 849
+		state = 860
+		state = 899
+		state = 974
+		state = 975
+		state = 1018
+		#syria
+		state = 676
+		state = 677
+		state = 680
+		state = 859
+		state = 879
+		state = 883
+		state = 1023
+		state = 1029
+		#kars
+		state = 806
+		state = 816
+		state = 855
 	}
 }
 
-TUR_investment_state_rumelia = {
+is_ottoman_thrace_state = {
 	OR = {
+		state = 347
 		state = 1018
 		state = 341
 		state = 860
 		state = 756
 		state = 849
 		state = 200
-		state = 757
 		state = 451
+		state = 757
+	}
+}
+
+is_ottoman_macedonia_state = {
+	OR = {
 		state = 184
 		state = 788
-		state = 225
 		state = 759
-		state = 1141
+		state = 225
 		state = 345
-		state = 203
-		state = 1213
+		state = 1255
 		state = 731
-		state = 826
+		state = 1256
+		state = 203
+		state = 1258
 		state = 106
+		state = 1141
 		state = 1140
-		state = 847
-		state = 848
-		state = 758
-		state = 803
-		state = 1225
-		state = 871
-		state = 1214
-		state = 1240
-		state = 1215
-		state = 44
-		state = 870
-		state = 760
-		state = 761
-		state = 212
-		state = 187
-		state = 185
-		state = 104
+		state = 1213
 	}
 }
-TUR_investment_state_anatolia = {
+
+is_ottoman_aegean_coastal_state = {
 	OR = {
-		state = 1019
-		state = 1035
-		state = 825
 		state = 861
+		state = 825
+		state = 1019
 		state = 339
-		state = 340
-		state = 854
 		state = 824
 		state = 342
-		state = 911
-		state = 356
-		state = 1031
-		state = 49
-		state = 346
-		state = 355
-		state = 354
-		state = 348
-		state = 1033
-		state = 344
-		state = 1057
-		state = 354
-		state = 349
-		state = 1026
-		state = 1030
-		state = 1024
-		state = 353
-		state = 881
-		state = 1025
-		state = 1033
-		state = 352
-		state = 1022
-		state = 350
-		state = 828
-		state = 1027
-		state = 806
-		state = 816
-		state = 855
-		state = 1034
 	}
 }
-TUR_investment_state_syria = {
+
+is_anatolian_kurd_state = {
 	OR = {
-		state = 857
-		state = 859
+		state = 881
+		state = 1022
+		state = 350
+		state = 352
+		state = 828
+		state = 829
+		state = 884
+		state = 1027
+		state = 1028
+	}
+}
+
+is_greek_proper_state = {
+	OR = {
+		state = 758
+		state = 826
+		state = 1257
+		state = 187
+		state = 185
+		state = 47
+		state = 898
+		state = 900
+		state = 186
+		state = 182
+		state = 790
+		state = 974
+		state = 975
+		state = 164
+		state = 899
+		state = 183
+	}
+}
+
+is_serbia_proper_state = {
+	OR = {
+		state = 107
+		state = 809
+		state = 876
+		state = 821
+		state = 760
+		state = 761
+		state = 105
+		state = 1205
+	}
+}
+
+is_bulgaria_proper_state = {
+	OR = {
+		state = 48
+		state = 77
+		state = 199
+		state = 211
+		state = 212
+		state = 912
+	}
+}
+
+is_albania_proper_state = {
+	OR = {
+		state = 48
+		state = 77
+		state = 199
+		state = 211
+		state = 212
+		state = 912
+	}
+}
+
+is_romania_proper_state = {
+	OR = {
+		state = 46
+		state = 79
+		state = 81
+		state = 805
+		state = 846
+		state = 866
+		state = 867
+		state = 868
+	}
+}
+
+is_western_caucasus_state = {
+	OR = {
+		state = 855
+		state = 1034
+		state = 816
+		state = 806
+		state = 787
+		state = 748
+		state = 230
+		state = 818
+		state = 231
+		state = 233
+		state = 938
+		state = 939
+		state = 1068
+		state = 1069
+	}
+}
+
+is_ottoman_mesopotamia_state = {
+	OR = { 
+		state = 291
+		state = 853
+		state = 874
+		state = 883
+		state = 676
+		state = 879
 		state = 677
-		state = 1058
+		state = 1029
 		state = 1023
-		state = 852
+		state = 680
 		state = 554
+	}
+}
+
+is_ottoman_syria_state = {
+	OR = { 
+		state = 859
+		state = 852
 		state = 553
 		state = 858
 		state = 1021
 		state = 454
 		state = 856
-		state = 455
-	}
-}
-TUR_investment_state_mesapotamia = {
-	OR = {
-		state = 884
-		state = 680
+		state = 677
 		state = 1029
-		state = 829
-		state = 1028
-		state = 676
-		state = 879
-		state = 883
-		state = 853
+		state = 554
+		state = 455
+		state = 680
+		state = 1023
+		state = 884
+	}
+}
+
+is_ottoman_hejaz_state = {
+	OR = { 
+		state = 293
+		state = 654
+		state = 662
+		state = 679
+		state = 747
+		state = 878
+		state = 1149
+	}
+}
+
+is_ottoman_iraq_state = {
+	OR = {
 		state = 291
+		state = 853
+		state = 676
+		state = 883
 		state = 874
+		state = 885
+		state = 879
 	}
 }
-TUR_investment_state_trablusgarp = {
+
+is_gulf_state = {
 	OR = {
-		state = 448
-		state = 450
-		state = 1060
-		state = 1061
-		state = 1157
-	}
-}
-
-TUR_owns_kostantiniyye_vilayet = {
-	any_state = {
-		has_state_flag = TUR_kostantiniyye
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_catalca_vilayet = {
-	any_state = {
-		has_state_flag = TUR_catalca
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_izmit_vilayet = {
-	any_state = {
-		has_state_flag = TUR_izmit
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_edirne_vilayet = {
-	any_state = {
-		has_state_flag = TUR_edirne
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_selanik_vilayet = {
-	any_state = {
-		has_state_flag = TUR_selanik
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_manastir_vilayet = {
-	any_state = {
-		has_state_flag = TUR_manastir
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_yanya_vilayet = {
-	any_state = {
-		has_state_flag = TUR_yanya
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_iskodra_vilayet = {
-	any_state = {
-		has_state_flag = TUR_iskodra
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_kosova_vilayet = {
-	any_state = {
-		has_state_flag = TUR_kosova
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_bosnia_vilayet = {
-	any_state = {
-		has_state_flag = TUR_bosnia
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_crete_vilayet = {
-	any_state = {
-		has_state_flag = TUR_crete
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_archipelago_vilayet = {
-	any_state = {
-		has_state_flag = TUR_archipelago
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_cyprus_vilayet = {
-	any_state = {
-		has_state_flag = TUR_cyprus
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_biga_vilayet = {
-	any_state = {
-		has_state_flag = TUR_biga
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_hudavendigar_vilayet = {
-	any_state = {
-		has_state_flag = TUR_hudavendigar
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_aydin_vilayet = {
-	any_state = {
-		has_state_flag = TUR_aydin
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_kastamonu_vilayet = {
-	any_state = {
-		has_state_flag = TUR_kastamonu
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_konya_vilayet = {
-	any_state = {
-		has_state_flag = TUR_konya
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_ankara_vilayet = {
-	any_state = {
-		has_state_flag = TUR_ankara
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_trabzon_vilayet = {
-	any_state = {
-		has_state_flag = TUR_trabzon
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_sivas_vilayet = {
-	any_state = {
-		has_state_flag = TUR_sivas
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_diyarbakir_vilayet = {
-	any_state = {
-		has_state_flag = TUR_diyarbakir
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_erzurum_vilayet = {
-	any_state = {
-		has_state_flag = TUR_erzurum
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_mamuret_ul_aziz_vilayet = {
-	any_state = {
-		has_state_flag = TUR_mamuret_ul_aziz
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_bitlis_vilayet = {
-	any_state = {
-		has_state_flag = TUR_bitlis
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_van_vilayet = {
-	any_state = {
-		has_state_flag = TUR_van
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_adana_vilayet = {
-	any_state = {
-		has_state_flag = TUR_adana
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_aleppo_vilayet = {
-	any_state = {
-		has_state_flag = TUR_aleppo
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_deir_ez_zor_vilayet = {
-	any_state = {
-		has_state_flag = TUR_deir_ez_zor
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_mosul_vilayet = {
-	any_state = {
-		has_state_flag = TUR_mosul
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_beirut_vilayet = {
-	any_state = {
-		has_state_flag = TUR_beirut
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_damascus_vilayet = {
-	any_state = {
-		has_state_flag = TUR_damascus
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_baghdad_vilayet = {
-	any_state = {
-		has_state_flag = TUR_baghdad
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_jerusalem_vilayet = {
-	any_state = {
-		has_state_flag = TUR_jerusalem
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_basra_vilayet = {
-	any_state = {
-		has_state_flag = TUR_basra
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_hejaz_vilayet = {
-	any_state = {
-		has_state_flag = TUR_hejaz
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_yemen_vilayet = {
-	any_state = {
-		has_state_flag = TUR_yemen
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_suez_vilayet = {
-	any_state = {
-		has_state_flag = TUR_suez
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_alexandria_vilayet = {
-	any_state = {
-		has_state_flag = TUR_alexandria
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_cairo_vilayet = {
-	any_state = {
-		has_state_flag = TUR_cairo
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_aswan_vilayet = {
-	any_state = {
-		has_state_flag = TUR_aswan
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_khartoum_vilayet = {
-	any_state = {
-		has_state_flag = TUR_khartoum
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-TUR_owns_trablusgarp_vilayet = {
-	any_state = {
-		has_state_flag = TUR_trablusgarp
-		OR = {
-			TUR_is_owned_by_us_or_committee_government = yes
-			owner = { has_country_flag = TUR_revolting_country }
-		}
-	}
-}
-
-TUR_any_controlled_vilayet_more_than_15_centralization = {
-	custom_trigger_tooltip = {
-		tooltip = TUR_any_controlled_vilayet_more_than_15_centralization
-		OR = {
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_kostantiniyye }
-				check_variable = { global.TUR_kostantiniyye_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_catalca }
-				check_variable = { global.TUR_catalca_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_izmit }
-				check_variable = { global.TUR_izmit_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_edirne }
-				check_variable = { global.TUR_edirne_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_selanik }
-				check_variable = { global.TUR_selanik_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_manastir }
-				check_variable = { global.TUR_manastir_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_yanya }
-				check_variable = { global.TUR_yanya_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_iskodra }
-				check_variable = { global.TUR_iskodra_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_kosova }
-				check_variable = { global.TUR_kosova_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_bosnia }
-				check_variable = { global.TUR_bosnia_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_crete }
-				check_variable = { global.TUR_crete_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_archipelago }
-				check_variable = { global.TUR_archipelago_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_cyprus }
-				check_variable = { global.TUR_cyprus_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_biga }
-				check_variable = { global.TUR_biga_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_hudavendigar }
-				check_variable = { global.TUR_hudavendigar_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_aydin }
-				check_variable = { global.TUR_aydin_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_kastamonu }
-				check_variable = { global.TUR_kastamonu_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_konya }
-				check_variable = { global.TUR_konya_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_ankara }
-				check_variable = { global.TUR_ankara_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_trabzon }
-				check_variable = { global.TUR_trabzon_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_sivas }
-				check_variable = { global.TUR_sivas_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_diyarbakir }
-				check_variable = { global.TUR_diyarbakir_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_erzurum }
-				check_variable = { global.TUR_erzurum_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_mamuret_ul_aziz }
-				check_variable = { global.TUR_mamuret_ul_aziz_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_bitlis }
-				check_variable = { global.TUR_bitlis_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_van }
-				check_variable = { global.TUR_van_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_adana }
-				check_variable = { global.TUR_adana_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_aleppo }
-				check_variable = { global.TUR_aleppo_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_deir_ez_zor }
-				check_variable = { global.TUR_deir_ez_zor_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_mosul }
-				check_variable = { global.TUR_mosul_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_beirut }
-				check_variable = { global.TUR_beirut_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_damascus }
-				check_variable = { global.TUR_damascus_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_baghdad }
-				check_variable = { global.TUR_baghdad_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_jerusalem }
-				check_variable = { global.TUR_jerusalem_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_basra }
-				check_variable = { global.TUR_basra_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_hejaz }
-				check_variable = { global.TUR_hejaz_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_yemen }
-				check_variable = { global.TUR_yemen_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_suez }
-				check_variable = { global.TUR_suez_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_alexandria }
-				check_variable = { global.TUR_alexandria_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_cairo }
-				check_variable = { global.TUR_cairo_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_aswan }
-				check_variable = { global.TUR_aswan_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_khartoum }
-				check_variable = { global.TUR_khartoum_centralization > 14 }
-			}
-			AND = {
-				any_controlled_state = { has_state_flag = TUR_trablusgarp }
-				check_variable = { global.TUR_trablusgarp_centralization > 14 }
-			}
-		}
-	}
-}
-
-TUR_regime_is_modernist = {
-	custom_trigger_tooltip = {
-		tooltip = TUR_regime_type_is_modernist
-		NOT = { has_country_leader = { character = TUR_ahmed_muhtar } }
-		NOT = { has_country_leader = { character = TUR_gumulcineli_ismail } }
-		NOT = { has_country_leader = { character = TUR_miralay_sadik } }
-		NOT = { has_country_leader = { character = TUR_nazim_pasha } }
-		OR = {
-			has_country_leader = { character = TUR_ahmed_cemal }
-			has_country_leader = { character = TUR_mehmed_talat }
-			has_country_leader_ideology = civilian_dictatorship
-			has_country_leader_ideology = personalistic_dictatorship
-			has_country_leader_ideology = authoritarian_democracy
-			has_country_leader_ideology = fascism_ideology
-			has_country_leader_ideology = national_syndicalism
-			has_country_leader_ideology = stratocracy
-			has_country_leader_ideology = revolutionary_nationalism
-			has_country_leader_ideology = social_liberalism
-			has_country_leader_ideology = classical_liberalism
-			AND = {
-				has_government = communism
-				NOT = { has_country_leader_ideology =  religious_communism }
-			}
-		}
-	}
-}
-TUR_regime_is_conservative = {
-	custom_trigger_tooltip = {
-		tooltip = TUR_regime_type_is_conservative
-		NOT = { has_country_leader = { character = TUR_riza_nur } }
-		OR = {
-			AND = {
-				TUR_is_ittihadist_regime = yes
-				OR = {
-					has_country_leader_ideology = civilian_dictatorship
-					has_country_leader_ideology = personalistic_dictatorship
-					has_country_leader_ideology = authoritarian_democracy
-					has_country_leader_ideology = fascism_ideology
-					has_country_leader_ideology = social_liberalism
-					has_country_leader_ideology = classical_liberalism
-					has_country_leader_ideology = liberal_conservatism
-					has_country_leader_ideology = conservatism
-					has_country_leader_ideology = theocracy_ideology
-					has_country_leader_ideology = fundamentalism
-				}
-				OR = {
-					has_country_flag = TUR_conservative_itf
-					has_country_leader = { character = TUR_ismail_enver }
-				}
-			}
-			AND = {
-				TUR_is_itilafist_regime = yes
-				OR = {
-					has_country_leader_ideology = civilian_dictatorship
-					has_country_leader_ideology = personalistic_dictatorship
-					has_country_leader_ideology = authoritarian_democracy
-					has_country_leader_ideology = fascism_ideology
-					has_country_leader_ideology = social_liberalism
-					has_country_leader_ideology = classical_liberalism
-					has_country_leader_ideology = liberal_conservatism
-					has_country_leader_ideology = conservatism
-					has_country_leader_ideology = theocracy_ideology
-					has_country_leader_ideology = fundamentalism
-				}
-			}
-		}
-	}
-}
-TUR_regime_is_nationalist = {
-	custom_trigger_tooltip = {
-		tooltip = TUR_regime_type_is_nationalist
-		NOT = { has_country_leader = { character = TUR_ahmed_muhtar } }
-		NOT = { has_country_leader = { character = TUR_gumulcineli_ismail } }
-		NOT = { has_country_leader = { character = TUR_miralay_sadik } }
-		NOT = { has_country_leader = { character = TUR_nazim_pasha } }
-		OR = {
-			has_country_leader = { character = TUR_ismail_enver }
-			has_country_leader = { character = TUR_ahmed_cemal }
-			has_country_leader = { character = TUR_mehmed_talat }
-			has_country_leader_ideology = civilian_dictatorship
-			has_country_leader_ideology = personalistic_dictatorship
-			has_country_leader_ideology = authoritarian_democracy
-			has_country_leader_ideology = fascism_ideology
-			has_country_leader_ideology = national_syndicalism
-			has_country_leader_ideology = stratocracy
-			has_country_leader_ideology = revolutionary_nationalism
-		}
-	}
-}
-TUR_regime_is_liberal = {
-	custom_trigger_tooltip = {
-		tooltip = TUR_regime_type_is_liberal
-		OR = {
-			has_country_leader = { character = TUR_ahmed_muhtar }
-			has_country_leader_ideology = social_liberalism
-			has_country_leader_ideology = classical_liberalism
-			has_country_leader_ideology = liberal_conservatism
-			AND = {
-				has_completed_focus = TUR_mufrit_takeover
-				OR = {
-					has_country_leader = { character = TUR_nazim_pasha }
-					has_country_leader = { character = TUR_miralay_sadik }
-					has_country_leader = { character = TUR_gumulcineli_ismail }
-				}
-			}
-		}
-	}
-}
-TUR_regime_is_socialist = {
-	custom_trigger_tooltip = {
-		tooltip = TUR_regime_type_is_socialist
-		OR = {
-			AND = {
-				TUR_is_ittihadist_regime = yes
-				has_country_flag = TUR_communism_itf
-			}
-			AND = {
-				TUR_is_itilafist_regime = yes
-				has_country_flag = TUR_communism_hif
-			}
-			has_country_leader_ideology = social_democracy
-			has_country_leader_ideology = agrarianism
-			has_government = communism
-		}
-	}
-}
-
-TUR_is_ittihadist_regime = {
-	TUR_regime_is_nationalist = yes
-	NOT = {
-		has_completed_focus = TUR_mufrit_takeover
-		OR = {
-			has_country_leader = { character = TUR_nazim_pasha }
-			has_country_leader = { character = TUR_miralay_sadik }
-			has_country_leader = { character = TUR_gumulcineli_ismail }
-		}
-	}
-}
-TUR_is_itilafist_regime = { TUR_regime_is_liberal = yes }
-
-TUR_regime_is_more_popular_than_opposition = {
-	custom_trigger_tooltip = {
-		tooltip = TUR_regime_popularity_higher_than_opposition_popularity
-		if = {
-			limit = { TUR_is_ittihadist_regime = yes }
-			check_variable = { TUR_itf_popularity > TUR_hif_popularity }
-		}
-		if = {
-			limit = { TUR_is_itilafist_regime = yes }
-			check_variable = { TUR_hif_popularity > TUR_itf_popularity }
-		}
-	}
-}
-
-TUR_regime_is_more_popular_than_opposition_twice = {
-	custom_trigger_tooltip = {
-		tooltip = TUR_regime_popularity_higher_than_opposition_popularity_at_least_two_times
-		if = {
-			limit = { TUR_is_ittihadist_regime = yes }
-			check_variable = { TUR_po_itf_popularity > TUR_hif_popularity }
-		}
-		if = {
-			limit = { TUR_is_itilafist_regime = yes }
-			check_variable = { TUR_po_hif_popularity > TUR_itf_popularity }
-		}
-	}
-}
-
-TUR_is_ittihadist_character = {
-	OR = {
-		has_trait = trait_TUR_ittihadist_sympathies
-		is_character = TUR_ismail_enver
-		is_character = TUR_ahmet_niyazi_bey
-		is_character = TUR_ahmet_kemal
-		is_character = TUR_ali_ihsan_iloglu
-		is_character = TUR_kara_vasif
-		is_character = TUR_mithat_sukru_bleda
-		is_character = TUR_huseyin_cahit_yalcin
-		is_character = TUR_fethi_okyar
-		is_character = TUR_mehmed_talat
-		is_character = TUR_mustafa_kemal
-		is_character = TUR_ahmed_cemal
-		is_character = TUR_halil_mentese
-		is_character = TUR_bahattin_bey
-		is_character = TUR_ziya_gokalp
-		is_character = TUR_ahmet_riza
-		is_character = TUR_celal_bayar
-		is_character = TUR_mehmet_emin_yurdakul
-		is_character = TUR_nazim_bey
-		is_character = TUR_ismail_canbolat
-		is_character = TUR_said_halim
-		is_character = TUR_hamdullah_suphi_tanriover
-		is_character = TUR_halide_edib_adivar
-		is_character = TUR_cavid_bey
-		is_character = TUR_suleyman_askeri
-		is_character = TUR_yakub_cemil
-		is_character = TUR_curuksulu_mahmud_pasa
-	}
-}
-
-TUR_is_itilafist_character = {
-	OR = {
-		has_trait = trait_TUR_itilafist_sympathies
-		is_character = TUR_prens_sabahattin
-		is_character = recruit_character
-		is_character = TUR_riza_nur
-		is_character = TUR_riza_tevfik
-		is_character = TUR_lutfi_fikri
-		is_character = TUR_ahmet_resit_rey
-		is_character = TUR_mahir_said_pekmen
-		is_character = TUR_dukakinzade_basri_bey
-		is_character = TUR_huseyin_siret_ozsever
-		is_character = TUR_abdulhamid_zehravi
-		is_character = TUR_miralay_sadik
-		is_character = TUR_abdulaziz_mecdi
-		is_character = TUR_gumulcineli_ismail
-		is_character = TUR_muhammed_hamdi_yazir
-		is_character = TUR_sukru_el_aseli
-		is_character = TUR_ismail_sikdi_erboy
-		is_character = TUR_mehmed_atif
-		is_character = TUR_mehmet_cemaleddin_efendi
-		is_character = TUR_mehmed_serif_pasa
-		is_character = TUR_ali_kemal
-		is_character = TUR_evvel_nail_efendi
-		is_character = TUR_yuzbasi_kazim
-		is_character = TUR_mulazim_mehmet_ali
-		is_character = TUR_jandarma_kemal
-		is_character = TUR_abdullah_sefa_bey
-		is_character = TUR_hakki_bey
-		is_character = TUR_mushab_bey
-		is_character = TUR_topal_tevfik
-		is_character = TUR_ziya_bey
-		is_character = TUR_selahaddin_bey
-		is_character = TUR_refik_halit_karay
-		is_character = TUR_damad_ferid
-		is_character = TUR_mehmet_hadi
-		is_character = TUR_resat_halis
-		is_character = TUR_gabriel_noradunkyan
-		is_character = TUR_avraam_benaroya
-		is_character = TUR_kozmidi_efendi
-		is_character = TUR_sava_stojanovic
-		is_character = TUR_todor_pavlof
-		is_character = TUR_dimitar_vlahov
-		is_character = TUR_hampartsoum_boyadjian
-		is_character = TUR_nazaret_daghavarian
-		is_character = TUR_karakin_pastermadjian
-		is_character = TUR_mustafa_sabri
-		is_character = TUR_salih_hulusi
-	}
-}
-
-has_idea_with_trait_TUR_old_guard_faction = {
-	custom_trigger_tooltip = {
-		tooltip = has_idea_with_trait_TUR_old_guard_faction_tt
-		OR = {
-			has_idea_with_trait = TUR_old_guard_faction_damad_ferid
-			has_idea_with_trait = TUR_old_guard_faction_prens_sabahattin
-			has_idea_with_trait = TUR_old_guard_faction_prens_lutfullah
-			has_idea_with_trait = TUR_old_guard_faction_mehmet_hadi
-			has_idea_with_trait = TUR_old_guard_faction_resat_halis
-			has_idea_with_trait = TUR_old_guard_faction_abdulaziz_mecdi
-			has_idea_with_trait = TUR_old_guard_faction_mehmet_cemaleddin_efendi
-			has_idea_with_trait = TUR_old_guard_faction_mustafa_sabri
-			has_idea_with_trait = TUR_old_guard_faction_mehmed_serif_pasa
-			has_idea_with_trait = TUR_old_guard_faction_ali_kemal
-			has_idea_with_trait = TUR_old_guard_faction_abdulhamid_zehravi
-			has_idea_with_trait = TUR_old_guard_faction_dukakinzade_basri_bey
-			has_idea_with_trait = TUR_old_guard_faction_nazaret_daghavarian
-		}
-	}
-}
-
-has_idea_with_trait_TUR_young_blood_faction = {
-	custom_trigger_tooltip = {
-		tooltip = has_idea_with_trait_TUR_young_blood_faction_tt
-		OR = {
-			has_idea_with_trait = TUR_young_blood_faction_riza_tevfik
-			has_idea_with_trait = TUR_young_blood_faction_riza_nur
-			has_idea_with_trait = TUR_young_blood_faction_lutfi_fikri
-			has_idea_with_trait = TUR_young_blood_faction_ahmet_resit_rey
-			has_idea_with_trait = TUR_young_blood_faction_ibrahim_temo
-			has_idea_with_trait = TUR_young_blood_faction_miralay_sadik
-			has_idea_with_trait = TUR_young_blood_faction_gumulcineli_ismail
-		}
+		state = 656
+		state = 804
+		state = 904
+		state = 765
+		state = 886
+		state = 658
+		state = 885
+		state = 905
 	}
 }
