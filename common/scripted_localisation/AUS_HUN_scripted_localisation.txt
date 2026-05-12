@@ -21,21 +21,20 @@ defined_text = {
 }
 defined_text = {
     name = AUS_empire_stab
-	 text = {
+	text = {
         trigger = { 
 			has_war_with_major = yes
 			has_global_flag = great_war
 			NOT = {
 				has_global_flag = great_war_ends
 			}
-		 }
+		}
         localization_key = AUS_empire_stab_real
     }
     text = {
         trigger = { 
 			has_war_with_major = no
-			
-		 }
+		}
         localization_key = empty_space_tt
     }
 
@@ -43,19 +42,19 @@ defined_text = {
 }
 defined_text = {
     name = AUS_do_czechs_have_reformist_mindset
-	 text = {
+	text = {
         trigger = { 
 			has_country_flag = AUS_czech_reformist_mindset
-		 }
-        localization_key = AUS_cze_autonomy_over_reform
+		}
+        localization_key = AUS_cze_reform_over_seperation_tt
     }
     text = {
         trigger = { 
 			NOT = {
-			has_country_flag = AUS_czech_reformist_mindset
+				has_country_flag = AUS_czech_reformist_mindset
 			}
 			
-		 }
+		}
         localization_key = AUS_nothing_text
     }
 
@@ -63,19 +62,19 @@ defined_text = {
 }
 defined_text = {
     name = AUS_do_czechs_demand_language_reform
-	 text = {
+	text = {
         trigger = { 
 			has_country_flag = AUS_czech_language_issue_active
-		 }
+		}
         localization_key = AUS_language_issue_demand
     }
     text = {
         trigger = { 
 			NOT = {
-			has_country_flag = AUS_czech_reformist_mindset
+				has_country_flag = AUS_czech_reformist_mindset
 			}
 			
-		 }
+		}
         localization_key = AUS_nothing_text
     }
 
@@ -83,19 +82,19 @@ defined_text = {
 }
 defined_text = {
     name = AUS_do_huns_have_magyarization
-	 text = {
+	text = {
         trigger = { 
 			has_country_flag = AUS_slovak_magyarization
-		 }
+		}
         localization_key = AUS_slovaks_mad_magyarization
     }
     text = {
         trigger = { 
 			NOT = {
-			has_country_flag = AUS_slovak_magyarization
+				has_country_flag = AUS_slovak_magyarization
 			}
 			
-		 }
+		}
         localization_key = AUS_nothing_text
     }
 
@@ -103,19 +102,19 @@ defined_text = {
 }
 defined_text = {
     name = AUS_is_the_army_racist_cze
-	 text = {
+	text = {
         trigger = { 
 			has_country_flag = AUS_cze_army_racism
-		 }
+		}
         localization_key = AUS_racist_army_cze
     }
     text = {
         trigger = { 
 			NOT = {
-			has_country_flag = AUS_cze_army_racism
+				has_country_flag = AUS_cze_army_racism
 			}
 			
-		 }
+		}
         localization_key = AUS_nothing_text
     }
 
@@ -123,39 +122,53 @@ defined_text = {
 }
 defined_text = {
     name = AUS_cze_demands_for_autonomy
-	 text = {
+	text = {
         trigger = { 
 			has_country_flag = AUS_cze_autonomy_demands
-		 }
+		}
         localization_key = AUS_cze_autonomy_demands_max
     }
     text = {
         trigger = { 
 			NOT = {
-			has_country_flag = AUS_cze_autonomy_demands
+				has_country_flag = AUS_cze_autonomy_demands
 			}
 			
-		 }
+		}
         localization_key = AUS_nothing_text
     }
 
    
 }
 define_text = {
-	name = AUS_cze_is_establishment_colluding
- text = {
+	name = AUS_generic_fragile_peace
+ 	text = {
         trigger = { 
-			has_country_flag = AUS_cze_pols_helpful
-		 }
-        localization_key = AUS_cze_colluding_establishment
+			is_great_war_ongoing = yes
+		}
+        localization_key = AUS_nothing_text
+    }
+    text = {
+        trigger = { 
+			is_great_war_ongoing = no
+		}
+        localization_key = AUS_generic_fragile_peace_tt
+    }
+}
+define_text = {
+	name = AUS_cze_is_establishment_colluding
+ 	text = {
+        trigger = { 
+			has_country_flag = AUS_cze_closed_doors
+		}
+        localization_key = AUS_cze_closed_doors_tt
     }
     text = {
         trigger = { 
 			NOT = {
-			has_country_flag = AUS_cze_pols_helpful
+				has_country_flag = AUS_cze_closed_doors
 			}
-			
-		 }
+		}
         localization_key = AUS_nothing_text
     }
 }
@@ -163,17 +176,17 @@ define_text = {
 	name = AUS_cze_is_moravian_compromise_active
 	 text = {
         trigger = { 
-			has_country_flag = AUS_cze_moravian_comp
-		 }
+			has_country_flag = AUS_cze_moravian_compromise
+		}
         localization_key = AUS_cze_is_moravian_compromise
     }
     text = {
         trigger = { 
 			NOT = {
-			has_country_flag = AUS_cze_moravian_comp
+				has_country_flag = AUS_cze_moravian_compromise
 			}
 			
-		 }
+		}
         localization_key = AUS_nothing_text
     }
 }
