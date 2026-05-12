@@ -1,0 +1,68 @@
+#France
+TGWR_great_power_politics = {
+	FRA_surrender_conditions = {
+		icon = great_war
+		allowed = {
+			tag = FRA
+		}
+		visible = {
+			great_power_politics_great_war_visible = yes
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+			custom_trigger_tooltip = {
+				tooltip = we_will_surrender_when_tt
+				NOT = {
+					controls_state = 16
+				}
+			}
+			NOT = {
+				controls_state = 16
+			}
+		}
+	}
+	FRA_surrender_mission = {
+		icon = great_war
+		allowed = {
+			tag = FRA
+		}
+		activation = {
+			always = no
+		}
+		is_good = no
+		days_mission_timeout = 30
+	}
+}
+#Russia
+TGWR_great_power_politics = {
+	RUS_surrender_conditions = {
+		icon = great_war
+		allowed = {
+			tag = RUS
+		}
+		visible = {
+			great_power_politics_great_war_visible = yes
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+			custom_trigger_tooltip = {
+				tooltip = we_will_surrender_when_tt
+			}
+		}
+	}
+	RUS_surrender_mission = {
+		icon = great_war
+		allowed = {
+			tag = RUS
+		}
+		activation = {
+			always = no
+		}
+		is_good = no
+		days_mission_timeout = 30
+	}
+}
