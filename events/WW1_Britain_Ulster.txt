@@ -512,15 +512,43 @@ country_event = {
 		name = orange.7.a
 		add_ideas = ENG_easter_rising
 		113 = {
-			damage_building = {
-				type = infrastructure
-				damage = 3
-			}
-			damage_building = {
-				type = industrial_complex
-				damage = 1
+			transfer_state_to = IRE
+		}
+		hidden_effect = {
+			IRE = {
+				add_ideas = standing_alone
+				add_ideas = IRE_idea_IRA
+				promote_character = IRE_patrick_pearse
+				division_template = {
+					name = "Irish Volunteers"
+					regiments = {
+						militia = { x = 0 y = 0 }
+					}
+					support = {
+						engineer = { x = 0 y = 0  }
+						field_gun = { x = 0 y = 1 }
+					}
+				}
+				113 = {
+					create_unit = {
+						division = "name = \"Irish Volunteers\" division_template = \"Irish Volunteers\" start_experience_factor = 0.4"
+						owner = IRE
+						prioritize_location = 11293 #dublin
+					}
+				}
 			}
 		}
+		declare_war_on = {
+			type = annex_everything
+			target = IRE
+		}
+		set_province_controller = 285
+		set_province_controller = 303
+		set_province_controller = 369
+		set_province_controller = 3342
+		set_province_controller = 3359
+		set_province_controller = 7377
+		set_province_controller = 11303
 		remove_state_core = 134
 		remove_state_core = 113
 		remove_state_core = 135
