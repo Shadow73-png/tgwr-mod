@@ -1542,7 +1542,7 @@ focus_tree = {
 				tooltip = army_attack_factor_tt
 			}
 			add_equipment_to_stockpile = {
-				type = num_artillery
+				type = field_gun_equipment
 				amount = 100
 			}
 			add_tech_bonus = {
@@ -2063,7 +2063,7 @@ focus_tree = {
 				amount = 15
 			}
 			add_equipment_to_stockpile = {
-				type = early_truck_equipment
+				type = motorized_equipment_0
 				amount = 60
 			}
 		}
@@ -5894,7 +5894,7 @@ focus_tree = {
 			}
 			add_popularity = {
 				ideology = communism
-				value = -0.15
+				popularity = -0.15
 			}
 		}
 		ai_will_do = {
@@ -6980,9 +6980,6 @@ focus = {
 	}
 	relative_position_id = HOL_question_of_leadership
 	completion_reward = {
-		else = {
-			create_faction_from_template = faction_template_third_international
-		}
 		if = {
 			limit = {
 				ITA = {
@@ -6990,6 +6987,9 @@ focus = {
 				}
 			}
 			country_event = ww1_holland.106
+		}
+		else = {
+			create_faction_from_template = faction_template_third_international
 		}
 	}
 	ai_will_do = {

@@ -68,7 +68,6 @@ foreign_politics = {
 			}
 		}
 		visible = {
-			has_completed_focus = HOL_voice_of_the_socialism
 			has_government = communism
 			NOT = {
 				has_country_flag = great_war_loser
@@ -85,69 +84,6 @@ foreign_politics = {
 				add_timed_idea = {
 					idea = HOL_underground_agitation
 					days = 365
-				}
-			}
-		}
-		cost = 100
-		ai_will_do = {
-			factor = 200
-		}
-	}
-	
-	HOL_ask_for_colonies = {
-		icon = GFX_decision_eng_trade_unions_demand
-		allowed = {
-			original_tag = HOL
-		}
-		target_trigger = {
-			FROM = {
-				OR = {
-					original_tag = ENG
-					original_tag = FRA
-					original_tag = POR
-					original_tag = JAP
-				}
-				any_owned_state = {
-					OR = {
-						is_core_of = ROOT
-						is_claimed_by = ROOT
-					}
-				}
-			}
-		}
-		available = {
-			is_subject = no
-			has_capitulated = no
-			NOT = {
-				has_war_with = FROM
-				has_active_mission = compiegne_armistice_mission
-				has_active_mission = frankfurt_armistice_mission
-				has_active_mission = versallies_conference
-				has_active_mission = frankfurt_conference
-			}
-		}
-		visible = {
-			FROM = {
-				any_owned_state = {
-					OR = {
-						is_core_of = ROOT
-						is_claimed_by = ROOT
-					}
-				}
-			}
-		}
-		target_root_trigger = {
-			NOT = {
-				has_country_flag = great_war_loser
-			}
-			has_completed_focus = HOL_imperial_spirit
-		}
-		fire_only_once = yes
-		complete_effect = {
-			FROM = {
-				country_event = {
-					id = ww1_holland.9
-					hours = 3
 				}
 			}
 		}
@@ -448,7 +384,9 @@ HOL_dc_ek = {
     	available = {
 			OR = {
     	  		has_war = yes
-				has_dynamic_modifier = HOL_war_at_the_doorstep
+				HOL = {
+					has_dynamic_modifier = HOL_dm_war_at_the_gates
+				}
 				NOT = {
 					has_government = democratic
 				}
@@ -613,9 +551,6 @@ HOL_dc_ek = {
 				}
 			}
 		}
-		modifier = {
-			political_power_cost = 0.1
-		}
 		ai_will_do = {
 			factor = 200
 		}
@@ -666,9 +601,6 @@ HOL_dc_ek = {
     	allowed = {
 			original_tag = HOL
 		}
-    	activation = {
-			has_completed_focus = HOL_monopoly_busting
-    	}
 		fire_only_once = yes
     	available = {
     	    NOT = {
@@ -677,22 +609,16 @@ HOL_dc_ek = {
 					has_government = communism
 				}
 			}
-    	}
-    	cancel_trigger = {
-			
+			has_completed_focus = HOL_monopoly_busting
     	}
     	icon = GFX_decision_generic_factory
-    	days_mission_timeout = 180
-    	selectable_mission = no
+    	days_remove = 180
 		modifier = {
 			stability_weekly = -0.008
 			consumer_goods_factor = 0.05
 		}
     	complete_effect = {
-			
-    	}
-    	timeout_effect = {
-    	    add_stability = 0.05
+			add_stability = 0.05
 			add_to_variable = {
 				HOL_variable_sdap_popularity = 1
 			}
@@ -2634,56 +2560,7 @@ HOL_dc_ua2 = {
 		}
 	}
 }
-HOL_dc_ci = {
-	HOL_critisize_extremists = {
-		icon = GFX_decision_eng_trade_unions_demand
-		allowed = {
-			original_tag = HOL
-		}
-		available = {
-			has_completed_focus = HOL_ally_extreme_left
-		}
-		days_remove = 35
-		visible = {
-			has_completed_focus = HOL_ally_extreme_left
-		}
-		complete_effect = {
-			add_power_balance_value = {
-   				id = HOL_bop_communists
-    			value = 0.1
-	   			tooltip_side = HOL_balance_moderates
-			}
-		}
-		cost = 50
-		ai_will_do = {
-			factor = 200
-		}
-	}
-	HOL_critisize_extremists = {
-		icon = GFX_decision_eng_trade_unions_demand
-		allowed = {
-			original_tag = HOL
-		}
-		available = {
-			has_completed_focus = HOL_ally_extreme_left
-		}
-		days_remove = 35
-		visible = {
-			has_completed_focus = HOL_ally_extreme_left
-		}
-		complete_effect = {
-			add_power_balance_value = {
-   				id = HOL_bop_communists
-    			value = -0.1
-	   			tooltip_side = HOL_balance_extremism
-			}
-		}
-		cost = 50
-		ai_will_do = {
-			factor = 200
-		}
-	}
-}
+
 HOL_dc_bop = {
 	HOL_meet_entente_officials = {
 		icon = GFX_decision_eng_trade_unions_demand
