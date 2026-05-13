@@ -1740,7 +1740,7 @@ country_event = {
 				}
 			}
 			modifier = {
-				factor = -1000
+				factor = -10
 				has_war_with = AUS
 			}
 		}
@@ -4201,7 +4201,10 @@ country_event = {
 			AUS_aps_stab = -0.05
 			tooltip = stability_factor_tt
 		}
-		add_threat = 4
+		add_named_threat = {
+			threat = 4
+			name = AUS_seized_taslica
+		}
 		761 = {
 			transfer_state_to = BOS
 		}
@@ -4233,7 +4236,13 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			base = 2
+			base = 1
+			modifier = {
+				add = 5
+				BOS = {
+					is_ai = no
+				}
+			}
 		}
 	}
 	option = {
