@@ -10677,7 +10677,7 @@ joint_focus = {
 joint_focus = {
 	id = AUS_ratify_new_budget
 	icon = GFX_focus_HABSBURG_reform_gemeinsame_armee
-	text_icon = joint_AUS_HUN_focus_style
+	text_icon = joint_AUS_focus_style
 	cost = 4
 	x = 0
 	y = 0
@@ -10685,7 +10685,7 @@ joint_focus = {
 		trigger = {
 			has_focus_tree = TGWR_hungary_focus
 		}
-		x = -6
+		x = -8
 		y = 2
 	}
 	offset = {
@@ -10703,9 +10703,26 @@ joint_focus = {
 	relative_position_id = AUS_continue_the_army_reforms
 	available = {
 		AUS_HUN_exists = yes
+		if = {
+			limit = {
+				original_tag = HUN
+			}
+			custom_trigger_tooltip = {
+				tooltip = only_austria_can
+				always = no
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = only_austria_can
+				}
+			}
+		}
 		OR = {
 			has_war_support > 0.3
 			threat > 0.1
+			SER = {
+				has_war = yes
+			}
 		}
 	}
 	completion_reward_joint_originator = {

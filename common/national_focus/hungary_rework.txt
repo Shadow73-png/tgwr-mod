@@ -145,7 +145,7 @@ focus_tree = {
 		id = HUN_kick_the_can
 		icon = GFX_focus_BEL_government_resigns
 		relative_position_id = HUN_aftermath_of_werkle
-		x = 0
+		x = 2
 		y = 2
 		cost = 2.9
 		search_filters = {
@@ -1525,12 +1525,7 @@ focus_tree = {
 			focus = HUN_constitutional_party
 		}
 		select_effect = {
-			hidden_effect = {
-				country_event = {
-					id = ww1_croatia.7
-					days = 29
-				}
-			}
+			
 		}
 		completion_reward = { 
 			if = {
@@ -3686,12 +3681,23 @@ focus_tree = {
 			every_owned_state = {
 				limit = {
 					infrastructure > 4
+					OR = {
+						state = 155
+						state = 109
+						state = 43
+						state = 154
+						state = 70
+						state = 664
+						state = 103
+						state = 104
+					}
 				}
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
 					instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 1
 			}
 		}
 	}
@@ -4869,13 +4875,25 @@ focus_tree = {
 			custom_effect_tooltip = HUN_stimulate_our_industrial_potential.tt
 			every_owned_state = {
 				limit = {
-					infrastructure > 4
+					infrastructure > 3
+					OR = {
+						state = 155
+						state = 109
+						state = 43
+						state = 154
+						state = 70
+						state = 664
+						state = 103
+						state = 104
+					}
+					
 				}
 				add_building_construction = {
 					type = arms_factory
 					level = 1
 					instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 1
 			}
 		}
 	}
@@ -4908,6 +4926,7 @@ focus_tree = {
 					type = arms_factory
 					level = 1
 				}
+				add_extra_state_shared_building_slots = 1
 			}
 		 }
 	}
@@ -5144,9 +5163,9 @@ focus_tree = {
 		}
 		completion_reward = { 
 			add_doctrine_cost_reduction = {
-				cost_reduction = 1
+				cost_reduction = 0.67
 				name = HUN_refine_our_officers
-				uses = 2
+				uses = 1
 				category = land_doctrine
 			}
 			HUN_friedrich_csanady_von_bekes = {
@@ -5180,12 +5199,13 @@ focus_tree = {
 			focus = HUN_hazai_army_reform
 		}
 		completion_reward = { 
-			43 = {
+			155 = {
 				add_building_construction = {
 					type = arms_factory
 					level = 1
 					instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 1
 			}
 			IF = {
 				limit = {
@@ -5329,7 +5349,7 @@ focus_tree = {
 				limit = { 
 					has_country_flag = HUN_national_work_party_yes
 				}
-				activate_mission = HUN_great_war_discontent_mission
+				#activate_mission = HUN_great_war_discontent_mission
 			}
 		}
 	 }
@@ -6703,6 +6723,30 @@ focus_tree = {
 			country_event = ww1_hungary.84
 		 }
 	 }
+	 #Trade Agreement with Albania
+	 focus = {
+		id = HUN_trade_agreement_with_ALB
+		icon = GFX_focus_generic_befriend_wiedist_albania
+		cost = 2
+		relative_position_id = HUN_trade_agreement_with_BUL
+		x = -2
+		y = 0
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNATIONAL_TRADE
+		}
+		available = {
+			has_war_with_major = yes
+			is_in_faction_with = ALB
+		}
+		prerequisite = {
+			focus = HUN_secure_the_east
+		}
+		mutually_exclusive = {
+			focus = HUN_trade_agreement_with_BUL
+		}
+		completion_reward = { }
+	 }
 	 #Trade Agreement with Bulgaria
 	 focus = {
 		id = HUN_trade_agreement_with_BUL
@@ -6725,7 +6769,6 @@ focus_tree = {
 			NOT = {
 				has_war_with = BUL
 			}
-			has_war_with_major = yes
 			OR = {
 				is_in_faction_with = TUR
 				is_in_faction_with = ROM
@@ -6734,8 +6777,8 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_secure_the_east
 		}
-		bypass = {
-			has_war_with = BUL
+		mutually_exclusive = {
+			focus = HUN_trade_agreement_with_ALB
 		}
 		completion_reward = { }
 	 }
@@ -6756,7 +6799,7 @@ focus_tree = {
 		}
 		available = {
 			has_war_with = RUS
-			longest_war_length < 12
+			longest_war_length < 18
 		}
 		prerequisite = {
 			focus = HUN_consider_transylvanian_concessions
