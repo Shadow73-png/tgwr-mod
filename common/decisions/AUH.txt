@@ -948,33 +948,7 @@ AUS_minorities_mechanic = {
 		}
 		timeout_effect = {
 			activate_mission = AUH_bohemian_parliament_shenanigans
-			AUS_update_state_of_realm = yes
-			IF = {
-				limit = {
-					check_variable = {
-						AUS_czechoslovak_loyalty > 30
-					}
-				}
-				add_to_variable = {
-					AUS_czechoslovak_loyalty = -5
-					tooltip = AUS_loyalty_czechoslovakia_tt
-				}
-				AUS_update_state_of_realm = yes
-			}
-			else = {
-				if = {
-					limit = {
-						has_political_power > 0
-					}
-					add_political_power = -15
-				}
-				if = {
-					limit = {
-						has_stability > 0.5
-					}
-					add_stability = -0.02
-				}
-			}
+			add_political_power = -20
 		}
 		complete_effect = {
 		}
@@ -1081,57 +1055,7 @@ AUS_minorities_mechanic = {
 			AUS_increase_southern_admin = yes
 		}
 	}
-	AUS_propaganda_in_bohemia = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			NOT = {
-				has_active_mission = AUS_automatic_propaganda_mission
-			}
-		}
-		priority = 21
-		highlight_states = {
-			highlight_state_targets = {
-				state = 69
-				state = 9
-			}
-		}
-		available = {
-			check_variable = {
-				AUS_czechoslovak_loyalty < 80
-				tooltip = AUS_czech_loyalty_less_than
-			}
-		}
-		cancel_trigger = {
-			has_active_mission = AUS_automatic_propaganda_mission
-		}
-		fire_only_once = no
-		ai_will_do = {
-			base = 0
-			modifier = {
-				add = 100
-				check_variable = {
-					AUS_czechoslovak_loyalty < 60
-				}
-			}
-			modifier = {
-				has_political_power < 40
-				factor = 0
-			}
-		}
-		complete_effect = {
-		}
-		cost = AUS_propaganda_in_bohemia_cost
-		days_remove = 30
-		remove_effect = {
-			add_to_variable = {
-				AUS_czechoslovak_loyalty = 5
-				tooltip = AUS_loyalty_czechoslovakia_tt
-			}
-			AUS_update_state_of_realm = yes
-		}
+
 	}
 	AUS_propaganda_in_bosnia = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -1354,111 +1278,8 @@ AUH_automatic_mechanics = {
 		}
 		cost = 0
 	}
-	AUS_automatic_propaganda_mission = {
-		priority = 99
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = AUS
-		}
-		days_mission_timeout = 30
-		available = {
-			always = no
-		}
-		visible = {
-			original_tag = AUS
-		}
-		activation = {
-			always = no
-		}
-		timeout_effect = {
-			if = {
-				limit = {
-					check_variable = {
-						# tooltip there doesnt work
-						AUS_czechoslovak_loyalty < 80
-					}
-				}
-				# add tt there like in else
-				add_political_power = AUS_propaganda_in_bohemia_cost2
-				add_to_variable = {
-					AUS_czechoslovak_loyalty = 5
-					tooltip = AUS_loyalty_czechoslovakia_tt
-				}
-				activate_mission = AUS_automatic_propaganda_mission
-				AUS_update_state_of_realm = yes
-			}
-			else = {
-				custom_effect_tooltip = AUS_higher_then_80
-				activate_mission = AUS_automatic_propaganda_mission
-			}
-		}
-		cancel_trigger = {
-			has_political_power < AUS_propaganda_in_bohemia_cost
-		}
-		cancel_effect = {
-			remove_mission = AUS_automatic_propaganda_mission
-			country_event = ww1_austriahungary.78
-		}
-		fire_only_once = no
-		is_good = yes
-	}
-	AUS_automatic_propaganda = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-		}
-		priority = 98
-		visible = {
-			has_active_mission = AUH_bohemian_parliament_shenanigans
-		}
-		available = {
-			has_active_mission = AUH_bohemian_parliament_shenanigans
-			has_political_power > AUS_propaganda_in_bohemia_cost
-			NOT = {
-				has_active_mission = AUS_automatic_propaganda_mission
-			}
-		}
-		fire_only_once = no
-		ai_will_do = {
-			base = 0
-		}
-		complete_effect = {
-			activate_mission = AUS_automatic_propaganda_mission
-			custom_effect_tooltip = AUS_automatic_prop.tt
-			custom_effect_tooltip = empty_space_tt
-			unlock_decision_tooltip = AUS_abandon_propaganda
-			custom_effect_tooltip = when_taken
-			effect_tooltip = {
-				remove_mission = AUS_automatic_propaganda_mission
-				unlock_decision_tooltip = AUS_automatic_propaganda
-			}
-		}
-		cost = 0
-	}
-	AUS_abandon_propaganda = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-		}
-		priority = 98
-		visible = {
-			has_active_mission = AUS_automatic_propaganda_mission
-		}
-		available = {
-		}
-		fire_only_once = no
-		ai_will_do = {
-			factor = 0
-		}
-		complete_effect = {
-			remove_mission = AUS_automatic_propaganda_mission
-		}
-		cost = 0
-	}
+	
+	
 	AUS_stabilization_effort_mission = {
 		priority = 99
 		ai_will_do = {
