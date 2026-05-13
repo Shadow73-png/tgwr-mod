@@ -3758,27 +3758,38 @@ AUS_spawn_MGS = {
 		set_research_slots = 2
 		set_politics = {
 			ruling_party = neutrality
-			long_name = GUD_neutrality_party
-			name = GUD_neutrality_party
+			long_name = MGS_neutrality_long
+			name = MGS_neutrality_party
 			elections_allowed = no
 		}
 		reserve_dynamic_country = yes
+		107 = {
+			transfer_state_to = MGS
+		}
 		set_capital = {
 			state = 107
 		}
-	}
-	107 = {
-		transfer_state_to = MGS
+		create_country_leader = {
+			name = x
+			picture = x
+			ideology = vanguardism
+		}
 	}
 	MGS = {
 		get_current_government_type = yes
+		set_country_flag = monarchist_puppet
 		AUS = {
 			set_autonomy = {
 				target = MGS
 				autonomy_state = autonomy_tgwr_governorate_general
 			}
+			AUS_johann_von_saliss_seewis = {
+				set_nationality = MGS
+				promote_character = yes
+			}
 		}
 		restore_previous_government_type = yes
+		load_focus_tree = mgs_focus
 		set_state_controller = 107
 		set_state_controller = 847
 		set_state_controller = 760
@@ -3788,7 +3799,6 @@ AUS_spawn_MGS = {
 		add_ideas = MGS_illegitimate_government_5
 		add_ideas = MGS_nation_in_ruins4
 		add_ideas = MGS_resistance_to_occupation
-		set_country_flag = monarchist_puppet
 		if = {
 			limit = { 
 				NOT = {
@@ -3803,7 +3813,6 @@ AUS_spawn_MGS = {
 			set_state_controller = 809
 			set_state_controller = 876
 		}
-		load_focus_tree = mgs_focus
 		MGS = {
 			set_power_balance = {
     			id = MGS_austria_hungary_interests
