@@ -521,6 +521,8 @@ TGWR_great_power_politics = {
 			}
 		}
 		timeout_effect = {
+			#Make an event later when more moivated
+			complete_national_focus = HUN_failure_of_treuga_dei
 		}
 		complete_effect = {
 		}
@@ -1452,6 +1454,15 @@ AUS_minorities_mechanic_HUN = {
 		timeout_effect = {
 			HUN = {
 				add_political_power = -100
+				if = {
+					limit = { 
+						has_country_flag = HUN_national_work_party_yes
+					}
+					add_to_variable = {
+						HUN_national_work_party_authority_var = -50
+						tooltip = HUN_modify_national_work_party_tt
+					}
+				}
 			}
 		}
 		complete_effect = {
@@ -1885,7 +1896,16 @@ HUN_national_work_party_cat = {
 		is_good = no
 		fire_only_once = no
 		activation = {
-			always = no
+			OR = {
+				has_global_flag = great_war
+				AND = {
+					has_war_with = FRA
+					has_war_with = RUS
+				}
+			}
+			not = {
+				has_global_flag = great_war_ends
+			}
 		}
 		available = {
 			OR = {
@@ -2640,6 +2660,7 @@ HUN_economy_category = {
 HUN_war_economy_cat = {
 	HUN_fading_food_stability_mission = {
 		icon = GFX_decision_generic_ignite_civil_war
+		fire_only_once = no
 		allowed = {
 			original_tag = HUN
 		}
@@ -2681,7 +2702,7 @@ HUN_war_economy_cat = {
 			}
 			add_to_variable = {
 				HUN_food_stab_var = -5
-				tooltip = HUN_food_var_minus_3.tt
+				tooltip = HUN_food_var_minus_5.tt
 			}
 			add_political_power = -40
 			if = {
