@@ -95,34 +95,39 @@ TUR_is_owned_by_us_or_autonomous_vilayet_committee_government = {
 
 TUR_state_has_minority = {
 	OR = {
-		check_variable = { TUR_armenian_state_level > 0 }
-		check_variable = { TUR_greek_state_level > 0 }
-		check_variable = { TUR_arab_state_level > 0 }
-		check_variable = { TUR_jewish_state_level > 0 }
-		check_variable = { TUR_bulgarian_state_level > 0 }
-		check_variable = { TUR_albanian_state_level > 0 }
-		check_variable = { TUR_serbian_state_level > 0 }
-		check_variable = { TUR_kurdish_state_level > 0 }
-		check_variable = { TUR_assyrian_state_level > 0 }
-		check_variable = { TUR_georgian_state_level > 0 }
-		check_variable = { TUR_turkish_state_level > 0 }
+		check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+		check_variable = { TUR_greek_orthodox_state_variable < 0 }
+		check_variable = { TUR_arab_sunni_state_variable < 0 }
+		check_variable = { TUR_arab_shia_state_variable < 0 }
+		check_variable = { TUR_arab_orthodox_state_variable < 0 }
+		check_variable = { TUR_arab_catholic_state_variable < 0 }
+		check_variable = { TUR_jewish_judaic_orthodox_state_variable < 0 }
+		check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
+		check_variable = { TUR_albanian_sunni_state_variable < 0 }
+		check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+		check_variable = { TUR_albanian_catholic_state_variable < 0 }
+		check_variable = { TUR_serbian_orthodox_state_variable < 0 }
+		check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+		check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+		check_variable = { TUR_georgian_sunni_state_variable < 0 }
+		check_variable = { TUR_georgian_orthodox_state_variable < 0 }
+		check_variable = { TUR_turkish_sunni_state_variable < 0 }
+		check_variable = { TUR_turkish_shia_state_variable < 0 }
 	}
 }
 
 TUR_state_has_christian_minority = {
 	OR = {
-		check_variable = { TUR_greek_orthodox_state_level > 0 }
-		check_variable = { TUR_arab_orthodox_state_level > 0 }
-		check_variable = { TUR_bulgarian_orthodox_state_level > 0 }
-		check_variable = { TUR_albanian_orthodox_state_level > 0 }
-		check_variable = { TUR_serbian_orthodox_state_level > 0 }
-		check_variable = { TUR_romanian_orthodox_state_level > 0 }
-		check_variable = { TUR_georgian_orthodox_state_level > 0 }
-		check_variable = { TUR_armenian_apostolic_state_level > 0 }
-		check_variable = { TUR_assyrian_syriac_state_level > 0 }
-		check_variable = { TUR_arab_catholic_state_level > 0 }
-		check_variable = { TUR_albanian_catholic_state_level > 0 }
-		check_variable = { TUR_serbian_orthodox_state_level > 0 }
+		check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+		check_variable = { TUR_greek_orthodox_state_variable < 0 }
+		check_variable = { TUR_arab_orthodox_state_variable < 0 }
+		check_variable = { TUR_arab_catholic_state_variable < 0 }
+		check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
+		check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+		check_variable = { TUR_albanian_catholic_state_variable < 0 }
+		check_variable = { TUR_serbian_orthodox_state_variable < 0 }
+		check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+		check_variable = { TUR_georgian_orthodox_state_variable < 0 }
 	}
 }
 
@@ -152,140 +157,12 @@ TUR_has_former_minority_state_modifier = {
 	TUR_state_has_minority = yes
 }
 
-TUR_state_has_minority_stability_factor = {
-	OR = {
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_armenian_minority }
-			NOT = { check_variable = { TUR_armenian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_greek_minority }
-			NOT = { check_variable = { TUR_greek_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_arab_minority }
-			NOT = { check_variable = { TUR_arab_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_jewish_minority }
-			NOT = { check_variable = { TUR_jewish_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_bulgarian_minority }
-			NOT = { check_variable = { TUR_bulgarian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_albanian_minority }
-			NOT = { check_variable = { TUR_albanian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_serbian_minority }
-			NOT = { check_variable = { TUR_serbian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_kurdish_minority }
-			NOT = { check_variable = { TUR_kurdish_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_assyrian_minority }
-			NOT = { check_variable = { TUR_assyrian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_georgian_minority }
-			NOT = { check_variable = { TUR_georgian_population_stability_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_turkish_minority }
-			NOT = { check_variable = { TUR_turkish_population_stability_factor = 0 } }
-		}
-	}
-}
-
-TUR_state_has_minority_war_support_factor = {
-	OR = {
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_armenian_minority }
-			NOT = { check_variable = { TUR_armenian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_greek_minority }
-			NOT = { check_variable = { TUR_greek_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_arab_minority }
-			NOT = { check_variable = { TUR_arab_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_jewish_minority }
-			NOT = { check_variable = { TUR_jewish_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_bulgarian_minority }
-			NOT = { check_variable = { TUR_bulgarian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_albanian_minority }
-			NOT = { check_variable = { TUR_albanian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_serbian_minority }
-			NOT = { check_variable = { TUR_serbian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_kurdish_minority }
-			NOT = { check_variable = { TUR_kurdish_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_assyrian_minority }
-			NOT = { check_variable = { TUR_assyrian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_georgian_minority }
-			NOT = { check_variable = { TUR_georgian_population_war_support_factor = 0 } }
-		}
-		AND = {
-			has_dynamic_modifier = { modifier = TUR_turkish_minority }
-			NOT = { check_variable = { TUR_turkish_population_war_support_factor = 0 } }
-		}
-	}
-}
-
-TUR_state_has_minority_mtth = {
-	TUR_is_controlled_by_us_or_committee_government = yes
-	OR = {
-		has_dynamic_modifier = { modifier = TUR_arab_minority }
-		has_dynamic_modifier = { modifier = TUR_greek_minority }
-		has_dynamic_modifier = { modifier = TUR_jewish_minority }
-		has_dynamic_modifier = { modifier = TUR_armenian_minority }
-		has_dynamic_modifier = { modifier = TUR_kurdish_minority }
-		has_dynamic_modifier = { modifier = TUR_bulgarian_minority }
-		has_dynamic_modifier = { modifier = TUR_albanian_minority }
-		has_dynamic_modifier = { modifier = TUR_serbian_minority }
-		has_dynamic_modifier = { modifier = TUR_georgian_minority }
-		has_dynamic_modifier = { modifier = TUR_assyrian_minority }
-		has_dynamic_modifier = { modifier = TUR_turkish_minority }
-	}
-}
-
 TUR_state_has_autonomy_modifier = {
 	OR = {
 		has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
 		has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
 		has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
 	}
-}
-
-TUR_state_has_autonomy_lebanon_mtth = {
-	TUR_is_controlled_by_us_or_committee_government = yes
-	has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
-}
-TUR_state_has_autonomy_mtth = {
-	TUR_is_controlled_by_us_or_committee_government = yes
-	has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-}
-TUR_state_has_semi_autonomy_mtth = {
-	TUR_is_controlled_by_us_or_committee_government = yes
-	has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
 }
 
 TUR_revolt_decision_trigger = {

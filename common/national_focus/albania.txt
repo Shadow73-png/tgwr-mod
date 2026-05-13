@@ -4716,7 +4716,10 @@ focus_tree = {
 							has_state_flag = TUR_iskodra
 						}
 						controller = { TUR_has_minority_system = yes }
-						check_variable = { TUR_turkish_state_level > 0 }
+						OR = {
+							check_variable = { TUR_turkish_sunni_state_variable < 0 }
+							check_variable = { TUR_turkish_shia_state_variable < 0 }
+						}
 					}
 					add_dynamic_modifier = { modifier = TUR_turkish_minority }
 					custom_effect_tooltip = empty_space

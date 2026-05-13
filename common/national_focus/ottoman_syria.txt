@@ -1345,6 +1345,32 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_temporary_law_of_deportation_tt
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_temporary_law_of_deportation_armenia = old_armenian_value }
+				divide_temp_variable = { TUR_temporary_law_of_deportation_armenia = TUR_armenian_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_temporary_law_of_deportation_armenia = TUR_armenian_population_factor_focus }
+				
+				TUR_set_old_assyrian_value = yes
+				set_temp_variable = { TUR_temporary_law_of_deportation_assyria = old_assyrian_value }
+				divide_temp_variable = { TUR_temporary_law_of_deportation_assyria = TUR_assyrian_population_factor_new }
+				set_temp_variable = { TUR_assyrian_population_factor_focus = TUR_assyrian_population_factor_new }
+				add_to_temp_variable = { TUR_assyrian_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_temporary_law_of_deportation_assyria = TUR_assyrian_population_factor_focus }
+				
+				set_temp_variable = { TUR_temporary_law_of_deportation = TUR_temporary_law_of_deportation_armenia }
+				add_to_temp_variable = { TUR_temporary_law_of_deportation = TUR_temporary_law_of_deportation_assyria }
+				set_temp_variable = { old_armenian_assyrian_value = old_armenian_value }
+				add_to_temp_variable = { old_armenian_assyrian_value = old_assyrian_value }
+
+				subtract_from_temp_variable = { TUR_temporary_law_of_deportation = old_armenian_assyrian_value }
+			}
+			add_to_variable = { TUR_armenian_population_factor_new = 0.1 }
+			add_to_variable = { TUR_assyrian_population_factor_new = 0.1 }
+			custom_effect_tooltip = TUR_temporary_law_of_deportation_tt2
 			reverse_add_opinion_modifier = {
 				target = ARM
 				modifier = TUR_exterminating_our_population

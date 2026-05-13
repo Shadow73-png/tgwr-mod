@@ -3702,7 +3702,10 @@ TUR_millet_system = {
 		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_greek_minority }
-				check_variable = { TUR_turkish_state_level > 0 }
+				OR = {
+					check_variable = { TUR_turkish_sunni_state_variable < 0 }
+					check_variable = { TUR_turkish_shia_state_variable < 0 }
+				}
 				NOT = {
 					state = 354
 					state = 355
@@ -3937,7 +3940,10 @@ TUR_millet_system = {
 		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_greek_minority }
-				check_variable = { TUR_turkish_state_level > 0 }
+				OR = {
+					check_variable = { TUR_turkish_sunni_state_variable < 0 }
+					check_variable = { TUR_turkish_shia_state_variable < 0 }
+				}
 				OR = {
 					state = 354
 					state = 355
@@ -17347,8 +17353,14 @@ TUR_local_conscription = {
 		state_target = yes
 		target_trigger = {
 			FROM = {
-				check_variable = { TUR_turkish_state_level > 0 }
-				check_variable = { TUR_local_conscription_in_state_var < TUR_turkish_state_level }
+				OR = {
+					check_variable = { TUR_turkish_sunni_state_variable < 0 }
+					check_variable = { TUR_turkish_shia_state_variable < 0 }
+				}
+				OR = {
+					NOT = { has_variable = TUR_local_conscription_in_state_var }
+					check_variable = { TUR_local_conscription_in_state_var < TUR_turkish_state_level }
+				}
 				is_owned_by = ROOT
 				is_controlled_by = ROOT
 				is_core_of = ROOT
@@ -17360,26 +17372,22 @@ TUR_local_conscription = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				is_controlled_by = ROOT
-			}
-		}
+		target_trigger = { FROM = { is_controlled_by = ROOT } }
 		on_map_mode = map_only
 		days_remove = 7
 		days_re_enable = 28
 		target_root_trigger = { has_completed_focus = TUR_the_new_recruitment_law }
 		complete_effect = { hidden_effect = { army_experience = -10 } }
 		remove_effect = {
-			set_temp_variable = { TUR_local_conscription_in_state_manpower_var = FROM.state_population }
-			divide_temp_variable = { TUR_local_conscription_in_state_manpower_var = 500 }
-			add_manpower = TUR_local_conscription_in_state_manpower_var
+			add_manpower = 500
 			hidden_effect = {
-				if = {
-					limit = { has_variable = TUR_local_conscription_in_state_var }
-					add_to_variable = { TUR_local_conscription_in_state_var = 1 }
+				FROM = {
+					if = {
+						limit = { has_variable = TUR_local_conscription_in_state_var }
+						add_to_variable = { TUR_local_conscription_in_state_var = -0.1 }
+					}
+					else = { set_variable = { TUR_local_conscription_in_state_var = -0.1 } }
 				}
-				else = { set_variable = { TUR_local_conscription_in_state_var = 1 } }
 			}
 		}
 		ai_will_do = {
@@ -22783,13 +22791,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_aleppo
 						has_state_flag = TUR_deir_ez_zor
 					}
-					check_variable = { TUR_arab_state_level > 0 }
+					check_variable = { TUR_arab_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_utilize_abdulhamid_zehravi_tt
-				add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.03 }
-				custom_effect_tooltip = TUR_utilize_abdulhamid_zehravi_tt2
-				hidden_effect = { add_to_variable = { TUR_arab_temp_variable = 0.0025 } }
+				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_arab = 0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_arab_value = yes
+				set_temp_variable = { TUR_abdulhamid_zehravi2_var = old_arab_value }
+				divide_temp_variable = { TUR_abdulhamid_zehravi2_var = TUR_arab_population_factor_new }
+				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
+				add_to_temp_variable = { TUR_arab_population_factor_focus = -0.05 }
+				multiply_temp_variable = { TUR_abdulhamid_zehravi2_var = TUR_arab_population_factor_focus }
+				subtract_from_temp_variable = { TUR_abdulhamid_zehravi2_var = old_arab_value }
+			}
+			add_to_variable = { TUR_arab_population_factor_new = -0.05 }
+			custom_effect_tooltip = TUR_abdulhamid_zehravi2_tt
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			if = {
@@ -22836,13 +22854,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_aleppo
 						has_state_flag = TUR_deir_ez_zor
 					}
-					check_variable = { TUR_arab_state_level > 0 }
+					check_variable = { TUR_arab_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_dismiss_abdulhamid_zehravi_tt
-				add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.03 }
-				custom_effect_tooltip = TUR_dismiss_abdulhamid_zehravi_tt2
-				hidden_effect = { add_to_variable = { TUR_arab_temp_variable = -0.0025 } }
+				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt2
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_arab = -0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_arab_value = yes
+				set_temp_variable = { TUR_abdulhamid_zehravi2_var2 = old_arab_value }
+				divide_temp_variable = { TUR_abdulhamid_zehravi2_var2 = TUR_arab_population_factor_new }
+				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
+				add_to_temp_variable = { TUR_arab_population_factor_focus = 0.05 }
+				multiply_temp_variable = { TUR_abdulhamid_zehravi2_var2 = TUR_arab_population_factor_focus }
+				subtract_from_temp_variable = { TUR_abdulhamid_zehravi2_var2 = old_arab_value }
+			}
+			add_to_variable = { TUR_arab_population_factor_new = 0.05 }
+			custom_effect_tooltip = TUR_abdulhamid_zehravi2_tt2
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_abdulhamid_zehravi
@@ -23381,16 +23409,26 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			every_state = {
 				limit = {
 					OR = {
-						has_state_flag = TUR_beirut
-						has_state_flag = TUR_damascus
+						has_state_flag = TUR_aleppo
+						has_state_flag = TUR_deir_ez_zor
 					}
-					check_variable = { TUR_arab_state_level > 0 }
+					check_variable = { TUR_arab_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_utilize_abdulhamid_zehravi_tt
-				add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.03 }
-				custom_effect_tooltip = TUR_utilize_abdulhamid_zehravi_tt2
-				hidden_effect = { add_to_variable = { TUR_arab_temp_variable = 0.0025 } }
+				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_arab = 0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_arab_value = yes
+				set_temp_variable = { TUR_sukru_el_aseli2_var = old_arab_value }
+				divide_temp_variable = { TUR_sukru_el_aseli2_var = TUR_arab_population_factor_new }
+				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
+				add_to_temp_variable = { TUR_arab_population_factor_focus = -0.05 }
+				multiply_temp_variable = { TUR_sukru_el_aseli2_var = TUR_arab_population_factor_focus }
+				subtract_from_temp_variable = { TUR_sukru_el_aseli2_var = old_arab_value }
+			}
+			add_to_variable = { TUR_arab_population_factor_new = -0.05 }
+			custom_effect_tooltip = TUR_sukru_el_aseli2_tt
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			if = {
@@ -23434,16 +23472,26 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			every_state = {
 				limit = {
 					OR = {
-						has_state_flag = TUR_beirut
-						has_state_flag = TUR_damascus
+						has_state_flag = TUR_aleppo
+						has_state_flag = TUR_deir_ez_zor
 					}
-					check_variable = { TUR_arab_state_level > 0 }
+					check_variable = { TUR_arab_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_dismiss_abdulhamid_zehravi_tt
-				add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.03 }
-				custom_effect_tooltip = TUR_dismiss_abdulhamid_zehravi_tt2
-				hidden_effect = { add_to_variable = { TUR_arab_temp_variable = -0.0025 } }
+				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt2
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_arab = -0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_arab_value = yes
+				set_temp_variable = { TUR_sukru_el_aseli2_var2 = old_arab_value }
+				divide_temp_variable = { TUR_sukru_el_aseli2_var2 = TUR_arab_population_factor_new }
+				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
+				add_to_temp_variable = { TUR_arab_population_factor_focus = 0.05 }
+				multiply_temp_variable = { TUR_sukru_el_aseli2_var2 = TUR_arab_population_factor_focus }
+				subtract_from_temp_variable = { TUR_sukru_el_aseli2_var2 = old_arab_value }
+			}
+			add_to_variable = { TUR_arab_population_factor_new = 0.05 }
+			custom_effect_tooltip = TUR_sukru_el_aseli2_tt2
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_sukru_el_aseli
@@ -25219,13 +25267,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_selanik
 						has_state_flag = TUR_manastir
 					}
-					check_variable = { TUR_greek_state_level > 0 }
+					check_variable = { TUR_greek_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_utilize_kozmidi_efendi_tt
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_greek = 0.025 }
-				custom_effect_tooltip = TUR_utilize_kozmidi_efendi_tt2
-				hidden_effect = { add_to_variable = { TUR_greek_temp_variable = 0.0025 } }
+				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_greek = 0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_greek_value = yes
+				set_temp_variable = { TUR_kozmidi_efendi2_var = old_greek_value }
+				divide_temp_variable = { TUR_kozmidi_efendi2_var = TUR_greek_population_factor_new }
+				set_temp_variable = { TUR_greek_population_factor_focus = TUR_greek_population_factor_new }
+				add_to_temp_variable = { TUR_greek_population_factor_focus = -0.05 }
+				multiply_temp_variable = { TUR_kozmidi_efendi2_var = TUR_greek_population_factor_focus }
+				subtract_from_temp_variable = { TUR_kozmidi_efendi2_var = old_greek_value }
+			}
+			add_to_variable = { TUR_greek_population_factor_new = -0.05 }
+			custom_effect_tooltip = TUR_kozmidi_efendi2_tt
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			if = {
@@ -25294,13 +25352,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_selanik
 						has_state_flag = TUR_manastir
 					}
-					check_variable = { TUR_greek_state_level > 0 }
+					check_variable = { TUR_greek_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_dismiss_kozmidi_efendi_tt
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_greek = -0.025 }
-				custom_effect_tooltip = TUR_dismiss_kozmidi_efendi_tt2
-				hidden_effect = { add_to_variable = { TUR_greek_temp_variable = -0.0025 } }
+				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt2
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_greek = -0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_greek_value = yes
+				set_temp_variable = { TUR_kozmidi_efendi2_var2 = old_greek_value }
+				divide_temp_variable = { TUR_kozmidi_efendi2_var2 = TUR_greek_population_factor_new }
+				set_temp_variable = { TUR_greek_population_factor_focus = TUR_greek_population_factor_new }
+				add_to_temp_variable = { TUR_greek_population_factor_focus = 0.05 }
+				multiply_temp_variable = { TUR_kozmidi_efendi2_var2 = TUR_greek_population_factor_focus }
+				subtract_from_temp_variable = { TUR_kozmidi_efendi2_var2 = old_greek_value }
+			}
+			add_to_variable = { TUR_greek_population_factor_new = 0.05 }
+			custom_effect_tooltip = TUR_kozmidi_efendi2_tt2
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_kozmidi_efendi
@@ -25393,13 +25461,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			every_state = {
 				limit = {
 					has_state_flag = TUR_kosova
-					check_variable = { TUR_serbian_state_level > 0 }
+					check_variable = { TUR_serbian_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_utilize_sava_stojanovic_tt
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_serbian = 0.025 }
-				custom_effect_tooltip = TUR_utilize_sava_stojanovic_tt2
-				hidden_effect = { add_to_variable = { TUR_serbian_temp_variable = 0.0025 } }
+				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_serbian = 0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_serbian_value = yes
+				set_temp_variable = { TUR_sava_stojanovic2_var = old_serbian_value }
+				divide_temp_variable = { TUR_sava_stojanovic2_var = TUR_serbian_population_factor_new }
+				set_temp_variable = { TUR_serbian_population_factor_focus = TUR_serbian_population_factor_new }
+				add_to_temp_variable = { TUR_serbian_population_factor_focus = -0.05 }
+				multiply_temp_variable = { TUR_sava_stojanovic2_var = TUR_serbian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_sava_stojanovic2_var = old_serbian_value }
+			}
+			add_to_variable = { TUR_serbian_population_factor_new = -0.05 }
+			custom_effect_tooltip = TUR_sava_stojanovic2_tt
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			if = {
@@ -25463,13 +25541,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			every_state = {
 				limit = {
 					has_state_flag = TUR_kosova
-					check_variable = { TUR_serbian_state_level > 0 }
+					check_variable = { TUR_serbian_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_dismiss_sava_stojanovic_tt
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_serbian = -0.025 }
-				custom_effect_tooltip = TUR_dismiss_sava_stojanovic_tt2
-				hidden_effect = { add_to_variable = { TUR_serbian_temp_variable = -0.0025 } }
+				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt2
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_serbian = -0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_serbian_value = yes
+				set_temp_variable = { TUR_sava_stojanovic2_var2 = old_serbian_value }
+				divide_temp_variable = { TUR_sava_stojanovic2_var2 = TUR_serbian_population_factor_new }
+				set_temp_variable = { TUR_serbian_population_factor_focus = TUR_serbian_population_factor_new }
+				add_to_temp_variable = { TUR_serbian_population_factor_focus = 0.05 }
+				multiply_temp_variable = { TUR_sava_stojanovic2_var2 = TUR_serbian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_sava_stojanovic2_var2 = old_serbian_value }
+			}
+			add_to_variable = { TUR_serbian_population_factor_new = 0.05 }
+			custom_effect_tooltip = TUR_sava_stojanovic2_tt2
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_sava_stojanovic
@@ -25578,13 +25666,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_selanik
 						has_state_flag = TUR_manastir
 					}
-					check_variable = { TUR_bulgarian_state_level > 0 }
+					check_variable = { TUR_bulgarian_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_utilize_sava_stojanovic_tt
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = 0.025 }
-				custom_effect_tooltip = TUR_utilize_sava_stojanovic_tt2
-				hidden_effect = { add_to_variable = { TUR_bulgarian_temp_variable = 0.0025 } }
+				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = 0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_bulgarian_value = yes
+				set_temp_variable = { TUR_todor_pavlof2_var = old_bulgarian_value }
+				divide_temp_variable = { TUR_todor_pavlof2_var = TUR_bulgarian_population_factor_new }
+				set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
+				add_to_temp_variable = { TUR_bulgarian_population_factor_focus = -0.05 }
+				multiply_temp_variable = { TUR_todor_pavlof2_var = TUR_bulgarian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_todor_pavlof2_var = old_bulgarian_value }
+			}
+			add_to_variable = { TUR_bulgarian_population_factor_new = -0.05 }
+			custom_effect_tooltip = TUR_todor_pavlof2_tt
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			if = {
@@ -25651,13 +25749,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_selanik
 						has_state_flag = TUR_manastir
 					}
-					check_variable = { TUR_bulgarian_state_level > 0 }
+					check_variable = { TUR_bulgarian_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_dismiss_sava_stojanovic_tt
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = -0.025 }
-				custom_effect_tooltip = TUR_dismiss_sava_stojanovic_tt2
-				hidden_effect = { add_to_variable = { TUR_bulgarian_temp_variable = -0.0025 } }
+				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt2
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = -0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_bulgarian_value = yes
+				set_temp_variable = { TUR_todor_pavlof2_var2 = old_bulgarian_value }
+				divide_temp_variable = { TUR_todor_pavlof2_var2 = TUR_bulgarian_population_factor_new }
+				set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
+				add_to_temp_variable = { TUR_bulgarian_population_factor_focus = 0.05 }
+				multiply_temp_variable = { TUR_todor_pavlof2_var2 = TUR_bulgarian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_todor_pavlof2_var2 = old_bulgarian_value }
+			}
+			add_to_variable = { TUR_bulgarian_population_factor_new = 0.05 }
+			custom_effect_tooltip = TUR_todor_pavlof2_tt2
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_todor_pavlof
@@ -25766,13 +25874,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_selanik
 						has_state_flag = TUR_manastir
 					}
-					check_variable = { TUR_bulgarian_state_level > 0 }
+					check_variable = { TUR_bulgarian_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_utilize_sava_stojanovic_tt
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = 0.025 }
-				custom_effect_tooltip = TUR_utilize_sava_stojanovic_tt2
-				hidden_effect = { add_to_variable = { TUR_bulgarian_temp_variable = 0.0025 } }
+				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = 0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_bulgarian_value = yes
+				set_temp_variable = { TUR_dimitar_vlahov2_var = old_bulgarian_value }
+				divide_temp_variable = { TUR_dimitar_vlahov2_var = TUR_bulgarian_population_factor_new }
+				set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
+				add_to_temp_variable = { TUR_bulgarian_population_factor_focus = -0.05 }
+				multiply_temp_variable = { TUR_dimitar_vlahov2_var = TUR_bulgarian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_dimitar_vlahov2_var = old_bulgarian_value }
+			}
+			add_to_variable = { TUR_bulgarian_population_factor_new = -0.05 }
+			custom_effect_tooltip = TUR_dimitar_vlahov2_tt
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			if = {
@@ -25839,13 +25957,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_selanik
 						has_state_flag = TUR_manastir
 					}
-					check_variable = { TUR_bulgarian_state_level > 0 }
+					check_variable = { TUR_bulgarian_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_dismiss_sava_stojanovic_tt
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = -0.025 }
-				custom_effect_tooltip = TUR_dismiss_sava_stojanovic_tt2
-				hidden_effect = { add_to_variable = { TUR_bulgarian_temp_variable = -0.0025 } }
+				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt2
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = -0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_bulgarian_value = yes
+				set_temp_variable = { TUR_dimitar_vlahov2_var2 = old_bulgarian_value }
+				divide_temp_variable = { TUR_dimitar_vlahov2_var2 = TUR_bulgarian_population_factor_new }
+				set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
+				add_to_temp_variable = { TUR_bulgarian_population_factor_focus = 0.05 }
+				multiply_temp_variable = { TUR_dimitar_vlahov2_var2 = TUR_bulgarian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_dimitar_vlahov2_var2 = old_bulgarian_value }
+			}
+			add_to_variable = { TUR_bulgarian_population_factor_new = 0.05 }
+			custom_effect_tooltip = TUR_dimitar_vlahov2_tt2
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_dimitar_vlahov
@@ -25936,16 +26064,26 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			every_state = {
 				limit = {
 					OR = {
-						has_state_flag = TUR_ankara
+						has_state_flag = TUR_adana
 						has_state_flag = TUR_aleppo
 					}
-					check_variable = { TUR_armenian_state_level > 0 }
+					check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 				}
 				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt
 				add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0.05 }
-				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt2
-				hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = 0.005 } }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_hampartsoum_boyadjian2_var = old_armenian_value }
+				divide_temp_variable = { TUR_hampartsoum_boyadjian2_var = TUR_armenian_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.05 }
+				multiply_temp_variable = { TUR_hampartsoum_boyadjian2_var = TUR_armenian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_hampartsoum_boyadjian2_var = old_armenian_value }
+			}
+			add_to_variable = { TUR_armenian_population_factor_new = -0.05 }
+			custom_effect_tooltip = TUR_hampartsoum_boyadjian2_tt
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			if = {
@@ -26009,16 +26147,26 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			every_state = {
 				limit = {
 					OR = {
-						has_state_flag = TUR_ankara
+						has_state_flag = TUR_adana
 						has_state_flag = TUR_aleppo
 					}
-					check_variable = { TUR_armenian_state_level > 0 }
+					check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = -0.05 }
 				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt2
-				hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = -0.005 } }
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = -0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_hampartsoum_boyadjian2_var2 = old_armenian_value }
+				divide_temp_variable = { TUR_hampartsoum_boyadjian2_var2 = TUR_armenian_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.05 }
+				multiply_temp_variable = { TUR_hampartsoum_boyadjian2_var2 = TUR_armenian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_hampartsoum_boyadjian2_var2 = old_armenian_value }
+			}
+			add_to_variable = { TUR_armenian_population_factor_new = 0.05 }
+			custom_effect_tooltip = TUR_hampartsoum_boyadjian2_tt2
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_hampartsoum_boyadjian
@@ -26115,13 +26263,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_sivas
 						has_state_flag = TUR_mamuret_ul_aziz
 					}
-					check_variable = { TUR_armenian_state_level > 0 }
+					check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 				}
 				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt
 				add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0.05 }
-				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt2
-				hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = 0.005 } }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_nazaret_daghavarian2_var = old_armenian_value }
+				divide_temp_variable = { TUR_nazaret_daghavarian2_var = TUR_armenian_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.05 }
+				multiply_temp_variable = { TUR_nazaret_daghavarian2_var = TUR_armenian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_nazaret_daghavarian2_var = old_armenian_value }
+			}
+			add_to_variable = { TUR_armenian_population_factor_new = -0.05 }
+			custom_effect_tooltip = TUR_nazaret_daghavarian2_tt
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			if = {
@@ -26189,13 +26347,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_sivas
 						has_state_flag = TUR_mamuret_ul_aziz
 					}
-					check_variable = { TUR_armenian_state_level > 0 }
+					check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt
+				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt2
 				add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = -0.05 }
-				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt2
-				hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = -0.005 } }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_nazaret_daghavarian2_var2 = old_armenian_value }
+				divide_temp_variable = { TUR_nazaret_daghavarian2_var2 = TUR_armenian_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.05 }
+				multiply_temp_variable = { TUR_nazaret_daghavarian2_var2 = TUR_armenian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_nazaret_daghavarian2_var2 = old_armenian_value }
+			}
+			add_to_variable = { TUR_armenian_population_factor_new = 0.05 }
+			custom_effect_tooltip = TUR_nazaret_daghavarian2_tt2
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_nazaret_daghavarian
@@ -26290,13 +26458,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_van
 						has_state_flag = TUR_bitlis
 					}
-					check_variable = { TUR_armenian_state_level > 0 }
+					check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 				}
 				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt
 				add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0.05 }
-				custom_effect_tooltip = TUR_utilize_hampartsoum_boyadjian_tt2
-				hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = 0.005 } }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_karakin_pastermadjian2_var = old_armenian_value }
+				divide_temp_variable = { TUR_karakin_pastermadjian2_var = TUR_armenian_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.05 }
+				multiply_temp_variable = { TUR_karakin_pastermadjian2_var = TUR_armenian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_karakin_pastermadjian2_var = old_armenian_value }
+			}
+			add_to_variable = { TUR_armenian_population_factor_new = -0.05 }
+			custom_effect_tooltip = TUR_karakin_pastermadjian2_tt
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			if = {
@@ -26364,13 +26542,23 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 						has_state_flag = TUR_van
 						has_state_flag = TUR_bitlis
 					}
-					check_variable = { TUR_armenian_state_level > 0 }
+					check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 				}
-				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = -0.05 }
 				custom_effect_tooltip = TUR_dismiss_hampartsoum_boyadjian_tt2
-				hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = -0.005 } }
+				add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = -0.05 }
 			}
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_karakin_pastermadjian2_var2 = old_armenian_value }
+				divide_temp_variable = { TUR_karakin_pastermadjian2_var2 = TUR_armenian_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.05 }
+				multiply_temp_variable = { TUR_karakin_pastermadjian2_var2 = TUR_armenian_population_factor_focus }
+				subtract_from_temp_variable = { TUR_karakin_pastermadjian2_var2 = old_armenian_value }
+			}
+			add_to_variable = { TUR_armenian_population_factor_new = 0.05 }
+			custom_effect_tooltip = TUR_karakin_pastermadjian2_tt2
 			TUR_new_system_trial = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_karakin_pastermadjian

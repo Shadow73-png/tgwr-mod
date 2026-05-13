@@ -896,7 +896,7 @@ on_actions = {
 					}
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_armenian_minority } }
-						check_variable = { TUR_armenian_state_level > 0 }
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_armenian_minority } }
@@ -906,7 +906,7 @@ on_actions = {
 					ROOT = { TUR_has_minority_system = yes }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_greek_minority } }
-						check_variable = { TUR_greek_state_level > 0 }
+						check_variable = { TUR_greek_orthodox_state_variable < 0 }
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_greek_minority } }
@@ -916,7 +916,12 @@ on_actions = {
 					ROOT = { TUR_has_minority_system = yes }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_arab_minority } }
-						check_variable = { TUR_arab_state_level > 0 }
+						OR = {
+							check_variable = { TUR_arab_sunni_state_variable < 0 }
+							check_variable = { TUR_arab_shia_state_variable < 0 }
+							check_variable = { TUR_arab_orthodox_state_variable < 0 }
+							check_variable = { TUR_arab_catholic_state_variable < 0 }
+						}
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_arab_minority } }
@@ -926,7 +931,7 @@ on_actions = {
 					ROOT = { TUR_has_minority_system = yes }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_jewish_minority } }
-						check_variable = { TUR_jewish_state_level > 0 }
+						check_variable = { TUR_jewish_judaic_orthodox_state_variable < 0 }
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_jewish_minority } }
@@ -936,7 +941,7 @@ on_actions = {
 					ROOT = { TUR_has_minority_system = yes }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
-						check_variable = { TUR_bulgarian_state_level > 0 }
+						check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
@@ -949,7 +954,11 @@ on_actions = {
 					}
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_albanian_minority } }
-						check_variable = { TUR_albanian_state_level > 0 }
+						OR = {
+							check_variable = { TUR_albanian_sunni_state_variable < 0 }
+							check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+							check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						}
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_albanian_minority } }
@@ -959,7 +968,7 @@ on_actions = {
 					ROOT = { TUR_has_minority_system = yes }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_serbian_minority } }
-						check_variable = { TUR_serbian_state_level > 0 }
+						check_variable = { TUR_serbian_orthodox_state_variable < 0 }
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_serbian_minority } }
@@ -969,7 +978,7 @@ on_actions = {
 					ROOT = { TUR_has_minority_system = yes }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_kurdish_minority } }
-						check_variable = { TUR_kurdish_state_level > 0 }
+						check_variable = { TUR_kurdish_sunni_state_variable < 0 }
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_kurdish_minority } }
@@ -979,7 +988,7 @@ on_actions = {
 					ROOT = { TUR_has_minority_system = yes }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_assyrian_minority } }
-						check_variable = { TUR_assyrian_state_level > 0 }
+						check_variable = { TUR_assyrian_syriac_state_variable < 0 }
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_assyrian_minority } }
@@ -989,7 +998,10 @@ on_actions = {
 					ROOT = { TUR_has_minority_system = yes }
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_georgian_minority } }
-						check_variable = { TUR_georgian_state_level > 0 }
+						OR = {
+							check_variable = { TUR_georgian_sunni_state_variable < 0 }
+							check_variable = { TUR_georgian_orthodox_state_variable < 0 }
+						}
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_georgian_minority } }
@@ -1002,7 +1014,10 @@ on_actions = {
 					}
 					FROM.FROM = {
 						NOT = { has_dynamic_modifier = { modifier = TUR_turkish_minority } }
-						check_variable = { TUR_turkish_state_level > 0 }
+						OR = {
+							check_variable = { TUR_turkish_sunni_state_variable < 0 }
+							check_variable = { TUR_turkish_shia_state_variable < 0 }
+						}
 					}
 				}
 				FROM.FROM = { add_dynamic_modifier = { modifier = TUR_turkish_minority } }

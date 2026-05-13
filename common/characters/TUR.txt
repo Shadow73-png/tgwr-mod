@@ -946,14 +946,26 @@ characters = {
 							has_state_flag = TUR_aleppo
 							has_state_flag = TUR_deir_ez_zor
 						}
-						check_variable = { TUR_arab_state_level > 0 }
+						check_variable = { TUR_arab_apostolic_state_variable < 0 }
 					}
 					custom_effect_tooltip = TUR_arab_minority_politician_tt
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.05 }
-					custom_effect_tooltip = TUR_arab_minority_politician_tt2
-					hidden_effect = { add_to_variable = { TUR_arab_temp_variable = 0.005 } }
+					add_to_variable = { TUR_ottoman_recruitable_population_factor_arab = 0.05 }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_arab_value = yes
+						set_temp_variable = { TUR_abdulhamid_zehravi_var = old_arab_value }
+						divide_temp_variable = { TUR_abdulhamid_zehravi_var = TUR_arab_population_factor_new }
+						set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
+						add_to_temp_variable = { TUR_arab_population_factor_focus = -0.1 }
+						multiply_temp_variable = { TUR_abdulhamid_zehravi_var = TUR_arab_population_factor_focus }
+						subtract_from_temp_variable = { TUR_abdulhamid_zehravi_var = old_arab_value }
+					}
+					add_to_variable = { TUR_arab_population_factor_new = -0.1 }
+					custom_effect_tooltip = TUR_abdulhamid_zehravi_tt
+					TUR_new_system_trial = yes
+				}
 			}
 			on_remove = {
 				every_state = {
@@ -962,14 +974,26 @@ characters = {
 							has_state_flag = TUR_aleppo
 							has_state_flag = TUR_deir_ez_zor
 						}
-						check_variable = { TUR_arab_state_level > 0 }
+						check_variable = { TUR_arab_apostolic_state_variable < 0 }
 					}
-					custom_effect_tooltip = TUR_arab_minority_politician_tt3
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.05 }
-					custom_effect_tooltip = TUR_arab_minority_politician_tt4
-					hidden_effect = { add_to_variable = { TUR_arab_temp_variable = -0.005 } }
+					custom_effect_tooltip = TUR_arab_minority_politician_tt2
+					add_to_variable = { TUR_ottoman_recruitable_population_factor_arab = -0.05 }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_arab_value = yes
+						set_temp_variable = { TUR_abdulhamid_zehravi_var2 = old_arab_value }
+						divide_temp_variable = { TUR_abdulhamid_zehravi_var2 = TUR_arab_population_factor_new }
+						set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
+						add_to_temp_variable = { TUR_arab_population_factor_focus = 0.1 }
+						multiply_temp_variable = { TUR_abdulhamid_zehravi_var2 = TUR_arab_population_factor_focus }
+						subtract_from_temp_variable = { TUR_abdulhamid_zehravi_var2 = old_arab_value }
+					}
+					add_to_variable = { TUR_arab_population_factor_new = 0.1 }
+					custom_effect_tooltip = TUR_abdulhamid_zehravi_tt2
+					TUR_new_system_trial = yes
+				}
 			}
 			ai_will_do = {
 				factor = 1.000
@@ -1241,14 +1265,26 @@ characters = {
 							has_state_flag = TUR_beirut
 							has_state_flag = TUR_damascus
 						}
-						check_variable = { TUR_arab_state_level > 0 }
+						check_variable = { TUR_arab_apostolic_state_variable < 0 }
 					}
 					custom_effect_tooltip = TUR_arab_minority_politician_tt
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.05 }
-					custom_effect_tooltip = TUR_arab_minority_politician_tt2
-					hidden_effect = { add_to_variable = { TUR_arab_temp_variable = 0.005 } }
+					add_to_variable = { TUR_ottoman_recruitable_population_factor_arab = 0.05 }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_arab_value = yes
+						set_temp_variable = { TUR_sukru_el_aseli_var = old_arab_value }
+						divide_temp_variable = { TUR_sukru_el_aseli_var = TUR_arab_population_factor_new }
+						set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
+						add_to_temp_variable = { TUR_arab_population_factor_focus = -0.1 }
+						multiply_temp_variable = { TUR_sukru_el_aseli_var = TUR_arab_population_factor_focus }
+						subtract_from_temp_variable = { TUR_sukru_el_aseli_var = old_arab_value }
+					}
+					add_to_variable = { TUR_arab_population_factor_new = -0.1 }
+					custom_effect_tooltip = TUR_sukru_el_aseli_tt
+					TUR_new_system_trial = yes
+				}
 			}
 			on_remove = {
 				every_state = {
@@ -1257,14 +1293,26 @@ characters = {
 							has_state_flag = TUR_beirut
 							has_state_flag = TUR_damascus
 						}
-						check_variable = { TUR_arab_state_level > 0 }
+						check_variable = { TUR_arab_apostolic_state_variable < 0 }
 					}
-					custom_effect_tooltip = TUR_arab_minority_politician_tt3
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.05 }
-					custom_effect_tooltip = TUR_arab_minority_politician_tt4
-					hidden_effect = { add_to_variable = { TUR_arab_temp_variable = -0.005 } }
+					custom_effect_tooltip = TUR_arab_minority_politician_tt2
+					add_to_variable = { TUR_ottoman_recruitable_population_factor_arab = -0.05 }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_arab_value = yes
+						set_temp_variable = { TUR_sukru_el_aseli_var2 = old_arab_value }
+						divide_temp_variable = { TUR_sukru_el_aseli_var2 = TUR_arab_population_factor_new }
+						set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
+						add_to_temp_variable = { TUR_arab_population_factor_focus = 0.1 }
+						multiply_temp_variable = { TUR_sukru_el_aseli_var2 = TUR_arab_population_factor_focus }
+						subtract_from_temp_variable = { TUR_sukru_el_aseli_var2 = old_arab_value }
+					}
+					add_to_variable = { TUR_arab_population_factor_new = 0.1 }
+					custom_effect_tooltip = TUR_sukru_el_aseli_tt2
+					TUR_new_system_trial = yes
+				}
 			}
 			ai_will_do = {
 				factor = 1.000
@@ -3808,14 +3856,26 @@ characters = {
 							has_state_flag = TUR_selanik
 							has_state_flag = TUR_manastir
 						}
-						check_variable = { TUR_greek_state_level > 0 }
+						check_variable = { TUR_greek_apostolic_state_variable < 0 }
 					}
 					custom_effect_tooltip = TUR_greek_minority_politician_tt
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_greek = 0.05 }
-					custom_effect_tooltip = TUR_greek_minority_politician_tt2
-					hidden_effect = { add_to_variable = { TUR_greek_temp_variable = 0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_greek_value = yes
+						set_temp_variable = { TUR_kozmidi_efendi_var = old_greek_value }
+						divide_temp_variable = { TUR_kozmidi_efendi_var = TUR_greek_population_factor_new }
+						set_temp_variable = { TUR_greek_population_factor_focus = TUR_greek_population_factor_new }
+						add_to_temp_variable = { TUR_greek_population_factor_focus = -0.1 }
+						multiply_temp_variable = { TUR_kozmidi_efendi_var = TUR_greek_population_factor_focus }
+						subtract_from_temp_variable = { TUR_kozmidi_efendi_var = old_greek_value }
+					}
+					add_to_variable = { TUR_greek_population_factor_new = -0.1 }
+					custom_effect_tooltip = TUR_kozmidi_efendi_tt
+					TUR_new_system_trial = yes
+				}
 			}
 			on_remove = {
 				every_state = {
@@ -3826,14 +3886,26 @@ characters = {
 							has_state_flag = TUR_selanik
 							has_state_flag = TUR_manastir
 						}
-						check_variable = { TUR_greek_state_level > 0 }
+						check_variable = { TUR_greek_apostolic_state_variable < 0 }
 					}
-					custom_effect_tooltip = TUR_greek_minority_politician_tt3
+					custom_effect_tooltip = TUR_greek_minority_politician_tt2
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_greek = -0.05 }
-					custom_effect_tooltip = TUR_greek_minority_politician_tt4
-					hidden_effect = { add_to_variable = { TUR_greek_temp_variable = -0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_greek_value = yes
+						set_temp_variable = { TUR_kozmidi_efendi_var2 = old_greek_value }
+						divide_temp_variable = { TUR_kozmidi_efendi_var2 = TUR_greek_population_factor_new }
+						set_temp_variable = { TUR_greek_population_factor_focus = TUR_greek_population_factor_new }
+						add_to_temp_variable = { TUR_greek_population_factor_focus = 0.1 }
+						multiply_temp_variable = { TUR_kozmidi_efendi_var2 = TUR_greek_population_factor_focus }
+						subtract_from_temp_variable = { TUR_kozmidi_efendi_var2 = old_greek_value }
+					}
+					add_to_variable = { TUR_greek_population_factor_new = 0.1 }
+					custom_effect_tooltip = TUR_kozmidi_efendi_tt2
+					TUR_new_system_trial = yes
+				}
 			}
 			ai_will_do = {
 				factor = 10.000
@@ -3887,27 +3959,51 @@ characters = {
 				every_state = {
 					limit = {
 						has_state_flag = TUR_kosova
-						check_variable = { TUR_serbian_state_level > 0 }
+						check_variable = { TUR_serbian_apostolic_state_variable < 0 }
 					}
 					custom_effect_tooltip = TUR_serbian_minority_politician_tt
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_serbian = 0.05 }
-					custom_effect_tooltip = TUR_serbian_minority_politician_tt2
-					hidden_effect = { add_to_variable = { TUR_serbian_temp_variable = 0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_serbian_value = yes
+						set_temp_variable = { TUR_sava_stojanovic_var = old_serbian_value }
+						divide_temp_variable = { TUR_sava_stojanovic_var = TUR_serbian_population_factor_new }
+						set_temp_variable = { TUR_serbian_population_factor_focus = TUR_serbian_population_factor_new }
+						add_to_temp_variable = { TUR_serbian_population_factor_focus = -0.1 }
+						multiply_temp_variable = { TUR_sava_stojanovic_var = TUR_serbian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_sava_stojanovic_var = old_serbian_value }
+					}
+					add_to_variable = { TUR_serbian_population_factor_new = -0.1 }
+					custom_effect_tooltip = TUR_sava_stojanovic_tt
+					TUR_new_system_trial = yes
+				}
 			}
 			on_remove = {
 				every_state = {
 					limit = {
 						has_state_flag = TUR_kosova
-						check_variable = { TUR_serbian_state_level > 0 }
+						check_variable = { TUR_serbian_apostolic_state_variable < 0 }
 					}
-					custom_effect_tooltip = TUR_serbian_minority_politician_tt3
+					custom_effect_tooltip = TUR_serbian_minority_politician_tt2
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_serbian = -0.05 }
-					custom_effect_tooltip = TUR_serbian_minority_politician_tt4
-					hidden_effect = { add_to_variable = { TUR_serbian_temp_variable = -0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_serbian_value = yes
+						set_temp_variable = { TUR_sava_stojanovic_var2 = old_serbian_value }
+						divide_temp_variable = { TUR_sava_stojanovic_var2 = TUR_serbian_population_factor_new }
+						set_temp_variable = { TUR_serbian_population_factor_focus = TUR_serbian_population_factor_new }
+						add_to_temp_variable = { TUR_serbian_population_factor_focus = 0.1 }
+						multiply_temp_variable = { TUR_sava_stojanovic_var2 = TUR_serbian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_sava_stojanovic_var2 = old_serbian_value }
+					}
+					add_to_variable = { TUR_serbian_population_factor_new = 0.1 }
+					custom_effect_tooltip = TUR_sava_stojanovic_tt2
+					TUR_new_system_trial = yes
+				}
 			}
 			ai_will_do = {
 				factor = 10.000
@@ -3973,14 +4069,26 @@ characters = {
 							has_state_flag = TUR_selanik
 							has_state_flag = TUR_manastir
 						}
-						check_variable = { TUR_bulgarian_state_level > 0 }
+						check_variable = { TUR_bulgarian_apostolic_state_variable < 0 }
 					}
 					custom_effect_tooltip = TUR_bulgarian_minority_politician_tt
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = 0.05 }
-					custom_effect_tooltip = TUR_bulgarian_minority_politician_tt2
-					hidden_effect = { add_to_variable = { TUR_bulgarian_temp_variable = 0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_bulgarian_value = yes
+						set_temp_variable = { TUR_todor_pavlof_var = old_bulgarian_value }
+						divide_temp_variable = { TUR_todor_pavlof_var = TUR_bulgarian_population_factor_new }
+						set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
+						add_to_temp_variable = { TUR_bulgarian_population_factor_focus = -0.1 }
+						multiply_temp_variable = { TUR_todor_pavlof_var = TUR_bulgarian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_todor_pavlof_var = old_bulgarian_value }
+					}
+					add_to_variable = { TUR_bulgarian_population_factor_new = -0.1 }
+					custom_effect_tooltip = TUR_todor_pavlof_tt
+					TUR_new_system_trial = yes
+				}
 			}
 			on_remove = {
 				every_state = {
@@ -3989,14 +4097,26 @@ characters = {
 							has_state_flag = TUR_selanik
 							has_state_flag = TUR_manastir
 						}
-						check_variable = { TUR_bulgarian_state_level > 0 }
+						check_variable = { TUR_bulgarian_apostolic_state_variable < 0 }
 					}
-					custom_effect_tooltip = TUR_bulgarian_minority_politician_tt3
+					custom_effect_tooltip = TUR_bulgarian_minority_politician_tt2
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = -0.05 }
-					custom_effect_tooltip = TUR_bulgarian_minority_politician_tt4
-					hidden_effect = { add_to_variable = { TUR_bulgarian_temp_variable = -0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_bulgarian_value = yes
+						set_temp_variable = { TUR_todor_pavlof_var2 = old_bulgarian_value }
+						divide_temp_variable = { TUR_todor_pavlof_var2 = TUR_bulgarian_population_factor_new }
+						set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
+						add_to_temp_variable = { TUR_bulgarian_population_factor_focus = 0.1 }
+						multiply_temp_variable = { TUR_todor_pavlof_var2 = TUR_bulgarian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_todor_pavlof_var2 = old_bulgarian_value }
+					}
+					add_to_variable = { TUR_bulgarian_population_factor_new = 0.1 }
+					custom_effect_tooltip = TUR_todor_pavlof_tt2
+					TUR_new_system_trial = yes
+				}
 			}
 			ai_will_do = {
 				factor = 10.000
@@ -4062,14 +4182,26 @@ characters = {
 							has_state_flag = TUR_edirne
 							has_state_flag = TUR_selanik
 						}
-						check_variable = { TUR_bulgarian_state_level > 0 }
+						check_variable = { TUR_bulgarian_apostolic_state_variable < 0 }
 					}
 					custom_effect_tooltip = TUR_bulgarian_minority_politician_tt
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = 0.05 }
-					custom_effect_tooltip = TUR_bulgarian_minority_politician_tt2
-					hidden_effect = { add_to_variable = { TUR_bulgarian_temp_variable = 0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_bulgarian_value = yes
+						set_temp_variable = { TUR_dimitar_vlahov_var = old_bulgarian_value }
+						divide_temp_variable = { TUR_dimitar_vlahov_var = TUR_bulgarian_population_factor_new }
+						set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
+						add_to_temp_variable = { TUR_bulgarian_population_factor_focus = -0.1 }
+						multiply_temp_variable = { TUR_dimitar_vlahov_var = TUR_bulgarian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_dimitar_vlahov_var = old_bulgarian_value }
+					}
+					add_to_variable = { TUR_bulgarian_population_factor_new = -0.1 }
+					custom_effect_tooltip = TUR_dimitar_vlahov_tt
+					TUR_new_system_trial = yes
+				}
 			}
 			on_remove = {
 				every_state = {
@@ -4078,14 +4210,26 @@ characters = {
 							has_state_flag = TUR_edirne
 							has_state_flag = TUR_selanik
 						}
-						check_variable = { TUR_bulgarian_state_level > 0 }
+						check_variable = { TUR_bulgarian_apostolic_state_variable < 0 }
 					}
-					custom_effect_tooltip = TUR_bulgarian_minority_politician_tt3
+					custom_effect_tooltip = TUR_bulgarian_minority_politician_tt2
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_bulgarian = -0.05 }
-					custom_effect_tooltip = TUR_bulgarian_minority_politician_tt4
-					hidden_effect = { add_to_variable = { TUR_bulgarian_temp_variable = -0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_bulgarian_value = yes
+						set_temp_variable = { TUR_dimitar_vlahov_var2 = old_bulgarian_value }
+						divide_temp_variable = { TUR_dimitar_vlahov_var2 = TUR_bulgarian_population_factor_new }
+						set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
+						add_to_temp_variable = { TUR_bulgarian_population_factor_focus = 0.1 }
+						multiply_temp_variable = { TUR_dimitar_vlahov_var2 = TUR_bulgarian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_dimitar_vlahov_var2 = old_bulgarian_value }
+					}
+					add_to_variable = { TUR_bulgarian_population_factor_new = 0.1 }
+					custom_effect_tooltip = TUR_dimitar_vlahov_tt2
+					TUR_new_system_trial = yes
+				}
 			}
 			ai_will_do = {
 				factor = 10.000
@@ -4142,36 +4286,57 @@ characters = {
 				every_state = {
 					limit = {
 						OR = {
-							has_state_flag = TUR_ankara
+							has_state_flag = TUR_adana
 							has_state_flag = TUR_aleppo
 						}
-						check_variable = { TUR_armenian_state_level > 0 }
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 					}
 					custom_effect_tooltip = TUR_armenian_minority_politician_tt
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0.05 }
-					custom_effect_tooltip = TUR_armenian_minority_politician_tt2
-					hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = 0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_armenian_value = yes
+						set_temp_variable = { TUR_hampartsoum_boyadjian_var = old_armenian_value }
+						divide_temp_variable = { TUR_hampartsoum_boyadjian_var = TUR_armenian_population_factor_new }
+						set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+						add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.1 }
+						multiply_temp_variable = { TUR_hampartsoum_boyadjian_var = TUR_armenian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_hampartsoum_boyadjian_var = old_armenian_value }
+					}
+					add_to_variable = { TUR_armenian_population_factor_new = -0.1 }
+					custom_effect_tooltip = TUR_hampartsoum_boyadjian_tt
+					TUR_new_system_trial = yes
+				}
 			}
 			on_remove = {
 				every_state = {
 					limit = {
 						OR = {
-							state = 344
-							state = 857
-							state = 1057
-							state = 1058
-							state = 1024
+							has_state_flag = TUR_adana
+							has_state_flag = TUR_aleppo
 						}
-						check_variable = { TUR_armenian_state_level > 0 }
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 					}
-					custom_effect_tooltip = TUR_armenian_minority_politician_tt3
+					custom_effect_tooltip = TUR_armenian_minority_politician_tt2
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = -0.05 }
-					custom_effect_tooltip = TUR_armenian_minority_politician_tt4
-					hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = -0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_armenian_value = yes
+						set_temp_variable = { TUR_hampartsoum_boyadjian_var2 = old_armenian_value }
+						divide_temp_variable = { TUR_hampartsoum_boyadjian_var2 = TUR_armenian_population_factor_new }
+						set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+						add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.1 }
+						multiply_temp_variable = { TUR_hampartsoum_boyadjian_var2 = TUR_armenian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_hampartsoum_boyadjian_var2 = old_armenian_value }
+					}
+					add_to_variable = { TUR_armenian_population_factor_new = 0.1 }
+					custom_effect_tooltip = TUR_hampartsoum_boyadjian_tt2
+					TUR_new_system_trial = yes
+				}
 			}
 			ai_will_do = {
 				factor = 10.000
@@ -4229,14 +4394,26 @@ characters = {
 							has_state_flag = TUR_sivas
 							has_state_flag = TUR_mamuret_ul_aziz
 						}
-						check_variable = { TUR_armenian_state_level > 0 }
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 					}
 					custom_effect_tooltip = TUR_armenian_minority_politician_tt
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0.05 }
-					custom_effect_tooltip = TUR_armenian_minority_politician_tt2
-					hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = 0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_armenian_value = yes
+						set_temp_variable = { TUR_nazaret_daghavarian_var = old_armenian_value }
+						divide_temp_variable = { TUR_nazaret_daghavarian_var = TUR_armenian_population_factor_new }
+						set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+						add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.1 }
+						multiply_temp_variable = { TUR_nazaret_daghavarian_var = TUR_armenian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_nazaret_daghavarian_var = old_armenian_value }
+					}
+					add_to_variable = { TUR_armenian_population_factor_new = -0.1 }
+					custom_effect_tooltip = TUR_nazaret_daghavarian_tt
+					TUR_new_system_trial = yes
+				}
 			}
 			on_remove = {
 				every_state = {
@@ -4246,14 +4423,26 @@ characters = {
 							has_state_flag = TUR_sivas
 							has_state_flag = TUR_mamuret_ul_aziz
 						}
-						check_variable = { TUR_armenian_state_level > 0 }
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 					}
-					custom_effect_tooltip = TUR_armenian_minority_politician_tt3
+					custom_effect_tooltip = TUR_armenian_minority_politician_tt2
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = -0.05 }
-					custom_effect_tooltip = TUR_armenian_minority_politician_tt4
-					hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = -0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_armenian_value = yes
+						set_temp_variable = { TUR_nazaret_daghavarian_var2 = old_armenian_value }
+						divide_temp_variable = { TUR_nazaret_daghavarian_var2 = TUR_armenian_population_factor_new }
+						set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+						add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.1 }
+						multiply_temp_variable = { TUR_nazaret_daghavarian_var2 = TUR_armenian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_nazaret_daghavarian_var2 = old_armenian_value }
+					}
+					add_to_variable = { TUR_armenian_population_factor_new = 0.1 }
+					custom_effect_tooltip = TUR_nazaret_daghavarian_tt2
+					TUR_new_system_trial = yes
+				}
 			}
 			ai_will_do = {
 				factor = 10.000
@@ -4314,14 +4503,26 @@ characters = {
 							has_state_flag = TUR_van
 							has_state_flag = TUR_bitlis
 						}
-						check_variable = { TUR_armenian_state_level > 0 }
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 					}
 					custom_effect_tooltip = TUR_armenian_minority_politician_tt
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0.05 }
-					custom_effect_tooltip = TUR_armenian_minority_politician_tt2
-					hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = 0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_armenian_value = yes
+						set_temp_variable = { TUR_karakin_pastermadjian_var = old_armenian_value }
+						divide_temp_variable = { TUR_karakin_pastermadjian_var = TUR_armenian_population_factor_new }
+						set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+						add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.1 }
+						multiply_temp_variable = { TUR_karakin_pastermadjian_var = TUR_armenian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_karakin_pastermadjian_var = old_armenian_value }
+					}
+					add_to_variable = { TUR_armenian_population_factor_new = -0.1 }
+					custom_effect_tooltip = TUR_karakin_pastermadjian_tt
+					TUR_new_system_trial = yes
+				}
 			}
 			on_remove = {
 				every_state = {
@@ -4331,14 +4532,26 @@ characters = {
 							has_state_flag = TUR_van
 							has_state_flag = TUR_bitlis
 						}
-						check_variable = { TUR_armenian_state_level > 0 }
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 					}
-					custom_effect_tooltip = TUR_armenian_minority_politician_tt3
+					custom_effect_tooltip = TUR_armenian_minority_politician_tt2
 					add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = -0.05 }
-					custom_effect_tooltip = TUR_armenian_minority_politician_tt4
-					hidden_effect = { add_to_variable = { TUR_armenian_temp_variable = -0.005 } }
 				}
-				owner = { TUR_new_system_trial = yes }
+				owner = {
+					hidden_effect = {
+						#for tooltip
+						TUR_set_old_armenian_value = yes
+						set_temp_variable = { TUR_karakin_pastermadjian_var2 = old_armenian_value }
+						divide_temp_variable = { TUR_karakin_pastermadjian_var2 = TUR_armenian_population_factor_new }
+						set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+						add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.1 }
+						multiply_temp_variable = { TUR_karakin_pastermadjian_var2 = TUR_armenian_population_factor_focus }
+						subtract_from_temp_variable = { TUR_karakin_pastermadjian_var2 = old_armenian_value }
+					}
+					add_to_variable = { TUR_armenian_population_factor_new = 0.1 }
+					custom_effect_tooltip = TUR_karakin_pastermadjian_tt2
+					TUR_new_system_trial = yes
+				}
 			}
 			ai_will_do = {
 				factor = 10.000

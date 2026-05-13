@@ -8732,7 +8732,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			every_controlled_state = {
-				limit = { check_variable = { TUR_turkish_state_level > 0 } }
+				limit = {
+					OR = {
+						check_variable = { TUR_turkish_sunni_state_variable < 0 }
+						check_variable = { TUR_turkish_shia_state_variable < 0 }
+					}
+				}
 				add_dynamic_modifier = { modifier = TUR_turkish_minority }
 				set_state_flag = TUR_ittihat_i_anasir
 			}
@@ -10500,7 +10505,10 @@ focus_tree = {
 						has_state_flag = TUR_iskodra
 					}
 					controller = { TUR_has_minority_system = yes }
-					check_variable = { TUR_turkish_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_sunni_state_variable < 0 }
+						check_variable = { TUR_turkish_shia_state_variable < 0 }
+					}
 				}
 				add_dynamic_modifier = { modifier = TUR_turkish_minority }
 				set_state_flag = TUR_albanian_vilayet4
@@ -13032,7 +13040,10 @@ focus_tree = {
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = TUR
-					check_variable = { TUR_turkish_state_level > 0 }
+					OR = {
+						check_variable = { TUR_turkish_sunni_state_variable < 0 }
+						check_variable = { TUR_turkish_shia_state_variable < 0 }
+					}
 				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
