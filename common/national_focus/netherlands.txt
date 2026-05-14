@@ -9035,7 +9035,22 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		random_core_state = {
+			add_building_construction = {
+    			type = industrial_complex
+    			level = 1
+    			instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_core_state = {
+			add_building_construction = {
+    			type = industrial_complex
+    			level = 1
+    			instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -9059,7 +9074,15 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.1
+		}
+		custom_effect_tooltip = HOL_modify_social_kwestie_tt
+		add_to_variable = {
+			HOL_lc_pp_gain = 0.1
+			tooltip = political_power_factor_tt
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -9075,7 +9098,7 @@ focus = {
 	id = HOL_build_military_industries
 	icon = GFX_focus_hol_oranje_boven
 	available = {
-		
+		has_completed_focus = HOL_nationalise_hembrug
 	}
 	available_if_capitulated = yes
 	prerequisite = {
@@ -9083,7 +9106,17 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		random_core_state = {
+			add_building_construction = {
+    			type = arms_factory
+    			level = 1
+    			instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		mio:HOL_artillerie_inrichtingen_organization = {
+			add_mio_funds = 1000
+		}
 	}
 	ai_will_do = {
 	factor = 500
