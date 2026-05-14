@@ -8846,7 +8846,15 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		custom_effect_tooltip = HOL_modify_dutch_economy_tt
+		add_to_variable = {
+			HOL_variable_ec_mil_construction = 0.1
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+		add_timed_idea = {
+			idea = HOL_subsidised_military_industry
+			days = 250
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -8870,7 +8878,20 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		custom_effect_tooltip = HOL_modify_dutch_military_tt
+		add_to_variable = {
+			HOL_variable_army_army_intel_to_others = -0.1
+			tooltip = army_intel_to_others_tt
+		}
+		add_to_variable = {
+			HOL_variable_army_civ_intel_to_others = -0.1
+			tooltip = civilian_intel_to_others_tt
+		}
+		custom_effect_tooltip = HOL_modify_social_kwestie_tt
+		add_to_variable = {
+			HOL_lc_pp_gain = -0.1
+			tooltip = political_power_factor_tt
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -8894,7 +8915,11 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		custom_effect_tooltip = HOL_modify_dutch_military_tt
+		add_to_variable = {
+			HOL_variable_army_conscription = 0.1
+			tooltip = conscription_factor_tt
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -8918,7 +8943,18 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		
+		random_army_leader = {
+			add_attack = 1
+			add_defense = 1
+		}
+		random_army_leader = {
+			add_attack = 1
+			add_defense = 1
+		}
+		add_timed_idea = {
+			idea = HOL_promoting_commanders
+			days = 360
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -8934,7 +8970,16 @@ focus = {
 	id = HOL_support_flemish_seperatism
 	icon = GFX_focus_hol_oranje_boven
 	available = {
-		
+		HOL = {
+			has_war = no
+		}
+		BEL = {
+			has_war = no
+			is_in_faction = no
+			is_puppet = no
+			is_subject = no
+			owns_state = 6
+		}
 	}
 	available_if_capitulated = yes
 	prerequisite = {
