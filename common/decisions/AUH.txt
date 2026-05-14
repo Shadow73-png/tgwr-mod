@@ -860,6 +860,46 @@ AUH_great_war_bullshit = {
 			}
 		}
 	}
+	AUS_ask_hungary_for_croatia = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		allowed = {
+			original_tag = AUS
+		}
+		available = {
+			has_global_flag = great_war
+			AUS_HUN_exists = yes
+			HUN = {
+				controls_state = 208
+				controls_state = 109
+				controls_state = 575
+				has_dynamic_modifier = HUN_croatian_sabor
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = great_war_loser
+			}
+			is_in_faction_with = HUN
+			AUS_HUN_exists = yes
+		}
+		complete_effect = {
+			HUN = {
+				country_event = {
+					id = ww1_hungary.93
+					days = 1
+				}
+			}
+			custom_effect_tooltip = if_they_accept
+			ROOT = {
+				every_state = {
+					limit = {
+						has_dynamic_modifier = HUN_croat_autonomy
+					}
+					transfer_state_to = AUS
+				}
+			}
+		}
+	}
 }
 
 AUS_minorities_mechanic = {
