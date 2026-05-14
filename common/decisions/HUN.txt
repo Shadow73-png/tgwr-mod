@@ -521,7 +521,7 @@ TGWR_great_power_politics = {
 			}
 		}
 		timeout_effect = {
-			#Make an event later when more moivated
+			country_event = ww1_hungary.91
 			complete_national_focus = HUN_failure_of_treuga_dei
 		}
 		complete_effect = {
@@ -611,6 +611,46 @@ TGWR_great_power_politics = {
 			add_days_mission_timeout = {
 				mission = HUN_great_war_discontent_mission
 				days = -100
+			}
+		}
+	}
+	HUN_murder_romania = {
+		icon = GFX_decisions_generic_infiltration
+		days_mission_timeout = 100
+		is_good = no
+		allowed = {
+			original_tag = HUN
+		}
+		activation = {
+			always = no
+		}
+		available = {
+			NOT = {
+				hidden_trigger = {
+					has_country_flag = great_war_loser
+				}
+				OR = {
+					ROM = {
+						surrender_progress < 0.2
+					}
+					has_war_with = ROM
+				}
+			}
+		}
+		complete_effect = {
+			
+		}
+		timeout_effect = {
+			add_war_support = -0.05
+			add_political_power = -75
+			if = {
+				limit = { 
+					has_active_mission = HUN_truega_dei_mission
+				}
+				add_days_mission_timeout = {
+					mission = HUN_truega_dei_mission
+					days = -100
+				}
 			}
 		}
 	}
@@ -1622,6 +1662,7 @@ AUS_minorities_mechanic_HUN = {
 		icon = GFX_decision_eng_trade_unions_support
 		cost = 20
 		fire_only_once = yes
+		days_remove = 50
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -1634,15 +1675,31 @@ AUS_minorities_mechanic_HUN = {
 		}
 		available = {
 			has_completed_focus = HUN_meddle_in_croat_serb_relations
+			any_owned_state = {
+				is_core_of = SER
+			}
 		}
 		visible = {
 			has_completed_focus = HUN_meddle_in_croat_serb_relations
 		}
 		complete_effect = {
-			add_stability = 0.035
 			add_popularity = {
 				ideology = democratic
-				popularity = 0.05
+				popularity = 0.02
+			}
+			add_stability = 0.01
+			add_political_power = 25
+			custom_effect_tooltip = empty_space_tt
+			AUS = {
+				add_to_variable = {
+					AUS_serb_loyalty = 5
+					tooltip = AUS_loyalty_serb_tt
+				}
+				add_to_variable = {
+					AUS_croat_loyalty = -5
+					tooltip = AUS_loyalty_croatian_tt
+				}
+				AUS_update_state_of_realm = yes
 			}
 		}
 	}

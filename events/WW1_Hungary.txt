@@ -2506,7 +2506,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_hungary.55.a
-		add_stability = -0.01
+		add_to_variable = {
+			HUN_eco_stab = -0.01
+			tooltip = stability_factor_tt
+		}
 	}
 }
 #Army Bill (alt gov)
@@ -2532,7 +2535,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_hungary.57.a
-		add_stability = -0.05
+		add_to_variable = {
+			HUN_eco_stab = -0.05
+			tooltip = stability_factor_tt
+		}
 	}
 }
 #Event about Tadabanya Mine
@@ -3405,6 +3411,87 @@ country_event = {
 			HUN_eco_local_resources = 0.05
 			tooltip = local_resources_factor_tt
 		}
+	}
+}
+#End of Treuga Dei
+country_event = {
+	id = ww1_hungary.91
+	title = ww1_hungary.91.t
+	desc = {
+		text =  ww1_hungary.91.da
+		trigger = {
+			has_country_flag = HUN_national_work_party_yes
+		}
+	}
+	desc = {
+		text =  ww1_hungary.91.db
+		trigger = {
+			has_global_flag = HUN_compromise_gov_in_charge
+		}
+	}
+	picture = GFX_report_event_hungarian_parliment
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		has_dynamic_modifier = HUN_treuga_dei_modifier
+		has_active_mission = HUN_truega_dei_mission
+		OR = {
+			neutrality < 0.5
+			has_stability < 0.55
+			has_war_support < 0.4
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { 
+					has_active_mission = HUN_truega_dei_mission
+				}
+				remove_mission = HUN_truega_dei_mission
+			}
+		}
+	}
+	option = {
+		name = ww1_hungary.91.a
+		trigger = {
+			has_country_flag = HUN_national_work_party_yes
+		}
+		remove_dynamic_modifier = {
+			modifier = HUN_treuga_dei_modifier
+		}
+	}
+	option = {
+		name = ww1_hungary.91.a
+		trigger = {
+			has_global_flag = HUN_compromise_gov_in_charge
+		}
+		remove_dynamic_modifier = {
+			modifier = HUN_treuga_dei_modifier
+		}
+	}
+}
+#Romania Joins the War
+country_event = {
+	id = ww1_hungary.92
+	title = ww1_hungary.92.t
+	desc = ww1_hungary.92.d
+	#picture = 
+	fire_only_once = yes
+	trigger = {
+		has_war_with = ROM
+		has_global_flag = great_war
+		NOT = {
+			has_country_flag = great_war_loser
+		}
+	}
+	mean_time_to_happen = {
+		days = 10
+	}
+	option = {
+		name = ww1_hungary.92.a
+		activate_mission = HUN_murder_romania
 	}
 }
 
