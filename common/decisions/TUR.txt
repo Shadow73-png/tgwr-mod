@@ -2670,15 +2670,15 @@ TUR_millet_system = {
 			controls_state = FROM
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_armenian_minority }
-				check_variable = { TUR_armenian_apostolic_state_level > 0 }
+				check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 			}
 		}
-		custom_cost_text = decision_cost_CP_10_PP_10
+		custom_cost_text = decision_cost_CP_5_PP_5
 		custom_cost_trigger = {
-			has_political_power > 9.9
-			command_power > 9.9
+			has_political_power > 4.9
+			command_power > 4.9
 		}
-		days_remove = 60
+		days_remove = 10
 		available = {
 			FROM = {
 				NOT = {
@@ -2686,14 +2686,14 @@ TUR_millet_system = {
 					has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
 				}
 			}
-			has_equipment = { train_equipment > 4 }
+			has_equipment = { train_equipment > 2 }
 		}
 		complete_effect = {
 			hidden_effect = {
-				add_command_power = -10
-				add_political_power = -10
+				add_command_power = -5
+				add_political_power = -5
 			}
-			add_equipment_to_stockpile = { type = train_equipment amount = -5 }
+			add_equipment_to_stockpile = { type = train_equipment amount = -3 }
 			FROM = {
 				custom_effect_tooltip = TUR_modify_armenian_minority
 				custom_effect_tooltip = weekly_manpower_minus_250
@@ -2702,18 +2702,144 @@ TUR_millet_system = {
 			}
 		}
 		remove_effect = {
-			add_equipment_to_stockpile = { type = train_equipment amount = 5 }
-			FROM = {
-				TUR_reduce_armenian_christian_level_genocide = yes
-				force_update_dynamic_modifier = yes
+			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
+			if = {
+				limit = {
+					FROM = {
+						check_variable = {
+							var = TUR_armenian_apostolic_state_variable
+							value = -0.2
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				FROM = {
+					remove_dynamic_modifier = { modifier = TUR_armenian_minority }
+					set_variable = { TUR_ottoman_weekly_manpower_armenian = 0 }
+					set_variable = { TUR_ottoman_enemy_local_supplies_armenian = 0 }
+					set_variable = { TUR_ottoman_attrition_armenian = 0 }
+					set_variable = { TUR_ottoman_army_defence_factor_armenian = 0 }
+					set_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0 }
+					set_variable = { TUR_armenian_apostolic_state_variable = 0 }
+					hidden_effect = {
+						if = {
+							limit = { state = 352 }
+							ROOT = { country_event = { id = ottoman.101 days = 4 } }
+						}
+						if = {
+							limit = { state = 806 }
+							ROOT = { country_event = { id = ottoman.103 days = 4 } }
+						}
+						if = {
+							limit = { state = 1022 }
+							ROOT = { country_event = { id = ottoman.134 days = 4 } }
+						}
+						if = {
+							limit = { state = 881 }
+							ROOT = { country_event = { id = ottoman.135 days = 4 } }
+						}
+						if = {
+							limit = { state = 355 }
+							ROOT = { country_event = { id = ottoman.136 days = 4 } }
+						}
+						if = {
+							limit = { state = 1025 }
+							ROOT = { country_event = { id = ottoman.135 days = 4 } }
+						}
+					}
+					if = {
+						limit = {
+							has_resistance = yes
+							is_core_of = ROOT
+							TUR_state_has_minority_modifier = no
+						}
+						cancel_resistance = yes
+					}
+					if = {
+						limit = { is_core_of = ARM }
+						remove_core_of = ARM
+					}
+				}
+				set_temp_variable = { TUR_deport_armenians = FROM.TUR_armenian_apostolic_state_variable }
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+								has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+							}
+						}
+					}
+					multiply_temp_variable = { TUR_deport_armenians = 0 }
+				}
+				if = {
+					limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+					divide_temp_variable = { TUR_deport_armenians = 2 }
+				}
+				multiply_temp_variable = { TUR_deport_armenians = TUR_armenian_population_factor_new }
+				multiply_temp_variable = { TUR_deport_armenians = TUR_apostolic_population_factor_new }
+				divide_temp_variable = { TUR_deport_armenians = -100 }
 			}
+			else = {
+				FROM = {
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					else = { custom_effect_tooltip = weekly_manpower_250 }
+					set_variable = { TUR_ottoman_weekly_manpower_armenian = 0 }
+					custom_effect_tooltip = TUR_minority_attrition_down
+					add_to_variable = { TUR_ottoman_attrition_armenian = -0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_attrition_armenian
+						min = 0
+					}
+					custom_effect_tooltip = TUR_minority_army_defence_factor_down
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_army_defence_factor_armenian
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies_down
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_enemy_local_supplies_armenian
+						min = 0
+					}
+					custom_effect_tooltip = TUR_minority_recruitable_population_armenian_down
+					add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_recruitable_population_factor_armenian
+						max = 0
+					}
+					custom_effect_tooltip = empty_space
+					add_to_variable = { TUR_armenian_apostolic_state_variable = 0.3 }
+				}
+				set_temp_variable = { TUR_deport_armenians = 0.3 }
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+								has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+							}
+						}
+					}
+					multiply_temp_variable = { TUR_deport_armenians = 0 }
+				}
+				if = {
+					limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+					divide_temp_variable = { TUR_deport_armenians = 2 }
+				}
+				multiply_temp_variable = { TUR_deport_armenians = TUR_armenian_population_factor_new }
+				multiply_temp_variable = { TUR_deport_armenians = TUR_apostolic_population_factor_new }
+				divide_temp_variable = { TUR_deport_armenians = 100 }
+			}
+			custom_effect_tooltip = TUR_deport_armenians_tt
 			FROM_add_1_centralization = yes
 			TUR_new_system_trial = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		cancel_effect = {
-			add_equipment_to_stockpile = { type = train_equipment amount = 5 }
+			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			FROM = {
 				custom_effect_tooltip = TUR_modify_armenian_minority
 				custom_effect_tooltip = weekly_manpower_250
@@ -2745,12 +2871,12 @@ TUR_millet_system = {
 			controls_state = FROM
 			FROM = { has_dynamic_modifier = { modifier = TUR_armenian_minority } }
 		}
-		custom_cost_text = decision_cost_CP_10_PP_10
+		custom_cost_text = decision_cost_CP_5_PP_5
 		custom_cost_trigger = {
-			has_political_power > 9.9
-			command_power > 9.9
+			has_political_power > 4.9
+			command_power > 4.9
 		}
-		days_remove = TUR_deport_armenians_diyarbakir_time?60
+		days_remove = TUR_deport_armenians_diyarbakir_time?10
 		available = {
 			FROM = {
 				NOT = {
@@ -2758,14 +2884,14 @@ TUR_millet_system = {
 					has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
 				}
 			}
-			has_equipment = { train_equipment > 4 }
+			has_equipment = { train_equipment > 2 }
 		}
 		complete_effect = {
 			hidden_effect = {
-				add_command_power = -10
-				add_political_power = -10
+				add_command_power = -5
+				add_political_power = -5
 			}
-			add_equipment_to_stockpile = { type = train_equipment amount = -5 }
+			add_equipment_to_stockpile = { type = train_equipment amount = -3 }
 			FROM = {
 				custom_effect_tooltip = TUR_modify_armenian_minority
 				custom_effect_tooltip = weekly_manpower_minus_500
@@ -2774,18 +2900,144 @@ TUR_millet_system = {
 			}
 		}
 		remove_effect = {
-			add_equipment_to_stockpile = { type = train_equipment amount = 5 }
-			FROM = {
-				TUR_reduce_armenian_christian_level_genocide = yes
-				force_update_dynamic_modifier = yes
+			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
+			if = {
+				limit = {
+					FROM = {
+						check_variable = {
+							var = TUR_armenian_apostolic_state_variable
+							value = -0.2
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				FROM = {
+					remove_dynamic_modifier = { modifier = TUR_armenian_minority }
+					set_variable = { TUR_ottoman_weekly_manpower_armenian = 0 }
+					set_variable = { TUR_ottoman_enemy_local_supplies_armenian = 0 }
+					set_variable = { TUR_ottoman_attrition_armenian = 0 }
+					set_variable = { TUR_ottoman_army_defence_factor_armenian = 0 }
+					set_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0 }
+					set_variable = { TUR_armenian_apostolic_state_variable = 0 }
+					hidden_effect = {
+						if = {
+							limit = { state = 352 }
+							ROOT = { country_event = { id = ottoman.101 days = 4 } }
+						}
+						if = {
+							limit = { state = 806 }
+							ROOT = { country_event = { id = ottoman.103 days = 4 } }
+						}
+						if = {
+							limit = { state = 1022 }
+							ROOT = { country_event = { id = ottoman.134 days = 4 } }
+						}
+						if = {
+							limit = { state = 881 }
+							ROOT = { country_event = { id = ottoman.135 days = 4 } }
+						}
+						if = {
+							limit = { state = 355 }
+							ROOT = { country_event = { id = ottoman.136 days = 4 } }
+						}
+						if = {
+							limit = { state = 1025 }
+							ROOT = { country_event = { id = ottoman.135 days = 4 } }
+						}
+					}
+					if = {
+						limit = {
+							has_resistance = yes
+							is_core_of = ROOT
+							TUR_state_has_minority_modifier = no
+						}
+						cancel_resistance = yes
+					}
+					if = {
+						limit = { is_core_of = ARM }
+						remove_core_of = ARM
+					}
+				}
+				set_temp_variable = { TUR_deport_armenians = FROM.TUR_armenian_apostolic_state_variable }
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+								has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+							}
+						}
+					}
+					multiply_temp_variable = { TUR_deport_armenians = 0 }
+				}
+				if = {
+					limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+					divide_temp_variable = { TUR_deport_armenians = 2 }
+				}
+				multiply_temp_variable = { TUR_deport_armenians = TUR_armenian_population_factor_new }
+				multiply_temp_variable = { TUR_deport_armenians = TUR_apostolic_population_factor_new }
+				divide_temp_variable = { TUR_deport_armenians = -100 }
 			}
+			else = {
+				FROM = {
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					else = { custom_effect_tooltip = weekly_manpower_250 }
+					set_variable = { TUR_ottoman_weekly_manpower_armenian = 0 }
+					custom_effect_tooltip = TUR_minority_attrition_down
+					add_to_variable = { TUR_ottoman_attrition_armenian = -0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_attrition_armenian
+						min = 0
+					}
+					custom_effect_tooltip = TUR_minority_army_defence_factor_down
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_army_defence_factor_armenian
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies_down
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_enemy_local_supplies_armenian
+						min = 0
+					}
+					custom_effect_tooltip = TUR_minority_recruitable_population_armenian_down
+					add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_recruitable_population_factor_armenian
+						max = 0
+					}
+					custom_effect_tooltip = empty_space
+					add_to_variable = { TUR_armenian_apostolic_state_variable = 0.3 }
+				}
+				set_temp_variable = { TUR_deport_armenians = 0.3 }
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+								has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+							}
+						}
+					}
+					multiply_temp_variable = { TUR_deport_armenians = 0 }
+				}
+				if = {
+					limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+					divide_temp_variable = { TUR_deport_armenians = 2 }
+				}
+				multiply_temp_variable = { TUR_deport_armenians = TUR_armenian_population_factor_new }
+				multiply_temp_variable = { TUR_deport_armenians = TUR_apostolic_population_factor_new }
+				divide_temp_variable = { TUR_deport_armenians = 100 }
+			}
+			custom_effect_tooltip = TUR_deport_armenians_tt
 			FROM_add_1_centralization = yes
 			TUR_new_system_trial = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		cancel_effect = {
-			add_equipment_to_stockpile = { type = train_equipment amount = 5 }
+			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			FROM = {
 				custom_effect_tooltip = TUR_modify_armenian_minority
 				custom_effect_tooltip = weekly_manpower_500
@@ -10946,7 +11198,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_kostantiniyye
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -10954,7 +11206,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_kostantiniyye
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -11233,7 +11485,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_izmit
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -11241,7 +11493,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_izmit
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -11358,7 +11610,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_hudavendigar
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -11366,7 +11618,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_hudavendigar
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -11526,7 +11778,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_ankara
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -11534,7 +11786,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_ankara
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -11569,7 +11821,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_adana
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -11577,7 +11829,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_adana
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -11651,7 +11903,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_sivas
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -11659,7 +11911,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_sivas
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -11737,7 +11989,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_mamuret_ul_aziz
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -11745,7 +11997,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_mamuret_ul_aziz
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -11780,7 +12032,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_erzurum
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -11788,7 +12040,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_erzurum
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -11823,7 +12075,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_bitlis
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -11831,7 +12083,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_bitlis
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -11866,7 +12118,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_van
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -11874,7 +12126,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_van
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -11948,7 +12200,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_diyarbakir
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -11956,7 +12208,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_diyarbakir
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes
@@ -12030,7 +12282,7 @@ TUR_millet_system = {
 						any_state = {
 							has_state_flag = TUR_aleppo
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 					}
@@ -12038,7 +12290,7 @@ TUR_millet_system = {
 						limit = {
 							has_state_flag = TUR_aleppo
 							has_dynamic_modifier = { modifier = TUR_armenian_minority }
-							check_variable = { TUR_armenian_apostolic_state_level > 0 }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 							NOT = { TUR_state_has_autonomy_modifier = yes }
 						}
 						TUR_reduce_armenian_christian_level = yes

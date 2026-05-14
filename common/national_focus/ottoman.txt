@@ -9561,7 +9561,7 @@ focus_tree = {
 		relative_position_id = TUR_maintain_muslim_hegemony
 		completion_reward = {
 			every_state = {
-				limit = { check_variable = { TUR_kurdish_sunni_state_variable < -0.02 } }
+				limit = { check_variable = { TUR_kurdish_sunni_state_variable < -0.2 } }
 				custom_effect_tooltip = TUR_modify_kurdish_minority
 				custom_effect_tooltip = TUR_minority_mobilization_speed_kurdish_down
 				add_to_variable = { TUR_ottoman_mobilization_speed_kurdish = 0.1 }
@@ -9582,14 +9582,17 @@ focus_tree = {
 			}
 			every_state = {
 				limit = {
-					check_variable = { TUR_kurdish_sunni_state_variable > -0.03 }
-					check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+					check_variable = {
+						var = TUR_kurdish_sunni_state_variable
+						value = -0.2
+						compare = greater_than_or_equals
+					}
 				}
 				remove_dynamic_modifier = { modifier = TUR_kurdish_minority }
 				clear_variable = TUR_kurdish_sunni_state_variable
 			}
 			every_state = {
-				limit = { check_variable = { TUR_georgian_sunni_state_variable < -0.02 } }
+				limit = { check_variable = { TUR_georgian_sunni_state_variable < -0.2 } }
 				custom_effect_tooltip = TUR_modify_georgian_minority
 				if = {
 					limit = {
@@ -9622,8 +9625,11 @@ focus_tree = {
 			}
 			every_state = {
 				limit = {
-					check_variable = { TUR_georgian_sunni_state_variable > -0.03 }
-					check_variable = { TUR_georgian_sunni_state_variable < 0 }
+					check_variable = {
+						var = TUR_georgian_sunni_state_variable
+						value = -0.2
+						compare = greater_than_or_equals
+					}
 				}
 				remove_dynamic_modifier = { modifier = TUR_georgian_minority }
 				clear_variable = TUR_georgian_sunni_state_variable
