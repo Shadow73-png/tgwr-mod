@@ -2930,4 +2930,53 @@ country_event = {
 		name = ww1_holland.115.a
 	}
 }
+#frontbeweging insurrection
+country_event = {
+	id = ww1_holland.116
+	title = ww1_holland.116.t
+	desc = ww1_holland.116.d
+	fire_only_once = yes
+	trigger = {
+		tag = BEL
+		BEL  = {
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			fascism > 0.7
+		}
+	}
+	option = {
+		name = ww1_holland.116.a
+		6 = {
+			set_demilitarized_zone = yes
+		}
+		add_stability = -0.1
+	}
+}
+#belgium sees netherlands taking flanders during frontbeweging insurrection
+country_event = {
+	id = ww1_holland.117
+	title = ww1_holland.117.t
+	desc = ww1_holland.117.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = BEL
+	}
+	option = {
+		name = ww1_holland.117.a
+		add_threat = 1
+	}
+	option = {
+		name = ww1_holland.117.b
+		BEL = {
+			declare_war_on = {
+				target = HOL
+				type = take_state
+			}
+		}
+		add_threat = 2
+	}
+}
 

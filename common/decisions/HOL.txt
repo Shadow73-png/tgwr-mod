@@ -94,6 +94,143 @@ foreign_politics = {
 			factor = 200
 		}
 	}
+	HOL_support_frontbeweging = {
+		icon = eng_propaganda_campaigns
+		allowed = {
+			original_tag = HOL
+		}
+		available = {
+			is_subject = no
+			has_capitulated = no
+			has_completed_focus = HOL_support_flemish_seperatism
+			OR = {
+				has_global_flag = frankfurt_armistice
+				has_global_flag = versailles_treaty
+			}
+			BEL = {
+				has_war = no
+				is_in_faction = no
+				is_puppet = no
+				owns_state = 6
+				NOT = {
+					has_idea = HOL_frontbeweging_supported
+				}
+			}
+		}
+		visible = {
+			has_government = fascism
+			has_completed_focus = HOL_support_flemish_seperatism
+			OR = {
+				has_global_flag = frankfurt_armistice
+				has_global_flag = versailles_treaty
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			BEL = {
+				add_timed_idea = {
+					idea = HOL_frontbeweging_supported
+					days = 180
+				}
+			}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	HOL_arm_frontbeweging_paramilitary = {
+		icon = eng_propaganda_campaigns
+		allowed = {
+			original_tag = HOL
+		}
+		days_re_enable = 30
+		available = {
+			is_subject = no
+			has_capitulated = no
+			has_completed_focus = HOL_support_flemish_seperatism
+			OR = {
+				has_global_flag = frankfurt_armistice
+				has_global_flag = versailles_treaty
+			}
+			BEL = {
+				has_war = no
+				is_in_faction = no
+				is_puppet = no
+				owns_state = 6
+			}
+		}
+		visible = {
+			has_government = fascism
+			has_completed_focus = HOL_support_flemish_seperatism
+			OR = {
+				has_global_flag = frankfurt_armistice
+				has_global_flag = versailles_treaty
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			BEL = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.05
+				}
+			}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	HOL_smo_flanders = {
+		icon = eng_propaganda_campaigns
+		allowed = {
+			original_tag = HOL
+		}
+		fire_only_once = yes
+		available = {
+			is_subject = no
+			has_capitulated = no
+			has_completed_focus = HOL_support_flemish_seperatism
+			OR = {
+				has_global_flag = frankfurt_armistice
+				has_global_flag = versailles_treaty
+			}
+			BEL = {
+				has_war = no
+				is_in_faction = no
+				is_puppet = no
+				owns_state = 6
+			}
+			6 = {
+				is_demilitarized_zone = yes
+			}
+		}
+		visible = {
+			has_government = fascism
+			has_completed_focus = HOL_support_flemish_seperatism
+			OR = {
+				has_global_flag = frankfurt_armistice
+				has_global_flag = versailles_treaty
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			6 = {
+				set_demilitarized_zone = no
+			}
+			HOL = {
+				transfer_state = 6
+			}
+			BEL = {
+				country_event = ww1_holland.117
+			}
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 200
+		}
+	}
 }
 
 foreign_influence = {
