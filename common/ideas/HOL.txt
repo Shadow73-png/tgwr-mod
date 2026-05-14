@@ -290,6 +290,7 @@ ideas = {
 				OR = {
 					communism > 0.15
 					has_completed_focus = HOL_break_capitalist_system
+					has_completed_focus = HOL_adopt_christian_ideals
 				}
 			}
 			on_remove = {
@@ -332,6 +333,7 @@ ideas = {
 					communism > 0.3
 					communism < 0.15
 					has_completed_focus = HOL_break_capitalist_system
+					has_completed_focus = HOL_adopt_christian_ideals
 				}
 			}
 			on_remove = {
@@ -373,6 +375,7 @@ ideas = {
 				OR = {
 					communism < 0.3
 					has_completed_focus = HOL_break_capitalist_system
+					has_completed_focus = HOL_adopt_christian_ideals
 				}
 			}
 			on_remove = {
@@ -722,6 +725,20 @@ ideas = {
 				army_leader_start_level = 1
 				grant_medal_cost_factor = -0.25
 				field_officer_promotion_penalty = -0.2
+			}
+        }
+		HOL_communist_influence = {
+            picture = ARG_maintain_neutrality
+            removal_cost = -1
+			allowed = { always = no }
+			available = {
+				
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				communism_drift = 0.05
 			}
         }
 	}
