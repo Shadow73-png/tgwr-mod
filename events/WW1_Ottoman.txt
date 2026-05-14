@@ -1828,7 +1828,20 @@ country_event = { #saviour officer Coup
 							is_core_of = MAC
 							is_core_of = ALB
 							has_state_flag = TUR_edirne
-							check_variable = { TUR_arab_state_level > 2 }
+							AND = {
+								OR = {
+									check_variable = { TUR_arab_sunni_state_variable < TUR_kurdish_sunni_state_variable }
+									check_variable = { TUR_arab_shia_state_variable < TUR_kurdish_sunni_state_variable }
+									check_variable = { TUR_arab_orthodox_state_variable < TUR_kurdish_sunni_state_variable }
+									check_variable = { TUR_arab_catholic_state_variable < TUR_kurdish_sunni_state_variable }
+								}
+								OR = {
+									check_variable = { TUR_arab_sunni_state_variable < TUR_armenian_apostolic_state_variable }
+									check_variable = { TUR_arab_shia_state_variable < TUR_armenian_apostolic_state_variable }
+									check_variable = { TUR_arab_orthodox_state_variable < TUR_armenian_apostolic_state_variable }
+									check_variable = { TUR_arab_catholic_state_variable < TUR_armenian_apostolic_state_variable }
+								}
+							}
 						}
 						NOT = { state = 345 }
 					}
@@ -1883,7 +1896,20 @@ country_event = { #saviour officer Coup
 							is_core_of = MAC
 							is_core_of = ALB
 							has_state_flag = TUR_edirne
-							check_variable = { TUR_arab_state_level > 2 }
+							AND = {
+								OR = {
+									check_variable = { TUR_arab_sunni_state_variable < TUR_kurdish_sunni_state_variable }
+									check_variable = { TUR_arab_shia_state_variable < TUR_kurdish_sunni_state_variable }
+									check_variable = { TUR_arab_orthodox_state_variable < TUR_kurdish_sunni_state_variable }
+									check_variable = { TUR_arab_catholic_state_variable < TUR_kurdish_sunni_state_variable }
+								}
+								OR = {
+									check_variable = { TUR_arab_sunni_state_variable < TUR_armenian_apostolic_state_variable }
+									check_variable = { TUR_arab_shia_state_variable < TUR_armenian_apostolic_state_variable }
+									check_variable = { TUR_arab_orthodox_state_variable < TUR_armenian_apostolic_state_variable }
+									check_variable = { TUR_arab_catholic_state_variable < TUR_armenian_apostolic_state_variable }
+								}
+							}
 						}
 						NOT = { state = 345 }
 					}
@@ -1948,7 +1974,20 @@ country_event = { #saviour officer Coup
 							is_core_of = MAC
 							is_core_of = ALB
 							has_state_flag = TUR_edirne
-							check_variable = { TUR_arab_state_level > 2 }
+							AND = {
+								OR = {
+									check_variable = { TUR_arab_sunni_state_variable < TUR_kurdish_sunni_state_variable }
+									check_variable = { TUR_arab_shia_state_variable < TUR_kurdish_sunni_state_variable }
+									check_variable = { TUR_arab_orthodox_state_variable < TUR_kurdish_sunni_state_variable }
+									check_variable = { TUR_arab_catholic_state_variable < TUR_kurdish_sunni_state_variable }
+								}
+								OR = {
+									check_variable = { TUR_arab_sunni_state_variable < TUR_armenian_apostolic_state_variable }
+									check_variable = { TUR_arab_shia_state_variable < TUR_armenian_apostolic_state_variable }
+									check_variable = { TUR_arab_orthodox_state_variable < TUR_armenian_apostolic_state_variable }
+									check_variable = { TUR_arab_catholic_state_variable < TUR_armenian_apostolic_state_variable }
+								}
+							}
 						}
 						NOT = { state = 345 }
 					}
@@ -2290,8 +2329,9 @@ country_event = { #raid on sublime porte
 							resistance > 35
 							is_core_of = ARM
 							is_core_of = KUR
-							check_variable = { TUR_turkish_state_level > 2 }
-							check_variable = { TUR_armenian_state_level > 2 }
+							check_variable = { TUR_armenian_apostolic_state_variable < TUR_kurdish_sunni_state_variable }
+							check_variable = { TUR_turkish_sunni_state_variable < TUR_kurdish_sunni_state_variable }
+							check_variable = { TUR_turkish_shia_state_variable < TUR_kurdish_sunni_state_variable }
 							has_state_flag = TUR_edirne_vilayet
 							state = 1018
 						}
@@ -2347,8 +2387,9 @@ country_event = { #raid on sublime porte
 							resistance > 35
 							is_core_of = ARM
 							is_core_of = KUR
-							check_variable = { TUR_turkish_state_level > 2 }
-							check_variable = { TUR_armenian_state_level > 2 }
+							check_variable = { TUR_armenian_apostolic_state_variable < TUR_kurdish_sunni_state_variable }
+							check_variable = { TUR_turkish_sunni_state_variable < TUR_kurdish_sunni_state_variable }
+							check_variable = { TUR_turkish_shia_state_variable < TUR_kurdish_sunni_state_variable }
 							has_state_flag = TUR_edirne_vilayet
 							state = 1018
 						}
@@ -2415,8 +2456,9 @@ country_event = { #raid on sublime porte
 							resistance > 35
 							is_core_of = ARM
 							is_core_of = KUR
-							check_variable = { TUR_turkish_state_level > 2 }
-							check_variable = { TUR_armenian_state_level > 2 }
+							check_variable = { TUR_armenian_apostolic_state_variable < TUR_kurdish_sunni_state_variable }
+							check_variable = { TUR_turkish_sunni_state_variable < TUR_kurdish_sunni_state_variable }
+							check_variable = { TUR_turkish_shia_state_variable < TUR_kurdish_sunni_state_variable }
 							has_state_flag = TUR_edirne_vilayet
 							state = 1018
 						}
@@ -6507,7 +6549,12 @@ country_event = { #famine of mount lebanon
 					state = 856
 					state = 455
 				}
-				check_variable = { TUR_arab_state_level > 0 }
+				OR = {
+					check_variable = { TUR_arab_sunni_state_variable < 0 }
+					check_variable = { TUR_arab_shia_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+				}
 			}
 			set_state_flag = TUR_syria_famine_state
 			custom_effect_tooltip = ottoman.48.tt
@@ -8806,51 +8853,14 @@ country_event = { #unintended consequences - armenian resistance
 		name = ottoman.104.a
 		effect_tooltip = {
 			every_controlled_state = {
-				limit = { check_variable = { TUR_armenian_state_level = 1 } }
-				custom_effect_tooltip = ottoman.104.tt1
-			}
-			every_controlled_state = {
-				limit = { check_variable = { TUR_armenian_state_level = 2 } }
-				custom_effect_tooltip = ottoman.104.tt2
-			}
-			every_controlled_state = {
-				limit = { check_variable = { TUR_armenian_state_level = 3 } }
-				custom_effect_tooltip = ottoman.104.tt3
-			}
-			every_controlled_state = {
-				limit = { check_variable = { TUR_armenian_state_level = 4 } }
-				custom_effect_tooltip = ottoman.104.tt4
-			}
-			every_controlled_state = {
-				limit = { check_variable = { TUR_armenian_state_level = 5 } }
-				custom_effect_tooltip = ottoman.104.tt5
+				limit = { check_variable = { TUR_armenian_apostolic_state_variable < 0 } }
+				custom_effect_tooltip = ottoman.104.tt
 			}
 		}
 		hidden_effect = {
 			every_state = {
-				limit = { check_variable = { TUR_armenian_state_level = 1 } }
-				set_variable = { TUR_ottoman_attrition_armenian = 0.05 }
-				custom_effect_tooltip = ottoman.104.tt1
-			}
-			every_state = {
-				limit = { check_variable = { TUR_armenian_state_level = 2 } }
-				set_variable = { TUR_ottoman_attrition_armenian = 0.1 }
-				custom_effect_tooltip = ottoman.104.tt2
-			}
-			every_state = {
-				limit = { check_variable = { TUR_armenian_state_level = 3 } }
+				limit = { check_variable = { TUR_armenian_apostolic_state_variable < 0 } }
 				set_variable = { TUR_ottoman_attrition_armenian = 0.15 }
-				custom_effect_tooltip = ottoman.104.tt3
-			}
-			every_state = {
-				limit = { check_variable = { TUR_armenian_state_level = 4 } }
-				set_variable = { TUR_ottoman_attrition_armenian = 0.2 }
-				custom_effect_tooltip = ottoman.104.tt4
-			}
-			every_state = {
-				limit = { check_variable = { TUR_armenian_state_level = 5 } }
-				set_variable = { TUR_ottoman_attrition_armenian = 0.25 }
-				custom_effect_tooltip = ottoman.104.tt5
 			}
 		}
 		force_update_dynamic_modifier = yes
@@ -8909,7 +8919,11 @@ country_event = { #albanian tax collection resistance
 		add_to_variable = { global.TUR_yanya_centralization = -5 }
 		every_state = {
 			limit = {
-				check_variable = { TUR_albanian_state_level > 0 }
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < 0 }
+					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+					check_variable = { TUR_albanian_catholic_state_variable < 0 }
+				}
 				OR = {
 					has_state_flag = TUR_manastir
 					has_state_flag = TUR_iskodra
@@ -8971,7 +8985,11 @@ country_event = { #albanian tax collection resistance
 		add_to_variable = { global.TUR_yanya_centralization = -5 }
 		every_state = {
 			limit = {
-				check_variable = { TUR_albanian_state_level > 0 }
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < 0 }
+					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+					check_variable = { TUR_albanian_catholic_state_variable < 0 }
+				}
 				OR = {
 					has_state_flag = TUR_kosova
 					has_state_flag = TUR_iskodra
@@ -9033,7 +9051,11 @@ country_event = { #albanian tax collection resistance
 		add_to_variable = { global.TUR_yanya_centralization = -5 }
 		every_state = {
 			limit = {
-				check_variable = { TUR_albanian_state_level > 0 }
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < 0 }
+					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+					check_variable = { TUR_albanian_catholic_state_variable < 0 }
+				}
 				OR = {
 					has_state_flag = TUR_kosova
 					has_state_flag = TUR_manastir
@@ -9095,7 +9117,11 @@ country_event = { #albanian tax collection resistance
 		add_to_variable = { global.TUR_iskodra_centralization = -5 }
 		every_state = {
 			limit = {
-				check_variable = { TUR_albanian_state_level > 0 }
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < 0 }
+					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+					check_variable = { TUR_albanian_catholic_state_variable < 0 }
+				}
 				OR = {
 					has_state_flag = TUR_kosova
 					has_state_flag = TUR_manastir
@@ -11565,7 +11591,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.20
 				add_to_variable = { dlf_monthly_population = -0.2 }
@@ -11582,7 +11613,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.19
 				add_to_variable = { dlf_monthly_population = -0.19 }
@@ -11599,7 +11635,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.18
 				add_to_variable = { dlf_monthly_population = -0.18 }
@@ -11616,7 +11657,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.17
 				add_to_variable = { dlf_monthly_population = -0.17 }
@@ -11633,7 +11679,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.16
 				add_to_variable = { dlf_monthly_population = -0.16 }
@@ -11650,7 +11701,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.15
 				add_to_variable = { dlf_monthly_population = -0.15 }
@@ -11667,7 +11723,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.14
 				add_to_variable = { dlf_monthly_population = -0.14 }
@@ -11684,7 +11745,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.13
 				add_to_variable = { dlf_monthly_population = -0.13 }
@@ -11701,7 +11767,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.12
 				add_to_variable = { dlf_monthly_population = -0.12 }
@@ -11718,7 +11789,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.11
 				add_to_variable = { dlf_monthly_population = -0.11 }
@@ -11735,7 +11811,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.10
 				add_to_variable = { dlf_monthly_population = -0.1 }
@@ -11752,7 +11833,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.9
 				add_to_variable = { dlf_monthly_population = -0.09 }
@@ -11769,7 +11855,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.8
 				add_to_variable = { dlf_monthly_population = -0.08 }
@@ -11786,7 +11877,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.7
 				add_to_variable = { dlf_monthly_population = -0.07 }
@@ -11803,7 +11899,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.6
 				add_to_variable = { dlf_monthly_population = -0.06 }
@@ -11820,7 +11921,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.5
 				add_to_variable = { dlf_monthly_population = -0.05 }
@@ -11837,7 +11943,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.4
 				add_to_variable = { dlf_monthly_population = -0.04 }
@@ -11854,7 +11965,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.3
 				add_to_variable = { dlf_monthly_population = -0.03 }
@@ -11871,7 +11987,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.2
 				add_to_variable = { dlf_monthly_population = -0.02 }
@@ -11888,7 +12009,12 @@ country_event = { #blockade of the eastern mediterranena famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = ottoman.153.tt.1
 				add_to_variable = { dlf_monthly_population = -0.01 }
@@ -11935,7 +12061,12 @@ country_event = { #german grain arrives
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_10_state
 				add_to_variable = { dlf_monthly_population = 0.1 }
@@ -11952,7 +12083,12 @@ country_event = { #german grain arrives
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_9_state
 				add_to_variable = { dlf_monthly_population = 0.09 }
@@ -11969,7 +12105,12 @@ country_event = { #german grain arrives
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_8_state
 				add_to_variable = { dlf_monthly_population = 0.08 }
@@ -11986,7 +12127,12 @@ country_event = { #german grain arrives
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_7_state
 				add_to_variable = { dlf_monthly_population = 0.07 }
@@ -12003,7 +12149,12 @@ country_event = { #german grain arrives
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_6_state
 				add_to_variable = { dlf_monthly_population = 0.06 }
@@ -12020,7 +12171,12 @@ country_event = { #german grain arrives
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_5_state
 				add_to_variable = { dlf_monthly_population = 0.05 }
@@ -12037,7 +12193,12 @@ country_event = { #german grain arrives
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_4_state
 				add_to_variable = { dlf_monthly_population = 0.04 }
@@ -12054,7 +12215,12 @@ country_event = { #german grain arrives
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_3_state
 				add_to_variable = { dlf_monthly_population = 0.03 }
@@ -12071,7 +12237,12 @@ country_event = { #german grain arrives
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_2_state
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -12088,7 +12259,12 @@ country_event = { #german grain arrives
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 				add_to_variable = { dlf_monthly_population = 0.01 }
@@ -12121,7 +12297,12 @@ country_event = { #agricultural economic model
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_8_state
 				add_to_variable = { dlf_monthly_population = 0.08 }
@@ -12138,7 +12319,12 @@ country_event = { #agricultural economic model
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_7_state
 				add_to_variable = { dlf_monthly_population = 0.07 }
@@ -12155,7 +12341,12 @@ country_event = { #agricultural economic model
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_6_state
 				add_to_variable = { dlf_monthly_population = 0.06 }
@@ -12172,7 +12363,12 @@ country_event = { #agricultural economic model
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_5_state
 				add_to_variable = { dlf_monthly_population = 0.05 }
@@ -12189,7 +12385,12 @@ country_event = { #agricultural economic model
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_4_state
 				add_to_variable = { dlf_monthly_population = 0.04 }
@@ -12206,7 +12407,12 @@ country_event = { #agricultural economic model
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_3_state
 				add_to_variable = { dlf_monthly_population = 0.03 }
@@ -12223,7 +12429,12 @@ country_event = { #agricultural economic model
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_2_state
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -12240,7 +12451,12 @@ country_event = { #agricultural economic model
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 				add_to_variable = { dlf_monthly_population = 0.01 }
@@ -12273,7 +12489,12 @@ country_event = { #land distribution
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_4_state
 				add_to_variable = { dlf_monthly_population = 0.04 }
@@ -12290,7 +12511,12 @@ country_event = { #land distribution
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_3_state
 				add_to_variable = { dlf_monthly_population = 0.03 }
@@ -12307,7 +12533,12 @@ country_event = { #land distribution
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_2_state
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -12324,7 +12555,12 @@ country_event = { #land distribution
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 				add_to_variable = { dlf_monthly_population = 0.01 }
@@ -12357,7 +12593,12 @@ country_event = { #local producers
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_2_state
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -12374,7 +12615,12 @@ country_event = { #local producers
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 				add_to_variable = { dlf_monthly_population = 0.01 }
@@ -12407,7 +12653,12 @@ country_event = { #agricultural obligation law
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_2_state
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -12424,7 +12675,12 @@ country_event = { #agricultural obligation law
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 				add_to_variable = { dlf_monthly_population = 0.01 }
@@ -12457,7 +12713,12 @@ country_event = { #iase nezareti famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_3_state
 				add_to_variable = { dlf_monthly_population = 0.03 }
@@ -12474,7 +12735,12 @@ country_event = { #iase nezareti famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_2_state
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -12491,7 +12757,12 @@ country_event = { #iase nezareti famine
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 				add_to_variable = { dlf_monthly_population = 0.01 }
@@ -12517,7 +12788,12 @@ country_event = { #reduce blockade anatolian grain
 			limit = {
 				TUR_is_controlled_by_us_or_committee_government = yes
 				has_state_flag = TUR_syria_famine_state
-				check_variable = { TUR_arab_state_level > 0 }
+				OR = {
+					check_variable = { TUR_arab_sunni_state_variable < 0 }
+					check_variable = { TUR_arab_shia_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+				}
 			}
 			custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 			add_to_variable = { dlf_monthly_population = 0.01 }
@@ -12548,7 +12824,12 @@ country_event = { #paper money policy backfires
 			limit = {
 				TUR_is_controlled_by_us_or_committee_government = yes
 				has_state_flag = TUR_syria_famine_state
-				check_variable = { TUR_arab_state_level > 0 }
+				OR = {
+					check_variable = { TUR_arab_sunni_state_variable < 0 }
+					check_variable = { TUR_arab_shia_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+				}
 			}
 			custom_effect_tooltip = ottoman.162.tt.2
 			add_to_variable = { dlf_monthly_population = -0.04 }
@@ -12572,7 +12853,12 @@ country_event = { #paper money policy backfires
 			limit = {
 				TUR_is_controlled_by_us_or_committee_government = yes
 				has_state_flag = TUR_syria_famine_state
-				check_variable = { TUR_arab_state_level > 0 }
+				OR = {
+					check_variable = { TUR_arab_sunni_state_variable < 0 }
+					check_variable = { TUR_arab_shia_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+				}
 			}
 			custom_effect_tooltip = ottoman.162.tt.4
 			add_to_variable = { dlf_monthly_population = -0.1 }
@@ -12611,7 +12897,12 @@ country_event = { #tax causes burden
 			limit = {
 				TUR_is_controlled_by_us_or_committee_government = yes
 				has_state_flag = TUR_syria_famine_state
-				check_variable = { TUR_arab_state_level > 0 }
+				OR = {
+					check_variable = { TUR_arab_sunni_state_variable < 0 }
+					check_variable = { TUR_arab_shia_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+				}
 			}
 			custom_effect_tooltip = ottoman.163.tt.2
 			add_to_variable = { dlf_monthly_population = -0.14 }
@@ -12641,7 +12932,12 @@ country_event = { #tax causes burden
 			limit = {
 				TUR_is_controlled_by_us_or_committee_government = yes
 				has_state_flag = TUR_syria_famine_state
-				check_variable = { TUR_arab_state_level > 0 }
+				OR = {
+					check_variable = { TUR_arab_sunni_state_variable < 0 }
+					check_variable = { TUR_arab_shia_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+				}
 			}
 			custom_effect_tooltip = ottoman.163.tt.2
 			add_to_variable = { dlf_monthly_population = -0.14 }
@@ -12671,7 +12967,12 @@ country_event = { #sharifian revolt famine
 			limit = {
 				TUR_is_controlled_by_us_or_committee_government = yes
 				has_state_flag = TUR_syria_famine_state
-				check_variable = { TUR_arab_state_level > 0 }
+				OR = {
+					check_variable = { TUR_arab_sunni_state_variable < 0 }
+					check_variable = { TUR_arab_shia_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+				}
 			}
 			custom_effect_tooltip = ottoman.165.tt.2
 			add_to_variable = { dlf_monthly_population = -0.06 }
@@ -12762,7 +13063,12 @@ country_event = { #great famine of mount lebanon
 				state = 553
 				TUR_is_controlled_by_us_or_committee_government = yes
 				has_state_flag = TUR_syria_famine_state
-				check_variable = { TUR_arab_state_level > 0 }
+				OR = {
+					check_variable = { TUR_arab_sunni_state_variable < 0 }
+					check_variable = { TUR_arab_shia_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+				}
 			}
 			custom_effect_tooltip = ottoman.166.tt
 			add_to_variable = { dlf_monthly_population = -0.7 }
@@ -12786,7 +13092,12 @@ country_event = { #ask for american aid central government
 					limit = {
 						TUR_is_controlled_by_us_or_committee_government = yes
 						has_state_flag = TUR_syria_famine_state
-						check_variable = { TUR_arab_state_level > 0 }
+						OR = {
+							check_variable = { TUR_arab_sunni_state_variable < 0 }
+							check_variable = { TUR_arab_shia_state_variable < 0 }
+							check_variable = { TUR_arab_orthodox_state_variable < 0 }
+							check_variable = { TUR_arab_catholic_state_variable < 0 }
+						}
 					}
 					custom_effect_tooltip = TUR_deploy_soldiers_in_agriculture_tt2
 				}
@@ -12842,7 +13153,12 @@ country_event = { #ask for american aid central government yes
 			limit = {
 				TUR_is_controlled_by_us_or_committee_government = yes
 				has_state_flag = TUR_syria_famine_state
-				check_variable = { TUR_arab_state_level > 0 }
+				OR = {
+					check_variable = { TUR_arab_sunni_state_variable < 0 }
+					check_variable = { TUR_arab_shia_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+				}
 			}
 			custom_effect_tooltip = TUR_deploy_soldiers_in_agriculture_tt2
 			add_to_variable = { dlf_monthly_population = 0.06 }
@@ -15504,7 +15820,13 @@ country_event = { #14 demands proposed to the ottomans
 				force_capitulate = yes
 			}
 			every_state = {
-				limit = { check_variable = { TUR_albanian_state_level > 0 } }
+				limit = {
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
+				}
 				custom_effect_tooltip = ottoman.233.tt.1
 				add_resistance = -35
 				add_compliance = 25
@@ -15646,7 +15968,13 @@ country_event = { #14 demands accepted
 		}
 		force_capitulate = yes
 		every_state = {
-			limit = { check_variable = { TUR_albanian_state_level > 0 } }
+			limit = {
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < 0 }
+					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+					check_variable = { TUR_albanian_catholic_state_variable < 0 }
+				}
+			}
 			custom_effect_tooltip = ottoman.233.tt.1
 			add_to_variable = { TUR_ottoman_resistance_target_albanian = -0.5 }
 			add_resistance = -35
@@ -17029,7 +17357,12 @@ country_event = { #patreons of the party
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_2_state
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -17046,7 +17379,12 @@ country_event = { #patreons of the party
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 				add_to_variable = { dlf_monthly_population = 0.01 }
@@ -17079,7 +17417,12 @@ country_event = { #invent a national bourgeoisie
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_6_state
 				add_to_variable = { dlf_monthly_population = 0.05 }
@@ -17096,7 +17439,12 @@ country_event = { #invent a national bourgeoisie
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_5_state
 				add_to_variable = { dlf_monthly_population = 0.05 }
@@ -17113,7 +17461,12 @@ country_event = { #invent a national bourgeoisie
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_4_state
 				add_to_variable = { dlf_monthly_population = 0.06 }
@@ -17130,7 +17483,12 @@ country_event = { #invent a national bourgeoisie
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_3_state
 				add_to_variable = { dlf_monthly_population = 0.03 }
@@ -17147,7 +17505,12 @@ country_event = { #invent a national bourgeoisie
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_2_state
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -17164,7 +17527,12 @@ country_event = { #invent a national bourgeoisie
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 				add_to_variable = { dlf_monthly_population = 0.01 }
@@ -17197,7 +17565,12 @@ country_event = { #umur u nafia muduriyet i umumiyesi
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_5_state
 				add_to_variable = { dlf_monthly_population = 0.05 }
@@ -17214,7 +17587,12 @@ country_event = { #umur u nafia muduriyet i umumiyesi
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_4_state
 				add_to_variable = { dlf_monthly_population = 0.06 }
@@ -17231,7 +17609,12 @@ country_event = { #umur u nafia muduriyet i umumiyesi
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_3_state
 				add_to_variable = { dlf_monthly_population = 0.03 }
@@ -17248,7 +17631,12 @@ country_event = { #umur u nafia muduriyet i umumiyesi
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_2_state
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -17265,7 +17653,12 @@ country_event = { #umur u nafia muduriyet i umumiyesi
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 				add_to_variable = { dlf_monthly_population = 0.01 }
@@ -17298,7 +17691,12 @@ country_event = { #establish trade rooms
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_3_state
 				add_to_variable = { dlf_monthly_population = 0.03 }
@@ -17315,7 +17713,12 @@ country_event = { #establish trade rooms
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_2_state
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -17332,7 +17735,12 @@ country_event = { #establish trade rooms
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_blocked_famine_reduce_1_state
 				add_to_variable = { dlf_monthly_population = 0.01 }

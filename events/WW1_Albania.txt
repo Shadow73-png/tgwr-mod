@@ -239,10 +239,26 @@ country_event = { #concessions from the ottomans
 			every_state = {
 				limit = {
 					TUR_state_has_minority_modifier = yes
-					check_variable = { TUR_albanian_state_level > TUR_greek_state_level }
-					check_variable = { TUR_albanian_state_level > TUR_bulgarian_state_level }
-					check_variable = { TUR_albanian_state_level > TUR_serbian_state_level }
-					check_variable = { TUR_albanian_state_level > TUR_turkish_state_level }
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_greek_orthodox_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_greek_orthodox_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_greek_orthodox_state_variable }
+					}
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_bulgarian_orthodox_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_bulgarian_orthodox_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_bulgarian_orthodox_state_variable }
+					}
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_serbian_orthodox_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_serbian_orthodox_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_serbian_orthodox_state_variable }
+					}
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_turkish_sunni_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_turkish_sunni_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_turkish_sunni_state_variable }
+					}
 				}
 				add_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
 				set_state_flag = TUR_autonomous_vilayet
@@ -252,7 +268,11 @@ country_event = { #concessions from the ottomans
 				limit = {
 					TUR_state_has_minority_modifier = yes
 					NOT = { has_state_flag = TUR_autonomous_vilayet }
-					check_variable = { TUR_albanian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
 				}
 				add_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
 				set_state_flag = TUR_semi_autonomous_vilayet
@@ -261,10 +281,26 @@ country_event = { #concessions from the ottomans
 				every_state = {
 					limit = {
 						TUR_has_former_minority_state_modifier = yes
-						check_variable = { TUR_albanian_state_level > TUR_greek_state_level }
-						check_variable = { TUR_albanian_state_level > TUR_bulgarian_state_level }
-						check_variable = { TUR_albanian_state_level > TUR_serbian_state_level }
-						check_variable = { TUR_albanian_state_level > TUR_turkish_state_level }
+						OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_greek_orthodox_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_greek_orthodox_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_greek_orthodox_state_variable }
+					}
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_bulgarian_orthodox_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_bulgarian_orthodox_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_bulgarian_orthodox_state_variable }
+					}
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_serbian_orthodox_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_serbian_orthodox_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_serbian_orthodox_state_variable }
+					}
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_turkish_sunni_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_turkish_sunni_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_turkish_sunni_state_variable }
+					}
 					}
 					add_to_variable = { TUR_ottoman_resistance_target_albanian = -0.3 }
 					set_state_flag = TUR_autonomous_vilayet
@@ -274,7 +310,11 @@ country_event = { #concessions from the ottomans
 					limit = {
 						TUR_has_former_minority_state_modifier = yes
 						NOT = { has_state_flag = TUR_autonomous_vilayet }
-						check_variable = { TUR_albanian_state_level > 0 }
+						OR = {
+							check_variable = { TUR_albanian_sunni_state_variable < 0 }
+							check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+							check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						}
 					}
 					set_state_flag = TUR_semi_autonomous_vilayet
 					set_state_flag = TUR_semi_autonomous_vilayet_no_control
@@ -592,10 +632,26 @@ country_event = { #concessions from the ottomans agreed
 		every_state = {
 			limit = {
 				TUR_state_has_minority_modifier = yes
-				check_variable = { TUR_albanian_state_level > TUR_greek_state_level }
-				check_variable = { TUR_albanian_state_level > TUR_bulgarian_state_level }
-				check_variable = { TUR_albanian_state_level > TUR_serbian_state_level }
-				check_variable = { TUR_albanian_state_level > TUR_turkish_state_level }
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < TUR_greek_orthodox_state_variable }
+					check_variable = { TUR_albanian_orthodox_state_variable < TUR_greek_orthodox_state_variable }
+					check_variable = { TUR_albanian_catholic_state_variable < TUR_greek_orthodox_state_variable }
+				}
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < TUR_bulgarian_orthodox_state_variable }
+					check_variable = { TUR_albanian_orthodox_state_variable < TUR_bulgarian_orthodox_state_variable }
+					check_variable = { TUR_albanian_catholic_state_variable < TUR_bulgarian_orthodox_state_variable }
+				}
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < TUR_serbian_orthodox_state_variable }
+					check_variable = { TUR_albanian_orthodox_state_variable < TUR_serbian_orthodox_state_variable }
+					check_variable = { TUR_albanian_catholic_state_variable < TUR_serbian_orthodox_state_variable }
+				}
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < TUR_turkish_sunni_state_variable }
+					check_variable = { TUR_albanian_orthodox_state_variable < TUR_turkish_sunni_state_variable }
+					check_variable = { TUR_albanian_catholic_state_variable < TUR_turkish_sunni_state_variable }
+				}
 			}
 			add_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
 			set_state_flag = TUR_autonomous_vilayet
@@ -605,7 +661,11 @@ country_event = { #concessions from the ottomans agreed
 			limit = {
 				TUR_state_has_minority_modifier = yes
 				NOT = { has_state_flag = TUR_autonomous_vilayet }
-				check_variable = { TUR_albanian_state_level > 0 }
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < 0 }
+					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+					check_variable = { TUR_albanian_catholic_state_variable < 0 }
+				}
 			}
 			add_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
 			set_state_flag = TUR_semi_autonomous_vilayet
@@ -614,10 +674,26 @@ country_event = { #concessions from the ottomans agreed
 			every_state = {
 				limit = {
 					TUR_has_former_minority_state_modifier = yes
-					check_variable = { TUR_albanian_state_level > TUR_greek_state_level }
-					check_variable = { TUR_albanian_state_level > TUR_bulgarian_state_level }
-					check_variable = { TUR_albanian_state_level > TUR_serbian_state_level }
-					check_variable = { TUR_albanian_state_level > TUR_turkish_state_level }
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_greek_orthodox_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_greek_orthodox_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_greek_orthodox_state_variable }
+					}
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_bulgarian_orthodox_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_bulgarian_orthodox_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_bulgarian_orthodox_state_variable }
+					}
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_serbian_orthodox_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_serbian_orthodox_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_serbian_orthodox_state_variable }
+					}
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < TUR_turkish_sunni_state_variable }
+						check_variable = { TUR_albanian_orthodox_state_variable < TUR_turkish_sunni_state_variable }
+						check_variable = { TUR_albanian_catholic_state_variable < TUR_turkish_sunni_state_variable }
+					}
 				}
 				add_to_variable = { TUR_ottoman_resistance_target_albanian = -0.3 }
 				set_state_flag = TUR_autonomous_vilayet
@@ -627,7 +703,11 @@ country_event = { #concessions from the ottomans agreed
 				limit = {
 					TUR_has_former_minority_state_modifier = yes
 					NOT = { has_state_flag = TUR_autonomous_vilayet }
-					check_variable = { TUR_albanian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
 				}
 				set_state_flag = TUR_semi_autonomous_vilayet
 				set_state_flag = TUR_semi_autonomous_vilayet_no_control
@@ -1732,7 +1812,7 @@ country_event = { #london conference macedonia
 					is_core_of = MAC
 					OR = {
 						is_core_of = ALB
-						check_variable = { TUR_bulgarian_state_level > TUR_greek_state_level }
+						check_variable = { TUR_bulgarian_orthodox_state_variable < TUR_greek_orthodox_state_variable }
 					}
 					owner = {
 						OR = {
@@ -2549,7 +2629,7 @@ country_event = { #london conference success
 						is_core_of = MAC
 						OR = {
 							is_core_of = ALB
-							check_variable = { TUR_bulgarian_state_level > TUR_greek_state_level }
+							check_variable = { TUR_bulgarian_orthodox_state_variable < TUR_greek_orthodox_state_variable }
 						}
 						owner = {
 							OR = {
@@ -6292,30 +6372,15 @@ country_event = { #ottoman notif albanian units
 			set_state_flag = ALB_defending_our_homeland3
 		}
 		every_state = {
-			limit = { check_variable = { TUR_albanian_state_level > 1 } }
-			custom_effect_tooltip = TUR_ottoman_add_army_core_defence_factor_albanian
-			hidden_effect = {
-				if = {
-					limit = { check_variable = { TUR_albanian_state_level = 1 } }
-					set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.01 }
-				}
-				if = {
-					limit = { check_variable = { TUR_albanian_state_level = 2 } }
-					set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.02 }
-				}
-				if = {
-					limit = { check_variable = { TUR_albanian_state_level = 3 } }
-					set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.03 }
-				}
-				if = {
-					limit = { check_variable = { TUR_albanian_state_level = 4 } }
-					set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.04 }
-				}
-				if = {
-					limit = { check_variable = { TUR_albanian_state_level = 5 } }
-					set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.05 }
+			limit = {
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < 0 }
+					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+					check_variable = { TUR_albanian_catholic_state_variable < 0 }
 				}
 			}
+			custom_effect_tooltip = TUR_ottoman_add_army_core_defence_factor_albanian
+			hidden_effect = { set_variable = { TUR_ottoman_army_core_defence_factor_albanian = 0.05 } }
 			set_state_flag = ALB_defending_our_homeland4
 		}
 	}

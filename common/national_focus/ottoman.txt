@@ -3033,7 +3033,13 @@ focus_tree = {
 			}
 			hidden_effect = {
 				every_state = {
-					limit = { check_variable = { TUR_albanian_state_level > 0 } }
+					limit = {
+						OR = {
+							check_variable = { TUR_albanian_sunni_state_variable < 0 }
+							check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+							check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						}
+					}
 					set_variable = { TUR_ottoman_resistance_target_albanian = -0.3 }
 					set_variable = { TUR_ottoman_compliance_growth_albanian = 0.05 }
 				}
@@ -10360,26 +10366,47 @@ focus_tree = {
 						if = {
 							limit = {
 								NOT = { has_dynamic_modifier = { modifier = TUR_greek_minority } }
-								check_variable = { TUR_greek_state_level > 0 }
+								check_variable = { TUR_greek_orthodox_state_variable < 0 }
 							}
 							add_dynamic_modifier = { modifier = TUR_greek_minority }
 						}
 						if = {
 							limit = {
 								NOT = { has_dynamic_modifier = { modifier = TUR_bulgarian_minority } }
-								check_variable = { TUR_bulgarian_state_level > 0 }
+								check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
 							}
 							add_dynamic_modifier = { modifier = TUR_bulgarian_minority }
 						}
 						if = {
 							limit = {
 								NOT = { has_dynamic_modifier = { modifier = TUR_serbian_minority } }
-								check_variable = { TUR_serbian_state_level > 0 }
+								check_variable = { TUR_serbian_orthodox_state_variable < 0 }
 							}
 							add_dynamic_modifier = { modifier = TUR_serbian_minority }
 						}
 						if = {
-							limit = { check_variable = { TUR_albanian_state_level < 3 } }
+							limit = {
+								OR = {
+									check_variable = { TUR_albanian_sunni_state_variable < TUR_greek_orthodox_state_variable }
+									check_variable = { TUR_albanian_orthodox_state_variable < TUR_greek_orthodox_state_variable }
+									check_variable = { TUR_albanian_catholic_state_variable < TUR_greek_orthodox_state_variable }
+								}
+								OR = {
+									check_variable = { TUR_albanian_sunni_state_variable < TUR_bulgarian_orthodox_state_variable }
+									check_variable = { TUR_albanian_orthodox_state_variable < TUR_bulgarian_orthodox_state_variable }
+									check_variable = { TUR_albanian_catholic_state_variable < TUR_bulgarian_orthodox_state_variable }
+								}
+								OR = {
+									check_variable = { TUR_albanian_sunni_state_variable < TUR_serbian_orthodox_state_variable }
+									check_variable = { TUR_albanian_orthodox_state_variable < TUR_serbian_orthodox_state_variable }
+									check_variable = { TUR_albanian_catholic_state_variable < TUR_serbian_orthodox_state_variable }
+								}
+								OR = {
+									check_variable = { TUR_albanian_sunni_state_variable < TUR_turkish_sunni_state_variable }
+									check_variable = { TUR_albanian_orthodox_state_variable < TUR_turkish_sunni_state_variable }
+									check_variable = { TUR_albanian_catholic_state_variable < TUR_turkish_sunni_state_variable }
+								}
+							}
 							force_enable_resistance = ALB
 							start_resistance = yes
 							set_resistance = 0
@@ -10411,6 +10438,18 @@ focus_tree = {
 					set_variable = { TUR_syriac_population_factor_new = 1.5 }
 					set_variable = { TUR_shia_population_factor_new = 1.1 }
 					set_variable = { TUR_catholic_population_factor_new = 1.5 }
+
+					multiply_variable = { TUR_armenian_population_factor_new = 7 }
+					multiply_variable = { TUR_greek_population_factor_new = 7 }
+					multiply_variable = { TUR_jewish_population_factor_new = 7 }
+					multiply_variable = { TUR_arab_population_factor_new = 7 }
+					multiply_variable = { TUR_bulgarian_population_factor_new = 7 }
+					multiply_variable = { TUR_albanian_population_factor_new = 7 }
+					multiply_variable = { TUR_serbian_population_factor_new = 7 }
+					multiply_variable = { TUR_kurdish_population_factor_new = 7 }
+					multiply_variable = { TUR_assyrian_population_factor_new = 7 }
+					multiply_variable = { TUR_georgian_population_factor_new = 7 }
+					multiply_variable = { TUR_turkish_population_factor_new = 7 }
 					if = {
 						limit = { ROOT = { has_country_flag = TUR_millet_system_population_selected } }
 						set_country_flag = TUR_millet_system_population_selected
@@ -10454,7 +10493,11 @@ focus_tree = {
 						has_state_flag = TUR_iskodra
 					}
 					controller = { TUR_has_minority_system = yes }
-					check_variable = { TUR_albanian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
 					has_state_flag = TUR_autonomous_vilayet
 				}
 				remove_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
@@ -10472,7 +10515,11 @@ focus_tree = {
 						has_state_flag = TUR_iskodra
 					}
 					controller = { TUR_has_minority_system = yes }
-					check_variable = { TUR_albanian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
 					has_state_flag = TUR_autonomous_vilayet
 				}
 				remove_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
@@ -10490,7 +10537,11 @@ focus_tree = {
 						has_state_flag = TUR_iskodra
 					}
 					controller = { TUR_has_minority_system = yes }
-					check_variable = { TUR_albanian_state_level > 0 }
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
 				}
 				remove_dynamic_modifier = { modifier = TUR_albanian_minority }
 				set_state_flag = TUR_albanian_vilayet3
@@ -17604,11 +17655,7 @@ focus_tree = {
 						if = {
 							limit = {
 								impassable = no
-								OR = {
-									check_variable = { TUR_turkish_state_level < 3 }
-									state = 759
-									state = 184
-								}
+								has_resistance = yes
 							}
 							force_enable_resistance = TRS
 							start_resistance = yes

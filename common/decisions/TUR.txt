@@ -4,8 +4,17 @@ debug_decisions = {
 		available = {
 		}
 		complete_effect = {
-			set_variable = { TUR_sublime_realm_variable = 0 }
-			set_variable = { TUR_sublime_realm_pp_variable = 0 }
+			multiply_variable = { TUR_armenian_population_factor_new = 8 }
+					multiply_variable = { TUR_greek_population_factor_new = 8 }
+					multiply_variable = { TUR_jewish_population_factor_new = 8 }
+					multiply_variable = { TUR_arab_population_factor_new = 8 }
+					multiply_variable = { TUR_bulgarian_population_factor_new = 8 }
+					multiply_variable = { TUR_albanian_population_factor_new = 8 }
+					multiply_variable = { TUR_serbian_population_factor_new = 8 }
+					multiply_variable = { TUR_kurdish_population_factor_new = 8 }
+					multiply_variable = { TUR_assyrian_population_factor_new = 8 }
+					multiply_variable = { TUR_georgian_population_factor_new = 8 }
+					multiply_variable = { TUR_turkish_population_factor_new = 8 }
 		}
 		ai_will_do = { base = 0 }
 	}
@@ -3916,14 +3925,14 @@ TUR_millet_system = {
 						state = 824
 						state = 342
 					}
-					check_variable = { TUR_greek_state_level < 2 }
+					check_variable = { TUR_armenian_apostolic_state_variable < -0.02 }
 				}
 			}
 			modifier = {
 				add = -50
 				FROM = {
 					state = 339
-					check_variable = { TUR_greek_state_level < 3 }
+					check_variable = { TUR_armenian_apostolic_state_variable < -0.02 }
 				}
 			}
 			modifier = {
@@ -4030,14 +4039,14 @@ TUR_millet_system = {
 						state = 824
 						state = 342
 					}
-					check_variable = { TUR_greek_state_level < 2 }
+					check_variable = { TUR_armenian_apostolic_state_variable < -0.02 }
 				}
 			}
 			modifier = {
 				add = -50
 				FROM = {
 					state = 339
-					check_variable = { TUR_greek_state_level < 3 }
+					check_variable = { TUR_armenian_apostolic_state_variable < -0.02 }
 				}
 			}
 			modifier = {
@@ -4125,14 +4134,14 @@ TUR_millet_system = {
 						state = 824
 						state = 342
 					}
-					check_variable = { TUR_greek_state_level < 2 }
+					check_variable = { TUR_armenian_apostolic_state_variable < -0.02 }
 				}
 			}
 			modifier = {
 				add = -50
 				FROM = {
 					state = 339
-					check_variable = { TUR_greek_state_level < 3 }
+					check_variable = { TUR_armenian_apostolic_state_variable < -0.02 }
 				}
 			}
 			modifier = {
@@ -5846,7 +5855,13 @@ TUR_millet_system = {
 		visible = {
 			has_completed_focus = TUR_centralize_albania
 			controls_state = FROM
-			FROM = { check_variable = { TUR_albanian_state_level > 0 } }
+			FROM = {
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < 0 }
+					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+					check_variable = { TUR_albanian_catholic_state_variable < 0 }
+				}
+			}
 			OR = {
 				AND = {
 					FROM = {
@@ -6019,7 +6034,11 @@ TUR_millet_system = {
 			has_completed_focus = TUR_centralize_albania
 			controls_state = FROM
 			FROM = {
-				check_variable = { TUR_albanian_state_level > 0 }
+				OR = {
+					check_variable = { TUR_albanian_sunni_state_variable < 0 }
+					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+					check_variable = { TUR_albanian_catholic_state_variable < 0 }
+				}
 				OR = {
 					check_variable = { TUR_ottoman_resistance_target_albanian > 0 }
 					check_variable = { TUR_ottoman_resistance_growth_albanian > 0 }
@@ -6138,7 +6157,11 @@ TUR_millet_system = {
 			hidden_effect = {
 				every_state = {
 					limit = {
-						check_variable = { TUR_albanian_state_level > 0 }
+						OR = {
+							check_variable = { TUR_albanian_sunni_state_variable < 0 }
+							check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+							check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						}
 						has_state_flag = TUR_autonomous_vilayet_no_control
 					}
 					remove_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
@@ -6147,7 +6170,11 @@ TUR_millet_system = {
 				}
 				every_state = {
 					limit = {
-						check_variable = { TUR_albanian_state_level > 0 }
+						OR = {
+							check_variable = { TUR_albanian_sunni_state_variable < 0 }
+							check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+							check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						}
 						has_state_flag = TUR_semi_autonomous_vilayet_no_control
 					}
 					remove_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
@@ -6183,7 +6210,13 @@ TUR_millet_system = {
 		available = { has_completed_focus = TUR_albanian_vilayet }
 		timeout_effect = {
 			every_state = {
-				limit = { check_variable = { TUR_albanian_state_level > 0 } }
+				limit = {
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
+				}
 				custom_effect_tooltip = ottoman.233.tt.2
 				add_to_variable = { TUR_ottoman_resistance_target_albanian = 0.5 }
 				add_resistance = 100
@@ -17086,7 +17119,12 @@ TUR_starving_syria = {
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_deploy_soldiers_in_agriculture_tt2
 				add_to_variable = { dlf_monthly_population = 0.06 }
@@ -17113,7 +17151,12 @@ TUR_starving_syria = {
 				limit = {
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_voluntary_property_tax_tt2
 				add_to_variable = { dlf_monthly_population = 0.04 }
@@ -17211,7 +17254,12 @@ TUR_starving_syria = {
 					limit = {
 						TUR_is_controlled_by_us_or_committee_government = yes
 						has_state_flag = TUR_syria_famine_state
-						check_variable = { TUR_arab_state_level > 0 }
+						OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 					}
 					custom_effect_tooltip = TUR_deploy_soldiers_in_agriculture_tt2
 					add_to_variable = { dlf_monthly_population = 0.06 }
@@ -17290,7 +17338,12 @@ TUR_starving_syria = {
 					NOT = { state = FROM }
 					TUR_is_controlled_by_us_or_committee_government = yes
 					has_state_flag = TUR_syria_famine_state
-					check_variable = { TUR_arab_state_level > 0 }
+					OR = {
+						check_variable = { TUR_arab_sunni_state_variable < 0 }
+						check_variable = { TUR_arab_shia_state_variable < 0 }
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
 				custom_effect_tooltip = TUR_conscription_exceptions_in_state_tt3
 				add_to_variable = { dlf_monthly_population = 0.02 }
@@ -22542,7 +22595,13 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			custom_effect_tooltip = empty_space
 			every_state = {
-				limit = { check_variable = { TUR_albanian_state_level > 0 } }
+				limit = {
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
+				}
 				custom_effect_tooltip = TUR_utilize_dukakinzade_basri_bey_tt
 				add_to_variable = { TUR_ottoman_resistance_target_albanian = -0.05 }
 				add_to_variable = { TUR_ottoman_required_garrison_factor_albanian = -0.07 }
@@ -22587,7 +22646,13 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			custom_effect_tooltip = empty_space
 			every_state = {
-				limit = { check_variable = { TUR_albanian_state_level > 0 } }
+				limit = {
+					OR = {
+						check_variable = { TUR_albanian_sunni_state_variable < 0 }
+						check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+						check_variable = { TUR_albanian_catholic_state_variable < 0 }
+					}
+				}
 				custom_effect_tooltip = TUR_dismiss_dukakinzade_basri_bey_tt
 				add_to_variable = { TUR_ottoman_resistance_target_albanian = 0.05 }
 				add_to_variable = { TUR_ottoman_required_garrison_factor_albanian = 0.07 }

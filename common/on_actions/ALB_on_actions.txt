@@ -345,7 +345,13 @@ on_actions = {
 						NOT = { country_exists = ALB }
 						ALB = { has_country_flag = TUR_revolting_country }
 					}
-					FROM.FROM = { check_variable = { TUR_albanian_state_level > 0 } }
+					FROM.FROM = {
+						OR = {
+							check_variable = { TUR_albanian_sunni_state_variable < 0 }
+							check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+							check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						}
+					}
 					ROOT = {
 						OR = {
 							tag = SER

@@ -826,7 +826,13 @@ characters = {
 				if = {
 					limit = { owner = { original_tag = TUR } }
 					every_state = {
-						limit = { check_variable = { TUR_albanian_state_level > 0 } }
+						limit = {
+							OR = {
+								check_variable = { TUR_albanian_sunni_state_variable < 0 }
+								check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+								check_variable = { TUR_albanian_catholic_state_variable < 0 }
+							}
+						}
 						custom_effect_tooltip = TUR_dukakinzade_tt
 						add_to_variable = { TUR_ottoman_resistance_target_albanian = -0.1 }
 						add_to_variable = { TUR_ottoman_required_garrison_factor_albanian = -0.15 }
@@ -837,7 +843,13 @@ characters = {
 				if = {
 					limit = { owner = { original_tag = TUR } }
 					every_state = {
-						limit = { check_variable = { TUR_albanian_state_level > 0 } }
+						limit = {
+							OR = {
+								check_variable = { TUR_albanian_sunni_state_variable < 0 }
+								check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+								check_variable = { TUR_albanian_catholic_state_variable < 0 }
+							}
+						}
 						custom_effect_tooltip = TUR_dukakinzade_tt2
 						add_to_variable = { TUR_ottoman_resistance_target_albanian = 0.1 }
 						add_to_variable = { TUR_ottoman_required_garrison_factor_albanian = 0.15 }
