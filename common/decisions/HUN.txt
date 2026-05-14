@@ -638,7 +638,17 @@ TGWR_great_power_politics = {
 			}
 		}
 		complete_effect = {
-			
+			add_war_support = 0.1
+			add_political_power = 150
+			if = {
+				limit = { 
+					has_active_mission = HUN_truega_dei_mission
+				}
+				add_days_mission_timeout = {
+					mission = HUN_truega_dei_mission
+					days = 100
+				}
+			}
 		}
 		timeout_effect = {
 			add_war_support = -0.05
