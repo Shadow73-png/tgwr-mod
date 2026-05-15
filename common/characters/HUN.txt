@@ -1508,6 +1508,36 @@ characters={
 			}	
 		}
 	}
+	HUN_geza_lukachich={
+		name="HUN_geza_lukachich"
+		portraits={
+			army={
+			#	large="gfx/leaders/HUN/HUN_leopold_von_hauer.png"
+			#	small="gfx/interface/ideas/HUN/idea_HUN_leopold_von_hauer.png"
+			}
+		}
+		corps_commander={
+			traits = { politically_connected career_officer trait_mountaineer  }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2	
+			visible = {
+				NOT = {
+					has_country_flag = great_war_loser
+					has_global_flag = hungarian_revolution
+				}
+				if = {
+					limit = { 
+						original_tag = AUS
+					}
+					has_completed_focus = AUS_implement_conrads_army_structure
+					AUS_HUN_exists = yes
+				}
+			}	
+		}
+	}
 	HUN_ignac_daranyi = {
 		name="HUN_ignac_daranyi"
 		advisor = {
