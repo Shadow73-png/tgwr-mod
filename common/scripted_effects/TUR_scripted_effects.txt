@@ -15072,11 +15072,6 @@ FROM_add_1_centralization = {
 		add_to_variable = { global.TUR_diyarbakir_centralization = 1 }
 	}
 	if = {
-		limit = { FROM = { has_state_flag = TUR_aleppo } }
-		custom_effect_tooltip = TUR_increase_aleppo_centralization_1
-		add_to_variable = { global.TUR_aleppo_centralization = 1 }
-	}
-	if = {
 		limit = { FROM = { has_state_flag = TUR_mosul } }
 		custom_effect_tooltip = TUR_increase_mosul_centralization_1
 		add_to_variable = { global.TUR_mosul_centralization = 1 }
@@ -15393,4 +15388,195 @@ TUR_set_old_catholic_value = {
 	subtract_from_temp_variable = { old_catholic_value = TUR_arab_sunni_minority_value_beirut }
 	subtract_from_temp_variable = { old_catholic_value = TUR_arab_shia_minority_value_beirut }
 	subtract_from_temp_variable = { old_catholic_value = TUR_arab_orthodox_minority_value_beirut }
+}
+
+TUR_remove_armenians_effect = {
+	if = {
+		limit = {
+			FROM = {
+				check_variable = {
+					var = TUR_armenian_apostolic_state_variable
+					value = -0.3
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		FROM = {
+			remove_dynamic_modifier = { modifier = TUR_armenian_minority }
+			clear_variable = TUR_ottoman_weekly_manpower_armenian
+			clear_variable = TUR_ottoman_enemy_local_supplies_armenian
+			clear_variable = TUR_ottoman_attrition_armenian
+			clear_variable = TUR_ottoman_army_defence_factor_armenian
+			clear_variable = TUR_ottoman_recruitable_population_factor_armenian
+			clear_variable = TUR_armenian_apostolic_state_variable
+			hidden_effect = {
+				if = {
+					limit = { state = 352 }
+					ROOT = { country_event = { id = ottoman.101 days = 4 } }
+				}
+				if = {
+					limit = { state = 806 }
+					ROOT = { country_event = { id = ottoman.103 days = 4 } }
+				}
+				if = {
+					limit = { state = 1022 }
+					ROOT = { country_event = { id = ottoman.134 days = 4 } }
+				}
+				if = {
+					limit = { state = 881 }
+					ROOT = { country_event = { id = ottoman.135 days = 4 } }
+				}
+				if = {
+					limit = { state = 355 }
+					ROOT = { country_event = { id = ottoman.136 days = 4 } }
+				}
+				if = {
+					limit = { state = 1025 }
+					ROOT = { country_event = { id = ottoman.135 days = 4 } }
+				}
+			}
+			if = {
+				limit = {
+					has_resistance = yes
+					is_core_of = ROOT
+					TUR_state_has_minority_modifier = no
+				}
+				cancel_resistance = yes
+			}
+			if = {
+				limit = { is_core_of = ARM }
+				remove_core_of = ARM
+			}
+		}
+		set_temp_variable = { TUR_deport_armenians = FROM.TUR_armenian_apostolic_state_variable }
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+			}
+			multiply_temp_variable = { TUR_deport_armenians = 0 }
+		}
+		if = {
+			limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+			divide_temp_variable = { TUR_deport_armenians = 2 }
+		}
+		multiply_temp_variable = { TUR_deport_armenians = TUR_armenian_population_factor_new }
+		multiply_temp_variable = { TUR_deport_armenians = TUR_apostolic_population_factor_new }
+		divide_temp_variable = { TUR_deport_armenians = -100 }
+	}
+	else = {
+		FROM = {
+			if = {
+				limit = {
+					NOT = {
+						check_variable = { TUR_ottoman_army_defence_factor_armenian = -0.025 }
+						check_variable = { TUR_ottoman_enemy_local_supplies_armenian = 0.5 }
+						check_variable = { TUR_ottoman_recruitable_population_factor_armenian = -0.025 }
+					}
+				}
+				if = {
+					limit = { check_variable = { TUR_armenian_apostolic_remove_variable = 1 } }
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					if = {
+						limit = {
+							has_dynamic_modifier = { modifier = TUR_mehmed_resid_committee }
+							has_state_flag = TUR_mehmed_resid_committee_active
+						}
+						custom_effect_tooltip = weekly_manpower_2000
+					}
+					else = { custom_effect_tooltip = weekly_manpower_1000 }
+					set_variable = { TUR_ottoman_weekly_manpower_armenian = 0 }
+					custom_effect_tooltip = TUR_minority_army_defence_factor_down1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					clamp_variable = {
+						var = TUR_ottoman_army_defence_factor_armenian
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_enemy_local_supplies_armenian
+						min = 0
+					}
+					custom_effect_tooltip = TUR_minority_recruitable_population1
+					add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0.025 }
+					clamp_variable = {
+						var = TUR_ottoman_recruitable_population_factor_armenian
+						max = 0
+					}
+					custom_effect_tooltip = empty_space
+				}
+				if = {
+					limit = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					if = {
+						limit = {
+							has_dynamic_modifier = { modifier = TUR_mehmed_resid_committee }
+							has_state_flag = TUR_mehmed_resid_committee_active
+						}
+						custom_effect_tooltip = weekly_manpower_2000
+					}
+					else = { custom_effect_tooltip = weekly_manpower_1000 }
+					set_variable = { TUR_ottoman_weekly_manpower_armenian = 0 }
+					custom_effect_tooltip = TUR_minority_army_defence_factor_down2
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_army_defence_factor_armenian
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+					clamp_variable = {
+						var = TUR_ottoman_enemy_local_supplies_armenian
+						min = 0
+					}
+					custom_effect_tooltip = TUR_minority_recruitable_population2
+					add_to_variable = { TUR_ottoman_recruitable_population_factor_armenian = 0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_recruitable_population_factor_armenian
+						max = 0
+					}
+					custom_effect_tooltip = empty_space
+				}
+			}
+			else = {
+				custom_effect_tooltip = TUR_modify_armenian_minority
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = TUR_mehmed_resid_committee }
+						has_state_flag = TUR_mehmed_resid_committee_active
+					}
+					custom_effect_tooltip = weekly_manpower_2000
+				}
+				else = { custom_effect_tooltip = weekly_manpower_1000 }
+				set_variable = { TUR_ottoman_weekly_manpower_armenian = 0 }
+				custom_effect_tooltip = empty_space
+			}
+			add_to_variable = { TUR_armenian_apostolic_state_variable = 0.3 }
+		}
+		set_temp_variable = { TUR_deport_armenians = 0.3 }
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+			}
+			multiply_temp_variable = { TUR_deport_armenians = 0 }
+		}
+		if = {
+			limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+			divide_temp_variable = { TUR_deport_armenians = 2 }
+		}
+		multiply_temp_variable = { TUR_deport_armenians = TUR_armenian_population_factor_new }
+		multiply_temp_variable = { TUR_deport_armenians = TUR_apostolic_population_factor_new }
+		divide_temp_variable = { TUR_deport_armenians = 100 }
+	}
+	custom_effect_tooltip = TUR_deport_armenians_tt
 }
