@@ -469,6 +469,7 @@ AUS_loyalty_max_min_calculation = {
 		add_to_variable = {
 			AUS_cze_min_loyalty = 20
 		}
+		
 	}
 	#Czech loyalty calculation: Maximums
 	set_variable = {
@@ -490,6 +491,14 @@ AUS_loyalty_max_min_calculation = {
 			AUS_cze_max_loyalty = -5
 		}
 	}
+	if = {
+			limit = {
+				has_country_flag = AUS_centralization_and_discipline_flag
+			}
+			add_to_variable = {
+				AUS_cze_max_loyalty = -5
+			}
+		}
 	if = {
 		limit = {
 			has_country_flag = AUS_cze_autonomy_demands
@@ -545,6 +554,14 @@ AUS_loyalty_max_min_calculation = {
 	set_variable = {
 		AUS_cro_max_loyalty = 100
 	}
+		if = {
+			limit = {
+				has_country_flag = AUS_centralization_and_discipline_flag
+			}
+			add_to_variable = {
+				AUS_cro_max_loyalty = -5
+			}
+		}
 	# add here sidz
 	clamp_variable = {
 	    var = AUS_croat_loyalty
@@ -568,6 +585,14 @@ AUS_loyalty_max_min_calculation = {
 	set_variable = {
 		AUS_ser_max_loyalty = 100
 	}
+		if = {
+			limit = {
+				has_country_flag = AUS_centralization_and_discipline_flag
+			}
+			add_to_variable = {
+				AUS_ser_max_loyalty = -5
+			}
+		}
 	# add here sidz
 	clamp_variable = {
 	    var = AUS_serb_loyalty
@@ -607,7 +632,14 @@ AUS_loyalty_max_min_calculation = {
 			AUS_pol_max_loyalty = -20
 		}
 	}
-
+	if = {
+			limit = {
+				has_country_flag = AUS_centralization_and_discipline_flag
+			}
+			add_to_variable = {
+				AUS_pol_max_loyalty = -5
+			}
+		}
 	clamp_variable = {
 	    var = AUS_pole_loyalty
 	    min = AUS_pol_min_loyalty
@@ -630,7 +662,14 @@ AUS_loyalty_max_min_calculation = {
 			AUS_ukr_max_loyalty = -30
 		}
 	}
-
+	if = {
+			limit = {
+				has_country_flag = AUS_centralization_and_discipline_flag
+			}
+			add_to_variable = {
+				AUS_ukr_max_loyalty = -5
+			}
+		}
 	clamp_variable = {
 	    var = AUS_ruthenian_loyalty
 	    min = AUS_ukr_min_loyalty
@@ -652,6 +691,14 @@ AUS_loyalty_max_min_calculation = {
 	set_variable = {
 		AUS_rom_max_loyalty = 100
 	}
+		if = {
+			limit = {
+				has_country_flag = AUS_centralization_and_discipline_flag
+			}
+			add_to_variable = {
+				AUS_rom_max_loyalty = -5
+			}
+		}
 	clamp_variable = {
 	    var = AUS_romanian_loyalty
 	    min = AUS_rom_min_loyalty
