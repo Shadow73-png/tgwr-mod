@@ -6327,6 +6327,40 @@ focus_tree = {
 			}
 		}
 	 }
+	 #Secure the Grain
+	 focus = {
+		id = HUN_secure_grain
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		cost = 3
+		relative_position_id = HUN_secure_the_state
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			has_war_with_major = yes
+			has_active_mission = HUN_fading_food_stability_mission
+			controls_state = 154
+		}
+		prerequisite = {
+			focus = HUN_secure_the_state
+		}
+		completion_reward = { 
+			add_stability = 0.03
+			add_war_support = 0.03
+			add_to_variable = {
+				HUN_food_stab_var = 5
+				tooltip = HUN_food_var_plus_5.tt
+			}
+			add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 100
+			}
+		}
+	 }
 	 #Cut Welfare Programs
 	 focus = {
 		id = HUN_cut_welfare_programs
@@ -6404,40 +6438,6 @@ focus_tree = {
 			}
 		}
 	 }
-	 #Secure the Grain
-	 focus = {
-		id = HUN_secure_grain
-		icon = GFX_focus_generic_reinforcing_the_supply_network
-		cost = 3
-		relative_position_id = HUN_secure_the_state
-		x = -1
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_INDUSTRY
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-		}
-		available = {
-			has_war_with_major = yes
-			has_active_mission = HUN_fading_food_stability_mission
-			controls_state = 154
-		}
-		prerequisite = {
-			focus = HUN_secure_the_state
-		}
-		completion_reward = { 
-			add_stability = 0.03
-			add_war_support = 0.03
-			add_to_variable = {
-				HUN_food_stab_var = 5
-				tooltip = HUN_food_var_plus_5.tt
-			}
-			add_days_mission_timeout = {
-				mission = HUN_fading_food_stability_mission
-				days = 100
-			}
-		}
-	 }
 	 #Set Price Restrictions
 	 focus = {
 		id = HUN_price_regulations
@@ -6455,7 +6455,10 @@ focus_tree = {
 			has_war_with_major = yes
 			if = {
 				limit = { 
-					has_country_leader = HUN_istvan_tisza
+					has_country_leader = {
+						character = HUN_istvan_tisza
+						ruling_only = yes
+					}
 				}
 				has_completed_focus = HUN_rule_through_decree
 			}
@@ -6719,7 +6722,7 @@ focus_tree = {
 				days = 25
 			}
 			add_popularity = {
-				ideology = democracy
+				ideology = democratic
 				popularity = 0.05
 			}
 			add_political_power = 75
@@ -6810,44 +6813,6 @@ focus_tree = {
 			country_event = ww1_hungary.84
 		 }
 	 }
-	 #Trade Agreement with Albania
-	 focus = {
-		id = HUN_trade_agreement_with_ALB
-		icon = GFX_focus_generic_befriend_wiedist_albania
-		cost = 2
-		relative_position_id = HUN_trade_agreement_with_BUL
-		x = -2
-		y = 0
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
-			FOCUS_FILTER_INTERNATIONAL_TRADE
-		}
-		available = {
-			has_war_with_major = yes
-			is_in_faction_with = ALB
-		}
-		prerequisite = {
-			focus = HUN_secure_the_east
-		}
-		mutually_exclusive = {
-			focus = HUN_trade_agreement_with_BUL
-		}
-		completion_reward = { 
-			ALB = {
-				country_event = {
-					id = ww1_hungary.97
-					days = 1
-				}
-			}
-			custom_effect_tooltip = if_they_accept.tt
-			effect_tooltip = {
-				add_ideas = HUN_trade_agreement_albania
-				ALB = {
-					add_ideas = HUN_trade_agreement_albania2
-				}
-			}
-		}
-	 }
 	 #Trade Agreement with Bulgaria
 	 focus = {
 		id = HUN_trade_agreement_with_BUL
@@ -6893,6 +6858,44 @@ focus_tree = {
 				add_ideas = HUN_trade_agreement_bulgaria
 				BUL = {
 					add_ideas = HUN_trade_agreement_bulgaria2
+				}
+			}
+		}
+	 }
+	 #Trade Agreement with Albania
+	 focus = {
+		id = HUN_trade_agreement_with_ALB
+		icon = GFX_focus_generic_befriend_wiedist_albania
+		cost = 2
+		relative_position_id = HUN_trade_agreement_with_BUL
+		x = -2
+		y = 0
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNATIONAL_TRADE
+		}
+		available = {
+			has_war_with_major = yes
+			is_in_faction_with = ALB
+		}
+		prerequisite = {
+			focus = HUN_secure_the_east
+		}
+		mutually_exclusive = {
+			focus = HUN_trade_agreement_with_BUL
+		}
+		completion_reward = { 
+			ALB = {
+				country_event = {
+					id = ww1_hungary.97
+					days = 1
+				}
+			}
+			custom_effect_tooltip = if_they_accept.tt
+			effect_tooltip = {
+				add_ideas = HUN_trade_agreement_albania
+				ALB = {
+					add_ideas = HUN_trade_agreement_albania2
 				}
 			}
 		}
