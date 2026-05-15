@@ -526,3 +526,74 @@ country_event = {
 		}
 	}
 }
+#Franz Joseph Pardons Defendants in the Agram Trial
+country_event = {
+	id = ww1_croatia.13
+	title = ww1_croatia.13.t
+	desc = ww1_croatia.13.d
+	#picture = GFX_report_event_generic_riot
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_croatia.13.a 
+		custom_effect_tooltip = HUN_modify_croation_sabor_tt
+		add_to_variable = {
+			HUN_croat_sabor_stab = 0.02
+			tooltip = stability_factor_tt
+		}
+		SER = {
+			remove_opinion_modifier = {
+				target = ROOT
+				modifier = AUH_high_treason_trial
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_croatia.14
+	title = ww1_croatia.14.t
+	desc = ww1_croatia.14.d
+	#picture = GFX_report_event_generic_riot
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_croatia.14.a 
+		add_to_variable = {
+			AUS_serb_loyalty = 5
+			tooltip = AUS_loyalty_serb_tt
+		}
+		add_to_variable = {
+			AUS_croat_loyalty = -5
+			tooltip = AUS_loyalty_croatian_tt
+		}
+		AUS_update_state_of_realm = yes
+		SER = {
+			remove_opinion_modifier = {
+				target = ROOT
+				modifier = AUH_high_treason_trial
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_croatia.15
+	title = ww1_croatia.14.t
+	desc = ww1_croatia.14.d
+	#picture = GFX_report_event_generic_riot
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_croatia.13.a 
+		add_to_variable = {
+			global.BOS_austria_relations = 5
+			tooltip = BOS_austria_relations_tt
+		}
+		BOS_update_austria_relations = yes
+		SER = {
+			remove_opinion_modifier = {
+				target = ROOT
+				modifier = AUH_high_treason_trial
+			}
+		}
+	}
+}
