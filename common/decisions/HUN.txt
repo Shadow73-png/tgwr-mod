@@ -2814,4 +2814,34 @@ HUN_war_economy_cat = {
 		fire_only_once = yes
 		is_good = no
 	}
+	HUN_order_meat_rations = {
+		icon = GFX_decision_generic_consumer_goods
+		cost = 35
+		days_re_enable = 100
+		days_remove = 100
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		visible = {
+			has_war_with_major = yes
+			has_global_flag = great_war
+		}
+		complete_effect = {
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = 0.05
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+	}
 }

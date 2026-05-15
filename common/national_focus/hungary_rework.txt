@@ -6711,6 +6711,7 @@ focus_tree = {
 		}
 		available = {
 			has_war_with_major = yes
+			longest_war_length > 12
 		}
 		prerequisite = {
 			focus = HUN_limit_malt_production
@@ -6741,7 +6742,7 @@ focus_tree = {
 	 #Requess Saltpeter
 	 focus = {
 		id = HUN_requess_saltpeter
-		icon = GFX_goal_unkown
+		icon = GFX_focus_BEL_poudreries_reunies_de_belgique
 		cost = 1
 		relative_position_id = HUN_decree_against_usury
 		x = -1
@@ -6757,12 +6758,23 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_decree_against_usury
 		}
-		completion_reward = { }
+		completion_reward = {
+			add_stability = -0.01
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_mil_speed = 0.03
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+		 }
 	 }
 	 #Restrict Meat Consumption & Sales
 	 focus = {
 		id = HUN_restrict_meat_consumption
-		icon = GFX_goal_unkown
+		icon = GFX_focus_SWE_rations
 		cost = 1
 		relative_position_id = HUN_decree_against_usury
 		x = 1
@@ -6778,7 +6790,30 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_decree_against_usury
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 100
+			}
+			add_war_support = -0.01
+			add_stability = -0.01
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			custom_effect_tooltip = empty_space_tt
+			unlock_decision_tooltip = HUN_order_meat_rations
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				custom_effect_tooltip = HUN_modify_eco_tt
+				add_to_variable = {
+					HUN_eco_consumer_good = -0.05
+					tooltip = consumer_goods_factor_tt
+				}
+			}
+			custom_effect_tooltip = HUN_restrict_meat_consumption.tt
+		}
 	 }
 	 #Secure the East
 	 focus = {
