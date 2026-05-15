@@ -72,10 +72,11 @@ ideas = {
 				has_war = yes
 			}
 			modifier = {
+				political_power_factor = -0.1
 				neutrality_drift = 0.02
 				consumer_goods_factor = -0.15
 				production_speed_buildings_factor = 0.1
-				stability_factor = -0.06
+				stability_factor = 0.06
 				local_resources_factor = 0.05
 				industrial_capacity_factory = 0.1
 			}
@@ -684,6 +685,82 @@ ideas = {
 			modifier = {
 				production_speed_rail_way_factor = 0.15
 				consumer_goods_factor = 0.1
+			}
+		}
+		HUN_trade_agreement_bulgaria = {
+			name = HUN_trade_agreement_bulgaria
+			picture = can_wartime_prices_and_trade_board
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+				available = {
+				NOT = {
+					has_war_with = BUL
+					has_country_flag = great_war_loser
+				}
+			}
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+			targeted_modifier = {
+				tag = BUL
+				trade_cost_for_target_factor = -0.1
+			}
+		}
+		HUN_trade_agreement_bulgaria2 = {
+			name = HUN_trade_agreement_bulgaria
+			picture = can_wartime_prices_and_trade_board
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			available = {
+				NOT = {
+					has_war_with = HUN
+					has_country_flag = great_war_loser
+				}
+			}
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+			targeted_modifier = {
+				tag = HUN
+				trade_cost_for_target_factor = -0.1
+			}
+		}
+		HUN_trade_agreement_albania = {
+			name = HUN_trade_agreement_albania
+			picture = can_wartime_prices_and_trade_board
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			available = {
+				NOT = {
+					has_war_with = HUN
+					has_country_flag = great_war_loser
+				}
+			}
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+			targeted_modifier = {
+				tag = ALB
+				trade_cost_for_target_factor = -0.1
+			}
+		}
+		HUN_trade_agreement_albania2 = {
+			name = HUN_trade_agreement_albania2
+			picture = can_wartime_prices_and_trade_board
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			available = {
+				NOT = {
+					has_war_with = HUN
+					has_country_flag = great_war_loser
+				}
+			}
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+			targeted_modifier = {
+				tag = HUN
+				trade_cost_for_target_factor = -0.1
 			}
 		}
 		#Dummy Ideas

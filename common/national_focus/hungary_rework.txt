@@ -546,6 +546,19 @@ focus_tree = {
 			focus = HUN_tighten_grip_on_croat_ban
 		}
 		completion_reward = {
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				var = HUN_eco_migration
+				value = 0.05
+				tooltip = monthly_population_tt
+			}
+			custom_effect_tooltip = HUN_modify_croation_sabor_tt
+			add_to_variable = {
+				var = HUN_croat_sabor_pp
+				value = 0.05
+				tooltip = political_power_factor_tt
+			}
+			custom_effect_tooltip = empty_space_tt
 			unlock_decision_tooltip = HUN_serb_synod
 			custom_effect_tooltip = when_taken
 			effect_tooltip = {
@@ -567,20 +580,6 @@ focus_tree = {
 					AUS_update_state_of_realm = yes
 				}
 			}
-			custom_effect_tooltip = empty_space_tt
-			custom_effect_tooltip = HUN_modify_eco_tt
-			add_to_variable = {
-				var = HUN_eco_migration
-				value = 0.05
-				tooltip = monthly_population_tt
-			}
-			custom_effect_tooltip = HUN_modify_croation_sabor_tt
-			add_to_variable = {
-				var = HUN_croat_sabor_pp
-				value = 0.05
-				tooltip = political_power_factor_tt
-			}
-
 		}
 	 }
 	#Tighten Grip on te Ban
@@ -4033,7 +4032,7 @@ focus_tree = {
 	#Fund the Energy Sector
 	focus = {
 		id = HUN_fund_energy_sector
-		icon = GFX_focus_generic_coal_mining
+		icon = GFX_focus_generic_energy
 		cost = 3
 		relative_position_id = HUN_prevent_economic_canabalization
 		x = 0
@@ -5429,7 +5428,9 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_treuga_dei
 		}
-		completion_reward = { }
+		completion_reward = { 
+			custom_effect_tooltip = HUN_failure_of_treuga_dei.tt
+		}
 	 }
 	 #Stand with the Tisza gov
 	 focus = {
@@ -5459,7 +5460,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_look_for_a_way_out
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_political_power = 50
+			add_to_variable = {
+				HUN_national_work_party_authority_var = 10
+				tooltip = HUN_modify_national_work_party_tt
+			}
+		}
 	 }
 	 #Renew Grain Rationing
 	 focus = {
@@ -5704,6 +5711,27 @@ focus_tree = {
 			}
 		}
 	 }
+	#National Coal Committee
+	focus = {
+		id = HUN_national_coal_committee
+		icon = GFX_focus_generic_coal_mining
+		cost = 5
+		relative_position_id = HUN_diosgyor_steel_works
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		prerequisite = {
+			focus = HUN_diosgyor_steel_works
+		}
+		completion_reward = { }
+	}
 	#Finish Police Reorg
 	 focus = {
 		id = HUN_finish_police_reorg
@@ -6707,7 +6735,48 @@ focus_tree = {
 			}
 		}
 	 }
-	 #
+	 #Requess Saltpeter
+	 focus = {
+		id = HUN_requess_saltpeter
+		icon = GFX_goal_unkown
+		cost = 1
+		relative_position_id = HUN_decree_against_usury
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+		}
+		available = {
+			has_war_with_major = yes
+			longest_war_length > 18
+		}
+		prerequisite = {
+			focus = HUN_decree_against_usury
+		}
+		completion_reward = { }
+	 }
+	 #Restrict Meat Consumption & Sales
+	 focus = {
+		id = HUN_restrict_meat_consumption
+		icon = GFX_goal_unkown
+		cost = 1
+		relative_position_id = HUN_decree_against_usury
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+		}
+		available = {
+			has_war_with_major = yes
+			longest_war_length > 18
+		}
+		prerequisite = {
+			focus = HUN_decree_against_usury
+		}
+		completion_reward = { }
+	 }
 	 #Secure the East
 	 focus = {
 		id = HUN_secure_the_east
@@ -6763,7 +6832,21 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_trade_agreement_with_BUL
 		}
-		completion_reward = { }
+		completion_reward = { 
+			ALB = {
+				country_event = {
+					id = ww1_hungary.97
+					days = 1
+				}
+			}
+			custom_effect_tooltip = if_they_accept.tt
+			effect_tooltip = {
+				add_ideas = HUN_trade_agreement_albania
+				ALB = {
+					add_ideas = HUN_trade_agreement_albania2
+				}
+			}
+		}
 	 }
 	 #Trade Agreement with Bulgaria
 	 focus = {
@@ -6798,7 +6881,21 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_trade_agreement_with_ALB
 		}
-		completion_reward = { }
+		completion_reward = { 
+			BUL = {
+				country_event = {
+					id = ww1_hungary.94
+					days = 1
+				}
+			}
+			custom_effect_tooltip = if_they_accept.tt
+			effect_tooltip = {
+				add_ideas = HUN_trade_agreement_bulgaria
+				BUL = {
+					add_ideas = HUN_trade_agreement_bulgaria2
+				}
+			}
+		}
 	 }
 	 #Pin All on the Russian Front
 	 focus = {
