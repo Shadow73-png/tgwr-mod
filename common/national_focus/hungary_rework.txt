@@ -5576,6 +5576,21 @@ focus_tree = {
 				HUN_national_work_party_authority_var = 20
 				tooltip = HUN_modify_national_work_party_tt
 			}
+			if = {
+				limit = { 
+					has_country_leader = {
+						character = HUN_istvan_tisza
+						ruling_only = yes
+					}
+				}
+				hidden_effect = {
+					swap_ruler_traits = {
+						remove = HUN_dualist_strong_man
+						add = HUN_dualist_strong_man2
+					}
+				}
+				custom_effect_tooltip = HUN_secure_party_loyalty.tt
+			}
 		}
 	 }
 	 #Raise War Taxes
@@ -5829,7 +5844,23 @@ focus_tree = {
 			focus = HUN_diosgyor_steel_works
 		}
 		bypass_if_unavailable = yes
-		completion_reward = { }
+		completion_reward = { 
+			if = {
+				limit = { 
+					has_country_leader = {
+						character = HUN_istvan_tisza
+						ruling_only = yes
+					}
+				}
+				hidden_effect = {
+					swap_ruler_traits = {
+						remove = HUN_dualist_strong_man2
+						add = HUN_dualist_strong_man3
+					}
+				}
+				custom_effect_tooltip = HUN_confirm_our_committment_to_germany.tt
+			}
+		}
 	 }
 	 #Perpetuating the Memory of Heroes
 	 focus = {
