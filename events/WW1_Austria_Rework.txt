@@ -7500,10 +7500,14 @@ country_event = {
 			AUS_stability_temp_var = stability
 		}
 		add_to_temp_variable = {
-			AUS_stability_temp_var = 0.25
+			AUS_stability_temp_var = 0.15
 		}
 		set_variable = {
 			AUS_stab_quest = AUS_stability_temp_var
+		}
+		clamp_variable = {
+			var = AUS_stab_quest
+			max = 0.55
 		}
 	}
 	option = {
@@ -7561,6 +7565,10 @@ country_event = {
 			var = AUS_contain_spdao_democratic_var
 			min = 0.05
 		}
+		clamp_variable = {
+			var = AUS_contain_spdao_communism_var
+			min = 0.02
+		}
 	}
 	option = {
 		name = ww1_austria_quests.7.a
@@ -7585,7 +7593,7 @@ country_event = {
 		clamp_variable = {
 			var = AUS_war_support_quest_var
 			min = 0
-			max = 0.99
+			max = 0.70
 		}
 	}
 	option = {
@@ -7635,7 +7643,7 @@ country_event = {
 		clamp_variable = {
 			var = AUS_romanian_quest
 			min = 35
-			max = 70
+			max = 65
 		}
 	}
 	option = {
