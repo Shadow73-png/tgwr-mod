@@ -1684,13 +1684,13 @@ AUS_minorities_mechanic_HUN = {
 			original_tag = HUN
 		}
 		available = {
-			has_completed_focus = HUN_meddle_in_croat_serb_relations
+			has_completed_focus = HUN_null_visa_requirements_for_serbs
 			any_owned_state = {
 				is_core_of = SER
 			}
 		}
 		visible = {
-			has_completed_focus = HUN_meddle_in_croat_serb_relations
+			has_completed_focus = HUN_null_visa_requirements_for_serbs
 		}
 		complete_effect = {
 			add_popularity = {
@@ -2720,6 +2720,30 @@ HUN_economy_category = {
 			add_to_variable = {
 				HUN_eco_migration = 0.01
 				tooltip = monthly_population_tt
+			}
+		}
+	}
+	HUN_sponsor_phylaxia = {
+		icon = GFX_decision_generic_research
+		cost = 30
+		fire_only_once = yes
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_completed_focus = HUN_assist_urbanization
+			date > 1912.1.1
+		}
+		visible = {
+			has_completed_focus = HUN_assist_urbanization
+		}
+		complete_effect = {
+			add_stability = 0.01
+			add_tech_bonus = {
+				name = HUN_phylaxia
+				category = hospital_tech
+				bonus = 3
+				uses = 1
 			}
 		}
 	}

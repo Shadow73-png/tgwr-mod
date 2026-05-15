@@ -546,6 +546,28 @@ focus_tree = {
 			focus = HUN_tighten_grip_on_croat_ban
 		}
 		completion_reward = {
+			unlock_decision_tooltip = HUN_serb_synod
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				add_popularity = {
+				ideology = democratic
+				popularity = 0.02
+			}
+			add_stability = 0.01
+			add_political_power = 25
+			AUS = {
+					add_to_variable = {
+						AUS_serb_loyalty = 5
+						tooltip = AUS_loyalty_serb_tt
+					}
+					add_to_variable = {
+						AUS_croat_loyalty = -5
+						tooltip = AUS_loyalty_croatian_tt
+					}
+					AUS_update_state_of_realm = yes
+				}
+			}
+			custom_effect_tooltip = empty_space_tt
 			custom_effect_tooltip = HUN_modify_eco_tt
 			add_to_variable = {
 				var = HUN_eco_migration
@@ -3329,6 +3351,7 @@ focus_tree = {
 					days = 100
 				}
 			}
+			custom_effect_tooltip = empty_space_tt
 			unlock_decision_tooltip = HUN_invest_in_post_savings_bank
 			custom_effect_tooltip = when_taken
 			effect_tooltip = {
@@ -3343,6 +3366,7 @@ focus_tree = {
 					tooltip = monthly_population_tt
 				}
 			}
+			custom_effect_tooltip = empty_space_tt
 			unlock_decision_tooltip = HUN_well_well_well
 			custom_effect_tooltip = when_taken
 			effect_tooltip = {
@@ -3363,6 +3387,7 @@ focus_tree = {
 					tooltip = monthly_population_tt
 				}
 			}
+			custom_effect_tooltip = empty_space_tt
 			unlock_decision_tooltip = HUN_hospitals_in_translyvania
 			custom_effect_tooltip = when_taken
 			effect_tooltip = {
@@ -3379,6 +3404,18 @@ focus_tree = {
 				add_to_variable = {
 					HUN_eco_migration = 0.01
 					tooltip = monthly_population_tt
+				}
+			}
+			custom_effect_tooltip = empty_space_tt
+			unlock_decision_tooltip = HUN_sponsor_phylaxia
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				add_stability = 0.01
+				add_tech_bonus = {
+					name = HUN_phylaxia
+					category = hospital_tech
+					bonus = 3
+					uses = 1
 				}
 			}
 		 }
@@ -3903,45 +3940,14 @@ focus_tree = {
 			add_stability = 0.01
 		}
 	}
-	#Phylaxia Szérumtermelő
-	focus = {
-		id = HUN_phylaxia
-		icon = GFX_focus_generic_field_hostpital
-		cost = 1
-		relative_position_id = HUN_limited_worker_rights
-		x = 0
-		y = 2
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_INDUSTRY
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_RESEARCH
-			FOCUS_FILTER_STABILITY
-		}
-		available = {
-			has_war = no
-		}
-		prerequisite = {
-			focus = HUN_limited_worker_rights
-		}
-		completion_reward = { 
-			add_stability = 0.01
-			add_tech_bonus = {
-				name = HUN_phylaxia
-				category = hospital_tech
-				bonus = 3
-				uses = 1
-			}
-		}
-	 }
 	#Reforming Agricultural Experimental Commission into the Agricultural Experimental Counci
 	focus = {
 		id = HUN_agricultural_experimental_council
 		icon = GFX_focus_SOV_education
 		cost = 2.9
-		relative_position_id = HUN_phylaxia
+		relative_position_id = HUN_limited_worker_rights
 		x = 0
-		y = 2
+		y = 4
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -3952,7 +3958,7 @@ focus_tree = {
 			has_tech = haber_process
 		}
 		prerequisite = {
-			focus = HUN_phylaxia
+			focus = HUN_limited_worker_rights
 		}
 		completion_reward = { 
 			custom_effect_tooltip = HUN_modify_eco_tt
