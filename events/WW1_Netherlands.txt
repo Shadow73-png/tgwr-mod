@@ -188,14 +188,10 @@ country_event = {
 			HOL_variable_lu_popularity > HOL_variable_sdap_popularity
 		}
 		check_variable = {
-			var = HOL_variable_lu_popularity 
-			value = HOL_variable_arp_popularity
-			compare = greater_than_or_equals
+			HOL_variable_lu_popularity > HOL_variable_arp_popularity
 		}
 		check_variable = {
-			var = HOL_variable_lu_popularity 
-			value = HOL_variable_ag_popularity
-			compare = greater_than_or_equals
+			HOL_variable_lu_popularity > HOL_variable_ag_popularity
 		}
 	}
 	option = {
@@ -2256,9 +2252,12 @@ country_event = {
 	title = ww1_holland.100.t
 	desc = ww1_holland.100.d
 	fire_only_once = yes
-	is_triggered_only = yes
 	trigger = {
 		tag = HOL
+		HOL_cornelis_snijders = {
+			is_high_command = yes
+		}
+		has_war_with = GER
 	}
 	option = {
 		name = ww1_holland.100.a
@@ -2283,6 +2282,11 @@ country_event = {
 			promote_character = yes
 		}
 		set_country_flag = HOL_coup_snijders_ww1
+		white_peace = GER
+		GER = {
+			add_to_faction = HOL
+			country_event = ww1_holland.125
+		}
 	}
 }
 #communist revolution makes queen leave
@@ -2585,4 +2589,339 @@ country_event = {
 		add_threat = 2
 	}
 }
-
+#tied lu-sdap
+country_event = {
+	id = ww1_holland.119
+	title = ww1_holland.119.t
+	desc = ww1_holland.119.d
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_country_flag = HOL_flag_1913_election
+		}
+		date > 1913.6.17
+		tag = HOL
+		check_variable = {
+			HOL_variable_lu_popularity = HOL_variable_sdap_popularity
+		}
+	}
+	option = {
+		name = ww1_holland.119.a
+		set_country_flag = HOL_flag_1913_lu_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_left
+		complete_national_focus = HOL_welcome_back_liberals
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_liberal_party_long
+			name = HOL_liberal_party
+		}
+		HOL_pieter_cort_van_der_linden = {
+			promote_character = yes
+		}
+	}
+	option = {
+		name = ww1_holland.119.b
+		set_country_flag = HOL_flag_1913_sdaplualliance_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_left
+		complete_national_focus = HOL_irreligious_coalition
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_liberal_party_long
+			name = HOL_liberal_party
+		}
+		HOL_pieter_cort_van_der_linden = {
+			promote_character = yes
+		}
+		add_stability = 0.1
+		add_political_power = 150
+	}
+	option = {
+		name = ww1_holland.119.c
+		set_country_flag = HOL_flag_1913_sdap_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_left
+		complete_national_focus = HOL_stem_rood
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_socialist_party_long
+			name = HOL_socialist_party
+		}
+		HOL_pieter_jelles_troelstra = {
+			promote_character = yes
+		}
+	}
+}
+#tied lu-arp
+country_event = {
+	id = ww1_holland.120
+	title = ww1_holland.120.t
+	desc = ww1_holland.120.d
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_country_flag = HOL_flag_1913_election
+		}
+		date > 1913.6.17
+		tag = HOL
+		check_variable = {
+			HOL_variable_lu_popularity = HOL_variable_arp_popularity
+		}
+	}
+	option = {
+		name = ww1_holland.120.a
+		set_country_flag = HOL_flag_1913_lu_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_left
+		complete_national_focus = HOL_welcome_back_liberals
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_liberal_party_long
+			name = HOL_liberal_party
+		}
+		HOL_pieter_cort_van_der_linden = {
+			promote_character = yes
+		}
+	}
+	option = {
+		name = ww1_holland.120.b
+		set_country_flag = HOL_flag_1913_arp_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_right
+		complete_national_focus = HOL_protestant_pillars
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_democratic_party_long
+			name = HOL_democratic_party
+		}
+		country_event = ww1_holland.67
+	}
+}
+#tied lu-ag
+country_event = {
+	id = ww1_holland.121
+	title = ww1_holland.121.t
+	desc = ww1_holland.121.d
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_country_flag = HOL_flag_1913_election
+		}
+		date > 1913.6.17
+		tag = HOL
+		check_variable = {
+			HOL_variable_lu_popularity = HOL_variable_ag_popularity
+		}
+	}
+	option = {
+		name = ww1_holland.121.a
+		set_country_flag = HOL_flag_1913_lu_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_left
+		complete_national_focus = HOL_welcome_back_liberals
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_liberal_party_long
+			name = HOL_liberal_party
+		}
+		HOL_pieter_cort_van_der_linden = {
+			promote_character = yes
+		}
+	}
+	option = {
+		name = ww1_holland.121.b
+		set_country_flag = HOL_flag_1913_ag_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_right
+		complete_national_focus = HOL_uniting_the_catholic_circles
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_catholic_party_long
+			name = HOL_catholic_party
+		}
+		HOL_maximilien_kolkman = {
+			promote_character = yes
+		}
+	}
+}
+#tied sdap-arp
+country_event = {
+	id = ww1_holland.122
+	title = ww1_holland.122.t
+	desc = ww1_holland.122.d
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_country_flag = HOL_flag_1913_election
+		}
+		date > 1913.6.17
+		tag = HOL
+		check_variable = {
+			HOL_variable_sdap_popularity = HOL_variable_arp_popularity
+		}
+	}
+	option = {
+		name = ww1_holland.122.a
+		set_country_flag = HOL_flag_1913_sdap_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_left
+		complete_national_focus = HOL_stem_rood
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_socialist_party_long
+			name = HOL_socialist_party
+		}
+		HOL_pieter_jelles_troelstra = {
+			promote_character = yes
+		}
+	}
+	option = {
+		name = ww1_holland.122.b
+		set_country_flag = HOL_flag_1913_arp_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_right
+		complete_national_focus = HOL_protestant_pillars
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_democratic_party_long
+			name = HOL_democratic_party
+		}
+		country_event = ww1_holland.67
+	}
+}
+#tied sdap-ag
+country_event = {
+	id = ww1_holland.123
+	title = ww1_holland.123.t
+	desc = ww1_holland.123.d
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_country_flag = HOL_flag_1913_election
+		}
+		date > 1913.6.17
+		tag = HOL
+		check_variable = {
+			HOL_variable_sdap_popularity = HOL_variable_ag_popularity
+		}
+	}
+	option = {
+		name = ww1_holland.123.a
+		set_country_flag = HOL_flag_1913_sdap_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_left
+		complete_national_focus = HOL_stem_rood
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_socialist_party_long
+			name = HOL_socialist_party
+		}
+		HOL_pieter_jelles_troelstra = {
+			promote_character = yes
+		}
+	}
+	option = {
+		name = ww1_holland.123.b
+		set_country_flag = HOL_flag_1913_ag_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_right
+		complete_national_focus = HOL_uniting_the_catholic_circles
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_catholic_party_long
+			name = HOL_catholic_party
+		}
+		HOL_maximilien_kolkman = {
+			promote_character = yes
+		}
+	}
+}
+#tied arp-ag
+country_event = {
+	id = ww1_holland.124
+	title = ww1_holland.124.t
+	desc = ww1_holland.124.d
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_country_flag = HOL_flag_1913_election
+		}
+		date > 1913.6.17
+		tag = HOL
+		check_variable = {
+			HOL_variable_sdap_popularity = HOL_variable_ag_popularity
+		}
+	}
+	option = {
+		name = ww1_holland.124.a
+		set_country_flag = HOL_flag_1913_arp_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_right
+		complete_national_focus = HOL_protestant_pillars
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_democratic_party_long
+			name = HOL_democratic_party
+		}
+		country_event = ww1_holland.67
+	}
+	option = {
+		name = ww1_holland.124.b
+		set_country_flag = HOL_flag_1913_ag_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_right
+		complete_national_focus = HOL_uniting_the_catholic_circles
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_catholic_party_long
+			name = HOL_catholic_party
+		}
+		HOL_maximilien_kolkman = {
+			promote_character = yes
+		}
+	}
+	option = {
+		name = ww1_holland.124.c
+		set_country_flag = HOL_flag_1913_agarpalliance_won
+		set_country_flag = HOL_flag_1913_election
+		complete_national_focus = HOL_elections
+		complete_national_focus = HOL_the_dutch_right
+		complete_national_focus = HOL_continuity
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_democratic_party_long
+			name = HOL_democratic_party
+		}
+		add_stability = 0.1
+		add_political_power = 150
+	}
+}
+#germany notified about mid war snijders coup
+country_event = {
+	id = ww1_holland.125
+	title = ww1_holland.125.t
+	desc = ww1_holland.125.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		
+	}
+	option = {
+		name = ww1_holland.125.a
+		add_to_faction = HOL
+	}
+}
