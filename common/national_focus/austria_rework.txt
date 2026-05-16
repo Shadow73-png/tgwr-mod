@@ -13,7 +13,6 @@ focus_tree = {
 	shared_focus = AUS_expand_womens_education
 	shared_focus = GER_propose_joint_military_exercises
 	shared_focus = AUS_manfred_weiss_works_expansion
-	shared_focus = AUS_invest_in_new_jobs
 	shared_focus = AUS_citizenship_for_muslims
 	shared_focus = AUS_mavag_armored_trains
 	shared_focus = AUS_invest_in_bosnia
@@ -10573,7 +10572,7 @@ joint_focus = {
 		trigger = {
 			has_focus_tree = TGWR_hungary_focus
 		}
-		x = 30
+		x = 28
 		y = 2
 	}
 	search_filters = {
@@ -10711,85 +10710,6 @@ joint_focus = {
 				tooltip = line_change_production_efficiency_factor_tt
 			}
 		}
-	}
-}
-
-joint_focus = {
-	id = AUS_invest_in_new_jobs
-	icon = GFX_focus_research
-	text_icon = joint_AUS_HUN_focus_style
-	cost = 5
-	x = 0
-	y = 0
-	offset = {
-		trigger = {
-			tag = HUN
-		}
-		x = 17
-		y = 4
-	}
-	offset = {
-		trigger = {
-			has_focus_tree = austria_tree
-		}
-		x = -11
-		y = 7
-	}
-	prerequisite = {
-		focus = HUN_continue_rail_mandates
-		focus = AUS_encourage_innovation
-		focus = AUS_mantain_cheap_goods
-	}
-	available = {
-		AUS_HUN_exists = yes
-	}
-	completion_reward = {
-		add_breakthrough_progress = {
-			value = 0.35
-			specialization = specialization_land
-		}
-	}
-	completion_reward_joint_originator = {
-		if = {
-			limit = {
-				has_focus_tree = austria_tree
-			}
-			custom_effect_tooltip = AUS_modify_eco.tt
-			custom_effect_tooltip = empty_space_tt
-			add_to_variable = {
-				AUS_EP_prod_eff_cap = 0.05
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			custom_effect_tooltip = empty_space_tt
-			add_to_variable = {
-				AUS_EP_prod_eff_growth = 0.05
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
-		}
-	}
-	completion_reward_joint_member = {
-		if = {
-			limit = {
-				has_focus_tree = austria_tree
-			}
-			custom_effect_tooltip = AUS_modify_eco.tt
-			custom_effect_tooltip = empty_space_tt
-			add_to_variable = {
-				AUS_EP_prod_eff_cap = 0.05
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			custom_effect_tooltip = empty_space_tt
-			add_to_variable = {
-				AUS_EP_prod_eff_growth = 0.05
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
-		}
-	}
-	ai_will_do = {
-		base = 1
-	}
-	search_filters = {
-		FOCUS_FILTER_HISTORICAL
 	}
 }
 
@@ -11780,14 +11700,14 @@ joint_focus = {
 	id = AUS_expand_the_UFAG
 	icon = GFX_goal_generic_construct_mil_factory
 	text_icon = joint_AUS_HUN_focus_style
-	cost = 5
+	cost = 3
 	x = 0
 	y = 0
 	offset = {
 		trigger = {
 			has_focus_tree = TGWR_hungary_focus
 		}
-		x = 22
+		x = 18
 		y = 2
 	}
 	offset = {
