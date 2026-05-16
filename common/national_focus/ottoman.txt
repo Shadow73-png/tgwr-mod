@@ -2941,11 +2941,6 @@ focus_tree = {
 			any_owned_state = { is_core_of = MAC }
 		}
 		completion_reward = {
-			345 = {
-				custom_effect_tooltip = TUR_law_on_churches_tt1
-				add_to_variable = { TUR_ottoman_attrition_greek = -0.05 }
-				set_state_flag = TUR_established_order_in_macedonia
-			}
 			every_state = {
 				limit = {
 					OR = {
@@ -9563,15 +9558,15 @@ focus_tree = {
 			every_state = {
 				limit = { check_variable = { TUR_kurdish_sunni_state_variable < -0.2 } }
 				custom_effect_tooltip = TUR_modify_kurdish_minority
-				custom_effect_tooltip = TUR_minority_mobilization_speed_kurdish_down
-				add_to_variable = { TUR_ottoman_mobilization_speed_kurdish = 0.1 }
+				custom_effect_tooltip = TUR_minority_mobilization_speed
+				add_to_variable = { TUR_ottoman_mobilization_speed_kurdish = 0.05 }
 				clamp_variable = {
 					var = TUR_ottoman_mobilization_speed_kurdish
 					max = 0
 				}
-				custom_effect_tooltip = TUR_minority_resistance_target_down
-				add_to_variable = { TUR_ottoman_resistance_target_kurdish = 0.05 }
-				custom_effect_tooltip = TUR_minority_resistance_decay_kurdish_down
+				custom_effect_tooltip = TUR_minority_resistance_target1
+				add_to_variable = { TUR_ottoman_resistance_target_kurdish = 0.03 }
+				custom_effect_tooltip = TUR_minority_resistance_decay1
 				add_to_variable = { TUR_ottoman_resistance_decay_kurdish = 0.05 }
 				clamp_variable = {
 					var = TUR_ottoman_resistance_decay_kurdish
@@ -9589,6 +9584,9 @@ focus_tree = {
 					}
 				}
 				remove_dynamic_modifier = { modifier = TUR_kurdish_minority }
+				clear_variable = TUR_ottoman_mobilization_speed_kurdish
+				clear_variable = TUR_ottoman_resistance_target_kurdish
+				clear_variable = TUR_ottoman_resistance_decay_kurdish
 				clear_variable = TUR_kurdish_sunni_state_variable
 			}
 			every_state = {
@@ -9599,25 +9597,19 @@ focus_tree = {
 						has_variable = TUR_georgian_sunni_state_level
 						NOT = { check_variable = { TUR_georgian_sunni_state_level = 0 } }
 					}
-					custom_effect_tooltip = TUR_minority_resistance_target_down
-					add_to_variable = { TUR_ottoman_resistance_target_georgian = 0.05 }
+					custom_effect_tooltip = TUR_minority_resistance_target1
+					add_to_variable = { TUR_ottoman_resistance_target_georgian = 0.03 }
 				}
 				custom_effect_tooltip = TUR_minority_army_speed_factor_for_controller_down
-				add_to_variable = { TUR_ottoman_army_speed_factor_for_controller_georgian = 0.03 }
+				add_to_variable = { TUR_ottoman_army_speed_factor_for_controller_georgian = 0.025 }
 				clamp_variable = {
 					var = TUR_ottoman_army_speed_factor_for_controller_georgian
 					max = 0
 				}
-				custom_effect_tooltip = TUR_minority_enemy_local_supplies_down2
+				custom_effect_tooltip = TUR_minority_enemy_local_supplies1
 				add_to_variable = { TUR_ottoman_enemy_local_supplies_georgian = 0.05 }
 				clamp_variable = {
 					var = TUR_ottoman_enemy_local_supplies_georgian
-					max = 0
-				}
-				custom_effect_tooltip = TUR_minority_recruitable_population_georgian_down
-				add_to_variable = { TUR_ottoman_recruitable_population_factor_georgian = 0.05 }
-				clamp_variable = {
-					var = TUR_ottoman_recruitable_population_factor_georgian
 					max = 0
 				}
 				custom_effect_tooltip = empty_space
@@ -9632,6 +9624,9 @@ focus_tree = {
 					}
 				}
 				remove_dynamic_modifier = { modifier = TUR_georgian_minority }
+				clear_variable = TUR_ottoman_resistance_target_georgian
+				clear_variable = TUR_ottoman_army_speed_factor_for_controller_georgian
+				clear_variable = TUR_ottoman_enemy_local_supplies_georgian
 				clear_variable = TUR_georgian_sunni_state_variable
 			}
 			hidden_effect = {
