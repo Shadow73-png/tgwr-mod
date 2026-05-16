@@ -15912,3 +15912,169 @@ TUR_remove_georgians_effect = {
 	divide_temp_variable = { TUR_deport_georgians = -100 }
 	custom_effect_tooltip = TUR_deport_georgians_tt
 }
+
+TUR_create_suez_vilayet = {
+	custom_effect_tooltip = TUR_create_suez_vilayet_tt
+	447 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_arab_minority }
+		}
+	}
+	hidden_effect = {
+		if = {
+			limit = { 447 = { controller = { TUR_has_minority_system = yes } } }
+			447 = {
+				add_dynamic_modifier = { modifier = TUR_arab_minority }
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_suez
+			}
+		}
+		else = {
+			447 = {
+				set_state_flag = TUR_suez
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+	}
+	TUR_new_system_trial = yes
+}
+TUR_create_alexandria_vilayet = {
+	custom_effect_tooltip = TUR_create_alexandria_vilayet_tt
+	1146 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_arab_minority }
+		}
+	}
+	452 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_arab_minority }
+		}
+	}
+	hidden_effect = {
+		if = {
+			limit = { 1146 = { controller = { TUR_has_minority_system = yes } } }
+			1146 = {
+				add_dynamic_modifier = { modifier = TUR_arab_minority }
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_suez
+			}
+		}
+		else = {
+			1146 = {
+				set_state_flag = TUR_suez
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+		if = {
+			limit = { 452 = { controller = { TUR_has_minority_system = yes } } }
+			452 = {
+				add_dynamic_modifier = { modifier = TUR_arab_minority }
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_suez
+			}
+		}
+		else = {
+			452 = {
+				set_state_flag = TUR_suez
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+	}
+	TUR_new_system_trial = yes
+}
+TUR_create_cairo_vilayet = {
+	custom_effect_tooltip = TUR_create_cairo_vilayet_tt
+	446 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_arab_minority }
+		}
+	}
+	457 = {
+		add_core_of = ROOT
+	}
+	hidden_effect = {
+		if = {
+			limit = { 446 = { controller = { TUR_has_minority_system = yes } } }
+			446 = {
+				add_dynamic_modifier = { modifier = TUR_arab_minority }
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_suez
+			}
+		}
+		else = {
+			446 = {
+				set_state_flag = TUR_suez
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+	}
+	TUR_new_system_trial = yes
+}
+TUR_create_aswan_vilayet = {
+	custom_effect_tooltip = TUR_create_aswan_vilayet_tt
+	456 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_arab_minority }
+		}
+	}
+	hidden_effect = {
+		if = {
+			limit = { 456 = { controller = { TUR_has_minority_system = yes } } }
+			456 = {
+				add_dynamic_modifier = { modifier = TUR_arab_minority }
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_suez
+			}
+		}
+		else = {
+			456 = {
+				set_state_flag = TUR_suez
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+	}
+	TUR_new_system_trial = yes
+}
+TUR_create_khartoum_vilayet = {
+	custom_effect_tooltip = TUR_create_khartoum_vilayet_tt
+	551 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_arab_minority }
+		}
+	}
+	hidden_effect = {
+		if = {
+			limit = { 551 = { controller = { TUR_has_minority_system = yes } } }
+			551 = {
+				add_dynamic_modifier = { modifier = TUR_arab_minority }
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_suez
+			}
+		}
+		else = {
+			551 = {
+				set_state_flag = TUR_suez
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+	}
+	TUR_new_system_trial = yes
+}

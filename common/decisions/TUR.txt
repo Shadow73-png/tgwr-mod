@@ -2294,6 +2294,7 @@ TUR_millet_system = {
 		visible = {
 			TUR_owns_suez_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
+			any_state = { has_state_flag = TUR_suez }
 		}
 		highlight_states = {
 			highlight_states_trigger = {
@@ -2316,6 +2317,7 @@ TUR_millet_system = {
 		visible = {
 			TUR_owns_alexandria_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
+			any_state = { has_state_flag = TUR_alexandria }
 		}
 		highlight_states = {
 			highlight_states_trigger = {
@@ -2341,6 +2343,7 @@ TUR_millet_system = {
 		visible = {
 			TUR_owns_cairo_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
+			any_state = { has_state_flag = TUR_cairo }
 		}
 		highlight_states = {
 			highlight_states_trigger = {
@@ -2363,6 +2366,7 @@ TUR_millet_system = {
 		visible = {
 			TUR_owns_aswan_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
+			any_state = { has_state_flag = TUR_aswan }
 		}
 		highlight_states = {
 			highlight_states_trigger = {
@@ -2388,6 +2392,7 @@ TUR_millet_system = {
 		visible = {
 			TUR_owns_khartoum_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
+			any_state = { has_state_flag = TUR_khartoum }
 		}
 		highlight_states = {
 			highlight_states_trigger = {
@@ -6543,10 +6548,7 @@ TUR_millet_system = {
 				owns_state = 456
 				owns_state = 551
 			}
-			OR = {
-				has_completed_focus = TUR_sultan_of_egypt
-				has_completed_focus = TUR_ottoman_provinces_in_egypt
-			}
+			has_completed_focus = TUR_ottoman_provinces_in_egypt
 		}
 		modifier = { political_power_factor = -0.15 }
 		cost = 100
@@ -6579,10 +6581,7 @@ TUR_millet_system = {
 				owns_state = 456
 				owns_state = 551
 			}
-			OR = {
-				has_completed_focus = TUR_sultan_of_egypt
-				has_completed_focus = TUR_ottoman_provinces_in_egypt
-			}
+			has_completed_focus = TUR_ottoman_provinces_in_egypt
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -6633,10 +6632,7 @@ TUR_millet_system = {
 				owns_state = 456
 				owns_state = 551
 			}
-			OR = {
-				has_completed_focus = TUR_sultan_of_egypt
-				has_completed_focus = TUR_ottoman_provinces_in_egypt
-			}
+			has_completed_focus = TUR_ottoman_provinces_in_egypt
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -6674,10 +6670,7 @@ TUR_millet_system = {
 		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		visible = {
-			OR = {
-				has_completed_focus = TUR_sultan_of_egypt
-				has_completed_focus = TUR_ottoman_provinces_in_egypt
-			}
+			has_completed_focus = TUR_ottoman_provinces_in_egypt
 			controls_state = FROM
 		}
 		available = {
@@ -6736,10 +6729,7 @@ TUR_millet_system = {
 		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		visible = {
-			OR = {
-				has_completed_focus = TUR_sultan_of_egypt
-				has_completed_focus = TUR_ottoman_provinces_in_egypt
-			}
+			has_completed_focus = TUR_ottoman_provinces_in_egypt
 			controls_state = FROM
 			FROM = { check_variable = { TUR_ottoman_local_supplies_for_controller_arab < 0 } }
 		}
@@ -6902,7 +6892,10 @@ TUR_millet_system = {
 		fire_only_once = yes
 		highlight_states = { highlight_state_targets = { state = 447 } }
 		on_map_mode = map_and_decisions_view
-		visible = { owns_state = 447 }
+		visible = {
+			owns_state = 447
+			447 = { has_state_flag = TUR_suez }
+		}
 		available = { 447 = { is_demilitarized_zone = no  } }
 		cost = 50
 		complete_effect = {
@@ -6929,7 +6922,10 @@ TUR_millet_system = {
 		fire_only_once = yes
 		highlight_states = { highlight_state_targets = { state = 447 } }
 		on_map_mode = map_and_decisions_view
-		visible = { owns_state = 447 }
+		visible = {
+			owns_state = 447
+			447 = { has_state_flag = TUR_suez }
+		}
 		available = {
 			has_war_with_major = yes
 			custom_trigger_tooltip = {
@@ -7058,24 +7054,15 @@ TUR_millet_system = {
 		available = {
 			if = {
 				limit = { FROM = { state = 447 } }
-				OR = {
-					has_completed_focus = TUR_sultan_of_egypt
-					has_completed_focus = TUR_ottoman_provinces_in_egypt
-				}
+				has_completed_focus = TUR_ottoman_provinces_in_egypt
 			}
 			if = {
 				limit = { FROM = { state = 446 } }
-				OR = {
-					has_completed_focus = TUR_sultan_of_egypt
-					has_completed_focus = TUR_ottoman_provinces_in_egypt
-				}
+				has_completed_focus = TUR_ottoman_provinces_in_egypt
 			}
 			if = {
 				limit = { FROM = { state = 452 } }
-				OR = {
-					has_completed_focus = TUR_sultan_of_egypt
-					has_completed_focus = TUR_ottoman_provinces_in_egypt
-				}
+				has_completed_focus = TUR_ottoman_provinces_in_egypt
 			}
 			if = {
 				limit = {
@@ -7086,17 +7073,11 @@ TUR_millet_system = {
 						}
 					}
 				}
-				OR = {
-					has_completed_focus = TUR_sultan_of_egypt
-					has_completed_focus = TUR_ottoman_provinces_in_egypt
-				}
+				has_completed_focus = TUR_ottoman_provinces_in_egypt
 			}
 			if = {
 				limit = { FROM = { state = 551 } }
-				OR = {
-					has_completed_focus = TUR_sultan_of_egypt
-					has_completed_focus = TUR_ottoman_provinces_in_egypt
-				}
+				has_completed_focus = TUR_ottoman_provinces_in_egypt
 			}
 		}
 		cost = 10

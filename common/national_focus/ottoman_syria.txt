@@ -2281,21 +2281,19 @@ focus_tree = {
 				owns_state = 457
 				owns_state = 551
 			}
+			controls_state = 446
 		}
 		completion_reward = {
 			add_country_leader_trait = TUR_sultan_of_egypt
-			unlock_decision_tooltip = TUR_integrate_the_egyptian_elite
-			unlock_decision_tooltip = TUR_integrate_the_egyptian_economy
-			unlock_decision_tooltip = TUR_integrate_the_egyptian_society
-			custom_effect_tooltip = TUR_sultan_of_egypt_tt
-			custom_effect_tooltip = TUR_increase_alexandria_centralization_10
-			add_to_variable = { global.TUR_alexandria_centralization = 10 }
-			custom_effect_tooltip = TUR_increase_cairo_centralization_10
-			add_to_variable = { global.TUR_cairo_centralization = 10 }
-			custom_effect_tooltip = TUR_increase_aswan_centralization_10
-			add_to_variable = { global.TUR_aswan_centralization = 10 }
-			custom_effect_tooltip = TUR_increase_khartoum_centralization_10
-			add_to_variable = { global.TUR_khartoum_centralization = 10 }
+			if = {
+				limit = { has_autonomy_state = autonomy_tgwr_ottoman_committee_government }
+				overlord = {
+					set_autonomy = {
+						target = ROOT
+						autonomous_state = autonomy_tgwr_ottoman_autonomous_vilayet
+					}
+				}
+			}
 			reverse_add_opinion_modifier = {
 				target = TUR
 				modifier = TUR_self_declared_sultan_of_egyp
@@ -2340,12 +2338,16 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_political_power = 50
+			TUR_create_suez_vilayet = yes
+			TUR_create_alexandria_vilayet = yes
+			TUR_create_cairo_vilayet = yes
+			TUR_create_aswan_vilayet = yes
+			TUR_create_khartoum_vilayet = yes
 			unlock_decision_tooltip = TUR_caliphs_authority_in_egypt
 			unlock_decision_tooltip = TUR_integrate_the_egyptian_elite
 			unlock_decision_tooltip = TUR_integrate_the_egyptian_economy
 			unlock_decision_tooltip = TUR_integrate_the_egyptian_society
-			custom_effect_tooltip = TUR_sultan_of_egypt_tt
+			custom_effect_tooltip = TUR_ottoman_provinces_in_egypt_tt
 			if = {
 				limit = { has_power_balance = { id = TUR_local_central_rule } }
 				add_power_balance_value = {
