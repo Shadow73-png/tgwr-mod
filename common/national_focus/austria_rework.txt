@@ -2227,45 +2227,12 @@ focus_tree = {
 			AUS_has_CZE_state = no
 		}
 		completion_reward = {
-			if = {
-				limit = {
-					has_completed_focus = AUS_strengthen_the_heartland_of_the_empire
-				}
-				add_to_variable = {
-					AUS_czechoslovak_loyalty = -5
-					tooltip = AUS_loyalty_czechoslovakia_tt
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = {
-						has_completed_focus = AUS_strengthen_the_heartland_of_the_empire
-						has_completed_focus = AUS_invest_in_the_east
-					}
-				}
-				add_to_variable = {
+			add_political_power = 25
+						add_to_variable = {
 					AUS_czechoslovak_loyalty = -10
 					tooltip = AUS_loyalty_czechoslovakia_tt
 				}
-				custom_effect_tooltip = empty_space_tt
-				custom_effect_tooltip = if_completed_heartland
-				custom_effect_tooltip = empty_space_tt
-			}
-			else = {
-				add_to_variable = {
-					AUS_czechoslovak_loyalty = -10
-					tooltip = AUS_loyalty_czechoslovakia_tt
-				}
-				custom_effect_tooltip = empty_space_tt
-			}
-			AUS_update_state_of_realm = yes
-			custom_effect_tooltip = AUS_propaganda_in_bohemia_cheaper
-			divide_variable = {
-				AUS_propaganda_in_bohemia_cost = 2
-			}
-			divide_variable = {
-				AUS_propaganda_in_bohemia_cost2 = 2
-			}
+custom_effect_tooltip = AUS_reduce_czech_stuff			
 			AUS_update_state_of_realm = yes
 		}
 		ai_will_do = {
