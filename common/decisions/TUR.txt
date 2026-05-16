@@ -4082,7 +4082,7 @@ TUR_millet_system = {
 		icon = GFX_decision_eng_blackshirt_march
 		allowed = { original_tag = TUR }
 		state_target = yes
-		targets = { 347 341 860 849 756 200 757 825 861 339 824 342 183 348 1026 1031 }
+		targets = { 347 341 860 849 756 757 825 861 339 824 342 183 348 1026 1031 1019 1035 344 859 }
 		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		visible = {
@@ -4090,7 +4090,7 @@ TUR_millet_system = {
 			controls_state = FROM
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_greek_minority }
-				check_variable = { TUR_greek_orthodox_state_level > 0 }
+				check_variable = { TUR_greek_orthodox_state_variable < 0 }
 			}
 		}
 		custom_cost_text = decision_cost_CP_10_PP_10
@@ -4183,7 +4183,7 @@ TUR_millet_system = {
 			controls_state = FROM
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_greek_minority }
-				check_variable = { TUR_greek_orthodox_state_level > 0 }
+				check_variable = { TUR_greek_orthodox_state_variable < 0 }
 			}
 		}
 		custom_cost_text = TUR_deport_greeks_trabzon_cost
