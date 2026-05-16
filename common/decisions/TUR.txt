@@ -4098,7 +4098,7 @@ TUR_millet_system = {
 			has_political_power > 9.9
 			command_power > 9.9
 		}
-		days_remove = 60
+		days_remove = 30
 		available = {
 			FROM = {
 				NOT = {
@@ -4106,38 +4106,35 @@ TUR_millet_system = {
 					has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
 				}
 			}
-			has_equipment = { train_equipment > 4 }
+			has_equipment = { train_equipment > 2 }
 		}
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -10
 				add_political_power = -10
 			}
-			add_equipment_to_stockpile = { type = train_equipment amount = -5 }
+			add_equipment_to_stockpile = { type = train_equipment amount = -3 }
 			FROM = {
 				custom_effect_tooltip = TUR_modify_greek_minority
-				custom_effect_tooltip = weekly_manpower_minus_250
-				set_variable = { TUR_ottoman_weekly_manpower_greek = -250 }
+				custom_effect_tooltip = weekly_manpower_minus_1000
+				set_variable = { TUR_ottoman_weekly_manpower_greek = -1000 }
 				force_update_dynamic_modifier = yes
 			}
 		}
 		remove_effect = {
-			add_equipment_to_stockpile = { type = train_equipment amount = 5 }
-			FROM = {
-				TUR_reduce_greek_christian_level_genocide = yes
-				force_update_dynamic_modifier = yes
-			}
+			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
+			TUR_remove_greeks_effect = yes
 			FROM_add_1_centralization = yes
 			TUR_new_system_trial = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		cancel_effect = {
-			add_equipment_to_stockpile = { type = train_equipment amount = 5 }
+			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			FROM = {
 				custom_effect_tooltip = TUR_modify_greek_minority
-				custom_effect_tooltip = weekly_manpower_250
-				set_variable = { TUR_ottoman_weekly_manpower_greek = 250 }
+				custom_effect_tooltip = weekly_manpower_1000
+				set_variable = { TUR_ottoman_weekly_manpower_greek = 1000 }
 				force_update_dynamic_modifier = yes
 			}
 		}
@@ -4212,6 +4209,7 @@ TUR_millet_system = {
 				}
 			}
 		}
+		days_remove = 30
 		available = {
 			FROM = {
 				NOT = {
@@ -4219,38 +4217,35 @@ TUR_millet_system = {
 					has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
 				}
 			}
-			has_equipment = { train_equipment > 4 }
+			has_equipment = { train_equipment > 2 }
 		}
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -10
 				add_political_power = -10
 			}
-			add_equipment_to_stockpile = { type = train_equipment amount = -5 }
+			add_equipment_to_stockpile = { type = train_equipment amount = -3 }
 			FROM = {
 				custom_effect_tooltip = TUR_modify_greek_minority
-				custom_effect_tooltip = weekly_manpower_minus_250
-				set_variable = { TUR_ottoman_weekly_manpower_greek = -250 }
+				custom_effect_tooltip = weekly_manpower_minus_1000
+				set_variable = { TUR_ottoman_weekly_manpower_greek = -1000 }
 				force_update_dynamic_modifier = yes
 			}
 		}
 		remove_effect = {
-			add_equipment_to_stockpile = { type = train_equipment amount = 5 }
-			FROM = {
-				TUR_reduce_greek_christian_level_genocide = yes
-				force_update_dynamic_modifier = yes
-			}
+			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
+			TUR_remove_greeks_effect = yes
 			FROM_add_1_centralization = yes
 			TUR_new_system_trial = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		cancel_effect = {
-			add_equipment_to_stockpile = { type = train_equipment amount = 5 }
+			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			FROM = {
 				custom_effect_tooltip = TUR_modify_greek_minority
-				custom_effect_tooltip = weekly_manpower_250
-				set_variable = { TUR_ottoman_weekly_manpower_greek = 250 }
+				custom_effect_tooltip = weekly_manpower_1000
+				set_variable = { TUR_ottoman_weekly_manpower_greek = 1000 }
 				force_update_dynamic_modifier = yes
 			}
 		}
