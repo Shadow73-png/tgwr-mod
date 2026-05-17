@@ -1486,17 +1486,25 @@ TUR_regime_is_socialist = {
 }
 
 TUR_is_ittihadist_regime = {
-	TUR_regime_is_nationalist = yes
-	NOT = {
-		has_completed_focus = TUR_mufrit_takeover
-		OR = {
-			has_country_leader = { character = TUR_nazim_pasha }
-			has_country_leader = { character = TUR_miralay_sadik }
-			has_country_leader = { character = TUR_gumulcineli_ismail }
+	custom_trigger_tooltip = {
+		tooltip = TUR_is_ittihadist_regime_tt
+		TUR_regime_is_nationalist = yes
+		NOT = {
+			has_completed_focus = TUR_mufrit_takeover
+			OR = {
+				has_country_leader = { character = TUR_nazim_pasha }
+				has_country_leader = { character = TUR_miralay_sadik }
+				has_country_leader = { character = TUR_gumulcineli_ismail }
+			}
 		}
 	}
 }
-TUR_is_itilafist_regime = { TUR_regime_is_liberal = yes }
+TUR_is_itilafist_regime = {
+	custom_trigger_tooltip = {
+		tooltip = TUR_is_itilafist_regime_tt
+		TUR_regime_is_liberal = yes
+	}
+}
 
 TUR_regime_is_more_popular_than_opposition = {
 	custom_trigger_tooltip = {

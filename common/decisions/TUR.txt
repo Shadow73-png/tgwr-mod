@@ -762,15 +762,41 @@ TGWR_great_power_politics = {
 		icon = GFX_decision_generic_pickelhaube
 		allowed = { tag = TUR }
 		days_remove = 720
-		available = { has_war_with = RUS }
+		available = {
+			has_war_with = RUS
+			is_in_faction_with = GER
+		}
 		fire_only_once = yes
 		visible = {
 			great_power_politics_great_war_visible = yes
-			is_in_faction_with = GER
 			has_completed_focus = TUR_schellendorfs_plan
 			NOT = {
 				has_war_with = GER
 				has_global_flag = great_war_ends
+			}
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					state = 816
+					state = 806
+					state = 855
+					state = 748
+					state = 787
+					state = 231
+					state = 1069
+					state = 1068
+					state = 230
+					state = 818
+					state = 823
+					state = 830
+					state = 229
+					state = 565
+					state = 232
+					state = 938
+					state = 939
+					state = 233
+				}
 			}
 		}
 		complete_effect = {
@@ -794,6 +820,7 @@ TGWR_great_power_politics = {
 						state = 232
 						state = 938
 						state = 939
+						state = 233
 					}
 				}
 				add_dynamic_modifier = { modifier = TUR_schellendorfs_plan_modifier scope = TUR }
@@ -821,6 +848,7 @@ TGWR_great_power_politics = {
 						state = 232
 						state = 938
 						state = 939
+						state = 233
 					}
 				}
 				remove_dynamic_modifier = { modifier = TUR_schellendorfs_plan_modifier scope = TUR }
@@ -850,6 +878,7 @@ TGWR_great_power_politics = {
 						state = 232
 						state = 938
 						state = 939
+						state = 233
 					}
 					any_neighbor_state = { is_controlled_by = RUS }
 				}
@@ -873,6 +902,7 @@ TGWR_great_power_politics = {
 							state = 232
 							state = 938
 							state = 939
+							state = 233
 						}
 					}
 				}
@@ -888,6 +918,22 @@ TGWR_great_power_politics = {
 		visible = {
 			has_completed_focus = TUR_hafiz_hakkis_plan
 			great_power_politics_great_war_visible = yes
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					state = 816
+					state = 855
+					state = 233
+					state = 1069
+					state = 1068
+					state = 234
+					state = 137
+					state = 940
+					state = 941
+					state = 955
+				}
+			}
 		}
 		complete_effect = {
 			every_state = {
@@ -953,35 +999,62 @@ TGWR_great_power_politics = {
 		}
 	}
 	TUR_adriatic_invasion = {
-		icon = GFX_decision_generic_army_support
+		icon = GFX_decision_SWE_set_navy_budget
 		allowed = { tag = TUR }
 		days_remove = 720
-		available = { has_war_with = AUS }
+		available = {
+			has_war_with = AUS
+			is_in_faction_with = FRA
+		}
 		fire_only_once = yes
 		visible = {
-			is_in_faction_with = FRA
 			has_completed_focus = TUR_adriatic_invasion
+			great_power_politics_great_war_visible = yes
 			NOT = {
 				has_war_with = FRA
 				has_global_flag = great_war_ends
 			}
-			great_power_politics_great_war_visible = yes
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					state = 871
+					state = 44
+					state = 870
+					state = 1214
+					state = 103
+					state = 163
+					state = 208
+					state = 513
+					state = 736
+					state = 1006
+					state = 736
+					state = 1198
+					state = 1206
+					state = 1230
+					state = 1205
+				}
+			}
 		}
 		complete_effect = {
 			every_state = {
 				limit = {
 					OR = {
-						state = 803
 						state = 871
 						state = 44
 						state = 870
 						state = 1214
-						state = 105
 						state = 103
 						state = 163
 						state = 208
 						state = 513
 						state = 736
+						state = 1006
+						state = 736
+						state = 1198
+						state = 1206
+						state = 1230
+						state = 1205
 					}
 				}
 				add_dynamic_modifier = { modifier = TUR_adriatic_invasion_modifier scope = TUR }
@@ -992,17 +1065,21 @@ TGWR_great_power_politics = {
 			every_state = {
 				limit = {
 					OR = {
-						state = 803
 						state = 871
 						state = 44
 						state = 870
 						state = 1214
-						state = 105
 						state = 103
 						state = 163
 						state = 208
 						state = 513
 						state = 736
+						state = 1006
+						state = 736
+						state = 1198
+						state = 1206
+						state = 1230
+						state = 1205
 					}
 				}
 				remove_dynamic_modifier = { modifier = TUR_adriatic_invasion_modifier scope = TUR }
@@ -1016,17 +1093,21 @@ TGWR_great_power_politics = {
 				AUS = {
 					any_controlled_state = {
 						OR = {
-							state = 803
 							state = 871
 							state = 44
 							state = 870
 							state = 1214
-							state = 105
 							state = 103
 							state = 163
 							state = 208
 							state = 513
 							state = 736
+							state = 1006
+							state = 736
+							state = 1198
+							state = 1206
+							state = 1230
+							state = 1205
 						}
 					}
 				}
@@ -1042,6 +1123,38 @@ TGWR_great_power_politics = {
 		visible = {
 			has_completed_focus = TUR_balkan_push
 			great_power_politics_great_war_visible = yes
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					state = 341
+					state = 860
+					state = 756
+					state = 849
+					state = 200
+					state = 757
+					state = 451
+					state = 212
+					state = 211
+					state = 77
+					state = 48
+					state = 912
+					state = 199
+					state = 788
+					state = 184
+					state = 759
+					state = 1141
+					state = 203
+					state = 1018
+					state = 225
+					state = 1258
+					state = 1140
+					state = 106
+					state = 345
+					state = 731
+					state = 821
+				}
+			}
 		}
 		complete_effect = {
 			every_state = {
@@ -1065,7 +1178,14 @@ TGWR_great_power_politics = {
 						state = 759
 						state = 1141
 						state = 203
-						state = 1213
+						state = 1018
+						state = 225
+						state = 1258
+						state = 1140
+						state = 106
+						state = 345
+						state = 731
+						state = 821
 					}
 				}
 				add_dynamic_modifier = { modifier = TUR_balkan_push_modifier scope = TUR }
@@ -1094,7 +1214,14 @@ TGWR_great_power_politics = {
 						state = 759
 						state = 1141
 						state = 203
-						state = 1213
+						state = 1018
+						state = 225
+						state = 1258
+						state = 1140
+						state = 106
+						state = 345
+						state = 731
+						state = 821
 					}
 				}
 				remove_dynamic_modifier = { modifier = TUR_balkan_push_modifier scope = TUR }
@@ -1125,7 +1252,14 @@ TGWR_great_power_politics = {
 						state = 759
 						state = 1141
 						state = 203
-						state = 1213
+						state = 1018
+						state = 225
+						state = 1258
+						state = 1140
+						state = 106
+						state = 345
+						state = 731
+						state = 821
 					}
 					any_neighbor_state = { is_controlled_by = BUL }
 				}
@@ -1150,7 +1284,14 @@ TGWR_great_power_politics = {
 							state = 759
 							state = 1141
 							state = 203
-							state = 1213
+							state = 1018
+							state = 225
+							state = 1258
+							state = 1140
+							state = 106
+							state = 345
+							state = 731
+							state = 821
 						}
 					}
 				}
@@ -2446,15 +2587,8 @@ TUR_millet_system = {
 		icon = GFX_decision_generic_prepare_civil_war
 		allowed = { original_tag = TUR }
 		state_target = yes
-		targets = { 347 1019 1035 341 825 349 1026 1024 348 344 1057 857 1058 881 1025 1033 352 353 816 806 859 1022 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			OR = {
-				has_completed_focus = TUR_combat_armenian_separatists
-				has_completed_focus = TUR_exile_armenian_separatists
-			}
-			controls_state = FROM
+		targets = { 341 344 347 348 349 352 353 354 355 806 816 825 857 859 881 1019 1022 1024 1025 1026 1030 1033 1057 1058 }
+		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_armenian_minority }
 				OR = {
@@ -2463,8 +2597,17 @@ TUR_millet_system = {
 				}
 			}
 		}
-		cost = 15
-		days_remove = 30
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		on_map_mode = map_only
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TUR_combat_armenian_separatists
+				has_completed_focus = TUR_exile_armenian_separatists
+			}
+		}
+		visible = { controls_state = FROM }
+		cost = 10
+		days_remove = 14
 		available = {
 			FROM = {
 				NOT = {
@@ -2479,128 +2622,20 @@ TUR_millet_system = {
 				add_to_variable = { TUR_ottoman_attrition = 0.1 }
 			}
 		}
+		cancel_effect = {
+			FROM = {
+				custom_effect_tooltip = TUR_clash_against_armenian_gangs_tt3
+				add_to_variable = { TUR_ottoman_attrition = 0.1 }
+			}
+		}
 		remove_effect = {
 			FROM = {
 				custom_effect_tooltip = TUR_clash_against_armenian_gangs_tt2
 				add_to_variable = { TUR_ottoman_attrition_armenian = -0.1 }
-				add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
+				add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
 				add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 			}
-			if = {
-				limit = { FROM = { state = 347 } }
-				custom_effect_tooltip = TUR_increase_kostantiniyye_centralization_1
-				add_to_variable = { global.TUR_kostantiniyye_centralization = 1 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 1019
-							state = 1035
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_izmit_centralization_1
-				add_to_variable = { global.TUR_izmit_centralization = 1 }
-			}
-			if = {
-				limit = { FROM = { state = 341 } }
-				custom_effect_tooltip = TUR_increase_edirne_centralization_1
-				add_to_variable = { global.TUR_edirne_centralization = 1 }
-			}
-			if = {
-				limit = { FROM = { state = 825 } }
-				custom_effect_tooltip = TUR_increase_hudavendigar_centralization_1
-				add_to_variable = { global.TUR_hudavendigar_centralization = 1 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 344
-							state = 857
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_adana_centralization_1
-				add_to_variable = { global.TUR_adana_centralization = 1 }
-			}
-			if = {
-				limit = { FROM = { state = 348 } }
-				custom_effect_tooltip = TUR_increase_ankara_centralization_1
-				add_to_variable = { global.TUR_ankara_centralization = 1 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 1057
-							state = 1058
-							state = 1024
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_aleppo_centralization_1
-				add_to_variable = { global.TUR_aleppo_centralization = 1 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 349
-							state = 1026
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_sivas_centralization_1
-				add_to_variable = { global.TUR_sivas_centralization = 1 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 881
-							state = 1025
-							state = 1033
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_mamuret_ul_aziz_centralization_1
-				add_to_variable = { global.TUR_mamuret_ul_aziz_centralization = 1 }
-			}
-			if = {
-				limit = { FROM = { state = 1022 } }
-				custom_effect_tooltip = TUR_increase_bitlis_centralization_1
-				add_to_variable = { global.TUR_bitlis_centralization = 1 }
-			}
-			if = {
-				limit = { FROM = { state = 352 } }
-				custom_effect_tooltip = TUR_increase_van_centralization_1
-				add_to_variable = { global.TUR_van_centralization = 1 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 353
-							state = 806
-							state = 816
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_erzurum_centralization_1
-				add_to_variable = { global.TUR_erzurum_centralization = 1 }
-			}
-			if = {
-				limit = { FROM = { state = 1022 } }
-				custom_effect_tooltip = TUR_increase_bitlis_centralization_1
-				add_to_variable = { global.TUR_bitlis_centralization = 1 }
-			}
-			if = {
-				limit = { FROM = { state = 859 } }
-				custom_effect_tooltip = TUR_increase_aleppo_centralization_1
-				add_to_variable = { global.TUR_aleppo_centralization = 1 }
-			}
+			FROM_add_1_centralization = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -2618,11 +2653,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 350 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			has_completed_focus = TUR_combat_armenian_separatists
-			controls_state = FROM
+		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_armenian_minority }
 				OR = {
@@ -2631,8 +2662,17 @@ TUR_millet_system = {
 				}
 			}
 		}
-		cost = 15
-		days_remove = TUR_clash_against_armenian_gangs_diyarbakir_time?30
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		on_map_mode = map_only
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TUR_combat_armenian_separatists
+				has_completed_focus = TUR_exile_armenian_separatists
+			}
+		}
+		visible = { controls_state = FROM }
+		cost = 10
+		days_remove = TUR_clash_against_armenian_gangs_diyarbakir_time?14
 		available = {
 			FROM = {
 				NOT = {
@@ -2647,18 +2687,20 @@ TUR_millet_system = {
 				add_to_variable = { TUR_ottoman_attrition = 0.1 }
 			}
 		}
+		cancel_effect = {
+			FROM = {
+				custom_effect_tooltip = TUR_clash_against_armenian_gangs_tt3
+				add_to_variable = { TUR_ottoman_attrition = 0.1 }
+			}
+		}
 		remove_effect = {
 			FROM = {
 				custom_effect_tooltip = TUR_clash_against_armenian_gangs_tt2
 				add_to_variable = { TUR_ottoman_attrition_armenian = -0.1 }
-				add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
+				add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
 				add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 			}
-			if = {
-				limit = { FROM = { state = 350 } }
-				custom_effect_tooltip = TUR_increase_diyarbakir_centralization_1
-				add_to_variable = { global.TUR_diyarbakir_centralization = 1 }
-			}
+			FROM_add_1_centralization = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -2674,20 +2716,22 @@ TUR_millet_system = {
 		icon = GFX_decision_generic_assassination
 		allowed = { original_tag = TUR }
 		state_target = yes
-		targets = { 347 1019 1035 341 825 349 1026 1024 348 344 1057 857 1058 881 1025 1033 352 353 816 806 859 1022 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			OR = {
-				has_completed_focus = TUR_temporary_law_of_deportation
-				has_completed_focus = TUR_deportations_in_syria
-			}
-			controls_state = FROM
+		targets = { 341 344 347 348 349 350 352 353 354 355 806 816 825 857 859 881 1019 1022 1024 1025 1026 1030 1033 1057 1058 }
+		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_armenian_minority }
 				check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 			}
 		}
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		on_map_mode = map_only
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TUR_temporary_law_of_deportation
+				has_completed_focus = TUR_deportations_in_syria
+			}
+		}
+		visible = { controls_state = FROM }
 		custom_cost_text = decision_cost_CP_10_PP_10
 		custom_cost_trigger = {
 			has_political_power > 9.9
@@ -2747,16 +2791,21 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 350 }
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = { modifier = TUR_armenian_minority }
+				check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+			}
+		}
 		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
-		visible = {
+		target_root_trigger = {
 			OR = {
 				has_completed_focus = TUR_temporary_law_of_deportation
 				has_completed_focus = TUR_deportations_in_syria
 			}
-			controls_state = FROM
-			FROM = { has_dynamic_modifier = { modifier = TUR_armenian_minority } }
 		}
+		visible = { controls_state = FROM }
 		custom_cost_text = decision_cost_CP_10_PP_10
 		custom_cost_trigger = {
 			has_political_power > 9.9
