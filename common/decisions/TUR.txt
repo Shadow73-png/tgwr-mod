@@ -5089,7 +5089,7 @@ TUR_millet_system = {
 						has_completed_focus = TUR_one_language_one_religion_one_nation_syria
 						FROM = { check_variable = { TUR_secure_power_in_arabia_state > 0 } }
 					}
-					command_power > 24.99
+					command_power > 9.99
 				}
 				AND = {
 					NOT = {
@@ -5097,12 +5097,12 @@ TUR_millet_system = {
 						has_completed_focus = TUR_one_language_one_religion_one_nation_syria
 						FROM = { check_variable = { TUR_secure_power_in_arabia_state > 0 } }
 					}
-					command_power > 14.99
+					command_power > 4.99
 				}
 			}
 		}
 		fire_only_once = yes
-		days_remove = TUR_suppress_dissent_time?70
+		days_remove = TUR_suppress_dissent_time?14
 		complete_effect = {
 			if = {
 				limit = {
@@ -5150,7 +5150,7 @@ TUR_millet_system = {
 				}
 				FROM = {
 					custom_effect_tooltip = TUR_suppress_dissent_tt2_2
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.05 }
+					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.025 }
 					add_to_variable = { TUR_ottoman_attrition_arab = -0.2 }
 					if = {
 						limit = { check_variable = { TUR_secure_power_in_arabia_state > 0 } }
@@ -5161,7 +5161,7 @@ TUR_millet_system = {
 			else = {
 				FROM = {
 					custom_effect_tooltip = TUR_suppress_dissent_tt2
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.05 }
+					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.025 }
 					add_to_variable = { TUR_ottoman_attrition_arab = -0.2 }
 				}
 			}
@@ -5178,6 +5178,7 @@ TUR_millet_system = {
 				FROM = {
 					custom_effect_tooltip = TUR_suppress_dissent_tt3_2
 					add_to_variable = { TUR_ottoman_attrition_arab = 0.35 }
+					custom_effect_tooltip = empty_space
 					add_compliance = 10
 				}
 			}
@@ -5185,6 +5186,7 @@ TUR_millet_system = {
 				FROM = {
 					custom_effect_tooltip = TUR_suppress_dissent_tt3
 					add_to_variable = { TUR_ottoman_attrition_arab = 0.2 }
+					custom_effect_tooltip = empty_space
 					add_compliance = 5
 				}
 			}

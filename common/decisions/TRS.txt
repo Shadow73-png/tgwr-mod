@@ -354,7 +354,6 @@ TUR_millet_system = {
 			FROM = {
 				check_variable = { TUR_ottoman_army_defence_factor_arab < 0 }
 				has_dynamic_modifier = { modifier = TUR_arab_minority }
-				NOT = { has_state_flag = TRS_exile_unruly_bishops }
 			}
 			controls_state = FROM
 		}
@@ -362,18 +361,24 @@ TUR_millet_system = {
 		cost = 10
 		complete_effect = {
 			FROM = {
-				custom_effect_tooltip = TRS_subjugate_the_maronite_patriarch_tt
-				add_to_variable = { TUR_ottoman_army_defence_factor_arab = 0.05 }
-				set_state_flag = TRS_exile_unruly_bishops
+				if = {
+					limit = { check_variable = { TUR_ottoman_army_defence_factor_arab < -0.025 } }
+					custom_effect_tooltip = TRS_subjugate_the_maronite_patriarch_tt
+					add_to_variable = { TUR_ottoman_army_defence_factor_arab = 0.05 }
+				}
+				else = {
+					custom_effect_tooltip = TRS_subjugate_the_maronite_patriarch_tt2
+					add_to_variable = { TUR_ottoman_army_defence_factor_arab = 0.025 }
+				}
 			}
 			if = {
-				limit = { FROM = { state = 553 } }
-				if = {
-					limit = { has_active_mission = TRS_integrating_mount_lebanon }
-					add_days_mission_timeout = {
-						mission = TRS_integrating_mount_lebanon
-						days = -80
-					}
+				limit = {
+					FROM = { state = 553 }
+					has_active_mission = TRS_integrating_mount_lebanon
+				}
+				add_days_mission_timeout = {
+					mission = TRS_integrating_mount_lebanon
+					days = -80
 				}
 			}
 		}
