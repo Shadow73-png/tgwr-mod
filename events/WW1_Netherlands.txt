@@ -1072,7 +1072,7 @@ country_event = {
 		add_political_power = 10
 	}
 }
-#typygraaf strike is succesfull
+#typograaf strike is succesfull
 country_event = {
 	id = ww1_holland.54
 	title = ww1_holland.54.t
@@ -1089,6 +1089,10 @@ country_event = {
 			ideology = communism
 			popularity = 0.01
 		}
+		add_to_variable = {
+			HOL_variable_sdap_popularity = 1
+		}
+		custom_effect_tooltip = HOL_tooltip_ip_sdap
 	}
 }
 #bouwfonds handwerkers vriendenkring founded
@@ -2589,71 +2593,25 @@ country_event = {
 		add_threat = 2
 	}
 }
-#tied lu-sdap
+#heilig landstichting founded
 country_event = {
 	id = ww1_holland.119
 	title = ww1_holland.119.t
 	desc = ww1_holland.119.d
 	fire_only_once = yes
 	trigger = {
-		NOT = {
-			has_country_flag = HOL_flag_1913_election
-		}
-		date > 1913.6.17
+		date > 1913.2.11
 		tag = HOL
-		check_variable = {
-			HOL_variable_lu_popularity = HOL_variable_sdap_popularity
-		}
 	}
 	option = {
 		name = ww1_holland.119.a
-		set_country_flag = HOL_flag_1913_lu_won
-		set_country_flag = HOL_flag_1913_election
-		complete_national_focus = HOL_elections
-		complete_national_focus = HOL_the_dutch_left
-		complete_national_focus = HOL_welcome_back_liberals
-		set_party_name = {
-			ideology = democratic
-			long_name = HOL_liberal_party_long
-			name = HOL_liberal_party
+		add_to_variable = {
+			HOL_variable_ag_popularity = 1
 		}
-		HOL_pieter_cort_van_der_linden = {
-			promote_character = yes
-		}
+		custom_effect_tooltip = HOL_tooltip_ip_ag
 	}
 	option = {
 		name = ww1_holland.119.b
-		set_country_flag = HOL_flag_1913_sdaplualliance_won
-		set_country_flag = HOL_flag_1913_election
-		complete_national_focus = HOL_elections
-		complete_national_focus = HOL_the_dutch_left
-		complete_national_focus = HOL_irreligious_coalition
-		set_party_name = {
-			ideology = democratic
-			long_name = HOL_liberal_party_long
-			name = HOL_liberal_party
-		}
-		HOL_pieter_cort_van_der_linden = {
-			promote_character = yes
-		}
-		add_stability = 0.1
-		add_political_power = 150
-	}
-	option = {
-		name = ww1_holland.119.c
-		set_country_flag = HOL_flag_1913_sdap_won
-		set_country_flag = HOL_flag_1913_election
-		complete_national_focus = HOL_elections
-		complete_national_focus = HOL_the_dutch_left
-		complete_national_focus = HOL_stem_rood
-		set_party_name = {
-			ideology = democratic
-			long_name = HOL_socialist_party_long
-			name = HOL_socialist_party
-		}
-		HOL_pieter_jelles_troelstra = {
-			promote_character = yes
-		}
 	}
 }
 #tied lu-arp
