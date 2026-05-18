@@ -913,7 +913,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_completed_focus = HUN_move_to_restore_croatian_order
 		}
 		prerequisite = {
 			focus = HUN_an_interim_solution
@@ -942,6 +942,7 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = HUN_national_work_party_yes
+			has_completed_focus = HUN_move_to_restore_croatian_order
 		}
 		mutually_exclusive = {
 			focus = HUN_concede_to_the_all_right_party
@@ -1369,6 +1370,7 @@ focus_tree = {
 			has_country_flag = HUN_national_work_party_yes
 			has_active_mission = HUN_growing_tear
 		}
+		bypass_if_unavailable = yes
 		prerequisite = {
 			focus = HUN_lower_chamber
 		}
@@ -1500,9 +1502,16 @@ focus_tree = {
 			OR = {
 				has_war_support > 0.4
 				threat > 0.15
-				neutrality > 0.6
 				SER = {
 					has_war = yes
+				}
+			}
+			OR = {
+				neutrality > 0.6
+				check_variable = {
+					var = HUN_national_work_party_authority_var
+					value > 100
+					tooltip = HUN_national_work_party_greater_than_tt
 				}
 			}
 		}
@@ -1609,7 +1618,7 @@ focus_tree = {
 	focus = {
 		id = HUN_ban_obstructionism
 		icon = GFX_generic_dissolve_parliament
-		cost = 3
+		cost = 5
 		relative_position_id = HUN_consolidate_nmp_party
 		x = 0
 		y = 1
@@ -1981,7 +1990,7 @@ focus_tree = {
 	 focus = {
 		id = HUN_comprehensive_education_reform
 		icon = GFX_focus_AFG_education_reform
-		cost = 3
+		cost = 4
 		relative_position_id = HUN_bring_edu_to_the_periphery
 		x = 1
 		y = 1
@@ -2038,7 +2047,10 @@ focus_tree = {
 			}
 		}
 		prerequisite = {
-			focus = HUN_ban_obstructionism
+			focus = HUN_limit_the_right_to_assembly
+		}
+		prerequisite = {
+			focus = HUN_solve_the_croatian_issue
 		}
 		completion_reward = { 
 			add_stability = -0.05
@@ -2095,6 +2107,7 @@ focus_tree = {
 				ideology = neutrality
 				popularity = 0.1
 			}
+			add_war_support = 0.1
 			add_political_power = 75
 		}
 	}
@@ -2206,6 +2219,7 @@ focus_tree = {
 				popularity = -0.05
 			}
 			add_stability = -0.02
+			add_war_support = 0.05
 			if = {
 				limit = { 
 					has_idea = HUN_rising_suffrage_movements_3
@@ -3755,7 +3769,7 @@ focus_tree = {
 			custom_effect_tooltip = HUN_heavy_machinery_works.tt
 			every_owned_state = {
 				limit = {
-					infrastructure > 4
+					infrastructure > 3
 					OR = {
 						state = 155
 						state = 109
@@ -3977,7 +3991,7 @@ focus_tree = {
 	focus = {
 		id = HUN_agricultural_experimental_council
 		icon = GFX_focus_SOV_education
-		cost = 2.9
+		cost = 4
 		relative_position_id = HUN_limited_worker_rights
 		x = 0
 		y = 4
@@ -4872,13 +4886,46 @@ focus_tree = {
 			}
 		}
 	 }
+	#MAG Plane Engines
+	focus = {
+		id = HUN_mag_plane_engine
+		icon = GFX_goal_CAN_canucks
+		cost = 5
+		relative_position_id = HUN_overshadowed_army
+		x = -6
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_RESEARCH
+		}
+		available = {
+			has_tech = coil_ignition
+		}
+		prerequisite = {
+			focus = HUN_overshadowed_army
+		}
+		completion_reward = {
+			air_experience = 25
+			set_technology = {
+				turbocharger = 1
+			}
+			43 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		 }
+	}
 	#Stimulate our Industrial Potential
 	focus = {
 		id = HUN_stimulate_our_industrial_potential
 		icon = GFX_goal_generic_production
 		cost = 5
-		relative_position_id = HUN_overshadowed_army
-		x = -6
+		relative_position_id = HUN_mag_plane_engine
+		x = 1
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -4889,7 +4936,7 @@ focus_tree = {
 			has_tech = machine_tools2
 		}
 		prerequisite = {
-			focus = HUN_overshadowed_army
+			focus = HUN_mag_automobiles
 		}
 		completion_reward = { 
 			custom_effect_tooltip = HUN_stimulate_our_industrial_potential.tt
@@ -4916,39 +4963,6 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 1
 			}
 		}
-	}
-	#MAG Plane Engines
-	focus = {
-		id = HUN_mag_plane_engine
-		icon = GFX_goal_CAN_canucks
-		cost = 4
-		relative_position_id = HUN_stimulate_our_industrial_potential
-		x = 1
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_INDUSTRY
-			FOCUS_FILTER_RESEARCH
-		}
-		available = {
-			has_tech = coil_ignition
-		}
-		prerequisite = {
-			focus = HUN_stimulate_our_industrial_potential
-		}
-		completion_reward = {
-			air_experience = 25
-			set_technology = {
-				turbocharger = 1
-			}
-			43 = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-		 }
 	}
 	#Armored Car Experiments
 	focus = {
@@ -4990,7 +5004,7 @@ focus_tree = {
 	focus = {
 		id = HUN_artillery_debate
 		icon = GFX_focus_generic_money_for_equipment
-		cost = 2
+		cost = 1.5
 		relative_position_id = HUN_overshadowed_army
 		x = -2
 		y = 1
@@ -5209,8 +5223,8 @@ focus_tree = {
 		x = 1
 		y = 1
 		search_filters = {
-			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		available = {
 			num_of_factories > 10
@@ -5258,6 +5272,7 @@ focus_tree = {
 		x = 2
 		y = 0
 		search_filters = {
+			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INDUSTRY
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_INTERNATIONAL_TRADE
@@ -5307,6 +5322,7 @@ focus_tree = {
 			FOCUS_FILTER_ARMY_XP
 		}
 		available = {
+			has_war_with_major = yes
 			if = {
 				limit = { 
 					has_country_flag = HUN_national_work_party_yes
@@ -5356,7 +5372,7 @@ focus_tree = {
 	focus = {
 		id = HUN_reform_army_judicial
 		icon = GFX_focus_generic_court
-		cost = 3
+		cost = 5
 		relative_position_id = HUN_promote_local_arms_makers
 		x = -1
 		y = 1
@@ -5428,10 +5444,11 @@ focus_tree = {
 				max = 100
 			}
 			set_variable = {
-				HUN_fading_food_stability_timer = 70
+				HUN_fading_food_stability_timer = 90
 			}
 		}
 		completion_reward = { 
+			unlock_decision_category_tooltip = HUN_war_economy_cat
 			#set_variable = {
 			#	HUN_food_stab_var = 72
 			#}
@@ -5549,35 +5566,13 @@ focus_tree = {
 			}
 		}
 	 }
-	 #Renew Grain Rationing
-	 focus = {
-		id = HUN_review_grain_rationing
-		icon = GFX_focus_PRC_establish_shorter_market_plans
-		cost = 4
-		relative_position_id = HUN_stand_with_tisza_gov
-		x = 2
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_POLITICAL
-		}
-		available = {
-			has_war_with_major = yes
-		}
-		prerequisite = {
-			focus = HUN_stand_with_tisza_gov
-			focus = HUN_look_for_a_way_out
-		}
-		completion_reward = { }
-	 }
 	  #The Prison Question
 	 focus = {
 		id = HUN_prison_question
 		icon = GFX_focus_CHI_arrest_the_seven_gentlemen
 		cost = 3
-		relative_position_id = HUN_review_grain_rationing
-		x = 0
+		relative_position_id = HUN_stand_with_tisza_gov
+		x = 2
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -5589,7 +5584,8 @@ focus_tree = {
 			has_completed_focus = HUN_pow_labor
 		}
 		prerequisite = {
-			focus = HUN_review_grain_rationing
+			focus = HUN_stand_with_tisza_gov
+			focus = HUN_look_for_a_way_out
 		}
 		completion_reward = { }
 	 }
@@ -5607,6 +5603,12 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
+			OR = {
+				has_war_with = ROM
+				ROM = {
+					has_idea = ROM_revanchism
+				}
+			}
 			NOT = {
 				is_in_faction_with = ROM
 				has_war_with = ROM
@@ -5618,13 +5620,7 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_failure_of_treuga_dei
-		}
-		prerequisite = {
 			focus = HUN_hazai_leadership
-		}
-		bypass_if_unavailable = yes
-		bypass_effect = {
-			
 		}
 		completion_reward = { }
 	 }
@@ -5726,13 +5722,53 @@ focus_tree = {
 			}
 		}
 	 }
+	 #Finish Police Reorg
+	 focus = {
+		id = HUN_finish_police_reorg
+		icon = GFX_focus_secret_police
+		cost = 3
+		relative_position_id = HUN_secure_party_loyalty
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_country_flag = HUN_national_work_party_yes
+			has_active_mission = HUN_police_reorg_mission
+		}
+		prerequisite = {
+			focus = HUN_stand_with_tisza_gov
+		}
+		bypass_if_unavailable = yes
+		completion_reward = {
+			remove_mission = HUN_police_reorg_mission
+			custom_effect_tooltip = HUN_modify_magyar_process_tt
+			add_to_variable = {
+				HUN_ethnicity_pp = 0.05
+				tooltip = political_power_factor_tt
+			}
+			add_to_variable = {
+				HUN_national_work_party_authority_var = 25
+				tooltip = HUN_modify_national_work_party_tt
+			}
+			513 = {
+				add_extra_state_shared_building_slots = 1
+				add_dynamic_modifier = {
+					modifier = generic_local_investments
+				}
+			}
+		 }
+	 }
 	 #Gyor Arms Works
 	 focus = {
 		id = HUN_gyor_arms_works
 		icon = GFX_focus_generic_reorient_production
-		cost = 5
-		relative_position_id = HUN_secure_party_loyalty
-		x = 1
+		cost = 3
+		relative_position_id = HUN_finish_police_reorg
+		x = -1
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -5745,7 +5781,7 @@ focus_tree = {
 			has_country_flag = HUN_national_work_party_yes
 		}
 		prerequisite = {
-			focus = HUN_stand_with_tisza_gov
+			focus = HUN_finish_police_reorg
 		}
 		completion_reward = { 
 			add_tech_bonus = {
@@ -5773,7 +5809,7 @@ focus_tree = {
 		id = HUN_diosgyor_steel_works
 		icon = GFX_focus_generic_steel_mill
 		cost = 5
-		relative_position_id = HUN_gyor_arms_works
+		relative_position_id = HUN_finish_police_reorg
 		x = 1
 		y = 1
 		search_filters = {
@@ -5787,7 +5823,7 @@ focus_tree = {
 			has_country_flag = HUN_national_work_party_yes
 		}
 		prerequisite = {
-			focus = HUN_gyor_arms_works
+			focus = HUN_finish_police_reorg
 		}
 		completion_reward = { 
 			43 = {
@@ -5828,52 +5864,12 @@ focus_tree = {
 		}
 		completion_reward = { }
 	}
-	#Finish Police Reorg
-	 focus = {
-		id = HUN_finish_police_reorg
-		icon = GFX_focus_secret_police
-		cost = 3
-		relative_position_id = HUN_gyor_arms_works
-		x = -1
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_POLITICAL
-		}
-		available = {
-			has_country_flag = HUN_national_work_party_yes
-			has_active_mission = HUN_police_reorg_mission
-		}
-		prerequisite = {
-			focus = HUN_gyor_arms_works
-		}
-		bypass_if_unavailable = yes
-		completion_reward = {
-			remove_mission = HUN_police_reorg_mission
-			custom_effect_tooltip = HUN_modify_magyar_process_tt
-			add_to_variable = {
-				HUN_ethnicity_pp = 0.05
-				tooltip = political_power_factor_tt
-			}
-			add_to_variable = {
-				HUN_national_work_party_authority_var = 25
-				tooltip = HUN_modify_national_work_party_tt
-			}
-			513 = {
-				add_extra_state_shared_building_slots = 1
-				add_dynamic_modifier = {
-					modifier = generic_local_investments
-				}
-			}
-		 }
-	 }
 	 #Establish a Public Service Office
 	 focus = {
 		id = HUN_public_service_office
 		icon = GFX_goal_generic_intelligence_exchange
 		cost = 5
-		relative_position_id = HUN_finish_police_reorg
+		relative_position_id = HUN_gyor_arms_works
 		x = -1
 		y = 1
 		search_filters = {
@@ -5886,7 +5882,7 @@ focus_tree = {
 			has_war_with_major = yes
 		}
 		prerequisite = {
-			focus = HUN_finish_police_reorg
+			focus = HUN_gyor_arms_works
 		}
 		completion_reward = { 
 			add_days_mission_timeout = {
@@ -5919,7 +5915,7 @@ focus_tree = {
 			has_country_flag = HUN_national_work_party_yes
 		}
 		prerequisite = {
-			focus = HUN_finish_police_reorg
+			focus = HUN_gyor_arms_works
 		}
 		prerequisite = {
 			focus = HUN_diosgyor_steel_works
@@ -5949,7 +5945,7 @@ focus_tree = {
 		icon = GFX_SOV_depoliticize_the_military_ccp_2d_sov_compatibility
 		cost = 3
 		relative_position_id = HUN_confirm_our_committment_to_germany
-		x = -1
+		x = 1
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -5965,7 +5961,7 @@ focus_tree = {
 			focus = HUN_confirm_our_committment_to_germany
 		}
 		prerequisite = {
-			focus = HUN_public_service_office
+			focus = HUN_national_coal_committee
 		}
 		completion_reward = { 
 			add_days_mission_timeout = {
@@ -6687,7 +6683,7 @@ focus_tree = {
 	 focus = {
 		id = HUN_limit_malt_production
 		icon = GFX_focus_FIN_oy_alkoholiliike
-		cost = 1
+		cost = 3
 		relative_position_id = HUN_implement_trade_restrictions
 		x = -1
 		y = 1
@@ -6718,7 +6714,7 @@ focus_tree = {
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
-				HUN_eco_stab = 0.01
+				HUN_eco_stab = -0.01
 				tooltip = stability_factor_tt
 			}
 		}
@@ -6761,7 +6757,7 @@ focus_tree = {
 	 focus = {
 		id = HUN_organize_metal_production
 		icon = GFX_focus_generic_steel
-		cost = 2
+		cost = 3
 		relative_position_id = HUN_purchase_mass_grain_and_flour
 		x = -1
 		y = 1
@@ -6926,6 +6922,30 @@ focus_tree = {
 			}
 			custom_effect_tooltip = HUN_restrict_meat_consumption.tt
 		}
+	 }
+	 #Renew Grain Rationing
+	 focus = {
+		id = HUN_review_grain_rationing
+		icon = GFX_focus_PRC_establish_shorter_market_plans
+		cost = 4
+		relative_position_id = HUN_requess_saltpeter
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		prerequisite = {
+			focus = HUN_requess_saltpeter
+		}
+		prerequisite = {
+			focus = HUN_restrict_meat_consumption
+		}
+		completion_reward = { }
 	 }
 	 #Secure the East
 	 focus = {

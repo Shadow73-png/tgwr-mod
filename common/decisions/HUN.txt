@@ -2452,6 +2452,87 @@ HUN_alt_parliment_cat = {
 	}
 }
 HUN_economy_category = {
+	HUN_support_chemical_factory_workers = {
+		icon = GFX_decision_generic_research
+		cost = 35
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				date > 1911.2.1
+				add = 100
+			}
+		}
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_tech = early_machine_tools
+		}
+		visible = {
+			has_completed_focus = HUN_second_industrial_revolution
+			NOT = {
+				has_country_flag = great_war_loser
+			}
+		}
+		complete_effect = {
+			add_breakthrough_progress = {
+				value = 0.35
+				specialization = specialization_land
+			}
+			if = {
+				limit = { 
+					AUS_HUN_exists = yes
+				}
+				AUS = {
+					custom_effect_tooltip = AUS_modify_eco.tt
+					custom_effect_tooltip = empty_space_tt
+					add_to_variable = {
+						AUS_EP_prod_eff_cap = 0.05
+						tooltip = production_factory_max_efficiency_factor_tt
+					}
+					custom_effect_tooltip = empty_space_tt
+					add_to_variable = {
+						AUS_EP_prod_eff_growth = 0.05
+						tooltip = production_factory_efficiency_gain_factor_tt
+					}
+				}
+			}
+		}
+	}
+	HUN_subsidy_truck_program = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = 15
+		days_re_enable = 350
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				date > 1911.5.1
+				add = 100
+			}
+		}
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = HUN_overshadowed_army
+			NOT = {
+				has_country_flag = great_war_loser
+			}
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 300
+			}
+		}
+	}
 	HUN_organize_aluminium = {
 		icon = GFX_decision_aluminium
 		allowed = {
@@ -2725,7 +2806,7 @@ HUN_economy_category = {
 	}
 	HUN_sponsor_phylaxia = {
 		icon = GFX_decision_generic_research
-		cost = 30
+		cost = 20
 		fire_only_once = yes
 		allowed = {
 			original_tag = HUN
@@ -2841,87 +2922,6 @@ HUN_war_economy_cat = {
 			add_to_variable = {
 				HUN_eco_consumer_good = 0.05
 				tooltip = consumer_goods_factor_tt
-			}
-		}
-	}
-	HUN_support_chemical_factory_workers = {
-		icon = GFX_decision_generic_research
-		cost = 35
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				date > 1911.2.1
-				add = 100
-			}
-		}
-		allowed = {
-			original_tag = HUN
-		}
-		available = {
-			has_tech = early_machine_tools
-		}
-		visible = {
-			has_completed_focus = HUN_second_industrial_revolution
-			NOT = {
-				has_country_flag = great_war_loser
-			}
-		}
-		complete_effect = {
-			add_breakthrough_progress = {
-				value = 0.35
-				specialization = specialization_land
-			}
-			if = {
-				limit = { 
-					AUS_HUN_exists = yes
-				}
-				AUS = {
-					custom_effect_tooltip = AUS_modify_eco.tt
-					custom_effect_tooltip = empty_space_tt
-					add_to_variable = {
-						AUS_EP_prod_eff_cap = 0.05
-						tooltip = production_factory_max_efficiency_factor_tt
-					}
-					custom_effect_tooltip = empty_space_tt
-					add_to_variable = {
-						AUS_EP_prod_eff_growth = 0.05
-						tooltip = production_factory_efficiency_gain_factor_tt
-					}
-				}
-			}
-		}
-	}
-	HUN_subsidy_truck_program = {
-		icon = GFX_decision_generic_motorized
-		cost = 25
-		days_remove = 15
-		days_re_enable = 350
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				date > 1911.5.1
-				add = 100
-			}
-		}
-		allowed = {
-			original_tag = HUN
-		}
-		available = {
-			
-		}
-		visible = {
-			has_completed_focus = HUN_overshadowed_army
-			NOT = {
-				has_country_flag = great_war_loser
-			}
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			add_equipment_to_stockpile = {
-				type = motorized_equipment
-				amount = 300
 			}
 		}
 	}

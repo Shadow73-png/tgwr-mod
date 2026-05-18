@@ -1341,6 +1341,26 @@ country_event = {
 		}
 	}
 	option = {
+		name = ww1_hungary.19.b
+		custom_effect_tooltip = historical_tt
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.06
+		}
+		add_political_power = -100
+		add_to_variable = {
+			HUN_national_work_party_authority_var = -5
+			tooltip = HUN_modify_national_work_party_tt
+		}
+		trigger = {
+			tag = HUN
+		}
+	}
+		option = {
 		name = ww1_hungary.19.a
 		add_to_variable = {
 			HUN_national_work_party_authority_var = -10
@@ -1358,26 +1378,6 @@ country_event = {
 		add_popularity = {
 			ideology = democratic
 			popularity = 0.05
-		}
-		trigger = {
-			tag = HUN
-		}
-	}
-	option = {
-		name = ww1_hungary.19.b
-		custom_effect_tooltip = historical_tt
-		add_popularity = {
-			ideology = communism
-			popularity = 0.03
-		}
-		add_popularity = {
-			ideology = democratic
-			popularity = 0.06
-		}
-		add_political_power = -100
-		add_to_variable = {
-			HUN_national_work_party_authority_var = -5
-			tooltip = HUN_modify_national_work_party_tt
 		}
 		trigger = {
 			tag = HUN
@@ -2855,6 +2855,7 @@ country_event = {
 	option = {
 		name = ww1_hungary.71.a
 		
+		
 	}
 }
 #Romanian Party Gives Tisza more demands
@@ -2918,7 +2919,12 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_hungary.73.a
-		
+		HUN = {
+			country_event = {
+				id = ww1_hungary.76
+				days = 15
+			}
+		}
 	}
 }
 #Romanian-Hungarian Negotiations bear fruit (Austrian Event)
@@ -2978,7 +2984,18 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_hungary.77.a
-		
+		hidden_effect = {
+			country_event = {
+				id = ww1_hungary.78
+				days = 25
+			}
+			HUN = {
+				country_event = {
+					id = ww1_hungary.78
+					days = 25
+				}
+			}
+		}
 	}
 }
 #Negotiations Fail
@@ -2987,7 +3004,7 @@ country_event = {
 	title = ww1_hungary.78.t
 	desc = ww1_hungary.78.d
 	#picture = GFX_report_event_tisza_elected_speaker 
-	fire_only_once = yes
+	fire_only_once = no
 	is_triggered_only = yes
 	option = {
 		name = ww1_hungary.78.a
@@ -3042,6 +3059,15 @@ country_event = {
 		name = ww1_hungary.80.a
 		trigger = {
 			has_country_flag = HUN_national_work_party_yes
+		}
+		if = {
+			limit = { 
+				has_active_mission = HUN_police_reorg_mission
+			}
+			add_days_mission_timeout = {
+				mission = HUN_police_reorg_mission
+				days = 600
+			}
 		}
 		custom_effect_tooltip = ww1_hungary.80.tt
 		hidden_effect = {
@@ -3179,6 +3205,7 @@ country_event = {
 	option = {
 		name = ww1_hungary.84.a
 		add_stability = -0.05
+		add_war_support = 0.05
 		every_owned_state = {
 			limit = {
 				is_core_of = TRA
@@ -3285,6 +3312,7 @@ country_event = {
 	}
 	option = {
 		name = ww1_hungary.86.a
+		custom_effect_tooltip = historical_tt
 		AUS = {
 			country_event = {
 				id = ww1_hungary.87
@@ -3304,7 +3332,6 @@ country_event = {
 	}
 	option = {
 		name = ww1_hungary.86.b
-		custom_effect_tooltip = historical_tt
 		AUS = {
 			country_event = {
 				id = ww1_hungary.88
