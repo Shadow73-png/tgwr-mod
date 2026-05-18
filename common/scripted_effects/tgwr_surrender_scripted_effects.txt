@@ -1,0 +1,224 @@
+
+generic_armistice_effects = {
+
+}
+
+shared_armistice_effects_pre_peace = {
+	every_owned_state = {
+		limit = {
+			controller = {
+				has_war_with = PREV.PREV
+			}
+		}
+		set_state_flag = armistice_state
+	}
+}
+
+shared_armistice_effects = {
+	add_ideas = idea_armistice
+}
+
+### ENTENTE ###
+change_entente_leader = {
+	# call from surrendered leader
+	if = {
+		limit = {
+			is_faction_leader = yes
+		}
+		if = {
+			limit = {
+				any_other_country = {
+					is_in_faction_with = ROOT
+					is_subject = no
+					has_war_together_with = ROOT
+				}
+			}
+			random_state = {
+				prioritize = {
+					is_on_same_continent_as = ROOT
+					OWNER = {
+						OR = {
+							tag = FRA
+							tag = RUS
+							tag = ENG
+							tag = ITA
+							tag = USA
+							is_major = yes
+						}
+					}
+				}
+				limit = {
+					is_capital = yes
+					OWNER = {
+						is_in_faction_with = ROOT
+						is_subject = no
+						has_war_together_with = ROOT
+					}
+				}
+				OWNER = {
+					set_faction_leader = yes
+					set_country_flag = entente_leader
+					every_country = {
+						limit = {
+							is_exiled_in = ROOT
+						}
+						end_exile = THIS
+						become_exiled_in = { target = PREV }
+					}
+				}
+				ROOT = {
+					clr_country_flag = entente_leader
+					leave_faction = yes
+					every_subject_country = {
+						leave_faction = yes
+					}
+				}
+			}
+		}
+		else = {
+			# entente lost
+		}
+	}
+}
+
+FRA_armistice_effects = {
+	set_global_flag = FRA_surrendered
+	set_country_flag = surrendered_alone
+	change_entente_leader = yes
+
+	shared_armistice_effects_pre_peace = yes
+
+	random_other_country = {
+		limit = {
+			has_country_flag = central_powers_leader
+		}
+		white_peace = ROOT
+	}
+
+	shared_armistice_effects = yes
+
+	# Northern France DMZ
+	every_owned_state = {
+		limit = {
+			OR = {
+				region = 19 # Northern France
+				state = 15 # Normandy
+			}
+			NOT = {
+				state = 16 # Ile de France
+				state = 24 # Centre - Val de Loire
+				state = 27 # Burgundy
+			}
+		}
+		set_demilitarized_zone = yes
+	}
+}
+RUS_armistice_effects = {
+	set_global_flag = RUS_surrendered
+	set_country_flag = surrendered_alone
+	change_entente_leader = yes
+}
+ENG_armistice_effects = {
+	set_global_flag = ENG_surrendered
+	set_country_flag = surrendered_alone
+	change_entente_leader = yes
+}
+ITA_armistice_effects = {
+	set_global_flag = ITA_surrendered
+	set_country_flag = surrendered_alone
+	change_entente_leader = yes
+}
+USA_armistice_effects = {
+	set_global_flag = USA_surrendered
+	set_country_flag = surrendered_alone
+	change_entente_leader = yes
+}
+
+### CENTRAL POWERS ###
+change_central_powers_leader = {
+	# call from surrendered leader
+	if = {
+		limit = {
+			is_faction_leader = yes
+		}
+		if = {
+			limit = {
+				any_other_country = {
+					is_in_faction_with = ROOT
+					is_subject = no
+					has_war_together_with = ROOT
+				}
+			}
+			random_state = {
+				prioritize = {
+					is_on_same_continent_as = ROOT
+					OWNER = {
+						OR = {
+							tag = GER
+							tag = AUS
+							tag = HUN
+							tag = BUL
+							tag = TUR
+							is_major = yes
+						}
+					}
+				}
+				limit = {
+					is_capital = yes
+					OWNER = {
+						is_in_faction_with = ROOT
+						is_subject = no
+						has_war_together_with = ROOT
+					}
+				}
+				OWNER = {
+					set_faction_leader = yes
+					set_country_flag = central_powers_leader
+					every_country = {
+						limit = {
+							is_exiled_in = ROOT
+						}
+						end_exile = THIS
+						become_exiled_in = { target = PREV }
+					}
+				}
+				ROOT = {
+					clr_country_flag = central_powers_leader
+					leave_faction = yes
+					every_subject_country = {
+						leave_faction = yes
+					}
+				}
+			}
+		}
+		else = {
+			# central powers lost
+		}
+	}
+}
+
+GER_armistice_effects = {
+	set_global_flag = GER_surrendered
+	set_country_flag = surrendered_alone
+	change_central_powers_leader = yes
+}
+AUS_armistice_effects = {
+	set_global_flag = AUS_surrendered
+	set_country_flag = surrendered_alone
+	change_central_powers_leader = yes
+}
+HUN_armistice_effects = {
+	set_global_flag = HUN_surrendered
+	set_country_flag = surrendered_alone
+	change_central_powers_leader = yes
+}
+BUL_armistice_effects = {
+	set_global_flag = BUL_surrendered
+	set_country_flag = surrendered_alone
+	change_central_powers_leader = yes
+}
+TUR_armistice_effects = {
+	set_global_flag = TUR_surrendered
+	set_country_flag = surrendered_alone
+	change_central_powers_leader = yes
+}
