@@ -2769,7 +2769,6 @@ country_event = {
 	title = ww1_holland.126.t
 	desc = ww1_holland.126.d
 	fire_only_once = yes
-	is_triggered_only = yes
 	trigger = {
 		OR = {
 			check_variable = {
@@ -2819,5 +2818,61 @@ country_event = {
 			HOL_variable_arp_popularity = 3
 		}
 		custom_effect_tooltip = HOL_tooltip_ip_arp_alot
+	}
+}
+#lintjesaffaire final verdict
+country_event = {
+	id = ww1_holland.127
+	title = ww1_holland.127.t
+	desc = ww1_holland.127.d
+	fire_only_once = yes
+	trigger = {
+		tag = HOL
+		date > 1910.7.5
+	}
+	option = {
+		name = ww1_holland.127.a
+		add_to_variable = {
+			HOL_variable_arp_popularity = 1
+		}
+		custom_effect_tooltip = HOL_tooltip_ip_arp
+	}
+	option = {
+		name = ww1_holland.127.b
+	}
+}
+#nolens is fractievoorzitter
+country_event = {
+	id = ww1_holland.128
+	title = ww1_holland.128.t
+	desc = ww1_holland.128.d
+	fire_only_once = yes
+	trigger = {
+		tag = HOL
+		date > 1910.11.8
+	}
+	option = {
+		name = ww1_holland.128.a
+		add_to_variable = {
+			HOL_variable_ag_popularity = 1
+		}
+		custom_effect_tooltip = HOL_tooltip_ip_ag
+	}
+	option = {
+		name = ww1_holland.128.b
+	}
+}
+#introduction dutch politics
+country_event = {
+	id = ww1_holland.129
+	title = ww1_holland.129.t
+	desc = ww1_holland.129.d
+	fire_only_once = yes
+	trigger = {
+		tag = HOL
+		date > 1910.5.10
+	}
+	option = {
+		name = ww1_holland.129.a
 	}
 }
