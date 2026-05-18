@@ -1570,6 +1570,7 @@ TUR_millet_system = {
 					state = 731
 					state = 1257
 					state = 1258
+					state = 1255
 				}
 				OR = {
 					TUR_is_controlled_by_us_or_committee_government = yes
@@ -4076,7 +4077,7 @@ TUR_millet_system = {
 		icon = GFX_decision_generic_consumer_goods
 		allowed = { original_tag = TUR }
 		state_target = yes
-		targets = { 347 1018 1019 1035 825 861 339 824 342 911 344 859 1030 1026 348 183 899 164 974 975 790 182 341 860 756 849 200 757 184 345 731 1257 1256 826 1225 803 758 }
+		targets = { 347 1018 1019 1035 825 861 339 824 342 911 344 859 1030 1026 348 183 899 164 974 975 790 182 341 860 756 849 200 757 184 345 1255 731 1257 1256 826 1225 803 758 }
 		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_greek_minority }
@@ -4123,6 +4124,10 @@ TUR_millet_system = {
 		remove_effect = {
 			TUR_reduce_greek_effect = yes
 			FROM_add_1_centralization = yes
+			if = {
+				limit = { FROM = { has_dynamic_modifier = { modifier = TUR_haci_adil_committee } } }
+				add_stability = 0.002
+			}
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -4243,6 +4248,10 @@ TUR_millet_system = {
 			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			TUR_remove_greeks_effect = yes
 			FROM_add_1_centralization = yes
+			if = {
+				limit = { FROM = { has_dynamic_modifier = { modifier = TUR_haci_adil_committee } } }
+				add_stability = 0.002
+			}
 			TUR_new_system_trial = yes
 			ottoman_centralization_variable_check = yes
 		}
@@ -5413,6 +5422,27 @@ TUR_millet_system = {
 		}
 		ai_will_do = { base = 70 }
 	}
+	TUR_abolish_mount_athos_autonomy = {
+		icon = GFX_decision_generic_break_treaty
+		allowed = { original_tag = TUR }
+		visible = {
+			controls_state = 1255
+			owns_state = 1255
+			1255 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+		}
+		target_root_trigger = { has_completed_focus = TUR_status_of_the_autonomies }
+		cost = 10
+		highlight_states = { highlight_state_targets = { state = 1255 } }
+		state_target = yes
+		targets = { 1255 }
+		complete_effect = {
+			1255 = { remove_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+			custom_effect_tooltip = TUR_increase_selanik_centralization_3
+			add_to_variable = { global.TUR_selanik_centralization = 3 }
+			ottoman_centralization_variable_check = yes
+		}
+		ai_will_do = { base = 80 }
+	}
 	TUR_break_the_truce_with_asir = {
 		icon = GFX_decision_generic_break_treaty
 		allowed = { original_tag = TUR }
@@ -5477,12 +5507,10 @@ TUR_millet_system = {
 		icon = GFX_decision_oppression
 		allowed = { original_tag = TUR }
 		state_target = yes
-		targets = { 756 849 200 451 757 184 212 788 225 759 1141 1140 203 1213 731 }
+		targets = { 106 184 200 203 225 451 756 757 759 788 849 1140 1141 1213 1258 212 }
 		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
-		visible = {
-			has_completed_focus = TUR_subdue_bulgarians
-			controls_state = FROM
+		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_bulgarian_minority }
 				OR = {
@@ -5491,6 +5519,8 @@ TUR_millet_system = {
 				}
 			}
 		}
+		target_root_trigger = { has_completed_focus = TUR_subdue_bulgarians }
+		visible = { controls_state = FROM }
 		cost = 15
 		days_remove = 15
 		available = {
@@ -5504,62 +5534,11 @@ TUR_millet_system = {
 		}
 		complete_effect = { add_equipment_to_stockpile = { type = infantry_equipment amount = -200 } }
 		remove_effect = {
-			FROM = {
-				custom_effect_tooltip = TUR_increased_pressure_on_bulgarians_tt
-				add_to_variable = { TUR_ottoman_resistance_decay_bulgarian = 0.1 }
-				add_to_variable = { TUR_ottoman_resistance_decay_bulgarian = 0.05 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 756
-							state = 849
-							state = 200
-							state = 451
-							state = 757
-							state = 212
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_edirne_centralization_1
-				add_to_variable = { global.TUR_edirne_centralization = 1 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 788
-							state = 225
-							state = 759
-							state = 1141
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_selanik_centralization_1
-				add_to_variable = { global.TUR_selanik_centralization = 1 }
-			}
-			if = {
-				limit = { FROM = { state = 1140 } }
-				custom_effect_tooltip = TUR_increase_kosova_centralization_1
-				add_to_variable = { global.TUR_kosova_centralization = 1 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 203
-							state = 1213
-							state = 731
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_manastir_centralization_1
-				add_to_variable = { global.TUR_manastir_centralization = 1 }
-			}
+			TUR_reduce_bulgarian_effect = yes
+			FROM_add_1_centralization = yes
 			if = {
 				limit = { FROM = { has_dynamic_modifier = { modifier = TUR_haci_adil_committee } } }
-				add_stability = 0.003
+				add_stability = 0.002
 			}
 			ottoman_centralization_variable_check = yes
 		}
@@ -5580,12 +5559,10 @@ TUR_millet_system = {
 		icon = GFX_decision_oppression
 		allowed = { original_tag = TUR }
 		state_target = yes
-		targets = { 847 106 848 760 761 104 }
+		targets = { 106 760 761 847 848 }
 		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
-		visible = {
-			has_completed_focus = TUR_suppress_serb_irredentists
-			controls_state = FROM
+		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_serbian_minority }
 				OR = {
@@ -5594,6 +5571,8 @@ TUR_millet_system = {
 				}
 			}
 		}
+		target_root_trigger = { has_completed_focus = TUR_suppress_serb_irredentists }
+		visible = { controls_state = FROM }
 		cost = 15
 		days_remove = 15
 		available = {
@@ -5612,26 +5591,8 @@ TUR_millet_system = {
 			}
 		}
 		remove_effect = {
-			FROM = {
-				custom_effect_tooltip = TUR_increased_pressure_on_bulgarians_tt
-				add_to_variable = { TUR_ottoman_resistance_decay_bulgarian = 0.1 }
-				add_to_variable = { TUR_ottoman_resistance_decay_bulgarian = 0.05 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 847
-							state = 106
-							state = 848
-							state = 760
-							state = 761
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_kosova_centralization_1
-				add_to_variable = { global.TUR_kosova_centralization = 1 }
-			}
+			TUR_reduce_serbian_effect = yes
+			FROM_add_1_centralization = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -5652,16 +5613,16 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 756 849 200 451 757 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			has_completed_focus = TUR_destruction_of_the_thracian_bulgarians
-			controls_state = FROM
+		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_bulgarian_minority }
 				check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
 			}
 		}
+		target_root_trigger = { TUR_destruction_of_the_thracian_bulgarians = TUR_subdue_bulgarians }
+		visible = { controls_state = FROM }
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		on_map_mode = map_only
 		custom_cost_text = decision_cost_CP_10_PP_10
 		custom_cost_trigger = {
 			has_political_power > 9.9
@@ -5694,6 +5655,10 @@ TUR_millet_system = {
 			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			TUR_remove_bulgarians_effect = yes
 			FROM_add_1_centralization = yes
+			if = {
+				limit = { FROM = { has_dynamic_modifier = { modifier = TUR_haci_adil_committee } } }
+				add_stability = 0.002
+			}
 			TUR_new_system_trial = yes
 			ottoman_centralization_variable_check = yes
 		}

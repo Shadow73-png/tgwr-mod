@@ -15410,6 +15410,81 @@ TUR_set_old_catholic_value = {
 	subtract_from_temp_variable = { old_catholic_value = TUR_arab_orthodox_minority_value_beirut }
 }
 
+TUR_reduce_serbian_effect = {
+	FROM = {
+		custom_effect_tooltip = TUR_modify_serbian_minority
+		if = {
+			limit = {
+				check_variable = { TUR_serbian_orthodox_state_variable < -0.3 }
+				OR = {
+					check_variable = { TUR_ottoman_resistance_decay_serbian < -0.05 }
+					check_variable = { TUR_ottoman_required_garrison_factor_serbian > 0.025 }
+				}
+			}
+			custom_effect_tooltip = TUR_minority_resistance_decay1
+			add_to_variable = { TUR_ottoman_resistance_decay_serbian = 0.05 }
+			custom_effect_tooltip = TUR_minority_required_garrison_factor1
+			add_to_variable = { TUR_ottoman_required_garrison_factor_serbian = -0.025 }
+		}
+		else = {
+			hidden_effect = {
+				set_temp_variable = { ROOT.TUR_minority_resistance_decay_serbian = FROM.TUR_ottoman_resistance_decay_serbian }
+				multiply_temp_variable = { ROOT.TUR_minority_resistance_decay_serbian = -1 }
+				set_temp_variable = { ROOT.TUR_minority_required_garrison_factor_serbian = FROM.TUR_ottoman_required_garrison_factor_serbian }
+				multiply_temp_variable = { ROOT.TUR_minority_required_garrison_factor_serbian = -1 }
+			}
+			custom_effect_tooltip = TUR_minority_resistance_decay_serbian
+			set_variable = { TUR_ottoman_resistance_decay_serbian = 0 }
+			custom_effect_tooltip = TUR_minority_required_garrison_factor_serbian
+			set_variable = { TUR_ottoman_required_garrison_factor_serbian = 0 }
+		}
+		clamp_variable = { var = TUR_ottoman_resistance_decay_serbian max = 0 }
+		clamp_variable = { var = TUR_ottoman_required_garrison_factor_serbian min = 0 }
+		custom_effect_tooltip = empty_space
+	}
+}
+TUR_reduce_bulgarian_effect = {
+	FROM = {
+		custom_effect_tooltip = TUR_modify_bulgarian_minority
+		if = {
+			limit = {
+				check_variable = { TUR_bulgarian_orthodox_state_variable < -0.3 }
+				OR = {
+					check_variable = { TUR_ottoman_resistance_decay_bulgarian < -0.05 }
+					check_variable = { TUR_ottoman_required_garrison_factor_bulgarian > 0.025 }
+				}
+			}
+			if = {
+				limit = { check_variable = { TUR_bulgarian_orthodox_remove_variable = 4 } }
+				custom_effect_tooltip = TUR_minority_resistance_decay4
+				add_to_variable = { TUR_ottoman_resistance_decay_bulgarian = 0.2 }
+				custom_effect_tooltip = TUR_minority_required_garrison_factor4
+				add_to_variable = { TUR_ottoman_required_garrison_factor_bulgarian = -0.1 }
+			}
+			else = {
+				custom_effect_tooltip = TUR_minority_resistance_decay1
+				add_to_variable = { TUR_ottoman_resistance_decay_bulgarian = 0.05 }
+				custom_effect_tooltip = TUR_minority_required_garrison_factor1
+				add_to_variable = { TUR_ottoman_required_garrison_factor_bulgarian = -0.025 }
+			}
+		}
+		else = {
+			hidden_effect = {
+				set_temp_variable = { ROOT.TUR_minority_resistance_decay_bulgarian = FROM.TUR_ottoman_resistance_decay_bulgarian }
+				multiply_temp_variable = { ROOT.TUR_minority_resistance_decay_bulgarian = -1 }
+				set_temp_variable = { ROOT.TUR_minority_required_garrison_factor_bulgarian = FROM.TUR_ottoman_required_garrison_factor_bulgarian }
+				multiply_temp_variable = { ROOT.TUR_minority_required_garrison_factor_bulgarian = -1 }
+			}
+			custom_effect_tooltip = TUR_minority_resistance_decay_bulgarian
+			set_variable = { TUR_ottoman_resistance_decay_bulgarian = 0 }
+			custom_effect_tooltip = TUR_minority_required_garrison_factor_bulgarian
+			set_variable = { TUR_ottoman_required_garrison_factor_bulgarian = 0 }
+		}
+		clamp_variable = { var = TUR_ottoman_resistance_decay_bulgarian max = 0 }
+		clamp_variable = { var = TUR_ottoman_required_garrison_factor_bulgarian min = 0 }
+		custom_effect_tooltip = empty_space
+	}
+}
 TUR_remove_bulgarians_effect = {
 	if = {
 		limit = {

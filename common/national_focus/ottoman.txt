@@ -1270,23 +1270,16 @@ focus_tree = {
 			add_to_variable = { global.TUR_van_centralization = 10 }
 			hidden_effect = {
 				#for tooltip
-				set_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_diyarbakir }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_erzurum }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_mamuret_ul_aziz }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_bitlis }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_van }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_aleppo }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_deir_ez_zor }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_mosul }
-				set_temp_variable = { TUR_sedentarization_of_kurdish_tribes = old_kurdish_value }
-				divide_temp_variable = { TUR_sedentarization_of_kurdish_tribes = TUR_kurdish_population_factor_new }
+				TUR_set_old_kurdish_value = yes
+				set_temp_variable = { TUR_disband_tribal_light_cavalry_regiments = old_kurdish_value }
+				divide_temp_variable = { TUR_disband_tribal_light_cavalry_regiments = TUR_kurdish_population_factor_new }
 				set_temp_variable = { TUR_kurdish_population_factor_focus = TUR_kurdish_population_factor_new }
 				add_to_temp_variable = { TUR_kurdish_population_factor_focus = 0.1 }
-				multiply_temp_variable = { TUR_sedentarization_of_kurdish_tribes = TUR_kurdish_population_factor_focus }
-				subtract_from_temp_variable = { TUR_sedentarization_of_kurdish_tribes = old_kurdish_value }
+				multiply_temp_variable = { TUR_disband_tribal_light_cavalry_regiments = TUR_kurdish_population_factor_focus }
+				subtract_from_temp_variable = { TUR_disband_tribal_light_cavalry_regiments = old_kurdish_value }
 			}
 			add_to_variable = { TUR_kurdish_population_factor_new = 0.1 }
-			custom_effect_tooltip = TUR_sedentarization_of_kurdish_tribes_tt2
+			custom_effect_tooltip = TUR_disband_tribal_light_cavalry_regiments_tt2
 			ottoman_centralization_variable_check = yes
 			TUR_new_system_trial = yes
 		}
@@ -18700,6 +18693,15 @@ focus_tree = {
 				limit = { has_state_flag = TUR_sedentarization_of_kurdish_tribes }
 				custom_effect_tooltip = TUR_sedentarization_of_kurdish_tribes_tt1
 			}
+			add_to_variable = { TUR_kurdish_population_factor_new = 0.1 }
+			custom_effect_tooltip = TUR_sedentarization_of_kurdish_tribes_tt2
+			custom_effect_tooltip = TUR_increase_mamuret_ul_aziz_centralization_10
+			custom_effect_tooltip = TUR_increase_diyarbakir_centralization_10
+			custom_effect_tooltip = TUR_increase_bitlis_centralization_10
+			custom_effect_tooltip = TUR_increase_van_centralization_10
+			custom_effect_tooltip = TUR_increase_deir_ez_zor_centralization_5
+			custom_effect_tooltip = TUR_increase_mosul_centralization_10
+			custom_effect_tooltip = TUR_increase_erzurum_centralization_5
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_kurdish_value = yes
@@ -18712,61 +18714,25 @@ focus_tree = {
 			}
 			add_to_variable = { TUR_kurdish_population_factor_new = 0.1 }
 			custom_effect_tooltip = TUR_sedentarization_of_kurdish_tribes_tt2
-			custom_effect_tooltip = TUR_increase_mamuret_ul_aziz_centralization_10
-			custom_effect_tooltip = TUR_increase_diyarbakir_centralization_10
-			custom_effect_tooltip = TUR_increase_bitlis_centralization_10
-			custom_effect_tooltip = TUR_increase_van_centralization_10
-			custom_effect_tooltip = TUR_increase_deir_ez_zor_centralization_5
-			custom_effect_tooltip = TUR_increase_mosul_centralization_10
-			custom_effect_tooltip = TUR_increase_erzurum_centralization_5
 		}
 		completion_reward = {
 			every_state = {
 				limit = {
 					has_dynamic_modifier = { modifier = TUR_kurdish_minority }
-					OR = {
-						state = 881
-						state = 1025
-						state = 350
-						state = 829
-						state = 1028
-						state = 1027
-						state = 1029
-						state = 352
-						state = 1022
-						state = 828
-						state = 884
-						state = 879
-						state = 883
-						state = 680
-						state = 676
-						state = 806
+					check_variable = {
+						TUR_ottoman_mobilization_speed_kurdish < -0.05
+						compare = less_than_or_equals
+					}
+					check_variable = {
+						TUR_ottoman_resistance_decay_kurdish < -0.025
+						compare = less_than_or_equals
 					}
 				}
 				custom_effect_tooltip = TUR_sedentarization_of_kurdish_tribes_tt1
+				add_to_variable = { TUR_ottoman_recruitable_population_factor = 0.05 }
+				add_to_variable = { TUR_ottoman_local_resources_factor = 0.025 }
 				set_state_flag = TUR_sedentarization_of_kurdish_tribes
 			}
-			
-			hidden_effect = {
-				#for tooltip
-				set_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_diyarbakir }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_erzurum }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_mamuret_ul_aziz }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_bitlis }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_van }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_aleppo }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_deir_ez_zor }
-				add_to_temp_variable = { old_kurdish_value = TUR_kurdish_sunni_minority_value_mosul }
-				set_temp_variable = { TUR_sedentarization_of_kurdish_tribes = old_kurdish_value }
-				divide_temp_variable = { TUR_sedentarization_of_kurdish_tribes = TUR_kurdish_population_factor_new }
-				set_temp_variable = { TUR_kurdish_population_factor_focus = TUR_kurdish_population_factor_new }
-				add_to_temp_variable = { TUR_kurdish_population_factor_focus = 0.1 }
-				multiply_temp_variable = { TUR_sedentarization_of_kurdish_tribes = TUR_kurdish_population_factor_focus }
-				subtract_from_temp_variable = { TUR_sedentarization_of_kurdish_tribes = old_kurdish_value }
-			}
-			add_to_variable = { TUR_kurdish_population_factor_new = 0.1 }
-			custom_effect_tooltip = TUR_sedentarization_of_kurdish_tribes_tt2
-
 			custom_effect_tooltip = TUR_increase_mamuret_ul_aziz_centralization_10
 			add_to_variable = { global.TUR_mamuret_ul_aziz_centralization = 10 }
 			custom_effect_tooltip = TUR_increase_diyarbakir_centralization_10
@@ -18782,32 +18748,17 @@ focus_tree = {
 			custom_effect_tooltip = TUR_increase_erzurum_centralization_5
 			add_to_variable = { global.TUR_erzurum_centralization = 5 }
 			hidden_effect = {
-				every_state = {
-					limit = {
-						TUR_state_has_minority = yes
-						OR = {
-							state = 881
-							state = 1025
-							state = 350
-							state = 829
-							state = 1028
-							state = 1027
-							state = 1029
-							state = 352
-							state = 1022
-							state = 828
-							state = 884
-							state = 879
-							state = 883
-							state = 680
-							state = 676
-							state = 806
-						}
-					}
-					add_to_variable = { TUR_ottoman_recruitable_population_factor = 0.1 }
-					add_to_variable = { TUR_ottoman_local_resources_factor = 0.05 }
-				}
+				#for tooltip
+				TUR_set_old_kurdish_value = yes
+				set_temp_variable = { TUR_sedentarization_of_kurdish_tribes = old_kurdish_value }
+				divide_temp_variable = { TUR_sedentarization_of_kurdish_tribes = TUR_kurdish_population_factor_new }
+				set_temp_variable = { TUR_kurdish_population_factor_focus = TUR_kurdish_population_factor_new }
+				add_to_temp_variable = { TUR_kurdish_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_sedentarization_of_kurdish_tribes = TUR_kurdish_population_factor_focus }
+				subtract_from_temp_variable = { TUR_sedentarization_of_kurdish_tribes = old_kurdish_value }
 			}
+			add_to_variable = { TUR_kurdish_population_factor_new = 0.1 }
+			custom_effect_tooltip = TUR_sedentarization_of_kurdish_tribes_tt2
 			TUR_new_system_trial = yes
 			ottoman_centralization_variable_check = yes
 		}
@@ -18967,10 +18918,14 @@ focus_tree = {
 			}
 			if = {
 				limit = { has_country_flag = TUR_status_of_the_autonomies2 }
-				unlock_decision_tooltip = TRS_subjugate_the_maronite_patriarch
+				unlock_decision_tooltip = TUR_abolish_mount_athos_autonomy
 			}
 			if = {
 				limit = { has_country_flag = TUR_status_of_the_autonomies3 }
+				unlock_decision_tooltip = TRS_subjugate_the_maronite_patriarch
+			}
+			if = {
+				limit = { has_country_flag = TUR_status_of_the_autonomies4 }
 				unlock_decision_tooltip = TRS_exile_unruly_bishops
 			}
 			add_political_power = 25
@@ -18993,8 +18948,18 @@ focus_tree = {
 				unlock_decision_tooltip = TUR_abolish_principality_of_samos
 			}
 			if = {
-				limit = { NOT = { has_global_flag = TRS_subjugate_the_maronite_patriarch } }
+				limit = {
+					OR = {
+						controls_state = 1255
+						owns_state = 1255
+					}
+				}
 				set_country_flag = TUR_status_of_the_autonomies2
+				unlock_decision_tooltip = TUR_abolish_mount_athos_autonomy
+			}
+			if = {
+				limit = { NOT = { has_global_flag = TRS_subjugate_the_maronite_patriarch } }
+				set_country_flag = TUR_status_of_the_autonomies3
 				unlock_decision_tooltip = TRS_subjugate_the_maronite_patriarch
 			}
 			if = {
@@ -19004,7 +18969,7 @@ focus_tree = {
 						553 = { has_state_flag = TRS_exile_unruly_bishops }
 					}
 				}
-				set_country_flag = TUR_status_of_the_autonomies3
+				set_country_flag = TUR_status_of_the_autonomies4
 				unlock_decision_tooltip = TRS_exile_unruly_bishops
 			}
 			add_political_power = 25
@@ -19059,22 +19024,7 @@ focus_tree = {
 			custom_effect_tooltip = TUR_suppress_arab_dissent_tt
 			hidden_effect = {
 				#for tooltip
-				set_temp_variable = { old_arab_value = TUR_arab_minority_value_aleppo }
-				add_to_temp_variable = { old_arab_value = TUR_arab_sunni_minority_value_deir_ez_zor }
-				add_to_temp_variable = { old_arab_value = TUR_arab_sunni_minority_value_mosul }
-				add_to_temp_variable = { old_arab_value = TUR_arab_minority_value_beirut }
-				add_to_temp_variable = { old_arab_value = TUR_arab_sunni_minority_value_damascus }
-				add_to_temp_variable = { old_arab_value = TUR_arab_minority_value_baghdad }
-				add_to_temp_variable = { old_arab_value = TUR_arab_sunni_minority_value_jerusalem }
-				add_to_temp_variable = { old_arab_value = TUR_arab_minority_value_basra }
-				add_to_temp_variable = { old_arab_value = TUR_arab_sunni_minority_value_hejaz }
-				add_to_temp_variable = { old_arab_value = TUR_arab_minority_value_yemen }
-				add_to_temp_variable = { old_arab_value = TUR_arab_minority_value_suez }
-				add_to_temp_variable = { old_arab_value = TUR_arab_minority_value_alexandria }
-				add_to_temp_variable = { old_arab_value = TUR_arab_minority_value_cairo }
-				add_to_temp_variable = { old_arab_value = TUR_arab_minority_value_aswan }
-				add_to_temp_variable = { old_arab_value = TUR_arab_sunni_minority_value_khartoum }
-				add_to_temp_variable = { old_arab_value = TUR_arab_sunni_minority_value_trablusgarp }
+				TUR_set_old_arab_value = yes
 				set_temp_variable = { TUR_central_governance_in_arabia = old_arab_value }
 				divide_temp_variable = { TUR_central_governance_in_arabia = TUR_arab_population_factor_new }
 				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
