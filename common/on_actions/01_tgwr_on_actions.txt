@@ -4427,6 +4427,241 @@
 	}
 	on_startup = {
 		effect = {
+			#CLAIMS
+			every_state = {
+				#WESTERN FRONT
+				##############
+				#CENTRAL POWERS
+				#Germany - Septemberprogramm
+				if = {
+					limit = {
+						OR = {
+							state = 8
+							state = 863
+							state = 864
+							state = 906
+							state = 907
+						}
+
+					}
+					set_state_flag = TGWR_peace_deal_GER_septemberprogramm
+					set_state_flag = TGWR_peace_deal_dvlp
+				}
+				#Belgium - Septemberprogramm
+				else_if = {
+					limit = {
+						OR = {
+							state = 33
+							state = 865	
+						}
+					}
+					set_state_flag = TGWR_peace_deal_GER_septemberprogramm
+					set_state_flag = TGWR_peace_deal_dvlp
+
+				}
+				#Germany - DVLP
+				else_if = {
+					limit = {
+						OR = {
+							state = 6
+							state = 17
+							state = 29
+							state = 34
+						}
+					}
+					set_state_flag = TGWR_peace_deal_dvlp
+				}
+				#ENTENTE
+				#France - Alsace
+				else_if = {
+					limit = {
+						OR = {
+							state = 28
+							state = 863
+							state = 864
+							state = 1107
+						}
+					}
+					set_state_flag = TGWR_peace_deal_alsace
+				}
+				#Belgium - Eupen
+				else_if = {
+					limit = {
+						OR = {
+							state = 793
+						}
+					}
+					set_state_flag = TGWR_peace_deal_eupen
+				}
+				#France - Kehl
+				else_if = {
+					limit = {
+						OR = {
+							state = 1209
+						}
+					}
+					set_state_flag = TGWR_peace_deal_kehl
+				}
+				#France - Saarland
+				else_if = {
+					limit = {
+						OR = {
+							state = 869
+							state = 1208
+						}
+					}
+					set_state_flag = TGWR_peace_deal_rhineland
+					set_state_flag = TGWR_peace_deal_saarland
+				}
+				#France - Rhineland
+				else_if = {
+					limit = {
+						OR = {
+							state = 42
+							state = 51
+							state = 343
+							state = 989
+							state = 1183
+							state = 1186
+							state = 1187
+							state = 1188
+						}
+					}
+					set_state_flag = TGWR_peace_deal_rhineland
+					set_state_flag = TGWR_peace_deal_FRA_rhineland
+				}
+				#France - Ruhr
+				else_if = {
+					limit = {
+						OR = {
+							state = 873
+							state = 1185
+						}
+					}
+					set_state_flag = TGWR_peace_deal_ruhr
+				}
+				#AFRICA
+				#######
+				#Mittelafrika
+				else_if = {
+					limit = {
+						OR = {
+							state = 246
+							state = 272
+							state = 274
+							state = 295
+							state = 296
+							state = 538
+							state = 540
+							state = 544
+							state = 547
+							state = 548
+							state = 558
+							state = 660
+							state = 700
+							state = 701
+							state = 718
+							state = 752
+							state = 768
+							state = 770
+							state = 771
+							state = 772
+							state = 776
+							state = 779
+							state = 780
+							state = 789
+							state = 902
+							state = 920
+							state = 921
+							state = 922
+							state = 923
+							state = 970
+							state = 971
+							state = 972
+							state = 973
+							state = 1105
+							state = 1136
+							state = 1142
+							state = 1145
+							state = 1162
+							state = 1221
+						}
+					}
+					set_state_flag = TGWR_peace_deal_mittelafrika
+				}
+				#British Empire - German colonies
+				else_if = {
+					limit = {
+						OR = {
+							state = 541
+							state = 546
+							state = 794
+							state = 813
+							state = 1050
+						}
+					}
+					set_state_flag = TGWR_peace_deal_ENG_german_colonies
+					set_state_flag = TGWR_peace_deal_mittelafrika
+				}
+				#France - German colonies
+				else_if = {
+					limit = {
+						OR = {
+							state = 539
+							state = 769
+							state = 777
+							state = 814
+							state = 815
+							state = 1143
+							state = 1144
+						}
+					}
+					set_state_flag = TGWR_peace_deal_FRA_german_colonies
+					set_state_flag = TGWR_peace_deal_mittelafrika
+				}
+				#Libya
+				else_if = {
+					limit = {
+						OR = {
+							state = 273
+							state = 448
+							state = 450
+							state = 661
+							state = 663
+							state = 810
+							state = 817
+							state = 1060
+							state = 1061
+							state = 1122
+							state = 1124
+							state = 1128
+							state = 1154
+							state = 1155
+							state = 1156
+							state = 1157
+						}
+					}
+					set_state_flag = TGWR_peace_deal_libya
+				}
+				#Italy - Libya
+				else_if = {
+					limit = {
+						OR = {
+							state = 754
+							state = 812
+							state = 1121
+						}
+					}
+					set_state_flag = TGWR_peace_deal_ITA_libya
+				}
+				#EASTERN FRONT
+				##############
+				#Germany - Poland
+			}
+		}
+	}
+	on_startup = {
+		effect = {
 			295 = {
 				add_dynamic_modifier = { modifier = BEL_belgian_colonial_policy }
 				add_dynamic_modifier = { modifier = BEL_luba_resistance_modifier }
