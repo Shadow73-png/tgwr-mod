@@ -131,6 +131,18 @@ TUR_state_has_christian_minority = {
 	}
 }
 
+TUR_state_has_christian_manpower = {
+	OR = {
+		check_variable = { TUR_ottoman_recruitable_population_factor_armenian < 0 }
+		check_variable = { TUR_ottoman_recruitable_population_factor_greek < 0 }
+		check_variable = { TUR_ottoman_recruitable_population_factor_arab < 0 }
+		check_variable = { TUR_ottoman_recruitable_population_factor_bulgarian < 0 }
+		check_variable = { TUR_ottoman_recruitable_population_factor_serbian < 0 }
+		check_variable = { TUR_ottoman_recruitable_population_factor_assyrian < 0 }
+		check_variable = { TUR_ottoman_recruitable_population_factor_georgian < 0 }
+	}
+}
+
 TUR_state_has_minority_modifier = {
 	OR = {
 		has_dynamic_modifier = { modifier = TUR_arab_minority }
