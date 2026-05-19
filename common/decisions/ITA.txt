@@ -3157,7 +3157,7 @@ ITA_libyan_war = {
 		fire_only_once = yes
 	}
 	ITA_bombard_the_libyan_coast = {
-		cost = 15
+		cost = 0
 		days_remove = 100
 		icon = GFX_decision_generic_ignite_civil_war
 		fire_only_once = yes
@@ -3165,9 +3165,14 @@ ITA_libyan_war = {
 			original_tag = ITA
 		}
 		available = {
-			ships_in_area = {
-				area = 29
-				size > 15
+			OR = {
+				ships_in_area = {
+					area = 29
+					size > 15
+				}
+				hidden_trigger = {
+					is_ai = yes
+				}
 			}
 		}
 		target_trigger = {
@@ -3179,9 +3184,6 @@ ITA_libyan_war = {
 					}
 				}
 			}
-		}
-		target_root_trigger = {
-			has_completed_focus = ITA_new_naval_guns
 		}
 		targets = {
 			TUR
@@ -3298,25 +3300,27 @@ ITA_libyan_war = {
 		}
 	}
 	ITA_raid_beirut_port = {
-		cost = 10
+		cost = 0
 		icon = GFX_decision_generic_army_support
 		fire_only_once = yes
 		allowed = {
 			original_tag = ITA
 		}
 		available = {
-			ships_in_area = {
-				area = 69
-				size > 15
+			OR = {
+				ships_in_area = {
+					area = 69
+					size > 15
+				}
+				hidden_trigger = {
+					is_ai = yes
+				}
 			}
 		}
 		target_trigger = {
 			FROM = {
 				owns_state = 553
 			}
-		}
-		target_root_trigger = {
-			has_completed_focus = ITA_2_enemies_2_navies
 		}
 		targets = {
 			TUR
