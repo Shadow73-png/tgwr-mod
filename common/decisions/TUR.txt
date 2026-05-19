@@ -2963,13 +2963,7 @@ TUR_millet_system = {
 				custom_effect_tooltip = probably_lead_to_war_with_rus_tt
 			}
 			set_country_flag = TUR_lift_the_armenian_reforms
-			TUR_minority_system_trabzon = yes
-			TUR_minority_system_sivas = yes
-			TUR_minority_system_erzurum = yes
-			TUR_minority_system_van = yes
-			TUR_minority_system_bitlis = yes
-			TUR_minority_system_mamuret_ul_aziz = yes
-			TUR_minority_system_diyarbakir = yes
+			TUR_new_system_trial = yes
 		}
 		ai_will_do = {
 			base = 50
@@ -5619,7 +5613,7 @@ TUR_millet_system = {
 				check_variable = { TUR_bulgarian_orthodox_state_variable < 0 }
 			}
 		}
-		target_root_trigger = { TUR_destruction_of_the_thracian_bulgarians = TUR_subdue_bulgarians }
+		target_root_trigger = { has_completed_focus = TUR_destruction_of_the_thracian_bulgarians }
 		visible = { controls_state = FROM }
 		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
@@ -5684,206 +5678,23 @@ TUR_millet_system = {
 			}
 		}
 	}
-	TUR_centralize_albania_decision = {
-		icon = GFX_decision_eng_trade_unions_demand
-		allowed = { original_tag = TUR }
-		cost = 10
-		state_target = yes
-		targets = { 847 848 870 1214 1240 44 871 803 761 760 106 758 1215 1213 203 1225 }
-		on_map_mode = map_only
-		visible = {
-			has_completed_focus = TUR_centralize_albania
-			controls_state = FROM
-			FROM = {
-				OR = {
-					check_variable = { TUR_albanian_sunni_state_variable < 0 }
-					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
-					check_variable = { TUR_albanian_catholic_state_variable < 0 }
-				}
-			}
-			OR = {
-				AND = {
-					FROM = {
-						OR = {
-							state = 847
-							state = 106
-							state = 848
-							state = 760
-							state = 761
-							state = 1240
-						}
-					}
-					check_variable = { global.TUR_kosova_centralization < 80 }
-				}
-				AND = {
-					FROM = {
-						OR = {
-							state = 758
-							state = 803
-							state = 871
-						}
-					}
-					check_variable = { global.TUR_yanya_centralization < 85 }
-				}
-				AND = {
-					FROM = {
-						OR = {
-							state = 1215
-							state = 1213
-							state = 203
-							state = 1225
-						}
-					}
-					check_variable = { global.TUR_manastir_centralization < 85 }
-				}
-				FROM = {
-					OR = {
-						state = 870
-						state = 1214
-						state = 44
-					}
-					check_variable = { global.TUR_iskodra_centralization < 85 }
-				}
-			}
-		}
-		available = {
-			FROM = {
-				if = {
-					limit = { check_variable = { TUR_ottoman_albania_centralization_level = 0 } }
-					resistance < 50
-				}
-				if = {
-					limit = { check_variable = { TUR_ottoman_albania_centralization_level = 1 } }
-					resistance < 40
-				}
-				if = {
-					limit = { check_variable = { TUR_ottoman_albania_centralization_level = 2 } }
-					resistance < 30
-				}
-				if = {
-					limit = { check_variable = { TUR_ottoman_albania_centralization_level = 3 } }
-					resistance < 20
-				}
-				if = {
-					limit = { check_variable = { TUR_ottoman_albania_centralization_level = 4 } }
-					resistance < 10
-				}
-				NOT = {
-					has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
-					has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet }
-				}
-			}
-		}
-		complete_effect = {
-			FROM = {
-				custom_effect_tooltip = TUR_centralize_albania_decision_tt
-				add_to_variable = { TUR_ottoman_resistance_target_albanian = 0.2 }
-				if = {
-					limit = { has_variable = TUR_ottoman_albania_centralization_level }
-					add_to_variable = { TUR_ottoman_albania_centralization_level = 1 }
-				}
-				else = { set_variable = { TUR_ottoman_albania_centralization_level = 1 } }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 847
-							state = 106
-							state = 848
-							state = 761
-							state = 760
-							state = 1240
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_kosova_centralization_2
-				add_to_variable = { global.TUR_kosova_centralization = 2 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 758
-							state = 803
-							state = 871
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_yanya_centralization_2
-				add_to_variable = { global.TUR_yanya_centralization = 2 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 1215
-							state = 1213
-							state = 203
-							state = 1225
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_manastir_centralization_2
-				add_to_variable = { global.TUR_manastir_centralization = 2 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 870
-							state = 1214
-							state = 44
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_increase_iskodra_centralization_2
-				add_to_variable = { global.TUR_iskodra_centralization = 2 }
-			}
-			ottoman_centralization_variable_check = yes
-		}
-		ai_will_do = { base = 70 }
-	}
 	TUR_improve_albanian_garrisons = {
 		icon = GFX_decision_generic_protection
 		allowed = { original_tag = TUR }
-		custom_cost_text = 300_infantry_equipment_1
-		custom_cost_trigger = { has_equipment = { infantry_equipment > 299 } }
+		custom_cost_text = 1000_infantry_equipment_1
+		custom_cost_trigger = { has_equipment = { infantry_equipment > 999 } }
 		state_target = yes
-		targets = {
-			847
-			848
-			870
-			1214
-			1240
-			44
-			871
-			1215
-			1225
-			803
-			203
-			1213
-			761
-			760
-			106
-			758
-		}
-		on_map_mode = map_only
-		visible = {
-			has_completed_focus = TUR_centralize_albania
-			controls_state = FROM
+		targets = { 847 848 760 761 870 1214 106 1213 203 1215 44 871 803 1225 758 }
+		target_trigger = {
 			FROM = {
-				OR = {
-					check_variable = { TUR_albanian_sunni_state_variable < 0 }
-					check_variable = { TUR_albanian_orthodox_state_variable < 0 }
-					check_variable = { TUR_albanian_catholic_state_variable < 0 }
-				}
-				OR = {
-					check_variable = { TUR_ottoman_resistance_target_albanian > 0 }
-					check_variable = { TUR_ottoman_resistance_growth_albanian > 0 }
-				}
+				has_dynamic_modifier = { modifier = TUR_albanian_minority }
+				check_variable = { TUR_ottoman_resistance_growth_albanian > 0 }
 			}
 		}
+		target_root_trigger = { has_completed_focus = TUR_centralize_albania }
+		visible = { controls_state = FROM }
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		on_map_mode = map_only
 		available = {
 			FROM = {
 				NOT = {
@@ -5893,21 +5704,10 @@ TUR_millet_system = {
 			}
 		}
 		days_remove = 30
-		complete_effect = { hidden_effect = { add_equipment_to_stockpile = { type = infantry_equipment amount = -300 } } }
+		complete_effect = { hidden_effect = { add_equipment_to_stockpile = { type = infantry_equipment amount = -1000 } } }
 		remove_effect = {
-			FROM = {
-				custom_effect_tooltip = TUR_improve_albanian_garrisons_tt
-				if = {
-					limit = { check_variable = { TUR_ottoman_resistance_target_albanian > 0 } }
-					custom_effect_tooltip = TUR_improve_albanian_garrisons_tt2
-					add_to_variable = { TUR_ottoman_resistance_target_albanian = -0.1 }
-				}
-				if = {
-					limit = { check_variable = { TUR_ottoman_resistance_growth_albanian > 0 } }
-					custom_effect_tooltip = TUR_improve_albanian_garrisons_tt3
-					add_to_variable = { TUR_ottoman_resistance_growth_albanian = -0.05 }
-				}
-			}
+			TUR_reduce_albanian_effect = yes
+			FROM_add_1_centralization = yes
 			ottoman_centralization_variable_check = yes
 		}
 		ai_will_do = { base = 100 }
@@ -5917,6 +5717,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		cost = 50
 		state_target = yes
+		targets = { 847 848 760 761 870 1214 106 1213 203 1215 44 871 803 1225 758 }
 		target_trigger = {
 			FROM = {
 				owner = {
@@ -5925,16 +5726,20 @@ TUR_millet_system = {
 				}
 			}
 		}
-		on_map_mode = map_only
-		visible = {
+		target_root_trigger = {
 			OR = {
 				has_completed_focus = TUR_centralize_albania
 				has_completed_focus = TUR_win_over_the_albanian_muslims
 			}
-			controls_state = FROM
 		}
+		visible = { controls_state = FROM }
+		on_map_mode = map_only
 		available = {
 			FROM = {
+				custom_trigger_tooltip = {
+					tooltip = TUR_root_out_albanian_resistance_tt
+					NOT = { check_variable = { TUR_ottoman_resistance_growth_albanian > 0 } }
+				}
 				is_fully_controlled_by = ROOT
 				if = {
 					limit = { ROOT = { has_completed_focus = TUR_centralize_albania } }
@@ -6021,10 +5826,7 @@ TUR_millet_system = {
 					clr_state_flag = TUR_semi_autonomous_vilayet
 				}
 			}
-			TUR_minority_system_kosova = yes
-			TUR_minority_system_iskodra = yes
-			TUR_minority_system_yanya = yes
-			TUR_minority_system_manastir = yes
+			TUR_new_system_trial = yes
 		}
 		ai_will_do = {
 			base = 0
@@ -6063,26 +5865,28 @@ TUR_millet_system = {
 			}
 		}
 	}
-	TUR_usurp_assyrian_properties = {
+	TUR_settle_the_assyrian_population = {
 		icon = GFX_decision_generic_fundraising
 		allowed = { original_tag = TUR }
 		state_target = yes
-		targets = { 828 879 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			OR = {
-				has_completed_focus = TUR_combat_armenian_separatists
-				has_completed_focus = TUR_exile_armenian_separatists
-			}
-			controls_state = FROM
+		targets = { 884 879 }
+		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_assyrian_minority }
 				check_variable = { TUR_ottoman_local_org_regain_assyrian < 0 }
 			}
 		}
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TUR_combat_armenian_separatists
+				has_completed_focus = TUR_exile_armenian_separatists
+			}
+		}
+		visible = { controls_state = FROM }
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		on_map_mode = map_only
 		cost = 15
-		days_remove = 30
+		days_remove = 14
 		available = {
 			FROM = {
 				NOT = {
@@ -6091,44 +5895,53 @@ TUR_millet_system = {
 				}
 			}
 		}
-		remove_effect = {
+		complete_effect = {
 			FROM = {
-				custom_effect_tooltip = TUR_usurp_assyrian_properties_tt
-				add_to_variable = { TUR_ottoman_local_org_regain_assyrian = 0.05 }
+				custom_effect_tooltip = TUR_modify_assyrian_minority
+				add_to_variable = {
+					tooltip = attrition_10
+					TUR_ottoman_attrition = 0.1
+				}
 			}
-			if = {
-				limit = { FROM = { state = 828 } }
-				custom_effect_tooltip = TUR_increase_van_centralization_1
-				add_to_variable = { global.TUR_van_centralization = 1 }
+		}
+		cancel_effect = {
+			FROM = {
+				custom_effect_tooltip = TUR_modify_assyrian_minority
+				custom_effect_tooltip = attrition_minus_10
+				clear_variable = TUR_ottoman_attrition
 			}
-			if = {
-				limit = { FROM = { state = 879 } }
-				custom_effect_tooltip = TUR_increase_mosul_centralization_1
-				add_to_variable = { global.TUR_erbil_centralization = 1 }
-			}
+		}
+		remove_effect = {
+			TUR_reduce_assyrian_effect = yes
+			FROM_add_1_centralization = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		ai_will_do = { base = 30 }
 	}
-	TUR_usurp_assyrian_properties_diyarbakir = {
-		name = TUR_usurp_assyrian_properties
+	TUR_settle_the_assyrian_population_diyarbakir = {
+		name = TUR_settle_the_assyrian_population
 		icon = GFX_decision_generic_fundraising
 		allowed = { original_tag = TUR }
 		state_target = yes
-		targets = { 350 1028 884 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			has_completed_focus = TUR_combat_armenian_separatists
-			controls_state = FROM
+		targets = { 350 828 1028 884 879 }
+		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_assyrian_minority }
 				check_variable = { TUR_ottoman_local_org_regain_assyrian < 0 }
 			}
 		}
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TUR_combat_armenian_separatists
+				has_completed_focus = TUR_exile_armenian_separatists
+			}
+		}
+		visible = { controls_state = FROM }
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		on_map_mode = map_only
 		cost = 15
-		days_remove = TUR_usurp_assyrian_properties_diyarbakir_time?30
+		days_remove = TUR_settle_the_assyrian_population_diyarbakir_time?14
 		available = {
 			FROM = {
 				NOT = {
@@ -6137,23 +5950,25 @@ TUR_millet_system = {
 				}
 			}
 		}
-		remove_effect = {
+		complete_effect = {
 			FROM = {
-				custom_effect_tooltip = TUR_usurp_assyrian_properties_tt
-				add_to_variable = { TUR_ottoman_local_org_regain_assyrian = 0.05 }
-			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 350
-							state = 1028
-						}
-					}
+				custom_effect_tooltip = TUR_modify_assyrian_minority
+				add_to_variable = {
+					tooltip = attrition_10
+					TUR_ottoman_attrition = 0.1
 				}
-				custom_effect_tooltip = TUR_increase_diyarbakir_centralization_1
-				add_to_variable = { global.TUR_diyarbakir_centralization = 1 }
 			}
+		}
+		cancel_effect = {
+			FROM = {
+				custom_effect_tooltip = TUR_modify_assyrian_minority
+				custom_effect_tooltip = attrition_minus_10
+				clear_variable = TUR_ottoman_attrition
+			}
+		}
+		remove_effect = {
+			TUR_reduce_assyrian_effect = yes
+			FROM_add_1_centralization = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -6164,19 +5979,21 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 828 879 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			OR = {
-				has_completed_focus = TUR_temporary_law_of_deportation
-				has_completed_focus = TUR_deportations_in_syria
-			}
-			controls_state = FROM
+		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_assyrian_minority }
 				check_variable = { TUR_assyrian_syriac_state_variable < 0 }
 			}
 		}
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TUR_temporary_law_of_deportation
+				has_completed_focus = TUR_deportations_in_syria
+			}
+		}
+		visible = { controls_state = FROM }
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		on_map_mode = map_only
 		custom_cost_text = decision_cost_CP_10_PP_10
 		custom_cost_trigger = {
 			has_political_power > 9.9
@@ -6232,17 +6049,19 @@ TUR_millet_system = {
 		targets = { 350 1028 884 }
 		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
-		visible = {
-			OR = {
-				has_completed_focus = TUR_temporary_law_of_deportation
-				has_completed_focus = TUR_deportations_in_syria
-			}
-			controls_state = FROM
+		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_assyrian_minority }
 				check_variable = { TUR_assyrian_syriac_state_variable < 0 }
 			}
 		}
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TUR_temporary_law_of_deportation
+				has_completed_focus = TUR_deportations_in_syria
+			}
+		}
+		visible = { controls_state = FROM }
 		custom_cost_text = decision_cost_CP_10_PP_10
 		custom_cost_trigger = {
 			has_political_power > 9.9

@@ -15017,6 +15017,11 @@ FROM_add_1_centralization = {
 		add_to_variable = { global.TUR_cyprus_centralization = 1 }
 	}
 	if = {
+		limit = { FROM = { has_state_flag = TUR_bosnia } }
+		custom_effect_tooltip = TUR_increase_bosnia_centralization_1
+		add_to_variable = { global.TUR_bosnia_centralization = 1 }
+	}
+	if = {
 		limit = { FROM = { has_state_flag = TUR_biga } }
 		custom_effect_tooltip = TUR_increase_biga_centralization_1
 		add_to_variable = { global.TUR_biga_centralization = 1 }
@@ -15045,6 +15050,11 @@ FROM_add_1_centralization = {
 		limit = { FROM = { has_state_flag = TUR_ankara } }
 		custom_effect_tooltip = TUR_increase_ankara_centralization_1
 		add_to_variable = { global.TUR_ankara_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_konya } }
+		custom_effect_tooltip = TUR_increase_konya_centralization_1
+		add_to_variable = { global.TUR_konya_centralization = 1 }
 	}
 	if = {
 		limit = { FROM = { has_state_flag = TUR_aleppo } }
@@ -15095,6 +15105,71 @@ FROM_add_1_centralization = {
 		limit = { FROM = { has_state_flag = TUR_beirut } }
 		custom_effect_tooltip = TUR_increase_beirut_centralization_1
 		add_to_variable = { global.TUR_beirut_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_baghdad } }
+		custom_effect_tooltip = TUR_increase_baghdad_centralization_1
+		add_to_variable = { global.TUR_baghdad_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_basra } }
+		custom_effect_tooltip = TUR_increase_basra_centralization_1
+		add_to_variable = { global.TUR_basra_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_damascus } }
+		custom_effect_tooltip = TUR_increase_damascus_centralization_1
+		add_to_variable = { global.TUR_damascus_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_deir_ez_zor } }
+		custom_effect_tooltip = TUR_increase_deir_ez_zor_centralization_1
+		add_to_variable = { global.TUR_deir_ez_zor_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_jerusalem } }
+		custom_effect_tooltip = TUR_increase_jerusalem_centralization_1
+		add_to_variable = { global.TUR_jerusalem_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_hejaz } }
+		custom_effect_tooltip = TUR_increase_hejaz_centralization_1
+		add_to_variable = { global.TUR_hejaz_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_yemen } }
+		custom_effect_tooltip = TUR_increase_yemen_centralization_1
+		add_to_variable = { global.TUR_yemen_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_suez } }
+		custom_effect_tooltip = TUR_increase_suez_centralization_1
+		add_to_variable = { global.TUR_suez_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_alexandria } }
+		custom_effect_tooltip = TUR_increase_alexandria_centralization_1
+		add_to_variable = { global.TUR_alexandria_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_cairo } }
+		custom_effect_tooltip = TUR_increase_cairo_centralization_1
+		add_to_variable = { global.TUR_cairo_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_aswan } }
+		custom_effect_tooltip = TUR_increase_aswan_centralization_1
+		add_to_variable = { global.TUR_aswan_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_khartoum } }
+		custom_effect_tooltip = TUR_increase_khartoum_centralization_1
+		add_to_variable = { global.TUR_khartoum_centralization = 1 }
+	}
+	if = {
+		limit = { FROM = { has_state_flag = TUR_trablusgarp } }
+		custom_effect_tooltip = TUR_increase_trablusgarp_centralization_1
+		add_to_variable = { global.TUR_trablusgarp_centralization = 1 }
 	}
 }
 
@@ -15443,6 +15518,56 @@ TUR_reduce_serbian_effect = {
 		custom_effect_tooltip = empty_space
 	}
 }
+
+TUR_reduce_albanian_effect = {
+	FROM = {
+		custom_effect_tooltip = TUR_modify_albanian_minority
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						NOT = { has_variable = TUR_albanian_total_state_variable }
+						OR = {
+							check_variable = { TUR_albanian_sunni_state_variable < -0.3 }
+							check_variable = { TUR_albanian_catholic_state_variable < -0.3 }
+							check_variable = { TUR_albanian_orthodox_state_variable < -0.3 }
+						}
+					}
+					AND = {
+						has_variable = TUR_albanian_total_state_variable
+						set_variable = { TUR_albanian_total_state_variable < -0.3 }
+					}
+				}
+				check_variable = { TUR_ottoman_resistance_growth_albanian > 0.05 }
+			}
+			if = {
+				limit = { check_variable = { TUR_albanian_remove_variable = 5 } }
+				custom_effect_tooltip = TUR_minority_resistance_growth5
+				add_to_variable = { TUR_ottoman_resistance_growth_albanian = -0.25 }
+			}
+			else_if = {
+				limit = { check_variable = { TUR_albanian_remove_variable = 3 } }
+				custom_effect_tooltip = TUR_minority_resistance_growth3
+				add_to_variable = { TUR_ottoman_resistance_growth_albanian = -0.15 }
+			}
+			else = {
+				custom_effect_tooltip = TUR_minority_resistance_growth1
+				add_to_variable = { TUR_ottoman_resistance_growth_albanian = -0.05 }
+			}
+		}
+		else = {
+			hidden_effect = {
+				set_temp_variable = { ROOT.TUR_minority_resistance_growth_albanian = FROM.TUR_ottoman_resistance_growth_albanian }
+				multiply_temp_variable = { ROOT.TUR_minority_resistance_growth_albanian = -1 }
+			}
+			custom_effect_tooltip = TUR_minority_resistance_growth_albanian
+			set_variable = { TUR_ottoman_resistance_growth_albanian = 0 }
+		}
+		clamp_variable = { var = TUR_ottoman_resistance_growth_albanian max = 0 }
+		custom_effect_tooltip = empty_space
+	}
+}
+
 TUR_reduce_bulgarian_effect = {
 	FROM = {
 		custom_effect_tooltip = TUR_modify_bulgarian_minority
@@ -16030,6 +16155,31 @@ TUR_remove_armenians_effect = {
 	custom_effect_tooltip = TUR_deport_armenians_tt
 }
 
+TUR_reduce_assyrian_effect = {
+	FROM = {
+		custom_effect_tooltip = TUR_modify_armenian_minority
+		custom_effect_tooltip = attrition_minus_10
+		clear_variable = TUR_ottoman_attrition
+		if = {
+			limit = {
+				check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+				check_variable = { TUR_ottoman_local_org_regain_assyrian < -0.025 }
+			}
+			custom_effect_tooltip = TUR_minority_local_org_regain1
+			add_to_variable = { TUR_ottoman_local_org_regain_assyrian = -0.025 }
+		}
+		else = {
+			hidden_effect = {
+				set_temp_variable = { ROOT.TUR_minority_local_org_regain_assyrian = FROM.TUR_ottoman_local_org_regain_assyrian }
+				multiply_temp_variable = { ROOT.TUR_minority_local_org_regain_assyrian = -1 }
+			}
+			custom_effect_tooltip = TUR_minority_local_org_regain_assyrian
+			set_variable = { TUR_ottoman_army_defence_factor_armenian = 0 }
+		}
+		clamp_variable = { var = TUR_ottoman_army_defence_factor_armenian max = 0 }
+		custom_effect_tooltip = empty_space
+	}
+}
 TUR_remove_assyrians_effect = {
 	FROM = {
 		remove_dynamic_modifier = { modifier = TUR_assyrian_minority }
