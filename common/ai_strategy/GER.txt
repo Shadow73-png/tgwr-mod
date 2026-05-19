@@ -523,11 +523,6 @@ GER_go_schliefen = {
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
-		type = strategic_air_importance
-		id = 5
-		value = 1000
-	}
-	ai_strategy = {
 		type = front_control
 		tag = BEL
 		priority = 1000
@@ -535,6 +530,12 @@ GER_go_schliefen = {
 		execution_type = rush
 		execute_order = yes
 		manual_attack = yes
+	}
+	ai_strategy = {
+		type = force_concentration_target_weight
+		state = 34
+		state = 907
+		value = 100
 	}
 }
 
@@ -559,6 +560,13 @@ GER_schliefen_is_kinda_working = {
 		execution_type = rush
 		execute_order = yes
 		manual_attack = yes
+	}
+	ai_strategy = {
+		type = force_concentration_target_weight
+		state = 29
+		state = 785
+		state = 16
+		value = 100
 	}
 }
 
@@ -718,6 +726,16 @@ GER_beat_RUS = {
 			original_tag = RUS
 		}
 		value = 5
+	}
+	ai_strategy = {
+		type = force_concentration_target_weight
+		state = 10
+		state = 1266
+		state = 1264
+		state = 87
+		state = 1204
+		state = 98
+		value = 100
 	}
 }
 
