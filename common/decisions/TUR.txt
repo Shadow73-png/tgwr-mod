@@ -1703,6 +1703,7 @@ TUR_millet_system = {
 		visible = {
 			TUR_owns_bosnia_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
+			any_state = { has_state_flag = TUR_bosnia }
 		}
 		highlight_states = {
 			highlight_states_trigger = {
@@ -2683,23 +2684,22 @@ TUR_millet_system = {
 		}
 		complete_effect = {
 			FROM = {
-				custom_effect_tooltip = TUR_clash_against_armenian_gangs_tt
-				add_to_variable = { TUR_ottoman_attrition = 0.1 }
+				custom_effect_tooltip = TUR_modify_armenian_minority
+				add_to_variable = {
+					tooltip = attrition_10
+					TUR_ottoman_attrition = 0.1
+				}
 			}
 		}
 		cancel_effect = {
 			FROM = {
-				custom_effect_tooltip = TUR_clash_against_armenian_gangs_tt3
-				add_to_variable = { TUR_ottoman_attrition = 0.1 }
+				custom_effect_tooltip = TUR_modify_armenian_minority
+				custom_effect_tooltip = attrition_minus_10
+				clear_variable = TUR_ottoman_attrition
 			}
 		}
 		remove_effect = {
-			FROM = {
-				custom_effect_tooltip = TUR_clash_against_armenian_gangs_tt2
-				add_to_variable = { TUR_ottoman_attrition_armenian = -0.1 }
-				add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
-				add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
-			}
+			TUR_reduce_armenians_effect = yes
 			FROM_add_1_centralization = yes
 			ottoman_centralization_variable_check = yes
 		}
@@ -6311,13 +6311,16 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		fire_only_once = yes
 		state_target = yes
-		targets = { 1146 446 452 456 551 }
+		targets = { 1146 446 456 551 }
+		target_trigger = { FROM = { has_dynamic_modifier = { modifier = TUR_vilayet_centralization } } }
 		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		visible = {
 			has_completed_focus = TUR_ottoman_provinces_in_egypt
 			controls_state = FROM
 		}
+		target_root_trigger = { has_completed_focus = TUR_ottoman_provinces_in_egypt }
+		visible = { controls_state = FROM }
 		available = {
 			FROM = {
 				NOT = {
@@ -6329,35 +6332,50 @@ TUR_millet_system = {
 		cost = 30
 		complete_effect = {
 			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 1146
-							state = 452
-						}
+				limit = { FROM = { has_state_flag = TUR_alexandria } }
+				every_controlled_state = {
+					limit = {
+						has_state_flag = TUR_alexandria
+						has_resistance = yes
 					}
+					add_compliance = -20
 				}
-				1146 = { add_compliance = -20 }
-				452 = { add_compliance = -20 }
 				custom_effect_tooltip = TUR_increase_alexandria_centralization_15
 				add_to_variable = { global.TUR_alexandria_centralization = 15 }
 			}
 			if = {
-				limit = { FROM = { state = 446 } }
-				446 = { add_compliance = -20 }
+				limit = { FROM = { has_state_flag = TUR_cairo } }
+				every_controlled_state = {
+					limit = {
+						has_state_flag = TUR_cairo
+						has_resistance = yes
+					}
+					add_compliance = -20
+				}
 				custom_effect_tooltip = TUR_increase_cairo_centralization_15
 				add_to_variable = { global.TUR_cairo_centralization = 15 }
 			}
 			if = {
-				limit = { FROM = { state = 456 } }
-				456 = { add_compliance = -20 }
-				457 = { add_compliance = -20 }
+				limit = { FROM = { has_state_flag = TUR_aswan } }
+				every_controlled_state = {
+					limit = {
+						has_state_flag = TUR_aswan
+						has_resistance = yes
+					}
+					add_compliance = -20
+				}
 				custom_effect_tooltip = TUR_increase_aswan_centralization_15
 				add_to_variable = { global.TUR_aswan_centralization = 15 }
 			}
 			if = {
-				limit = { FROM = { state = 551 } }
-				551 = { add_compliance = -20 }
+				limit = { FROM = { has_state_flag = TUR_khartoum } }
+				every_controlled_state = {
+					limit = {
+						has_state_flag = TUR_khartoum
+						has_resistance = yes
+					}
+					add_compliance = -20
+				}
 				custom_effect_tooltip = TUR_increase_khartoum_centralization_15
 				add_to_variable = { global.TUR_khartoum_centralization = 15 }
 			}
@@ -6387,72 +6405,27 @@ TUR_millet_system = {
 				state = FROM
 			}
 		}
-		days_remove = 70
+		days_remove = 35
 		complete_effect = {
 			hidden_effect = { add_command_power = -10 }
 			FROM = {
-				custom_effect_tooltip = TUR_combat_separatism_in_egypt_tt1
-				add_to_variable = { TUR_ottoman_attrition_arab = 0.8 }
+				custom_effect_tooltip = TUR_modify_arab_minority
+				add_to_variable = {
+					tooltip = attrition_80
+					TUR_ottoman_attrition = 0.8
+				}
+			}
+		}
+		cancel_effect = {
+			FROM = {
+				custom_effect_tooltip = TUR_modify_arab_minority
+				custom_effect_tooltip = attrition_minus_80
+				clear_variable = TUR_ottoman_attrition
 			}
 		}
 		remove_effect = {
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 1146
-							state = 452
-						}
-					}
-				}
-				1146 = {
-					custom_effect_tooltip = TUR_combat_separatism_in_egypt_tt2
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.05 }
-					add_to_variable = { TUR_ottoman_attrition_arab = -0.8 }
-				}
-				452 = {
-					custom_effect_tooltip = TUR_combat_separatism_in_egypt_tt2
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.05 }
-					add_to_variable = { TUR_ottoman_attrition_arab = -0.8 }
-				}
-				custom_effect_tooltip = TUR_increase_alexandria_centralization_5
-				add_to_variable = { global.TUR_alexandria_centralization = 5 }
-			}
-			if = {
-				limit = { FROM = { state = 446 } }
-				446 = {
-					custom_effect_tooltip = TUR_combat_separatism_in_egypt_tt2
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.05 }
-					add_to_variable = { TUR_ottoman_attrition_arab = -0.8 }
-				}
-				custom_effect_tooltip = TUR_increase_cairo_centralization_5
-				add_to_variable = { global.TUR_cairo_centralization = 5 }
-			}
-			if = {
-				limit = { FROM = { state = 456 } }
-				456 = {
-					custom_effect_tooltip = TUR_combat_separatism_in_egypt_tt2
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.05 }
-					add_to_variable = { TUR_ottoman_attrition_arab = -0.8 }
-				}
-				457 = {
-					custom_effect_tooltip = TUR_combat_separatism_in_egypt_tt2
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.05 }
-					add_to_variable = { TUR_ottoman_attrition_arab = -0.8 }
-				}
-				custom_effect_tooltip = TUR_increase_aswan_centralization_5
-				add_to_variable = { global.TUR_aswan_centralization = 5 }
-			}
-			if = {
-				limit = { FROM = { state = 551 } }
-				551 = {
-					custom_effect_tooltip = TUR_combat_separatism_in_egypt_tt2
-					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.05 }
-					add_to_variable = { TUR_ottoman_attrition_arab = -0.8 }
-				}
-				custom_effect_tooltip = TUR_increase_khartoum_centralization_5
-				add_to_variable = { global.TUR_khartoum_centralization = 5 }
-			}
+			TUR_reduce_arab_effect_egypt = yes
+			FROM_add_1_centralization = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = {
@@ -6597,18 +6570,9 @@ TUR_millet_system = {
 		on_map_mode = map_only
 		visible = {
 			controls_state = FROM
-			FROM = { check_variable = { TUR_arab_population_stability_factor < 0 } }
+			FROM = { check_variable = { TUR_armenian_population_stability_factor < 0 } }
 			if = {
-				limit = {
-					FROM = {
-						OR = {
-							state = 859
-							state = 1058
-							state = 1024
-							state = 1057
-						}
-					}
-				}
+				limit = { FROM = { has_state_flag = TUR_aleppo } }
 				check_variable = { TUR_aleppo_centralization = 1 }
 				has_completed_focus = TUR_the_ideal_province
 			}

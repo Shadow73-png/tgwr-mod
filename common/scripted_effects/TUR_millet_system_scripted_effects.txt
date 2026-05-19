@@ -3309,6 +3309,7 @@ TUR_minority_system_iskodra = {
 			#CALCULATE TOTAL VALUE
 			if = {
 				limit = { has_completed_focus = TUR_autonomy_in_non_muslim_vilayets }
+				set_variable = { ROOT.TUR_albanian_minority_value_iskodra = ROOT.TUR_albanian_sunni_minority_value_iskodra }
 				set_variable = { ROOT.TUR_minority_value_iskodra = 0 }
 				set_variable = { ROOT.TUR_political_power_value_iskodra = 0 }
 				add_to_variable = { ROOT.TUR_political_power_value_iskodra = ROOT.TUR_albanian_catholic_minority_value_iskodra }
@@ -4985,6 +4986,173 @@ TUR_minority_system_crete = {
 		}
 		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_crete }
 		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_crete }
+		TUR_reintroduce_jizya_effect = yes
+		force_update_dynamic_modifier = yes
+	}
+}
+TUR_minority_system_bosnia = {
+	hidden_effect = {
+		if = { #bosnia
+			limit = {
+				any_of_scopes = {
+					TUR_is_controlled_by_us_or_committee_government = yes
+					array = global.TUR_bosnia
+					TUR_state_has_minority_modifier = yes
+				}
+			}
+			if = { #bosnia ORTHODOX SERBS
+				limit = {
+					any_of_scopes = {
+						TUR_is_controlled_by_us_or_committee_government = yes
+						array = global.TUR_bosnia
+						has_dynamic_modifier = { modifier = TUR_serbian_minority }
+						check_variable = { TUR_serbian_orthodox_state_variable < 0 }
+					}
+				}
+				set_variable = { ROOT.TUR_serbian_orthodox_minority_value_bosnia = 0 }
+				for_each_scope_loop = {
+					array = global.TUR_bosnia
+					if = {
+						limit = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							has_dynamic_modifier = { modifier = TUR_serbian_minority }
+							check_variable = { TUR_serbian_orthodox_state_variable < 0 }
+						}
+						add_to_variable = { ROOT.TUR_serbian_orthodox_minority_value_bosnia = TUR_serbian_orthodox_state_variable }
+						if = {
+							limit = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+							multiply_variable = { ROOT.TUR_serbian_orthodox_minority_value_bosnia = 0 }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+							divide_variable = { ROOT.TUR_serbian_orthodox_minority_value_bosnia = 2 }
+						}
+					}
+				}
+				multiply_variable = { ROOT.TUR_serbian_orthodox_minority_value_bosnia = TUR_serbian_population_factor_new }
+				multiply_variable = { ROOT.TUR_serbian_orthodox_minority_value_bosnia = TUR_orthodox_population_factor_new }
+				divide_variable = { ROOT.TUR_serbian_orthodox_minority_value_bosnia = 100 }
+			}
+			else = { clear_variable = ROOT.TUR_serbian_orthodox_minority_value_bosnia }
+			if = { #bosnia SUNNI SERBS
+				limit = {
+					any_of_scopes = {
+						TUR_is_controlled_by_us_or_committee_government = yes
+						array = global.TUR_bosnia
+						check_variable = { TUR_serbian_sunni_state_variable < 0 }
+					}
+				}
+				set_variable = { ROOT.TUR_serbian_sunni_minority_value_bosnia = 0 }
+				for_each_scope_loop = {
+					array = global.TUR_bosnia
+					if = {
+						limit = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_serbian_sunni_state_variable < 0 }
+						}
+						add_to_variable = { ROOT.TUR_serbian_sunni_minority_value_bosnia = TUR_serbian_sunni_state_variable }
+						if = {
+							limit = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+							multiply_variable = { ROOT.TUR_serbian_sunni_minority_value_bosnia = 0 }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+							divide_variable = { ROOT.TUR_serbian_sunni_minority_value_bosnia = 2 }
+						}
+					}
+				}
+				set_variable = { ROOT.TUR_serbian_sunni_minority_value_bosnia_new = ROOT.TUR_serbian_sunni_minority_value_bosnia }
+				multiply_variable = { ROOT.TUR_serbian_sunni_minority_value_bosnia = TUR_serbian_population_factor_new }
+				multiply_variable = { ROOT.TUR_serbian_sunni_minority_value_bosnia = TUR_sunni_population_factor_new }
+				divide_variable = { ROOT.TUR_serbian_sunni_minority_value_bosnia = 100 }
+			}
+			else = { clear_variable = ROOT.TUR_serbian_sunni_minority_value_bosnia }
+			if = { #bosnia catholic SERBS
+				limit = {
+					any_of_scopes = {
+						TUR_is_controlled_by_us_or_committee_government = yes
+						array = global.TUR_bosnia
+						check_variable = { TUR_serbian_catholic_state_variable < 0 }
+					}
+				}
+				set_variable = { ROOT.TUR_serbian_catholic_minority_value_bosnia = 0 }
+				for_each_scope_loop = {
+					array = global.TUR_bosnia
+					if = {
+						limit = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_serbian_catholic_state_variable < 0 }
+						}
+						add_to_variable = { ROOT.TUR_serbian_catholic_minority_value_bosnia = TUR_serbian_catholic_state_variable }
+						if = {
+							limit = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+							multiply_variable = { ROOT.TUR_serbian_catholic_minority_value_bosnia = 0 }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+							divide_variable = { ROOT.TUR_serbian_catholic_minority_value_bosnia = 2 }
+						}
+					}
+				}
+				set_variable = { ROOT.TUR_serbian_catholic_minority_value_bosnia_new = ROOT.TUR_serbian_catholic_minority_value_bosnia }
+				multiply_variable = { ROOT.TUR_serbian_catholic_minority_value_bosnia = TUR_serbian_population_factor_new }
+				multiply_variable = { ROOT.TUR_serbian_catholic_minority_value_bosnia = TUR_catholic_population_factor_new }
+				divide_variable = { ROOT.TUR_serbian_catholic_minority_value_bosnia = 100 }
+			}
+			else = { clear_variable = ROOT.TUR_serbian_catholic_minority_value_bosnia }
+			#CALCULATE TOTAL VALUE
+			set_variable = { ROOT.TUR_minority_value_bosnia = 0 }
+			if = {
+				limit = { has_completed_focus = TUR_autonomy_in_non_muslim_vilayets }
+				set_variable = { ROOT.TUR_serbian_minority_value_bosnia = ROOT.TUR_serbian_sunni_minority_value_bosnia }
+				set_variable = { ROOT.TUR_political_power_value_bosnia = 0 }
+				add_to_variable = { ROOT.TUR_political_power_value_bosnia = ROOT.TUR_serbian_orthodox_minority_value_bosnia }
+				add_to_variable = { ROOT.TUR_political_power_value_bosnia = ROOT.TUR_serbian_catholic_minority_value_bosnia }
+				#
+				add_to_variable = { ROOT.TUR_minority_value_bosnia = ROOT.TUR_serbian_sunni_minority_value_bosnia }
+				#
+				set_variable = { global.TUR_bosnia_max_centralization = 100 }
+				set_temp_variable = { TUR_christian_centralization_value_bosnia = ROOT.TUR_political_power_value_bosnia }
+				multiply_temp_variable = { TUR_christian_centralization_value_bosnia = 1000 }
+				add_to_variable = { global.TUR_bosnia_max_centralization = TUR_christian_centralization_value_bosnia }
+			}
+			else = {
+				set_variable = { ROOT.TUR_serbian_minority_value_bosnia = ROOT.TUR_serbian_orthodox_minority_value_bosnia }
+				add_to_variable = { ROOT.TUR_serbian_minority_value_bosnia = ROOT.TUR_serbian_sunni_minority_value_bosnia }
+				add_to_variable = { ROOT.TUR_serbian_minority_value_bosnia = ROOT.TUR_serbian_catholic_minority_value_bosnia }
+				if = {
+					limit = { has_completed_focus = TUR_adem_i_merkeziyetcilik }
+					set_variable = { ROOT.TUR_political_power_value_bosnia = -0.005 }
+					divide_variable = { ROOT.TUR_serbian_orthodox_minority_value_bosnia = 2 }
+					divide_variable = { ROOT.TUR_serbian_sunni_minority_value_bosnia = 2 }
+					divide_variable = { ROOT.TUR_serbian_catholic_minority_value_bosnia = 2 }
+				}
+				add_to_variable = { ROOT.TUR_minority_value_bosnia = ROOT.TUR_serbian_orthodox_minority_value_bosnia }
+				add_to_variable = { ROOT.TUR_minority_value_bosnia = ROOT.TUR_serbian_sunni_minority_value_bosnia }
+				add_to_variable = { ROOT.TUR_minority_value_bosnia = ROOT.TUR_serbian_catholic_minority_value_bosnia }
+			}
+		}
+		else = {
+			set_variable = { ROOT.TUR_minority_value_bosnia = 0 }
+			set_variable = { ROOT.TUR_political_power_value_bosnia = 0 }
+		}
+		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_bosnia }
+		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_bosnia }
 		TUR_reintroduce_jizya_effect = yes
 		force_update_dynamic_modifier = yes
 	}
@@ -9399,6 +9567,7 @@ TUR_new_system_trial = {
 		TUR_minority_system_archipelago = yes
 		TUR_minority_system_cyprus = yes
 		TUR_minority_system_crete = yes
+		TUR_minority_system_bosnia = yes
 		TUR_minority_system_biga = yes
 		TUR_minority_system_hudavendigar = yes
 		TUR_minority_system_aydin = yes
