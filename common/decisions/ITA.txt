@@ -12590,13 +12590,19 @@ ITA_army_reforms = {
 			has_war_with = AUS
 		}
 		available = {
-			1197 = {
-				is_owned_and_controlled_by = AUS
+			OR = {
+				1197 = {
+					is_owned_and_controlled_by = AUS
+				}
+				1260 = {
+					is_owned_and_controlled_by = AUS
+				}
 			}
 		}
 		highlight_states = {
 			highlight_state_targets = {
 				state = 1197
+				state = 1260
 			}
 		}
 		cancel_trigger = {
@@ -12620,6 +12626,13 @@ ITA_army_reforms = {
 		}
 		remove_effect = {
 			1197 = {
+				add_dynamic_modifier = {
+					modifier = ITA_offensive
+					days = 120
+					scope = ROOT
+				}
+			}
+			1260 = {
 				add_dynamic_modifier = {
 					modifier = ITA_offensive
 					days = 120
