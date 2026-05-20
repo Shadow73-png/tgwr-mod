@@ -339,12 +339,17 @@ HOL_dc_ek = {
     	}
 		fire_only_once = yes
     	available = {
-    	    NOT = {
-				OR = {
-					has_idea = HOL_labor_action
-					has_idea = HOL_labor_action2
-					has_idea = HOL_labor_action3
+			hidden_trigger = {
+				NOT = {
+					OR = {
+						has_idea = HOL_labor_action
+						has_idea = HOL_labor_action2
+						has_idea = HOL_labor_action3
+					}
 				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = HOL_no_labor_idea_tt
 			}
     	}
     	cancel_trigger = {
