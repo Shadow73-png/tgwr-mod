@@ -6565,34 +6565,84 @@ TUR_millet_system = {
 		icon = GFX_TUR_armenian_brainwash
 		allowed = { original_tag = TUR }
 		state_target = yes
-		target_trigger = { FROM = { has_dynamic_modifier = { modifier = TUR_armenian_minority } } }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			controls_state = FROM
-			FROM = { check_variable = { TUR_armenian_population_stability_factor < 0 } }
-			if = {
-				limit = { FROM = { has_state_flag = TUR_aleppo } }
-				check_variable = { TUR_aleppo_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			else = { always = no }
-		}
-		cost = 10
-		days_remove = 15
-		remove_effect = {
+		targets = { 341 344 347 348 349 350 352 353 354 355 806 816 825 857 859 881 1019 1022 1024 1025 1026 1030 1033 1057 1058 }
+		target_trigger = {
 			FROM = {
-				if = {
-					limit = { has_country_flag = TUR_ottoman_syria }
-					custom_effect_tooltip = TUR_integrate_armenian_citizens_tt_2
-				}
-				else = { custom_effect_tooltip = TUR_integrate_armenian_citizens_tt }
-				if = {
-					limit = { has_variable = TUR_integrate_armenian_citizens }
-					add_to_variable = { TUR_integrate_armenian_citizens = 0.001 }
-				}
-				else = { set_variable = { TUR_integrate_armenian_citizens = 0.001 } }
+				has_dynamic_modifier = { modifier = TUR_armenian_minority }
+				check_variable = { TUR_armenian_population_stability_factor < 0 }
 			}
+		}
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		target_root_trigger = {
+			OR = {
+				AND = {
+					FROM = { has_state_flag = TUR_aleppo }
+					check_variable = { TUR_aleppo_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+			}
+		}
+		visible = { controls_state = FROM }
+		on_map_mode = map_only
+		cost = 30
+		days_remove = 30
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						FROM = {
+							check_variable = {
+								var = TUR_armenian_apostolic_state_variable
+								value = -0.3
+								compare = greater_than_or_equals
+							}
+						}
+					}
+					FROM = {
+						set_temp_variable = { TUR_integrate_armenian_citizens = FROM.TUR_armenian_apostolic_state_variable }
+						if = {
+							limit = {
+								FROM = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_armenian_citizens = 0 }
+						}
+						if = {
+							limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_armenian_citizens = 2 }
+						}
+						multiply_temp_variable = { TUR_integrate_armenian_citizens = TUR_armenian_population_factor_new }
+						multiply_temp_variable = { TUR_integrate_armenian_citizens = TUR_apostolic_population_factor_new }
+						divide_temp_variable = { TUR_integrate_armenian_citizens = -100 }
+						clear_variable = TUR_armenian_apostolic_state_variable
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							FROM = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_integrate_armenian_citizens = 0 }
+					}
+					if = {
+						limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_integrate_armenian_citizens = 2 }
+					}
+					multiply_temp_variable = { TUR_integrate_armenian_citizens = TUR_armenian_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_armenian_citizens = TUR_apostolic_population_factor_new }
+					divide_temp_variable = { TUR_integrate_armenian_citizens = 100 }
+				}
+			}
+			custom_effect_tooltip = TUR_integrate_armenian_citizens_tt
 			TUR_new_system_trial = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -6602,108 +6652,322 @@ TUR_millet_system = {
 		icon = GFX_TUR_arab_brainwash
 		allowed = { original_tag = TUR }
 		state_target = yes
-		target_trigger = { FROM = { has_dynamic_modifier = { modifier = TUR_arab_minority } } }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			controls_state = FROM
-			FROM = { check_variable = { TUR_arab_population_stability_factor < 0 } }
-			if = {
-				limit = { FROM = { has_state_flag = TUR_aleppo } }
-				check_variable = { TUR_aleppo_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
+		targets = { 341 344 347 348 349 350 352 353 354 355 806 816 825 857 859 881 1019 1022 1024 1025 1026 1030 1033 1057 1058 }
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = { modifier = TUR_arab_minority }
+				check_variable = { TUR_arab_population_stability_factor < 0 }
 			}
-			if = {
-				limit = { FROM = { has_state_flag = TUR_deir_ez_zor } }
-				check_variable = { TUR_deir_ez_zor_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			if = {
-				limit = { FROM = { has_state_flag = TUR_damascus } }
-				check_variable = { TUR_damascus_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			if = {
-				limit = { FROM = { has_state_flag = TUR_beirut } }
-				check_variable = { TUR_beirut_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			if = {
-				limit = { FROM = { has_state_flag = TUR_jerusalem } }
-				check_variable = { TUR_jerusalem_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			if = {
-				limit = { FROM = { has_state_flag = TUR_suez } }
-				check_variable = { TUR_suez_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			if = {
-				limit = { FROM = { has_state_flag = TUR_alexandria } }
-				check_variable = { TUR_alexandria_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			if = {
-				limit = { FROM = { has_state_flag = TUR_cairo } }
-				check_variable = { TUR_cairo_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			if = {
-				limit = { FROM = { has_state_flag = TUR_aswan } }
-				check_variable = { TUR_aswan_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			if = {
-				limit = { FROM = { has_state_flag = TUR_khartoum } }
-				check_variable = { TUR_jerusalem_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			else = { always = no }
 		}
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		target_root_trigger = {
+			OR = {
+				AND = {
+					FROM = { has_state_flag = TUR_aleppo }
+					check_variable = { TUR_aleppo_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_deir_ez_zor }
+					check_variable = { TUR_deir_ez_zor_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_damascus }
+					check_variable = { TUR_damascus_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_beirut }
+					check_variable = { TUR_beirut_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_jerusalem }
+					check_variable = { TUR_jerusalem_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_suez }
+					check_variable = { TUR_suez_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_alexandria }
+					check_variable = { TUR_alexandria_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_cairo }
+					check_variable = { TUR_cairo_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_aswan }
+					check_variable = { TUR_aswan_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_suez }
+					check_variable = { TUR_suez_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_khartoum }
+					check_variable = { TUR_khartoum_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+			}
+		}
+		visible = { controls_state = FROM }
+		on_map_mode = map_only}
 		available = {
-			if = {
-				limit = { FROM = { state = 447 } }
-				has_completed_focus = TUR_ottoman_provinces_in_egypt
-			}
-			if = {
-				limit = { FROM = { state = 446 } }
-				has_completed_focus = TUR_ottoman_provinces_in_egypt
-			}
-			if = {
-				limit = { FROM = { state = 452 } }
-				has_completed_focus = TUR_ottoman_provinces_in_egypt
-			}
 			if = {
 				limit = {
 					FROM = {
 						OR = {
+							state = 447
+							state = 446
+							state = 452
 							state = 456
 							state = 457
+							state = 551
 						}
 					}
 				}
 				has_completed_focus = TUR_ottoman_provinces_in_egypt
 			}
-			if = {
-				limit = { FROM = { state = 551 } }
-				has_completed_focus = TUR_ottoman_provinces_in_egypt
-			}
 		}
-		cost = 10
-		days_remove = 15
+		cost = 30
+		days_remove = 30
 		remove_effect = {
-			FROM = {
+			hidden_effect = {
 				if = {
-					limit = { has_country_flag = TUR_ottoman_syria }
-					custom_effect_tooltip = TUR_integrate_arab_citizens_tt_2
+					limit = { check_variable = { TUR_arab_catholic_state_variable < 0 } }
+					if = {
+						limit = {
+							FROM = {
+								check_variable = {
+									var = TUR_arab_catholic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+							}
+						}
+						FROM = {
+							set_temp_variable = { TUR_integrate_arab_citizens = FROM.TUR_arab_catholic_state_variable }
+							if = {
+								limit = {
+									FROM = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_integrate_arab_citizens = 0 }
+							}
+							if = {
+								limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_integrate_arab_citizens = 2 }
+							}
+							multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_arab_population_factor_new }
+							multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_catholic_population_factor_new }
+							divide_temp_variable = { TUR_integrate_arab_citizens = -100 }
+							clear_variable = TUR_arab_catholic_state_variable
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								FROM = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_arab_citizens = 0 }
+						}
+						if = {
+							limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_arab_citizens = 2 }
+						}
+						multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_catholic_population_factor_new }
+						divide_temp_variable = { TUR_integrate_arab_citizens = 100 }
+					}
 				}
-				else = { custom_effect_tooltip = TUR_integrate_arab_citizens_tt }
-				if = {
-					limit = { has_variable = TUR_integrate_arab_citizens }
-					add_to_variable = { TUR_integrate_arab_citizens = 0.001 }
+				else_if = {
+					limit = { check_variable = { TUR_arab_orthodox_state_variable < 0 } }
+					if = {
+						limit = {
+							FROM = {
+								check_variable = {
+									var = TUR_arab_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+							}
+						}
+						FROM = {
+							set_temp_variable = { TUR_integrate_arab_citizens = FROM.TUR_arab_orthodox_state_variable }
+							if = {
+								limit = {
+									FROM = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_integrate_arab_citizens = 0 }
+							}
+							if = {
+								limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_integrate_arab_citizens = 2 }
+							}
+							multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_arab_population_factor_new }
+							multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_orthodox_population_factor_new }
+							divide_temp_variable = { TUR_integrate_arab_citizens = -100 }
+							clear_variable = TUR_arab_orthodox_state_variable
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								FROM = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_arab_citizens = 0 }
+						}
+						if = {
+							limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_arab_citizens = 2 }
+						}
+						multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_orthodox_population_factor_new }
+						divide_temp_variable = { TUR_integrate_arab_citizens = 100 }
+					}
 				}
-				else = { set_variable = { TUR_integrate_arab_citizens = 0.001 } }
+				else_if = {
+					limit = { check_variable = { TUR_arab_shia_state_variable < 0 } }
+					if = {
+						limit = {
+							FROM = {
+								check_variable = {
+									var = TUR_arab_shia_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+							}
+						}
+						FROM = {
+							set_temp_variable = { TUR_integrate_arab_citizens = FROM.TUR_arab_shia_state_variable }
+							if = {
+								limit = {
+									FROM = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_integrate_arab_citizens = 0 }
+							}
+							if = {
+								limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_integrate_arab_citizens = 2 }
+							}
+							multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_arab_population_factor_new }
+							multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_shia_population_factor_new }
+							divide_temp_variable = { TUR_integrate_arab_citizens = -100 }
+							clear_variable = TUR_arab_shia_state_variable
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								FROM = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_arab_citizens = 0 }
+						}
+						if = {
+							limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_arab_citizens = 2 }
+						}
+						multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_shia_population_factor_new }
+						divide_temp_variable = { TUR_integrate_arab_citizens = 100 }
+					}
+				}
+				else = {
+					limit = { check_variable = { TUR_arab_sunni_state_variable < 0 } }
+					if = {
+						limit = {
+							FROM = {
+								check_variable = {
+									var = TUR_arab_sunni_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+							}
+						}
+						FROM = {
+							set_temp_variable = { TUR_integrate_arab_citizens = FROM.TUR_arab_sunni_state_variable }
+							if = {
+								limit = {
+									FROM = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_integrate_arab_citizens = 0 }
+							}
+							if = {
+								limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_integrate_arab_citizens = 2 }
+							}
+							multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_arab_population_factor_new }
+							multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_sunni_population_factor_new }
+							divide_temp_variable = { TUR_integrate_arab_citizens = -100 }
+							clear_variable = TUR_arab_sunni_state_variable
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								FROM = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_arab_citizens = 0 }
+						}
+						if = {
+							limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_arab_citizens = 2 }
+						}
+						multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_integrate_arab_citizens = TUR_sunni_population_factor_new }
+						divide_temp_variable = { TUR_integrate_arab_citizens = 100 }
+					}
+				}
 			}
+			custom_effect_tooltip = TUR_integrate_arab_citizens_tt
 			TUR_new_system_trial = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
