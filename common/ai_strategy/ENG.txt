@@ -710,30 +710,6 @@ ENG_dont_help_belgium = {
 	}
 }
 
-ENG_fight_ottomans = {
-	allowed = {
-		original_tag = ENG
-	}
-	enable = {
-		has_war_with = TUR
-		447 = {
-			is_owned_or_subject_trigger = yes
-		}
-	}
-	abort = {
-		OR = {
-			has_global_flag = great_war_ends
-			surrender_progress > 0.10
-		}
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = front_unit_request
-		tag = TUR
-		value = 100
-	}
-}
-
 ENG_prepare_for_fao = {
 	allowed = {
 		original_tag = ENG
@@ -1138,27 +1114,6 @@ ENG_onto_the_beaches = {
 		type = invade
 		id = TUR
 		value = 500
-	}
-
-	ai_strategy = {
-		type = front_control
-		tag = TUR
-		ratio = 0.25
-		area = mesopotamia_landing_zone
-		priority = 100
-		ordertype = invasion
-		execution_type = balanced
-		execute_order = yes
-	}
-	ai_strategy = {
-		type = front_control
-		tag = TUR
-		ratio = 0.25
-		state = 1248
-		priority = 100
-		ordertype = invasion
-		execution_type = balanced
-		execute_order = yes
 	}
 
 	ai_strategy = {
@@ -2043,13 +1998,6 @@ ENG_sinai_campaign = {
     }
 
 	abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = front_control
-        area = suez
-        ordertype = front
-        execution_type = rush
-    }
 
     ai_strategy = {
         type = front_unit_request

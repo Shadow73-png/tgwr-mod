@@ -196,7 +196,6 @@ TGWR_great_power_politics = {
 			original_tag = GER
 		}
 		visible = {
-			tag = GER
 			has_war = yes
 			is_great_war_ongoing = yes
 		}
@@ -956,6 +955,9 @@ TGWR_great_power_politics = {
 			is_in_faction_with = AUS
 			OR = {
 				1197 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				1260 = {
 					is_controlled_by_ROOT_or_ally = yes
 				}
 				244 = {
@@ -2059,8 +2061,7 @@ TGWR_great_power_politics = {
 			set_global_flag = before_the_leaves_fall_flag
 		}
 	}
-}
-GER_agadir_crisis = {
+
 	GER_agadir_crisis_opportunity = {
 		icon = GFX_decision_generic_naval
 		allowed = {
@@ -2127,6 +2128,7 @@ GER_agadir_crisis = {
 			tag = GER
 		}
 		visible = {
+			great_power_politics_scramble_for_africa_visible = yes
 			has_global_flag = agadir_crisis
 			NOT = {
 				has_global_flag = FRA_MOR_french_victory
@@ -2286,115 +2288,8 @@ GER_agadir_crisis = {
 			}
 		}
 	}
-	# GER_misison_agadir_crisis = {
-	# 	icon = GFX_decision_generic_ignite_civil_war
-	# 	allowed = {
-	# 		tag = GER
-	# 	}
-	# 	days_mission_timeout = 120
-	# 	available = {
-	# 		OR = {
-	# 			has_global_flag = agadir_crisis_ends
-	# 			has_global_flag = great_war
-	# 		}
-	# 	}
-	# 	activation = {
-	# 		OR = {
-	# 			has_global_flag = agadir_crisis
-	# 			FRA = { owns_state = 461 }
-	# 			GER = { owns_state = 461 }
-	# 		}
-	# 		MOR = { exists = no }
-	# 		NOT = { has_global_flag = agadir_crisis_ends }
-	# 	}
-	# 	visible = {
-	# 		has_global_flag = agadir_crisis
-	# 		NOT = { has_global_flag = great_war }
-	# 		NOT = { has_global_flag = agadir_crisis_ends }
-	# 	}
-	# 	fire_only_once = yes
-	# 	is_good = no
-	# 	timeout_effect = {
-	# 		set_global_flag = agadir_crisis_ends
-	# 		GER = { country_event = ww1_morocco.15 } #Мы ничего не поимеем с кризиса.
-	# 	}
-	# }
-	# GER_agadir_crisis_send_demands = {
-	# 	icon = GFX_decision_eng_trade_unions_demand
-	# 	allowed = {
-	# 		original_tag = GER
-	# 	}
-	# 	visible = {
-	# 		has_global_flag = agadir_crisis
-	# 		NOT = { has_global_flag = agadir_crisis_ends }
-	# 	}
-	# 	days_remove = 10
-	# 	fire_only_once = yes
-	# 	complete_effect = {
-	# 		set_global_flag = agadir_crisis_send_demands
-	# 	}
-	# 	remove_effect = {
-	# 		add_named_threat = {
-	# 			threat = 3
-	# 			name = agadir_crisis_send_demands
-	# 		}
-	# 		FRA = { country_event = ww1_morocco.8 }
-	# 	}
-	# 	ai_will_do = {
-	# 		factor = 1000
-	# 		modifier = {
-	# 			factor = 0
-	# 			has_game_rule = {
-	# 				rule = ultimatum_on_agadir
-	# 				option = WAR_ON_AGADIR
-	# 			}
-	# 		}
-	# 	}
-	# }
-	# GER_agadir_crisis_escalation = {
-	# 	icon = GFX_decision_generic_industry
-	# 	allowed = {
-	# 		original_tag = GER
-	# 	}
-	# 	visible = {
-	# 		has_global_flag = agadir_crisis
-	# 		NOT = { has_global_flag = agadir_crisis_ends }
-	# 	}
-	# 	available = {
-	# 		has_completed_focus = GER_moroccan_crisis
-	# 		NOT = { has_global_flag = agadir_crisis_send_demands }
-	# 	}
-	# 	cost = 75
-	# 	days_remove = 10
-	# 	fire_only_once = yes
-	# 	complete_effect = {
-	# 		set_global_flag = agadir_crisis_escolation
-	# 	}
-	# 	remove_effect = {
-	# 		add_named_threat = {
-	# 			threat = 7
-	# 			name = agadir_crisis_escolation
-	# 		}
-	# 		FRA = { country_event = ww1_morocco.9 }
-	# 		hidden_effect = {
-	# 			country_event = {
-	# 				id = ww1_morocco.18
-	# 				days = 2
-	# 			}
-	# 		}
-	# 	}
-	# 	ai_will_do = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 1000
-	# 			has_game_rule = {
-	# 				rule = ultimatum_on_agadir
-	# 				option = WAR_ON_AGADIR
-	# 			}
-	# 		}
-	# 	}
-	# }	
 }
+
 # GER_decison_colonial_exploitation = {
 # 	GER_request_eq_CMR = {
 # 		icon = GFX_decision_generic_industry
