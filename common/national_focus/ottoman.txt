@@ -8817,8 +8817,8 @@ focus_tree = {
 			add_to_variable = { TUR_apostolic_population_factor_new = -0.3 }
 			add_to_variable = { TUR_syriac_population_factor_new = -0.3 }
 			add_to_variable = { TUR_catholic_population_factor_new = -0.3 }
+			add_to_variable = { TUR_turkish_population_factor_new = 0.5 }
 			custom_effect_tooltip = TUR_ittihat_i_anasir_tt
-			TUR_new_system_trial = yes
 			set_country_flag = TUR_turkish_minority
 			TUR_new_system_trial = yes
 		}
@@ -8848,6 +8848,12 @@ focus_tree = {
 			unlock_decision_tooltip = TUR_promote_local_governorships
 			custom_effect_tooltip = TUR_empower_local_vilayets_tt
 			TUR_reload_vilayet_with_at_least_15_centralization = yes
+			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
+			add_to_variable = {
+				tooltip = political_power_factor_3
+				TUR_sce_political_power_factor = 0.03
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -9000,24 +9006,24 @@ focus_tree = {
 				set_variable = { TUR_reapproachment_with_greeks_level_347 = 100 }
 				set_variable = { TUR_reapproachment_with_armenians_level_347 = 100 }
 				set_variable = { TUR_reapproachment_with_jewish_level_347 = 100 }
-				set_variable = { TUR_reapproachment_with_turkish_level_347 = 100 }
+				set_variable = { TUR_reapproachment_with_turks_level_347 = 100 }
 				set_variable = { TUR_reapproachment_with_greeks_level_1018 = 100 }
-				set_variable = { TUR_reapproachment_with_turkish_level_1018 = 100 }
+				set_variable = { TUR_reapproachment_with_turks_level_1018 = 100 }
 				set_variable = { TUR_reapproachment_with_greeks_level_756 = 100 }
 				set_variable = { TUR_reapproachment_with_armenians_level_756 = 100 }
 				set_variable = { TUR_reapproachment_with_jewish_level_756 = 100 }
-				set_variable = { TUR_reapproachment_with_bulgarian_level_756 = 100 }
-				set_variable = { TUR_reapproachment_with_turkish_level_756 = 100 }
+				set_variable = { TUR_reapproachment_with_bulgarians_level_756 = 100 }
+				set_variable = { TUR_reapproachment_with_turks_level_756 = 100 }
 				set_variable = { TUR_reapproachment_with_greeks_level_1019 = 100 }
 				set_variable = { TUR_reapproachment_with_armenians_level_1019 = 100 }
-				set_variable = { TUR_reapproachment_with_turkish_level_1019 = 100 }
+				set_variable = { TUR_reapproachment_with_turks_level_1019 = 100 }
 				set_variable = { TUR_reapproachment_with_greeks_level_854 = 100 }
 				set_variable = { TUR_reapproachment_with_armenians_level_854 = 100 }
-				set_variable = { TUR_reapproachment_with_turkish_level_854 = 100 }
+				set_variable = { TUR_reapproachment_with_turks_level_854 = 100 }
 				set_variable = { TUR_reapproachment_with_greeks_level_861 = 100 }
-				set_variable = { TUR_reapproachment_with_turkish_level_861 = 100 }
+				set_variable = { TUR_reapproachment_with_turks_level_861 = 100 }
 				set_variable = { TUR_reapproachment_with_greeks_level_339 = 100 }
-				set_variable = { TUR_reapproachment_with_turkish_level_339 = 100 }
+				set_variable = { TUR_reapproachment_with_turks_level_339 = 100 }
 			}
 		}
 		ai_will_do = { base = 30 }
@@ -9041,15 +9047,15 @@ focus_tree = {
 			}
 			hidden_effect = {
 				set_variable = { TUR_reapproachment_with_greeks_level_345 = 100 }
-				set_variable = { TUR_reapproachment_with_bulgarian_level_345 = 100 }
+				set_variable = { TUR_reapproachment_with_bulgarians_level_345 = 100 }
 				set_variable = { TUR_reapproachment_with_jewish_level_345 = 100 }
-				set_variable = { TUR_reapproachment_with_turkish_level_345 = 100 }
+				set_variable = { TUR_reapproachment_with_turks_level_345 = 100 }
 				set_variable = { TUR_reapproachment_with_greeks_level_203 = 100 }
-				set_variable = { TUR_reapproachment_with_bulgarian_level_203 = 100 }
-				set_variable = { TUR_reapproachment_with_turkish_level_203 = 100 }
+				set_variable = { TUR_reapproachment_with_bulgarians_level_203 = 100 }
+				set_variable = { TUR_reapproachment_with_turks_level_203 = 100 }
 				set_variable = { TUR_reapproachment_with_greeks_level_106 = 100 }
-				set_variable = { TUR_reapproachment_with_bulgarian_level_106 = 100 }
-				set_variable = { TUR_reapproachment_with_turkish_level_106 = 100 }
+				set_variable = { TUR_reapproachment_with_bulgarians_level_106 = 100 }
+				set_variable = { TUR_reapproachment_with_turks_level_106 = 100 }
 			}
 		}
 		ai_will_do = { base = 30 }
@@ -9551,7 +9557,7 @@ focus_tree = {
 			every_state = {
 				limit = { check_variable = { TUR_kurdish_sunni_state_variable < -0.2 } }
 				custom_effect_tooltip = TUR_modify_kurdish_minority
-				custom_effect_tooltip = TUR_minority_mobilization_speed
+				custom_effect_tooltip = TUR_minority_mobilization_speed1
 				add_to_variable = { TUR_ottoman_mobilization_speed_kurdish = 0.05 }
 				clamp_variable = {
 					var = TUR_ottoman_mobilization_speed_kurdish
@@ -9593,7 +9599,7 @@ focus_tree = {
 					custom_effect_tooltip = TUR_minority_resistance_target1
 					add_to_variable = { TUR_ottoman_resistance_target_georgian = 0.03 }
 				}
-				custom_effect_tooltip = TUR_minority_army_speed_factor_for_controller_down
+				custom_effect_tooltip = TUR_minority_army_speed_factor_for_controller1
 				add_to_variable = { TUR_ottoman_army_speed_factor_for_controller_georgian = 0.025 }
 				clamp_variable = {
 					var = TUR_ottoman_army_speed_factor_for_controller_georgian

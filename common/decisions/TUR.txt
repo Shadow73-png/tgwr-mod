@@ -2599,7 +2599,6 @@ TUR_millet_system = {
 				}
 			}
 		}
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		target_root_trigger = {
 			OR = {
@@ -2663,7 +2662,6 @@ TUR_millet_system = {
 				}
 			}
 		}
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		target_root_trigger = {
 			OR = {
@@ -2713,7 +2711,7 @@ TUR_millet_system = {
 		}
 	}
 	TUR_deport_armenians = {
-		icon = GFX_decision_generic_assassination
+		icon = GFX_TUR_deport_armenians
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 341 344 347 348 349 350 352 353 354 355 806 816 825 857 859 881 1019 1022 1024 1025 1026 1030 1033 1057 1058 }
@@ -2723,7 +2721,6 @@ TUR_millet_system = {
 				check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 			}
 		}
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		target_root_trigger = {
 			OR = {
@@ -2787,7 +2784,7 @@ TUR_millet_system = {
 	}
 	TUR_deport_armenians_diyarbakir = {
 		name = TUR_deport_armenians
-		icon = GFX_decision_generic_assassination
+		icon = GFX_TUR_deport_armenians
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 350 }
@@ -2797,7 +2794,6 @@ TUR_millet_system = {
 				check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 			}
 		}
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		target_root_trigger = {
 			OR = {
@@ -4081,7 +4077,6 @@ TUR_millet_system = {
 				}
 			}
 		}
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		target_root_trigger = { has_completed_focus = TUR_displace_christians_from_economy }
 		visible = { controls_state = FROM }
@@ -4147,7 +4142,6 @@ TUR_millet_system = {
 				}
 			}
 		}
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		target_root_trigger = { has_completed_focus = TUR_displace_christians_from_economy }
 		visible = { controls_state = FROM }
@@ -4196,11 +4190,10 @@ TUR_millet_system = {
 		}
 	}
 	TUR_deport_greeks = {
-		icon = GFX_decision_eng_blackshirt_march
+		icon = GFX_TUR_deport_greeks
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 347 341 860 849 756 757 825 861 339 824 342 183 348 1026 1031 1019 1035 344 859 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_greek_minority }
@@ -4292,12 +4285,11 @@ TUR_millet_system = {
 		}
 	}
 	TUR_deport_greeks_trabzon = {
-		name = TUR_deport_greeks
+		name = GFX_TUR_deport_greeks
 		icon = GFX_decision_eng_blackshirt_march
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 354 355 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
@@ -5502,7 +5494,6 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 106 184 200 203 225 451 756 757 759 788 849 1140 1141 1213 1258 212 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
@@ -5554,7 +5545,6 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 106 760 761 847 848 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
@@ -5603,7 +5593,7 @@ TUR_millet_system = {
 		}
 	}
 	TUR_deport_bulgarians = {
-		icon = GFX_decision_generic_prepare_civil_war
+		icon = GFX_TUR_deport_bulgarians
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 756 849 200 451 757 }
@@ -5615,7 +5605,6 @@ TUR_millet_system = {
 		}
 		target_root_trigger = { has_completed_focus = TUR_destruction_of_the_thracian_bulgarians }
 		visible = { controls_state = FROM }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		custom_cost_text = decision_cost_CP_10_PP_10
 		custom_cost_trigger = {
@@ -5693,7 +5682,6 @@ TUR_millet_system = {
 		}
 		target_root_trigger = { has_completed_focus = TUR_centralize_albania }
 		visible = { controls_state = FROM }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		available = {
 			FROM = {
@@ -5883,7 +5871,6 @@ TUR_millet_system = {
 			}
 		}
 		visible = { controls_state = FROM }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		cost = 15
 		days_remove = 14
@@ -5938,7 +5925,6 @@ TUR_millet_system = {
 			}
 		}
 		visible = { controls_state = FROM }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		cost = 15
 		days_remove = TUR_settle_the_assyrian_population_diyarbakir_time?14
@@ -5975,7 +5961,7 @@ TUR_millet_system = {
 		ai_will_do = { base = 30 }
 	}
 	TUR_deport_assyrians = {
-		icon = GFX_decision_ETH_chitet
+		icon = GFX_TUR_deport_assyrians
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 828 879 }
@@ -5992,7 +5978,6 @@ TUR_millet_system = {
 			}
 		}
 		visible = { controls_state = FROM }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		custom_cost_text = decision_cost_CP_10_PP_10
 		custom_cost_trigger = {
@@ -6043,11 +6028,10 @@ TUR_millet_system = {
 	}
 	TUR_deport_assyrians_diyarbakir = {
 		name = TUR_deport_assyrians
-		icon = GFX_decision_ETH_chitet
+		icon = GFX_TUR_deport_assyrians
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 350 1028 884 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
@@ -6313,7 +6297,6 @@ TUR_millet_system = {
 		state_target = yes
 		targets = { 1146 446 456 551 }
 		target_trigger = { FROM = { has_dynamic_modifier = { modifier = TUR_vilayet_centralization } } }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		visible = {
 			has_completed_focus = TUR_ottoman_provinces_in_egypt
@@ -6389,7 +6372,6 @@ TUR_millet_system = {
 		fire_only_once = yes
 		state_target = yes
 		targets = { 1146 446 452 456 551 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		visible = {
 			has_completed_focus = TUR_ottoman_provinces_in_egypt
@@ -6572,7 +6554,6 @@ TUR_millet_system = {
 				check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 			}
 		}
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		target_root_trigger = {
 			OR = {
 				AND = {
@@ -6664,7 +6645,6 @@ TUR_millet_system = {
 				}
 			}
 		}
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		target_root_trigger = {
 			OR = {
 				AND = {
@@ -6915,7 +6895,7 @@ TUR_millet_system = {
 						divide_temp_variable = { TUR_integrate_arab_citizens = 100 }
 					}
 				}
-				else = {
+				else_if = {
 					limit = { check_variable = { TUR_arab_sunni_state_variable < 0 } }
 					if = {
 						limit = {
@@ -6982,39 +6962,87 @@ TUR_millet_system = {
 		icon = GFX_TUR_kurdish_brainwash
 		allowed = { original_tag = TUR }
 		state_target = yes
-		target_trigger = { FROM = { has_dynamic_modifier = { modifier = TUR_kurdish_minority } } }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			controls_state = FROM
-			FROM = { check_variable = { TUR_arab_population_stability_factor < 0 } }
-			if = {
-				limit = { FROM = { has_state_flag = TUR_aleppo } }
-				check_variable = { TUR_aleppo_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			if = {
-				limit = { FROM = { has_state_flag = TUR_deir_ez_zor } }
-				check_variable = { TUR_deir_ez_zor_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			else = { always = no }
-		}
-		cost = 10
-		days_remove = 15
-		remove_effect = {
+		targets = { 350 352 353 676 680 806 828 829 879 881 883 884 1022 1025 1027 1028 1029 1033 }
+		target_trigger = {
 			FROM = {
-				if = {
-					limit = { has_country_flag = TUR_ottoman_syria }
-					custom_effect_tooltip = TUR_integrate_kurdish_citizens_tt_2
-				}
-				else = { custom_effect_tooltip = TUR_integrate_kurdish_citizens_tt }
-				if = {
-					limit = { has_variable = TUR_integrate_kurdish_citizens }
-					add_to_variable = { TUR_integrate_kurdish_citizens = 0.001 }
-				}
-				else = { set_variable = { TUR_integrate_kurdish_citizens = 0.001 } }
+				has_dynamic_modifier = { modifier = TUR_kurdish_minority }
+				check_variable = { TUR_kurdish_sunni_state_variable < 0 }
 			}
+		}
+		target_root_trigger = {
+			OR = {
+				AND = {
+					FROM = { has_state_flag = TUR_aleppo }
+					check_variable = { TUR_aleppo_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+				AND = {
+					FROM = { has_state_flag = TUR_deir_ez_zor }
+					check_variable = { TUR_deir_ez_zor_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+			}
+		}
+		visible = { controls_state = FROM }
+		cost = 30
+		days_remove = 30
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						FROM = {
+							check_variable = {
+								var = TUR_kurdish_sunni_state_variable
+								value = -0.3
+								compare = greater_than_or_equals
+							}
+						}
+					}
+					FROM = {
+						set_temp_variable = { TUR_integrate_kurdish_citizens = FROM.TUR_kurdish_sunni_state_variable }
+						if = {
+							limit = {
+								FROM = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_kurdish_citizens = 0 }
+						}
+						if = {
+							limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_kurdish_citizens = 2 }
+						}
+						multiply_temp_variable = { TUR_integrate_kurdish_citizens = TUR_kurdish_population_factor_new }
+						multiply_temp_variable = { TUR_integrate_kurdish_citizens = TUR_sunni_population_factor_new }
+						divide_temp_variable = { TUR_integrate_kurdish_citizens = -100 }
+						clear_variable = TUR_kurdish_sunni_state_variable
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							FROM = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_integrate_kurdish_citizens = 0 }
+					}
+					if = {
+						limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_integrate_kurdish_citizens = 2 }
+					}
+					multiply_temp_variable = { TUR_integrate_kurdish_citizens = TUR_kurdish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_kurdish_citizens = TUR_sunni_population_factor_new }
+					divide_temp_variable = { TUR_integrate_kurdish_citizens = 100 }
+				}
+			}
+			custom_effect_tooltip = TUR_integrate_kurdish_citizens_tt
 			TUR_new_system_trial = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -7024,48 +7052,96 @@ TUR_millet_system = {
 		icon = GFX_TUR_jewish_brainwash
 		allowed = { original_tag = TUR }
 		state_target = yes
-		target_trigger = { FROM = { has_dynamic_modifier = { modifier = TUR_jewish_minority } } }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
-			controls_state = FROM
-			FROM = { check_variable = { TUR_jewish_population_stability_factor < 0 } }
-			if = {
-				limit = { FROM = { has_state_flag = TUR_jerusalem } }
-				check_variable = { TUR_jerusalem_centralization = 1 }
-				has_completed_focus = TUR_the_ideal_province
-			}
-			else = { always = no }
-		}
-		cost = 10
-		days_remove = 15
-		remove_effect = {
+		targets = { 345 347 454 654 756 }
+		target_trigger = {
 			FROM = {
-				if = {
-					limit = { has_country_flag = TUR_ottoman_syria }
-					custom_effect_tooltip = TUR_integrate_jewish_citizens_tt_2
-				}
-				else = { custom_effect_tooltip = TUR_integrate_jewish_citizens_tt }
-				if = {
-					limit = { has_variable = TUR_integrate_jewish_citizens }
-					add_to_variable = { TUR_integrate_jewish_citizens = 0.001 }
-				}
-				else = { set_variable = { TUR_integrate_jewish_citizens = 0.001 } }
+				has_dynamic_modifier = { modifier = TUR_jewish_minority }
+				check_variable = { TUR_jewish_judaic_state_variable < 0 }
 			}
+		}
+		target_root_trigger = {
+			OR = {
+				AND = {
+					FROM = { has_state_flag = TUR_jerusalem }
+					check_variable = { TUR_jerusalem_centralization = 1 }
+					has_completed_focus = TUR_the_ideal_province
+				}
+			}
+		}
+		visible = { controls_state = FROM }
+		cost = 30
+		days_remove = 30
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						FROM = {
+							check_variable = {
+								var = TUR_jewish_judaic_state_variable
+								value = -0.3
+								compare = greater_than_or_equals
+							}
+						}
+					}
+					FROM = {
+						set_temp_variable = { TUR_integrate_jewish_citizens = FROM.TUR_jewish_judaic_state_variable }
+						if = {
+							limit = {
+								FROM = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_jewish_citizens = 0 }
+						}
+						if = {
+							limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_jewish_citizens = 2 }
+						}
+						multiply_temp_variable = { TUR_integrate_jewish_citizens = TUR_jewish_population_factor_new }
+						multiply_temp_variable = { TUR_integrate_jewish_citizens = TUR_judaic_population_factor_new }
+						divide_temp_variable = { TUR_integrate_jewish_citizens = -100 }
+						clear_variable = TUR_jewish_judaic_state_variable
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							FROM = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+						}
+						multiply_temp_variable = { TUR_integrate_jewish_citizens = 0 }
+					}
+					if = {
+						limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+						divide_temp_variable = { TUR_integrate_jewish_citizens = 2 }
+					}
+					multiply_temp_variable = { TUR_integrate_jewish_citizens = TUR_jewish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_jewish_citizens = TUR_judaic_population_factor_new }
+					divide_temp_variable = { TUR_integrate_jewish_citizens = 100 }
+				}
+			}
+			custom_effect_tooltip = TUR_integrate_jewish_citizens_tt
 			TUR_new_system_trial = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		ai_will_do = { base = 30 }
 	}
 	TUR_promote_local_governorships = {
-		icon = GFX_decision_bul_against_zveno
+		icon = GFX_decision_generic_political_rally
 		allowed = { original_tag = TUR }
 		cost = 25
 		visible = { has_completed_focus = TUR_empower_local_vilayets }
 		available = { TUR_any_controlled_vilayet_more_than_15_centralization = yes }
 		complete_effect = {
 			TUR_enact_vilayet_with_at_least_15_centralization = yes
-			add_stability = 0.01
+			add_stability = 0.03
 			TUR_reload_vilayet_with_at_least_15_centralization = yes
 		}
 	}
@@ -7073,128 +7149,132 @@ TUR_millet_system = {
 		icon = GFX_TUR_reapproachment_with_armenians
 		allowed = { original_tag = TUR }
 		state_target = yes
-		targets = { 347 1018 756 344 881 353 350 1022 352 1019 677 854 356 49 349 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		cost = 50
-		days_remove = 70
+		targets = { 347 1018 756 344 991 353 350 1022 352 1019 677 854 49 349 }
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TUR_plurality_in_the_heartland
+				has_completed_focus = TUR_appease_the_anatolian_christians
+			}
+		}
 		visible = {
 			OR = {
 				AND = {
 					FROM = { state = 347 }
+					has_completed_focus = TUR_plurality_in_the_heartland
 					any_controlled_state = {
 						has_state_flag = TUR_kostantiniyye
 						has_dynamic_modifier = { modifier = TUR_armenian_minority }
 					}
-					has_completed_focus = TUR_plurality_in_the_heartland
 				}
 				AND = {
 					FROM = { state = 1018 }
+					has_completed_focus = TUR_plurality_in_the_heartland
 					any_controlled_state = {
 						has_state_flag = TUR_catalca
 						has_dynamic_modifier = { modifier = TUR_armenian_minority }
 					}
-					has_completed_focus = TUR_plurality_in_the_heartland
 				}
 				AND = {
 					FROM = { state = 756 }
+					has_completed_focus = TUR_plurality_in_the_heartland
 					any_controlled_state = {
 						has_state_flag = TUR_edirne
 						has_dynamic_modifier = { modifier = TUR_armenian_minority }
 					}
-					has_completed_focus = TUR_plurality_in_the_heartland
 				}
-				AND = {
-					FROM = { state = 344 }
-					any_controlled_state = {
-						has_state_flag = TUR_adana
-						has_dynamic_modifier = { modifier = TUR_armenian_minority }
-					}
-					has_completed_focus = TUR_appease_the_anatolian_christians
-				}
-				AND = {
-					FROM = { state = 881 }
-					any_controlled_state = {
-						has_state_flag = TUR_mamuret_ul_aziz
-						has_dynamic_modifier = { modifier = TUR_armenian_minority }
-					}
-					has_completed_focus = TUR_appease_the_anatolian_christians
-				}
-				AND = {
-					FROM = { state = 353 }
-					any_controlled_state = {
-						has_state_flag = TUR_erzurum
-						has_dynamic_modifier = { modifier = TUR_armenian_minority }
-					}
-					has_completed_focus = TUR_appease_the_anatolian_christians
-				}
-				AND = {
-					FROM = { state = 350 }
-					any_controlled_state = {
-						has_state_flag = TUR_diyarbakir
-						has_dynamic_modifier = { modifier = TUR_armenian_minority }
-					}
-					has_completed_focus = TUR_appease_the_anatolian_christians
-				}
-				AND = {
-					FROM = { state = 1022 }
-					any_controlled_state = {
-						has_state_flag = TUR_bitlis
-						has_dynamic_modifier = { modifier = TUR_armenian_minority }
-					}
-					has_completed_focus = TUR_appease_the_anatolian_christians
-				}
-				AND = {
-					FROM = { state = 352 }
-					any_controlled_state = {
-						has_state_flag = TUR_van
-						has_dynamic_modifier = { modifier = TUR_armenian_minority }
-					}
-					has_completed_focus = TUR_appease_the_anatolian_christians
-				}
-
 				AND = {
 					FROM = { state = 1019 }
+					has_completed_focus = TUR_plurality_in_the_heartland
 					any_controlled_state = {
 						has_state_flag = TUR_izmit
 						has_dynamic_modifier = { modifier = TUR_armenian_minority }
 					}
-					has_completed_focus = TUR_appease_the_anatolian_christians
-				}
-				AND = {
-					FROM = { state = 677 }
-					any_controlled_state = {
-						has_state_flag = TUR_aleppo
-						has_dynamic_modifier = { modifier = TUR_armenian_minority }
-					}
-					has_completed_focus = TUR_appease_the_anatolian_christians
 				}
 				AND = {
 					FROM = { state = 854 }
+					has_completed_focus = TUR_plurality_in_the_heartland
 					any_controlled_state = {
 						has_state_flag = TUR_hudavendigar
 						has_dynamic_modifier = { modifier = TUR_armenian_minority }
 					}
+				}
+				AND = {
+					FROM = { state = 344 }
 					has_completed_focus = TUR_appease_the_anatolian_christians
+					any_controlled_state = {
+						has_state_flag = TUR_adana
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
+				}
+				AND = {
+					FROM = { state = 881 }
+					has_completed_focus = TUR_appease_the_anatolian_christians
+					any_controlled_state = {
+						has_state_flag = TUR_mamuret_ul_aziz
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
+				}
+				AND = {
+					FROM = { state = 353 }
+					has_completed_focus = TUR_appease_the_anatolian_christians
+					any_controlled_state = {
+						has_state_flag = TUR_erzurum
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
+				}
+				AND = {
+					FROM = { state = 350 }
+					has_completed_focus = TUR_appease_the_anatolian_christians
+					any_controlled_state = {
+						has_state_flag = TUR_diyarbakir
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
+				}
+				AND = {
+					FROM = { state = 1022 }
+					has_completed_focus = TUR_appease_the_anatolian_christians
+					any_controlled_state = {
+						has_state_flag = TUR_bitlis
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
+				}
+				AND = {
+					FROM = { state = 352 }
+					has_completed_focus = TUR_appease_the_anatolian_christians
+					any_controlled_state = {
+						has_state_flag = TUR_van
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
+				}
+				AND = {
+					FROM = { state = 677 }
+					has_completed_focus = TUR_appease_the_anatolian_christians
+					any_controlled_state = {
+						has_state_flag = TUR_aleppo
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+					}
 				}
 				AND = {
 					FROM = { state = 49 }
+					has_completed_focus = TUR_appease_the_anatolian_christians
 					any_controlled_state = {
 						has_state_flag = TUR_ankara
 						has_dynamic_modifier = { modifier = TUR_armenian_minority }
 					}
-					has_completed_focus = TUR_appease_the_anatolian_christians
 				}
 				AND = {
 					FROM = { state = 349 }
+					has_completed_focus = TUR_appease_the_anatolian_christians
 					any_controlled_state = {
 						has_state_flag = TUR_sivas
 						has_dynamic_modifier = { modifier = TUR_armenian_minority }
 					}
-					has_completed_focus = TUR_appease_the_anatolian_christians
 				}
 			}
 		}
+		on_map_mode = map_only
+		cost = 50
+		days_remove = 70
 		available = {
 			if = {
 				limit = { FROM = { state = 347 } }
@@ -7355,140 +7435,866 @@ TUR_millet_system = {
 			if = {
 				limit = { FROM = { state = 347 } }
 				every_state = {
-					limit = { has_state_flag = TUR_kostantiniyye }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_kostantiniyye
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_kostantiniyye
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_347 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 1018 } }
 				every_state = {
-					limit = { has_state_flag = TUR_catalca }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_catalca
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_catalca
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_1018 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 756 } }
 				every_state = {
-					limit = { has_state_flag = TUR_edirne }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_edirne
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_edirne
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_756 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 344 } }
 				every_state = {
-					limit = { has_state_flag = TUR_adana }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_adana
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_adana
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_344 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 881 } }
 				every_state = {
-					limit = { has_state_flag = TUR_mamuret_ul_aziz }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_mamuret_ul_aziz
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_mamuret_ul_aziz
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_881 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 353 } }
 				every_state = {
-					limit = { has_state_flag = TUR_erzurum }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_erzurum
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_erzurum
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_353 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 350 } }
 				every_state = {
-					limit = { has_state_flag = TUR_diyarbakir }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_diyarbakir
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_diyarbakir
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_350 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 1022 } }
 				every_state = {
-					limit = { has_state_flag = TUR_bitlis }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_bitlis
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_bitlis
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_1022 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 352 } }
 				every_state = {
-					limit = { has_state_flag = TUR_van }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_van
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_van
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_352 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 1019 } }
 				every_state = {
-					limit = { has_state_flag = TUR_izmit }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_izmit
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_izmit
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_1019 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 677 } }
 				every_state = {
-					limit = { has_state_flag = TUR_aleppo }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_aleppo
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_aleppo
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_677 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 854 } }
 				every_state = {
-					limit = { has_state_flag = TUR_hudavendigar }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_hudavendigar
+						has_variable = TUR_armenian_apostolic_state_variable
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_hudavendigar
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_864 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 49 } }
 				every_state = {
-					limit = { has_state_flag = TUR_ankara }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_ankara
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_ankara
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_49 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 349 } }
 				every_state = {
-					limit = { has_state_flag = TUR_sivas }
-					custom_effect_tooltip = TUR_reapproachment_with_armenians_tt
+					limit = {
+						has_state_flag = TUR_sivas
+						check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+							check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+						}
+						check_variable = { TUR_armenian_apostolic_remove_variable = 2 }
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor2
 					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.05 }
-				    add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies2
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.1 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_sivas
+						OR = {
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = { TUR_armenian_apostolic_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_army_defence_factor_armenian < -0.025 }
+									check_variable = { TUR_ottoman_enemy_local_supplies_armenian < -0.05 }
+								}
+								NOT = { check_variable = { TUR_armenian_apostolic_remove_variable = 2 } }
+							}
+							AND = {
+								has_variable = TUR_armenian_apostolic_state_variable
+								check_variable = {
+									var = TUR_armenian_apostolic_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_army_defence_factor_armenian
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_enemy_local_supplies_armenian
+										value = -0.5
+										compare = greater_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_modify_armenian_minority
+					custom_effect_tooltip = TUR_minority_army_defence_factor1
+					add_to_variable = { TUR_ottoman_army_defence_factor_armenian = 0.025 }
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies1
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_armenian = -0.05 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_armenians_level_349 = -20 } }
 			}
@@ -7501,7 +8307,12 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 347 1018 756 345 203 758 182 790 183 1019 861 854 339 356 49 349 354 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TUR_plurality_in_the_heartland
+				has_completed_focus = TUR_appease_the_anatolian_christians
+			}
+		}
 		on_map_mode = map_only
 		cost = 50
 		days_remove = 70
@@ -7838,473 +8649,1447 @@ TUR_millet_system = {
 			if = {
 				limit = { FROM = { state = 347 } }
 				every_state = {
-					limit = { has_state_flag = TUR_kostantiniyye }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_kostantiniyye
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_kostantiniyye
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_kostantiniyye
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_347 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 1018 } }
 				every_state = {
-					limit = { has_state_flag = TUR_catalca }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_catalca
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_catalca
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_catalca
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_1018 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 756 } }
 				every_state = {
-					limit = { has_state_flag = TUR_edirne }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_edirne
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_edirne
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_edirne
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_756 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 345 } }
 				every_state = {
-					limit = { has_state_flag = TUR_selanik }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_selanik
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_selanik
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_selanik
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_345 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 203 } }
 				every_state = {
-					limit = { has_state_flag = TUR_manastir }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_manastir
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_manastir
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_manastir
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_203 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 758 } }
 				every_state = {
-					limit = { has_state_flag = TUR_yanya }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_yanya
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_yanya
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_yanya
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_758 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 182 } }
 				every_state = {
-					limit = { has_state_flag = TUR_crete }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_crete
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_crete
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_crete
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_182 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 790 } }
 				every_state = {
-					limit = { has_state_flag = TUR_archipelago }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_archipelago
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_archipelago
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_archipelago
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_790 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 183 } }
 				every_state = {
-					limit = { has_state_flag = TUR_cyprus }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_cyprus
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_cyprus
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_cyprus
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_183 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 1019 } }
 				every_state = {
-					limit = { has_state_flag = TUR_izmit }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_izmit
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_izmit
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_izmit
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_1019 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 861 } }
 				every_state = {
-					limit = { has_state_flag = TUR_biga }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_biga
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_biga
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_biga
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_861 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 854 } }
 				every_state = {
-					limit = { has_state_flag = TUR_hudavendigar }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_hudavendigar
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_hudavendigar
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_hudavendigar
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_854 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 339 } }
 				every_state = {
-					limit = { has_state_flag = TUR_aydin }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_aydin
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_aydin
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_aydin
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_339 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 356 } }
 				every_state = {
-					limit = { has_state_flag = TUR_kastamonu }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_kastamonu
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_kastamonu
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_kastamonu
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_356 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 49 } }
 				every_state = {
-					limit = { has_state_flag = TUR_ankara }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_ankara
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_ankara
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_ankara
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_49 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 349 } }
 				every_state = {
-					limit = { has_state_flag = TUR_sivas }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_sivas
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_sivas
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_sivas
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_349 = -20 } }
 			}
 			if = {
 				limit = { FROM = { state = 354 } }
 				every_state = {
-					limit = { has_state_flag = TUR_trabzon }
-					if = {
-						limit = { always = no }
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt1
-						add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
-						add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+					limit = {
+						has_state_flag = TUR_trabzon
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 4 }
 					}
-					else = {
-						custom_effect_tooltip = TUR_reapproachment_with_greeks_tt2
-						add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_local_resources_factor4
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.1 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies4
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.2 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor4
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.04 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_trabzon
+						has_variable = TUR_greek_orthodox_state_variable
+						check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+						OR = {
+							check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+							check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+						}
+						check_variable = { TUR_greek_orthodox_remove_variable = 2 }
 					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor2
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.05 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies2
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.1 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor2
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.02 }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = TUR_trabzon
+						OR = {
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = { TUR_greek_orthodox_state_variable < -0.3 }
+								OR = {
+									check_variable = { TUR_ottoman_local_resources_factor_greek < -0.025 }
+									check_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek > 0.01 }
+								}
+								NOT = {
+									check_variable = { TUR_greek_orthodox_remove_variable = 4 }
+									check_variable = { TUR_greek_orthodox_remove_variable = 2 }
+								}
+							}
+							AND = {
+								has_variable = TUR_greek_orthodox_state_variable
+								check_variable = {
+									var = TUR_greek_orthodox_state_variable
+									value = -0.3
+									compare = greater_than_or_equals
+								}
+								OR = {
+									check_variable = {
+										var = TUR_ottoman_local_resources_factor_greek
+										value = -0.025
+										compare = greater_than_or_equals
+									}
+									check_variable = {
+										var = TUR_ottoman_state_production_speed_buildings_factor_greek
+										value = 0.1
+										compare = less_than_or_equals
+									}
+								}
+							}
+						}
+					}
+					custom_effect_tooltip = TUR_minority_local_resources_factor1
+					add_to_variable = { TUR_ottoman_local_resources_factor_greek = 0.025 }
+					custom_effect_tooltip = TUR_minority_local_intel_to_enemies1
+					add_to_variable = { TUR_ottoman_local_intel_to_enemies_greek = -0.05 }
+					custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_greek = -0.01 }
 				}
 				hidden_effect = { add_to_variable = { TUR_reapproachment_with_greeks_level_354 = -20 } }
-			}
-			ottoman_centralization_variable_check = yes
-		}
-		ai_will_do = { base = 30 }
-	}
-	TUR_competent_business_laws = {
-		icon = GFX_decision_gre_paying_ifc_debt
-		allowed = { original_tag = TUR }
-		state_target = yes
-		targets = { 347 756 345 454 654 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		cost = 50
-		days_remove = 70
-		visible = {
-			OR = {
-				AND = {
-					FROM = { state = 347 }
-					any_controlled_state = {
-						has_state_flag = TUR_kostantiniyye
-						has_dynamic_modifier = { modifier = TUR_jewish_minority }
-					}
-					has_completed_focus = TUR_plurality_in_the_heartland
-				}
-				AND = {
-					FROM = { state = 756 }
-					any_controlled_state = {
-						has_state_flag = TUR_edirne
-						has_dynamic_modifier = { modifier = TUR_jewish_minority }
-					}
-					has_completed_focus = TUR_plurality_in_the_heartland
-				}
-				AND = {
-					FROM = { state = 345 }
-					any_controlled_state = {
-						has_state_flag = TUR_selanik
-						has_dynamic_modifier = { modifier = TUR_jewish_minority }
-					}
-					has_completed_focus = TUR_no_more_macedonian_struggle
-				}
-				AND = {
-					FROM = { state = 454 }
-					any_controlled_state = {
-						has_state_flag = TUR_jerusalem
-						has_dynamic_modifier = { modifier = TUR_jewish_minority }
-					}
-					has_completed_focus = TUR_no_more_macedonian_struggle
-				}
-				AND = {
-					FROM = { state = 654 }
-					any_controlled_state = {
-						has_state_flag = TUR_yemen
-						has_dynamic_modifier = { modifier = TUR_jewish_minority }
-					}
-					has_completed_focus = TUR_no_more_macedonian_struggle
-				}
-			}
-		}
-		available = {
-			if = {
-				limit = { FROM = { state = 347 } }
-				custom_trigger_tooltip = {
-					tooltip = TUR_centralization_of_kostantiniyye_less_than_value
-					check_variable = {
-						var = global.TUR_kostantiniyye_centralization
-						value = TUR_reapproachment_with_jews_level_347
-						compare = less_than_or_equals
-					}
-				}
-			}
-			if = {
-				limit = { FROM = { state = 756 } }
-				custom_trigger_tooltip = {
-					tooltip = TUR_centralization_of_edirne_less_than_value
-					check_variable = {
-						var = global.TUR_edirne_centralization
-						value = TUR_reapproachment_with_jews_level_756
-						compare = less_than_or_equals
-					}
-				}
-			}
-			if = {
-				limit = { FROM = { state = 345 } }
-				custom_trigger_tooltip = {
-					tooltip = TUR_centralization_of_selanik_less_than_value
-					check_variable = {
-						var = global.TUR_selanik_centralization
-						value = TUR_reapproachment_with_jews_level_345
-						compare = less_than_or_equals
-					}
-				}
-			}
-			if = {
-				limit = { FROM = { state = 454 } }
-				custom_trigger_tooltip = {
-					tooltip = TUR_centralization_of_jerusalem_less_than_value
-					check_variable = {
-						var = global.TUR_jerusalem_centralization
-						value = TUR_reapproachment_with_jews_level_454
-						compare = less_than_or_equals
-					}
-				}
-			}
-			if = {
-				limit = { FROM = { state = 654 } }
-				custom_trigger_tooltip = {
-					tooltip = TUR_centralization_of_yemen_less_than_value
-					check_variable = {
-						var = global.TUR_yemen_centralization
-						value = TUR_reapproachment_with_jews_level_654
-						compare = less_than_or_equals
-					}
-				}
-			}
-		}
-		remove_effect = {
-			if = {
-				limit = { FROM = { state = 347 } }
-				every_state = {
-					limit = { has_state_flag = TUR_kostantiniyye }
-					custom_effect_tooltip = TUR_reapproachment_with_jews_tt
-					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_jewish = -0.02 }
-					add_to_variable = { TUR_ottoman_local_building_slots_factor_jewish = 0.05 }
-				}
-				hidden_effect = { add_to_variable = { TUR_reapproachment_with_jews_level_347 = -20 } }
-			}
-			if = {
-				limit = { FROM = { state = 756 } }
-				every_state = {
-					limit = { has_state_flag = TUR_edirne }
-					custom_effect_tooltip = TUR_reapproachment_with_jews_tt
-					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_jewish = -0.02 }
-					add_to_variable = { TUR_ottoman_local_building_slots_factor_jewish = 0.05 }
-				}
-				hidden_effect = { add_to_variable = { TUR_reapproachment_with_jews_level_756 = -20 } }
-			}
-			if = {
-				limit = { FROM = { state = 345 } }
-				every_state = {
-					limit = { has_state_flag = TUR_selanik }
-					custom_effect_tooltip = TUR_reapproachment_with_jews_tt
-					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_jewish = -0.02 }
-					add_to_variable = { TUR_ottoman_local_building_slots_factor_jewish = 0.05 }
-				}
-				hidden_effect = { add_to_variable = { TUR_reapproachment_with_jews_level_345 = -20 } }
-			}
-			if = {
-				limit = { FROM = { state = 454 } }
-				every_state = {
-					limit = { has_state_flag = TUR_jerusalem }
-					custom_effect_tooltip = TUR_reapproachment_with_jews_tt
-					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_jewish = -0.02 }
-					add_to_variable = { TUR_ottoman_local_building_slots_factor_jewish = 0.05 }
-				}
-				hidden_effect = { add_to_variable = { TUR_reapproachment_with_jews_level_454 = -20 } }
-			}
-			if = {
-				limit = { FROM = { state = 654 } }
-				every_state = {
-					limit = { has_state_flag = TUR_yemen }
-					custom_effect_tooltip = TUR_reapproachment_with_jews_tt
-					add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_jewish = -0.02 }
-					add_to_variable = { TUR_ottoman_local_building_slots_factor_jewish = 0.05 }
-				}
-				hidden_effect = { add_to_variable = { TUR_reapproachment_with_jews_level_654 = -20 } }
 			}
 			ottoman_centralization_variable_check = yes
 		}
@@ -8315,7 +10100,6 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 350 677 676 553 554 291 454 874 679 654 447 1146 446 456 551 356 448 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		cost = 50
 		days_remove = 70
@@ -8785,7 +10569,6 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 350 677 676 553 554 291 454 874 679 654 447 1146 446 456 551 356 448 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		cost = 50
 		visible = {
@@ -9240,7 +11023,6 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 756 345 203 106 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		cost = 50
 		days_remove = 70
@@ -9376,7 +11158,6 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 203 106 758 870 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		cost = 50
 		visible = { has_completed_focus = TUR_win_over_the_albanian_muslims }
@@ -9465,7 +11246,6 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 756 345 203 106 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		cost = 50
 		days_remove = 70
@@ -9601,7 +11381,6 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 350 676 352 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		cost = 50
 		days_remove = 70
@@ -9708,7 +11487,6 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		state_target = yes
 		targets = { 347 1018 756 345 203 106 346 790 183 1019 861 854 339 356 49 349 354 344 881 353 677 676 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		cost = 50
 		days_remove = 70
@@ -10370,7 +12148,6 @@ TUR_millet_system = {
 		days_remove = 120
 		cost = 75
 		targets = { 347 1018 756 1019 861 854 339 356 49 344 349 354 881 353 1022 352 350 677 553 676 454 }
-		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_only
 		visible = {
 			has_completed_focus = TUR_drive_out_infidels
