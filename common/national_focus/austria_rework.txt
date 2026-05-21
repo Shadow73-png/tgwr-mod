@@ -4248,6 +4248,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 				decision = AUS_build_dam_in_jizera_mountains
 				show_effect_tooltip = yes
 			}
+			
 		}
 		ai_will_do = {
 			base = 1
@@ -4965,12 +4966,14 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 		icon = GFX_focus_research2
 		cost = 5
 		x = 1
-		y = 3
+		y = 4
 		prerequisite = {
 			focus = AUS_open_up_the_country
+			focus = AUS_mantain_cheap_goods
 		}
 		prerequisite = {
 			focus = AUS_slow_labor_reforms
+			focus = AUS_mantain_cheap_goods
 		}
 		relative_position_id = AUS_mantain_a_competitive_economy
 		available = {
@@ -4983,9 +4986,14 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 			}
 			add_tech_bonus = {
 				category = industry
-				uses = 2
+				uses = 1
 				name = AUS_encourage_innovation
 				bonus = 1
+			}
+			custom_effect_tooltip = empty_space_tt
+			unlock_decision_tooltip = {
+				decision = AUS_research_kaplan_turbine
+				show_effect_tooltip = yes
 			}
 		}
 		ai_will_do = {
@@ -8800,7 +8808,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 		}
 	}
 	focus = {
-		id = AUS_naval_excercices
+		id = AUS_naval_excercises
 		icon = GFX_goal_generic_navy_cruiser
 		cost = 5
 		x = 0
@@ -8820,12 +8828,12 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 			custom_effect_tooltip = AUS_when_war
 			unlock_decision_tooltip = {
 				decision = AUS_blockade_italy
-				show_effect_tooltip = yes
+				#show_effect_tooltip = yes
 			}
-			custom_effect_tooltip = empty_space_tt
+			#custom_effect_tooltip = empty_space_tt
 			unlock_decision_tooltip = {
 				decision = AUS_shell_venice
-				show_effect_tooltip = yes
+				#show_effect_tooltip = yes
 			}
 			custom_effect_tooltip = empty_space_tt
 			navy_experience = 25
@@ -8849,7 +8857,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 		cost = 5
 		x = 1
 		y = 1
-		relative_position_id = AUS_naval_excercices
+		relative_position_id = AUS_naval_excercises
 		available = {
 			any_state = {
 				is_controlled_by_ROOT_or_subject = yes
@@ -8857,7 +8865,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 			}
 		}
 		prerequisite = {
-			focus = AUS_naval_excercices
+			focus = AUS_naval_excercises
 		}
 		completion_reward = {
 			#horthy
