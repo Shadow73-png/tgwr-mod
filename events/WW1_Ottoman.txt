@@ -8227,6 +8227,7 @@ country_event = {
 		effect_tooltip = {
 			TUR = {
 				transfer_state = 104
+				transfer_state = 1261
 			}
 		}
 		hidden_effect = {
@@ -8337,6 +8338,7 @@ country_event = {
 	option = {
 		name = ottoman.79.a
 		transfer_state = 104
+		transfer_state = 1261
 		add_political_power = 50
 		ai_chance = {
 			base = 5
@@ -13222,7 +13224,11 @@ country_event = { #arab demonstrations in levant
 				add_to_variable = {
 					TUR_ottoman_attrition = 0.05
 				}
-				add_dynamic_modifier = { modifier = TUR_local_cooperation_with_the_enemy days = 1095 }
+				add_dynamic_modifier = { 
+					modifier = TUR_local_cooperation_with_the_enemy 
+					days = 1095
+					scope = TUR 
+				}
 				if = {
 					limit = {
 						NOT = {
@@ -13258,7 +13264,11 @@ country_event = { #arab demonstrations in levant
 					}
 				}
 				custom_effect_tooltip = TUR_ottoman_arab_minority_modify_attrition_5_recruitable_population_5
-				add_dynamic_modifier = { modifier = TUR_local_cooperation_with_the_enemy days = 1095 }
+				add_dynamic_modifier = { 
+					modifier = TUR_local_cooperation_with_the_enemy 
+					days = 1095
+					scope = TUR 
+				}
 				if = {
 					limit = {
 						NOT = {
@@ -13309,7 +13319,11 @@ country_event = { #arab demonstrations in mesapotamia
 				add_to_variable = {
 					TUR_ottoman_attrition = 0.05
 				}
-				add_dynamic_modifier = { modifier = TUR_local_cooperation_with_the_enemy days = 1095 }
+				add_dynamic_modifier = { 
+					modifier = TUR_local_cooperation_with_the_enemy 
+					days = 1095
+					scope = TUR 
+				}
 				if = {
 					limit = {
 						NOT = {
@@ -13339,7 +13353,11 @@ country_event = { #arab demonstrations in mesapotamia
 					}
 				}
 				custom_effect_tooltip = TUR_ottoman_arab_minority_modify_attrition_5_recruitable_population_5
-				add_dynamic_modifier = { modifier = TUR_local_cooperation_with_the_enemy days = 1095 }
+				add_dynamic_modifier = { 
+					modifier = TUR_local_cooperation_with_the_enemy 
+					days = 1095
+					scope = TUR 
+				}
 				if = {
 					limit = {
 						NOT = {
@@ -16988,7 +17006,10 @@ country_event = {
 	option = {
 		name = ww1_ottoman.143.a
 		FROM = {
-			effect_tooltip = { transfer_state = 104 }
+			effect_tooltip = { 
+				transfer_state = 104 
+				transfer_state = 1261
+			}
 			country_event = {
 				id = ww1_ottoman.144
 				hours = 8
@@ -17066,6 +17087,7 @@ country_event = {
 	option = {
 		name = ww1_ottoman.144.a
 		transfer_state = 104
+		transfer_state = 1261
 	}
 }
 
@@ -17079,6 +17101,7 @@ country_event = {
 	option = {
 		name = ww1_ottoman.145.a
 		add_state_claim = 104
+		add_state_claim = 1261
 		if = {
 			limit = {
 				NOT = {
@@ -17090,7 +17113,7 @@ country_event = {
 			create_wargoal = {
 				target = FROM
 				type = take_claimed_state
-				generator = { 104 }
+				generator = { 104 1261 }
 			}
 		}
 	}
