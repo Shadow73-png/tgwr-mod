@@ -6569,7 +6569,7 @@ TUR_millet_system = {
 		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_armenian_minority }
-				check_variable = { TUR_armenian_population_stability_factor < 0 }
+				check_variable = { TUR_armenian_apostolic_state_variable < 0 }
 			}
 		}
 		highlight_states = { highlight_state_targets = { state = FROM } }
@@ -6652,11 +6652,16 @@ TUR_millet_system = {
 		icon = GFX_TUR_arab_brainwash
 		allowed = { original_tag = TUR }
 		state_target = yes
-		targets = { 341 344 347 348 349 350 352 353 354 355 806 816 825 857 859 881 1019 1022 1024 1025 1026 1030 1033 1057 1058 }
+		targets = { 291 293 446 447 448 450 452 453 454 455 456 551 553 554 654 662 676 677 679 680 747 804 829 852 853 856 858 859 874 878 879 883 884 885 904 1021 1023 1028 1029 1058 1060 1061 1122 1124 1128 1146 1149 1154 1155 1156 1157 }
 		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = { modifier = TUR_arab_minority }
-				check_variable = { TUR_arab_population_stability_factor < 0 }
+				OR = {
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_shia_state_variable < 0 }
+					check_variable = { TUR_arab_sunni_state_variable < 0 }
+				}
 			}
 		}
 		highlight_states = { highlight_state_targets = { state = FROM } }
@@ -6720,7 +6725,7 @@ TUR_millet_system = {
 			}
 		}
 		visible = { controls_state = FROM }
-		on_map_mode = map_only}
+		on_map_mode = map_only
 		available = {
 			if = {
 				limit = {
