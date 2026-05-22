@@ -12875,6 +12875,21 @@ TUR_negotiating_our_claims_tooltip = {
 			}
 		}
 	}
+	if = {
+		limit = {
+			1261 = { has_state_flag = TUR_negotiating_our_claims_modifier }
+		}
+		1261 = {
+			custom_effect_tooltip = TUR_ottoman_add_claims_tt
+			hidden_effect = { add_dynamic_modifier = { modifier = TUR_ottoman_claimed_state } }
+			if = {
+			limit = {
+				has_state_flag = TUR_negotiating_our_claims_claimed
+			}
+			add_claim_by = TUR
+			}
+		}
+	}
 }
 
 TUR_negotiating_our_claims_effect = {
@@ -14104,18 +14119,18 @@ TUR_negotiating_our_claims_effect = {
 		limit = {
 			has_completed_focus = TUR_our_traditional_allies
 			OR = {
-			owns_state = 760
-			owns_state = 761
+				owns_state = 760
+				owns_state = 761
 			}
 			NOT = {
-			any_country = {
-				OR = {
-			is_subject_of = TUR
-			is_in_faction_with = TUR
-			tag = TUR
+				any_country = {
+					OR = {
+						is_subject_of = TUR
+						is_in_faction_with = TUR
+						tag = TUR
+					}
+					owns_state = 104
 				}
-				owns_state = 104
-			}
 			}
 		}
 		104 = {
@@ -14123,14 +14138,43 @@ TUR_negotiating_our_claims_effect = {
 			hidden_effect = { add_dynamic_modifier = { modifier = TUR_ottoman_claimed_state } }
 			set_state_flag = TUR_negotiating_our_claims_modifier
 			if = {
+				limit = {
+					NOT = {
+						is_claimed_by = TUR
+						is_core_of = TUR
+					}
+				}
+				add_claim_by = TUR
+				set_state_flag = TUR_negotiating_our_claims_claimed
+			}
+		}
+		if = {
 			limit = {
 				NOT = {
-			is_claimed_by = TUR
-			is_core_of = TUR
+					any_country = {
+						OR = {
+							is_subject_of = TUR
+							is_in_faction_with = TUR
+							tag = TUR
+						}
+						owns_state = 1261
+					}
 				}
 			}
-			add_claim_by = TUR
-			set_state_flag = TUR_negotiating_our_claims_claimed
+			1261 = {
+				custom_effect_tooltip = TUR_ottoman_add_claims_tt
+				hidden_effect = { add_dynamic_modifier = { modifier = TUR_ottoman_claimed_state } }
+				set_state_flag = TUR_negotiating_our_claims_modifier
+				if = {
+					limit = {
+						NOT = {
+							is_claimed_by = TUR
+							is_core_of = TUR
+						}
+					}
+					add_claim_by = TUR
+					set_state_flag = TUR_negotiating_our_claims_claimed
+				}
 			}
 		}
 	}
