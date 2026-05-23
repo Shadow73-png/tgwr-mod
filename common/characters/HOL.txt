@@ -40,6 +40,17 @@ characters={
 			ideology=conservatism
 		}
 	}
+	HOL_ruijs_van_beerenbrouck={
+		name="HOL_ruijs_van_beerenbrouck"
+		portraits={
+			civilian={
+				large="gfx/leaders/HOL/HOL_theo_heemskerk.png" #placeholder
+			}
+		}
+		country_leader={
+			ideology=conservatism
+		}
+	}
 	HOL_pieter_cort_van_der_linden={
 		name="HOL_pieter_cort_van_der_linden"
 		portraits={
@@ -505,11 +516,17 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = HOL_anton_van_gijn
+			available = {
+				OR = {
+					has_country_flag = HOL_flag_left_coalition_gov
+					has_country_flag = HOL_flag_lu_gov
+				}
+			}
 			allowed  = {
 					original_tag  = HOL
 				}
 				traits  = {
-					captain_of_industry 
+					HOL_austerity_figure 
 				}
 				ai_will_do  = {
 					factor  = 1.000
@@ -542,7 +559,7 @@ characters={
 					original_tag  = HOL
 				}
 				traits  = {
-					smooth_talking_charmer 
+					HOL_entente_diplomat 
 				}
 				available = {
 					has_completed_focus = HOL_work_with_chu
@@ -623,11 +640,17 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = HOL_simon_de_vries_czn
+			available = {
+				OR = {
+					has_country_flag = HOL_flag_conservative_coalition_gov
+					has_country_flag = HOL_flag_arp_gov
+				}
+			}
 			allowed  = {
 					original_tag  = HOL
 				}
 				traits  = {
-					quartermaster_general 
+					HOL_taxer 
 				}
 				ai_will_do  = {
 					factor  = 1.000
@@ -653,23 +676,6 @@ characters={
 		}
 	}
 	HOL_abraham_kuyper={
-		advisor={
-			slot = political_advisor
-			idea_token = HOL_abraham_kuyper
-			allowed  = {
-					original_tag  = HOL
-				}
-				available  = {
-					 
-				}
-				traits  = {
-					traditionalist_theorist 
-				}
-				cost  = 50.000
-				ai_will_do  = {
-					factor  = 50.000
-				}
-		}
 		name="HOL_abraham_kuyper"
 		portraits={
 			army={
@@ -816,39 +822,6 @@ characters={
 			}
 		}
 	}
-	HOL_wilhelmus_frederik_van_leeuwen={
-		advisor={
-			slot = political_advisor
-			idea_token = HOL_wilhelmus_frederik_van_leeuwen
-			allowed  = {
-					original_tag  = HOL
-				}
-				traits  = {
-					silent_workhorse 
-				}
-				ai_will_do  = {
-					factor  = 1.000
-					modifier  = {
-						factor  = 0.000
-						not  = {
-							has_idea_with_trait  = democratic_reformer 
-						}
-						not  = {
-							has_idea_with_trait  = communist_revolutionary 
-						}
-						not  = {
-							has_idea_with_trait  = traditionalist_theorist 
-						}
-					}
-				}
-		}
-		name="HOL_wilhelmus_frederik_van_leeuwen"
-		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_europe_1"
-			}
-		}
-	}
 	HOL_cornelis_lely={
 		advisor={
 			slot = political_advisor
@@ -858,12 +831,12 @@ characters={
 			}
 			available = {
 				OR = {
-					has_government = neutrality
-					has_government = democratic
+					has_country_flag = HOL_flag_left_coalition_gov
+					has_country_flag = HOL_flag_lu_gov
 				}
 			}
 			traits  = {
-				talented_engineer 
+				HOL_innovative_engineer 
 			}
 			ai_will_do  = {
 				factor  = 1.000
@@ -887,7 +860,13 @@ characters={
 					communist_revolutionary 
 				}
 				available = {
-					has_completed_focus = HOL_work_with_extremists
+					OR = {
+						AND = {	
+							has_country_flag = HOL_flag_sdap_gov
+							has_completed_focus = HOL_work_with_extremists
+						}
+						has_government = communism
+					}
 				}
 				cost  = 50.000
 				ai_will_do  = {
@@ -922,7 +901,7 @@ characters={
 			slot = political_advisor
 			idea_token = HOL_antonie_pannekoek
 			available  = {
-				has_completed_focus = HOL_work_with_extremists
+				has_government = communism
 			}
 			traits  = {
 				council_communist 
@@ -1080,11 +1059,17 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = HOL_hendrik_goeman_borgesius
+			available = {
+				OR = {
+					has_country_flag = HOL_flag_left_coalition_gov
+					has_country_flag = HOL_flag_lu_gov
+				}
+			}
 			allowed  = {
 					original_tag  = HOL
 				}
 				traits  = {
-					prince_of_terror 
+					HOL_health_advocate 
 				}
 				ai_will_do  = {
 					factor  = 1.000
@@ -1110,9 +1095,6 @@ characters={
 		}
 	}
 	HOL_maximilien_kolkman={
-		country_leader={
-			ideology=conservatism
-		}
 		advisor={
 			slot = political_advisor
 			idea_token = HOL_maximilien_kolkman
@@ -1120,10 +1102,14 @@ characters={
 					original_tag  = HOL
 				}
 				traits  = {
-					armaments_organizer 
+					HOL_protectionist 
 				}
 			available = {
-				has_country_flag = HOL_hg_completed
+				OR = {
+					has_country_flag = HOL_flag_conservative_coalition_gov
+					has_country_flag = HOL_flag_ag_gov
+				}
+				has_completed_focus = HOL_heemskerk_gov
 			}
 				ai_will_do  = {
 					factor  = 1.000
@@ -1162,7 +1148,11 @@ characters={
 				original_tag  = HOL
 			}
 			available = {
-				has_country_flag = HOL_tr_completed
+				OR = {
+					has_country_flag = HOL_flag_conservative_coalition_gov
+					has_country_flag = HOL_flag_arp_gov
+				}
+				has_completed_focus = HOL_talma_reforms
 			}	
 			traits  = {
 				HOL_architect_of_dutch_welfare
@@ -1184,10 +1174,14 @@ characters={
 				original_tag  = HOL
 			}
 			available = {
-				has_country_flag = HOL_hg_completed
+				has_completed_focus = HOL_heemskerk_gov
+				OR = {
+					has_country_flag = HOL_flag_conservative_coalition_gov
+					has_country_flag = HOL_flag_ag_gov
+				}
 			}	
 			traits  = {
-				HOL_ct_conservative
+				HOL_engineer
 			}
 			cost = 150
 		}
@@ -1206,10 +1200,13 @@ characters={
 				original_tag  = HOL
 			}
 			available = {
-				
+				OR = {
+					has_country_flag = HOL_flag_left_coalition_gov
+					has_country_flag = HOL_flag_sdap_gov
+				}
 			}	
 			traits  = {
-				moderate_socialist2
+				HOL_pragmatic_reformist
 			}
 			on_add = {
 				add_to_variable = {
@@ -1234,10 +1231,13 @@ characters={
 				original_tag  = HOL
 			}
 			available = {
-				
+				OR = {
+					has_country_flag = HOL_flag_left_coalition_gov
+					has_country_flag = HOL_flag_sdap_gov
+				}
 			}	
 			traits  = {
-				HOL_municipalist_socialist
+				HOL_urbanist
 			}
 			cost = 150
 		}
@@ -1257,9 +1257,227 @@ characters={
 			}
 			available = {
 				has_completed_focus = HOL_work_with_chu
+				has_country_flag = HOL_flag_arp_gov
 			}	
 			traits  = {
 				HOL_protestant_teacher
+			}
+			cost = 150
+		}
+	}
+	HOL_herman_bavinck = {
+		name = HOL_herman_bavinck
+		portraits = {
+			civilian = {
+				small = "GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor= {
+			slot = political_advisor
+			idea_token = HOL_herman_bavinck
+			allowed  = {
+				original_tag  = HOL
+			}
+			available = {
+				OR = {
+					has_country_flag = HOL_flag_conservative_coalition_gov
+					has_country_flag = HOL_flag_arp_gov
+				}
+			}	
+			traits  = {
+				HOL_predikant
+			}
+			cost = 150
+		}
+	}
+	HOL_wiel_nolens = {
+		name = HOL_wiel_nolens
+		portraits = {
+			civilian = {
+				small = "GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor= {
+			slot = political_advisor
+			idea_token = HOL_wiel_nolens
+			allowed  = {
+				original_tag  = HOL
+			}
+			available = {
+				OR = {
+					has_country_flag = HOL_flag_conservative_coalition_gov
+					has_country_flag = HOL_flag_ag_gov
+				}
+			}	
+			traits  = {
+				HOL_priest
+			}
+			cost = 150
+		}
+	}
+	HOL_herman_schaepman = {
+		name = HOL_herman_schaepman
+		portraits = {
+			civilian = {
+				small = "GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor= {
+			slot = political_advisor
+			idea_token = HOL_herman_schaepman
+			allowed  = {
+				original_tag  = HOL
+			}
+			available = {
+				OR = {
+					has_country_flag = HOL_flag_conservative_coalition_gov
+					has_country_flag = HOL_flag_ag_gov
+				}
+			}	
+			traits  = {
+				HOL_educated_catholic
+			}
+			cost = 150
+		}
+	}
+	HOL_willem_treub = {
+		name = HOL_willem_treub
+		portraits = {
+			civilian = {
+				small = "GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor= {
+			slot = political_advisor
+			idea_token = HOL_willem_treub
+			allowed  = {
+				original_tag  = HOL
+			}
+			available = {
+				OR = {
+					has_country_flag = HOL_flag_left_coalition_gov
+					has_country_flag = HOL_flag_lu_gov
+					has_country_flag = HOL_flag_sdap_gov
+				}
+			}	
+			traits  = {
+				HOL_minister_voorwaart
+			}
+			cost = 150
+		}
+	}
+	HOL_meinard_tydeman = {
+		name = HOL_willem_treub
+		portraits = {
+			civilian = {
+				small = "GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor= {
+			slot = political_advisor
+			idea_token = HOL_willem_treub
+			allowed  = {
+				original_tag  = HOL
+			}
+			available = {
+				has_country_flag = HOL_flag_lu_gov
+			}	
+			traits  = {
+				HOL_old_school_liberal
+			}
+			cost = 150
+		}
+	}
+	HOL_john_loudon = {
+		name = HOL_john_loudon
+		portraits = {
+			civilian = {
+				small = "GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor= {
+			slot = political_advisor
+			idea_token = HOL_john_loudon
+			allowed  = {
+				original_tag  = HOL
+			}
+			available = {
+				
+			}	
+			traits  = {
+				HOL_neutral_diplomat
+			}
+			cost = 150
+		}
+	}
+	HOL_hendrikus_colijn = {
+		name = HOL_hendrikus_colijn
+		portraits = {
+			civilian = {
+				small = "GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor= {
+			slot = political_advisor
+			idea_token = HOL_hendrikus_colijn
+			allowed  = {
+				original_tag  = HOL
+			}
+			available = {
+				
+			}	
+			traits  = {
+				HOL_pro_german_militarist
+			}
+			cost = 150
+		}
+	}
+	HOL_jan_schaper = {
+		name = HOL_jan_schaper
+		portraits = {
+			civilian = {
+				small = "GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor= {
+			slot = political_advisor
+			idea_token = HOL_jan_schaper
+			allowed  = {
+				original_tag  = HOL
+			}
+			available = {
+				
+			}	
+			traits  = {
+				HOL_socialist_propogandist
+			}
+			cost = 150
+		}
+	}
+	HOL_jan_ceton = {
+		name = HOL_jan_ceton
+		portraits = {
+			civilian = {
+				small = "GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor= {
+			slot = political_advisor
+			idea_token = HOL_jan_ceton
+			allowed  = {
+				original_tag  = HOL
+			}
+			available = {
+				OR = {
+					AND = {	
+						has_country_flag = HOL_flag_sdap_gov
+						has_completed_focus = HOL_work_with_extremists
+					}
+					has_government = communism
+				}
+			}	
+			traits  = {
+				HOL_communist_educater
 			}
 			cost = 150
 		}
