@@ -8128,7 +8128,9 @@ country_event = {
 		name = ww1_occupiedserbia.6.a
 		AUS = {
 			if = {
-				NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+				limit = {
+					NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+				}
 				unlock_decision_tooltip = {
 					decision = AUS_seize_industries_from_serbia
 					show_effect_tooltip = yes
