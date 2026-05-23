@@ -124,9 +124,9 @@ country_event = {
 
 # Notification: Exploitation paused due to high resistance in Serbia
 country_event = {
-	id = ww1_occupiedserbia.2000
-	title = ww1_occupiedserbia.2000.t
-	desc = ww1_occupiedserbia.2000.d
+	id = ww1_occupiedserbia.9
+	title = ww1_occupiedserbia.9.t
+	desc = ww1_occupiedserbia.9.d
 	is_triggered_only = yes
 	option = {
 		name = ok
@@ -136,12 +136,21 @@ country_event = {
 
 # Notification: Exploitation resumed as resistance fell
 country_event = {
-	id = ww1_occupiedserbia.2001
-	title = ww1_occupiedserbia.2001.t
-	desc = ww1_occupiedserbia.2001.d
+	id = ww1_occupiedserbia.10
+	title = ww1_occupiedserbia.10.t
+	desc = ww1_occupiedserbia.10.d
 	is_triggered_only = yes
 	option = {
 		name = ok
+	}
+	# When exploitation resumes, attempt to (re)activate AU missions that depend on it
+	hidden_effect = {
+		AUS = {
+			activate_mission = AUS_forced_labor_mission
+			activate_mission = AUS_requisition_resources_mission
+			activate_mission = AUS_suchdetachement_mission
+			activate_mission = AUS_wahren_verkehrs_mission
+		}
 	}
 }
 
@@ -163,6 +172,42 @@ country_event = {
 		}
 		AUS_update_state_of_realm = yes
 	}
+}
+
+# Notification: Forced labor begun in Serbia
+country_event = {
+	id = ww1_occupiedserbia.11
+	title = ww1_occupiedserbia.11.t
+	desc = ww1_occupiedserbia.11.d
+	is_triggered_only = yes
+	option = { name = ok }
+}
+
+# Notification: Requisition of resources begun in Serbia
+country_event = {
+	id = ww1_occupiedserbia.12
+	title = ww1_occupiedserbia.12.t
+	desc = ww1_occupiedserbia.12.d
+	is_triggered_only = yes
+	option = { name = ok }
+}
+
+# Notification: Suchdetaschement supplies delivered to Austria
+country_event = {
+	id = ww1_occupiedserbia.13
+	title = ww1_occupiedserbia.13.t
+	desc = ww1_occupiedserbia.13.d
+	is_triggered_only = yes
+	option = { name = ok }
+}
+
+# Notification: Wahren Verkehrs Zentrale established
+country_event = {
+	id = ww1_occupiedserbia.14
+	title = ww1_occupiedserbia.14.t
+	desc = ww1_occupiedserbia.14.d
+	is_triggered_only = yes
+	option = { name = ok }
 }
 country_event = {
 	id = ww1_austriahungary_war.9
@@ -3074,11 +3119,6 @@ country_event = {
 				level = 1
 				instant_build = yes
 			}
-		}
-		custom_effect_tooltip = modify_BOS_diet_tt
-		add_to_variable = {
-			BOS_TUR_construction_speed = 0.1
-			tooltip = production_speed_buildings_factor_tt
 		}
 		add_political_power = 100
 	}
@@ -8133,7 +8173,9 @@ country_event = {
 		name = ww1_occupiedserbia.6.a
 		AUS = {
 			if = {
-				NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+				limit = {
+					NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+				}
 				unlock_decision_tooltip = {
 					decision = AUS_seize_industries_from_serbia
 					show_effect_tooltip = yes
