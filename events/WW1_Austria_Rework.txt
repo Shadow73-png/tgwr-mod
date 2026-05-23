@@ -122,6 +122,29 @@ country_event = {
 	}
 }
 
+# Notification: Exploitation paused due to high resistance in Serbia
+country_event = {
+	id = ww1_occupiedserbia.2000
+	title = ww1_occupiedserbia.2000.t
+	desc = ww1_occupiedserbia.2000.d
+	is_triggered_only = yes
+	option = {
+		name = ok
+		# purely informational
+	}
+}
+
+# Notification: Exploitation resumed as resistance fell
+country_event = {
+	id = ww1_occupiedserbia.2001
+	title = ww1_occupiedserbia.2001.t
+	desc = ww1_occupiedserbia.2001.d
+	is_triggered_only = yes
+	option = {
+		name = ok
+	}
+}
+
 country_event = {
 	id = ww1_austriahungary_war.8
 	title = ww1_austriahungary_war.8.t
@@ -8109,11 +8132,14 @@ country_event = {
 	option = {
 		name = ww1_occupiedserbia.6.a
 		AUS = {
+			if = {
+				NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
 				unlock_decision_tooltip = {
 					decision = AUS_seize_industries_from_serbia
 					show_effect_tooltip = yes
 				}
 			}
+		}
 	}
 
 }
