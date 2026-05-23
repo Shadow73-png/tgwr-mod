@@ -45,6 +45,97 @@ MGS_serbian_resistance = {
 		fire_only_once = no
 		is_good = no
 	}
+	AUS_partisans_resistance = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = MGS
+		}
+		priority = 10
+		days_mission_timeout = 15
+		available = {
+			always = no
+		}
+		activation = {
+			NOT = {
+				has_idea = MGS_popular_resistance
+			}
+			OR = {
+				has_idea = MGS_resistance_to_occupation6
+				has_idea = MGS_resistance_to_occupation7
+				has_idea = MGS_resistance_to_occupation8
+				has_idea = MGS_resistance_to_occupation9
+				has_idea = MGS_resistance_to_occupation10
+			}
+		}
+		timeout_effect = {
+		}
+		complete_effect = {
+			add_timed_idea = {
+				idea = MGS_popular_resistance
+				days = 90
+			}
+			
+		}
+		fire_only_once = no
+		is_good = no
+	}
+	MGS_pause_exploitation_due_to_resistance = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = MGS
+		}
+		priority = 50
+		days_mission_timeout = 15
+		available = {
+			always = no
+		}
+		activation = {
+			OR = {
+				has_idea = MGS_resistance_to_occupation8
+				has_idea = MGS_resistance_to_occupation9
+				has_idea = MGS_resistance_to_occupation10
+			}
+		}
+		timeout_effect = {
+		}
+		complete_effect = {
+			set_global_flag = MGS_resistance_too_high_to_exploit
+			AUS = {
+				country_event = { id = ww1_occupiedserbia.2000 days = 1 }
+			}
+		}
+		fire_only_once = yes
+		is_good = no
+	}
+	MGS_resume_exploitation_when_resistance_falls = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = MGS
+		}
+		priority = 50
+		days_mission_timeout = 15
+		available = {
+			always = no
+		}
+		activation = {
+			has_global_flag = MGS_resistance_too_high_to_exploit
+			NOT = {
+				OR = {
+					has_idea = MGS_resistance_to_occupation8
+					has_idea = MGS_resistance_to_occupation9
+					has_idea = MGS_resistance_to_occupation10
+				}
+			}
+		}
+		complete_effect = {
+			unset_global_flag = MGS_resistance_too_high_to_exploit
+			AUS = {
+				country_event = { id = ww1_occupiedserbia.2001 days = 1 }
+			}
+		}
+		fire_only_once = yes
+		is_good = yes
+	}
 	MGS_resistance_cells_organize = {
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
