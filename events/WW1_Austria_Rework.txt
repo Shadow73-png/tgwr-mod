@@ -7995,12 +7995,13 @@ country_event = {
 		name = ww1_occupiedserbia.1.a
 		
 		AUS_spawn_MGS = yes
-		
+		MGS = { country_event = { id = ww1_occupiedserbia.9 days = 5 } }
 	}
 	option = {
 		name = ww1_occupiedserbia.1.b
 
 		AUS_spawn_MGS = yes
+		MGS = { country_event = { id = ww1_occupiedserbia.9 days = 5 } }
 
 		custom_effect_tooltip = empty_space_tt
 		MGS = { 
@@ -8143,6 +8144,18 @@ country_event = {
 		
 	}
 
+}
+country_event = {
+	id = ww1_occupiedserbia.9
+	title = ww1_occupiedserbia.9.t
+	desc = ww1_occupiedserbia.9.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_occupiedserbia.9.a
+		set_variable = { var = MGS_food_situation value = 1 }
+		activate_mission = MGS_worsening_famine
+	}
 }
 #MGM
 country_event = {
