@@ -131,7 +131,11 @@ focus_tree = {
 		}
 		completion_reward = { 
 			add_political_power = 40
-			BOS_increase_serb_opinion = yes
+			add_to_variable = {
+				BOS_serb_opinion = 5
+				tooltip = BOS_increase_serb_tt
+			}
+			BOS_parliament_update = yes
 
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = BOS_petar_kocic
@@ -156,7 +160,11 @@ focus_tree = {
 			bosnia_is_AUS_subject = yes
 		}
 		completion_reward = {
-			BOS_increase_muslim_opinion = yes
+			add_to_variable = {
+				BOS_muslim_opinion = 10
+				tooltip = BOS_increase_muslim_tt
+			}
+			BOS_parliament_update = yes
 			add_stability = 0.05
 			if = {
 				limit = {
@@ -264,7 +272,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = BOS_if_bill_passes
 			effect_tooltip = {
-				BOS_decrease_muslim_opinion = yes
+				add_to_variable = {
+					BOS_muslim_opinion = -10
+					tooltip = BOS_decrease_muslim_tt
+				}
 				104 = {
 					add_extra_state_shared_building_slots = 1
 				}
@@ -510,7 +521,11 @@ focus_tree = {
 			
 		}
 		completion_reward = {
-			BOS_increase_croat_opinion = yes
+			add_to_variable = {
+				BOS_croat_opinion = 10
+				tooltip = BOS_increase_croat_tt
+			}
+			BOS_parliament_update = yes
 		}
 	}
 	focus = {
@@ -537,7 +552,11 @@ focus_tree = {
 			
 		}
 		completion_reward = {
-			BOS_increase_muslim_opinion = yes
+			add_to_variable = {
+				BOS_muslim_opinion = 10
+				tooltip = BOS_increase_muslim_tt
+			}
+			BOS_parliament_update = yes
 		}
 	}
 	focus = {
@@ -562,12 +581,11 @@ focus_tree = {
 		available = {
 			bosnia_is_AUS_subject = yes
 			custom_trigger_tooltip = {
-				tooltip = BOS_tooltip_wow_amazing
-				OR = {
-					check_variable = {
-						BOS_muslim_opinion > 1
-					}
+				check_variable = {
+					BOS_muslim_opinion < 50
+					tooltip = BOS_muslim_opinion_lower_than
 				}
+				
 			}
 			OR = {
 				BOS_nikola_mandic = {
@@ -604,13 +622,9 @@ focus_tree = {
 		}
 		available = {
 			bosnia_is_AUS_subject = yes
-			custom_trigger_tooltip = {
-				tooltip = BOS_tooltip_wow_amazing2
-				OR = {
-					check_variable = {
-						BOS_serb_opinion < 2
-					}
-				}
+			check_variable = {
+				BOS_serb_opinion < 50
+				tooltip = BOS_serb_opinion_lower_than
 			}
 			OR = {
 				BOS_petar_kocic = {
@@ -626,7 +640,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = ww1_bosnia.70
-			BOS_increase_serb_opinion = yes #increase it only once
+			add_to_variable = {
+				BOS_serb_opinion = 5
+				tooltip = BOS_increase_serb_tt
+			}
+			BOS_parliament_update = yes
 		}
 	}
 	
@@ -736,8 +754,11 @@ focus = {
 			has_global_flag = scutari_crisis
 		}
 		completion_reward = {
-			BOS_decrease_serb_opinion = yes
-			#event similar to crackdown event
+			add_to_variable = {
+				BOS_serb_opinion = -10
+				tooltip = BOS_increase_serb_tt
+			}
+			BOS_parliament_update = yes
 		}
 	}#WIP
 	focus = {
@@ -767,10 +788,13 @@ focus = {
 		}
 		completion_reward = {
 			#add_stability = -0.05
-			BOS_decrease_serb_opinion = yes
-			#event
+			add_to_variable = {
+				BOS_serb_opinion = -10
+				tooltip = BOS_increase_serb_tt
+			}
+			BOS_parliament_update = yes
 		}
-	}#WIP
+	}
 	focus = {
 		id = BOS_taslica_occupation
 		icon = GFX_goal_generic_demand_territory
@@ -795,9 +819,16 @@ focus = {
 			}
 		}
 		completion_reward = {
-			BOS_increase_muslim_opinion = yes
+			add_to_variable = {
+				BOS_muslim_opinion = 10
+				tooltip = BOS_increase_muslim_tt
+			}
+			BOS_parliament_update = yes
+
 			custom_effect_tooltip = empty_space_tt
+
 			country_event = ww1_bosnia.63
+
 			custom_effect_tooltip = when_taken
 			effect_tooltip = {
 				761 = { 
@@ -901,7 +932,11 @@ focus = {
 			}
 		}
 		completion_reward = {
-			BOS_increase_muslim_opinion = yes
+			add_to_variable = {
+				BOS_muslim_opinion = 10
+				tooltip = BOS_increase_muslim_tt
+			}
+			BOS_parliament_update = yes
 			custom_effect_tooltip = empty_space_tt
 			custom_effect_tooltip = BOS_core_FROM_tt
 			custom_effect_tooltip = when_taken
@@ -1197,7 +1232,11 @@ focus = {
 			}
 		}
 		completion_reward = {
-			BOS_increase_muslim_opinion = yes
+			add_to_variable = {
+				BOS_muslim_opinion = 10
+				tooltip = BOS_increase_muslim_tt
+			}
+			BOS_parliament_update = yes
 			remove_ideas = BOS_student_protests
 			add_timed_idea = {
 				idea = BOS_suppressed_riots
@@ -1381,8 +1420,14 @@ focus = {
 			}
 			custom_effect_tooltip = BOS_if_bill_passes
 			effect_tooltip = {
-				BOS_decrease_muslim_opinion = yes
-				BOS_decrease_serb_opinion = yes
+				add_to_variable = {
+					BOS_muslim_opinion = -10
+					tooltip = BOS_decrease_muslim_tt
+				}
+				add_to_variable = {
+					BOS_serb_opinion = -10
+					tooltip = BOS_increase_serb_tt
+				}
 				add_political_power = 50
 				104 = {
 					add_extra_state_shared_building_slots = 1
@@ -1487,9 +1532,18 @@ focus = {
 			}
 			custom_effect_tooltip = BOS_if_bill_passes
 			effect_tooltip = {
-				BOS_decrease_croat_opinion = yes
-				BOS_increase_serb_opinion = yes
-				BOS_increase_muslim_opinion = yes
+				add_to_variable = {
+					BOS_croat_opinion = -10
+					tooltip = BOS_decrease_croat_tt
+				}
+				add_to_variable = {
+					BOS_serb_opinion = 10
+					tooltip = BOS_increase_serb_tt
+				}
+				add_to_variable = {
+					BOS_muslim_opinion = 10
+					tooltip = BOS_increase_muslim_tt
+				}
 				add_stability = 0.05
 			}
 			
@@ -1521,8 +1575,14 @@ focus = {
 			}
 			custom_effect_tooltip = BOS_if_bill_passes
 			effect_tooltip = {
-				BOS_increase_serb_opinion = yes
-				BOS_increase_muslim_opinion = yes
+				add_to_variable = {
+					BOS_serb_opinion = 10
+					tooltip = BOS_increase_serb_tt
+				}
+				add_to_variable = {
+					BOS_muslim_opinion = 10
+					tooltip = BOS_increase_muslim_tt
+				}
 				add_stability = 0.05
 			}
 			
@@ -1830,7 +1890,10 @@ focus = {
 					BOS_TUR_construction_speed = 0.05
 					tooltip = production_speed_buildings_factor_tt
 				}
-				BOS_increase_serb_opinion = yes
+				add_to_variable = {
+					BOS_serb_opinion = 10
+					tooltip = BOS_increase_serb_tt
+				}
 			}
 		}
 	}
@@ -1888,10 +1951,20 @@ focus = {
 				add_idea = BOS_postal_bank_idea2
 			}
 			add_political_power = 75
-			BOS_increase_serb_opinion = yes
-			BOS_increase_muslim_opinion = yes
-			BOS_increase_croat_opinion = yes
+			add_to_variable = {
+				BOS_serb_opinion = 5
+				tooltip = BOS_increase_serb_tt
+			}
+			add_to_variable = {
+				BOS_muslim_opinion = 10
+				tooltip = BOS_increase_muslim_tt
+			}
+			add_to_variable = {
+				BOS_croat_opinion = 10
+				tooltip = BOS_increase_croat_tt
+			}
 			country_event = ww1_bosnia.52
+			BOS_parliament_update = yes
 		}
 	}#wip? or is it done need to test prob
 

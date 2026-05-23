@@ -256,7 +256,10 @@ country_event = {
 		name = ww1_bosnia.13.a
 		custom_effect_tooltip = the_serbs_will_obstruct
 		set_global_flag = second_session_obstructed
-		BOS_decrease_serb_opinion = yes
+		add_to_variable = {
+			BOS_serb_opinion = -5
+			tooltip = BOS_increase_serb_tt
+		}
 		add_stability = -0.025
 	}
 }
@@ -315,7 +318,11 @@ country_event = {
 		}
 		custom_effect_tooltip = BOS_bill_passed_yay
 		add_political_power = 15
-		BOS_decrease_muslim_opinion = yes
+		add_to_variable = {
+			BOS_muslim_opinion = -10
+			tooltip = BOS_decrease_muslim_tt
+		}
+		BOS_parliament_update = yes
 		104 = {
 			add_extra_state_shared_building_slots = 1
 		}
@@ -427,10 +434,22 @@ country_event = {
 		BOS_update_austria_relations = yes
 
 		custom_effect_tooltip = BOS_bill_rejected_boo
+
+		
 		add_stability = -0.05
-		BOS_decrease_muslim_opinion = yes
-		BOS_decrease_serb_opinion = yes
-		BOS_decrease_croat_opinion = yes
+		add_to_variable = {
+			BOS_muslim_opinion = -10
+			tooltip = BOS_decrease_muslim_tt
+		}
+		add_to_variable = {
+			BOS_serb_opinion = -5
+			tooltip = BOS_increase_serb_tt
+		}
+		add_to_variable = {
+			BOS_croat_opinion = -10
+			tooltip = BOS_decrease_croat_tt
+		}
+		BOS_parliament_update = yes
 		custom_effect_tooltip = empty_space_tt
 		set_country_flag = bosnia_road_bill_epic_fail
 		custom_effect_tooltip = diet_collapses_lmao
@@ -501,7 +520,11 @@ country_event = {
     is_triggered_only = yes
 	option = {
 		name = ww1_bosnia.25.a
-		BOS_increase_croat_opinion = yes
+		add_to_variable = {
+			BOS_croat_opinion = 10
+			tooltip = BOS_increase_croat_tt
+		}
+		BOS_parliament_update = yes
 		add_popularity = {
 			ideology = neutrality
 			popularity = 0.15
@@ -838,7 +861,10 @@ country_event = {
     is_triggered_only = yes
 	option = {
 		name = ww1_bosnia.38.a
-		BOS_decrease_serb_opinion = yes
+		add_to_variable = {
+			BOS_serb_opinion = -5
+			tooltip = BOS_increase_serb_tt
+		}
 		add_to_variable = {
 			global.BOS_austria_relations = -2
 			tooltip = BOS_austria_relations_tt
@@ -858,8 +884,15 @@ country_event = {
 	option = {
 		name = ww1_bosnia.39.a
 		set_global_flag = BOS_police_intervention_1912
-		BOS_decrease_croat_opinion = yes
-		BOS_decrease_serb_opinion = yes
+		add_to_variable = {
+			BOS_croat_opinion = -10
+			tooltip = BOS_decrease_croat_tt
+		}
+		add_to_variable = {
+			BOS_serb_opinion = -10
+			tooltip = BOS_increase_serb_tt
+		}
+		BOS_parliament_update = yes
 		hidden_effect = {
 			add_days_mission_timeout = {
 				mission = BOS_first_diet_session
@@ -889,8 +922,17 @@ country_event = {
 		add_to_variable = {
 			BOS_bills_passed = 1
 		}
-		BOS_decrease_muslim_opinion = yes
-		BOS_decrease_serb_opinion = yes
+		
+		add_to_variable = {
+			BOS_muslim_opinion = -5
+			tooltip = BOS_decrease_muslim_tt
+		}
+		add_to_variable = {
+			BOS_serb_opinion = -5
+			tooltip = BOS_increase_serb_tt
+		}
+		BOS_parliament_update = yes
+
 		custom_effect_tooltip = modify_BOS_diet_tt
 		add_to_variable = {
 			BOS_diet_stab = 0.02
@@ -907,7 +949,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = ww1_bosnia.13
-				days = 6 #dont touch
+				days = 6
 			}
 		}
 	}
@@ -996,8 +1038,15 @@ country_event = {
 			BOS_TUR_stability = 0.05
 			tooltip = stability_factor_tt
 		}
-		BOS_increase_croat_opinion = yes
-		BOS_decrease_muslim_opinion = yes
+		add_to_variable = {
+			BOS_croat_opinion = 10
+			tooltip = BOS_increase_croat_tt
+		}
+		add_to_variable = {
+			BOS_muslim_opinion = -10
+			tooltip = BOS_decrease_muslim_tt
+		}
+		BOS_parliament_update = yes
 		hidden_effect = {
 			country_event = {
 				id = ww1_bosnia.69
@@ -1037,7 +1086,11 @@ country_event = {
 			tooltip = stability_factor_tt
 		}
 		add_political_power = 15
-		BOS_increase_croat_opinion = yes
+		add_to_variable = {
+			BOS_croat_opinion = 10
+			tooltip = BOS_increase_croat_tt
+		}
+		BOS_parliament_update = yes
 		hidden_effect = {
 			country_event = {
 				id = ww1_bosnia.26
@@ -1052,9 +1105,21 @@ country_event = {
 		add_to_variable = {
 			BOS_bills_passed = 1
 		}
-		BOS_increase_serb_opinion = yes
-		BOS_increase_muslim_opinion = yes
-		BOS_decrease_croat_opinion = yes
+		add_to_variable = {
+			BOS_serb_opinion = 10
+			tooltip = BOS_increase_serb_tt
+		}
+		add_to_variable = {
+			BOS_muslim_opinion = 10
+			tooltip = BOS_increase_muslim_tt
+		}
+		add_to_variable = {
+			BOS_croat_opinion = -10
+			tooltip = BOS_decrease_croat_tt
+		}
+
+		BOS_parliament_update = yes
+
 		set_country_flag = BOS_croats_caved_in
 		add_to_variable = {
 			BOS_diet_stab = -0.05
@@ -1082,8 +1147,15 @@ country_event = {
 		add_to_variable = {
 			BOS_bills_passed = 1
 		}
-		BOS_increase_serb_opinion = yes
-		BOS_increase_muslim_opinion = yes
+		add_to_variable = {
+			BOS_serb_opinion = 10
+			tooltip = BOS_increase_serb_tt
+		}
+		add_to_variable = {
+			BOS_muslim_opinion = 10
+			tooltip = BOS_increase_muslim_tt
+		}
+		BOS_parliament_update = yes
 		add_stability = 0.05
 		hidden_effect = {
 			country_event = {
@@ -1106,7 +1178,10 @@ country_event = {
 		BOS_vasilj_grdic = {
 			set_character_flag = imprisonned_BOS
 		}
-		BOS_decrease_serb_opinion = yes
+		add_to_variable = {
+			BOS_serb_opinion = -10
+			tooltip = BOS_increase_serb_tt
+		}
 		add_political_power = -20
 		hidden_effect = {
 			country_event = {
@@ -1227,9 +1302,18 @@ country_event = {
 					add_idea = BOS_postal_bank_idea2
 				}
 				add_political_power = 75
-				BOS_increase_serb_opinion = yes
-				BOS_increase_muslim_opinion = yes
-				BOS_increase_croat_opinion = yes
+				add_to_variable = {
+					BOS_serb_opinion = 5
+					tooltip = BOS_increase_serb_tt
+				}
+				add_to_variable = {
+					BOS_muslim_opinion = 5
+					tooltip = BOS_increase_muslim_tt
+				}
+				add_to_variable = {
+					BOS_croat_opinion = 5
+					tooltip = BOS_increase_croat_tt
+				}
 				add_to_variable = {
 					global.BOS_austria_relations = 5
 					tooltip = BOS_austria_relations_tt
@@ -1278,9 +1362,19 @@ country_event = {
 			add_idea = BOS_postal_bank_idea2
 		}
 		add_political_power = 75
-		BOS_increase_serb_opinion = yes
-		BOS_increase_muslim_opinion = yes
-		BOS_increase_croat_opinion = yes
+		add_to_variable = {
+			BOS_serb_opinion = 5
+			tooltip = BOS_increase_serb_tt
+		}
+		add_to_variable = {
+			BOS_muslim_opinion = 5
+			tooltip = BOS_increase_muslim_tt
+		}
+		add_to_variable = {
+			BOS_croat_opinion = 5
+			tooltip = BOS_increase_croat_tt
+		}
+		BOS_parliament_update = yes
 		add_to_variable = {
 			global.BOS_austria_relations = 5
 			tooltip = BOS_austria_relations_tt
@@ -1457,8 +1551,15 @@ country_event = {
 			BOS_TUR_construction_speed = 0.05
 			tooltip = production_speed_buildings_factor_tt
 		}
-		BOS_increase_serb_opinion = yes
-		BOS_decrease_muslim_opinion = yes
+		add_to_variable = {
+			BOS_serb_opinion = 5
+			tooltip = BOS_increase_serb_tt
+		}
+		add_to_variable = {
+			BOS_muslim_opinion = -7
+			tooltip = BOS_decrease_muslim_tt
+		}
+		BOS_parliament_update = yes
 	}
 }
 
@@ -1633,9 +1734,20 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_bosnia.69.a
-		BOS_decrease_serb_opinion = yes
-		BOS_increase_croat_opinion = yes
-		BOS_increase_muslim_opinion = yes
+		add_to_variable = {
+			BOS_serb_opinion = -5
+			tooltip = BOS_increase_serb_tt
+		}
+		add_to_variable = {
+			BOS_muslim_opinion = 10
+			tooltip = BOS_increase_muslim_tt
+		}
+		add_to_variable = {
+			BOS_croat_opinion = 5
+			tooltip = BOS_increase_croat_tt
+		}
+		BOS_parliament_update = yes
+
 		custom_effect_tooltip = modify_BOS_diet_tt
 		add_to_variable = {
 			BOS_diet_stab = -0.1
@@ -1645,6 +1757,7 @@ country_event = {
 			ideology = neutrality
 			popularity = 0.15
 		}
+		BOS_parliament_update = yes
 	}
 }
 
