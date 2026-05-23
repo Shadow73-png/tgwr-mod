@@ -2909,6 +2909,7 @@ HUN_war_economy_cat = {
 		visible = {
 			has_war_with_major = yes
 			has_global_flag = great_war
+			has_completed_focus = HUN_restrict_meat_consumption
 		}
 		complete_effect = {
 			custom_effect_tooltip = HUN_modify_eco_tt
@@ -2923,6 +2924,36 @@ HUN_war_economy_cat = {
 				HUN_eco_consumer_good = 0.05
 				tooltip = consumer_goods_factor_tt
 			}
+		}
+	}
+	HUN_order_general_rations = {
+		icon = GFX_decision_generic_consumer_goods
+		cost = 35
+		days_re_enable = 100
+		days_remove = 100
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		visible = {
+			has_war_with_major = yes
+			has_global_flag = great_war
+			has_completed_focus = HUN_great_war_focus
+		}
+		modifier = {
+			consumer_goods_factor = -0.15
+			stability_weekly = -0.25
+		}
+		complete_effect = {
+			add_to_variable = {
+				HUN_food_stab_var = 3
+				tooltip = HUN_food_var_plus_3.tt
+			}
+		}
+		remove_effect = {
+			
 		}
 	}
 }
