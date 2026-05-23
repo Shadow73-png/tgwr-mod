@@ -1602,6 +1602,7 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			add_war_support = 0.05
 			custom_effect_tooltip = HOL_modify_dutch_military_tt
 			add_to_variable = {
 				HOL_variable_army_conscription = 0.1
@@ -1631,6 +1632,7 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			add_war_support = 0.05
 			custom_effect_tooltip = HOL_modify_dutch_military_tt
 			add_to_variable = {
 				HOL_variable_army_conscription = 0.05
@@ -1989,6 +1991,107 @@ focus_tree = {
 		cost = 5
 		x = -1
 		y = 3
+	}
+	focus = {
+		id = HOL_invest_aa
+		icon = GFX_SOV_barrier_troops_ccp_2d_sov_compatibility
+		prerequisite = {
+			focus = HOL_strategische_aanwijzigingen
+		}
+		relative_position_id = HOL_koninklijk_landmacht
+		available = {
+			OR = {
+				has_global_flag = great_war
+				has_global_flag = great_war_ends
+			}
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = anti_air_equipment
+				bonus = 0.5
+			}
+			add_timed_idea = {
+				idea = HOL_aa_focus
+				days = 180
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = -2
+		y = 4
+	}
+	focus = {
+		id = HOL_copy_stormtroopers
+		icon = GFX_SOV_barrier_troops_ccp_2d_sov_compatibility
+		prerequisite = {
+			focus = HOL_strategische_aanwijzigingen
+		}
+		relative_position_id = HOL_koninklijk_landmacht
+		available = {
+			OR = {
+				has_global_flag = great_war
+				has_global_flag = great_war_ends
+			}
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = HOL_modify_dutch_military_tt
+			add_to_variable = {
+				HOL_variable_army_speed = 0.05
+				tooltip = army_speed_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_army_army_attack = 0.05
+				tooltip = army_attack_factor_tt
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = 0
+		y = 4
+	}
+	focus = {
+		id = HOL_loopgraafgeweer
+		icon = GFX_SOV_barrier_troops_ccp_2d_sov_compatibility
+		prerequisite = {
+			focus = HOL_strategische_aanwijzigingen
+		}
+		relative_position_id = HOL_koninklijk_landmacht
+		available = {
+			OR = {
+				has_global_flag = great_war
+				has_global_flag = great_war_ends
+			}
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_equipment
+				uses = 2
+				bonus = 0.75
+			}
+			army_experience = 50
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = 2
+		y = 4
 	}
 	focus = {
 		id = HOL_create_new_uniforms
@@ -3335,6 +3438,29 @@ focus_tree = {
 		x = 4
 		y = 3
 	}
+	focus = {
+		id = HOL_invite_the_vdb
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = HOL_unemployment_benefits }
+		relative_position_id = HOL_stem_rood
+		available = {
+
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = HOL_willem_treub
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			
+		}
+		cost = 5
+		x = 4
+		y = 4
+	}
 	#liberal path
 	focus = {
 		id = HOL_welcome_back_liberals
@@ -3356,6 +3482,29 @@ focus_tree = {
 		}
 		cost = 5
 		x = 4
+		y = 1
+	}
+	focus = {
+		id = HOL_invite_the_bvl
+		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		prerequisite = { focus = HOL_welcome_back_liberals }
+		relative_position_id = HOL_welcome_back_liberals
+		available = {
+			has_country_flag = HOL_flag_1913_lu_won
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = HOL_meinard_tydeman
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		cost = 5
+		x = 3
 		y = 1
 	}
 	focus = {
@@ -4753,7 +4902,9 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			add_country_leader_trait = HOL_philantrophist_from_south
+			HOL_ruijs_van_beerenbrouck = {
+				add_country_leader_trait = HOL_philantrophist_from_south
+			}
 		}
 		ai_will_do = {
 			factor = 500
