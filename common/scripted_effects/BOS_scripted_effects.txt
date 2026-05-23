@@ -3,17 +3,17 @@
 
 BOS_clamp_opinion_vars = {
 	clamp_variable = {
-		var = var:BOS_serb_opinion
+		var = BOS_serb_opinion
 		min = -5
 		max = 5
 	}
 	clamp_variable = {
-		var = var:BOS_muslim_opinion
+		var = BOS_muslim_opinion
 		min = -5
 		max = 5
 	}
 	clamp_variable = {
-		var = var:BOS_croat_opinion
+		var = BOS_croat_opinion
 		min = -5
 		max = 5
 	}
@@ -65,6 +65,7 @@ BOS_1910_elections_effects = {
 	}
 
 	BOS_clamp_opinion_vars = yes
+	BOS_parliament_update = yes
 	clamp_variable = {
 		var = BOS_parliament_total
 		min = 0
@@ -130,6 +131,7 @@ BOS_1913_partial_election = {
 	custom_effect_tooltip = set_1913_election_BOS_effects
 
 	BOS_clamp_opinion_vars = yes
+	BOS_parliament_update = yes
 	clamp_variable = {
 		var = BOS_parliament_total
 		min = 0
@@ -153,6 +155,7 @@ BOS_increase_serb_opinion = {
 		}
 	}
 	BOS_clamp_opinion_vars = yes
+	BOS_parliament_update = yes
 }
 BOS_decrease_serb_opinion = {
 	if = {
@@ -171,6 +174,7 @@ BOS_decrease_serb_opinion = {
 		}
 	}
 	BOS_clamp_opinion_vars = yes
+	BOS_parliament_update = yes
 }
 BOS_increase_muslim_opinion = {
 	if = {
@@ -189,6 +193,7 @@ BOS_increase_muslim_opinion = {
 		}
 	}
 	BOS_clamp_opinion_vars = yes
+	BOS_parliament_update = yes
 }
 BOS_decrease_muslim_opinion = {
 	if = {
@@ -207,6 +212,7 @@ BOS_decrease_muslim_opinion = {
 		}
 	}
 	BOS_clamp_opinion_vars = yes
+	BOS_parliament_update = yes
 }
 BOS_increase_croat_opinion = {
 	if = {
@@ -225,6 +231,7 @@ BOS_increase_croat_opinion = {
 		}
 	}
 	BOS_clamp_opinion_vars = yes
+	BOS_parliament_update = yes
 }
 BOS_decrease_croat_opinion = {
 	if = {
@@ -243,6 +250,7 @@ BOS_decrease_croat_opinion = {
 		}
 	}
 	BOS_clamp_opinion_vars = yes
+	BOS_parliament_update = yes
 }
 
 BOS_update_austria_relations = {
@@ -252,45 +260,6 @@ BOS_update_austria_relations = {
 		max = 100
 	}
 }
-#trying without chatgpt im sorry
-#BOS_update_influence_vars = {
-#	set_variable = { BOS_austrian_influence = 0 }
-#	set_variable = { BOS_hungarian_influence = 0 }
-#	set_variable = { BOS_influence_temp = 0 }
-#	set_variable = {
-#        BOS_influence_temp = power_balance_value:BOS_austrian_hungarian_influence
-#    }
-#	multiply_variable = {
-#        var = BOS_influence_temp
-#        value = 100
-#    }
-#	if = {
-#        limit = {
-#            check_variable = {
-#                var = BOS_influence_temp
-#                value > 0
-#            }
-#        }
-#        set_variable = {
-#            BOS_austrian_influence = BOS_influence_temp
-#        }
-#        multiply_variable = {
-#            var = BOS_austrian_influence
-#            value = -1	
-#        }
-#    }
-#	if = {
-#        limit = {
-#            check_variable = {
-#                var = BOS_influence_temp
-#                value < 0
-#            }
-#        }
-#        set_variable = {
-#            BOS_hungarian_influence = BOS_influence_temp
-#        }
-#    }
-#}
 
 BOS_first_diet_uncompleted = {
 	set_variable = {
@@ -368,6 +337,12 @@ BOS_first_diet_uncompleted = {
 			BOS_uncompleted_focus = 1
 		}
 	}
+}
 
-	
+BOS_parliament_update = {
+	if = {
+		limit = {
+			
+		}
+	}
 }
