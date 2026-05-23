@@ -3120,11 +3120,6 @@ country_event = {
 				instant_build = yes
 			}
 		}
-		custom_effect_tooltip = modify_BOS_diet_tt
-		add_to_variable = {
-			BOS_TUR_construction_speed = 0.1
-			tooltip = production_speed_buildings_factor_tt
-		}
 		add_political_power = 100
 	}
 }
@@ -8063,12 +8058,13 @@ country_event = {
 		name = ww1_occupiedserbia.1.a
 		
 		AUS_spawn_MGS = yes
-		
+		MGS = { country_event = { id = ww1_occupiedserbia.9 days = 5 } }
 	}
 	option = {
 		name = ww1_occupiedserbia.1.b
 
 		AUS_spawn_MGS = yes
+		MGS = { country_event = { id = ww1_occupiedserbia.9 days = 5 } }
 
 		custom_effect_tooltip = empty_space_tt
 		MGS = { 
@@ -8177,7 +8173,9 @@ country_event = {
 		name = ww1_occupiedserbia.6.a
 		AUS = {
 			if = {
-				NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+				limit = {
+					NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+				}
 				unlock_decision_tooltip = {
 					decision = AUS_seize_industries_from_serbia
 					show_effect_tooltip = yes
@@ -8214,6 +8212,18 @@ country_event = {
 		
 	}
 
+}
+country_event = {
+	id = ww1_occupiedserbia.9
+	title = ww1_occupiedserbia.9.t
+	desc = ww1_occupiedserbia.9.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_occupiedserbia.9.a
+		set_variable = { var = MGS_food_situation value = 1 }
+		activate_mission = MGS_worsening_famine
+	}
 }
 #MGM
 country_event = {

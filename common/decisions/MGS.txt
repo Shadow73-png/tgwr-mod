@@ -191,3 +191,25 @@ MGS_serbian_resistance = {
 		}
 	}
 }
+
+MGS_food_situation_cat = {
+	MGS_worsening_famine = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = MGS
+		}
+		priority = 10
+		days_mission_timeout = 120
+		available = {
+			always = no
+		}
+		timeout_effect = {
+			add_to_variable = { var = MGS_food_situation value = 1 }
+			activate_mission = MGS_worsening_famine
+		}
+		complete_effect = {
+		}
+		fire_only_once = no
+		is_good = no
+	}
+}
