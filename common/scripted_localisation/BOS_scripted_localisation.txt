@@ -115,26 +115,59 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = BOS_serb_opinion
-				value = 0
-				compare = equals
+				value = 20
+				compare = less_than_or_equals
+			}
+		}
+		localization_key = BOS_very_negative
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = {
+					var = BOS_serb_opinion
+					value = 20
+					compare = greater_than
+				}
+				check_variable = {
+					var = BOS_serb_opinion
+					value = 40
+					compare = less_than_or_equals
+				}
+			}
+		}
+		localization_key = BOS_negative
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = {
+					var = BOS_serb_opinion
+					value = 40
+					compare = greater_than
+				}
+				check_variable = {
+					var = BOS_serb_opinion
+					value = 60
+					compare = less_than_or_equals
+				}
 			}
 		}
 		localization_key = BOS_neutral
 	}
 	text = {
 		trigger = {
-			OR = {
-				check_variable = { var = BOS_serb_opinion value = 1 compare = equals }
-				check_variable = { var = BOS_serb_opinion value = 2 compare = equals }
-			}
-		}
-		localization_key = BOS_slightly_positive
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { var = BOS_serb_opinion value = 3 compare = equals }
-				check_variable = { var = BOS_serb_opinion value = 4 compare = equals }
+			AND = {
+				check_variable = {
+					var = BOS_serb_opinion
+					value = 60
+					compare = greater_than
+				}
+				check_variable = {
+					var = BOS_serb_opinion
+					value = 80
+					compare = less_than_or_equals
+				}
 			}
 		}
 		localization_key = BOS_positive
@@ -143,39 +176,11 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = BOS_serb_opinion
-				value = 5
-				compare = equals
+				value = 80
+				compare = greater_than
 			}
 		}
 		localization_key = BOS_very_positive
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { var = BOS_serb_opinion value = -1 compare = equals }
-				check_variable = { var = BOS_serb_opinion value = -2 compare = equals }
-			}
-		}
-		localization_key = BOS_slightly_negative
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { var = BOS_serb_opinion value = -3 compare = equals }
-				check_variable = { var = BOS_serb_opinion value = -4 compare = equals }
-			}
-		}
-		localization_key = BOS_negative
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				var = BOS_serb_opinion
-				value = -5
-				compare = equals
-			}
-		}
-		localization_key = BOS_very_negative
 	}
 }
 
@@ -183,57 +188,74 @@ defined_text = {
 	name = BOS_muslim_value
 	text = {
 		trigger = {
-			check_variable = { var = BOS_muslim_opinion value = 0 compare = equals }
-		}
-		localization_key = BOS_neutral
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { var = BOS_muslim_opinion value = 1 compare = equals }
-				check_variable = { var = BOS_muslim_opinion value = 2 compare = equals }
+			check_variable = {
+				var = BOS_muslim_opinion
+				value = 20
+				compare = less_than_or_equals
 			}
 		}
-		localization_key = BOS_slightly_positive
+		localization_key = BOS_very_negative
 	}
 	text = {
 		trigger = {
-			OR = {
-				check_variable = { var = BOS_muslim_opinion value = 3 compare = equals }
-				check_variable = { var = BOS_muslim_opinion value = 4 compare = equals }
-			}
-		}
-		localization_key = BOS_positive
-	}
-	text = {
-		trigger = {
-			check_variable = { var = BOS_muslim_opinion value = 5 compare = equals }
-		}
-		localization_key = BOS_very_positive
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { var = BOS_muslim_opinion value = -1 compare = equals }
-				check_variable = { var = BOS_muslim_opinion value = -2 compare = equals }
-			}
-		}
-		localization_key = BOS_slightly_negative
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { var = BOS_muslim_opinion value = -3 compare = equals }
-				check_variable = { var = BOS_muslim_opinion value = -4 compare = equals }
+			AND = {
+				check_variable = {
+					var = BOS_muslim_opinion
+					value = 20
+					compare = greater_than
+				}
+				check_variable = {
+					var = BOS_muslim_opinion
+					value = 40
+					compare = less_than_or_equals
+				}
 			}
 		}
 		localization_key = BOS_negative
 	}
 	text = {
 		trigger = {
-			check_variable = { var = BOS_muslim_opinion value = -5 compare = equals }
+			AND = {
+				check_variable = {
+					var = BOS_muslim_opinion
+					value = 40
+					compare = greater_than
+				}
+				check_variable = {
+					var = BOS_muslim_opinion
+					value = 60
+					compare = less_than_or_equals
+				}
+			}
 		}
-		localization_key = BOS_very_negative
+		localization_key = BOS_neutral
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = {
+					var = BOS_muslim_opinion
+					value = 60
+					compare = greater_than
+				}
+				check_variable = {
+					var = BOS_muslim_opinion
+					value = 80
+					compare = less_than_or_equals
+				}
+			}
+		}
+		localization_key = BOS_positive
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = BOS_muslim_opinion
+				value = 80
+				compare = greater_than
+			}
+		}
+		localization_key = BOS_very_positive
 	}
 }
 
@@ -241,57 +263,74 @@ defined_text = {
 	name = BOS_croat_value
 	text = {
 		trigger = {
-			check_variable = { var = BOS_croat_opinion value = 0 compare = equals }
-		}
-		localization_key = BOS_neutral
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { var = BOS_croat_opinion value = 1 compare = equals }
-				check_variable = { var = BOS_croat_opinion value = 2 compare = equals }
+			check_variable = {
+				var = BOS_croat_opinion 
+				value = 20 
+				compare = less_than_or_equals 
 			}
 		}
-		localization_key = BOS_slightly_positive
+		localization_key = BOS_very_negative
 	}
 	text = {
 		trigger = {
-			OR = {
-				check_variable = { var = BOS_croat_opinion value = 3 compare = equals }
-				check_variable = { var = BOS_croat_opinion value = 4 compare = equals }
-			}
-		}
-		localization_key = BOS_positive
-	}
-	text = {
-		trigger = {
-			check_variable = { var = BOS_croat_opinion value = 5 compare = equals }
-		}
-		localization_key = BOS_very_positive
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { var = BOS_croat_opinion value = -1 compare = equals }
-				check_variable = { var = BOS_croat_opinion value = -2 compare = equals }
-			}
-		}
-		localization_key = BOS_slightly_negative
-	}
-	text = {
-		trigger = {
-			OR = {
-				check_variable = { var = BOS_croat_opinion value = -3 compare = equals }
-				check_variable = { var = BOS_croat_opinion value = -4 compare = equals }
+			AND = {
+				check_variable = { 
+					var = BOS_croat_opinion 
+					value = 20 
+					compare = greater_than
+				}
+				check_variable = { 
+					var = BOS_croat_opinion 
+					value = 40 
+					compare = less_than_or_equals 
+				}
 			}
 		}
 		localization_key = BOS_negative
 	}
 	text = {
 		trigger = {
-			check_variable = { var = BOS_croat_opinion value = -5 compare = equals }
+			AND = {
+				check_variable = { 
+					var = BOS_croat_opinion 
+					value = 40 
+					compare = greater_than 
+				}
+				check_variable = { 
+					var = BOS_croat_opinion 
+					value = 60 
+					compare = less_than_or_equals 
+				}
+			}
 		}
-		localization_key = BOS_very_negative
+		localization_key = BOS_neutral
+	}
+	text = {
+		trigger = {
+			AND = {
+				check_variable = { 
+					var = BOS_croat_opinion 
+					value = 60 
+					compare = greater_than 
+				}
+				check_variable = { 
+					var = BOS_croat_opinion 
+					value = 80 
+					compare = less_than_or_equals 
+				}
+			}
+		}
+		localization_key = BOS_positive
+	}
+	text = {
+		trigger = {
+			check_variable = { 
+				var = BOS_croat_opinion 
+				value = 80 
+				compare = greater_than 
+			}
+		}
+		localization_key = BOS_very_positive
 	}
 }
 

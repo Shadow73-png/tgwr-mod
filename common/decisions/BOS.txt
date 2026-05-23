@@ -12,18 +12,17 @@ BOS_the_bosnian_diet_dec = {
 			has_global_flag = BOS_1910_bosnia_elections
 		}
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = BOS_serb_opinion_lower_than_minus_2
-				check_variable = {
-					BOS_serb_opinion < -2
-				}
+			check_variable = {
+				BOS_serb_opinion < -30
+				tooltip = BOS_serb_opinion_lower_than
 			}
-			#custom_trigger_tooltip = {
-			#	tooltip = decision_time_BOS_serb_propag
-			#}
 		}
 		remove_effect = {
-			BOS_increase_serb_opinion = yes
+			add_to_variable = {
+				BOS_serb_opinion = 15
+				tooltip = BOS_increase_serb_tt
+			}
+			BOS_parliament_update = yes
 		}
 	}
 	BOS_pro_government_propaganda_to_muslim = {
@@ -39,18 +38,20 @@ BOS_the_bosnian_diet_dec = {
 			has_global_flag = BOS_1910_bosnia_elections
 		}
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = BOS_muslim_opinion_lower_than_minus_2
-				check_variable = {
-					BOS_muslim_opinion < -2
-				}
+			check_variable = {
+				BOS_muslim_opinion < -30
+				tooltip = BOS_muslim_opinion_lower
 			}
 			#custom_trigger_tooltip = {
 			#	tooltip = decision_time_BOS_serb_propag
 			#}
 		}
 		remove_effect = {
-			BOS_increase_muslim_opinion = yes
+			add_to_variable = {
+				BOS_muslim_opinion = 15
+				tooltip = BOS_increase_muslim_tt
+			}
+			BOS_parliament_update = yes
 		}
 	}
 	BOS_pro_government_propaganda_to_croat = {
@@ -66,18 +67,20 @@ BOS_the_bosnian_diet_dec = {
 			has_global_flag = BOS_1910_bosnia_elections
 		}
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = BOS_croat_opinion_lower_than_minus_2
-				check_variable = {
-					BOS_croat_opinion < -2
-				}
+			check_variable = {
+				BOS_croat_opinion < -30
+				tooltip = BOS_croat_opinion_lower
 			}
 			#custom_trigger_tooltip = {
 			#	tooltip = decision_time_BOS_serb_propag
 			#}
 		}
 		remove_effect = {
-			BOS_increase_croat_opinion = yes
+			add_to_variable = {
+				BOS_croat_opinion = 15
+				tooltip = BOS_increase_croat_tt
+			}
+			BOS_parliament_update = yes
 		}
 	}
 
@@ -482,9 +485,19 @@ BOS_the_bosnian_diet_dec = {
 					add_idea = BOS_postal_bank_idea2
 				}
 				add_political_power = 75
-				BOS_increase_serb_opinion = yes
-				BOS_increase_muslim_opinion = yes
-				BOS_increase_croat_opinion = yes
+				add_to_variable = {
+					BOS_serb_opinion = 10
+					tooltip = BOS_increase_serb_tt
+				}
+				add_to_variable = {
+					BOS_muslim_opinion = 10
+					tooltip = BOS_increase_muslim_tt
+				}
+				add_to_variable = {
+					BOS_croat_opinion = 10
+					tooltip = BOS_increase_croat_tt
+				}
+				BOS_parliament_update = yes
 			}
 		}
 		ai_will_do = {
@@ -528,7 +541,11 @@ BOS_the_bosnian_diet_dec = {
 			has_manpower > 14999
 		}
 		complete_effect = {
-			BOS_decrease_serb_opinion = yes
+			add_to_variable = {
+				BOS_serb_opinion = -5
+				tooltip = BOS_increase_serb_tt
+			}
+			BOS_parliament_update = yes
 			add_manpower = -15000
 			AUS = {
 				effect_tooltip = {
@@ -676,7 +693,11 @@ BOS_the_bosnian_diet_dec = {
 			
 		}
 		remove_effect = {
-			BOS_increase_serb_opinion = yes
+			add_to_variable = {
+				BOS_serb_opinion = 10
+				tooltip = BOS_increase_serb_tt
+			}
+			BOS_parliament_update = yes
 			add_political_power = 50
 			add_stability = 0.05
 		}
@@ -724,14 +745,15 @@ debug_decisions = {
 		}
 		complete_effect = {
 			set_variable = {
-				BOS_croat_opinion = 5
+				BOS_croat_opinion = 100
 			}
 			set_variable = {
-				BOS_serb_opinion = 5
+				BOS_serb_opinion = 100
 			}
 			set_variable = {
-				BOS_muslim_opinion = 5
+				BOS_muslim_opinion = 100
 			}
+			BOS_parliament_update = yes
 		}
 	}
 	BOS_min_opinions = {
@@ -744,14 +766,15 @@ debug_decisions = {
 		}
 		complete_effect = {
 			set_variable = {
-				BOS_croat_opinion = -5
+				BOS_croat_opinion = 0
 			}
 			set_variable = {
-				BOS_serb_opinion = -5
+				BOS_serb_opinion = 0
 			}
 			set_variable = {
-				BOS_muslim_opinion = -5
+				BOS_muslim_opinion = 0
 			}
+			BOS_parliament_update = yes
 		}
 	}
 }
