@@ -3073,7 +3073,9 @@ country_event = {
 		hidden_effect = {
 			set_politics = {
 				ruling_party = neutrality
-				elections_allowed = no
+				last_election = "1910.6.10"
+				election_frequency = 156
+				elections_allowed = yes
 			}
 		}
 	}
@@ -3086,7 +3088,9 @@ country_event = {
 		hidden_effect = {
 			set_politics = {
 				ruling_party = neutrality
-				elections_allowed = no
+				last_election = "1910.6.10"
+				election_frequency = 156
+				elections_allowed = yes
 			}
 		}
 	}
@@ -3126,6 +3130,9 @@ country_event = {
 		trigger = {
 			original_tag = HUN
 		}
+		HUN_set_compromise_gov_NMP_wins_1910 = yes
+		clr_country_flag = HUN_national_work_party_yes
+		set_global_flag = HUN_compromise_gov_in_charge
 		hidden_effect = {
 			promote_character = HUN_janos_hadik
 			complete_national_focus = HUN_constitutional_party
@@ -3508,6 +3515,7 @@ country_event = {
 	#picture = 
 	fire_only_once = yes
 	trigger = {
+		original_tag = HUN
 		has_war_with = ROM
 		has_global_flag = great_war
 		NOT = {
@@ -3651,20 +3659,27 @@ country_event = {
 		name = ww1_hungary.99.a
 	}
 }
-#Austria snatches Géza Lukachich von Somorja
+#Fertilizer Shortage
 country_event = {
 	id = ww1_hungary.100
 	title = ww1_hungary.100.t
 	desc = ww1_hungary.100.d
 	#picture = 
 	fire_only_once = yes
-	is_triggered_only = yes
+	trigger = {
+		original_tag = HUN
+		has_war_with_major = yes
+		longest_war_length > 14
+	}
 	option = {
 		name = ww1_hungary.100.a
-		effect_tooltip = {
-			HUN_geza_lukachich = {
-				set_nationality = AUS
-			}
+		add_days_mission_timeout = {
+			mission = HUN_fading_food_stability_mission
+			days = -150
+		}
+		add_to_variable = {
+			HUN_food_stab_var = -10
+			tooltip = HUN_food_var_minus_10.tt
 		}
 	}
 }

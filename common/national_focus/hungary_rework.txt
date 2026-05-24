@@ -79,6 +79,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		relative_position_id = HUN_aftermath_of_werkle
 		x = 2
@@ -213,6 +214,9 @@ focus_tree = {
 		relative_position_id = HUN_mend_the_rapture
 		x = 0
 		y = 2
+		search_filters = {
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
 		available = {
 			hidden_trigger = {
 				always = no
@@ -449,6 +453,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
+			has_character = HUN_istvan_tisza
 			has_country_flag = HUN_national_work_party_yes
 			hidden_trigger = {
 				owns_state = 43
@@ -775,6 +780,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -1950,49 +1956,13 @@ focus_tree = {
 			}
 		 }
 	 }
-	 #Economic Education
-	 focus = {
-		id = HUN_economic_education
-		icon = GFX_focus_generic_economic_recovery
-		cost = 3
-		relative_position_id = HUN_higher_education
-		x = 1
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_INDUSTRY
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-		}
-		available = {
-			
-		}
-		prerequisite = {
-			focus = HUN_higher_education
-			focus = HUN_bring_edu_to_the_periphery
-		}
-		completion_reward = { 
-			custom_effect_tooltip = HUN_modify_eco_tt
-			add_to_variable = {
-				HUN_eco_consumer_good = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
-				HUN_eco_stab = 0.035
-				tooltip = stability_factor_tt
-			}
-			add_to_variable = {
-				HUN_baron_smart = 0.02
-				tooltip = research_speed_factor_tt
-			}
-		}
-	 }
 	 #comprehensive education reform
 	 focus = {
 		id = HUN_comprehensive_education_reform
 		icon = GFX_focus_AFG_education_reform
 		cost = 4
 		relative_position_id = HUN_bring_edu_to_the_periphery
-		x = 1
+		x = -1
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -2023,6 +1993,24 @@ focus_tree = {
 			add_to_variable = {
 				HUN_eco_stab = 0.035
 				tooltip = stability_factor_tt
+			}
+			custom_effect_tooltip = empty_space_tt
+			unlock_decision_tooltip = HUN_economic_education
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				custom_effect_tooltip = HUN_modify_eco_tt
+				add_to_variable = {
+					HUN_eco_consumer_good = 0.05
+					tooltip = consumer_goods_factor_tt
+				}
+				add_to_variable = {
+					HUN_eco_stab = 0.035
+					tooltip = stability_factor_tt
+				}
+				add_to_variable = {
+					HUN_baron_smart = 0.025
+					tooltip = research_speed_factor_tt
+				}
 			}
 		 }
 	 }
@@ -2278,7 +2266,7 @@ focus_tree = {
 		x = 0
 		y = 6
 		search_filters = {
-			
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -2400,7 +2388,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		search_filters = {
-			
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -2577,7 +2565,7 @@ focus_tree = {
 		x = -6
 		y = 1
 		search_filters = {
-			
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -2598,7 +2586,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		search_filters = {
-			
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -2670,6 +2658,30 @@ focus_tree = {
 		}
 		completion_reward = { }
 	}
+	#Pass Minor Military Bills
+	focus = {
+		id = HUN_pass_minor_military_bills2
+		icon = GFX_focus_GER_customs_union
+		cost = 5
+		relative_position_id = HUN_funnel_funds_into_industry
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_ARMY_XP
+		}
+		available = {
+			
+		}
+		prerequisite = {
+			focus = HUN_funnel_funds_into_industry
+		}
+		completion_reward = { 
+			
+		}
+	 }
 	#Calm the Socialist Push
 	focus = {
 		id = HUN_calm_the_socialist_push
@@ -3941,7 +3953,7 @@ focus_tree = {
 				tooltip = monthly_population_tt
 			}
 			add_to_variable = {
-				HUN_eco_consumer_good = 0.035
+				HUN_eco_consumer_good = 0.025
 				tooltip = consumer_goods_factor_tt
 			}
 		}
@@ -4936,7 +4948,7 @@ focus_tree = {
 			has_tech = machine_tools2
 		}
 		prerequisite = {
-			focus = HUN_mag_automobiles
+			focus = HUN_mag_plane_engine
 		}
 		completion_reward = { 
 			custom_effect_tooltip = HUN_stimulate_our_industrial_potential.tt
@@ -4966,12 +4978,15 @@ focus_tree = {
 	}
 	#Armored Car Experiments
 	focus = {
+		allow_branch = {
+			original_tag = HUN
+		}
 		id = HUN_armored_car_experiments
 		icon = GFX_focus_generic_armored_car
 		cost = 2.2
 		relative_position_id = HUN_mag_plane_engine
-		x = -1
-		y = 1
+		x = 2
+		y = 2
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 			FOCUS_FILTER_RESEARCH
@@ -4981,9 +4996,7 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = AUS_mavag_armored_trains
-		}
-		prerequisite = {
-			focus = HUN_mag_plane_engine
+			focus = HUN_stimulate_our_industrial_potential
 		}
 		completion_reward = { 
 			add_tech_bonus = {
@@ -5042,6 +5055,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNATIONAL_TRADE
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			always = no
@@ -5068,6 +5082,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNATIONAL_TRADE
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			if = {
@@ -5379,7 +5394,6 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_ARMY_REFORM
 			FOCUS_FILTER_ARMY_XP
 		}
 		available = {
@@ -5423,6 +5437,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		bypass = {
 			has_war_with_major = yes
@@ -5517,6 +5532,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -5824,6 +5840,7 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_finish_police_reorg
+			focus = HUN_the_german_plan
 		}
 		completion_reward = { 
 			43 = {
@@ -5858,11 +5875,26 @@ focus_tree = {
 		}
 		available = {
 			has_war_with_major = yes
+			has_tech = excavation2
 		}
 		prerequisite = {
 			focus = HUN_diosgyor_steel_works
 		}
-		completion_reward = { }
+		completion_reward = { 
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_lack_of_resources_penalty = -0.05
+				tooltip = production_lack_of_resource_penalty_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_local_resources = 0.05
+				tooltip = local_resources_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+		}
 	}
 	 #Establish a Public Service Office
 	 focus = {
@@ -5971,6 +6003,28 @@ focus_tree = {
 			add_war_support = 0.05
 		}
 	 }
+	#1917 Agricultural Labor Decree
+	 focus = {
+		id = HUN_1917_agricultural_labor_decree
+		icon = GFX_goal_unkown
+		cost = 5
+		relative_position_id = HUN_national_coal_committee
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			has_country_flag = HUN_national_work_party_yes
+			has_war_with_major = yes
+		}
+		prerequisite = {
+			focus = HUN_national_coal_committee
+		}
+		completion_reward = { }
+	 }
 	 #Look for a way out
 	 focus = {
 		allow_branch = {
@@ -6003,8 +6057,8 @@ focus_tree = {
 		icon = GFX_focus_ger_weltpolitik_ww1
 		cost = 1
 		relative_position_id = HUN_look_for_a_way_out
-		x = 1
-		y = 1
+		x = 0
+		y = 2
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -6272,7 +6326,7 @@ focus_tree = {
 		y = 0
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_ARMY_REFORM
+			
 			FOCUS_FILTER_MILITARY_CHARACTER
 		}
 		available = {

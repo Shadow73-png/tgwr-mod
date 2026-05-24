@@ -2828,6 +2828,38 @@ HUN_economy_category = {
 			}
 		}
 	}
+	HUN_economic_education = {
+		icon = GFX_decision_generic_research
+		cost = 30
+		fire_only_once = yes
+		ai_will_do = {
+			base = 25
+		}
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_completed_focus = HUN_comprehensive_education_reform
+		}
+		visible = {
+			has_completed_focus = HUN_comprehensive_education_reform
+		}
+		complete_effect = {
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = 0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_stab = 0.035
+				tooltip = stability_factor_tt
+			}
+			add_to_variable = {
+				HUN_baron_smart = 0.025
+				tooltip = research_speed_factor_tt
+			}
+		}
+	}
 }
 HUN_war_economy_cat = {
 	HUN_fading_food_stability_mission = {

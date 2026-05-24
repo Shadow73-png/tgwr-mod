@@ -7023,22 +7023,6 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 				}
 			}
 			activate_mission = AUS_expand_army_reserve
-			custom_effect_tooltip = empty_space_tt
-			if = {
-				limit = { 
-					AUS_HUN_exists = yes
-					is_in_faction_with = HUN
-				}
-				custom_effect_tooltip = AUS_implement_conrads_army_structure.tt
-				hidden_effect = {
-					HUN = {
-						country_event = ww1_hungary.100
-					}
-					HUN_geza_lukachich = {
-						set_nationality = AUS
-					}
-				}
-			}
 		}
 		ai_will_do = {
 			base = 1
@@ -10573,7 +10557,7 @@ joint_focus = {
 		AUS_HUN_exists = yes
 	}
 	prerequisite = {
-		focus = HUN_stimulate_our_industrial_potential
+		focus = HUN_mag_plane_engine
 		focus = AUS_continue_the_army_reforms
 	}
 	completion_reward = {
@@ -11734,7 +11718,7 @@ joint_focus = {
 	relative_position_id = AUS_prepare_the_great_war_of_sky
 	prerequisite = {
 		focus = AUS_abandon_airships
-		focus = HUN_mag_plane_engine
+		focus = HUN_stimulate_our_industrial_potential
 	}
 	completion_reward_joint_originator = {
 		if = {
