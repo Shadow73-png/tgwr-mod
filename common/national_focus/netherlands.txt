@@ -62,7 +62,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_implement_vogelwet
+			unlock_decision_tooltip = {
+				decision = HOL_implement_vogelwet
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = HOL_sybrandus_talma
 			set_country_flag = HOL_tr_completed
@@ -971,7 +974,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 1
 				add_resource = {
 					type = aluminium
-					amount = 6
+					amount = 2
 				}
 			}
 		}
@@ -1006,7 +1009,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 1
 				add_resource = {
 					type = aluminium
-					amount = 2
+					amount = 7
 				}
 			}
 		}
@@ -1033,12 +1036,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			309 = {
-				add_building_construction = {
-    				type = industrial_complex
-    				level = 1
-    				instant_build = yes
-				}
 				add_extra_state_shared_building_slots = 1
+			}
+			custom_effect_tooltip = HOL_modify_dutch_economy_tt
+			add_to_variable = {
+				HOL_variable_ec_consumers = -0.05
+				tooltip = consumer_goods_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -2030,7 +2033,7 @@ focus_tree = {
 		id = HOL_copy_stormtroopers
 		icon = GFX_goal_generic_special_forces
 		prerequisite = {
-			focus = HOL_strategische_aanwijzigingen
+			focus = HOL_strategische_aanwijzigingen focus = HOL_army_restructuration
 		}
 		relative_position_id = HOL_koninklijk_landmacht
 		available = {
@@ -2065,7 +2068,7 @@ focus_tree = {
 		id = HOL_loopgraafgeweer
 		icon = GFX_focus_ETH_freedom_at_gunpoint
 		prerequisite = {
-			focus = HOL_strategische_aanwijzigingen
+			focus = HOL_army_restructuration
 		}
 		relative_position_id = HOL_koninklijk_landmacht
 		available = {
@@ -2077,13 +2080,13 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_tech_bonus = {
-				name = infantry_equipment
+				name = infantry_weapons
 				uses = 2
 				bonus = 0.75
 			}
 			army_experience = 50
 			add_equipment_to_stockpile = {
-				equipment = infantry_equipment
+				type = infantry_equipment_n1
 				amount = 500
 			}
 		}
@@ -2214,9 +2217,18 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 1
 			}
-			unlock_military_industrial_organization_tooltip = mio:HOL_artillerie_inrichtingen_organization
-			mio:HOL_artillerie_inrichtingen_organization = {
-				add_mio_funds = 1000
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				unlock_military_industrial_organization_tooltip = mio:HOL_artillerie_inrichtingen_organization
+				mio:HOL_artillerie_inrichtingen_organization = {
+					add_mio_funds = 750
+				}
+			}
+			else = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = artillerie_inrichtingen
 			}
 		}
 		ai_will_do = {
@@ -2387,24 +2399,13 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_buy_german_planes
-			custom_effect_tooltip = when_taken
-			effect_tooltip = {
-				add_equipment_to_stockpile = {
-    				type = fighter_equipment
-    				amount = 15
-    				producer = GER
-				}
+			unlock_decision_tooltip = {
+				decision = HOL_buy_german_planes
+				show_effect_tooltip = yes
 			}
-			custom_effect_tooltip = empty_space_tt
-			unlock_decision_tooltip = HOL_buy_french_planes
-			custom_effect_tooltip = when_taken
-			effect_tooltip = {
-				add_equipment_to_stockpile = {
-    				type = fighter_equipment
-    				amount = 15
-    				producer = FRA
-				}
+			unlock_decision_tooltip = {
+				decision = HOL_buy_french_planes
+				show_effect_tooltip = yes
 			}
 		}
 		ai_will_do = {
@@ -2429,8 +2430,20 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			mio:HOL_koninklijke_maatschappij_organization = {
-				add_mio_funds = 1000
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				unlock_military_industrial_organization_tooltip = mio:HOL_koninklijke_maatschappij_organization
+				mio:HOL_koninklijke_maatschappij_organization = {
+					add_mio_funds = 750
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = HOL_mvlalternative
+					days = 180
+				}
 			}
 		}
 		ai_will_do = {
@@ -2651,40 +2664,13 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_request_german_ship_plans
-			custom_effect_tooltip = when_taken
-			effect_tooltip = {
-					add_equipment_production = {
-    				equipment = {
-        				type = battleship_1
-    				}
-    				requested_factories = 1
-    				progress = 0.50
-    				amount = 1
-				}
-				add_tech_bonus = {
-    				bonus = 0.5
-    				uses = 1
-    				category = mio_cat_tech_all_capital_ship_and_modules
-				}
+			unlock_decision_tooltip = {
+				decision = HOL_request_german_ship_plans
+				show_effect_tooltip = yes
 			}
-			custom_effect_tooltip = empty_space_tt
-			unlock_decision_tooltip = HOL_request_british_ship_plans
-			custom_effect_tooltip = when_taken
-			effect_tooltip = {
-					add_equipment_production = {
-    				equipment = {
-        				type = battleship_1
-    				}
-    				requested_factories = 1
-    				progress = 0.50
-    				amount = 1
-				}
-				add_tech_bonus = {
-    				bonus = 0.5
-    				uses = 1
-    				category = mio_cat_tech_all_capital_ship_and_modules
-				}
+			unlock_decision_tooltip = {
+				decision = HOL_request_british_ship_plans
+				show_effect_tooltip = yes
 			}
 		}
 		ai_will_do = {
@@ -2724,7 +2710,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 		}
-		cost = 5
+		cost = 0
 		x = 30
 		y = 0
 	}
@@ -2922,7 +2908,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 		}
-		cost = 5
+		cost = 0
 		x = 20
 		y = 1
 	}
@@ -2944,7 +2930,7 @@ focus_tree = {
 		search_filters = {
 			
 		}
-		cost = 5
+		cost = 0
 		x = -4
 		y = 1
 	}
@@ -2966,7 +2952,7 @@ focus_tree = {
 		search_filters = {
 			
 		}
-		cost = 5
+		cost = 0
 		x = 0
 		y = 1
 	}
@@ -3066,7 +3052,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_support_kmo
+			unlock_decision_tooltip = {
+				decision = HOL_support_kmo
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_variable_lc_consumers = -0.05
@@ -3101,7 +3090,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_welvaartpolitiek
+			unlock_decision_tooltip = {
+				decision = HOL_welvaartpolitiek
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_variable_lc_monthly_population = 0.05
@@ -3140,7 +3132,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_modernise_housing
+			unlock_decision_tooltip = {
+				decision = HOL_modernise_housing
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_variable_lc_monthly_population = 0.05
@@ -3371,7 +3366,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_implement_passed_welfare_laws
+			unlock_decision_tooltip = {
+				decision = HOL_implement_passed_welfare_laws
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_variable_lc_consumers = 0.05
@@ -3484,7 +3482,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 		}
-		cost = 5
+		cost = 0
 		x = 4
 		y = 1
 	}
@@ -3700,7 +3698,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_profit_from_capitalism
+			unlock_decision_tooltip = {
+				decision = HOL_profit_from_capitalism
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_lc_pp_gain = -0.05
@@ -3731,7 +3732,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_subsidise_free_schools
+			unlock_decision_tooltip = {
+				decision = HOL_subsidise_free_schools
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_lc_pp_gain = 0.05
@@ -3874,18 +3878,13 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_attract_investors_dec
-			unlock_decision_tooltip = HOL_hoogovens
-			custom_effect_tooltip = when_taken
-			effect_tooltip = {
-				7 = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-    					type = industrial_complex
-    					level = 1
-    					instant_build = yes
-					}
-				}
+			unlock_decision_tooltip = {
+				decision = HOL_attract_investors_dec
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = HOL_hoogovens
+				show_effect_tooltip = yes
 			}
 		}
 		ai_will_do = {
@@ -3957,7 +3956,7 @@ focus_tree = {
 		search_filters = {
 			
 		}
-		cost = 5
+		cost = 0
 		x = 40
 		y = 1
 	}
@@ -3981,7 +3980,7 @@ focus_tree = {
 		search_filters = {
 			
 		}
-		cost = 5
+		cost = 0
 		x = -4
 		y = 1
 	}
@@ -4005,7 +4004,7 @@ focus_tree = {
 		search_filters = {
 			
 		}
-		cost = 5
+		cost = 0
 		x = 0
 		y = 1
 	}
@@ -4029,7 +4028,7 @@ focus_tree = {
 		search_filters = {
 			
 		}
-		cost = 5
+		cost = 0
 		x = 4
 		y = 1
 	}
@@ -4046,7 +4045,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_glorify_christianity
+			unlock_decision_tooltip = {
+				decision = HOL_glorify_christianity
+				show_effect_tooltip = yes
+			}
 			add_political_power = 50
 			add_to_variable = {
 				HOL_variable_arp_popularity = 1
@@ -4394,7 +4396,10 @@ focus_tree = {
 				HOL_variable_lc_stab = 0.05
 				tooltip = stability_factor_tt
 			}
-			unlock_decision_tooltip = HOL_demonize_labor_union_leaders
+			unlock_decision_tooltip = {
+				decision = HOL_demonize_labor_union_leaders
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -4546,7 +4551,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_endorse_cnv_ncw_cooperation
+			unlock_decision_tooltip = {
+				decision = HOL_endorse_cnv_ncw_cooperation
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_variable_lc_stab = 0.05
@@ -4568,7 +4576,10 @@ focus_tree = {
 				ideology = communism
 				popularity = -0.03
 			}
-			unlock_decision_tooltip = HOL_tighten_striking_laws
+			unlock_decision_tooltip = {
+				decision = HOL_tighten_striking_laws
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -4592,7 +4603,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_glorify_law
+			unlock_decision_tooltip = {
+				decision = HOL_glorify_law
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_dutch_military_tt
 			add_to_variable = {
 				HOL_variable_army_civ_intel_to_others = -0.1
@@ -4607,7 +4621,10 @@ focus_tree = {
 				HOL_lc_pp_gain = -0.05
 				tooltip = political_power_factor_tt
 			}
-			unlock_decision_tooltip = HOL_utilise_police_suppres_protests
+			unlock_decision_tooltip = {
+				decision = HOL_utilise_police_suppres_protests
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -4691,7 +4708,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_promote_the_antithesis
+			unlock_decision_tooltip = {
+				decision = HOL_promote_the_antithesis
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_variable_lc_stab = -0.05
@@ -4705,7 +4725,10 @@ focus_tree = {
 				HOL_lc_efficiency_growth = 0.05
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
-			unlock_decision_tooltip = HOL_crush_the_unions
+			unlock_decision_tooltip = {
+				decision = HOL_crush_the_unions
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -5116,7 +5139,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_endorse_traditional_families
+			unlock_decision_tooltip = {
+				decision = HOL_endorse_traditional_families
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_lc_pp_gain = 0.05
@@ -5157,7 +5183,10 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_subsidise_churches
+			unlock_decision_tooltip = {
+				decision = HOL_subsidise_churches
+				show_effect_tooltip = yes
+			}
 			custom_effect_tooltip = HOL_modify_social_kwestie_tt
 			add_to_variable = {
 				HOL_lc_pp_gain = 0.05
@@ -6473,8 +6502,14 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_rhine_offensive
-			unlock_decision_tooltip = HOL_east_frissian_offensive
+			unlock_decision_tooltip = {
+				decision = HOL_rhine_offensive
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = HOL_east_frissian_offensive
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -6746,9 +6781,18 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			unlock_decision_tooltip = HOL_loot_north_borneo
-			unlock_decision_tooltip = HOL_loot_guyana
-			unlock_decision_tooltip = HOL_loot_papua_new_guinea
+			unlock_decision_tooltip = {
+				decision = HOL_loot_north_borneo
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = HOL_loot_guyana
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = HOL_loot_papua_new_guinea
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -7679,8 +7723,14 @@ focus = {
 	}
 	relative_position_id = HOL_communistische_partij
 	completion_reward = {
-		unlock_decision_tooltip = HOL_women_in_workforce
-		unlock_decision_tooltip = HOL_women_in_army
+		unlock_decision_tooltip = {
+			decision = HOL_women_in_workforce
+			show_effect_tooltip = yes
+		}
+		unlock_decision_tooltip = {
+			decision = HOL_women_in_army
+			show_effect_tooltip = yes
+		}
 		custom_effect_tooltip = HOL_modify_social_kwestie_tt
 		add_to_variable = {
 			HOL_lc_pp_gain = 0.05
@@ -7709,7 +7759,10 @@ focus = {
 	}
 	relative_position_id = HOL_communistische_partij
 	completion_reward = {
-		unlock_decision_tooltip = HOL_end_rebellion
+		unlock_decision_tooltip = {
+			decision = HOL_end_rebellion
+			show_effect_tooltip = yes
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -7760,8 +7813,14 @@ focus = {
 	}
 	relative_position_id = HOL_communistische_partij
 	completion_reward = {
-		unlock_decision_tooltip = HOL_infiltrate_network
-		unlock_decision_tooltip = HOL_disrupt_opposition_logistics
+		unlock_decision_tooltip = {
+			decision = HOL_infiltrate_network
+			show_effect_tooltip = yes
+		}
+		unlock_decision_tooltip = {
+			decision = HOL_disrupt_opposition_logistics
+			show_effect_tooltip = yes
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -9120,9 +9179,18 @@ focus = {
 	}
 	relative_position_id = HOL_the_military_government
 	completion_reward = {
-		unlock_decision_tooltip = HOL_support_frontbeweging
-		unlock_decision_tooltip = HOL_arm_frontbeweging_paramilitary
-		unlock_decision_tooltip = HOL_smo_flanders
+		unlock_decision_tooltip = {
+			decision = HOL_support_frontbeweging
+			show_effect_tooltip = yes
+		}
+		unlock_decision_tooltip = {
+			decision = HOL_arm_frontbeweging_paramilitary
+			show_effect_tooltip = yes
+		}
+		unlock_decision_tooltip = {
+			decision = HOL_smo_flanders
+			show_effect_tooltip = yes
+		}
 	}
 	ai_will_do = {
 	factor = 500
@@ -9249,8 +9317,19 @@ focus = {
 			}
 			add_extra_state_shared_building_slots = 1
 		}
-		mio:HOL_artillerie_inrichtingen_organization = {
-			add_mio_funds = 1000
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			mio:HOL_artillerie_inrichtingen_organization = {
+				add_mio_funds = 1000
+			}	
+		}
+		else = {
+			add_timed_idea = {
+				idea = HOL_expand_military_industry
+				days = 140
+			}
 		}
 	}
 	ai_will_do = {

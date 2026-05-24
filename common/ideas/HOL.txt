@@ -96,7 +96,7 @@ ideas = {
 	country = {
 		HOL_wilhelmina = {
             picture = hol_wilhelmina
-		
+			name = HOL_wilhelmina
             removal_cost = -1
 			allowed = { always = no }
 			allowed_civil_war = {
@@ -120,7 +120,37 @@ ideas = {
 
 			modifier = {
 				stability_factor = 0.1
-				neutrality_drift = 0.02
+				neutrality_drift = 0.01
+			}
+        }
+		HOL_wilhelmina2 = {
+            picture = hol_wilhelmina
+			name = HOL_wilhelmina
+            removal_cost = -1
+			allowed = { always = no }
+			allowed_civil_war = {
+				OR = {
+					has_government = democratic
+					has_government = fascism
+				}
+				NOT = {
+					any_enemy_country = {
+						original_tag = ROOT
+						has_government = neutrality
+					}
+				}
+			}
+			available = {
+				OR = {
+					has_government = democratic
+					has_government = fascism
+				}
+			}
+
+			modifier = {
+				stability_factor = 0.1
+				neutrality_drift = 0.01
+				political_cost = 0.05
 			}
         }
 		HOL_idea_enduring_neutrality = {
@@ -768,6 +798,47 @@ ideas = {
 			}
 			modifier = {
 				production_speed_anti_air_building_factor = 0.2
+			}
+        }
+		HOL_mvlalternative = {
+            picture = ARG_maintain_neutrality
+            removal_cost = -1
+			allowed = { always = no }
+			available = {
+				
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				equipment_bonus = {
+					fighter_equipment = {
+						build_cost_ic = -0.1
+						instant = yes
+					}
+					scout_plane_equipment = {
+						build_cost_ic = -0.1
+						instant = yes
+					}
+					strat_bomber_equipment = {
+						build_cost_ic = -0.1
+						instant = yes
+					}
+				}
+			}
+        }
+		HOL_expand_military_industry = {
+            picture = ARG_maintain_neutrality
+            removal_cost = -1
+			allowed = { always = no }
+			available = {
+				
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
 			}
         }
 	}
