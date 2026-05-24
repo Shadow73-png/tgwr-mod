@@ -1066,7 +1066,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				num_of_factories > 21
+				num_of_factories > 25
 			}
 		}
 		available_if_capitulated = yes
@@ -2870,6 +2870,7 @@ focus_tree = {
 		available = {
 			has_country_flag = HOL_flag_grondwet_reformed
 			has_country_flag = HOL_flag_education_reformed
+			has_war = no
 		}
 		available_if_capitulated = yes
 		completion_reward = {
@@ -5253,7 +5254,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		cost = 5
-		x = 30
+		x = 10
 		y = 10
 	}
 	#neutrality
@@ -7118,7 +7119,7 @@ focus = {
 }
 focus = {
 	id = HOL_fan_flames_revolutions
-	icon = GFX_goal_generic_neutrality_focus
+	icon = GFX_focus_usa_focus_on_europe
 	available = {
 		NOT = {
 			has_completed_focus = HOL_demilitarisation
@@ -7148,7 +7149,7 @@ focus = {
 }
 focus = {
 	id = HOL_communist_bloc
-	icon = GFX_goal_generic_neutrality_focus
+	icon = GFX_SOV_call_for_aid_ccp_2d_sov_compatibility
 	available = {
 		
 	}
@@ -7182,7 +7183,7 @@ focus = {
 }
 focus = {
 	id = HOL_support_growing_movement
-	icon = GFX_goal_generic_neutrality_focus
+	icon = GFX_focus_PRC_join_comintern
 	available = {
 		
 	}
@@ -7209,7 +7210,7 @@ focus = {
 }
 focus = {
 	id = HOL_comrades_next_to_us
-	icon = GFX_goal_generic_neutrality_focus
+	icon = GFX_focus_hol_gateway_to_europe
 	available = {
 		
 	}
@@ -7233,7 +7234,7 @@ focus = {
 }
 focus = {
 	id = HOL_recognise_ussr
-	icon = GFX_goal_generic_neutrality_focus
+	icon = GFX_focus_chi_mission_to_the_soviet_union
 	available = {
 		has_global_flag = russian_civil_war_ends
 		SOV = {
@@ -7272,7 +7273,7 @@ focus = {
 }
 focus = {
 	id = HOL_reestablish_classic_relations
-	icon = GFX_goal_generic_neutrality_focus
+	icon = GFX_focus_ARG_join_the_allies
 	available = {
 		NOT = {
 			has_completed_focus = HOL_demilitarisation
@@ -7311,7 +7312,7 @@ focus = {
 }
 focus = {
 	id = HOL_normalise_trade_relations
-	icon = GFX_goal_generic_neutrality_focus
+	icon = GFX_goal_generic_positive_trade_relations
 	available = {
 		
 	}
@@ -7339,7 +7340,7 @@ focus = {
 }
 focus = {
 	id = HOL_attract_investment
-	icon = GFX_goal_generic_neutrality_focus
+	icon = GFX_focus_generic_industrialists
 	available = {
 		
 	}
@@ -7363,7 +7364,7 @@ focus = {
 }
 focus = {
 	id = HOL_join_the_entente
-	icon = GFX_goal_generic_neutrality_focus
+	icon = GFX_focus_consolidate_entente
 	available = {
 		has_global_flag = versailles_treaty
 	}
@@ -9415,5 +9416,319 @@ focus = {
 	x = 0
 	y = 9
 }
-
+#post 1917 election tree
+focus = {
+	id = HOL_snap_elections
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 0
+	x = 30
+	y = 10
+}
+focus = {
+	id = HOL_follow_wilhelmina_lead
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_snap_elections
+	}
+	mutually_exclusive = {
+		focus = HOL_sideline_wilhelmina
+	}
+	relative_position_id = HOL_snap_elections
+	completion_reward = {
+		add_days_mission_timeout = {
+   			mission = HOL_wilhelmina_rotates_cabinet
+   			days = 30
+		}
+		swap_ideas = {
+			remove_idea = HOL_wilhelmina3
+			add_idea = HOL_wilhelmina2
+		}
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 35
+	x = -1
+	y = 1
+}
+focus = {
+	id = HOL_sideline_wilhelmina
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_snap_elections
+	}
+	mutually_exclusive = {
+		focus = HOL_follow_wilhelmina_lead
+	}
+	relative_position_id = HOL_snap_elections
+	completion_reward = {
+		add_days_mission_timeout = {
+   			mission = HOL_wilhelmina_rotates_cabinet
+   			days = -30
+		}
+		add_stability = 0.05
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.05
+		}
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 35
+	x = 1
+	y = 1
+}
+focus = {
+	id = HOL_guarantee_snijders_position
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_follow_wilhelmina_lead
+	}
+	relative_position_id = HOL_snap_elections
+	completion_reward = {
+		add_war_support = 0.05
+		add_days_mission_timeout = {
+   			mission = HOL_wilhelmina_rotates_cabinet
+   			days = 50
+		}
+		activate_advisor = HOL_cornelis_snijders
+		HOL_cornelis_snijders = {
+			set_can_be_fired_in_advisor_role = {
+				value = no
+			}
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.01
+		}
+		add_political_power = -50
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 35
+	x = -2
+	y = 2
+}
+focus = {
+	id = HOL_pass_snijders_military_reforms
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_guarantee_snijders_position
+	}
+	relative_position_id = HOL_snap_elections
+	completion_reward = {
+		add_stability = -0.05
+		add_political_power = -50
+		add_war_support = 0.05
+		add_days_mission_timeout = {
+   			mission = HOL_wilhelmina_rotates_cabinet
+   			days = 100
+		}
+		custom_effect_tooltip = HOL_modify_dutch_military_tt
+		add_to_variable = {
+			HOL_variable_army_org = 0.05
+			tooltip = army_org_factor_tt
+		}
+		add_to_variable = {
+			HOL_variable_army_conscription = 0.05
+			tooltip = conscription_factor_tt
+		}
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 35
+	x = -2
+	y = 4
+}
+focus = {
+	id = HOL_allow_monarchist_demonstrations
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_sideline_wilhelmina focus = HOL_follow_wilhelmina_lead
+	}
+	relative_position_id = HOL_snap_elections
+	completion_reward = {
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+		add_political_power = -50
+		add_days_mission_timeout = {
+   			mission = HOL_wilhelmina_rotates_cabinet
+   			days = 50
+		}
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 35
+	x = 0
+	y = 2
+}
+focus = {
+	id = HOL_let_wilhelmina_tour
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_allow_monarchist_demonstrations
+	}
+	relative_position_id = HOL_snap_elections
+	completion_reward = {
+		add_days_mission_timeout = {
+   			mission = HOL_wilhelmina_rotates_cabinet
+   			days = 50
+		}
+		add_stability = 0.03
+		add_political_power = -30
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 35
+	x = -1
+	y = 3
+}
+focus = {
+	id = HOL_involve_wilhelmina_politics
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_allow_monarchist_demonstrations
+	}
+	relative_position_id = HOL_snap_elections
+	completion_reward = {
+		add_days_mission_timeout = {
+   			mission = HOL_wilhelmina_rotates_cabinet
+   			days = -50
+		}
+		add_stability = 0.1
+		add_war_support = 0.05
+		add_political_power = 100
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 35
+	x = 1
+	y = 3
+}
+focus = {
+	id = HOL_conform_entente_demands
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_sideline_wilhelmina
+	}
+	relative_position_id = HOL_snap_elections
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 35
+	x = 2
+	y = 2
+}
+focus = {
+	id = HOL_reaffirm_neutrality
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_conform_entente_demands
+	}
+	relative_position_id = HOL_snap_elections
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 35
+	x = 2
+	y = 4
+}
 }
