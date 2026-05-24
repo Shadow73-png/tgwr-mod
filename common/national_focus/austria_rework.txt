@@ -668,31 +668,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_how_to_win_1911_elections
-			set_variable = {
-				AUS_bienerth_election = 2
-			}
-			divide_variable = {
-				var = AUS_conservative_election_performance
-				value = 2
-			}
-			add_to_variable = {
-				AUS_bienerth_election = AUS_conservative_election_performance
-			}
-			multiply_variable = {
-				var = AUS_conservative_election_performance
-				value = 2
-			}
-			divide_variable = {
-				var = AUS_liberal_election_performance
-				value = 4
-			}
-			add_to_variable = {
-				AUS_bienerth_election = AUS_liberal_election_performance
-			}
-			multiply_variable = {
-				var = AUS_liberal_election_performance
-				value = 4
-			}
+			
 		}
 		ai_will_do = {
 			base = 1
@@ -723,6 +699,17 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_pp_gain = 0.05
+				tooltip = political_power_factor_tt
+			}
+			add_to_variable = {
+				AUS_parliament_relations = 0.2
+				tooltip = AUS_p_loyalty_tt
+			}
+			AUS_update_imperial_council_effects = yes
+			
 		}
 		ai_will_do = {
 			base = 1
