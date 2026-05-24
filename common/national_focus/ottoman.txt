@@ -8831,33 +8831,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = TUR_empower_local_vilayets
-		icon = GFX_goal_generic_improve_relations
-		cost = 10
-		search_filters = {
-			FOCUS_FILTER_MINORITY
-		}
-		prerequisite = { focus = TUR_ittihat_i_anasir }
-		x = 0
-		y = 1
-		relative_position_id = TUR_ittihat_i_anasir
-		completion_reward = {
-			#custom_effect_tooltip = TUR_empower_local_vilayets_tt
-			#add_ideas = TUR_local_vilayet_integration
-			#custom_effect_tooltip = TUR_local_vilayet_integration_instant_desc
-			unlock_decision_tooltip = TUR_promote_local_governorships
-			custom_effect_tooltip = TUR_empower_local_vilayets_tt
-			TUR_reload_vilayet_with_at_least_15_centralization = yes
-			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
-			add_to_variable = {
-				tooltip = political_power_factor_3
-				TUR_sce_political_power_factor = 0.03
-			}
-			custom_effect_tooltip = empty_space
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
 		id = TUR_adem_i_merkeziyetcilik
 		icon = GFX_focus_PER_subserviant_to_noone
 		cost = 10
@@ -8948,16 +8921,67 @@ focus_tree = {
 		ai_will_do = { base = 30 }
 	}
 	focus = {
+		id = TUR_deliver_rumelian_promises
+		icon = GFX_goal_generic_improve_relations
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MINORITY
+		}
+		prerequisite = { focus = TUR_ittihat_i_anasir }
+		x = 0
+		y = 1
+		relative_position_id = TUR_ittihat_i_anasir
+		completion_reward = {
+			custom_effect_tooltip = TUR_deliver_rumelian_promises_tt1
+			unlock_decision_tooltip = TUR_promote_local_governorships
+			custom_effect_tooltip = TUR_deliver_rumelian_promises_tt2
+			TUR_reload_vilayet_with_at_least_15_centralization = yes
+			hidden_effect = {
+				set_variable = { TUR_reapproachment_with_level_kostantiniyye = 100 }
+				set_variable = { TUR_reapproachment_with_level_catalca = 100 }
+				set_variable = { TUR_reapproachment_with_level_edirne = 100 }
+				set_variable = { TUR_reapproachment_with_level_selanik = 100 }
+			}
+		}
+		ai_will_do = { base = 30 }
+	}
+	focus = {
+		id = TUR_reach_out_to_the_anatolian_countryside
+		icon = GFX_TUR_reach_out_to_the_anatolian_countryside
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MINORITY
+		}
+		prerequisite = { focus = TUR_deliver_rumelian_promises }
+		x = 1
+		y = 1
+		relative_position_id = TUR_deliver_rumelian_promises
+		completion_reward = {
+			custom_effect_tooltip = TUR_reach_out_to_the_anatolian_countryside_tt
+			hidden_effect = {
+				set_variable = { TUR_reapproachment_with_level_izmit = 100 }
+				set_variable = { TUR_reapproachment_with_level_hudavendigar = 100 }
+				set_variable = { TUR_reapproachment_with_level_biga = 100 }
+				set_variable = { TUR_reapproachment_with_level_aydin = 100 }
+				set_variable = { TUR_reapproachment_with_level_kastamonu = 100 }
+				set_variable = { TUR_reapproachment_with_level_ankara = 100 }
+				set_variable = { TUR_reapproachment_with_level_konya = 100 }
+			}
+		}
+		ai_will_do = { base = 30 }
+	}
+	focus = {
 		id = TUR_appease_the_anatolian_christians
 		icon = GFX_TUR_appease_the_anatolian_christians
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_MINORITY
 		}
-		prerequisite = { focus = TUR_empower_local_vilayets }
+		prerequisite = { focus = TUR_ittihat_i_anasir }
+		prerequisite = { focus = TUR_adem_i_merkeziyetcilik }
 		x = 1
 		y = 1
-		relative_position_id = TUR_empower_local_vilayets
+		relative_position_id = TUR_adem_i_merkeziyetcilik
 		completion_reward = {
 			custom_effect_tooltip = TUR_appease_the_anatolian_christians_tt
 			hidden_effect = {
@@ -8986,78 +9010,21 @@ focus_tree = {
 		ai_will_do = { base = 30 }
 	}
 	focus = {
-		id = TUR_plurality_in_the_heartland
-		icon = GFX_TUR_plurality_in_the_heartland
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_MINORITY
-		}
-		prerequisite = { focus = TUR_ittihat_i_anasir }
-		prerequisite = { focus = TUR_adem_i_merkeziyetcilik }
-		x = 1
-		y = 1
-		relative_position_id = TUR_adem_i_merkeziyetcilik
-		completion_reward = {
-			custom_effect_tooltip = TUR_plurality_in_the_heartland_tt
-			if = {
-				limit = { has_completed_focus = TUR_ittihat_i_anasir }
-				custom_effect_tooltip = TUR_plurality_in_the_heartland_tt2
-			}
-			hidden_effect = {
-				set_variable = { TUR_reapproachment_with_greeks_level_347 = 100 }
-				set_variable = { TUR_reapproachment_with_armenians_level_347 = 100 }
-				set_variable = { TUR_reapproachment_with_jewish_level_347 = 100 }
-				set_variable = { TUR_reapproachment_with_turks_level_347 = 100 }
-				set_variable = { TUR_reapproachment_with_greeks_level_1018 = 100 }
-				set_variable = { TUR_reapproachment_with_turks_level_1018 = 100 }
-				set_variable = { TUR_reapproachment_with_greeks_level_756 = 100 }
-				set_variable = { TUR_reapproachment_with_armenians_level_756 = 100 }
-				set_variable = { TUR_reapproachment_with_jewish_level_756 = 100 }
-				set_variable = { TUR_reapproachment_with_bulgarians_level_756 = 100 }
-				set_variable = { TUR_reapproachment_with_turks_level_756 = 100 }
-				set_variable = { TUR_reapproachment_with_greeks_level_1019 = 100 }
-				set_variable = { TUR_reapproachment_with_armenians_level_1019 = 100 }
-				set_variable = { TUR_reapproachment_with_turks_level_1019 = 100 }
-				set_variable = { TUR_reapproachment_with_greeks_level_854 = 100 }
-				set_variable = { TUR_reapproachment_with_armenians_level_854 = 100 }
-				set_variable = { TUR_reapproachment_with_turks_level_854 = 100 }
-				set_variable = { TUR_reapproachment_with_greeks_level_861 = 100 }
-				set_variable = { TUR_reapproachment_with_turks_level_861 = 100 }
-				set_variable = { TUR_reapproachment_with_greeks_level_339 = 100 }
-				set_variable = { TUR_reapproachment_with_turks_level_339 = 100 }
-			}
-		}
-		ai_will_do = { base = 30 }
-	}
-	focus = {
 		id = TUR_no_more_macedonian_struggle
 		icon = GFX_TUR_no_more_macedonian_struggle
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_MINORITY
 		}
-		prerequisite = { focus = TUR_appease_the_anatolian_christians focus = TUR_plurality_in_the_heartland }
+		prerequisite = { focus = TUR_appease_the_anatolian_christians focus = TUR_reach_out_to_the_anatolian_countryside }
 		x = -1
 		y = 1
-		relative_position_id = TUR_appease_the_anatolian_christians
+		relative_position_id = TUR_reach_out_to_the_anatolian_countryside
 		completion_reward = {
 			custom_effect_tooltip = TUR_no_more_macedonian_struggle_tt
-			if = {
-				limit = { has_completed_focus = TUR_ittihat_i_anasir }
-				custom_effect_tooltip = TUR_no_more_macedonian_struggle_tt2
-			}
 			hidden_effect = {
-				set_variable = { TUR_reapproachment_with_greeks_level_345 = 100 }
-				set_variable = { TUR_reapproachment_with_bulgarians_level_345 = 100 }
-				set_variable = { TUR_reapproachment_with_jewish_level_345 = 100 }
-				set_variable = { TUR_reapproachment_with_turks_level_345 = 100 }
-				set_variable = { TUR_reapproachment_with_greeks_level_203 = 100 }
-				set_variable = { TUR_reapproachment_with_bulgarians_level_203 = 100 }
-				set_variable = { TUR_reapproachment_with_turks_level_203 = 100 }
-				set_variable = { TUR_reapproachment_with_greeks_level_106 = 100 }
-				set_variable = { TUR_reapproachment_with_bulgarians_level_106 = 100 }
-				set_variable = { TUR_reapproachment_with_serbs_level_106 = 100 }
-				set_variable = { TUR_reapproachment_with_turks_level_106 = 100 }
+				set_variable = { TUR_reapproachment_with_level_edirne = 100 }
+				set_variable = { TUR_reapproachment_with_level_selanik = 100 }
 			}
 		}
 		ai_will_do = { base = 30 }
@@ -18335,6 +18302,13 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = {
 				#for tooltip
+				TUR_set_old_armenian_value = yes
+				set_temp_variable = { TUR_one_language_one_religion_one_nation_armenian = old_armenian_value }
+				divide_temp_variable = { TUR_one_language_one_religion_one_nation_armenian = TUR_armenian_population_factor_new }
+				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
+				add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.1 }
+				multiply_temp_variable = { TUR_one_language_one_religion_one_nation_armenian = TUR_armenian_population_factor_focus }
+
 				TUR_set_old_arab_value = yes
 				set_temp_variable = { TUR_one_language_one_religion_one_nation_arab = old_arab_value }
 				divide_temp_variable = { TUR_one_language_one_religion_one_nation_arab = TUR_arab_population_factor_new }
@@ -18355,15 +18329,18 @@ focus_tree = {
 				add_to_temp_variable = { TUR_jewish_population_factor_focus = 0.1 }
 				multiply_temp_variable = { TUR_one_language_one_religion_one_nation_jewish = TUR_jewish_population_factor_focus }
 				
-				set_temp_variable = { TUR_one_language_one_religion_one_nation = TUR_one_language_one_religion_one_nation_arab }
+				set_temp_variable = { TUR_one_language_one_religion_one_nation = TUR_one_language_one_religion_one_nation_armenian }
+				add_to_temp_variable = { TUR_one_language_one_religion_one_nation = TUR_one_language_one_religion_one_nation_arab }
 				add_to_temp_variable = { TUR_one_language_one_religion_one_nation = TUR_one_language_one_religion_one_nation_kurdish }
 				add_to_temp_variable = { TUR_one_language_one_religion_one_nation = TUR_one_language_one_religion_one_nation_jewish }
-				set_temp_variable = { old_arab_kurdish_jewish_value = old_arab_value }
-				add_to_temp_variable = { old_arab_kurdish_jewish_value = old_kurdish_value }
-				add_to_temp_variable = { old_arab_kurdish_jewish_value = old_jewish_value }
+				set_temp_variable = { old_armenian_kurdish_jewish_value = old_armenian_value }
+				add_to_temp_variable = { old_armenian_arab_kurdish_jewish_value = old_arab_value }
+				add_to_temp_variable = { old_armenian_arab_kurdish_jewish_value = old_kurdish_value }
+				add_to_temp_variable = { old_armenian_arab_kurdish_jewish_value = old_jewish_value }
 
-				subtract_from_temp_variable = { TUR_one_language_one_religion_one_nation = old_arab_kurdish_jewish_value }
+				subtract_from_temp_variable = { TUR_one_language_one_religion_one_nation = old_armenian_arab_kurdish_jewish_value }
 			}
+			add_to_variable = { TUR_armenian_population_factor_new = 0.1 }
 			add_to_variable = { TUR_arab_population_factor_new = 0.1 }
 			add_to_variable = { TUR_kurdish_population_factor_new = 0.1 }
 			add_to_variable = { TUR_jewish_population_factor_new = 0.1 }
