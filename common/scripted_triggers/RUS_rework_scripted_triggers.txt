@@ -2,6 +2,19 @@ RUS_cabinet_window_is_open = {
 	has_country_flag = RUS_cabinet_window_open
 }
 
+RUS_duma_seats_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = RUS_duma_seats_trigger_tt
+		OR = {
+			check_variable = {
+				total_loyalist_count = RUS_duma_seats_trigger_var
+			}
+			check_variable = {
+				total_loyalist_count > RUS_duma_seats_trigger_var
+			}
+		}
+	}
+}
 
 is_centrist = {
 	custom_trigger_tooltip = {

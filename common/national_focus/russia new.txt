@@ -3787,14 +3787,6 @@ focus_tree = {
 				is_prime_minister = yes
 				is_conservative = yes
 			}
-			RUS_alexander_krivoshein = {
-				is_part_of_the_cabinet = yes
-			}
-		}
-		bypass = {
-			RUS_alexander_krivoshein = {
-				is_part_of_the_cabinet = no
-			}
 		}
 		x = 1
 		y = 1
@@ -3876,6 +3868,245 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_pack_the_state_council
+		icon = GFX_focus_generic_sympathetic_judges
+		cost = 6
+		prerequisite = {
+			focus = RUS_strong_leadership
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				is_conservative = yes
+			}
+		}
+		x = -2
+		y = 1
+		relative_position_id = RUS_strong_leadership
+		available_if_capitulated = yes
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_tighten_the_censorship
+		icon = GFX_focus_generic_sympathetic_judges
+		cost = 6
+		prerequisite = {
+			focus = RUS_pack_the_state_council
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				is_conservative = yes
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = RUS_pack_the_state_council
+		available_if_capitulated = yes
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_control_the_interior
+		icon = GFX_focus_generic_sympathetic_judges
+		cost = 6
+		prerequisite = {
+			focus = RUS_strong_leadership
+		}
+		mutually_exclusive = {
+			focus = RUS_khvostovs_ascension
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				is_conservative = yes
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = RUS_strong_leadership
+		available_if_capitulated = yes
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_khvostovs_ascension
+		icon = GFX_focus_generic_sympathetic_judges
+		cost = 6
+		prerequisite = {
+			focus = RUS_strong_leadership
+		}
+		mutually_exclusive = {
+			focus = RUS_control_the_interior
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				is_conservative = yes
+			}
+			RUS_alexei_khvostov = {
+				is_minister_of_internal_affairs = yes
+			}
+		}
+		x = 2
+		y = 1
+		relative_position_id = RUS_strong_leadership
+		available_if_capitulated = yes
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_another_khvostov
+		icon = GFX_focus_generic_sympathetic_judges
+		cost = 6
+		prerequisite = {
+			focus = RUS_control_the_interior
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				is_conservative = yes
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = RUS_control_the_interior
+		available_if_capitulated = yes
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_appoint_protopopov
+		icon = GFX_focus_generic_sympathetic_judges
+		cost = 6
+		prerequisite = {
+			focus = RUS_control_the_interior
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				is_conservative = yes
+			}
+		}
+		x = 2
+		y = 1
+		relative_position_id = RUS_control_the_interior
+		available_if_capitulated = yes
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_just_let_it_go
+		icon = GFX_focus_generic_sympathetic_judges
+		cost = 6
+		prerequisite = {
+			focus = RUS_pack_the_state_council
+		}
+		mutually_exclusive = {
+			focus = RUS_back_to_square_one
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				is_conservative = yes
+			}
+		}
+		x = -1
+		y = 3
+		relative_position_id = RUS_strong_leadership
+		available_if_capitulated = yes
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
+		}
+	}
+	focus = {
+		id = RUS_back_to_square_one
+		icon = GFX_focus_generic_sympathetic_judges
+		cost = 6
+		prerequisite = {
+			focus = RUS_control_the_interior
+			focus = RUS_khvostovs_ascension
+		}
+		mutually_exclusive = {
+			focus = RUS_just_let_it_go
+		}
+		available = {
+			any_character = {
+				is_prime_minister = yes
+				is_conservative = yes
+			}
+			set_temp_variable = {
+				RUS_duma_seats_trigger_var = 222
+			}
+			RUS_duma_seats_trigger = yes
+		}
+		x = 1
+		y = 3
+		relative_position_id = RUS_strong_leadership
+		available_if_capitulated = yes
+		completion_reward = {
+			
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
 			FOCUS_FILTER_TSAR_AND_THE_PEOPLE
 		}
 	}
