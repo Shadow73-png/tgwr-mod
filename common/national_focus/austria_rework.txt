@@ -906,6 +906,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 	}
 	focus = {
@@ -1019,7 +1020,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			AUS_national_unity_effect = yes
+			add_ideas = AUS_national_unity_idea_1
 			custom_effect_tooltip = empty_space_tt
 			add_to_variable = {
 				AUS_parliament_relations = 0.2
@@ -1046,7 +1047,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			AUS_national_unity_effect = yes
+			 
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_infra = 0.075
@@ -1158,7 +1159,10 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			AUS_national_unity_effect = yes
+			swap_ideas = {
+				remove_idea = AUS_national_unity_idea_1
+				add_idea = AUS_national_unity_idea_2
+			}
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_trade_ai_chance = -0.05
@@ -1237,7 +1241,10 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			AUS_national_unity_effect = yes
+			swap_ideas = {
+				remove_idea = AUS_national_unity_idea_2
+				add_idea = AUS_national_unity_idea_3
+			}
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
 				AUS_aps_dem_gain = -0.01
@@ -1442,349 +1449,349 @@ focus_tree = {
 		search_filters = {
 		}
 	}
-	focus = {
-		id = AUS_combat_the_appeal_of_the_social_democrats
-		icon = GFX_focus_FRA_ally_republicans
-		cost = 5
-		x = 0
-		y = 1
-		mutually_exclusive = {
-			focus = AUS_implement_corporatism
-		}
-		prerequisite = {
-			focus = AUS_destroy_the_elitist_culture
-		}
-		relative_position_id = AUS_destroy_the_elitist_culture
-		available = {
-		}
-		completion_reward = {
-			custom_effect_tooltip = AUS_modify_aps.tt
-			add_to_variable = {
-				AUS_aps_dem_gain = -0.03
-				tooltip = democratic_drift_tt
-			}
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_implement_corporatism
-		icon = GFX_focus_BEL_christian_corporatism
-		cost = 5
-		x = 4
-		y = 1
-		mutually_exclusive = {
-			focus = AUS_combat_the_appeal_of_the_social_democrats
-		}
-		prerequisite = {
-			focus = AUS_destroy_the_elitist_culture
-		}
-		relative_position_id = AUS_destroy_the_elitist_culture
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_collaborate_with_friendly_business
-		icon = GFX_focus_generic_banking
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = AUS_implement_corporatism
-		}
-		relative_position_id = AUS_implement_corporatism
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_unity_of_the_classes
-		icon = GFX_focus_spr_class_war
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = AUS_collaborate_with_friendly_business
-		}
-		relative_position_id = AUS_collaborate_with_friendly_business
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_cooperative_system
-		icon = GFX_focus_generic_full_employment
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = AUS_collaborate_with_friendly_business
-		}
-		relative_position_id = AUS_collaborate_with_friendly_business
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_destroy_unfriendly_business
-		icon = GFX_focus_generic_banking
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = AUS_implement_corporatism
-		}
-		relative_position_id = AUS_implement_corporatism
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_class_representation
-		icon = GFX_focus_BRA_reach_out_to_military_dem
-		cost = 5
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = AUS_destroy_unfriendly_business
-		}
-		relative_position_id = AUS_destroy_unfriendly_business
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_a_well_oiled_machine
-		icon = GFX_focus_manage_industries
-		cost = 5
-		x = 1
-		y = 4
-		prerequisite = {
-			focus = AUS_class_representation
-		}
-		prerequisite = {
-			focus = AUS_reform_labour_unions
-		}
-		relative_position_id = AUS_implement_corporatism
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_reform_labour_unions
-		icon = GFX_focus_FIN_finnish_federation_of_trade_unions
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = AUS_cooperative_system
-		}
-		prerequisite = {
-			focus = AUS_unity_of_the_classes
-		}
-		relative_position_id = AUS_unity_of_the_classes
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_social_insurance_reform
-		icon = GFX_focus_generic_treaty
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = AUS_combat_the_appeal_of_the_social_democrats
-		}
-		relative_position_id = AUS_combat_the_appeal_of_the_social_democrats
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_take_control_of_public_service_industries
-		icon = GFX_focus_generic_hydroelectric_energy
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = AUS_combat_the_appeal_of_the_social_democrats
-		}
-		relative_position_id = AUS_combat_the_appeal_of_the_social_democrats
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_constrain_big_business
-		icon = GFX_TUR_strengthen_the_national_economy
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = AUS_take_control_of_public_service_industries
-		}
-		relative_position_id = AUS_take_control_of_public_service_industries
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_protect_small_farms
-		icon = GFX_focus_generic_farmland
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = AUS_take_control_of_public_service_industries
-		}
-		relative_position_id = AUS_take_control_of_public_service_industries
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_workplace_benefits
-		icon = GFX_goal_workers_rights
-		cost = 5
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = AUS_social_insurance_reform
-		}
-		relative_position_id = AUS_social_insurance_reform
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_invest_in_schools_and_hospitals
-		icon = GFX_focus_SWE_education_reform
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = AUS_constrain_big_business
-		}
-		prerequisite = {
-			focus = AUS_protect_small_farms
-		}
-		relative_position_id = AUS_constrain_big_business
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_the_populist_reformation
-		icon = GFX_focus_generic_monetary_union
-		cost = 5
-		x = 0
-		y = 4
-		prerequisite = {
-			focus = AUS_invest_in_schools_and_hospitals
-		}
-		prerequisite = {
-			focus = AUS_workplace_benefits
-		}
-		relative_position_id = AUS_combat_the_appeal_of_the_social_democrats
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
+	#focus = {
+	#	id = AUS_combat_the_appeal_of_the_social_democrats
+	#	icon = GFX_focus_FRA_ally_republicans
+	#	cost = 5
+	#	x = 0
+	#	y = 1
+	#	mutually_exclusive = {
+	#		focus = AUS_implement_corporatism
+	#	}
+	#	prerequisite = {
+	#		focus = AUS_destroy_the_elitist_culture
+	#	}
+	#	relative_position_id = AUS_destroy_the_elitist_culture
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#		custom_effect_tooltip = AUS_modify_aps.tt
+	#		add_to_variable = {
+	#			AUS_aps_dem_gain = -0.03
+	#			tooltip = democratic_drift_tt
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_implement_corporatism
+	#	icon = GFX_focus_BEL_christian_corporatism
+	#	cost = 5
+	#	x = 4
+	#	y = 1
+	#	mutually_exclusive = {
+	#		focus = AUS_combat_the_appeal_of_the_social_democrats
+	#	}
+	#	prerequisite = {
+	#		focus = AUS_destroy_the_elitist_culture
+	#	}
+	#	relative_position_id = AUS_destroy_the_elitist_culture
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_collaborate_with_friendly_business
+	#	icon = GFX_focus_generic_banking
+	#	cost = 5
+	#	x = 1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = AUS_implement_corporatism
+	#	}
+	#	relative_position_id = AUS_implement_corporatism
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_unity_of_the_classes
+	#	icon = GFX_focus_spr_class_war
+	#	cost = 5
+	#	x = -1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = AUS_collaborate_with_friendly_business
+	#	}
+	#	relative_position_id = AUS_collaborate_with_friendly_business
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_cooperative_system
+	#	icon = GFX_focus_generic_full_employment
+	#	cost = 5
+	#	x = 1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = AUS_collaborate_with_friendly_business
+	#	}
+	#	relative_position_id = AUS_collaborate_with_friendly_business
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_destroy_unfriendly_business
+	#	icon = GFX_focus_generic_banking
+	#	cost = 5
+	#	x = -1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = AUS_implement_corporatism
+	#	}
+	#	relative_position_id = AUS_implement_corporatism
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_class_representation
+	#	icon = GFX_focus_BRA_reach_out_to_military_dem
+	#	cost = 5
+	#	x = 0
+	#	y = 2
+	#	prerequisite = {
+	#		focus = AUS_destroy_unfriendly_business
+	#	}
+	#	relative_position_id = AUS_destroy_unfriendly_business
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_a_well_oiled_machine
+	#	icon = GFX_focus_manage_industries
+	#	cost = 5
+	#	x = 1
+	#	y = 4
+	#	prerequisite = {
+	#		focus = AUS_class_representation
+	#	}
+	#	prerequisite = {
+	#		focus = AUS_reform_labour_unions
+	#	}
+	#	relative_position_id = AUS_implement_corporatism
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_reform_labour_unions
+	#	icon = GFX_focus_FIN_finnish_federation_of_trade_unions
+	#	cost = 5
+	#	x = 1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = AUS_cooperative_system
+	#	}
+	#	prerequisite = {
+	#		focus = AUS_unity_of_the_classes
+	#	}
+	#	relative_position_id = AUS_unity_of_the_classes
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_social_insurance_reform
+	#	icon = GFX_focus_generic_treaty
+	#	cost = 5
+	#	x = -1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = AUS_combat_the_appeal_of_the_social_democrats
+	#	}
+	#	relative_position_id = AUS_combat_the_appeal_of_the_social_democrats
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_take_control_of_public_service_industries
+	#	icon = GFX_focus_generic_hydroelectric_energy
+	#	cost = 5
+	#	x = 1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = AUS_combat_the_appeal_of_the_social_democrats
+	#	}
+	#	relative_position_id = AUS_combat_the_appeal_of_the_social_democrats
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_constrain_big_business
+	#	icon = GFX_TUR_strengthen_the_national_economy
+	#	cost = 5
+	#	x = -1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = AUS_take_control_of_public_service_industries
+	#	}
+	#	relative_position_id = AUS_take_control_of_public_service_industries
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_protect_small_farms
+	#	icon = GFX_focus_generic_farmland
+	#	cost = 5
+	#	x = 1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = AUS_take_control_of_public_service_industries
+	#	}
+	#	relative_position_id = AUS_take_control_of_public_service_industries
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_workplace_benefits
+	#	icon = GFX_goal_workers_rights
+	#	cost = 5
+	#	x = 0
+	#	y = 2
+	#	prerequisite = {
+	#		focus = AUS_social_insurance_reform
+	#	}
+	#	relative_position_id = AUS_social_insurance_reform
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_invest_in_schools_and_hospitals
+	#	icon = GFX_focus_SWE_education_reform
+	#	cost = 5
+	#	x = 1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = AUS_constrain_big_business
+	#	}
+	#	prerequisite = {
+	#		focus = AUS_protect_small_farms
+	#	}
+	#	relative_position_id = AUS_constrain_big_business
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
+	#focus = {
+	#	id = AUS_the_populist_reformation
+	#	icon = GFX_focus_generic_monetary_union
+	#	cost = 5
+	#	x = 0
+	#	y = 4
+	#	prerequisite = {
+	#		focus = AUS_invest_in_schools_and_hospitals
+	#	}
+	#	prerequisite = {
+	#		focus = AUS_workplace_benefits
+	#	}
+	#	relative_position_id = AUS_combat_the_appeal_of_the_social_democrats
+	#	available = {
+	#	}
+	#	completion_reward = {
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#	}
+	#	search_filters = {
+	#	}
+	#}
 	focus = {
 		id = AUS_supress_risks_to_national_security
 		icon = GFX_generic_police_state
@@ -1804,16 +1811,16 @@ focus_tree = {
 				tooltip = stability_factor_tt
 			}
 			add_to_variable = {
-				AUS_aps_dem_gain = -0.02
-				tooltip = democratic_drift_tt
-			}
-			add_to_variable = {
 				AUS_aps_def_war_stab = 0.05
 				tooltip = defensive_war_stability_factor_tt
 			}
 			add_to_variable = {
 				AUS_aps_off_war_stab = 0.05
 				tooltip = offensive_war_stability_factor_tt
+			}
+			add_to_variable = {
+				AUS_aps_dem_gain = -0.02
+				tooltip = democratic_drift_tt
 			}
 		}
 		ai_will_do = {
@@ -2228,11 +2235,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 25
-						add_to_variable = {
-					AUS_czechoslovak_loyalty = -10
-					tooltip = AUS_loyalty_czechoslovakia_tt
-				}
-custom_effect_tooltip = AUS_reduce_czech_stuff			
+			add_to_variable = {
+				AUS_czechoslovak_loyalty = -10
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			custom_effect_tooltip = AUS_reduce_czech_stuff			
 			AUS_update_state_of_realm = yes
 		}
 		ai_will_do = {
@@ -2563,6 +2570,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 			set_global_flag = {
 				flag = poison_of_nationalism_180_days
 				days = 1095
+   				value = 1
 			}
 			hidden_effect = {
 				country_event = {
@@ -2918,6 +2926,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 			set_global_flag = {
 				flag = AUS_slav_loyalty_3_years
 				days = 1095
+   				value = 1
 			}
 			effect_tooltip = {
 				add_to_variable = {
@@ -4604,7 +4613,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 			OR = {
 				has_completed_focus = AUS_nationalism_and_liberalism
 				has_completed_focus = AUS_destroy_decadent_democracy
-				has_completed_focus = AUS_implement_corporatism
+				#has_completed_focus = AUS_implement_corporatism
 			}
 		}
 		completion_reward = {
@@ -4732,10 +4741,10 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 		}
 		relative_position_id = AUS_tackle_galician_poverty
 		available = {
-			OR = {
+			#OR = {
 				has_completed_focus = AUS_the_reformist_era
-				has_completed_focus = AUS_combat_the_appeal_of_the_social_democrats
-			}
+			#	has_completed_focus = AUS_combat_the_appeal_of_the_social_democrats
+			#}
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_modify_eco.tt
@@ -7839,6 +7848,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 	}
 	focus = {
@@ -9685,6 +9695,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 	}
 	focus = {
@@ -9708,6 +9719,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		relative_position_id = AUS_new_kaiser
 		completion_reward = {
@@ -10147,7 +10159,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 	}
 	focus = {
 		id = AUS_moves_in_the_shadows
-		icon = GFX_focus_generic_advanced_military_studies
+		icon = GFX_focus_RAJ_red_in_the_shadows
 		mutually_exclusive = {
 			focus = AUS_lay_our_cards_on_the_table
 		}
@@ -10168,7 +10180,7 @@ custom_effect_tooltip = AUS_reduce_czech_stuff
 	}
 	focus = {
 		id = AUS_prevent_withering_of_the_army
-		icon = GFX_focus_JAP_implement_army_reforms
+		icon = GFX_focus_CZE_army_reform
 		cost = 5
 		x = 0
 		y = 2

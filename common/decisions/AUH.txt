@@ -448,18 +448,22 @@ AUH_great_war_bullshit = {
 		available = { has_war = no }
 		activation = {
 			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+			MGS = {
+				exists = yes
+			}
 		}
 		cancel_trigger = {
 			has_global_flag = MGS_resistance_too_high_to_exploit
 		}
+		modifier = {
+			industrial_capacity_factory = 0.04
+		}
 		timeout_effect = {
-			modifier = {
-				industrial_capacity_factory = 0.04
-			}
 			add_to_variable = { AUS_worsening_food_shortages_timer = -20 }
 			activate_mission = AUS_forced_labor_mission
 		}
 		complete_effect = {
+
 		}
 		fire_only_once = no
 		is_good = no
@@ -472,15 +476,19 @@ AUH_great_war_bullshit = {
 		available = { has_war = no }
 		activation = {
 			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+			MGS = {
+				exists = yes
+			}
 		}
 		cancel_trigger = {
 			has_global_flag = MGS_resistance_too_high_to_exploit
 		}
+		modifier = {
+			production_factory_max_efficiency_factor = 0.03
+			production_factory_efficiency_gain_factor = 0.03
+		}
 		timeout_effect = {
-			modifier = {
-				production_factory_max_efficiency_factor = 0.03
-				production_factory_efficiency_gain_factor = 0.03
-			}
+			
 			activate_mission = AUS_requisition_resources_mission
 		}
 		complete_effect = {
@@ -496,6 +504,9 @@ AUH_great_war_bullshit = {
 		available = { has_war = no }
 		activation = {
 			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+			MGS = {
+				exists = yes
+			}
 		}
 		cancel_trigger = {
 			has_global_flag = MGS_resistance_too_high_to_exploit
