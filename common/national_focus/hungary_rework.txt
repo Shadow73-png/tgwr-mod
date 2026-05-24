@@ -2388,7 +2388,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		search_filters = {
-			
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -2565,7 +2565,7 @@ focus_tree = {
 		x = -6
 		y = 1
 		search_filters = {
-			
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -2586,7 +2586,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		search_filters = {
-			
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -2658,6 +2658,30 @@ focus_tree = {
 		}
 		completion_reward = { }
 	}
+	#Pass Minor Military Bills
+	focus = {
+		id = HUN_pass_minor_military_bills2
+		icon = GFX_focus_GER_customs_union
+		cost = 5
+		relative_position_id = HUN_funnel_funds_into_industry
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_ARMY_XP
+		}
+		available = {
+			
+		}
+		prerequisite = {
+			focus = HUN_funnel_funds_into_industry
+		}
+		completion_reward = { 
+			
+		}
+	 }
 	#Calm the Socialist Push
 	focus = {
 		id = HUN_calm_the_socialist_push
@@ -5816,6 +5840,7 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_finish_police_reorg
+			focus = HUN_the_german_plan
 		}
 		completion_reward = { 
 			43 = {
@@ -5850,11 +5875,26 @@ focus_tree = {
 		}
 		available = {
 			has_war_with_major = yes
+			has_tech = excavation2
 		}
 		prerequisite = {
 			focus = HUN_diosgyor_steel_works
 		}
-		completion_reward = { }
+		completion_reward = { 
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_lack_of_resources_penalty = -0.05
+				tooltip = production_lack_of_resource_penalty_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_local_resources = 0.05
+				tooltip = local_resources_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+		}
 	}
 	 #Establish a Public Service Office
 	 focus = {
@@ -5931,32 +5971,6 @@ focus_tree = {
 			}
 		}
 	 }
-	 #Khuen to lead common legislation
-	 focus = {
-		id = HUN_khuen_to_lead_common_legislation
-		icon = GFX_focus_AUH_demoratic_action
-		cost = 2
-		relative_position_id = HUN_confirm_our_committment_to_germany
-		x = -1
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_POLITICAL_CHARACTER
-		}
-		available = {
-			has_country_flag = HUN_national_work_party_yes
-			has_character = HUN_karoly_khuen_hedervary
-			AUS_HUN_exists = yes
-		}
-		bypass = {
-			has_country_leader = HUN_karoly_khuen_hedervary
-		}
-		prerequisite = {
-			focus = HUN_confirm_our_committment_to_germany
-		}
-		completion_reward = { }
-	 }
 	 #Perpetuating the Memory of Heroes
 	 focus = {
 		id = HUN_perpetuate_memory_of_heroes
@@ -5988,6 +6002,28 @@ focus_tree = {
 			}
 			add_war_support = 0.05
 		}
+	 }
+	#1917 Agricultural Labor Decree
+	 focus = {
+		id = HUN_1917_agricultural_labor_decree
+		icon = GFX_goal_unkown
+		cost = 5
+		relative_position_id = HUN_national_coal_committee
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			has_country_flag = HUN_national_work_party_yes
+			has_war_with_major = yes
+		}
+		prerequisite = {
+			focus = HUN_national_coal_committee
+		}
+		completion_reward = { }
 	 }
 	 #Look for a way out
 	 focus = {
@@ -6021,8 +6057,8 @@ focus_tree = {
 		icon = GFX_focus_ger_weltpolitik_ww1
 		cost = 1
 		relative_position_id = HUN_look_for_a_way_out
-		x = 1
-		y = 1
+		x = 0
+		y = 2
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
