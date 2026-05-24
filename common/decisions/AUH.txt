@@ -448,19 +448,22 @@ AUH_great_war_bullshit = {
 		available = { has_war = no }
 		activation = {
 			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
-			MGS = {
+			any_country = {
+				original_tag = SER
+				is_subject_of = AUS
 				exists = yes
 			}
 		}
 		cancel_trigger = {
 			has_global_flag = MGS_resistance_too_high_to_exploit
 		}
-		modifier = {
-			industrial_capacity_factory = 0.04
-		}
 		timeout_effect = {
 			add_to_variable = { AUS_worsening_food_shortages_timer = -20 }
 			activate_mission = AUS_forced_labor_mission
+			add_timed_idea = {
+				idea = AUS_forced_labor_mission_idea
+				days = 181
+			}
 		}
 		complete_effect = {
 
@@ -476,20 +479,21 @@ AUH_great_war_bullshit = {
 		available = { has_war = no }
 		activation = {
 			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
-			MGS = {
+			any_country = {
+				original_tag = SER
+				is_subject_of = AUS
 				exists = yes
 			}
 		}
 		cancel_trigger = {
 			has_global_flag = MGS_resistance_too_high_to_exploit
 		}
-		modifier = {
-			production_factory_max_efficiency_factor = 0.03
-			production_factory_efficiency_gain_factor = 0.03
-		}
 		timeout_effect = {
-			
 			activate_mission = AUS_requisition_resources_mission
+			add_timed_idea = {
+				idea = AUS_requisition_resources_mission_idea
+				days = 181
+			}
 		}
 		complete_effect = {
 		}
@@ -504,7 +508,9 @@ AUH_great_war_bullshit = {
 		available = { has_war = no }
 		activation = {
 			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
-			MGS = {
+			any_country = {
+				original_tag = SER
+				is_subject_of = AUS
 				exists = yes
 			}
 		}
@@ -535,11 +541,11 @@ AUH_great_war_bullshit = {
 			has_global_flag = MGS_resistance_too_high_to_exploit
 		}
 		timeout_effect = {
-			modifier = {
-				trade_opinion_factor = 0.5
-				resource_trade_cost_bonus_per_factory = -0.1
-			}
 			activate_mission = AUS_wahren_verkehrs_mission
+			add_timed_idea = {
+				idea = AUS_wahren_verkehrs_mission_idea
+				days = 181
+			}
 		}
 		complete_effect = {
 		}
