@@ -79,6 +79,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		relative_position_id = HUN_aftermath_of_werkle
 		x = 2
@@ -213,6 +214,9 @@ focus_tree = {
 		relative_position_id = HUN_mend_the_rapture
 		x = 0
 		y = 2
+		search_filters = {
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
 		available = {
 			hidden_trigger = {
 				always = no
@@ -775,6 +779,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -2260,7 +2265,7 @@ focus_tree = {
 		x = 0
 		y = 6
 		search_filters = {
-			
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -4948,6 +4953,9 @@ focus_tree = {
 	}
 	#Armored Car Experiments
 	focus = {
+		allow_branch = {
+			original_tag = HUN
+		}
 		id = HUN_armored_car_experiments
 		icon = GFX_focus_generic_armored_car
 		cost = 2.2
@@ -5022,6 +5030,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNATIONAL_TRADE
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			always = no
@@ -5048,6 +5057,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNATIONAL_TRADE
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			if = {
@@ -5359,7 +5369,6 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_ARMY_REFORM
 			FOCUS_FILTER_ARMY_XP
 		}
 		available = {
@@ -5403,6 +5412,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		bypass = {
 			has_war_with_major = yes
@@ -5497,6 +5507,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		available = {
 			hidden_trigger = {
@@ -5919,6 +5930,32 @@ focus_tree = {
 			}
 		}
 	 }
+	 #Khuen to lead common legislation
+	 focus = {
+		id = HUN_khuen_to_lead_common_legislation
+		icon = GFX_focus_AUH_demoratic_action
+		cost = 2
+		relative_position_id = HUN_confirm_our_committment_to_germany
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_POLITICAL_CHARACTER
+		}
+		available = {
+			has_country_flag = HUN_national_work_party_yes
+			has_character = HUN_karoly_khuen_hedervary
+			AUS_HUN_exists = yes
+		}
+		bypass = {
+			has_country_leader = HUN_karoly_khuen_hedervary
+		}
+		prerequisite = {
+			focus = HUN_confirm_our_committment_to_germany
+		}
+		completion_reward = { }
+	 }
 	 #Perpetuating the Memory of Heroes
 	 focus = {
 		id = HUN_perpetuate_memory_of_heroes
@@ -6252,7 +6289,7 @@ focus_tree = {
 		y = 0
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_ARMY_REFORM
+			
 			FOCUS_FILTER_MILITARY_CHARACTER
 		}
 		available = {
