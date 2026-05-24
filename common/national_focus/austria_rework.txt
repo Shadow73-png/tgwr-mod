@@ -846,6 +846,7 @@ focus_tree = {
 		}
 		bypass_if_unavailable = yes
 		completion_reward = {
+			
 		}
 		ai_will_do = {
 			base = 1
@@ -904,8 +905,18 @@ focus_tree = {
 		relative_position_id = AUS_inspectorates_local_governments
 		available = {
 			AUS_has_reformist_minister = yes
+			custom_trigger_tooltip = {
+				check_variable = {
+					AUS_pm_mandate_power > 0
+				}
+				tooltip = AUS_at_least_one_pm_power
+			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_cost_one_pm_power
+			add_to_variable = {
+				AUS_pm_mandate_power = -1
+			}
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
 				AUS_aps_pp_gain = 0.1
@@ -935,8 +946,18 @@ focus_tree = {
 		relative_position_id = AUS_funnel_money_into_disease_control
 		available = {
 			AUS_has_reformist_minister = yes
+			custom_trigger_tooltip = {
+				check_variable = {
+					AUS_pm_mandate_power > 0
+				}
+				tooltip = AUS_at_least_one_pm_power
+			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_cost_one_pm_power
+			add_to_variable = {
+				AUS_pm_mandate_power = -1
+			}
 			add_tech_bonus = {
 				name = AUS_housing_projects
 				bonus = 0.5
@@ -973,8 +994,18 @@ focus_tree = {
 		relative_position_id = AUS_funnel_money_into_disease_control
 		available = {
 			AUS_has_reformist_minister = yes
+			custom_trigger_tooltip = {
+				check_variable = {
+					AUS_pm_mandate_power > 0
+				}
+				tooltip = AUS_at_least_one_pm_power
+			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_cost_one_pm_power
+			add_to_variable = {
+				AUS_pm_mandate_power = -1
+			}
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_consumer_goods = 0.075
