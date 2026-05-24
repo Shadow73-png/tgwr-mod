@@ -3486,6 +3486,7 @@ focus_tree = {
 			country_event = ww1_conservative.12
 		}
 		completion_reward = {
+			custom_effect_tooltip = RUS_negotiations_tt
 			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
 			RUS_modify_loyalty_center_right = yes
 			set_temp_variable = { RUS_modify_loyalty_center_left_var = 10 }
@@ -3494,6 +3495,8 @@ focus_tree = {
 				mission = RUS_growing_frustration_mission
 				days = 60
 			}
+			custom_effect_tooltip = unlocks_national_focus_tt
+			custom_effect_tooltip = RUS_government_of_public_trust
 		}
 		ai_will_do = {
 			factor = 3
@@ -3946,7 +3949,21 @@ focus_tree = {
 		relative_position_id = RUS_strong_leadership
 		available_if_capitulated = yes
 		completion_reward = {
-
+			hidden_effect = {
+				every_character = {
+					limit = {
+						is_prime_minister = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				every_character = {
+					limit = {
+						is_prime_minister = yes
+					}
+					RUS_appoint_interior_minister = yes
+				}
+			}
+			custom_effect_tooltip = RUS_appoint_current_chairman_tt
 		}
 		ai_will_do = {
 			factor = 3
@@ -3980,7 +3997,19 @@ focus_tree = {
 		relative_position_id = RUS_strong_leadership
 		available_if_capitulated = yes
 		completion_reward = {
-
+			hidden_effect = {
+				every_character = {
+					limit = {
+						is_prime_minister = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				RUS_alexei_khvostov = {
+					RUS_appoint_chairman = yes
+				}
+			}
+			custom_effect_tooltip = appointed_as_prime_minister_tt
+			show_ideas_tooltip = RUS_alexei_khvostov
 		}
 		ai_will_do = {
 			factor = 3
