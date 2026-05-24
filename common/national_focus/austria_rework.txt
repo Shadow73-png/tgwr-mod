@@ -668,6 +668,105 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_how_to_win_1911_elections
+			set_variable = {
+				AUS_bienerth_election = 2
+			}
+			divide_variable = {
+				var = AUS_conservative_election_performance
+				value = 2
+			}
+			add_to_variable = {
+				AUS_bienerth_election = AUS_conservative_election_performance
+			}
+			multiply_variable = {
+				var = AUS_conservative_election_performance
+				value = 2
+			}
+			divide_variable = {
+				var = AUS_liberal_election_performance
+				value = 4
+			}
+			add_to_variable = {
+				AUS_bienerth_election = AUS_liberal_election_performance
+			}
+			multiply_variable = {
+				var = AUS_liberal_election_performance
+				value = 4
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = AUS_bourgeoisie_unity
+		icon = GFX_focus_PER_embrace_opulence
+		cost = 4
+		relative_position_id = AUS_reformist_club
+		prerequisite = {
+			focus = AUS_programs_for_small_farmers
+		}
+		prerequisite = {
+			focus = AUS_reformist_club
+		}
+		prerequisite = {
+			focus = AUS_suppress_czech_social_democrats
+		}
+		x = 0
+		y = 1
+		available = {
+			NOT = {
+				has_active_mission = AUS_imperial_elections
+			}
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = AUS_suppress_czech_social_democrats
+		icon = GFX_focus_spr_crush_the_revolution
+		cost = 4
+		relative_position_id = AUS_align_poles
+		prerequisite = {
+			focus = AUS_protect_the_status_of_prague
+			focus = AUS_ally_social_christians_and_libs
+		}
+		x = -3
+		y = 1
+		available = {
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_active_mission = AUS_imperial_elections
+					}
+				}
+				add_to_variable = {
+					AUS_socdem_election_performance = -1
+				}
+				custom_effect_tooltip = AUS_socdem_election_bad_1
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_stability = 0.05
+			add_political_power = 30
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_prod_eff_cap = 0.02
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -876,6 +975,54 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = AUS_programs_for_small_farmers
+		icon = GFX_focus_AFG_contact_rural_loyalists
+		cost = 4
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = AUS_funnel_money_into_disease_control
+		}
+		relative_position_id = AUS_funnel_money_into_disease_control
+		available = {
+			AUS_has_reformist_minister = yes
+		}
+		completion_reward = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.075
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			add_to_variable = {
+				AUS_ruthenian_loyalty = 3
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_pole_loyalty = 3
+				tooltip = AUS_loyalty_pole_tt
+			}
+			add_to_variable = {
+				AUS_romanian_loyalty = 3
+				tooltip = AUS_loyalty_romanians_tt
+			}
+			AUS_update_state_of_realm = yes
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
 		id = AUS_1911_elections
 		icon = GFX_focus_NOR_approach_kretsen
 		cost = 0
@@ -932,7 +1079,6 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = AUS_nationalism_and_liberalism
 		}
-		
 		prerequisite = {
 			focus = AUS_1911_elections
 		}
@@ -1043,7 +1189,6 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			 
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_infra = 0.075
@@ -1843,7 +1988,6 @@ focus_tree = {
 			}
 			x = -4
 		}
-		
 		mutually_exclusive = {
 			focus = AUS_nationalism_and_liberalism
 		}
@@ -2177,7 +2321,6 @@ focus_tree = {
 		available = {
 			has_idea = AUS_dysfunctional_galician_diet
 		}
-		
 		completion_reward = {
 			unlock_decision_tooltip = {
 				decision = AUS_permit_ukranian_university
@@ -2227,7 +2370,7 @@ focus_tree = {
 				AUS_czechoslovak_loyalty = -10
 				tooltip = AUS_loyalty_czechoslovakia_tt
 			}
-			custom_effect_tooltip = AUS_reduce_czech_stuff			
+			custom_effect_tooltip = AUS_reduce_czech_stuff
 			AUS_update_state_of_realm = yes
 		}
 		ai_will_do = {
@@ -2558,7 +2701,7 @@ focus_tree = {
 			set_global_flag = {
 				flag = poison_of_nationalism_180_days
 				days = 1095
-   				value = 1
+				value = 1
 			}
 			hidden_effect = {
 				country_event = {
@@ -2914,7 +3057,7 @@ focus_tree = {
 			set_global_flag = {
 				flag = AUS_slav_loyalty_3_years
 				days = 1095
-   				value = 1
+				value = 1
 			}
 			effect_tooltip = {
 				add_to_variable = {
@@ -2941,7 +3084,6 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
-	
 	focus = {
 		id = AUS_nationalism_and_liberalism
 		icon = GFX_focus_GER_tend_to_the_future
@@ -2966,7 +3108,6 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = AUS_the_conservative_duopoly
 		}
-	
 		prerequisite = {
 			focus = AUS_1911_elections
 		}
@@ -3032,7 +3173,6 @@ focus_tree = {
 		search_filters = {
 		}
 	}
-	
 	focus = {
 		id = AUS_appoint_aehrenthal
 		icon = GFX_focus_FRA_goverment_reform
@@ -3393,7 +3533,6 @@ focus_tree = {
 				decision = AUS_build_dam_in_jizera_mountains
 				show_effect_tooltip = yes
 			}
-			
 		}
 		ai_will_do = {
 			base = 1
@@ -3877,7 +4016,6 @@ focus_tree = {
 		}
 		relative_position_id = AUS_tackle_galician_poverty
 		available = {
-		
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_modify_eco.tt
@@ -6938,7 +7076,7 @@ focus_tree = {
 		}
 		bypass_effect = {
 			add_timed_idea = {
-				idea = AUH_war_euphoria 
+				idea = AUH_war_euphoria
 				days = 140
 			}
 			add_ideas = war_economy
@@ -7227,12 +7365,30 @@ focus_tree = {
 				tooltip = defensive_war_stability_factor_tt
 			}
 			custom_effect_tooltip = AUS_the_military_own_agend2
-			unlock_decision_tooltip = { decision = AUS_crackdown_on_bohemian_groups show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = AUS_crackdown_on_polish_groups show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = AUS_crackdown_on_ruthenian_groups show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = AUS_crackdown_on_serbian_groups show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = AUS_crackdown_on_croatian_groups show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = AUS_crackdown_on_romanian_groups show_effect_tooltip = yes }
+			unlock_decision_tooltip = {
+				decision = AUS_crackdown_on_bohemian_groups
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_crackdown_on_polish_groups
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_crackdown_on_ruthenian_groups
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_crackdown_on_serbian_groups
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_crackdown_on_croatian_groups
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_crackdown_on_romanian_groups
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -7477,7 +7633,6 @@ focus_tree = {
 			focus = AUS_der_grobe_kriegsredux
 		}
 		completion_reward = {
-		
 		}
 		ai_will_do = {
 			base = 1
@@ -9535,9 +9690,6 @@ focus_tree = {
 		#search_filters = {
 		#}
 	}
-	
-	
-
 	focus = {
 		id = AUS_puppet_the_imperial_council
 		icon = GFX_focus_destroy_parliament
@@ -9592,7 +9744,6 @@ focus_tree = {
 		#search_filters = {
 		#}
 	}
-
 }
 
 joint_focus = {

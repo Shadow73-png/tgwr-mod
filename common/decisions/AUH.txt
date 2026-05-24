@@ -60,7 +60,6 @@ AUH_great_war_bullshit = {
 		target_trigger = {
 			FROM = {
 				Is_controlled_by = root
-
 				any_neighbor_state = {
 					Owner = {
 						has_war_with = root
@@ -135,12 +134,11 @@ AUH_great_war_bullshit = {
 			has_war_with_major = yes
 		}
 		available = {
-					has_war_with_major = yes
+			has_war_with_major = yes
 		}
 		days_remove = 180
 		cost = 20
 		complete_effect = {
-			
 		}
 		modifier = {
 			war_support_weekly = 0.0015
@@ -182,7 +180,6 @@ AUH_great_war_bullshit = {
 			base = 10
 		}
 	}
-
 	AUS_crackdown_on_polish_groups = {
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
@@ -214,7 +211,6 @@ AUH_great_war_bullshit = {
 			base = 10
 		}
 	}
-
 	AUS_crackdown_on_ruthenian_groups = {
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
@@ -246,7 +242,6 @@ AUH_great_war_bullshit = {
 			base = 10
 		}
 	}
-
 	AUS_crackdown_on_serbian_groups = {
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
@@ -278,7 +273,6 @@ AUH_great_war_bullshit = {
 			base = 10
 		}
 	}
-
 	AUS_crackdown_on_croatian_groups = {
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
@@ -310,7 +304,6 @@ AUH_great_war_bullshit = {
 			base = 10
 		}
 	}
-
 	AUS_crackdown_on_romanian_groups = {
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
@@ -342,7 +335,6 @@ AUH_great_war_bullshit = {
 			base = 10
 		}
 	}
-
 	AUS_aggressive_war_plan_conrad = {
 		icon = GFX_decision_generic_air
 		allowed = {
@@ -434,7 +426,7 @@ AUH_great_war_bullshit = {
 			has_war = no
 		}
 		activation = {
-				has_global_flag = great_war
+			has_global_flag = great_war
 			MGS = {
 				exists = yes
 				has_completed_focus = MGS_exploitation
@@ -442,7 +434,6 @@ AUH_great_war_bullshit = {
 			check_variable = {
 				MGS_times_exploited < 5
 			}
-			
 		}
 		cancel_trigger = {
 			has_war = no
@@ -467,12 +458,18 @@ AUH_great_war_bullshit = {
 	}
 	AUS_forced_labor_mission = {
 		icon = GFX_decision_generic_ignite_civil_war
-		allowed = { original_tag = AUS }
+		allowed = {
+			original_tag = AUS
+		}
 		priority = 15
 		days_mission_timeout = 180
-		available = { has_war = no }
+		available = {
+			has_war = no
+		}
 		activation = {
-			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+			NOT = {
+				has_global_flag = MGS_resistance_too_high_to_exploit
+			}
 			any_country = {
 				original_tag = SER
 				is_subject_of = AUS
@@ -483,7 +480,9 @@ AUH_great_war_bullshit = {
 			has_global_flag = MGS_resistance_too_high_to_exploit
 		}
 		timeout_effect = {
-			add_to_variable = { AUS_worsening_food_shortages_timer = -20 }
+			add_to_variable = {
+				AUS_worsening_food_shortages_timer = -20
+			}
 			activate_mission = AUS_forced_labor_mission
 			add_timed_idea = {
 				idea = AUS_forced_labor_mission_idea
@@ -491,19 +490,24 @@ AUH_great_war_bullshit = {
 			}
 		}
 		complete_effect = {
-
 		}
 		fire_only_once = no
 		is_good = no
 	}
 	AUS_requisition_resources_mission = {
 		icon = GFX_decision_generic_ignite_civil_war
-		allowed = { original_tag = AUS }
+		allowed = {
+			original_tag = AUS
+		}
 		priority = 15
 		days_mission_timeout = 180
-		available = { has_war = no }
+		available = {
+			has_war = no
+		}
 		activation = {
-			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+			NOT = {
+				has_global_flag = MGS_resistance_too_high_to_exploit
+			}
 			any_country = {
 				original_tag = SER
 				is_subject_of = AUS
@@ -527,12 +531,18 @@ AUH_great_war_bullshit = {
 	}
 	AUS_suchdetachement_mission = {
 		icon = GFX_decision_generic_ignite_civil_war
-		allowed = { original_tag = AUS }
+		allowed = {
+			original_tag = AUS
+		}
 		priority = 15
 		days_mission_timeout = 180
-		available = { has_war = no }
+		available = {
+			has_war = no
+		}
 		activation = {
-			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+			NOT = {
+				has_global_flag = MGS_resistance_too_high_to_exploit
+			}
 			any_country = {
 				original_tag = SER
 				is_subject_of = AUS
@@ -543,9 +553,21 @@ AUH_great_war_bullshit = {
 			has_global_flag = MGS_resistance_too_high_to_exploit
 		}
 		timeout_effect = {
-			add_equipment_to_stockpile = { type = infantry_equipment amount = 250 producer = AUS }
-			add_equipment_to_stockpile = { type = support_equipment amount = 50 producer = AUS }
-			add_equipment_to_stockpile = { type = artillery_equipment amount = 10 producer = AUS }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 250
+				producer = AUS
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 50
+				producer = AUS
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 10
+				producer = AUS
+			}
 			activate_mission = AUS_suchdetachement_mission
 		}
 		complete_effect = {
@@ -555,12 +577,18 @@ AUH_great_war_bullshit = {
 	}
 	AUS_wahren_verkehrs_mission = {
 		icon = GFX_decision_generic_ignite_civil_war
-		allowed = { original_tag = AUS }
+		allowed = {
+			original_tag = AUS
+		}
 		priority = 15
 		days_mission_timeout = 180
-		available = { has_war = no }
+		available = {
+			has_war = no
+		}
 		activation = {
-			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+			NOT = {
+				has_global_flag = MGS_resistance_too_high_to_exploit
+			}
 			any_country = {
 				original_tag = SER
 				is_subject_of = AUS
@@ -713,7 +741,9 @@ AUH_great_war_bullshit = {
 		}
 		available = {
 			has_war_with_major = yes
-			NOT = { has_global_flag = MGS_resistance_too_high_to_exploit }
+			NOT = {
+				has_global_flag = MGS_resistance_too_high_to_exploit
+			}
 			any_country = {
 				original_tag = SER
 				is_subject_of = AUS
@@ -1332,13 +1362,13 @@ AUS_minorities_mechanic = {
 				limit = {
 					has_global_flag = AUS_cze_overperform
 				}
-					add_political_power = -10
+				add_political_power = -10
 			}
-				if = {
+			if = {
 				limit = {
 					has_completed_focus = AUS_reject_bohemian_autonomy
 				}
-					add_political_power = 10
+				add_political_power = 10
 			}
 		}
 		complete_effect = {
@@ -1667,8 +1697,6 @@ AUH_automatic_mechanics = {
 		}
 		cost = 0
 	}
-	
-	
 	AUS_stabilization_effort_mission = {
 		priority = 99
 		ai_will_do = {
@@ -1774,7 +1802,6 @@ AUH_automatic_mechanics = {
 AUH_the_imperial_council = {
 	AUS_king_intervention = {
 		priority = 99
-	
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
 			original_tag = AUS
@@ -2166,6 +2193,33 @@ AUH_the_imperial_council = {
 		complete_effect = {
 		}
 		timeout_effect = {
+		
+			if = {
+				limit = {
+					AND = {
+						has_completed_focus = AUS_reformist_club
+					OR = {
+						AND = {
+							check_variable = {
+								AUS_socdem_election_performance < AUS_conservative_election_performance
+							}
+							check_variable = {
+								AUS_conservative_election_performance > AUS_liberal_election_performance
+							}
+						}
+						AND = {
+							check_variable = {
+								AUS_socdem_election_performance = AUS_conservative_election_performance
+							}
+							check_variable = {
+								AUS_conservative_election_performance > AUS_socdem_election_performance
+							}
+						}
+					}
+					}
+				}
+				country_event = ww1_austriahungary.202
+			}
 			if = {
 				limit = {
 					OR = {
@@ -2204,6 +2258,9 @@ AUH_the_imperial_council = {
 			}
 			if = {
 				limit = {
+					NOT = {
+						has_completed_focus = AUS_reformist_club
+					}
 					OR = {
 						AND = {
 							check_variable = {
@@ -2963,7 +3020,6 @@ AUH_stitching_the_quilt = {
 			has_start_date < 1914.1.1
 		}
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 180
@@ -3771,7 +3827,7 @@ AUH_austrian_military = {
 		available = {
 			has_army_manpower = {
 				size > 750000
-			}	
+			}
 		}
 		activation = {
 			has_completed_focus = AUS_implement_conrads_army_structure
@@ -4799,19 +4855,18 @@ AUS_quests = {
 			OR = {
 				has_stability > AUS_stab_quest
 				AND = {
-				has_completed_focus = AUS_retribution_against_socialists
-				has_completed_focus = AUS_commission_on_cartels
-				NOT = {
-					has_idea = AUS_cartel_riots
+					has_completed_focus = AUS_retribution_against_socialists
+					has_completed_focus = AUS_commission_on_cartels
+					NOT = {
+						has_idea = AUS_cartel_riots
+					}
+					check_variable = {
+						AUS_overton_window > 2
+						tooltip = AUS_overton_window_is_3_right
+					}
+					democratic < 0.45
 				}
-				check_variable = {
-					AUS_overton_window > 2
-					tooltip = AUS_overton_window_is_3_right
-				}
-				democratic < 0.45
 			}
-			}
-			
 		}
 		fire_only_once = yes
 		is_good = no
