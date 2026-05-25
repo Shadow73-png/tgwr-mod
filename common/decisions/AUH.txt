@@ -3797,7 +3797,76 @@ peace_deals = {
 		}
 	}
 }
-
+AUS_question_of_army_chief = {
+	AUS_aehrenthal_demand_for_conrads_dismissal = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = AUS
+		}
+		days_mission_timeout = 7
+		available = {
+			always = no
+		}
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			always = no
+		}
+		timeout_effect = {
+			country_event = ww1_austriahungary.203
+			AUH_conrad_von_hotzendorf = {
+				set_character_flag = dismissed
+				custom_effect_tooltip = conrad_dismissed
+			}
+		}
+		complete_effect = {
+		}
+		fire_only_once = yes
+		is_good = yes
+	}
+	AUS_lobbying_of_the_belvedere_circle  = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = AUS
+		}
+		days_mission_timeout = 300
+		available = {
+			always = no
+		}
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			always = no
+		}
+		timeout_effect = {
+		}
+		complete_effect = {
+		}
+		fire_only_once = yes
+		is_good = yes
+	}
+	AUS_claim_success_of_war_requirements_act_passage = {
+		icon = GFX_decision_generic_political_address
+		cost = 10
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_country_flag = AUS_schemua_chief
+		}
+		available = {
+			has_completed_focus = AUS_war_requirements_act
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 1
+		}
+		remove_effect = {
+		}
+	}
+}
 AUH_austrian_military = {
 	AUS_reappoint_conrad = {
 		icon = GFX_decision_generic_ignite_civil_war

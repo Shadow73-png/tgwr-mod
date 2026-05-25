@@ -3521,7 +3521,97 @@ MGS_worsen_resistance_to_occupation = {
 		}
 	}
 }
-
+MGS_food_worsen = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = MGS_food_shortage_0
+				has_idea = MGS_food_shortage_1
+				has_idea = MGS_food_shortage_2
+				has_idea = MGS_food_shortage_3
+				has_idea = MGS_food_shortage_4
+				has_idea = MGS_food_shortage_5
+			}
+		}
+		add_ideas = MGS_food_shortage_0
+	}
+	else_if = {
+		limit = { has_idea = MGS_food_shortage_0 }
+		swap_ideas = {
+			remove_idea = MGS_food_shortage_0
+			add_idea = MGS_food_shortage_1
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_food_shortage_1 }
+		swap_ideas = {
+			remove_idea = MGS_food_shortage_1
+			add_idea = MGS_food_shortage_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_food_shortage_2 }
+		swap_ideas = {
+			remove_idea = MGS_food_shortage_2
+			add_idea = MGS_food_shortage_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_food_shortage_3 }
+		swap_ideas = {
+			remove_idea = MGS_food_shortage_3
+			add_idea = MGS_food_shortage_4
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_food_shortage_4 }
+		swap_ideas = {
+			remove_idea = MGS_food_shortage_4
+			add_idea = MGS_food_shortage_5
+		}
+	}
+}
+MGS_food_improve = {
+	if = {
+		limit = { has_idea = MGS_food_shortage_5 }
+		swap_ideas = {
+			remove_idea = MGS_food_shortage_5
+			add_idea = MGS_food_shortage_4
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_food_shortage_4 }
+		swap_ideas = {
+			remove_idea = MGS_food_shortage_4
+			add_idea = MGS_food_shortage_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_food_shortage_3 }
+		swap_ideas = {
+			remove_idea = MGS_food_shortage_3
+			add_idea = MGS_food_shortage_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_food_shortage_2 }
+		swap_ideas = {
+			remove_idea = MGS_food_shortage_2
+			add_idea = MGS_food_shortage_1
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_food_shortage_1 }
+		swap_ideas = {
+			remove_idea = MGS_food_shortage_1
+			add_idea = MGS_food_shortage_0
+		}
+	}
+	else_if = {
+		limit = { has_idea = MGS_food_shortage_0 }
+		remove_ideas = MGS_food_shortage_0
+	}
+}
 AUS_spawn_MGS = {
 	set_global_flag = MGS_exists
 	create_dynamic_country = {
@@ -3545,6 +3635,7 @@ AUS_spawn_MGS = {
 	}
 	MGS = {
 		set_country_flag = monarchist_puppet
+		add_ideas = MGS_food_shortage_1
 		AUS = {
 			set_autonomy = {
 				target = MGS
