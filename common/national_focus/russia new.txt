@@ -3877,6 +3877,15 @@ focus_tree = {
 				}
 				custom_effect_tooltip = appointed_as_prime_minister_tt
 				show_ideas_tooltip = RUS_boris_sturmer
+				country_event = ww1_conservative.19
+			}
+			else = {
+				hidden_effect = {
+					country_event = {
+						id = ww1_conservative.20
+						days = 1
+					}
+				}
 			}
 			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
 			RUS_modify_loyalty_far_right = yes
@@ -3994,6 +4003,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = RUS_appoint_current_chairman_tt
 			add_political_power = 50
+			add_days_mission_timeout = {
+				mission = RUS_ministerial_leapfrog_mission
+				days = 80
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -4044,6 +4057,10 @@ focus_tree = {
 			RUS_modify_loyalty_center_left = yes
 			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
 			RUS_modify_loyalty_center_right = yes
+			add_days_mission_timeout = {
+				mission = RUS_ministerial_leapfrog_mission
+				days = 80
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -4058,6 +4075,7 @@ focus_tree = {
 		cost = 5
 		prerequisite = {
 			focus = RUS_control_the_interior
+			focus = RUS_khvostovs_ascension
 		}
 		available = {
 			any_character = {
@@ -4073,6 +4091,11 @@ focus_tree = {
 			custom_effect_tooltip = appointed_as_interior_minister_tt
 			show_ideas_tooltip = RUS_alexander_khvostov
 			add_political_power = 50
+			country_event = ww1_conservative.23
+			add_days_mission_timeout = {
+				mission = RUS_ministerial_leapfrog_mission
+				days = 80
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -4088,6 +4111,7 @@ focus_tree = {
 		cost = 5
 		prerequisite = {
 			focus = RUS_control_the_interior
+			focus = RUS_khvostovs_ascension
 		}
 		available = {
 			any_character = {
@@ -4106,6 +4130,11 @@ focus_tree = {
 			RUS_modify_loyalty_center_left = yes
 			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
 			RUS_modify_loyalty_center_right = yes
+			country_event = ww1_conservative.24
+			add_days_mission_timeout = {
+				mission = RUS_ministerial_leapfrog_mission
+				days = 80
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -4150,6 +4179,7 @@ focus_tree = {
 				add_idea = RUS_autocracy_in_all_but_name_idea
 			}
 			custom_effect_tooltip = RUS_state_duma_will_be_abolished_tt
+			country_event = ww1_conservative.26
 		}
 		ai_will_do = {
 			factor = 3
@@ -4197,6 +4227,7 @@ focus_tree = {
 				remove_idea = RUS_progressive_bloc_idea
 				add_idea = RUS_june_third_political_system_idea
 			}
+			country_event = ww1_conservative.25
 		}
 		ai_will_do = {
 			factor = 3
