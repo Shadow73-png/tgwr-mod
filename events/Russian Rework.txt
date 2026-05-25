@@ -231,16 +231,20 @@ country_event = {
 	picture = ww1_russia_state_council
 	is_triggered_only = yes
 	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = RUS_jewish_emancipation_freedom_of_movement
+			clr_country_flag = RUS_jewish_emancipation_restricted_movement
+			clr_country_flag = RUS_jewish_emancipation_jewish_officers
+			clr_country_flag = RUS_jewish_emancipation_army_restrictions
+			clr_country_flag = RUS_jewish_emancipation_land_speculation
+			clr_country_flag = RUS_jewish_emancipation_land_purchase_restrictions
+		}
+	}
 	#Time to introduce it to the State Duma
 	option = {
 		name = ww1_russia_common.9.a
 		add_political_power = 50
-		clr_country_flag = RUS_jewish_emancipation_freedom_of_movement
-		clr_country_flag = RUS_jewish_emancipation_restricted_movement
-		clr_country_flag = RUS_jewish_emancipation_jewish_officers
-		clr_country_flag = RUS_jewish_emancipation_army_restrictions
-		clr_country_flag = RUS_jewish_emancipation_land_speculation
-		clr_country_flag = RUS_jewish_emancipation_land_purchase_restrictions
 	}
 }
 #Jewish Emancipation - Emperor blocks drafting the law
@@ -251,10 +255,20 @@ country_event = {
 	picture = ww1_russia_state_council
 	is_triggered_only = yes
 	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			set_country_flag = RUS_emperor_blocked_jewish_emancipation
+			clr_country_flag = RUS_jewish_emancipation_freedom_of_movement
+			clr_country_flag = RUS_jewish_emancipation_restricted_movement
+			clr_country_flag = RUS_jewish_emancipation_jewish_officers
+			clr_country_flag = RUS_jewish_emancipation_army_restrictions
+			clr_country_flag = RUS_jewish_emancipation_land_speculation
+			clr_country_flag = RUS_jewish_emancipation_land_purchase_restrictions
+		}
+	}
 	#Damn it
 	option = {
 		name = ww1_russia_common.10.a
-		set_country_flag = RUS_emperor_blocked_jewish_emancipation
 	}
 }
 #Jewish Emancipation - Liberals reject the law
@@ -265,10 +279,20 @@ country_event = {
 	picture = ww1_russia_state_council
 	is_triggered_only = yes
 	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			set_country_flag = RUS_liberals_reject_the_law
+			clr_country_flag = RUS_jewish_emancipation_freedom_of_movement
+			clr_country_flag = RUS_jewish_emancipation_restricted_movement
+			clr_country_flag = RUS_jewish_emancipation_jewish_officers
+			clr_country_flag = RUS_jewish_emancipation_army_restrictions
+			clr_country_flag = RUS_jewish_emancipation_land_speculation
+			clr_country_flag = RUS_jewish_emancipation_land_purchase_restrictions
+		}
+	}
 	#Damn it
 	option = {
 		name = ww1_russia_common.11.a
-		set_country_flag = RUS_liberals_reject_the_law
 	}
 }
 #Strikes
