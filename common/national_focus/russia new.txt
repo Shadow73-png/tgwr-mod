@@ -2870,6 +2870,7 @@ focus_tree = {
 				remove_idea = RUS_june_third_political_system_idea
 				add_idea = RUS_autocracy_in_all_but_name_idea
 			}
+			custom_effect_tooltip = RUS_state_duma_will_be_abolished_tt
 		}
 		ai_will_do = {
 			factor = 3
@@ -3285,7 +3286,7 @@ focus_tree = {
 			}
 			add_political_power = 75
 			add_stability = -0.015
-			set_temp_variable = { RUS_modify_loyalty_far_right_var = 15 }
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
 			RUS_modify_loyalty_far_right = yes
 			add_days_mission_timeout = {
 				mission = RUS_growing_frustration_mission
@@ -3322,7 +3323,7 @@ focus_tree = {
 			unlock_decision_tooltip = RUS_dismiss_the_state_duma
 			unlock_decision_tooltip = RUS_reconvene_the_state_duma
 			custom_effect_tooltip = RUS_dismiss_the_duma_tt
-			set_temp_variable = { RUS_modify_loyalty_far_right_var = 15 }
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
 			RUS_modify_loyalty_far_right = yes
 			add_days_mission_timeout = {
 				mission = RUS_growing_frustration_mission
@@ -3355,7 +3356,7 @@ focus_tree = {
 		relative_position_id = RUS_smooth_sailing
 		available_if_capitulated = yes
 		completion_reward = {
-			set_temp_variable = { RUS_modify_state_council_var = -20 }
+			set_temp_variable = { RUS_modify_state_council_var = -25 }
 			RUS_modify_state_council = yes
 		}
 		ai_will_do = {
@@ -3817,7 +3818,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = appointed_as_interior_minister_tt
 			show_ideas_tooltip = RUS_alexei_khvostov
-			set_temp_variable = { RUS_modify_loyalty_far_right_var = 15 }
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
 			RUS_modify_loyalty_far_right = yes
 			add_days_mission_timeout = {
 				mission = RUS_growing_frustration_mission
@@ -3862,17 +3863,24 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
-					RUS_vladimir_kokovtsov = {
-						is_prime_minister = yes
+					RUS_boris_sturmer = {
+						is_prime_minister = no
 					}
 				}
-				every_character = {
-					limit = {
-						is_character = RUS_alexander_krivoshein
+				hidden_effect = {
+					every_character = {
+						limit = {
+							is_prime_minister = yes
+						}
+						RUS_remove_from_the_cabinet = yes
 					}
-					RUS_remove_from_the_cabinet = yes
 				}
+				custom_effect_tooltip = appointed_as_prime_minister_tt
+				show_ideas_tooltip = RUS_boris_sturmer
 			}
+			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
+			RUS_modify_loyalty_far_right = yes
+			add_political_power = 50
 		}
 		ai_will_do = {
 			factor = 3
@@ -3900,7 +3908,10 @@ focus_tree = {
 		relative_position_id = RUS_strong_leadership
 		available_if_capitulated = yes
 		completion_reward = {
-
+			set_temp_variable = { RUS_modify_state_council_var = 25 }
+			RUS_modify_state_council = yes
+			set_temp_variable = { RUS_modify_loyalty_far_right_var =10 }
+			RUS_modify_loyalty_far_right = yes
 		}
 		ai_will_do = {
 			factor = 3
@@ -3927,7 +3938,17 @@ focus_tree = {
 		relative_position_id = RUS_pack_the_state_council
 		available_if_capitulated = yes
 		completion_reward = {
-
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.1
+			}
+			set_temp_variable = { RUS_modify_loyalty_far_right_var =10 }
+			RUS_modify_loyalty_far_right = yes
+			add_political_power = 50
 		}
 		ai_will_do = {
 			factor = 3
@@ -3972,6 +3993,7 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = RUS_appoint_current_chairman_tt
+			add_political_power = 50
 		}
 		ai_will_do = {
 			factor = 3
@@ -4018,6 +4040,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = appointed_as_prime_minister_tt
 			show_ideas_tooltip = RUS_alexei_khvostov
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
+			RUS_modify_loyalty_center_left = yes
+			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
+			RUS_modify_loyalty_center_right = yes
 		}
 		ai_will_do = {
 			factor = 3
@@ -4044,7 +4070,9 @@ focus_tree = {
 		relative_position_id = RUS_control_the_interior
 		available_if_capitulated = yes
 		completion_reward = {
-
+			custom_effect_tooltip = appointed_as_interior_minister_tt
+			show_ideas_tooltip = RUS_alexei_khvostov
+			add_political_power = 50
 		}
 		ai_will_do = {
 			factor = 3
@@ -4072,7 +4100,12 @@ focus_tree = {
 		relative_position_id = RUS_control_the_interior
 		available_if_capitulated = yes
 		completion_reward = {
-
+			custom_effect_tooltip = appointed_as_interior_minister_tt
+			show_ideas_tooltip = RUS_alexei_khvostov
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
+			RUS_modify_loyalty_center_left = yes
+			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
+			RUS_modify_loyalty_center_right = yes
 		}
 		ai_will_do = {
 			factor = 3
@@ -4097,13 +4130,26 @@ focus_tree = {
 				is_prime_minister = yes
 				is_conservative = yes
 			}
+			set_temp_variable = {
+				RUS_far_right_loyalty_trigger_var = 40
+			}
+			check_variable = {
+				var = far_right_loyalty
+				value = RUS_far_right_loyalty_trigger_var
+				compare = greater_than_or_equals
+				tooltip = RUS_far_right_loyalty_trigger_tt
+			}
 		}
 		x = -1
 		y = 3
 		relative_position_id = RUS_strong_leadership
 		available_if_capitulated = yes
 		completion_reward = {
-
+			swap_ideas = {
+				remove_idea = RUS_progressive_bloc_idea
+				add_idea = RUS_autocracy_in_all_but_name_idea
+			}
+			custom_effect_tooltip = RUS_state_duma_will_be_abolished_tt
 		}
 		ai_will_do = {
 			factor = 3
@@ -4132,13 +4178,25 @@ focus_tree = {
 				RUS_duma_seats_trigger_var = 222
 			}
 			RUS_duma_seats_trigger = yes
+			set_temp_variable = {
+				RUS_center_left_loyalty_trigger_var = 40
+			}
+			check_variable = {
+				var = center_left_loyalty
+				value = RUS_center_left_loyalty_trigger_var
+				compare = greater_than_or_equals
+				tooltip = RUS_center_left_loyalty_trigger_tt
+			}
 		}
 		x = 1
 		y = 3
 		relative_position_id = RUS_strong_leadership
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = RUS_progressive_bloc_idea
+				add_idea = RUS_june_third_political_system_idea
+			}
 		}
 		ai_will_do = {
 			factor = 3
