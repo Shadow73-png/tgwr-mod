@@ -15,6 +15,14 @@ armor_generic = {
 	
 	upgrade_prio = {
 		factor = 2.17
+		modifier = {
+			factor = 0
+			NOT = {
+				has_tech = basic_light_tank_chassis
+				has_tech = basic_medium_tank_chassis
+				has_tech = basic_heavy_tank_chassis
+			}
+		}
 	}
 
 	light_armor_default = {
@@ -22,7 +30,10 @@ armor_generic = {
 			factor = 2
 
 			modifier = {
-				factor = 1
+				factor = 0
+				NOT = {
+					has_tech = basic_light_tank_chassis
+				}
 			}
 		}
 		# }
@@ -70,6 +81,12 @@ armor_generic = {
 					tag = SOV
 				}
 			}
+			modifier = {
+				factor = 0
+				NOT = {
+					has_tech = basic_heavy_tank_chassis
+				}
+			}
 		}
 		target_template = {
 			
@@ -107,6 +124,12 @@ armor_generic = {
 					tag = SOV
 				}
 			}
+			modifier = {
+				factor = 0
+				NOT = {
+					has_tech = basic_medium_tank_chassis
+				}
+			}
 		}
 		
 
@@ -134,7 +157,7 @@ garrison_generic = {
 	role = garrison
 	
 	upgrade_prio = {
-		factor = 80
+		factor = 5
 
 		modifier = {
 			factor = 0
@@ -149,10 +172,6 @@ garrison_generic = {
 	
 		upgrade_prio = {
 			factor = 2
-
-			modifier = {
-				factor = 1
-			}
 		}
 		
 		target_template = {
@@ -214,7 +233,7 @@ infantry_generic = {
 	role = infantry
 	
 	upgrade_prio = {
-		factor = 5
+		factor = 10
 		modifier = {
 			factor = 0
 			OR = {
