@@ -41,8 +41,14 @@ focus_tree = {
 		id = RUS_stolypins_reforms
 		icon = GFX_focus_RUS_stolypin
 		cost = 5
-		x = 39
+		x = 28
 		y = 0
+		offset = {
+			x = 10
+			trigger = {
+				is_debug = yes
+			}
+		}
 		available_if_capitulated = yes
 		completion_reward = {
 			unlock_decision_tooltip = RUS_agrarian_reform_decision
@@ -2403,8 +2409,14 @@ focus_tree = {
 		id = RUS_june_third_coup
 		icon = GFX_focus_generic_military_dictatorship
 		cost = 0
-		x = 20
+		x = 14
 		y = 0
+		offset = {
+			x = 5
+			trigger = {
+				is_debug = yes
+			}
+		}
 		completion_reward = {
 			effect_tooltip = {
 				add_ideas = RUS_june_third_political_system_idea
@@ -2601,8 +2613,22 @@ focus_tree = {
 				always = no
 			}
 		}
-		x = -5
+		x = 0
 		y = 3
+		offset = {
+			x = -5
+			trigger = {
+				is_debug = yes
+			}
+		}
+		allow_branch = {
+			OR = {
+				RUS_vladimir_kokovtsov = {
+					is_prime_minister = yes
+				}
+				is_debug = yes
+			}
+		}
 		relative_position_id = RUS_june_third_coup
 		available_if_capitulated = yes
 		completion_reward = {
@@ -3277,8 +3303,26 @@ focus_tree = {
 				always = no
 			}
 		}
-		x = 5
+		x = 0
 		y = 3
+		offset = {
+			x = 5
+			trigger = {
+				is_debug = yes
+			}
+		}
+		allow_branch = {
+			OR = {
+				any_character = {
+					is_prime_minister = yes
+					is_conservative = yes
+					NOT = {
+						is_character = RUS_vladimir_kokovtsov
+					}
+				}
+				is_debug = yes
+			}
+		}
 		relative_position_id = RUS_june_third_coup
 		available_if_capitulated = yes
 		completion_reward = {
