@@ -9423,7 +9423,7 @@ focus = {
 	id = HOL_snap_elections
 	icon = GFX_focus_hol_oranje_boven
 	available = {
-		
+		has_country_flag = HOL_flag_1917_election
 	}
 	available_if_capitulated = yes
 	completion_reward = {
@@ -9749,5 +9749,562 @@ focus = {
 	cost = 35
 	x = 2
 	y = 4
+}
+#post war fr now
+focus = {
+	id = HOL_finnaly_relieved
+	icon = GFX_focus_hol_oranje_boven
+	available = {
+		has_global_flag = great_war_ends
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 0
+	x = 45
+	y = 10
+}
+focus = {
+	id = HOL_ruijs_government
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_finnaly_relieved
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -3
+	y = 1
+}
+focus = {
+	id = HOL_leftist_compromise
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_finnaly_relieved
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = 3
+	y = 1
+}
+focus = {
+	id = HOL_confront_socialist_demands
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_leftist_compromise focus = HOL_ruijs_government
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = 0
+	y = 2
+}
+focus = {
+	id = HOL_implement_eight_hour_daypostwar
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		NOT = {
+			has_completed_focus = HOL_eight_hour_workday
+		}
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_confront_socialist_demands
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -1
+	y = 3
+}
+focus = {
+	id = HOL_expand_pension_plans
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_confront_socialist_demands
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = 1
+	y = 3
+}
+focus = {
+	id = HOL_accelerate_implementation_welfare
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_confront_socialist_demands
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = 0
+	y = 4
+}
+focus = {
+	id = HOL_female_suffrage
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_accelerate_implementation_welfare
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = 0
+	y = 5
+}
+focus = {
+	id = HOL_gezondheidraden
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_ruijs_government focus = HOL_leftist_compromise
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -2
+	y = 2
+}
+focus = {
+	id = HOL_generalise_traffic_laws
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_gezondheidraden
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -2
+	y = 4
+}
+focus = {
+	id = HOL_electrify_railways
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_generalise_traffic_laws
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -2
+	y = 6
+}
+focus = {
+	id = HOL_spoorwegwet
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_electrify_railways
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -2
+	y = 7
+}
+focus = {
+	id = HOL_reduce_taxes
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_ruijs_government
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -3
+	y = 3
+}
+focus = {
+	id = HOL_cut_government_jobs
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_reduce_taxes
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -3
+	y = 5
+}
+focus = {
+	id = HOL_replace_labor_unions
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_ruijs_government
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -4
+	y = 2
+}
+focus = {
+	id = HOL_utilise_tarrifs
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_replace_labor_unions
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -5
+	y = 3
+}
+focus = {
+	id = HOL_youth_disciplinary_programs
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_utilise_tarrifs
+	}
+	prerequisite = {
+		focus = HOL_reduce_taxes
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -4
+	y = 4
+}
+focus = {
+	id = HOL_youth_disciplinary_programs
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_utilise_tarrifs
+	}
+	prerequisite = {
+		focus = HOL_reduce_taxes
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -4
+	y = 4
+}
+focus = {
+	id = HOL_promote_strict_punishment
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_youth_disciplinary_programs
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -5
+	y = 5
+}
+focus = {
+	id = HOL_agricultural_export_laws
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_utilise_tarrifs
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -6
+	y = 4
+}
+focus = {
+	id = HOL_care_for_our_farmers
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_agricultural_export_laws
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -6
+	y = 6
+}
+focus = {
+	id = HOL_duurteraden
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_agricultural_export_laws
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -7
+	y = 5
+}
+focus = {
+	id = HOL_undermine_kuyper
+	icon = GFX_focus_hol_the_only_man_in_the_dutch_government
+	available = {
+		
+	}
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = HOL_ruijs_government
+	}
+	relative_position_id = HOL_finnaly_relieved
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	factor = 500
+	}
+	search_filters = {
+		
+	}
+	cost = 5
+	x = -6
+	y = 2
 }
 }
