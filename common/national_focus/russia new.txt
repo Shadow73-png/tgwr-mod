@@ -3615,6 +3615,27 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
+		offset = {
+			x = -2
+			has_completed_focus = RUS_government_of_public_trust
+		}
+		allow_branch = {
+			OR = {
+				AND = {
+					any_character = {
+						is_prime_minister = yes
+						is_conservative = yes
+						NOT = {
+							is_character = RUS_vladimir_kokovtsov
+						}
+					}
+					NOT = {
+						has_completed_focus = RUS_strong_leadership
+					}
+				}
+				is_debug = yes
+			}
+		}
 		relative_position_id = RUS_meet_with_duma_members
 		available_if_capitulated = yes
 		completion_reward = {
@@ -3765,6 +3786,8 @@ focus_tree = {
 				}
 				remove_mission = RUS_krivoshein_resigns_mission
 			}
+			custom_effect_tooltip = load_more_focuses_tt
+			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = {
 			factor = 3
@@ -3938,6 +3961,27 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
+		offset = {
+			x = 2
+			has_completed_focus = RUS_strong_leadership
+		}
+		allow_branch = {
+			OR = {
+				AND = {
+					any_character = {
+						is_prime_minister = yes
+						is_conservative = yes
+						NOT = {
+							is_character = RUS_vladimir_kokovtsov
+						}
+					}
+					NOT = {
+						has_completed_focus = RUS_government_of_public_trust
+					}
+				}
+				is_debug = yes
+			}
+		}
 		relative_position_id = RUS_arrest_the_bolsheviks
 		available_if_capitulated = yes
 		completion_reward = {
@@ -3985,6 +4029,8 @@ focus_tree = {
 			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
 			RUS_modify_loyalty_far_right = yes
 			add_political_power = 50
+			custom_effect_tooltip = load_more_focuses_tt
+			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = {
 			factor = 3
@@ -4009,6 +4055,12 @@ focus_tree = {
 		}
 		x = -2
 		y = 1
+		allow_branch = {
+			OR = {
+				has_completed_focus = RUS_strong_leadership
+				is_debug = yes
+			}
+		}
 		relative_position_id = RUS_strong_leadership
 		available_if_capitulated = yes
 		completion_reward = {
@@ -4079,6 +4131,12 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
+		allow_branch = {
+			OR = {
+				has_completed_focus = RUS_strong_leadership
+				is_debug = yes
+			}
+		}
 		relative_position_id = RUS_strong_leadership
 		available_if_capitulated = yes
 		completion_reward = {
@@ -4132,6 +4190,12 @@ focus_tree = {
 		}
 		x = 2
 		y = 1
+		allow_branch = {
+			OR = {
+				has_completed_focus = RUS_strong_leadership
+				is_debug = yes
+			}
+		}
 		relative_position_id = RUS_strong_leadership
 		available_if_capitulated = yes
 		completion_reward = {
