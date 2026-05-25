@@ -1114,13 +1114,41 @@ focus_tree = {
 			focus = RUS_crack_down_on_finnish_autonomy
 		}
 		available = {
-			has_country_flag = RUS_law_on_land_management_passed_in_sd
+			has_idea = RUS_jewish_question
+			has_idea = RUS_government_of_public_trust_idea
+			any_character = {
+				is_prime_minister = yes
+				is_reformist = yes
+			}
+			NOT = {
+				has_country_flag = RUS_emperor_blocked_jewish_emancipation
+				has_country_flag = RUS_liberals_reject_the_law
+			}
 		}
 		x = -5
 		y = 1
 		relative_position_id = RUS_crack_down_on_finnish_autonomy
 		available_if_capitulated = yes
+		select_effect = {
+			country_event = ww1_russia_common.5
+		}
 		completion_reward = {
+			unlock_decision_tooltip = RUS_law_on_emancipation_of_jews_sd
+			custom_effect_tooltip = RUS_if_the_law_passes_in_sc
+			effect_tooltip = {
+				add_political_power = 50
+				swap_ideas = {
+					remove_idea = RUS_jewish_question
+					add_idea = RUS_first_steps_of_jewish_rights
+				}
+			}
+			effect_tooltip = {
+				set_temp_variable = { RUS_state_council_socialist_support = 1 }
+				set_temp_variable = { RUS_state_council_liberal_support = 1 }
+				set_temp_variable = { RUS_state_council_centrist_support = 0 }
+				set_temp_variable = { RUS_state_council_rightist_support = 0 }
+				RUS_state_council_set_law_support = yes
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -2621,7 +2649,6 @@ focus_tree = {
 		x = 14
 		y = 0
 		offset = {
-			x = -5
 			y = 3
 			trigger = {
 				is_debug = yes
@@ -3311,7 +3338,7 @@ focus_tree = {
 		x = 14
 		y = 0
 		offset = {
-			x = 5
+			x = 10
 			y = 3
 			trigger = {
 				is_debug = yes
