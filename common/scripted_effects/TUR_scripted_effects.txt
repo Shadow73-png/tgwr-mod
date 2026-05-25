@@ -15755,32 +15755,71 @@ TUR_reduce_albanian_effect = {
 						check_variable = { TUR_albanian_total_state_variable < -0.3 }
 					}
 				}
-				check_variable = { TUR_ottoman_resistance_growth_albanian > 0.05 }
+				OR = {
+					check_variable = { TUR_ottoman_army_attack_factor_albanian < -0.025 }
+					check_variable = { TUR_ottoman_resistance_growth_albanian > 0.05 }
+				}
 			}
 			if = {
 				limit = { check_variable = { TUR_albanian_remove_variable = 5 } }
+				if = {
+					limit = { check_variable = { TUR_ottoman_army_attack_factor_albanian < -0.125 } }
+					custom_effect_tooltip = TUR_minority_army_attack_factor5
+					add_to_variable = { TUR_ottoman_army_attack_factor_albanian = -0.125 }
+				}
+				else = {
+					hidden_effect = {
+						set_temp_variable = { ROOT.TUR_minority_army_attack_factor_albanian = FROM.TUR_ottoman_army_attack_factor_albanian }
+						multiply_temp_variable = { ROOT.TUR_minority_army_attack_factor_albanian = -1 }
+					}
+					custom_effect_tooltip = TUR_minority_army_attack_factor_albanian
+					set_variable = { TUR_ottoman_army_attack_factor_albanian = 0 }
+				}
 				custom_effect_tooltip = TUR_minority_resistance_growth5
 				add_to_variable = { TUR_ottoman_resistance_growth_albanian = -0.25 }
 			}
 			else_if = {
 				limit = { check_variable = { TUR_albanian_remove_variable = 3 } }
+				if = {
+					limit = { check_variable = { TUR_ottoman_army_attack_factor_albanian < -0.075 } }
+					custom_effect_tooltip = TUR_minority_army_attack_factor3
+					add_to_variable = { TUR_ottoman_army_attack_factor_albanian = -0.075 }
+				}
+				else = {
+					hidden_effect = {
+						set_temp_variable = { ROOT.TUR_minority_army_attack_factor_albanian = FROM.TUR_ottoman_army_attack_factor_albanian }
+						multiply_temp_variable = { ROOT.TUR_minority_army_attack_factor_albanian = -1 }
+					}
+					custom_effect_tooltip = TUR_minority_army_attack_factor_albanian
+					set_variable = { TUR_ottoman_army_attack_factor_albanian = 0 }
+				}
 				custom_effect_tooltip = TUR_minority_resistance_growth3
 				add_to_variable = { TUR_ottoman_resistance_growth_albanian = -0.15 }
 			}
 			else = {
+				if = {
+					limit = { check_variable = { TUR_ottoman_army_attack_factor_albanian < -0.025 } }
+					custom_effect_tooltip = TUR_minority_army_attack_factor1
+					add_to_variable = { TUR_ottoman_army_attack_factor_albanian = -0.025 }
+				}
 				custom_effect_tooltip = TUR_minority_resistance_growth1
 				add_to_variable = { TUR_ottoman_resistance_growth_albanian = -0.05 }
 			}
 		}
 		else = {
 			hidden_effect = {
+				set_temp_variable = { ROOT.TUR_minority_army_attack_factor_albanian = FROM.TUR_ottoman_army_attack_factor_albanian }
+				multiply_temp_variable = { ROOT.TUR_minority_army_attack_factor_albanian = -1 }
 				set_temp_variable = { ROOT.TUR_minority_resistance_growth_albanian = FROM.TUR_ottoman_resistance_growth_albanian }
 				multiply_temp_variable = { ROOT.TUR_minority_resistance_growth_albanian = -1 }
 			}
+			custom_effect_tooltip = TUR_minority_army_attack_factor_albanian
+			set_variable = { TUR_ottoman_army_attack_factor_albanian = 0 }
 			custom_effect_tooltip = TUR_minority_resistance_growth_albanian
 			set_variable = { TUR_ottoman_resistance_growth_albanian = 0 }
 		}
-		clamp_variable = { var = TUR_ottoman_resistance_growth_albanian max = 0 }
+		clamp_variable = { var = TUR_ottoman_army_attack_factor_albanian max = 0 }
+		clamp_variable = { var = TUR_ottoman_resistance_growth_albanian min = 0 }
 		custom_effect_tooltip = empty_space
 	}
 }
@@ -16443,7 +16482,8 @@ TUR_remove_georgians_effect = {
 	FROM = {
 		remove_dynamic_modifier = { modifier = TUR_georgian_minority }
 		clear_variable = TUR_ottoman_weekly_manpower_georgian
-		clear_variable = TUR_ottoman_local_org_regain_georgian
+		clear_variable = TUR_ottoman_army_speed_factor_for_controller_georgian
+		clear_variable = TUR_ottoman_enemy_local_supplies_georgian
 		clear_variable = TUR_ottoman_recruitable_population_factor_georgian
 		clear_variable = TUR_georgian_orthodox_state_variable
 		if = {

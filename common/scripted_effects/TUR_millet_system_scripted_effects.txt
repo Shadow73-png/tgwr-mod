@@ -6044,6 +6044,45 @@ TUR_minority_system_adana = {
 				divide_variable = { ROOT.TUR_armenian_apostolic_minority_value_adana = 100 }
 			}
 			else = { clear_variable = ROOT.TUR_armenian_apostolic_minority_value_adana }
+			if = { #ADANA ORTHODOX GREEK
+				limit = {
+					any_of_scopes = {
+						TUR_is_controlled_by_us_or_committee_government = yes
+						array = global.TUR_adana
+						has_dynamic_modifier = { modifier = TUR_greek_minority }
+						check_variable = { TUR_greek_orthodox_state_variable < 0 }
+					}
+				}
+				set_variable = { ROOT.TUR_greek_orthodox_minority_value_adana = 0 }
+				for_each_scope_loop = {
+					array = global.TUR_adana
+					if = {
+						limit = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							has_dynamic_modifier = { modifier = TUR_greek_minority }
+							check_variable = { TUR_greek_orthodox_state_variable < 0 }
+						}
+						add_to_variable = { ROOT.TUR_greek_orthodox_minority_value_adana = TUR_greek_orthodox_state_variable }
+						if = {
+							limit = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+							multiply_variable = { ROOT.TUR_greek_orthodox_minority_value_adana = 0 }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+							divide_variable = { ROOT.TUR_greek_orthodox_minority_value_adana = 2 }
+						}
+					}
+				}
+				multiply_variable = { ROOT.TUR_greek_orthodox_minority_value_adana = TUR_greek_population_factor_new }
+				multiply_variable = { ROOT.TUR_greek_orthodox_minority_value_adana = TUR_orthodox_population_factor_new }
+				divide_variable = { ROOT.TUR_greek_orthodox_minority_value_adana = 100 }
+			}
+			else = { clear_variable = ROOT.TUR_greek_orthodox_minority_value_adana }
 			if = { #ADANA SUNNI TURKISH
 				limit = {
 					any_of_scopes = {
@@ -7234,7 +7273,7 @@ TUR_minority_system_bitlis = {
 						}
 					}
 				}
-				multiply_variable = { ROOT.TUR_kurdish_sunni_minority_value_bitlis = TUR_sunni_kurdish_factor_new }
+				multiply_variable = { ROOT.TUR_kurdish_sunni_minority_value_bitlis = TUR_kurdish_population_factor_new }
 				multiply_variable = { ROOT.TUR_kurdish_sunni_minority_value_bitlis = TUR_sunni_population_factor_new }
 				divide_variable = { ROOT.TUR_kurdish_sunni_minority_value_bitlis = 100 }
 			}
