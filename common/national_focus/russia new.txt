@@ -40,8 +40,8 @@ focus_tree = {
 	focus = {
 		id = RUS_stolypins_reforms
 		icon = GFX_focus_RUS_stolypin
-		cost = 6
-		x = 29
+		cost = 5
+		x = 39
 		y = 0
 		available_if_capitulated = yes
 		completion_reward = {
@@ -1053,8 +1053,8 @@ focus_tree = {
 			}
 			
 		}
-		x = 24
-		y = 0
+		x = 0
+		y = 8
 		relative_position_id = RUS_stolypins_reforms
 		available_if_capitulated = yes
 		completion_reward = {
@@ -1676,7 +1676,7 @@ focus_tree = {
 	focus = {
 		id = RUS_settle_turkestan
 		icon = GFX_focus_generic_immigration
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_crack_down_on_finnish_autonomy
 		}
@@ -1824,12 +1824,18 @@ focus_tree = {
 				is_reformist = yes
 			}
 		}
-		x = 8
-		y = 0
+		x = -6
+		y = 5
 		relative_position_id = RUS_stolypins_reforms
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			remove_ideas = RUS_drunken_budget
+			add_timed_idea = {
+				idea = RUS_compensations_to_alcohol_producers
+				days = 180
+			}
+			add_stability = 0.025
+			add_war_support = 0.05
 		}
 		ai_will_do = {
 			factor = 3
@@ -1959,7 +1965,7 @@ focus_tree = {
 			effect_tooltip = {
 				set_temp_variable = { RUS_state_council_socialist_support = 0 }
 				set_temp_variable = { RUS_state_council_liberal_support = 0 }
-				set_temp_variable = { RUS_state_council_centrist_support = 0 }
+				set_temp_variable = { RUS_state_council_centrist_support = 1 }
 				set_temp_variable = { RUS_state_council_rightist_support = 0 }
 				RUS_state_council_set_law_support = yes
 			}
@@ -2036,9 +2042,9 @@ focus_tree = {
 	focus = {
 		id = RUS_centralize_army_command
 		icon = GFX_focus_generic_military_mission
-		cost = 6
-		x = 16
-		y = 0
+		cost = 0
+		x = 4
+		y = 5
 		relative_position_id = RUS_stolypins_reforms
 		available = {
 			
@@ -2296,7 +2302,7 @@ focus_tree = {
 	focus = {
 		id = RUS_improve_officer_training
 		icon = GFX_focus_RUS_army_officers
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_centralize_army_command
 		}
@@ -2327,7 +2333,7 @@ focus_tree = {
 	focus = {
 		id = RUS_reinforce_western_fortresses
 		icon = GFX_focus_SWE_hedgehog_defense
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_centralize_army_command
 		}
@@ -2382,7 +2388,7 @@ focus_tree = {
 	focus = {
 		id = RUS_support_octobrist_press
 		icon = GFX_goal_generic_propaganda
-		cost = 6
+		cost = 5
 		available = {
 			RUS_pyotr_stolypin = {
 				is_prime_minister = yes
@@ -2417,7 +2423,7 @@ focus_tree = {
 	focus = {
 		id = RUS_nationalist_proxies
 		icon = GFX_focus_generic_printing_press
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_june_third_coup
 		}
@@ -2452,7 +2458,7 @@ focus_tree = {
 	focus = {
 		id = RUS_strengthen_the_cabinet
 		icon = GFX_focus_RUS_duma
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_june_third_coup
 		}
@@ -2486,7 +2492,7 @@ focus_tree = {
 	focus = {
 		id = RUS_internal_affairs_situation
 		icon = GFX_goal_generic_propaganda
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_june_third_coup
 		}
@@ -2520,7 +2526,7 @@ focus_tree = {
 	focus = {
 		id = RUS_deal_with_student_protests
 		icon = GFX_focus_eng_move_to_secure_the_dominions
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_strengthen_the_cabinet
 		}
@@ -2839,7 +2845,7 @@ focus_tree = {
 	focus = {
 		id = RUS_drastic_measures
 		icon = GFX_focus_generic_expropriate_industrialist
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_young_talent
 		}
@@ -2878,7 +2884,7 @@ focus_tree = {
 	focus = {
 		id = RUS_a_new_understanding
 		icon = GFX_focus_generic_improve_the_administration_2
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_get_rid_of_the_nuisance
 		}
@@ -3258,7 +3264,7 @@ focus_tree = {
 	focus = {
 		id = RUS_arrest_the_bolsheviks
 		icon = GFX_generic_police_state
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_smooth_sailing
 		}
@@ -3298,7 +3304,7 @@ focus_tree = {
 	focus = {
 		id = RUS_dismiss_the_duma
 		icon = GFX_generic_dissolve_parliament
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_arrest_the_bolsheviks
 		}
@@ -3334,7 +3340,7 @@ focus_tree = {
 	focus = {
 		id = RUS_reactionary_crackdown
 		icon = GFX_focus_SWE_neither_death_nor_dishonor
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_smooth_sailing
 		}
@@ -3363,7 +3369,7 @@ focus_tree = {
 	focus = {
 		id = RUS_meet_with_duma_members
 		icon = GFX_focus_generic_the_giant_wakes
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_smooth_sailing
 		}
@@ -3402,7 +3408,7 @@ focus_tree = {
 	focus = {
 		id = RUS_keep_the_radicals_out
 		icon = GFX_focus_generic_anti_fascist_diplomacy
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_meet_with_duma_members
 		}
@@ -3462,7 +3468,7 @@ focus_tree = {
 	focus = {
 		id = RUS_negotiations_with_liberals
 		icon = GFX_focus_generic_self_management
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_meet_with_duma_members
 		}
@@ -3508,7 +3514,7 @@ focus_tree = {
 	focus = {
 		id = RUS_government_of_public_trust
 		icon = GFX_focus_generic_self_management
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_keep_the_radicals_out
 		}
@@ -3690,7 +3696,7 @@ focus_tree = {
 	focus = {
 		id = RUS_strength_in_moderation
 		icon = GFX_focus_generic_the_giant_wakes
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_smooth_sailing
 		}
@@ -3734,7 +3740,7 @@ focus_tree = {
 	focus = {
 		id = RUS_reform_the_finance
 		icon = GFX_focus_generic_the_giant_wakes
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_smooth_sailing
 		}
@@ -3766,6 +3772,8 @@ focus_tree = {
 			custom_effect_tooltip = appointed_as_minister_of_finance_tt
 			show_ideas_tooltip = RUS_pyotr_bark
 			country_event = ww1_conservative.9
+			custom_effect_tooltip = unlocks_national_focus_tt
+			custom_effect_tooltip = RUS_anti_alcohol_campaign
 		}
 		ai_will_do = {
 			factor = 3
@@ -3781,7 +3789,7 @@ focus_tree = {
 	focus = {
 		id = RUS_modern_solutions
 		icon = GFX_focus_generic_sympathetic_judges
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_arrest_the_bolsheviks
 		}
@@ -3828,7 +3836,7 @@ focus_tree = {
 	focus = {
 		id = RUS_strong_leadership
 		icon = GFX_focus_generic_sympathetic_judges
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_modern_solutions
 		}
@@ -3877,7 +3885,7 @@ focus_tree = {
 	focus = {
 		id = RUS_pack_the_state_council
 		icon = GFX_focus_generic_sympathetic_judges
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_strong_leadership
 		}
@@ -3904,7 +3912,7 @@ focus_tree = {
 	focus = {
 		id = RUS_tighten_the_censorship
 		icon = GFX_focus_generic_sympathetic_judges
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_pack_the_state_council
 		}
@@ -3931,7 +3939,7 @@ focus_tree = {
 	focus = {
 		id = RUS_control_the_interior
 		icon = GFX_focus_generic_sympathetic_judges
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_strong_leadership
 		}
@@ -3976,7 +3984,7 @@ focus_tree = {
 	focus = {
 		id = RUS_khvostovs_ascension
 		icon = GFX_focus_generic_sympathetic_judges
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_strong_leadership
 		}
@@ -4021,7 +4029,7 @@ focus_tree = {
 	focus = {
 		id = RUS_another_khvostov
 		icon = GFX_focus_generic_sympathetic_judges
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_control_the_interior
 		}
@@ -4049,7 +4057,7 @@ focus_tree = {
 	focus = {
 		id = RUS_appoint_protopopov
 		icon = GFX_focus_generic_sympathetic_judges
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_control_the_interior
 		}
@@ -4077,7 +4085,7 @@ focus_tree = {
 	focus = {
 		id = RUS_just_let_it_go
 		icon = GFX_focus_generic_sympathetic_judges
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_pack_the_state_council
 		}
@@ -4107,7 +4115,7 @@ focus_tree = {
 	focus = {
 		id = RUS_back_to_square_one
 		icon = GFX_focus_generic_sympathetic_judges
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_control_the_interior
 			focus = RUS_khvostovs_ascension
@@ -4173,7 +4181,7 @@ focus_tree = {
 	focus = {
 		id = RUS_support_mohammed_ali_shah
 		icon = GFX_focus_PER_the_pahlavi_imperium
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_persian_campaign
 		}
@@ -4213,7 +4221,7 @@ focus_tree = {
 	focus = {
 		id = RUS_invasion_of_persia
 		icon = GFX_focus_PER_push_to_deserts
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_support_mohammed_ali_shah
 		}
@@ -4249,7 +4257,7 @@ focus_tree = {
 	focus = {
 		id = RUS_declaration_with_china
 		icon = GFX_focus_convention
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_persian_campaign
 		}
@@ -4280,7 +4288,7 @@ focus_tree = {
 	focus = {
 		id = RUS_protectorate_of_tuva
 		icon = GFX_focus_damascus
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_declaration_with_china
 		}
@@ -4313,7 +4321,7 @@ focus_tree = {
 	focus = {
 		id = RUS_demand_armenian_reforms
 		icon = GFX_focus_ARM_united_and_ready
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_persian_campaign
 		}
@@ -4355,7 +4363,7 @@ focus_tree = {
 	focus = {
 		id = RUS_unity_of_the_entente
 		icon = GFX_focus_consolidate_entente
-		cost = 6
+		cost = 5
 		prerequisite = {
 			focus = RUS_persian_campaign
 		}
@@ -4379,7 +4387,7 @@ focus_tree = {
 	focus = {
 		id = RUS_reunite_the_polish_people
 		icon = GFX_focus_hoi4tgw_poland
-		cost = 6
+		cost = 5
 		available = {
 			
 		}
@@ -4403,7 +4411,7 @@ focus_tree = {
 	focus = {
 		id = RUS_polish_divisions
 		icon = GFX_focus_consolidate_entente
-		cost = 6
+		cost = 5
 		available = {
 			
 		}
@@ -4427,7 +4435,7 @@ focus_tree = {
 	focus = {
 		id = RUS_czechoslovak_legion
 		icon = GFX_focus_consolidate_entente
-		cost = 6
+		cost = 5
 		available = {
 			
 		}
@@ -4451,7 +4459,7 @@ focus_tree = {
 	focus = {
 		id = RUS_liberation_of_western_armenia
 		icon = GFX_focus_consolidate_entente
-		cost = 6
+		cost = 5
 		available = {
 			
 		}
@@ -4475,7 +4483,7 @@ focus_tree = {
 	focus = {
 		id = RUS_straits_agreement
 		icon = GFX_focus_RUS_Constantinople_Agreement
-		cost = 6
+		cost = 5
 		available = {
 			
 		}

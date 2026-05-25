@@ -1382,6 +1382,27 @@ ideas = {
 				communism_drift = -0.01
 			}
 		}
+		RUS_balanced_budget = {
+			picture = generic_economic_increase
+			
+			available = {
+				any_character = {
+					is_minister_of_finance = yes
+					is_reformist = no
+				}
+			}
+
+			allowed = { always = no }
+			
+			allowed_civil_war = { original_tag = RUS }
+			
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.15
+				political_power_gain = -0.15
+			}
+		}
 		RUS_drunken_budget = {
 			
 			allowed = { always = no }
@@ -1396,59 +1417,16 @@ ideas = {
 				consumer_goods_factor = -0.15
 			}
 		}
-		RUS_prohibition = {
+		RUS_compensations_to_alcohol_producers = {
 			
 			allowed = { always = no }
 			
 			allowed_civil_war = { original_tag = RUS }
 			
-			removal_cost = -1
-			
-			modifier = {
-				stability_factor = 0.05
-				war_support_factor = 0.05
-			}
-		}
-		RUS_new_course_idea = {
-			picture = GER_wirtschaftswunder
-			
-			allowed = { always = no }
-			
-			allowed_civil_war = { original_tag = RUS }
-			
-			available = {
-				has_war_with_major = no
-				has_civil_war = no
-			}
-
 			removal_cost = -1
 			
 			modifier = {
 				consumer_goods_factor = 0.1
-				production_speed_industrial_complex_factor = 0.15
-			}
-		}
-		RUS_land_development_idea = {
-			picture = GER_wirtschaftswunder
-			
-			allowed = { always = no }
-			
-			allowed_civil_war = { original_tag = RUS }
-			
-			available = {
-				has_war_with_major = no
-				has_civil_war = no
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = 0.1
-				production_speed_infrastructure_factor = 0.15
-			}
-			on_remove = {
-				set_temp_variable = { RUS_add_agrarian_reform_progress_var = 5 }
-				RUS_add_agrarian_reform_progress = yes
 			}
 		}
 		RUS_income_tax = {
@@ -1496,63 +1474,6 @@ ideas = {
 				democratic_drift = -0.02
 				neutrality_drift = 0.01
 				fascism_drift = 0.02
-			}
-		}
-		RUS_balanced_budget = {
-			picture = generic_economic_increase
-			
-			available = {
-				RUS_vladimir_kokovtsov = {
-					is_prime_minister = yes
-				}
-			}
-
-			allowed = { always = no }
-			
-			allowed_civil_war = { original_tag = RUS }
-			
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = -0.15
-				political_power_gain = -0.05
-				production_speed_buildings_factor = 0.05
-			}
-			on_remove = {
-				if = {
-					limit = {
-						NOT = {
-							has_country_flag = RUS_abandoned_balanced_budget
-						}
-						check_variable = {
-							total_loyalist_count > RUS_duna_majority_threshold
-						}
-						RUS_vladimir_kokovtsov = {
-							is_prime_minister = yes
-						}
-					}
-					add_timed_idea = {
-						idea = RUS_balanced_budget
-						days = 365
-					}
-					country_event = ww1_kokovtsov.1
-				}
-				else_if = {
-					limit = {
-						NOT = {
-							has_country_flag = RUS_abandoned_balanced_budget
-						}
-						check_variable = {
-							total_loyalist_count < 222
-						}
-						RUS_vladimir_kokovtsov = {
-							is_prime_minister = yes
-						}
-					}
-					country_event = ww1_kokovtsov.2
-				}
-				else = {
-				}
 			}
 		}
 		RUS_slight_army_disintegration = {

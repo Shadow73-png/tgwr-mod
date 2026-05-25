@@ -298,44 +298,6 @@ country_event = {
 		unlock_decision_tooltip = RUS_famine_relief
 	}
 }
-#Guchkov joins opposition
-country_event = {
-	id = ww1_russia_common.23
-	title = ww1_russia_common.23.t
-	desc = ww1_russia_common.23.d
-	picture = ww1_russia_guchkov
-	is_triggered_only = yes
-	trigger = {
-		original_tag = RUS
-		NOT = {
-			has_country_flag = RUS_duma_abolished
-		}
-		has_revolution = no
-		OR = {
-			has_country_flag = RUS_rigged_the_election
-			has_country_flag = RUS_state_duma_election
-		}
-	}
-	fire_only_once = yes
-	#What is the matter with this man?!
-	option = {
-		name = ww1_russia_common.23.a
-		add_political_power = -50
-		set_temp_variable = {
-			var = sway_value_tt
-			value = 25
-		}
-		set_temp_variable = {
-			var = parliament_loser
-			value = RUS_parliament_seat_center_right
-		}
-		set_temp_variable = {
-			var = parliament_winner
-			value = RUS_parliament_seat_center_left
-		}
-		RUS_recalculate_sway = yes
-	}
-}
 #Monopolists try to bribe us
 country_event = {
 	id = ww1_russia_common.24
