@@ -7331,7 +7331,7 @@ country_event = {
 		set_country_flag = AUS_schemua_chief
 	}
 }
-#potoriek idk
+#potiorek idk
 country_event = {
 	id = ww1_austriahungary.204
 	title = ww1_austriahungary.204.t
@@ -7341,6 +7341,7 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary.204.a
+		set_country_flag = AUS_can_take_potoriek_decs
 	}
 }
 country_event = {
@@ -7368,6 +7369,57 @@ is_triggered_only = yes
 	option = {
 		name = ww1_austriahungary.206.a
 	add_stability = 0.025
+	}
+}
+#bolfras ensures support to potiorek
+country_event = {
+	id = ww1_austriahungary.207
+	title = ww1_austriahungary.207.t
+	desc = ww1_austriahungary.207.d
+	#picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.207.a
+	}
+}
+#ff considers support to potiorek
+country_event = {
+	id = ww1_austriahungary.208
+	title = ww1_austriahungary.208.t
+	desc = ww1_austriahungary.208.d
+	#picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.208.a #ff supports, potiorek will become chief
+		trigger = {
+			NOT = {
+				has_country_flag = AUS_bolfras_support_ensured
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary.208.b #ff will not support, potiorek cant become chief
+		trigger = {
+			has_country_flag = AUS_bolfras_support_ensured
+		}
+		country_event = {
+			id = ww1_austriahungary.209
+			days = 2
+		}
+	}
+}
+#eugen offers help
+country_event = {
+	id = ww1_austriahungary.209
+	title = ww1_austriahungary.209.t
+	desc = ww1_austriahungary.209.d
+	#picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { #eugen will become army chief
+		name = ww1_austriahungary.207.a
 	}
 }
 add_namespace = ww1_austria_quests
