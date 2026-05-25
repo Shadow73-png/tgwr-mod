@@ -4277,26 +4277,56 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = RUS_dominate_persia
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_support_mohammed_ali_shah
+		}
+		mutually_exclusive = {
+			focus = RUS_invasion_of_persia
+		}
+		available = {
+			PER = {
+				has_country_leader = {
+					character = PER_mohammad_ali_shah
+				}
+			}
+		}
+		x = -1
+		y = 2
+		relative_position_id = RUS_persian_campaign
+		available_if_capitulated = yes
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
 		id = RUS_invasion_of_persia
 		icon = GFX_focus_PER_push_to_deserts
 		cost = 5
 		prerequisite = {
 			focus = RUS_support_mohammed_ali_shah
 		}
-		bypass = {
-			PER = {
-				has_war = no
-				has_country_leader = {
-					character = PER_mohammad_ali_shah
-				}
-			}
+		mutually_exclusive = {
+			focus = RUS_dominate_persia
 		}
 		available = {
 			PER = {
-				has_war = no
+				NOT = {
+					has_country_leader = {
+						character = PER_mohammad_ali_shah
+					}
+				}
 			}
 		}
-		x = 0
+		x = 1
 		y = 2
 		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
@@ -4313,17 +4343,17 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = RUS_declaration_with_china
+		id = RUS_recognize_mongolian_independence
 		icon = GFX_focus_convention
 		cost = 5
 		prerequisite = {
 			focus = RUS_persian_campaign
 		}
 		available = {
-			country_exists = MON
 			MON = {
-			NOT = {
-                has_war_with = CHI
+				exists = yes
+				NOT = {
+            		has_war_with = CHI
             	}
 			}
 		}
@@ -4332,8 +4362,15 @@ focus_tree = {
 		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
 		completion_reward = {
-			CHI = {
-			 country_event = ww1_china_declaration.1	
+			diplomatic_relation = {
+				country = MON
+				relation = guarantee
+				active = yes
+			}
+			diplomatic_relation = {
+				country = MON
+				relation = military_access
+				active = yes
 			}
 		}
 		ai_will_do = {
@@ -4348,25 +4385,29 @@ focus_tree = {
 		icon = GFX_focus_damascus
 		cost = 5
 		prerequisite = {
-			focus = RUS_declaration_with_china
+			focus = RUS_recognize_mongolian_independence
 		}
 		available = {
-			country_exists = TAN
+			TAN = {
+				exists = yes
+				NOT = {
+            		has_war_with = CHI
+            	}
+			}
 		}
-		x = 2
+		x = 3
 		y = 2
 		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
 		completion_reward = {
+			TAN = {
+				set_country_flag = protectorate
+			}
 			set_autonomy = {
 				target = TAN
 				autonomous_state = autonomy_tgwr_integrated_protectorate
 				end_wars = no
 				end_civil_wars = no
-			}
-			country_event = {
-				id = ww1_china_declaration.3
-				days = 90
 			}
 		}
 		ai_will_do = {
@@ -4433,7 +4474,7 @@ focus_tree = {
 		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			navy_experience = 50
 		}
 		ai_will_do = {
 			factor = 3
@@ -4467,30 +4508,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = RUS_polish_divisions
-		icon = GFX_focus_consolidate_entente
-		cost = 5
-		available = {
-			
-		}
-		prerequisite = {
-			focus = RUS_reunite_the_polish_people
-		}
-		x = 1
-		y = 1
-		relative_position_id = RUS_reunite_the_polish_people
-		available_if_capitulated = yes
-		completion_reward = {
-			
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-	}
-	focus = {
 		id = RUS_czechoslovak_legion
 		icon = GFX_focus_consolidate_entente
 		cost = 5
@@ -4498,11 +4515,11 @@ focus_tree = {
 			
 		}
 		prerequisite = {
-			focus = RUS_reunite_the_polish_people
+			focus = RUS_unity_of_the_entente
 		}
-		x = -1
-		y = 1
-		relative_position_id = RUS_reunite_the_polish_people
+		x = 0
+		y = 2
+		relative_position_id = RUS_unity_of_the_entente
 		available_if_capitulated = yes
 		completion_reward = {
 			
@@ -4527,30 +4544,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = RUS_unity_of_the_entente
-		available_if_capitulated = yes
-		completion_reward = {
-			
-		}
-		ai_will_do = {
-			factor = 3
-		}
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-	}
-	focus = {
-		id = RUS_straits_agreement
-		icon = GFX_focus_RUS_Constantinople_Agreement
-		cost = 5
-		available = {
-			
-		}
-		prerequisite = {
-			focus = RUS_liberation_of_western_armenia
-		}
-		x = -1
-		y = 1
-		relative_position_id = RUS_liberation_of_western_armenia
 		available_if_capitulated = yes
 		completion_reward = {
 			
