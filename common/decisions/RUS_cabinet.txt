@@ -692,6 +692,45 @@ RUS_parliament_gui_decision_category = {
 			}
 		}
 	}
+	#Suppress strikes
+	RUS_suppress_strikes_decision = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+		available = {
+			has_idea = RUS_strikes
+		}
+		visible = {
+			has_revolution = no
+			has_completed_focus = RUS_crack_down_on_strikes
+			RUS_vladimir_kokovtsov = {
+				is_prime_minister = yes
+			}
+		}
+		complete_effect = {
+			remove_ideas = RUS_strikes
+			set_country_flag = {
+				flag = RUS_strikes_suppressed
+				days = 100
+			}
+			custom_effect_tooltip = RUS_strikes_suppressed
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = {
+							has_country_flag = RUS_lena_massacre
+						}
+					}
+					random = {
+						chance = 25
+						country_event = ww1_russia_common.13
+					}
+				}
+			}
+		}
+		cost = 50
+	}
 }
 #Conservative mechanic
 RUS_parliament_gui_decision_category = {
