@@ -89,12 +89,7 @@ characters = {
 				prime_minister
 				minister_of_internal_affairs
 			}
-			
-			visible = {
-				is_country_leader = no
-			}
 			available = {
-				is_country_leader = no	
 				is_part_of_the_cabinet = yes			
 			}
 			can_be_fired = no
@@ -142,7 +137,7 @@ characters = {
 				penny_pincher
 				minister_of_finance
 			}
-			
+			cost = 50
 			available = {	
 				is_part_of_the_cabinet = yes			
 			}
@@ -166,7 +161,7 @@ characters = {
 				bureaucrat_squared
 				conservative
 			}
-			
+			cost = 50
 			available = {	
 				is_part_of_the_cabinet = yes			
 			}
@@ -191,7 +186,7 @@ characters = {
 				bold_financier
 				unsinkable
 			}
-			
+			cost = 50
 			available = {	
 				is_part_of_the_cabinet = yes			
 			}
@@ -213,7 +208,7 @@ characters = {
 			traits = {
 				misanthrope
 			}
-			
+			cost = 50
 			available = {	
 				is_part_of_the_cabinet = yes			
 			}
@@ -236,7 +231,7 @@ characters = {
 				silent_enforcer
 				conservative
 			}
-			
+			cost = 50
 			available = {	
 				is_part_of_the_cabinet = yes			
 			}
@@ -258,8 +253,12 @@ characters = {
 			traits = {
 				far_right_policeman
 			}
-			
-			available = {	
+			cost = 50
+			visible = {
+				is_country_leader = no
+			}
+			available = {
+				is_country_leader = no	
 				is_part_of_the_cabinet = yes			
 			}
 			can_be_fired = no
@@ -269,6 +268,10 @@ characters = {
 				large = "gfx/leaders/RUS/RUS_nikolai_maklakov.png"
 				small = "gfx/interface/ideas/RUS/RUS_nikolay_maklakov.png"
 			}
+		}
+		country_leader = {
+			ideology = reactionism
+			traits = { far_right_policeman }
 		}
 	}
 	RUS_pavel_milyukov = {
@@ -282,7 +285,7 @@ characters = {
 			traits = {
 				theoretical
 			}
-			
+			cost = 50
 			visible = {
 				is_country_leader = no
 			}
@@ -300,7 +303,7 @@ characters = {
 		}
 		country_leader = {
 			ideology = social_liberalism
-			traits = { staunch_constitutionalist  }
+			traits = { theoretical }
 		}
 	}
 	RUS_vasiliy_maklakov = {
@@ -314,7 +317,7 @@ characters = {
 			traits = {
 				civil_rights_lawyer
 			}
-			
+			cost = 50
 			available = {
 				is_part_of_the_cabinet = yes
 			}
@@ -326,20 +329,37 @@ characters = {
 				small = "gfx/interface/ideas/RUS/idea_RUS_Vasiliy_Maklakov.png"
 			}
 		}
-		country_leader = {
-			ideology = social_liberalism
-			traits = { sharp_tongued_lawyer  }
-		}
 	}
 	RUS_mikhail_rodzyanko = {
 		name = RUS_mikhail_rodzyanko
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_mikhail_rodzyanko
+			allowed = {
+				original_tag = RUS
+			}
+			traits = {
+				moderate
+			}
+			cost = 50
+			visible = {
+				is_country_leader = no
+			}
+			available = {	
+				is_country_leader = no
+				is_part_of_the_cabinet = yes			
+			}
+			can_be_fired = no
+		}
 		portraits = {
 			civilian = {
+				small = "gfx/interface/ideas/RUS/RUS_aleksandr_guchkov.png"
 				large = "gfx/leaders/RUS/RUS_mikhail_rodzyanko.png"
 			}
 		}
 		country_leader = {
 			ideology = conservatism
+			traits = { moderate }
 		}
 	}
 	RUS_aleksandr_guchkov = {
@@ -352,7 +372,7 @@ characters = {
 			traits = {
 				practical
 			}
-			
+			cost = 50
 			available = {	
 				is_part_of_the_cabinet = yes			
 			}
@@ -375,7 +395,7 @@ characters = {
 			traits = {
 				zemstvo_influencer
 			}
-			
+			cost = 50
 			visible = {
 				is_country_leader = no
 			}
@@ -391,6 +411,10 @@ characters = {
 				small = "gfx/interface/ideas/RUS/idea_RUS_georgy_lvov.png"
 			}
 		}
+		country_leader = {
+			ideology = social_liberalism
+			traits = { zemstvo_influencer }
+		}
 	}
 	RUS_alexander_kerensky = {
 		name = "SOV_aleksandr_kerensky"
@@ -400,7 +424,7 @@ characters = {
 			traits = {
 				left_wing_populist
 			}
-			
+			cost = 50
 			visible = {
 				is_country_leader = no
 			}
@@ -418,7 +442,7 @@ characters = {
 		}
 		country_leader = {
 			ideology = social_democracy
-			traits = { popular_figurehead }
+			traits = { left_wing_populist }
 		}
 	}
 	RUS_nikolai_markov = {
@@ -434,18 +458,11 @@ characters = {
 			traits = {
 				pogromist
 			}
-			
-			visible = {
-				is_country_leader = no
-			}
+			cost = 50
 			available = {
-				is_country_leader = no	
 				is_part_of_the_cabinet = yes			
 			}
 			can_be_fired = no
-		}
-		country_leader = {
-			ideology = fascism_ideology
 		}
 	}
 	RUS_pyotr_durnovo = {
@@ -461,7 +478,7 @@ characters = {
 			traits = {
 				reactionary_bureaucrat
 			}
-			
+			cost = 50
 			visible = {
 				is_country_leader = no
 			}
@@ -473,6 +490,7 @@ characters = {
 		}
 		country_leader = {
 			ideology = reactionism
+			traits = { reactionary_bureaucrat }
 		}
 	}
 	RUS_alexei_khvostov = {
@@ -488,9 +506,53 @@ characters = {
 			visible = {
 			}	
 			traits = {
-				petty_tyrant
+				incomprehensible_politics
 			}
-			
+			cost = 50
+			available = {	
+				is_part_of_the_cabinet = yes			
+			}
+			can_be_fired = no
+		}
+	}
+	RUS_alexander_khvostov = {
+		name = "RUS_alexander_khvostov"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ideas/RUS/RUS_alexei_khvostov.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_alexander_khvostov	
+			visible = {
+			}	
+			traits = {
+				cold_hearted
+			}
+			cost = 50
+			available = {	
+				is_part_of_the_cabinet = yes			
+			}
+			can_be_fired = no
+		}
+	}
+	RUS_alexander_protopopov = {
+		name = "RUS_alexander_protopopov"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ideas/RUS/RUS_alexei_khvostov.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_alexander_protopopov	
+			visible = {
+			}	
+			traits = {
+				insane
+			}
+			cost = 50
 			available = {	
 				is_part_of_the_cabinet = yes			
 			}
@@ -512,7 +574,7 @@ characters = {
 			traits = {
 				liberal_shill
 			}
-			
+			cost = 50
 			available = {	
 				is_part_of_the_cabinet = yes			
 			}
@@ -524,20 +586,73 @@ characters = {
 			slot = political_advisor
 			idea_token = RUS_boris_sturmer
 			allowed = {
-					original_tag = RUS
-				}
-				available = {
-					is_russia_a_monarchy = yes
-				}
-				traits = {
-					silent_workhorse
-					conservative
-				}
-				ai_will_do = {
-					factor = 1.000
-				}
+				original_tag = RUS
+			}
+			available = {
+				is_part_of_the_cabinet = yes
+			}
+			traits = {
+				smart_but_heartless
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+			can_be_fired = no
 		}
 		name = "RUS_boris_sturmer"
+		portraits = {
+			army = {
+				small = "GFX_idea_RUS_boris_sturmer"
+			}
+		}
+	}
+	RUS_alexander_trepov = {
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_alexander_trepov
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				is_part_of_the_cabinet = yes
+			}
+			traits = {
+				city_boy
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+			can_be_fired = no
+		}
+		name = "RUS_alexander_trepov"
+		portraits = {
+			army = {
+				small = "GFX_idea_RUS_boris_sturmer"
+			}
+		}
+	}
+	RUS_nikolai_golitsyn = {
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_nikolai_golitsyn
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				is_part_of_the_cabinet = yes
+			}
+			traits = {
+				lightweight
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+			can_be_fired = no
+		}
+		name = "RUS_nikolai_golitsyn"
 		portraits = {
 			army = {
 				small = "GFX_idea_RUS_boris_sturmer"
@@ -550,31 +665,6 @@ characters = {
 			civilian = {
 				large = "gfx/leaders/RUS/RUS_boris_savinkov.png"
 				small = "GFX_idea_RUS_boris_savinkov"
-			}
-		}
-		country_leader = {
-			ideology = revolutionary_socialism
-			traits = { rider_named_death  }
-		}
-		corps_commander = {
-			traits = { politically_connected trait_reckless trickster commando harsh_leader }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 2
-			planning_skill = 2
-			logistics_skill = 3
-			visible = {
-				OR = {
-					has_cosmetic_tag = RUS_eser
-					AND = {
-						tag = SOV
-						OR = {
-							is_country_leader = yes
-							has_government = democratic
-							has_government = neutrality
-						}
-					}	
-				}
 			}
 		}
 	}
@@ -3565,190 +3655,6 @@ characters = {
 		portraits={
 			civilian={
 				small="gfx/interface/ideas/RUS/idea_RUS_Nikolai_Ustryalov.png"
-			}
-		}
-	}
-	RUS_georgiy_lvov={
-		name="RUS_georgiy_lvov"
-		portraits={
-			civilian={
-				large="gfx/leaders/RUS/RUS_georgy_lvov.png"
-			}
-		}
-	}
-	RUS_alexander_kerensky={
-		name="SOV_aleksandr_kerensky"
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_alexander_kerensky
-			available = {
-				is_country_leader = no			
-				OR = {
-					AND = {
-						has_government = democratic
-						has_completed_focus = RUS_revolutionaries_in_duma
-					}
-					has_country_leader  = {
-						character = RUS_viktor_chernov
-					}
-				}	
-			}
-			visible  = {
-				is_country_leader = no
-			}
-			traits  = {
-				popular_figurehead 
-			}
-			ai_will_do  = {
-				factor  = 50.000
-			}
-		}	
-		advisor={
-			slot = army_chief
-			idea_token = RUS_alexander_kerensky_army_chief
-			allowed  = {
-				original_tag = RUS
-			}
-			traits  = {
-				army_chief_morale_1 
-			}
-			cost  = 0
-			available  = {
-				is_country_leader = yes
-				NOT = {
-					has_global_flag = great_war_ends
-				}
-			}	
-			visible  = {
-				is_country_leader = yes
-				has_global_flag = russian_revolution
-				has_country_flag = RUS_kornilov_affair_fail
-				NOT = {
-					has_global_flag = great_war_ends
-				}
-			}
-			ai_will_do  = {
-				factor  = 5.000
-			}
-		}
-		portraits={
-			civilian={
-				large="gfx/leaders/RUS/RUS_alexander_kerensky.png"
-				small="GFX_idea_alexander_kerensky"
-			}
-			army={
-				large="gfx/leaders/RUS/RUS_alexander_kerensky_dictator.png"
-				small="gfx/interface/ideas/RUS/idea_RUS_alexander_kerensky_army.png"
-			}
-		}
-		country_leader={
-			ideology=social_democracy
-			traits={ popular_figurehead }
-		}
-	}
-	RUS_boris_savinkov={
-		name="RUS_boris_savinkov"
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_boris_savinkov
-				available  = {
-					is_country_leader = no
-					or  = {
-						has_country_leader  = {
-							character = RUS_alexander_kerensky
-						}
-						has_country_leader  = {
-							character = RUS_lavr_kornilov
-						}
-						has_country_leader  = {
-							character = RUS_viktor_chernov
-						}
-					}
-				}
-				traits  = {
-					silent_workhorse 
-				}
-				visible  = {
-					is_country_leader = no	
-				}
-				ai_will_do  = {
-					factor  = 50.000
-				}
-		}
-		portraits={
-			civilian={
-				large="gfx/leaders/RUS/RUS_boris_savinkov.png"
-				small="GFX_idea_RUS_boris_savinkov"
-			}
-		}
-		country_leader={
-			ideology=agrarian_socialism
-			traits={ rider_named_death  }
-		}
-		corps_commander={
-			traits={ politically_connected trait_reckless trickster commando harsh_leader }
-			skill=2
-			attack_skill=2
-			defense_skill=2
-			planning_skill=2
-			logistics_skill=3
-			visible = {
-				OR = {
-					has_cosmetic_tag = RUS_eser
-					AND = {
-						tag = SOV
-						OR = {
-							is_country_leader = yes
-							has_government = democratic
-							has_government = neutrality
-						}
-					}	
-				}
-			}
-		}
-	}
-	RUS_nikolai_avksentiev={
-		name=RUS_nikolai_avksentiev
-		portraits={
-			civilian={
-				large="gfx/leaders/RUS/RUS_Nikolai_Avksentiev.png"
-				small="gfx/interface/ideas/RUS/idea_RUS_Nikolai_Avksentiev.png"
-			}
-		}
-		country_leader={
-			ideology=social_democracy
-		}
-	}
-	RUS_nikolai_tchaikovsky={
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_nikolai_tchaikovsky
-			allowed  = {
-				original_tag = RUS
-			}
-			available  = {
-				or = {
-				has_country_leader_ideology = social_democracy
-				has_country_leader_ideology = reformist_socialism
-				has_country_leader_ideology = agrarian_socialism
-				} 
-				is_country_leader = no
-			}
-			visible  = {
-				is_country_leader = no
-			}
-			traits  = {
-				grandfather_of_the_russian_revolution 
-			}
-			ai_will_do  = {
-				factor  = 10.000
-			}
-		}
-		name=RUS_nikolai_tchaikovsky
-		portraits={
-			civilian={
-				large="gfx/leaders/RUS/RUS_Nikolai_Tchaikovsky.png"
-				small="gfx/interface/ideas/RUS/idea_RUS_Nikolai_Tchaikovsky.png"
 			}
 		}
 	}
