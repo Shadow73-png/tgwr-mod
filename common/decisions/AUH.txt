@@ -3970,6 +3970,18 @@ AUS_question_of_army_chief = {
 			always = no
 		}
 		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						AUS_army_focuses_taken > 6
+					}
+					has_country_flag = AUS_schemua_success
+				}
+			}
+			else = {
+				activate_advisor = AUH_conrad_von_hotzendorf
+			}
+			clr_country_flag = AUS_schemua_success
 		}
 		complete_effect = {
 		}
@@ -3993,6 +4005,7 @@ AUS_question_of_army_chief = {
 			base = 1
 		}
 		remove_effect = {
+			set_country_flag = AUS_schemua_success
 		}
 	}
 	AUS_reach_out_to_bolfras = {
