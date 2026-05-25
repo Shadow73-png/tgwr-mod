@@ -238,18 +238,60 @@ focus_tree = {
 		relative_position_id = TUR_harbiye_nezareti
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = TUR_call_for_the_trablusgarp_war_tt2
+				tooltip = has_had_war_with_ITA
 				has_country_flag = TUR_has_had_war_with_ITA
 			}
 		}
 		continue_if_invalid = yes
-		select_effect = { set_country_flag = TUR_libyan_war_experience_select }
+		select_effect = {
+			set_country_flag = TUR_libyan_war_experience_select
+			if = {
+				limit = {
+					OR = {
+						has_character = TUR_ismail_enver
+						has_character = TUR_mustafa_kemal
+						has_character = TUR_fethi_okyar
+					}
+					any_owned_state = { has_state_flag = TUR_trablusgarp }
+					any_other_country = {
+						is_major = yes
+						has_war_with = ROOT
+					}
+				}
+				country_event = { id = ottoman.147 days = 3 random_days = 4 }
+			}
+		}
 		completion_reward = {
 			custom_effect_tooltip = tooltip_immediate_effect_upon_focus_start
 			unlock_decision_category_tooltip = decision_category_TUR_call_for_the_trablusgarp_war
+			effect_tooltip = {
+				if = {
+					limit = {
+						OR = {
+							has_character = TUR_ismail_enver
+							has_character = TUR_mustafa_kemal
+							has_character = TUR_fethi_okyar
+						}
+						any_owned_state = { has_state_flag = TUR_trablusgarp }
+					}
+					if = {
+						limit = {
+							any_other_country = {
+								is_major = yes
+								has_war_with = ROOT
+							}
+						}
+						country_event = { id = ottoman.147 days = 3 random_days = 4 }
+					}
+					else = {
+						custom_effect_tooltip = TUR_call_for_the_trablusgarp_war_tt1
+						country_event = { id = ottoman.147 days = 3 random_days = 4 }
+					}
+				}
+			}
 			custom_effect_tooltip = SOV_focus_complete_effect_tt
 			army_experience = 15
-			custom_effect_tooltip = TUR_call_for_the_trablusgarp_war_tt
+			custom_effect_tooltip = TUR_call_for_the_trablusgarp_war_tt2
 			add_to_variable = { TUR_aoabe_non_core_manpower = 0.05 }
 			add_to_variable = { TUR_aoabe_heat_attrition_factor = -0.1 }
 			set_country_flag = TUR_call_for_the_trablusgarp_war
@@ -3386,15 +3428,15 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			every_state = {
-				limit = { has_state_flag = TUR_trablusgarp }
-				custom_effect_tooltip = TUR_defense_of_trablusgarp_tt
-				add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = 0.06 }
-				add_compliance = 10
+			unlock_decision_tooltip = TUR_introduce_paper_money_in_trablusgarp
+			unlock_decision_tooltip = TUR_educate_libyan_officers
+			every_controlled_state = {
+				limit = {
+					has_state_flag = TUR_trablusgarp
+					has_resistance = yes
+				}
+				add_resistance = -15
 			}
-			custom_effect_tooltip = TUR_increase_trablusgarp_centralization_15
-			add_to_variable = { global.TUR_trablusgarp_centralization = 15 }
-			ottoman_centralization_variable_check = yes
 		}
 		ai_will_do = { base = 20 }
 	}
@@ -4261,7 +4303,7 @@ focus_tree = {
 				has_war_with = ROOT
 			}
 			TUR_regime_is_liberal = yes
-			NOT = { has_idea = TUR_policy_of_reapproachmen }
+			NOT = { has_idea = TUR_policy_of_reapproachment }
 		}
 		relative_position_id = TUR_aftermath_of_the_31_march_incident
 		completion_reward = {

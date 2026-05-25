@@ -4894,6 +4894,56 @@ TUR_millet_system = {
 			}
         }
 	}
+	TUR_introduce_paper_money_in_trablusgarp = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = { original_tag = TUR }
+		visible = {
+			has_completed_focus = TUR_defense_of_trablusgarp
+			any_owned_state = { has_state_flag = TUR_trablusgarp}
+		}
+		cost = 30
+		fire_only_once = yes
+		complete_effect = {
+			add_stability = -0.03
+			custom_effect_tooltip = TUR_increase_trablusgarp_centralization_15
+			add_to_variable = { global.TUR_trablusgarp_centralization = 15 }
+			ottoman_centralization_variable_check = yes
+		}
+		ai_will_do = { base = 100 }
+	}
+	TUR_educate_libyan_officers = {
+		icon = generic_ottoman_officer
+		allowed = { original_tag = TUR }
+		visible = {
+			has_completed_focus = TUR_defense_of_trablusgarp
+			any_owned_state = { has_state_flag = TUR_trablusgarp}
+		}
+		custom_cost_text = decision_cost_CP_20
+		custom_cost_trigger = { command_power > 19.99 }
+		fire_only_once = yes
+		complete_effect = {
+			hidden_effect = { add_command_power = -20 }
+		}
+		modifier = {
+			command_power_gain_mult = -0.03
+			planning_speed = 0.02
+		}
+		remove_effect = {
+			every_state = {
+				limit = { has_state_flag = TUR_trablusgarp }
+				custom_effect_tooltip = TUR_modify_arab_minority
+				add_to_variable = {
+					tooltip = TUR_minority_local_supplies_for_controller3
+					TUR_ottoman_local_supplies_for_controller_arab = 0.06
+				}
+				custom_effect_tooltip = empty_space
+			}
+			custom_effect_tooltip = TUR_increase_trablusgarp_centralization_5
+			add_to_variable = { global.TUR_trablusgarp_centralization = 5 }
+			ottoman_centralization_variable_check = yes
+		}
+		ai_will_do = { base = 100 }
+	}
 	TUR_settle_druze_tribes = {
 		icon = GFX_decision_eng_blackshirt_march
 		allowed = { original_tag = TUR }

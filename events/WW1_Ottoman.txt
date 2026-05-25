@@ -11206,40 +11206,50 @@ country_event = { #pashas to libya
 	desc = ottoman.147.d
 	picture = GFX_report_event_ottoman_pasha_in_libya
 	fire_only_once = yes
-	trigger = {
-		original_tag = TUR
-		OR = {
-			has_character = TUR_ismail_enver
-			has_character = TUR_mustafa_kemal
-		}
-		any_owned_state = { has_state_flag = TUR_trablusgarp }
-		has_global_flag = italo_turkish_war
-		NOT = { has_global_flag = italo_turkish_war_ends }
-	}
 	option = {
 		name = ottoman.147.a
-		hidden_effect = {
-			if = {
-				limit = {
-					TUR_ismail_enver = {
-						is_country_leader = no
-						is_political_advisor = no
-					}
+		if = {
+			limit = {
+				TUR_ismail_enver = {
+					is_country_leader = no
+					is_political_advisor = no
 				}
-				TUR_ismail_enver = { set_character_flag = TUR_in_libya }
 			}
-			if = {
-				limit = {
-					TUR_mustafa_kemal = {
-						is_country_leader = no
-						is_political_advisor = no
-						is_army_chief = no
-					}
-				}
-				TUR_mustafa_kemal = { set_character_flag = TUR_in_libya }
+			TUR_ismail_enver = {
+				custom_effect_tooltip = ottoman_pashas_in_libya
+				set_character_flag = TUR_in_libya
 			}
 		}
-		custom_effect_tooltip = ottoman_pashas_in_libya
+		if = {
+			limit = {
+				TUR_mustafa_kemal = {
+					is_country_leader = no
+					is_political_advisor = no
+					is_army_chief = no
+				}
+			}
+			TUR_mustafa_kemal = {
+				custom_effect_tooltip = ottoman_pashas_in_libya
+				set_character_flag = TUR_in_libya
+			}
+		}
+		if = {
+			limit = {
+				TUR_fethi_okyar = {
+					is_country_leader = no
+					is_political_advisor = no
+					is_army_chief = no
+				}
+			}
+			TUR_fethi_okyar = {
+				custom_effect_tooltip = ottoman_pashas_in_libya
+				set_character_flag = TUR_in_libya
+			}
+		}
+		every_state = {
+			limit = { has_state_flag = TUR_trablusgarp }
+			add_dynamic_modifier = { modifier = TUR_organized_local_resistance scope = TUR }
+		}
 		set_global_flag = ottoman_pasha_in_libya
 	}
 }
@@ -11270,38 +11280,42 @@ country_event = { #pashas back from libya
 		name = ottoman.148.a
 		custom_effect_tooltip = ottoman_pashas_back_from_libya
 		if = {
-			limit = {
-				TUR_ismail_enver = {
-					has_character_flag = TUR_in_libya
-					is_unit_leader = yes
-				}
-			}
+			limit = { TUR_ismail_enver = { has_character_flag = TUR_in_libya } }
 			TUR_ismail_enver = {
-				add_skill_level = 1
-				add_unit_leader_trait = irregulars_officer
+				custom_effect_tooltip = ottoman_pashas_back_from_libya
+				if = {
+					limit = { is_unit_leader = yes }
+					add_skill_level = 1
+					add_unit_leader_trait = irregulars_officer
+				}
+				clr_character_flag = TUR_in_libya
+				set_character_flag = TUR_war_in_libya
 			}
 		}
 		if = {
-			limit = {
-				TUR_mustafa_kemal = {
-					has_character_flag = TUR_in_libya
-					is_unit_leader = yes
-				}
-			}
+			limit = { TUR_mustafa_kemal = { has_character_flag = TUR_in_libya } }
 			TUR_mustafa_kemal = {
-				add_skill_level = 1
-				add_unit_leader_trait = desert_fox
+				custom_effect_tooltip = ottoman_pashas_back_from_libya
+				if = {
+					limit = { is_unit_leader = yes }
+					add_skill_level = 1
+					add_unit_leader_trait = desert_fox
+				}
+				clr_character_flag = TUR_in_libya
+				set_character_flag = TUR_war_in_libya
 			}
 		}
-		hidden_effect = {
-			TUR_ismail_enver = {
+		if = {
+			limit = { TUR_fethi_okyar = { has_character_flag = TUR_in_libya } }
+			TUR_fethi_okyar = {
+				custom_effect_tooltip = ottoman_pashas_back_from_libya
 				clr_character_flag = TUR_in_libya
 				set_character_flag = TUR_war_in_libya
 			}
-			TUR_mustafa_kemal = {
-				clr_character_flag = TUR_in_libya
-				set_character_flag = TUR_war_in_libya
-			}
+		}
+		every_state = {
+			limit = { has_state_flag = TUR_trablusgarp }
+			remove_dynamic_modifier = { modifier = TUR_organized_local_resistance scope = TUR }
 		}
 	}
 }
