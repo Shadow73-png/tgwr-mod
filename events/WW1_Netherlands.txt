@@ -2909,6 +2909,7 @@ country_event = {
 	trigger = {
 		NOT = {
 			has_country_flag = HOL_flag_1917_election
+			has_global_flag = great_war_ends
 		}
 		has_completed_focus = HOL_the_pacification
 		tag = HOL
@@ -2953,6 +2954,7 @@ country_event = {
 	trigger = {
 		NOT = {
 			has_country_flag = HOL_flag_1917_election
+			has_global_flag = great_war_ends
 		}
 		has_completed_focus = HOL_the_pacification
 		tag = HOL
@@ -2997,6 +2999,7 @@ country_event = {
 	trigger = {
 		NOT = {
 			has_country_flag = HOL_flag_1917_election
+			has_global_flag = great_war_ends
 		}
 		has_completed_focus = HOL_the_pacification
 		tag = HOL
@@ -3052,6 +3055,7 @@ country_event = {
 	trigger = {
 		NOT = {
 			has_country_flag = HOL_flag_1917_election
+			has_global_flag = great_war_ends
 		}
 		has_completed_focus = HOL_the_pacification
 		tag = HOL
@@ -3134,6 +3138,8 @@ country_event = {
 				character = HOL_ruijs_van_beerenbrouck
 				ideology = conservatism
 			}
+			complete_national_focus = HOL_finnaly_relieved
+			complete_national_focus = HOL_ruijs_government
 			set_country_flag = HOL_flag_conservative_coalition_gov
 			clr_country_flag = HOL_flag_left_coalition_gov
 			clr_country_flag = HOL_flag_arp_gov
@@ -3151,6 +3157,8 @@ country_event = {
 				character = HOL_pieter_cort_van_der_linden
 				ideology = classical_liberalism
 			}
+			complete_national_focus = HOL_finnaly_relieved
+			complete_national_focus = HOL_leftist_compromise
 			clr_country_flag = HOL_flag_conservative_coalition_gov
 			set_country_flag = HOL_flag_left_coalition_gov
 			clr_country_flag = HOL_flag_arp_gov
@@ -3158,5 +3166,198 @@ country_event = {
 			clr_country_flag = HOL_flag_ag_gov
 			clr_country_flag = HOL_flag_sdap_gov
 		}
+	}
+}
+#1917 election events but great war is over so it skips the wilhelmina minigame
+#sdap wins 1917 elections no ww1
+country_event = {
+	id = ww1_holland.137
+	title = ww1_holland.137.t
+	desc = ww1_holland.137.d
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_country_flag = HOL_flag_1917_election
+		}
+		has_global_flag = great_war_ends
+		has_completed_focus = HOL_the_pacification
+		tag = HOL
+		check_variable = {
+			HOL_variable_sdap_popularity > HOL_variable_lu_popularity
+		}
+		check_variable = {
+			HOL_variable_sdap_popularity > HOL_variable_arp_popularity
+		}
+		check_variable = {
+			HOL_variable_sdap_popularity > HOL_variable_ag_popularity
+		}
+	}
+	option = {
+		name = ww1_holland.137.a
+		set_country_flag = HOL_flag_1917_election
+		complete_national_focus = HOL_finnaly_relieved
+		complete_national_focus = HOL_leftist_compromise
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_socialist_party_long
+			name = HOL_socialist_party
+		}
+		promote_character = {
+			character = HOL_pieter_jelles_troelstra
+			ideology = social_democracy
+		}
+		clr_country_flag = HOL_flag_conservative_coalition_gov
+		set_country_flag = HOL_flag_left_coalition_gov
+		clr_country_flag = HOL_flag_arp_gov
+		clr_country_flag = HOL_flag_lu_gov
+		clr_country_flag = HOL_flag_ag_gov
+		clr_country_flag = HOL_flag_sdap_gov
+	}
+}
+#lu wins 1917 elections no ww1
+country_event = {
+	id = ww1_holland.138
+	title = ww1_holland.138.t
+	desc = ww1_holland.138.d
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_country_flag = HOL_flag_1917_election
+		}
+		has_global_flag = great_war_ends
+		has_completed_focus = HOL_the_pacification
+		tag = HOL
+		check_variable = {
+			HOL_variable_lu_popularity > HOL_variable_sdap_popularity
+		}
+		check_variable = {
+			HOL_variable_lu_popularity > HOL_variable_arp_popularity
+		}
+		check_variable = {
+			HOL_variable_lu_popularity > HOL_variable_ag_popularity
+		}
+	}
+	option = {
+		name = ww1_holland.138.a
+		set_country_flag = HOL_flag_1917_election
+		complete_national_focus = HOL_finnaly_relieved
+		complete_national_focus = HOL_leftist_compromise
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_liberal_party_long
+			name = HOL_liberal_party
+		}
+		promote_character = {
+			character = HOL_pieter_cort_van_der_linden
+			ideology = classical_liberalism
+		}
+		clr_country_flag = HOL_flag_conservative_coalition_gov
+		set_country_flag = HOL_flag_left_coalition_gov
+		clr_country_flag = HOL_flag_arp_gov
+		clr_country_flag = HOL_flag_lu_gov
+		clr_country_flag = HOL_flag_ag_gov
+		clr_country_flag = HOL_flag_sdap_gov
+	}
+}
+#arp wins 1917 elections no ww1
+country_event = {
+	id = ww1_holland.139
+	title = ww1_holland.139.t
+	desc = ww1_holland.139.d
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_country_flag = HOL_flag_1917_election
+		}
+		has_global_flag = great_war_ends
+		complete_national_focus = HOL_finnaly_relieved
+		complete_national_focus = HOL_ruijs_government
+		tag = HOL
+		check_variable = {
+			HOL_variable_arp_popularity > HOL_variable_sdap_popularity
+		}
+		check_variable = {
+			HOL_variable_arp_popularity > HOL_variable_lu_popularity
+		}
+		check_variable = {
+			HOL_variable_arp_popularity > HOL_variable_ag_popularity
+		}
+	}
+	option = {
+		name = ww1_holland.139.a
+		set_country_flag = HOL_flag_1917_election
+		complete_national_focus = HOL_snap_elections
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_democratic_party_long
+			name = HOL_democratic_party
+		}
+		if = {
+			limit = {
+				has_country_leader = HOL_abraham_kuyper
+			}
+			promote_character = {
+				character = HOL_abraham_kuyper
+				ideology = conservatism
+			}
+		}
+		else = {
+			promote_character = {
+				character = HOL_theo_heemskerk
+				ideology = conservatism
+			}
+		}	
+		set_country_flag = HOL_flag_conservative_coalition_gov
+		clr_country_flag = HOL_flag_left_coalition_gov
+		clr_country_flag = HOL_flag_arp_gov
+		clr_country_flag = HOL_flag_lu_gov
+		clr_country_flag = HOL_flag_ag_gov
+		clr_country_flag = HOL_flag_sdap_gov
+	}
+}
+#ag wins 1917 elections no ww1
+country_event = {
+	id = ww1_holland.140
+	title = ww1_holland.140.t
+	desc = ww1_holland.140.d
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_country_flag = HOL_flag_1917_election
+		}
+		has_global_flag = great_war_ends
+		has_completed_focus = HOL_the_pacification
+		tag = HOL
+		check_variable = {
+			HOL_variable_ag_popularity > HOL_variable_sdap_popularity
+		}
+		check_variable = {
+			HOL_variable_ag_popularity > HOL_variable_arp_popularity
+		}
+		check_variable = {
+			HOL_variable_ag_popularity > HOL_variable_lu_popularity
+		}
+	}
+	option = {
+		name = ww1_holland.140.a
+		set_country_flag = HOL_flag_1917_right_won
+		set_country_flag = HOL_flag_1917_election
+		complete_national_focus = HOL_finnaly_relieved
+		complete_national_focus = HOL_ruijs_government
+		set_party_name = {
+			ideology = democratic
+			long_name = HOL_catholic_party_long
+			name = HOL_catholic_party
+		}
+		promote_character = {
+			character = HOL_ruijs_van_beerenbrouck
+			ideology = conservatism
+		}
+		set_country_flag = HOL_flag_conservative_coalition_gov
+		clr_country_flag = HOL_flag_left_coalition_gov
+		clr_country_flag = HOL_flag_arp_gov
+		clr_country_flag = HOL_flag_lu_gov
+		clr_country_flag = HOL_flag_ag_gov
+		clr_country_flag = HOL_flag_sdap_gov
 	}
 }
