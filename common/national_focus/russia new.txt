@@ -3722,12 +3722,12 @@ focus_tree = {
 					}
 					RUS_remove_from_the_cabinet = yes
 				}
-				RUS_pyotr_bark = {
+				RUS_ivan_shipov = {
 					RUS_appoint_finance_minister = yes
 				}
 			}
 			custom_effect_tooltip = appointed_as_minister_of_finance_tt
-			show_ideas_tooltip = RUS_pyotr_bark
+			show_ideas_tooltip = RUS_ivan_shipov
 			country_event = ww1_conservative.8
 		}
 		ai_will_do = {
@@ -3863,6 +3863,7 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
+					has_character = RUS_boris_sturmer
 					RUS_boris_sturmer = {
 						is_prime_minister = no
 					}
@@ -3874,6 +3875,9 @@ focus_tree = {
 						}
 						RUS_remove_from_the_cabinet = yes
 					}
+					RUS_boris_sturmer = {
+						RUS_appoint_chairman = yes
+					}
 				}
 				custom_effect_tooltip = appointed_as_prime_minister_tt
 				show_ideas_tooltip = RUS_boris_sturmer
@@ -3881,11 +3885,22 @@ focus_tree = {
 			}
 			else = {
 				hidden_effect = {
+					every_character = {
+						limit = {
+							is_prime_minister = yes
+						}
+						RUS_remove_from_the_cabinet = yes
+					}
+					RUS_alexander_trepov = {
+						RUS_appoint_chairman = yes
+					}
 					country_event = {
 						id = ww1_conservative.20
 						days = 1
 					}
 				}
+				custom_effect_tooltip = appointed_as_prime_minister_tt
+				show_ideas_tooltip = RUS_alexander_trepov
 			}
 			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
 			RUS_modify_loyalty_far_right = yes

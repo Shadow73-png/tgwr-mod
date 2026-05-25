@@ -438,6 +438,135 @@ country_event = {
 		}
 	}
 }
+#Goremykin dead
+country_event = {
+	id = ww1_russia_common.29
+	title = ww1_russia_common.29.t
+	desc = ww1_russia_common.29.d
+	picture = ww1_russia_goremykin
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					RUS_ivan_goremykin = {
+						is_prime_minister = yes
+					}
+				}
+				every_character = {
+					limit = {
+						is_prime_minister = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				if = {
+					limit = {
+						has_character = RUS_boris_sturmer
+					}
+					RUS_boris_sturmer = {
+						RUS_appoint_chairman = yes
+					}
+				}
+				else = {
+					RUS_alexander_trepov = {
+						RUS_appoint_chairman = yes
+					}
+				}
+			}
+			retire_character = RUS_ivan_goremykin
+		}
+	}
+	option = {
+		name = ww1_russia_common.29.a
+		if = {
+			limit = {
+				RUS_boris_sturmer = {
+					is_prime_minister = yes
+				}
+			}
+			custom_effect_tooltip = appointed_as_prime_minister_tt
+			show_ideas_tooltip = RUS_boris_sturmer
+		}
+		else_if = {
+			limit = {
+				RUS_alexander_trepov = {
+					is_prime_minister = yes
+				}
+			}
+			custom_effect_tooltip = appointed_as_prime_minister_tt
+			show_ideas_tooltip = RUS_alexander_trepov
+		}
+		effect_tooltip = {
+			retire_character = RUS_ivan_goremykin
+		}
+	}
+}
+#Durnovo dead
+country_event = {
+	id = ww1_russia_common.30
+	title = ww1_russia_common.30.t
+	desc = ww1_russia_common.30.d
+	picture = ww1_russia_durnovo
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			retire_character = RUS_pyotr_durnovo
+		}
+	}
+	option = {
+		name = ww1_russia_common.30.a
+		effect_tooltip = {
+			retire_character = RUS_ivan_goremykin
+		}
+	}
+}
+#Sturmer dead
+country_event = {
+	id = ww1_russia_common.31
+	title = ww1_russia_common.31.t
+	desc = ww1_russia_common.31.d
+	picture = ww1_russia_sturmer
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					RUS_boris_sturmer = {
+						is_prime_minister = yes
+					}
+				}
+				every_character = {
+					limit = {
+						is_prime_minister = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				RUS_alexander_trepov = {
+					RUS_appoint_chairman = yes
+				}
+			}
+			retire_character = RUS_boris_sturmer
+		}
+	}
+	option = {
+		name = ww1_russia_common.31.a
+		if = {
+			limit = {
+				RUS_alexander_trepov = {
+					is_prime_minister = yes
+				}
+			}
+			custom_effect_tooltip = appointed_as_prime_minister_tt
+			show_ideas_tooltip = RUS_alexander_trepov
+		}
+		effect_tooltip = {
+			retire_character = RUS_alexander_trepov
+		}
+	}
+}
 #STOLYPIN EVENTS
 ################
 #Law on Western Zemstvo passed in the State Duma
@@ -1711,7 +1840,7 @@ country_event = {
 	id = ww1_conservative.19
 	title = ww1_conservative.19.t
 	desc = ww1_conservative.19.d
-	picture = GFX_report_event_german_reichstag_gathering
+	picture = ww1_russia_sturmer
 	fire_only_once = yes
 	is_triggered_only = yes
 	#Good riddance
@@ -1730,7 +1859,7 @@ country_event = {
 	id = ww1_conservative.20
 	title = ww1_conservative.20.t
 	desc = ww1_conservative.20.d
-	picture = GFX_report_event_german_reichstag_gathering
+	picture = ww1_russia_ministerial_leapfrog
 	fire_only_once = yes
 	is_triggered_only = yes
 	#Good riddance
@@ -1745,7 +1874,7 @@ country_event = {
 	id = ww1_conservative.21
 	title = ww1_conservative.21.t
 	desc = ww1_conservative.21.d
-	picture = GFX_report_event_german_reichstag_gathering
+	picture = ww1_russia_trepov
 	fire_only_once = yes
 	is_triggered_only = yes
 	#Good riddance
@@ -1758,7 +1887,7 @@ country_event = {
 	id = ww1_conservative.22
 	title = ww1_conservative.22.t
 	desc = ww1_conservative.22.d
-	picture = GFX_report_event_german_reichstag_gathering
+	picture = ww1_russia_golitsyn
 	fire_only_once = yes
 	is_triggered_only = yes
 	#Good riddance
@@ -1771,7 +1900,7 @@ country_event = {
 	id = ww1_conservative.23
 	title = ww1_conservative.23.t
 	desc = ww1_conservative.23.d
-	picture = GFX_report_event_german_reichstag_gathering
+	picture = ww1_russia_alexander_khvostov
 	fire_only_once = yes
 	is_triggered_only = yes
 	#Good riddance
@@ -1784,7 +1913,7 @@ country_event = {
 	id = ww1_conservative.24
 	title = ww1_conservative.24.t
 	desc = ww1_conservative.24.d
-	picture = GFX_report_event_german_reichstag_gathering
+	picture = ww1_russia_protopopov
 	fire_only_once = yes
 	is_triggered_only = yes
 	#Good riddance
@@ -1797,7 +1926,7 @@ country_event = {
 	id = ww1_conservative.25
 	title = ww1_conservative.25.t
 	desc = ww1_conservative.25.d
-	picture = GFX_report_event_german_reichstag_gathering
+	picture = ww1_russia_june_third_system
 	fire_only_once = yes
 	is_triggered_only = yes
 	#Good riddance
@@ -1810,7 +1939,7 @@ country_event = {
 	id = ww1_conservative.26
 	title = ww1_conservative.26.t
 	desc = ww1_conservative.26.d
-	picture = GFX_report_event_german_reichstag_gathering
+	picture = ww1_russia_winter_palace
 	fire_only_once = yes
 	is_triggered_only = yes
 	#Good riddance
