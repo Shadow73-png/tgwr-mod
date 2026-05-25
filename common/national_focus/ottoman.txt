@@ -4979,10 +4979,10 @@ focus_tree = {
 		completion_reward = {
 			set_division_force_allow_recruiting = {
 				force_allow_recruiting = yes
-				division_template = "Hamidiye Alayı"
+				division_template = "Aşiret Süvari Tümeni"
 			}
 			set_division_template_lock = {
-				division_template = "Hamidiye Alayı"
+				division_template = "Aşiret Süvari Tümeni"
 				is_locked = no
 			}
 			add_country_leader_trait = abdulhamid_head_of_hamidiye
@@ -7440,6 +7440,7 @@ focus_tree = {
 						state = 848
 						state = 847
 						state = 104
+						state = 1261
 						state = 1214
 						state = 1240
 						state = 1215
@@ -7542,7 +7543,7 @@ focus_tree = {
 			focus = TUR_reaffirm_the_loyalty_of_hamidiye
 		}
 		available = {
-			has_template = "Hamidiye Alayı"
+			has_template = "Aşiret Süvari Tümeni"
 		}
 		x = -2
 		y = 1
@@ -7553,7 +7554,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.15
 			delete_unit_template_and_units = {
-				division_template = "Hamidiye Alayı"
+				division_template = "Aşiret Süvari Tümeni"
 				disband = no
 			}
 			if = {
@@ -9591,7 +9592,7 @@ focus_tree = {
 			add_stability = 0.1
 			add_political_power = 100
 			delete_unit_template_and_units = {
-				division_template = "Hamidiye Alayı"
+				division_template = "Aşiret Süvari Tümeni"
 				disband = no
 			}
 		}
@@ -9629,14 +9630,14 @@ focus_tree = {
 			add_war_support = 0.1
 			set_division_force_allow_recruiting = {
 				force_allow_recruiting = yes
-				division_template = "Hamidiye Alayı"
+				division_template = "Aşiret Süvari Tümeni"
 			}
 			set_division_template_lock = {
-				division_template = "Hamidiye Alayı"
+				division_template = "Aşiret Süvari Tümeni"
 				is_locked = no
 			}
 			add_units_to_division_template = {
-				template_name = "Hamidiye Alayı"
+				template_name = "Aşiret Süvari Tümeni"
 				regiments = {
 					irregular_cavalry = 0
 					irregular_cavalry = 1
@@ -9647,7 +9648,7 @@ focus_tree = {
 			}
 			effect_tooltip = {
 				set_division_template_cap = {
-					division_template = "Hamidiye Alayı"
+					division_template = "Aşiret Süvari Tümeni"
 					division_cap = 14
 				}
 			}
@@ -9666,7 +9667,7 @@ focus_tree = {
 					TUR_hamidiye_cap = 14
 				}
 				set_division_template_cap = {
-					division_template = "Hamidiye Alayı"
+					division_template = "Aşiret Süvari Tümeni"
 					division_cap = TUR_hamidiye_cap
 				}
 			}
@@ -13041,7 +13042,7 @@ focus_tree = {
 					TUR_hamidiye_cap = 7
 				}
 				set_division_template_cap = {
-					division_template = "Hamidiye Alayı"
+					division_template = "Aşiret Süvari Tümeni"
 					division_cap = TUR_hamidiye_cap
 				}
 			}
@@ -13528,17 +13529,47 @@ focus_tree = {
 	focus = {
 		id = TUR_retreat_to_aleppo
 		icon = GFX_goal_generic_construct_military
-		cost = 2
+		cost = 1
 		prerequisite = {
 			focus = TUR_our_traditional_allies
 			focus = TUR_german_ottoman_alliance
 		}
 		available = {
-			is_great_war_ongoing = yes 
+			is_great_war_ongoing = yes
+			has_war = yes
+			554 = {
+				is_owned_or_subject_trigger = yes
+			}
+			any_enemy_country = {
+				OR = {
+					controls_state = 856
+					controls_state = 454
+					controls_state = 455
+					controls_state = 858
+					controls_state = 1021
+				}
+			}
 		}
 		x = 2
 		y = 1
 		relative_position_id = TUR_our_traditional_allies
+		bypass = {
+			is_great_war_ongoing = yes
+			has_war = yes
+			554 = {
+				is_owned_or_subject_trigger = yes
+			}
+			554 = {
+				is_controlled_by_ROOT_or_subject = no
+			}
+		}
+		bypass_effect = {
+			add_war_support = -0.15
+			add_political_power = -50
+			hidden_effect = {
+				country_event = ottoman.82
+			}			
+		}
 		completion_reward = {
 			554 = {
 				add_dynamic_modifier = {
@@ -13559,31 +13590,6 @@ focus_tree = {
 					modifier = TUR_reorganizing_in_aleppo
 					scope = TUR
 					days = 365
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = TUR_desperate_defence1
-						has_idea = TUR_desperate_defence2
-						has_idea = TUR_desperate_defence3
-					}
-				}
-				add_ideas = TUR_desperate_defence1
-			}
-			else_if = {
-				limit = {
-					has_idea = TUR_desperate_defence1
-				}
-				swap_ideas = {
-					remove_idea = TUR_desperate_defence1
-					add_idea = TUR_desperate_defence2
-				}
-			}
-			else = {
-				swap_ideas = {
-					remove_idea = TUR_desperate_defence2
-					add_idea = TUR_desperate_defence3
 				}
 			}
 			activate_mission = TUR_holding_aleppo
@@ -13608,17 +13614,54 @@ focus_tree = {
 	focus = {
 		id = TUR_canakkale_gecilmez
 		icon = GFX_focus_generic_coastal_fort
-		cost = 2
+		cost = 1
 		prerequisite = {
 			focus = TUR_our_traditional_allies
 			focus = TUR_german_ottoman_alliance
 		}
 		available = {
 			is_great_war_ongoing = yes
+			has_war = yes
+			AND = {
+				860 = {
+					is_owned_or_subject_trigger = yes
+				}
+				861 = {
+					is_owned_or_subject_trigger = yes
+				}
+			}
+			has_enemy_naval_control = 202
 		}
 		x = 3
 		y = 2
 		relative_position_id = TUR_our_traditional_allies
+		bypass = {
+			is_great_war_ongoing = yes
+			has_war = yes
+			AND = {
+				860 = {
+					is_owned_or_subject_trigger = yes
+				}
+				861 = {
+					is_owned_or_subject_trigger = yes
+				}
+			}
+			AND = {
+				860 = {
+					is_controlled_by_ROOT_or_subject = no
+				}
+				861 = {
+					is_controlled_by_ROOT_or_subject = no
+				}
+			}
+		}
+		bypass_effect = {
+			add_war_support = -0.15
+			add_political_power = -50
+			hidden_effect = {
+				country_event = ottoman.84
+			}			
+		}
 		completion_reward = {
 			860 = {
 				add_dynamic_modifier = {
@@ -13672,31 +13715,6 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					NOT = {
-						has_idea = TUR_desperate_defence1
-						has_idea = TUR_desperate_defence2
-						has_idea = TUR_desperate_defence3
-					}
-				}
-				add_ideas = TUR_desperate_defence1
-			}
-			else_if = {
-				limit = {
-					has_idea = TUR_desperate_defence1
-				}
-				swap_ideas = {
-					remove_idea = TUR_desperate_defence1
-					add_idea = TUR_desperate_defence2
-				}
-			}
-			else = {
-				swap_ideas = {
-					remove_idea = TUR_desperate_defence2
-					add_idea = TUR_desperate_defence3
-				}
-			}
-			if = {
-				limit = {
 					has_war = yes
 				}
 				activate_mission = TUR_holding_dardanelles
@@ -13738,17 +13756,44 @@ focus_tree = {
 	focus = {
 		id = TUR_hold_baghdad
 		icon = GFX_goal_generic_construct_military
-		cost = 2
+		cost = 1
 		prerequisite = {
 			focus = TUR_our_traditional_allies
 			focus = TUR_german_ottoman_alliance
 		}
 		available = {
 			is_great_war_ongoing = yes
+			has_war = yes
+			291 = {
+				is_owned_or_subject_trigger = yes
+			}
+			291 = {
+				any_neighbor_state = {
+					controller = {
+						has_war_with = ROOT
+					}
+				}
+			}
 		}
 		x = 4
 		y = 1
 		relative_position_id = TUR_our_traditional_allies
+		bypass = {
+			has_war = yes
+			291 = {
+				is_owned_or_subject_trigger = yes
+			}
+			291 = {
+				is_controlled_by_ROOT_or_subject = no
+			}
+		}
+		bypass_effect = {
+			add_war_support = -0.15
+			add_political_power = -50
+			hidden_effect = {
+				country_event = ottoman.86
+			}			
+		}
 		completion_reward = {
 			291 = {
 				add_dynamic_modifier = {
@@ -13779,31 +13824,6 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 					province = 12839
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = TUR_desperate_defence1
-						has_idea = TUR_desperate_defence2
-						has_idea = TUR_desperate_defence3
-					}
-				}
-				add_ideas = TUR_desperate_defence1
-			}
-			else_if = {
-				limit = {
-					has_idea = TUR_desperate_defence1
-				}
-				swap_ideas = {
-					remove_idea = TUR_desperate_defence1
-					add_idea = TUR_desperate_defence2
-				}
-			}
-			else = {
-				swap_ideas = {
-					remove_idea = TUR_desperate_defence2
-					add_idea = TUR_desperate_defence3
 				}
 			}
 			activate_mission = TUR_holding_baghdad
@@ -15612,7 +15632,9 @@ focus_tree = {
 			focus = TUR_intervene_in_macedonian_conflicts
 		}
 		available = {
-			is_ottoman_macedonia_state = yes
+			any_controlled_state = {
+				is_ottoman_macedonia_state = yes
+			}
 		}
 		x = 1
 		y = 1
@@ -15860,6 +15882,7 @@ focus_tree = {
 							state = 761
 							state = 760
 							state = 104
+							state = 1261
 						}
 						NOT = {
 							is_core_of = TUR
@@ -18969,10 +18992,13 @@ focus_tree = {
 				controls_state = 184
 				controls_state = 788
 				controls_state = 345
+				controls_state = 1255
 				controls_state = 731
+				controls_state = 1256
 				controls_state = 225
 				controls_state = 759
 				controls_state = 203
+				controls_state = 1258
 				controls_state = 106
 				controls_state = 1140
 				controls_state = 1141
@@ -19002,6 +19028,7 @@ focus_tree = {
 		available = {
 			OR = {
 				controls_state = 826
+				controls_state = 1257
 				controls_state = 187
 				controls_state = 185
 				controls_state = 47
@@ -19079,6 +19106,7 @@ focus_tree = {
 				controls_state = 761
 				controls_state = 105
 				controls_state = 104
+				controls_state = 1261
 				controls_state = 107
 				controls_state = 809
 				controls_state = 876
@@ -20606,10 +20634,13 @@ focus_tree = {
 				controls_state = 184
 				controls_state = 788
 				controls_state = 345
+				controls_state = 1255
 				controls_state = 731
+				controls_state = 1256
 				controls_state = 225
 				controls_state = 759
 				controls_state = 203
+				controls_state = 1258
 				controls_state = 106
 				controls_state = 1140
 				controls_state = 1141
@@ -20647,6 +20678,7 @@ focus_tree = {
 		available = {
 			OR = {
 				controls_state = 826
+				controls_state = 1257
 				controls_state = 758
 				controls_state = 187
 				controls_state = 185
@@ -20728,6 +20760,7 @@ focus_tree = {
 				controls_state = 761
 				controls_state = 105
 				controls_state = 104
+				controls_state = 1261
 				controls_state = 107
 				controls_state = 809
 				controls_state = 876
@@ -21124,11 +21157,14 @@ focus_tree = {
 			OR = {
 				controls_state = 184
 				controls_state = 345
+				controls_state = 1255
 				controls_state = 731
+				controls_state = 1256
 				controls_state = 788
 				controls_state = 225
 				controls_state = 759
 				controls_state = 203
+				controls_state = 1258
 				controls_state = 106
 				controls_state = 1140
 				controls_state = 1141
@@ -21159,11 +21195,14 @@ focus_tree = {
 					OR = {
 						state = 184
 						state = 345
+						state = 1255
 						state = 731
+						state = 1256
 						state = 788
 						state = 225
 						state = 759
 						state = 203
+						state = 1258
 						state = 106
 						state = 1140
 						state = 1141
@@ -21189,11 +21228,14 @@ focus_tree = {
 					OR = {
 						state = 184
 						state = 345
+						state = 1255
 						state = 731
+						state = 1256
 						state = 788
 						state = 225
 						state = 759
 						state = 203
+						state = 1258
 						state = 106
 						state = 1140
 						state = 1141
@@ -21222,11 +21264,14 @@ focus_tree = {
 					OR = {
 						state = 184
 						state = 345
+						state = 1255
 						state = 731
+						state = 1256
 						state = 788
 						state = 225
 						state = 759
 						state = 203
+						state = 1258
 						state = 106
 						state = 1140
 						state = 1141
@@ -21255,11 +21300,14 @@ focus_tree = {
 					OR = {
 						state = 184
 						state = 345
+						state = 1255
 						state = 731
+						state = 1256
 						state = 788
 						state = 225
 						state = 759
 						state = 203
+						state = 1258
 						state = 106
 						state = 1140
 						state = 1141
@@ -22246,6 +22294,7 @@ focus_tree = {
 		available = {
 			OR = {
 				controls_state = 826
+				controls_state = 1257
 				controls_state = 758
 				controls_state = 187
 				controls_state = 185
@@ -22721,6 +22770,7 @@ focus_tree = {
 				controls_state = 761
 				controls_state = 760
 				controls_state = 104
+				controls_state = 1261
 			}
 		}
 		bypass = {
@@ -26142,7 +26192,9 @@ focus_tree = {
 				controls_state = 341
 				controls_state = 860
 				controls_state = 345
+				controls_state = 1255
 				controls_state = 731
+				controls_state = 1256
 			}
 		}
 		mutually_exclusive = {
@@ -26173,6 +26225,7 @@ focus_tree = {
 						state = 200
 						state = 451
 						state = 731
+						state = 1256
 					}
 					TUR_state_has_anyminority_modifier = yes
 				}
@@ -26224,7 +26277,9 @@ focus_tree = {
 		available = {
 			OR = {
 				controls_state = 731
+				controls_state = 1256
 				controls_state = 826
+				controls_state = 1257
 				controls_state = 758
 				controls_state = 187
 				controls_state = 185
@@ -26251,7 +26306,9 @@ focus_tree = {
 				limit = {
 					OR = {
 						state = 731
+						state = 1256
 						state = 826
+						state = 1257
 						state = 758
 						state = 187
 						state = 185
@@ -27567,6 +27624,7 @@ focus_tree = {
 				controls_state = 225
 				controls_state = 759
 				controls_state = 203
+				controls_state = 1258
 				controls_state = 106
 				controls_state = 1140
 				controls_state = 1141
@@ -27597,6 +27655,7 @@ focus_tree = {
 						state = 225
 						state = 759
 						state = 203
+						state = 1258
 						state = 106
 						state = 1140
 						state = 1141
@@ -27643,6 +27702,7 @@ focus_tree = {
 				controls_state = 761
 				controls_state = 760
 				controls_state = 104
+				controls_state = 1261
 				controls_state = 107
 				controls_state = 809
 				controls_state = 876
@@ -27665,6 +27725,7 @@ focus_tree = {
 						state = 761
 						state = 760
 						state = 104
+						state = 1261
 						state = 107
 						state = 809
 						state = 876
@@ -30998,8 +31059,11 @@ focus_tree = {
 		available = {
 			OR = {
 				controls_state = 345
+				controls_state = 1255
 				controls_state = 731
+				controls_state = 1256
 				controls_state = 826
+				controls_state = 1257
 				controls_state = 758
 				controls_state = 187
 				controls_state = 185
@@ -31043,8 +31107,11 @@ focus_tree = {
 				limit = {
 					OR = {
 						state = 345
+						state = 1255
 						state = 731
+						state = 1256
 						state = 826
+						state = 1257
 						state = 758
 						state = 187
 						state = 185
@@ -31131,6 +31198,7 @@ focus_tree = {
 				controls_state = 225
 				controls_state = 759
 				controls_state = 203
+				controls_state = 1258
 				controls_state = 106
 				controls_state = 1140
 				controls_state = 1141
@@ -31185,6 +31253,7 @@ focus_tree = {
 						state = 225
 						state = 759
 						state = 203
+						state = 1258
 						state = 106
 						state = 1140
 						state = 1141
@@ -31362,6 +31431,7 @@ focus_tree = {
 				controls_state = 760
 				controls_state = 105
 				controls_state = 104
+				controls_state = 1261
 				controls_state = 107
 				controls_state = 809
 				controls_state = 876
@@ -31393,6 +31463,7 @@ focus_tree = {
 						state = 760
 						state = 105
 						state = 104
+						state = 1261
 						state = 107
 						state = 809
 						state = 876
@@ -31563,7 +31634,7 @@ focus_tree = {
 					TUR_hamidiye_cap = 7
 				}
 				set_division_template_cap = {
-					division_template = "Hamidiye Alayı"
+					division_template = "Aşiret Süvari Tümeni"
 					division_cap = TUR_hamidiye_cap
 				}
 			}
@@ -33569,10 +33640,13 @@ focus_tree = {
 				controls_state = 184
 				controls_state = 788
 				controls_state = 345
+				controls_state = 1255
 				controls_state = 731
+				controls_state = 1256
 				controls_state = 225
 				controls_state = 759
 				controls_state = 203
+				controls_state = 1258
 				controls_state = 106
 				controls_state = 1140
 				controls_state = 1141
@@ -33609,9 +33683,11 @@ focus_tree = {
 						state = 788
 						state = 345
 						state = 731
+						state = 1256
 						state = 225
 						state = 759
 						state = 203
+						state = 1258
 						state = 106
 						state = 1140
 						state = 1141
@@ -33740,6 +33816,7 @@ focus_tree = {
 				controls_state = 760
 				controls_state = 105
 				controls_state = 104
+				controls_state = 1261
 				controls_state = 107
 				controls_state = 809
 				controls_state = 876
@@ -33770,6 +33847,7 @@ focus_tree = {
 						state = 760
 						state = 105
 						state = 104
+						state = 1261
 						state = 107
 						state = 809
 						state = 876
@@ -33953,6 +34031,7 @@ focus_tree = {
 		available = {
 			OR = {
 				controls_state = 826
+				controls_state = 1257
 				controls_state = 758
 				controls_state = 187
 				controls_state = 185
@@ -33983,6 +34062,7 @@ focus_tree = {
 				limit = {
 					OR = {
 						state = 826
+						state = 1257
 						state = 758
 						state = 187
 						state = 185
@@ -35315,7 +35395,7 @@ focus_tree = {
 			add_war_support = 0.15
 			add_command_power = 80
 			delete_unit_template_and_units = {
-				division_template = "Hamidiye Alayı"
+				division_template = "Aşiret Süvari Tümeni"
 				disband = no
 			}
 		}
@@ -35764,10 +35844,10 @@ focus_tree = {
 			add_war_support = 0.05
 			if = {
 				limit = {
-					has_template = "Hamidiye Alayı"
+					has_template = "Aşiret Süvari Tümeni"
 				}
 				delete_unit_template_and_units = {
-					division_template = "Hamidiye Alayı"
+					division_template = "Aşiret Süvari Tümeni"
 					disband = no
 				}
 			}

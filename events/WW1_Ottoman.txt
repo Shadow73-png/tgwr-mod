@@ -857,6 +857,7 @@ country_event = {
 					788
 					184
 					731
+					1256
 					454
 					756
 					757
@@ -4390,7 +4391,7 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			set_division_force_allow_recruiting = {
-    			division_template = "Hamidiye Alayı"
+    			division_template = "Aşiret Süvari Tümeni"
 			}
 			start_civil_war = {
 				ideology = fascism
@@ -4447,38 +4448,38 @@ country_event = {
 				set_variable = { TUR_harbiyeli_officer_power = 4 }
 				random_owned_state = {
 					create_unit = {
-						division = "name = \"Van Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Van Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Erzurum Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Erzurum Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Bitlis Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Bitlis Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Muş Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Muş Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Bingöl Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Bingöl Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Sivas Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Sivas Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Mardin Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Mardin Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Urfa Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Urfa Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Hakkari Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Hakkari Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 				}
 				add_ideas = standing_alone	
 			}
 			TUR = {
 				delete_unit_template_and_units = {
-					division_template = "Hamidiye Alayı"
+					division_template = "Aşiret Süvari Tümeni"
 					disband = no
 				}
 			}
@@ -8226,6 +8227,7 @@ country_event = {
 		effect_tooltip = {
 			TUR = {
 				transfer_state = 104
+				transfer_state = 1261
 			}
 		}
 		hidden_effect = {
@@ -8336,6 +8338,7 @@ country_event = {
 	option = {
 		name = ottoman.79.a
 		transfer_state = 104
+		transfer_state = 1261
 		add_political_power = 50
 		ai_chance = {
 			base = 5
@@ -9259,6 +9262,7 @@ country_event = { #unintended consequences - macedonian resistance
 		hidden_effect = {
 			remove_state_core = 184
 			remove_state_core = 345
+			remove_state_core = 1255
 			every_controlled_state = {
 				limit = {
 					is_ottoman_macedonia_state = yes
@@ -9272,6 +9276,7 @@ country_event = { #unintended consequences - macedonian resistance
 		effect_tooltip = {
 			remove_state_core = 184
 			remove_state_core = 345
+			remove_state_core = 1255
 			every_controlled_state = {
 				limit = {
 					is_ottoman_macedonia_state = yes
@@ -9803,7 +9808,9 @@ country_event = { #unintended consequences - trade breaks down in macedonia
 				limit = {
 					OR = {
 						state = 345
+						state = 1255
 						state = 731
+						state = 1256
 					}
 					has_state_flag = TUR_greek_state
 				}
@@ -9818,7 +9825,9 @@ country_event = { #unintended consequences - trade breaks down in macedonia
 				limit = {
 					OR = {
 						state = 345
+						state = 1255
 						state = 731
+						state = 1256
 					}
 					has_state_flag = TUR_greek_state
 				}
@@ -9844,6 +9853,7 @@ country_event = { #unintended consequences - muslims missmanage greek trade
 				limit = {
 					OR = {
 						state = 826
+						state = 1257
 						state = 758
 						state = 187
 						state = 185
@@ -9872,6 +9882,7 @@ country_event = { #unintended consequences - muslims missmanage greek trade
 				limit = {
 					OR = {
 						state = 826
+						state = 1257
 						state = 758
 						state = 187
 						state = 185
@@ -12822,8 +12833,11 @@ country_event = { #economic collapse in_greece 3
 					}
 					OR = {
 						state = 345
+						state = 1255
 						state = 731
+						state = 1256
 						state = 826
+						state = 1257
 						state = 758
 						state = 187
 						state = 185
@@ -12850,8 +12864,11 @@ country_event = { #economic collapse in_greece 3
 					}
 					OR = {
 						state = 345
+						state = 1255
 						state = 731
+						state = 1256
 						state = 826
+						state = 1257
 						state = 758
 						state = 187
 						state = 185
@@ -13207,7 +13224,11 @@ country_event = { #arab demonstrations in levant
 				add_to_variable = {
 					TUR_ottoman_attrition = 0.05
 				}
-				add_dynamic_modifier = { modifier = TUR_local_cooperation_with_the_enemy days = 1095 }
+				add_dynamic_modifier = { 
+					modifier = TUR_local_cooperation_with_the_enemy 
+					days = 1095
+					scope = TUR 
+				}
 				if = {
 					limit = {
 						NOT = {
@@ -13243,7 +13264,11 @@ country_event = { #arab demonstrations in levant
 					}
 				}
 				custom_effect_tooltip = TUR_ottoman_arab_minority_modify_attrition_5_recruitable_population_5
-				add_dynamic_modifier = { modifier = TUR_local_cooperation_with_the_enemy days = 1095 }
+				add_dynamic_modifier = { 
+					modifier = TUR_local_cooperation_with_the_enemy 
+					days = 1095
+					scope = TUR 
+				}
 				if = {
 					limit = {
 						NOT = {
@@ -13294,7 +13319,11 @@ country_event = { #arab demonstrations in mesapotamia
 				add_to_variable = {
 					TUR_ottoman_attrition = 0.05
 				}
-				add_dynamic_modifier = { modifier = TUR_local_cooperation_with_the_enemy days = 1095 }
+				add_dynamic_modifier = { 
+					modifier = TUR_local_cooperation_with_the_enemy 
+					days = 1095
+					scope = TUR 
+				}
 				if = {
 					limit = {
 						NOT = {
@@ -13324,7 +13353,11 @@ country_event = { #arab demonstrations in mesapotamia
 					}
 				}
 				custom_effect_tooltip = TUR_ottoman_arab_minority_modify_attrition_5_recruitable_population_5
-				add_dynamic_modifier = { modifier = TUR_local_cooperation_with_the_enemy days = 1095 }
+				add_dynamic_modifier = { 
+					modifier = TUR_local_cooperation_with_the_enemy 
+					days = 1095
+					scope = TUR 
+				}
 				if = {
 					limit = {
 						NOT = {
@@ -14642,7 +14675,7 @@ country_event = { #turks revolt
 	immediate = {
 		hidden_effect = {
 			set_division_force_allow_recruiting = {
-    			division_template = "Hamidiye Alayı"
+    			division_template = "Aşiret Süvari Tümeni"
 			}
 			start_civil_war = {
 				ideology = democratic
@@ -14725,37 +14758,37 @@ country_event = { #turks revolt
 				set_country_flag = TUR_revolter_flag
 				random_owned_state = {
 					create_unit = {
-						division = "name = \"Van Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Van Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Erzurum Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Erzurum Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Bitlis Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Bitlis Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Muş Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Muş Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Bingöl Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Bingöl Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Sivas Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Sivas Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Mardin Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Mardin Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Urfa Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Urfa Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Hakkari Hamidiye Alayı\" division_template = \"Hamidiye Alayı\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
+						division = "name = \"Hakkari Hamidiye Alayı\" division_template = \"Aşiret Süvari Tümeni\" start_experience_factor = 0.3 start_equipment_factor = 0.94" owner = PREV
 					}
 				}
 			}
 			TUR = {
 				delete_unit_template_and_units = {
-					division_template = "Hamidiye Alayı"
+					division_template = "Aşiret Süvari Tümeni"
 					disband = no
 				}
 				every_owned_state = {
@@ -16973,7 +17006,10 @@ country_event = {
 	option = {
 		name = ww1_ottoman.143.a
 		FROM = {
-			effect_tooltip = { transfer_state = 104 }
+			effect_tooltip = { 
+				transfer_state = 104 
+				transfer_state = 1261
+			}
 			country_event = {
 				id = ww1_ottoman.144
 				hours = 8
@@ -17051,6 +17087,7 @@ country_event = {
 	option = {
 		name = ww1_ottoman.144.a
 		transfer_state = 104
+		transfer_state = 1261
 	}
 }
 
@@ -17064,6 +17101,7 @@ country_event = {
 	option = {
 		name = ww1_ottoman.145.a
 		add_state_claim = 104
+		add_state_claim = 1261
 		if = {
 			limit = {
 				NOT = {
@@ -17075,7 +17113,7 @@ country_event = {
 			create_wargoal = {
 				target = FROM
 				type = take_claimed_state
-				generator = { 104 }
+				generator = { 104 1261 }
 			}
 		}
 	}
@@ -17418,7 +17456,6 @@ country_event = {
 						owns_state = 1207
 						owns_state = 454
 						owns_state = 856
-						owns_state = 858
 					}
 				}
 				country_event = {
@@ -17435,7 +17472,6 @@ country_event = {
 					state = 1207
 					state = 454
 					state = 856
-					state = 858
 				}
 			}
 			add_core_of = PAL
@@ -18571,12 +18607,15 @@ country_event = {
 							state = 185
 							#state = 200
 							state = 345
+							state = 1255
 							state = 731
+							state = 1256
 							#state = 757
 							state = 758
 							state = 803
 							state = 1225
 							state = 826
+							state = 1257
 						}
 					}
 					185 = {
@@ -18627,6 +18666,7 @@ country_event = {
 						OR = {
 							state = 106
 							state = 203
+							state = 1258
 							state = 759
 							state = 760
 							state = 847
