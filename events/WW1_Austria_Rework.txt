@@ -7314,6 +7314,39 @@ country_event = {
 		name = ww1_austriahungary.207.a
 	}
 }
+#bienerth coalition dissent
+country_event = {
+	id = ww1_austriahungary.210
+	title = ww1_austriahungary.210.t
+	desc = ww1_austriahungary.210.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.210.a
+		activate_mission = AUS_coalition_dissent_mission
+		set_variable = {
+			AUS_coalition_dissent = 0
+		}
+	}
+}
+#dissent over school funding
+country_event = {
+	id = ww1_austriahungary.211
+	title = ww1_austriahungary.211.t
+	desc = ww1_austriahungary.211.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.211.a
+		custom_effect_tooltip = AUS_modify_aps.tt
+		add_to_variable = {
+			AUS_aps_pp_gain = -0.05
+			tooltip = political_power_factor_tt
+		}
+	}
+}
 add_namespace = ww1_austria_quests
 # forts dispatch event
 #country_event = {
