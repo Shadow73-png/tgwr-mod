@@ -660,6 +660,7 @@
 				SER = {
 					remove_state_core = 106
 					remove_state_core = 203
+					remove_state_core = 1258
 					remove_state_core = 1140
 					remove_state_core = 1213
 					set_country_flag = BW1_loser
@@ -5170,28 +5171,6 @@
 						10 = { RUS = { set_country_flag = SOV_AI_RANDOM_THIRD_FORCE } }
 					}
 				}
-				if = {
-					limit = {
-						has_game_rule = {
-							rule = rule_russian_flag
-							option = AHISTORICAL_RUSSIAN_FLAG
-						}
-					}
-					RUS = {
-						set_cosmetic_tag = RUS_ahistorical_flag
-					}
-				}
-				else_if = {
-					limit = {
-						has_game_rule = {
-							rule = rule_russian_flag
-							option = IMPERIAL_RUSSIAN_FLAG
-						}
-					}
-					RUS = {
-						set_cosmetic_tag = RUS_absolutism
-					}
-				}
 			}
 			SIB = {
 				if = {
@@ -6543,7 +6522,37 @@
 									}
 								}
 								transfer_state = 1236
+								transfer_state = 1254
 							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { 
+					tag = MOR
+					FROM = {
+						tag = GUD
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = MOR
+						transfer_troops = no
+					}
+					ROOT = {
+						every_character = {
+							limit = {
+								is_generic_character = no
+								NOT = {
+									is_character = MOR_harry_aubrey_de_vere_maclean
+								}
+							}
+							set_nationality = FROM
+						}
+						every_core_state = {
+							remove_core_of = ROOT
+							add_core_of = FROM
 						}
 					}
 				}
@@ -12373,33 +12382,6 @@
 				}
 				ROOT = {
 					country_event = ww1_china.303
-				}
-			}
-			# Battle of Tiznit
-			if = {
-				limit = {
-					NOT = {
-						has_global_flag = battle_of_tiznit
-					}
-					has_start_date < 1914.1.1
-					ROOT = {
-						has_war_with = GUD
-					}
-					FROM.FROM = {
-						state = 1237
-					}
-				}
-				set_global_flag = battle_of_tiznit
-				every_country = {
-					limit = {
-						any_owned_state = {
-							region = 182
-						}
-					}
-					country_event = {
-						id = ww1_morocco.88
-						hours = 3
-					}
 				}
 			}
 		}
