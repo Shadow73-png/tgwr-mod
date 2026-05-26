@@ -525,43 +525,43 @@ BOS_the_bosnian_diet_dec = {
 			base = 100
 		}
 	}
-	BOS_offer_manpower_austria = {
-		icon = GFX_decision_SWI_no_elected_president
-		allowed = {
-			original_tag = BOS
-		}
-		cost = 15
-		days_remove = 120
-		days_re_enable = 60
-		visible = {
-			original_tag = BOS
-			has_completed_focus = BOS_offer_manpower
-		}
-		available = {
-			has_manpower > 14999
-		}
-		complete_effect = {
-			add_to_variable = {
-				BOS_serb_opinion = -5
-				tooltip = BOS_increase_serb_tt
-			}
-			BOS_parliament_update = yes
-			add_manpower = -15000
-			AUS = {
-				effect_tooltip = {
-					add_manpower = 15000
-				}
-				country_event = ww1_bosnia.67
-			}
-
-		}
-		modifier = {
-			mobilization_speed = -0.5
-		}
-		ai_will_do = {
-			base = 100
-		}
-	}
+	#BOS_offer_manpower_austria = {
+	#	icon = GFX_decision_SWI_no_elected_president
+	#	allowed = {
+	#		original_tag = BOS
+	#	}
+	#	cost = 15
+	#	days_remove = 120
+	#	days_re_enable = 60
+	#	visible = {
+	#		original_tag = BOS
+	#		has_completed_focus = BOS_offer_manpower
+	#	}
+	#	available = {
+	#		has_manpower > 14999
+	#	}
+	#	complete_effect = {
+	#		add_to_variable = {
+	#			BOS_serb_opinion = -5
+	#			tooltip = BOS_increase_serb_tt
+	#		}
+	#		BOS_parliament_update = yes
+	#		add_manpower = -15000
+	#		AUS = {
+	#			effect_tooltip = {
+	#				add_manpower = 15000
+	#			}
+	#			country_event = ww1_bosnia.67
+	#		}
+#
+	#	}
+	#	modifier = {
+	#		mobilization_speed = -0.5
+	#	}
+	#	ai_will_do = {
+	#		base = 100
+	#	}
+	#}
 	BOS_core_FROM = {
 		icon = GFX_decision_SWI_no_elected_president
 		allowed = {
@@ -605,49 +605,49 @@ BOS_the_bosnian_diet_dec = {
 		}
 	}
 
-	BOS_village_patrols_decision = {
-		name = BOS_village_patrols
-		icon = GFX_decision_SWI_no_elected_president
-		allowed = {
-			original_tag = BOS
-		}
-		days_remove = 120
-		visible = {
-			original_tag = BOS
-			has_completed_focus = BOS_village_patrols
-		}
-		available = {
-			has_manpower > 14999
-		}
-		custom_cost_text = 50_pp_15_cp
-		custom_cost_trigger = {
-			has_political_power > 49
-			command_power > 14
-		}
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -15
-				add_political_power = -50
-			}
-		}
-		remove_effect = {
-			custom_effect_tooltip = modify_BOS_diet_tt
-			add_to_variable = {
-				BOS_diet_ws = 0.15
-				tooltip = war_support_factor_tt
-			}
-			custom_effect_tooltip = empty_space_tt
-		}
-		modifier = {
-			# modifier here?
-			war_support_weekly = 0.003
-			stability_weekly = 0.003
-			# daggie this should last whole year or sum idk, idk
-		}
-		ai_will_do = {
-			base = 100
-		}
-	}
+	#BOS_village_patrols_decision = {
+	#	name = BOS_village_patrols
+	#	icon = GFX_decision_SWI_no_elected_president
+	#	allowed = {
+	#		original_tag = BOS
+	#	}
+	#	days_remove = 120
+	#	visible = {
+	#		original_tag = BOS
+	#		has_completed_focus = BOS_village_patrols
+	#	}
+	#	available = {
+	#		has_manpower > 14999
+	#	}
+	#	custom_cost_text = 50_pp_15_cp
+	#	custom_cost_trigger = {
+	#		has_political_power > 49
+	#		command_power > 14
+	#	}
+	#	complete_effect = {
+	#		hidden_effect = {
+	#			add_command_power = -15
+	#			add_political_power = -50
+	#		}
+	#	}
+	#	remove_effect = {
+	#		custom_effect_tooltip = modify_BOS_diet_tt
+	#		add_to_variable = {
+	#			BOS_diet_ws = 0.15
+	#			tooltip = war_support_factor_tt
+	#		}
+	#		custom_effect_tooltip = empty_space_tt
+	#	}
+	#	modifier = {
+	#		# modifier here?
+	#		war_support_weekly = 0.003
+	#		stability_weekly = 0.003
+	#		# daggie this should last whole year or sum idk, idk
+	#	}
+	#	ai_will_do = {
+	#		base = 100
+	#	}
+	#}
 	BOS_electric_grid_introduce = {
 		icon = GFX_decision_SWI_no_elected_president
 		allowed = {
