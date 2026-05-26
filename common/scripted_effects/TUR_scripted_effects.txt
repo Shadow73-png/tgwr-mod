@@ -15734,6 +15734,7 @@ TUR_reduce_serbian_effect = {
 		clamp_variable = { var = TUR_ottoman_required_garrison_factor_serbian min = 0 }
 		custom_effect_tooltip = empty_space
 	}
+	force_update_dynamic_modifier = yes
 }
 
 TUR_reduce_albanian_effect = {
@@ -15822,6 +15823,7 @@ TUR_reduce_albanian_effect = {
 		clamp_variable = { var = TUR_ottoman_resistance_growth_albanian min = 0 }
 		custom_effect_tooltip = empty_space
 	}
+	force_update_dynamic_modifier = yes
 }
 
 TUR_reduce_bulgarian_effect = {
@@ -15865,6 +15867,7 @@ TUR_reduce_bulgarian_effect = {
 		clamp_variable = { var = TUR_ottoman_required_garrison_factor_bulgarian min = 0 }
 		custom_effect_tooltip = empty_space
 	}
+	force_update_dynamic_modifier = yes
 }
 TUR_remove_bulgarians_effect = {
 	if = {
@@ -15978,6 +15981,7 @@ TUR_remove_bulgarians_effect = {
 		divide_temp_variable = { TUR_deport_bulgarians = 100 }
 	}
 	custom_effect_tooltip = TUR_deport_bulgarians_tt
+	force_update_dynamic_modifier = yes
 }
 
 TUR_reduce_greek_effect = {
@@ -16041,6 +16045,7 @@ TUR_reduce_greek_effect = {
 		clamp_variable = { var = TUR_ottoman_state_production_speed_buildings_factor_greek min = 0 }
 		custom_effect_tooltip = empty_space
 	}
+	force_update_dynamic_modifier = yes
 }
 TUR_remove_greeks_effect = {
 	if = {
@@ -16174,6 +16179,7 @@ TUR_remove_greeks_effect = {
 		divide_temp_variable = { TUR_deport_greeks = 100 }
 	}
 	custom_effect_tooltip = TUR_deport_greeks_tt
+	force_update_dynamic_modifier = yes
 }
 
 TUR_reduce_armenians_effect = {
@@ -16219,6 +16225,7 @@ TUR_reduce_armenians_effect = {
 		clamp_variable = { var = TUR_ottoman_enemy_local_supplies_armenian min = 0 }
 		custom_effect_tooltip = empty_space
 	}
+	force_update_dynamic_modifier = yes
 }
 TUR_remove_armenians_effect = {
 	if = {
@@ -16409,6 +16416,7 @@ TUR_remove_armenians_effect = {
 		divide_temp_variable = { TUR_deport_armenians = 100 }
 	}
 	custom_effect_tooltip = TUR_deport_armenians_tt
+	force_update_dynamic_modifier = yes
 }
 
 TUR_reduce_assyrian_effect = {
@@ -16435,6 +16443,7 @@ TUR_reduce_assyrian_effect = {
 		clamp_variable = { var = TUR_ottoman_army_defence_factor_armenian max = 0 }
 		custom_effect_tooltip = empty_space
 	}
+	force_update_dynamic_modifier = yes
 }
 TUR_remove_assyrians_effect = {
 	FROM = {
@@ -16476,6 +16485,7 @@ TUR_remove_assyrians_effect = {
 	multiply_temp_variable = { TUR_deport_assyrians = TUR_apostolic_population_factor_new }
 	divide_temp_variable = { TUR_deport_assyrians = -100 }
 	custom_effect_tooltip = TUR_deport_assyrians_tt
+	force_update_dynamic_modifier = yes
 }
 
 TUR_remove_georgians_effect = {
@@ -16519,6 +16529,577 @@ TUR_remove_georgians_effect = {
 	multiply_temp_variable = { TUR_deport_georgians = TUR_apostolic_population_factor_new }
 	divide_temp_variable = { TUR_deport_georgians = -100 }
 	custom_effect_tooltip = TUR_deport_georgians_tt
+	force_update_dynamic_modifier = yes
+}
+
+TUR_remove_albanian_muslims_effect = {
+	if = {
+		limit = {
+			FROM = {
+				check_variable = {
+					var = TUR_albanian_sunni_state_variable
+					value = -0.3
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		FROM = {
+			remove_dynamic_modifier = { modifier = TUR_albanian_minority }
+			clear_variable = TUR_ottoman_resistance_growth_albanian
+			clear_variable = TUR_albanian_sunni_state_variable
+			if = {
+				limit = {
+					has_resistance = yes
+					is_core_of = ROOT
+					TUR_state_has_minority_modifier = no
+				}
+				cancel_resistance = yes
+			}
+		}
+		set_temp_variable = { TUR_deport_albanian_muslims = FROM.TUR_albanian_sunni_state_variable }
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+			}
+			multiply_temp_variable = { TUR_deport_albanian_muslims = 0 }
+		}
+		if = {
+			limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+			divide_temp_variable = { TUR_deport_albanian_muslims = 2 }
+		}
+		multiply_temp_variable = { TUR_deport_albanian_muslims = TUR_albanian_population_factor_new }
+		multiply_temp_variable = { TUR_deport_albanian_muslims = TUR_sunni_population_factor_new }
+		divide_temp_variable = { TUR_deport_albanian_muslims = -100 }
+	}
+	else = {
+		FROM = {
+			if = {
+				limit = { NOT = { check_variable = { TUR_ottoman_resistance_growth_albanian = -0.05 } } }
+				if = {
+					limit = {
+						check_variable = { TUR_albanian_sunni_remove_variable = 5 }
+						NOT = { has_variable = TUR_albanian_catholic_state_variable }
+					}
+					custom_effect_tooltip = TUR_modify_albanian_minority
+					custom_effect_tooltip = TUR_minority_resistance_growth5
+					add_to_variable = { TUR_ottoman_resistance_growth_albanian = -0.25 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_growth_albanian
+						min = 0
+					}
+					custom_effect_tooltip = empty_space
+				}
+				if = {
+					limit = {
+						check_variable = { TUR_albanian_sunni_remove_variable = 3 }
+						NOT = { has_variable = TUR_albanian_catholic_state_variable }
+					}
+					custom_effect_tooltip = TUR_modify_albanian_minority
+					custom_effect_tooltip = TUR_minority_resistance_growth3
+					add_to_variable = { TUR_ottoman_resistance_growth_albanian = -0.15 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_growth_albanian
+						min = 0
+					}
+					custom_effect_tooltip = empty_space
+				}
+			}
+			add_to_variable = { TUR_albanian_sunni_state_variable = 0.3 }
+		}
+		set_temp_variable = { TUR_deport_albanian_muslims = 0.3 }
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+			}
+			multiply_temp_variable = { TUR_deport_albanian_muslims = 0 }
+		}
+		if = {
+			limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+			divide_temp_variable = { TUR_deport_albanian_muslims = 2 }
+		}
+		multiply_temp_variable = { TUR_deport_albanian_muslims = TUR_albanian_population_factor_new }
+		multiply_temp_variable = { TUR_deport_albanian_muslims = TUR_sunni_population_factor_new }
+		divide_temp_variable = { TUR_deport_albanian_muslims = 100 }
+	}
+	custom_effect_tooltip = TUR_deport_albanian_muslims_tt
+	force_update_dynamic_modifier = yes
+}
+
+TUR_remove_kurdish_muslims_effect = {
+	if = {
+		limit = {
+			FROM = {
+				check_variable = {
+					var = TUR_kurdish_sunni_state_variable
+					value = -0.3
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		FROM = {
+			remove_dynamic_modifier = { modifier = TUR_kurdish_minority }
+			clear_variable = TUR_ottoman_mobilization_speed_kurdish
+			clear_variable = TUR_ottoman_resistance_target_kurdish
+			clear_variable = TUR_ottoman_resistance_decay_kurdish
+			clear_variable = TUR_kurdish_sunni_state_variable
+			if = {
+				limit = {
+					has_resistance = yes
+					is_core_of = ROOT
+					TUR_state_has_minority_modifier = no
+				}
+				cancel_resistance = yes
+			}
+		}
+		set_temp_variable = { TUR_deport_kurdish_muslims = FROM.TUR_kurdish_sunni_state_variable }
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+			}
+			multiply_temp_variable = { TUR_deport_kurdish_muslims = 0 }
+		}
+		if = {
+			limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+			divide_temp_variable = { TUR_deport_kurdish_muslims = 2 }
+		}
+		multiply_temp_variable = { TUR_deport_kurdish_muslims = TUR_kurdish_population_factor_new }
+		multiply_temp_variable = { TUR_deport_kurdish_muslims = TUR_sunni_population_factor_new }
+		divide_temp_variable = { TUR_deport_kurdish_muslims = -100 }
+	}
+	else = {
+		FROM = {
+			if = {
+				limit = { NOT = { check_variable = { TUR_ottoman_mobilization_speed_kurdish = -0.05 } } }
+				if = {
+					limit = { check_variable = { TUR_kurdish_sunni_remove_variable = 4 } }
+					custom_effect_tooltip = TUR_modify_kurdish_minority
+					custom_effect_tooltip = TUR_minority_mobilization_speed4
+					add_to_variable = { TUR_ottoman_mobilization_speed_kurdish = 0.2 }
+					clamp_variable = {
+						var = TUR_ottoman_mobilization_speed_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target4
+					add_to_variable = { TUR_ottoman_resistance_target_kurdish = 0.12 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_decay4
+					add_to_variable = { TUR_ottoman_resistance_decay_kurdish = 0.1 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_decay_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = empty_space
+				}
+				if = {
+					limit = { check_variable = { TUR_kurdish_sunni_remove_variable = 3 } }
+					custom_effect_tooltip = TUR_modify_kurdish_minority
+					custom_effect_tooltip = TUR_minority_mobilization_speed3
+					add_to_variable = { TUR_ottoman_mobilization_speed_kurdish = 0.15 }
+					clamp_variable = {
+						var = TUR_ottoman_mobilization_speed_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target3
+					add_to_variable = { TUR_ottoman_resistance_target_kurdish = 0.09 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_decay3
+					add_to_variable = { TUR_ottoman_resistance_decay_kurdish = 0.075 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_decay_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = empty_space
+				}
+				if = {
+					limit = { check_variable = { TUR_kurdish_sunni_remove_variable = 2 } }
+					custom_effect_tooltip = TUR_modify_kurdish_minority
+					custom_effect_tooltip = TUR_minority_mobilization_speed2
+					add_to_variable = { TUR_ottoman_mobilization_speed_kurdish = 0.1 }
+					clamp_variable = {
+						var = TUR_ottoman_mobilization_speed_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target2
+					add_to_variable = { TUR_ottoman_resistance_target_kurdish = 0.06 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_decay2
+					add_to_variable = { TUR_ottoman_resistance_decay_kurdish = 0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_decay_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = empty_space
+				}
+				if = {
+					limit = { check_variable = { TUR_kurdish_sunni_remove_variable = 1 } }
+					custom_effect_tooltip = TUR_modify_kurdish_minority
+					custom_effect_tooltip = TUR_minority_mobilization_speed1
+					add_to_variable = { TUR_ottoman_mobilization_speed_kurdish = 0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_mobilization_speed_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target1
+					add_to_variable = { TUR_ottoman_resistance_target_kurdish = 0.03 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_decay1
+					add_to_variable = { TUR_ottoman_resistance_decay_kurdish = 0.025 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_decay_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = empty_space
+				}
+				else = {
+					custom_effect_tooltip = TUR_modify_kurdish_minority
+					custom_effect_tooltip = TUR_minority_mobilization_speed1
+					add_to_variable = { TUR_ottoman_mobilization_speed_kurdish = 0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_mobilization_speed_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target1
+					add_to_variable = { TUR_ottoman_resistance_target_kurdish = 0.03 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_decay1
+					add_to_variable = { TUR_ottoman_resistance_decay_kurdish = 0.025 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_decay_kurdish
+						max = 0
+					}
+					custom_effect_tooltip = empty_space
+				}
+			}
+			add_to_variable = { TUR_kurdish_sunni_state_variable = 0.3 }
+		}
+		set_temp_variable = { TUR_deport_kurdish_muslims = 0.3 }
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+			}
+			multiply_temp_variable = { TUR_deport_kurdish_muslims = 0 }
+		}
+		if = {
+			limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+			divide_temp_variable = { TUR_deport_kurdish_muslims = 2 }
+		}
+		multiply_temp_variable = { TUR_deport_kurdish_muslims = TUR_kurdish_population_factor_new }
+		multiply_temp_variable = { TUR_deport_kurdish_muslims = TUR_sunni_population_factor_new }
+		divide_temp_variable = { TUR_deport_kurdish_muslims = 100 }
+	}
+	custom_effect_tooltip = TUR_deport_kurdish_muslims_tt
+	force_update_dynamic_modifier = yes
+}
+
+TUR_remove_georgian_muslims_effect = {
+	if = {
+		limit = {
+			FROM = {
+				check_variable = {
+					var = TUR_georgian_sunni_state_variable
+					value = -0.3
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		FROM = {
+			remove_dynamic_modifier = { modifier = TUR_georgian_minority }
+			clear_variable = TUR_ottoman_army_speed_factor_for_controller_georgian
+			clear_variable = TUR_ottoman_enemy_local_supplies_georgian
+			clear_variable = TUR_georgian_sunni_state_variable
+			if = {
+				limit = {
+					has_resistance = yes
+					is_core_of = ROOT
+					TUR_state_has_minority_modifier = no
+				}
+				cancel_resistance = yes
+			}
+		}
+		set_temp_variable = { TUR_deport_georgian_muslims = FROM.TUR_georgian_sunni_state_variable }
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+			}
+			multiply_temp_variable = { TUR_deport_georgian_muslims = 0 }
+		}
+		if = {
+			limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+			divide_temp_variable = { TUR_deport_georgian_muslims = 2 }
+		}
+		multiply_temp_variable = { TUR_deport_georgian_muslims = TUR_georgian_population_factor_new }
+		multiply_temp_variable = { TUR_deport_georgian_muslims = TUR_sunni_population_factor_new }
+		divide_temp_variable = { TUR_deport_georgian_muslims = -100 }
+	}
+	else = {
+		FROM = {
+			if = {
+				limit = { NOT = { check_variable = { TUR_ottoman_mobilization_speed_georgian = -0.05 } } }
+				if = {
+					limit = { check_variable = { TUR_georgian_sunni_remove_variable = 4 } }
+					custom_effect_tooltip = TUR_modify_georgian_minority
+					custom_effect_tooltip = TUR_minority_army_speed_factor_for_controller4
+					add_to_variable = { TUR_ottoman_army_speed_factor_for_controller_georgian = 0.1 }
+					clamp_variable = {
+						var = TUR_ottoman_army_speed_factor_for_controller_georgian
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_enemy_local_supplies4
+					add_to_variable = { TUR_ottoman_enemy_local_supplies_georgian = -0.2 }
+					clamp_variable = {
+						var = TUR_ottoman_enemy_local_supplies_georgian
+						min = 0
+					}
+					custom_effect_tooltip = empty_space
+				}
+			}
+			add_to_variable = { TUR_georgian_sunni_state_variable = 0.3 }
+		}
+		set_temp_variable = { TUR_deport_georgian_muslims = 0.3 }
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+			}
+			multiply_temp_variable = { TUR_deport_georgian_muslims = 0 }
+		}
+		if = {
+			limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+			divide_temp_variable = { TUR_deport_georgian_muslims = 2 }
+		}
+		multiply_temp_variable = { TUR_deport_georgian_muslims = TUR_georgian_population_factor_new }
+		multiply_temp_variable = { TUR_deport_georgian_muslims = TUR_sunni_population_factor_new }
+		divide_temp_variable = { TUR_deport_georgian_muslims = 100 }
+	}
+	custom_effect_tooltip = TUR_deport_georgian_muslims_tt
+	force_update_dynamic_modifier = yes
+}
+
+TUR_remove_arab_muslims_effect = {
+	if = {
+		limit = {
+			FROM = {
+				check_variable = {
+					var = TUR_arab_sunni_state_variable
+					value = -0.3
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		FROM = {
+			remove_dynamic_modifier = { modifier = TUR_arab_minority }
+			clear_variable = TUR_ottoman_local_supplies_for_controller_arab
+			clear_variable = TUR_ottoman_resistance_target_arab
+			clear_variable = TUR_arab_sunni_state_variable
+			if = {
+				limit = {
+					has_resistance = yes
+					is_core_of = ROOT
+					TUR_state_has_minority_modifier = no
+				}
+				cancel_resistance = yes
+			}
+		}
+		set_temp_variable = { TUR_deport_arab_muslims = FROM.TUR_arab_sunni_state_variable }
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+			}
+			multiply_temp_variable = { TUR_deport_arab_muslims = 0 }
+		}
+		if = {
+			limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+			divide_temp_variable = { TUR_deport_arab_muslims = 2 }
+		}
+		multiply_temp_variable = { TUR_deport_arab_muslims = TUR_arab_population_factor_new }
+		multiply_temp_variable = { TUR_deport_arab_muslims = TUR_sunni_population_factor_new }
+		divide_temp_variable = { TUR_deport_arab_muslims = -100 }
+	}
+	else = {
+		FROM = {
+			if = {
+				limit = { NOT = { check_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.05 } } }
+				if = {
+					limit = { check_variable = { TUR_arab_sunni_remove_variable = 5 } }
+					custom_effect_tooltip = TUR_modify_arab_minority
+					custom_effect_tooltip = TUR_minority_local_supplies_for_controller5
+					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.15 }
+					clamp_variable = {
+						var = TUR_ottoman_local_supplies_for_controller_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target_arab5
+					add_to_variable = { TUR_ottoman_resistance_target_arab = -0.05 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_decay4
+					custom_effect_tooltip = empty_space
+				}
+				if = {
+					limit = { check_variable = { TUR_arab_sunni_remove_variable = 4 } }
+					custom_effect_tooltip = TUR_modify_arab_minority
+					custom_effect_tooltip = TUR_minority_local_supplies_for_controller4
+					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.12 }
+					clamp_variable = {
+						var = TUR_ottoman_local_supplies_for_controller_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target_arab4
+					add_to_variable = { TUR_ottoman_resistance_target_arab = -0.04 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_decay4
+					custom_effect_tooltip = empty_space
+				}
+				if = {
+					limit = { check_variable = { TUR_arab_sunni_remove_variable = 3 } }
+					custom_effect_tooltip = TUR_modify_arab_minority
+					custom_effect_tooltip = TUR_minority_local_supplies_for_controller3
+					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.09 }
+					clamp_variable = {
+						var = TUR_ottoman_local_supplies_for_controller_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target_arab3
+					add_to_variable = { TUR_ottoman_resistance_target_arab = -0.03 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_decay3
+					custom_effect_tooltip = empty_space
+				}
+				if = {
+					limit = { check_variable = { TUR_arab_sunni_remove_variable = 2 } }
+					custom_effect_tooltip = TUR_modify_arab_minority
+					custom_effect_tooltip = TUR_minority_local_supplies_for_controller2
+					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.06 }
+					clamp_variable = {
+						var = TUR_ottoman_local_supplies_for_controller_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target2
+					add_to_variable = { TUR_ottoman_resistance_target_arab = -0.02 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target_arab2
+					custom_effect_tooltip = empty_space
+				}
+				if = {
+					limit = { check_variable = { TUR_arab_sunni_remove_variable = 1 } }
+					custom_effect_tooltip = TUR_modify_arab_minority
+					custom_effect_tooltip = TUR_minority_local_supplies_for_controller1
+					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.03 }
+					clamp_variable = {
+						var = TUR_ottoman_local_supplies_for_controller_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target_arab1
+					add_to_variable = { TUR_ottoman_resistance_target_arab = -0.01 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_decay1
+					custom_effect_tooltip = empty_space
+				}
+				else = {
+					custom_effect_tooltip = TUR_modify_arab_minority
+					custom_effect_tooltip = TUR_minority_local_supplies_for_controller1
+					add_to_variable = { TUR_ottoman_local_supplies_for_controller_arab = -0.03 }
+					clamp_variable = {
+						var = TUR_ottoman_local_supplies_for_controller_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_target_arab1
+					add_to_variable = { TUR_ottoman_resistance_target_arab = -0.01 }
+					clamp_variable = {
+						var = TUR_ottoman_resistance_target_arab
+						max = 0
+					}
+					custom_effect_tooltip = TUR_minority_resistance_decay1
+					custom_effect_tooltip = empty_space
+				}
+			}
+			add_to_variable = { TUR_arab_sunni_state_variable = 0.3 }
+		}
+		set_temp_variable = { TUR_deport_arab_muslims = 0.3 }
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+						has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+					}
+				}
+			}
+			multiply_temp_variable = { TUR_deport_arab_muslims = 0 }
+		}
+		if = {
+			limit = { FROM = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+			divide_temp_variable = { TUR_deport_arab_muslims = 2 }
+		}
+		multiply_temp_variable = { TUR_deport_arab_muslims = TUR_arab_population_factor_new }
+		multiply_temp_variable = { TUR_deport_arab_muslims = TUR_sunni_population_factor_new }
+		divide_temp_variable = { TUR_deport_arab_muslims = 100 }
+	}
+	custom_effect_tooltip = TUR_deport_arab_muslims_tt
+	force_update_dynamic_modifier = yes
 }
 
 TUR_reduce_arab_effect_egypt = {
@@ -16542,6 +17123,7 @@ TUR_reduce_arab_effect_egypt = {
 		}
 		custom_effect_tooltip = empty_space
 	}
+	force_update_dynamic_modifier = yes
 }
 
 TUR_create_suez_vilayet = {
@@ -16570,7 +17152,7 @@ TUR_create_suez_vilayet = {
 			}
 		}
 	}
-	TUR_new_system_trial = yes
+	TUR_reload_minority_values = yes
 }
 TUR_create_alexandria_vilayet = {
 	custom_effect_tooltip = TUR_create_alexandria_vilayet_tt
@@ -16620,7 +17202,7 @@ TUR_create_alexandria_vilayet = {
 			}
 		}
 	}
-	TUR_new_system_trial = yes
+	TUR_reload_minority_values = yes
 }
 TUR_create_cairo_vilayet = {
 	custom_effect_tooltip = TUR_create_cairo_vilayet_tt
@@ -16651,7 +17233,7 @@ TUR_create_cairo_vilayet = {
 			}
 		}
 	}
-	TUR_new_system_trial = yes
+	TUR_reload_minority_values = yes
 }
 TUR_create_aswan_vilayet = {
 	custom_effect_tooltip = TUR_create_aswan_vilayet_tt
@@ -16679,7 +17261,7 @@ TUR_create_aswan_vilayet = {
 			}
 		}
 	}
-	TUR_new_system_trial = yes
+	TUR_reload_minority_values = yes
 }
 TUR_create_khartoum_vilayet = {
 	custom_effect_tooltip = TUR_create_khartoum_vilayet_tt
@@ -16707,7 +17289,7 @@ TUR_create_khartoum_vilayet = {
 			}
 		}
 	}
-	TUR_new_system_trial = yes
+	TUR_reload_minority_values = yes
 }
 TUR_create_bosnia_vilayet = {
 	custom_effect_tooltip = TUR_create_bosnia_vilayet_tt
@@ -16735,5 +17317,5 @@ TUR_create_bosnia_vilayet = {
 			}
 		}
 	}
-	TUR_new_system_trial = yes
+	TUR_reload_minority_values = yes
 }

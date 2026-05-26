@@ -36,7 +36,7 @@ debug_decisions = {
 				tag = ARA
 			}
 		}
-		complete_effect = { TUR_new_system_trial = yes }
+		complete_effect = { TUR_reload_minority_values = yes }
 		ai_will_do = { base = 0 }
 	}
 	TUR_reload_centralization_values = {
@@ -2588,7 +2588,7 @@ TUR_millet_system = {
 			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			TUR_remove_armenians_effect = yes
 			FROM_add_1_centralization = yes
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -2669,7 +2669,7 @@ TUR_millet_system = {
 			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			TUR_remove_armenians_effect = yes
 			FROM_add_1_centralization = yes
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -2786,7 +2786,7 @@ TUR_millet_system = {
 				custom_effect_tooltip = probably_lead_to_war_with_rus_tt
 			}
 			set_country_flag = TUR_lift_the_armenian_reforms
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 		}
 		ai_will_do = {
 			base = 50
@@ -4066,7 +4066,7 @@ TUR_millet_system = {
 				limit = { FROM = { has_dynamic_modifier = { modifier = TUR_haci_adil_committee } } }
 				add_stability = 0.002
 			}
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -4176,7 +4176,7 @@ TUR_millet_system = {
 			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			TUR_remove_greeks_effect = yes
 			FROM_add_1_centralization = yes
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -4205,6 +4205,14 @@ TUR_millet_system = {
 		targets = { 554 553 454 291 874 }
 		target_root_trigger = {
 			OR = {
+				has_completed_focus = TUR_central_administration_in_syria
+				has_completed_focus = TUR_the_ideal_province
+				has_completed_focus = TUR_entrench_rule_in_mesapotamia
+			}
+		}
+		visible = {
+			controls_state = FROM
+			OR = {
 				AND = {
 					FROM = {
 						OR = {
@@ -4229,7 +4237,6 @@ TUR_millet_system = {
 				}
 			}
 		}
-		visible = { controls_state = FROM }
 		fire_only_once = yes
 		complete_effect = {
 			if = {
@@ -4683,7 +4690,7 @@ TUR_millet_system = {
 				}
 				TRS_increase_arab_opposition = yes
 			}
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		ai_will_do = { base = 100 }
@@ -5520,7 +5527,7 @@ TUR_millet_system = {
 				limit = { FROM = { has_dynamic_modifier = { modifier = TUR_haci_adil_committee } } }
 				add_stability = 0.002
 			}
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -5692,7 +5699,7 @@ TUR_millet_system = {
 					clr_state_flag = TUR_semi_autonomous_vilayet
 				}
 			}
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 		}
 		ai_will_do = {
 			base = 0
@@ -5889,7 +5896,7 @@ TUR_millet_system = {
 			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			remove_dynamic_modifier = { modifier = TUR_assyrian_minority }
 			FROM_add_1_centralization = yes
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -5964,7 +5971,7 @@ TUR_millet_system = {
 			add_equipment_to_stockpile = { type = train_equipment amount = 3 }
 			TUR_remove_assyrians_effect = yes
 			FROM_add_1_centralization = yes
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			ottoman_centralization_variable_check = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
@@ -6502,7 +6509,7 @@ TUR_millet_system = {
 				}
 			}
 			custom_effect_tooltip = TUR_integrate_armenian_citizens_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		ai_will_do = { base = 30 }
@@ -6831,7 +6838,7 @@ TUR_millet_system = {
 				}
 			}
 			custom_effect_tooltip = TUR_integrate_arab_citizens_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		ai_will_do = { base = 30 }
@@ -6921,7 +6928,7 @@ TUR_millet_system = {
 				}
 			}
 			custom_effect_tooltip = TUR_integrate_kurdish_citizens_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		ai_will_do = { base = 30 }
@@ -7006,7 +7013,7 @@ TUR_millet_system = {
 				}
 			}
 			custom_effect_tooltip = TUR_integrate_jewish_citizens_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 		}
 		cancel_trigger = { NOT = { controls_state = FROM } }
 		ai_will_do = { base = 30 }
@@ -7094,7 +7101,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -7201,7 +7208,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -7211,7 +7218,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -7256,7 +7263,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -7317,7 +7324,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -7327,7 +7334,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -7417,7 +7424,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -7547,7 +7554,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -7557,7 +7564,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -7632,7 +7639,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -7739,7 +7746,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -7749,7 +7756,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
 			add_to_variable = { TUR_reapproachment_with_level_345 = -10 }
         }
@@ -7810,7 +7817,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -7894,7 +7901,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -7904,7 +7911,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -7964,7 +7971,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -8048,7 +8055,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -8058,7 +8065,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -8103,7 +8110,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -8164,7 +8171,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -8174,7 +8181,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -8219,7 +8226,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -8280,7 +8287,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -8290,7 +8297,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -8335,7 +8342,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -8396,7 +8403,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -8406,7 +8413,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -8451,7 +8458,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -8512,7 +8519,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -8522,7 +8529,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -8582,7 +8589,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -8666,7 +8673,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -8676,7 +8683,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -8751,7 +8758,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -8858,7 +8865,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -8868,7 +8875,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -8928,7 +8935,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -9012,7 +9019,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -9022,7 +9029,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -9092,7 +9099,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -9192,7 +9199,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -9202,7 +9209,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -9262,7 +9269,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -9346,7 +9353,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -9356,7 +9363,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -9411,7 +9418,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -9488,7 +9495,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -9498,7 +9505,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -9978,7 +9985,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -10108,7 +10115,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -10118,7 +10125,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -10468,7 +10475,7 @@ TUR_millet_system = {
 								compare = less_than_or_equals
 							}
 							check_variable = {
-								var = TUR_ottoman_local_manpower
+								var = TUR_ottoman_local_manpower_turkish
 								value = -0.02
 								compare = less_than_or_equals
 							}
@@ -10554,7 +10561,7 @@ TUR_millet_system = {
                             compare = less_than_or_equals
                         }
                         check_variable = {
-                            var = TUR_ottoman_local_manpower
+                            var = TUR_ottoman_local_manpower_turkish
                             value = -0.02
                             compare = less_than_or_equals
                         }
@@ -10564,7 +10571,7 @@ TUR_millet_system = {
                 custom_effect_tooltip = TUR_minority_local_building_slots_factor1
                 add_to_variable = { TUR_ottoman_local_building_slots_factor_turkish = 0.02 }
                 custom_effect_tooltip = TUR_minority_local_manpower1
-                add_to_variable = { TUR_ottoman_local_manpower = 0.02 }
+                add_to_variable = { TUR_ottoman_local_manpower_turkish = 0.02 }
             }
         }
     }
@@ -10692,6 +10699,153 @@ TUR_millet_system = {
             }
         }
     }
+	TUR_integrate_albanian_muslims = {
+		icon = GFX_TUR_integrate_albanian_muslims
+		allowed = { original_tag = TUR }
+		state_target = yes
+		targets = { 44 106 203 758 760 761 803 847 848 870 871 1213 1214 1215 1225 1240 }
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = { modifier = TUR_albanian_minority }
+				check_variable = { TUR_albanian_sunni_state_variable < 0 }
+			}
+		}
+		on_map_mode = map_only
+		target_root_trigger = { has_completed_focus = TUR_win_over_the_albanian_muslims }
+		visible = { controls_state = FROM }
+		cost = 30
+		days_remove = 70
+		remove_effect = {
+			TUR_remove_albanian_muslims_effect = yes
+			FROM_add_1_centralization = yes
+			TUR_reload_minority_values = yes
+			ottoman_centralization_variable_check = yes
+		}
+		cancel_trigger = { NOT = { controls_state = FROM } }
+		ai_will_do = { base = 50 }
+	}
+	TUR_integrate_kurdish_muslims = {
+		icon = GFX_TUR_integrate_kurdish_muslims
+		allowed = { original_tag = TUR }
+		state_target = yes
+		targets = { 350 352 353 676 680 806 828 829 879 881 883 884 1022 1025 1027 1028 1029 1033 }
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = { modifier = TUR_kurdish_minority }
+				check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+			}
+		}
+		on_map_mode = map_only
+		target_root_trigger = { has_completed_focus = TUR_unite_around_the_caliph }
+		visible = { controls_state = FROM }
+		cost = 30
+		days_remove = 70
+		remove_effect = {
+			TUR_remove_kurdish_muslims_effect = yes
+			FROM_add_1_centralization = yes
+			TUR_reload_minority_values = yes
+			ottoman_centralization_variable_check = yes
+		}
+		cancel_trigger = { NOT = { controls_state = FROM } }
+		ai_will_do = { base = 50 }
+	}
+	TUR_integrate_georgian_muslims = {
+		icon = GFX_TUR_integrate_georgian_muslims
+		allowed = { original_tag = TUR }
+		state_target = yes
+		targets = { 1034 }
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = { modifier = TUR_georgian_minority }
+				check_variable = { TUR_georgian_sunni_state_variable < 0 }
+			}
+		}
+		on_map_mode = map_only
+		target_root_trigger = { has_completed_focus = TUR_unite_around_the_caliph }
+		visible = { controls_state = FROM }
+		cost = 30
+		days_remove = 70
+		remove_effect = {
+			TUR_remove_georgian_muslims_effect = yes
+			FROM_add_1_centralization = yes
+			TUR_reload_minority_values = yes
+			ottoman_centralization_variable_check = yes
+		}
+		cancel_trigger = { NOT = { controls_state = FROM } }
+		ai_will_do = { base = 50 }
+	}
+	TUR_integrate_arab_muslims = {
+		icon = GFX_TUR_integrate_arab_muslims
+		allowed = { original_tag = TUR }
+		state_target = yes
+		targets = { 291 293 446 447 448 450 452 453 454 455 456 551 553 554 654 662 676 677 679 680 747 804 829 852 853 856 858 859 874 878 879 883 884 885 904 1021 1023 1028 1029 1058 1060 1061 1122 1124 1128 1146 1149 1154 1155 1156 1157 }
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = { modifier = TUR_arab_minority }
+				check_variable = { TUR_arab_sunni_state_variable < 0 }
+			}
+		}
+		on_map_mode = map_only
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TUR_placate_libyan_muslims
+				has_completed_focus = TUR_integrate_syrian_muslims
+				has_completed_focus = TUR_mend_sectarian_schism_in_iraq
+				has_completed_focus = TUR_integrate_the_peninsula
+			}
+		}
+		visible = {
+			controls_state = FROM
+			OR = {
+				AND = {
+					FROM = { has_state_flag = TUR_trablusgarp }
+					has_completed_focus = TUR_placate_libyan_muslims
+				}
+				AND = {
+					FROM = {
+						OR = {
+							has_state_flag = TUR_aleppo
+							has_state_flag = TUR_deir_ez_zor
+							has_state_flag = TUR_beirut
+							has_state_flag = TUR_damascus
+							has_state_flag = TUR_jerusalem
+						}
+					}
+					has_completed_focus = TUR_integrate_syrian_muslims
+				}
+				AND = {
+					FROM = {
+						OR = {
+							has_state_flag = TUR_mosul
+							has_state_flag = TUR_baghdad
+							has_state_flag = TUR_basra
+						}
+					}
+					has_completed_focus = TUR_mend_sectarian_schism_in_iraq
+				}
+				AND = {
+					FROM = {
+						OR = {
+							has_state_flag = TUR_hejaz
+							has_state_flag = TUR_yemen
+						}
+					}
+					has_completed_focus = TUR_integrate_the_peninsula
+				}
+				always = no
+			}
+		}
+		cost = 30
+		days_remove = 70
+		remove_effect = {
+			TUR_remove_arab_muslims_effect = yes
+			FROM_add_1_centralization = yes
+			TUR_reload_minority_values = yes
+			ottoman_centralization_variable_check = yes
+		}
+		cancel_trigger = { NOT = { controls_state = FROM } }
+		ai_will_do = { base = 50 }
+	}
 }
 
 peace_deals = {
@@ -21348,7 +21502,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_arab_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_abdulhamid_zehravi2_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -21411,7 +21565,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_arab_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_abdulhamid_zehravi2_tt2
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_abdulhamid_zehravi
 			if = {
@@ -21969,7 +22123,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_arab_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_sukru_el_aseli2_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -22032,7 +22186,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_arab_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_sukru_el_aseli2_tt2
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_sukru_el_aseli
 			if = {
@@ -22394,7 +22548,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			force_update_dynamic_modifier = yes
 			custom_effect_tooltip = TUR_utilize_mehmed_serif_pasa_tt
 			add_to_variable = { TUR_kurdish_population_factor = 0.001 }
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
 				if = {
@@ -22452,7 +22606,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			force_update_dynamic_modifier = yes
 			custom_effect_tooltip = TUR_dismiss_mehmed_serif_pasa_tt
 			add_to_variable = { TUR_kurdish_population_factor = -0.001 }
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			remove_decision = TUR_utilize_mehmed_serif_pasa
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -23824,7 +23978,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_greek_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_kozmidi_efendi2_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -23909,7 +24063,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_greek_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_kozmidi_efendi2_tt2
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_kozmidi_efendi
 			if = {
@@ -24018,7 +24172,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_serbian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_sava_stojanovic2_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -24098,7 +24252,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_serbian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_sava_stojanovic2_tt2
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_sava_stojanovic
 			if = {
@@ -24223,7 +24377,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_bulgarian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_todor_pavlof2_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -24306,7 +24460,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_bulgarian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_todor_pavlof2_tt2
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_todor_pavlof
 			if = {
@@ -24431,7 +24585,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_bulgarian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_dimitar_vlahov2_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -24514,7 +24668,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_bulgarian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_dimitar_vlahov2_tt2
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_dimitar_vlahov
 			if = {
@@ -24624,7 +24778,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_hampartsoum_boyadjian2_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -24707,7 +24861,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_hampartsoum_boyadjian2_tt2
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_hampartsoum_boyadjian
 			if = {
@@ -24820,7 +24974,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_nazaret_daghavarian2_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -24904,7 +25058,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_nazaret_daghavarian2_tt2
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_nazaret_daghavarian
 			if = {
@@ -25015,7 +25169,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_karakin_pastermadjian2_tt
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			if = {
 				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
@@ -25099,7 +25253,7 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_karakin_pastermadjian2_tt2
-			TUR_new_system_trial = yes
+			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_karakin_pastermadjian
 			if = {
