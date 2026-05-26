@@ -1948,339 +1948,339 @@ focus = {
 		}
 	}#wip? or is it done need to test prob
 
-	focus = {
-		id = BOS_the_show_goes_on
-		icon = GFX_focus_AUH_parliament
-		cost = 0
-		x = 13
-		y = 5
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-			always = no
-			has_global_flag = great_war
-		}
-		completion_reward = {
-			#pp and stab through event or idk idgaf
-			#not good
-		}
-	}
-	focus = {
-		id = BOS_politics
-		icon = GFX_focus_AUH_parliament
-		cost = 5
-		x = 2
-		y = 1
-		relative_position_id = BOS_the_show_goes_on
-		prerequisite = {
-			focus = BOS_the_show_goes_on
-		}
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-
-		}
-		mutually_exclusive = {
-			focus = BOS_offer_forest_concesions
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-			always = no
-			has_global_flag = great_war
-		}
-		completion_reward = {
-			#foreign stuff here sum decisions
-			#myb some new crazy politician note to self sidz take a chill pill lock in
-		}
-	}
-	focus = {
-		id = BOS_offer_forest_concesions
-		icon = GFX_focus_generic_concessions
-		cost = 0
-		x = -2
-		y = 1
-		relative_position_id = BOS_the_show_goes_on
-		prerequisite = {
-			focus = BOS_the_show_goes_on
-		}
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_VIENNA_RELATIONS
-		}
-		mutually_exclusive = {
-			focus = BOS_politics
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-			always = no
-			has_global_flag = great_war
-		}
-
-		completion_reward = {
-			#event for bosnia then an event for austria with idk less consumer goods
-			#anger serbs ig, lower stability even idk ill think later
-		}
-	}
-	focus = {
-		id = BOS_second_election
-		icon = GFX_none
-		cost = 5
-		x = 0
-		y = 3
-		relative_position_id = BOS_the_show_goes_on
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_VIENNA_RELATIONS
-		}
-		prerequisite = {
-			focus = BOS_get_ready
-			focus = BOS_offer_forest_concesions
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-		}
-		completion_reward = {
-			#take away pp (a lot), impossible to cancel (also completes the timer)
-		}
-	}#WIP
-	
-	focus = {
-		id = BOS_village_patrols
-		icon = GFX_focus_secret_police
-		cost = 10
-		x = -1
-		y = 4
-		relative_position_id = BOS_the_show_goes_on
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_VIENNA_RELATIONS
-		}
-		prerequisite = {
-			focus = BOS_school_rework
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-			always = no
-		}
-		completion_reward = {
-			unlock_decision_tooltip = {
-				decision = BOS_village_patrols_decision
-				show_effect_tooltip = yes
-				show_modifiers = yes
-			}
-		}
-	}#wip
-	focus = {
-		id = BOS_offer_manpower
-		icon = GFX_focus_generic_manpower
-		cost = 10
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = BOS_offer_forest_concesions
-			focus = BOS_politics
-		}
-		relative_position_id = BOS_offer_forest_concesions
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_VIENNA_RELATIONS
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-			#if bosnia has 10k manpower idk
-		}
-		completion_reward = {
-			unlock_decision_tooltip = {
-				decision = BOS_offer_manpower_austria
-				show_effect_tooltip = yes
-				show_modifiers = yes
-			}
-
-		}
-	}
-
-	focus = {
-		id = BOS_get_ready
-		icon = GFX_focus_generic_voting
-		cost = 10
-		x = 1
-		y = 2
-		relative_position_id = BOS_the_show_goes_on
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-
-		}
-		prerequisite = {
-			focus = BOS_politics
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-			always = no
-		}
-		completion_reward = {
-		}
-	}#WIP
-	focus = {
-		id = BOS_school_rework
-		icon = GFX_focus_generic_education_tgwr
-		cost = 10
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = BOS_offer_forest_concesions
-			focus = BOS_politics
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-		}
-		relative_position_id = BOS_offer_forest_concesions
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_VIENNA_RELATIONS
-		}
-		completion_reward = {
-			country_event = {
-				id = ww1_bosnia.74
-				days = 1
-			}
-			custom_effect_tooltip = BOS_if_bill_passes
-			custom_effect_tooltip = modify_BOS_TUR_tt
-			effect_tooltip = {
-				add_to_variable = {
-					BOS_TUR_research_speed = 0.15
-					tooltip = research_speed_factor_tt
-				}
-			}
-		}
-	}
-	focus = {
-		id = BOS_regional_schools
-		icon = GFX_focus_generic_education_tgwr
-		cost = 10
-		x = -1
-		y = 3
-		relative_position_id = BOS_offer_forest_concesions
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_VIENNA_RELATIONS
-		}
-		prerequisite = {
-			focus = BOS_school_rework
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-		}
-		completion_reward = {
-			#influence reminisce of ottoman era idea give improve research speed
-		}
-	}#WIP
-	focus = {
-		id = BOS_tipping_the_scale
-		icon = GFX_focus_generic_sympathetic_judges
-		cost = 10
-		x = 2
-		y = 3
-		relative_position_id = BOS_the_show_goes_on
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-
-		}
-		prerequisite = {
-			focus = BOS_get_ready
-		}
-		prerequisite = {
-			#focus = BOS_second_election
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-		}
-		completion_reward = {
-			#event about tipping the scale duuuhh
-		}
-	}#wip
-	focus = {
-		id = BOS_le_ze_success
-		icon = GFX_goal_generic_major_alliance
-		cost = 10
-		x = 1
-		y = 4
-		relative_position_id = BOS_the_show_goes_on
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-
-		}
-		prerequisite = {
-			focus = BOS_get_ready
-		}
-		prerequisite = {
-			#focus = BOS_second_election
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-			#tipping the scale event happened
-		}
-		completion_reward = {
-
-		}
-	}#wip
-	focus = {
-		id = BOS_multiethnic
-		icon = GFX_TUR_ease_ethnic_tensions
-		cost = 10
-		x = 1
-		y = 1
-		relative_position_id = BOS_regional_schools
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-
-		}
-		mutually_exclusive = {
-			focus = BOS_trialism
-		}
-		prerequisite = {
-			focus = BOS_regional_schools
-		}
-		prerequisite = {
-			focus = BOS_village_patrols
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-			#total reelection has happened and stable majority exists
-		}
-		completion_reward = {
-			#unlock some decisions ig
-		}
-	}#WIP
-	focus = {
-		id = BOS_trialism
-		icon = GFX_focus_YUG_deal
-		cost = 10
-		x = 1
-		y = 3
-		relative_position_id = BOS_get_ready
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-
-		}
-		mutually_exclusive = {
-			focus = BOS_multiethnic
-		}
-		prerequisite = {
-			focus = BOS_village_patrols
-		}
-		prerequisite = {
-			focus = BOS_le_ze_success
-		}
-		
-		available = {
-			bosnia_is_AUS_subject = yes
-		}
-		completion_reward = {
-			#myb vienna suspends the diet fo real this time
-		}
-	}#WIP
+	#focus = {
+	#	id = BOS_the_show_goes_on
+	#	icon = GFX_focus_AUH_parliament
+	#	cost = 0
+	#	x = 13
+	#	y = 5
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+#
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#		always = no
+	#		has_global_flag = great_war
+	#	}
+	#	completion_reward = {
+	#		#pp and stab through event or idk idgaf
+	#		#not good
+	#	}
+	#}
+	#focus = {
+	#	id = BOS_politics
+	#	icon = GFX_focus_AUH_parliament
+	#	cost = 5
+	#	x = 2
+	#	y = 1
+	#	relative_position_id = BOS_the_show_goes_on
+	#	prerequisite = {
+	#		focus = BOS_the_show_goes_on
+	#	}
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+#
+	#	}
+	#	mutually_exclusive = {
+	#		focus = BOS_offer_forest_concesions
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#		always = no
+	#		has_global_flag = great_war
+	#	}
+	#	completion_reward = {
+	#		#foreign stuff here sum decisions
+	#		#myb some new crazy politician note to self sidz take a chill pill lock in
+	#	}
+	#}
+	#focus = {
+	#	id = BOS_offer_forest_concesions
+	#	icon = GFX_focus_generic_concessions
+	#	cost = 0
+	#	x = -2
+	#	y = 1
+	#	relative_position_id = BOS_the_show_goes_on
+	#	prerequisite = {
+	#		focus = BOS_the_show_goes_on
+	#	}
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+	#		FOCUS_FILTER_VIENNA_RELATIONS
+	#	}
+	#	mutually_exclusive = {
+	#		focus = BOS_politics
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#		always = no
+	#		has_global_flag = great_war
+	#	}
+#
+	#	completion_reward = {
+	#		#event for bosnia then an event for austria with idk less consumer goods
+	#		#anger serbs ig, lower stability even idk ill think later
+	#	}
+	#}
+	#focus = {
+	#	id = BOS_second_election
+	#	icon = GFX_none
+	#	cost = 5
+	#	x = 0
+	#	y = 3
+	#	relative_position_id = BOS_the_show_goes_on
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+	#		FOCUS_FILTER_VIENNA_RELATIONS
+	#	}
+	#	prerequisite = {
+	#		focus = BOS_get_ready
+	#		focus = BOS_offer_forest_concesions
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#	}
+	#	completion_reward = {
+	#		#take away pp (a lot), impossible to cancel (also completes the timer)
+	#	}
+	#}#WIP
+	#
+	#focus = {
+	#	id = BOS_village_patrols
+	#	icon = GFX_focus_secret_police
+	#	cost = 10
+	#	x = -1
+	#	y = 4
+	#	relative_position_id = BOS_the_show_goes_on
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+	#		FOCUS_FILTER_VIENNA_RELATIONS
+	#	}
+	#	prerequisite = {
+	#		focus = BOS_school_rework
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#		always = no
+	#	}
+	#	completion_reward = {
+	#		unlock_decision_tooltip = {
+	#			decision = BOS_village_patrols_decision
+	#			show_effect_tooltip = yes
+	#			show_modifiers = yes
+	#		}
+	#	}
+	#}#wip
+	#focus = {
+	#	id = BOS_offer_manpower
+	#	icon = GFX_focus_generic_manpower
+	#	cost = 10
+	#	x = 1
+	#	y = 1
+	#	prerequisite = {
+	#		focus = BOS_offer_forest_concesions
+	#		focus = BOS_politics
+	#	}
+	#	relative_position_id = BOS_offer_forest_concesions
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+	#		FOCUS_FILTER_VIENNA_RELATIONS
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#		#if bosnia has 10k manpower idk
+	#	}
+	#	completion_reward = {
+	#		unlock_decision_tooltip = {
+	#			decision = BOS_offer_manpower_austria
+	#			show_effect_tooltip = yes
+	#			show_modifiers = yes
+	#		}
+#
+	#	}
+	#}
+#
+	#focus = {
+	#	id = BOS_get_ready
+	#	icon = GFX_focus_generic_voting
+	#	cost = 10
+	#	x = 1
+	#	y = 2
+	#	relative_position_id = BOS_the_show_goes_on
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+#
+	#	}
+	#	prerequisite = {
+	#		focus = BOS_politics
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#		always = no
+	#	}
+	#	completion_reward = {
+	#	}
+	#}#WIP
+	#focus = {
+	#	id = BOS_school_rework
+	#	icon = GFX_focus_generic_education_tgwr
+	#	cost = 10
+	#	x = 0
+	#	y = 2
+	#	prerequisite = {
+	#		focus = BOS_offer_forest_concesions
+	#		focus = BOS_politics
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#	}
+	#	relative_position_id = BOS_offer_forest_concesions
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+	#		FOCUS_FILTER_VIENNA_RELATIONS
+	#	}
+	#	completion_reward = {
+	#		country_event = {
+	#			id = ww1_bosnia.74
+	#			days = 1
+	#		}
+	#		custom_effect_tooltip = BOS_if_bill_passes
+	#		custom_effect_tooltip = modify_BOS_TUR_tt
+	#		effect_tooltip = {
+	#			add_to_variable = {
+	#				BOS_TUR_research_speed = 0.15
+	#				tooltip = research_speed_factor_tt
+	#			}
+	#		}
+	#	}
+	#}
+	#focus = {
+	#	id = BOS_regional_schools
+	#	icon = GFX_focus_generic_education_tgwr
+	#	cost = 10
+	#	x = -1
+	#	y = 3
+	#	relative_position_id = BOS_offer_forest_concesions
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+	#		FOCUS_FILTER_VIENNA_RELATIONS
+	#	}
+	#	prerequisite = {
+	#		focus = BOS_school_rework
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#	}
+	#	completion_reward = {
+	#		#influence reminisce of ottoman era idea give improve research speed
+	#	}
+	#}#WIP
+	#focus = {
+	#	id = BOS_tipping_the_scale
+	#	icon = GFX_focus_generic_sympathetic_judges
+	#	cost = 10
+	#	x = 2
+	#	y = 3
+	#	relative_position_id = BOS_the_show_goes_on
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+#
+	#	}
+	#	prerequisite = {
+	#		focus = BOS_get_ready
+	#	}
+	#	prerequisite = {
+	#		#focus = BOS_second_election
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#	}
+	#	completion_reward = {
+	#		#event about tipping the scale duuuhh
+	#	}
+	#}#wip
+	#focus = {
+	#	id = BOS_le_ze_success
+	#	icon = GFX_goal_generic_major_alliance
+	#	cost = 10
+	#	x = 1
+	#	y = 4
+	#	relative_position_id = BOS_the_show_goes_on
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+#
+	#	}
+	#	prerequisite = {
+	#		focus = BOS_get_ready
+	#	}
+	#	prerequisite = {
+	#		#focus = BOS_second_election
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#		#tipping the scale event happened
+	#	}
+	#	completion_reward = {
+#
+	#	}
+	#}#wip
+	#focus = {
+	#	id = BOS_multiethnic
+	#	icon = GFX_TUR_ease_ethnic_tensions
+	#	cost = 10
+	#	x = 1
+	#	y = 1
+	#	relative_position_id = BOS_regional_schools
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+#
+	#	}
+	#	mutually_exclusive = {
+	#		focus = BOS_trialism
+	#	}
+	#	prerequisite = {
+	#		focus = BOS_regional_schools
+	#	}
+	#	prerequisite = {
+	#		focus = BOS_village_patrols
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#		#total reelection has happened and stable majority exists
+	#	}
+	#	completion_reward = {
+	#		#unlock some decisions ig
+	#	}
+	#}#WIP
+	#focus = {
+	#	id = BOS_trialism
+	#	icon = GFX_focus_YUG_deal
+	#	cost = 10
+	#	x = 1
+	#	y = 3
+	#	relative_position_id = BOS_get_ready
+	#	search_filters = {
+	#		FOCUS_FILTER_INTERNAL_AFFAIRS
+#
+	#	}
+	#	mutually_exclusive = {
+	#		focus = BOS_multiethnic
+	#	}
+	#	prerequisite = {
+	#		focus = BOS_village_patrols
+	#	}
+	#	prerequisite = {
+	#		focus = BOS_le_ze_success
+	#	}
+	#	
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#	}
+	#	completion_reward = {
+	#		#myb vienna suspends the diet fo real this time
+	#	}
+	#}#WIP
 	focus = {
 		id = BOS_ff_power
 		icon = GFX_focus_AUH_Franz_Ferdinand
