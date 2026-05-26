@@ -2937,7 +2937,9 @@ AUH_stitching_the_quilt = {
 			original_tag = AUS
 		}
 		visible = {
-			has_completed_focus = AUS_arbeiterbildung
+		#	has_completed_focus = AUS_arbeiterbildung
+			always = no
+			#daggie
 		}
 		priority = 210
 		available = {
@@ -2964,7 +2966,9 @@ AUH_stitching_the_quilt = {
 			original_tag = AUS
 		}
 		visible = {
-			has_completed_focus = AUS_arbeiterbildung
+		#	has_completed_focus = AUS_arbeiterbildung
+			always = no
+			#daggie
 		}
 		priority = 210
 		available = {
@@ -3003,7 +3007,9 @@ AUH_stitching_the_quilt = {
 			original_tag = AUS
 		}
 		visible = {
-			has_completed_focus = AUS_the_peoples_economy
+			#has_completed_focus = AUS_the_peoples_economy
+			always = no
+			#daggie
 		}
 		priority = 210
 		available = {
@@ -3039,7 +3045,9 @@ AUH_stitching_the_quilt = {
 			original_tag = AUS
 		}
 		visible = {
-			has_completed_focus = AUS_the_peoples_economy
+			#has_completed_focus = AUS_the_peoples_economy
+			always = no
+			#daggie
 		}
 		priority = 210
 		available = {
@@ -3085,7 +3093,9 @@ AUH_stitching_the_quilt = {
 		#priority = 19
 		on_map_mode = map_only
 		visible = {
-			has_completed_focus = AUS_transfering_the_means_of_production
+			#has_completed_focus = AUS_transfering_the_means_of_production
+			always = no
+			#daggie
 		}
 		available = {
 			NOT = {
@@ -3143,7 +3153,9 @@ AUH_stitching_the_quilt = {
 			original_tag = AUS
 		}
 		visible = {
-			has_completed_focus = AUS_autonomy_and_reconciliation
+			#has_completed_focus = AUS_autonomy_and_reconciliation
+			always = no
+			#daggie
 		}
 		priority = 210
 		available = {
@@ -3750,39 +3762,13 @@ AUH_stitching_the_quilt = {
 				limit = {
 					has_completed_focus = AUS_adress_inequality
 					NOT = {
-						has_completed_focus = AUS_rebuild_the_east
+						#has_completed_focus = AUS_rebuild_the_east
 					}
 				}
 				custom_trigger_tooltip = {
 					tooltip = only_two_at_a_time_man_chill_tf_out
 					check_variable = {
 						AUS_investing_in_galacia < 2
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					has_completed_focus = AUS_rebuild_the_east
-					NOT = {
-						has_completed_focus = AUS_adress_inequality
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = only_two_at_a_time_man_chill_tf_out
-					check_variable = {
-						AUS_investing_in_galacia < 2
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					has_completed_focus = AUS_rebuild_the_east
-					has_completed_focus = AUS_adress_inequality
-				}
-				custom_trigger_tooltip = {
-					tooltip = only_two_at_a_time_man_chill_tf_out
-					check_variable = {
-						AUS_investing_in_galacia < 3
 					}
 				}
 			}
@@ -4057,11 +4043,12 @@ peace_deals = {
 					transfer_state_to = SER
 				}
 			}
-			FROM = {
-				country_event = {
-					id = ww1_auh.149
-				}
-			}
+			#FROM = {
+			#	country_event = {
+			#		id = ww1_auh.149
+			#	}
+			#}
+			#daggie temp fix
 		}
 	}
 }
@@ -4118,7 +4105,7 @@ AUS_question_of_army_chief = {
 				}
 			}
 			else = {
-				activate_advisor = AUH_conrad_von_hotzendorf
+				activate_advisor = AUH_franz_conrad_von_hotzendorf
 			}
 			clr_country_flag = AUS_schemua_success
 		}
@@ -4928,11 +4915,11 @@ AUH_franzferdinand = {
 					}
 				}
 				SER = {
-					OR = {
+					#OR = {
 						has_government = neutrality
-						has_idea = SER_idea_alexander_i
+					#	has_idea = SER_idea_alexander_i
 						# has_idea = SER_idea_alexander_i_1
-					}
+					#}
 				}
 			}
 			modifier = {
