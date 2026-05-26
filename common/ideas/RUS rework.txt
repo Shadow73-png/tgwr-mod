@@ -825,10 +825,6 @@ ideas = {
 				fuel_gain_factor = -0.2
 				production_speed_industrial_complex_factor = -0.1
 				production_lack_of_resource_penalty_factor = 0.1 
-				hidden_modifier = {
-					production_speed_rail_way_factor = -99.99
-				}			
-				custom_modifier_tooltip = cannot_build_railways_tt
 			}
 			equipment_bonus = {
 				train_equipment = {
@@ -852,10 +848,6 @@ ideas = {
 				consumer_goods_factor = 0.1
 				production_speed_industrial_complex_factor = -0.1
 				production_lack_of_resource_penalty_factor = 0.1 
-				hidden_modifier = {
-					production_speed_rail_way_factor = -99.99
-				}			
-				custom_modifier_tooltip = cannot_build_railways_tt
 			}
 			equipment_bonus = {
 				train_equipment = {
@@ -879,10 +871,6 @@ ideas = {
 				consumer_goods_factor = 0.1
 				local_resources_factor = -0.2
 				fuel_gain_factor = -0.2
-				hidden_modifier = {
-					production_speed_rail_way_factor = -99.99
-				}			
-				custom_modifier_tooltip = cannot_build_railways_tt
 			}
 			equipment_bonus = {
 				train_equipment = {
@@ -923,10 +911,6 @@ ideas = {
 			modifier = {
 				political_power_gain = 0.1
 				consumer_goods_factor = 0.05
-				hidden_modifier = {
-					production_speed_rail_way_factor = -99.99
-				}			
-				custom_modifier_tooltip = cannot_build_railways_tt
 			}
 			equipment_bonus = {
 				train_equipment = {
@@ -983,6 +967,27 @@ ideas = {
 				consumer_goods_factor = 0.1
 				local_resources_factor = -0.1
 				production_speed_buildings_factor = -0.1
+			}
+		}
+		RUS_inadequate_railway_system = {
+			picture = tur_etatism
+			
+			allowed = { always = no }
+			
+			allowed_civil_war = { original_tag = RUS }
+
+			available = {
+				check_variable = { RUS_railway_modernization_progress < 100 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				supply_consumption_factor = 0.1
+				hidden_modifier = {
+					production_speed_rail_way_factor = -99.99
+				}			
+				custom_modifier_tooltip = cannot_build_railways_tt
 			}
 		}
 		RUS_authoritarian_zemstvo = {
@@ -1672,63 +1677,109 @@ ideas = {
 			}
 		}
 	}
-	hidden_ideas = {
-		RUS_idea_minor_war = {
-			allowed = { always = no }
-			available = {
-				is_in_russian_civil_war = no
-				any_enemy_country = {
-					is_actual_major = yes
-				}			
-			}
-			removal_cost = -1
-			modifier = {
-				war_stability_factor = 0.1
-				war_support_factor = 0.35
-			}
-		}
-	}
 	industrial_concern = {
 		designer = yes
-		RUS_special_council = {
-			allowed = {
-				original_tag = RUS
+		kharkov_locomotive_factory = {
+			allowed = { 
+				is_russian_tag = yes 
+				NOT = {	
+					original_tag = CER
+					original_tag = USS
+				}
 			}
-			picture = leningrad_polytechnical_institute
 			available = {
-				has_war_with_major = yes
+				if = {
+					limit = { tag = SOV }
+					has_completed_focus = SOV_nationalization
+				}
+				if = {
+					limit = { 
+						is_russian_tag = yes 
+						NOT = {
+							has_country_flag = RUS_soviet_tag
+						}	
+						country_exists = SOV	
+					}
+					NOT = { SOV = { has_completed_focus = SOV_nationalization } }
+				}
 			}
-			modifier = {
-				consumer_goods_factor = -0.15
-				political_power_gain = 0.1
-				local_resources_factor = 0.1
-				fuel_gain_factor = 0.2
-				production_factory_max_efficiency_factor = 0.1
-				production_factory_efficiency_gain_factor = 0.1
-				production_speed_rail_way_factor = 0.2
-			}
-			traits = {
-				state_war_economy_coordinator
-			}
+			picture = generic_artillery_manufacturer_1
+			research_bonus = { naval_equipment=0.15 }
+			traits = { industrial_concern }
 		}
-		RUS_central_war_industry_committee = {
-			allowed = {
-				original_tag = RUS
+		vogau_company = {
+			allowed = { 
+				is_russian_tag = yes 
+				NOT = {	
+					original_tag = CER
+					original_tag = USS
+				}
 			}
-			picture = RUS_central_war_industry_committee
-			available = {
-				has_war_with_major = yes
+			cost = 100
+			picture = vogau_company
+			available = { 
+				if = {
+					limit = { has_focus_tree = russian_focus }
+					has_completed_focus = RUS_vogau
+				}
 			}
+			research_bonus = { industry = 0.05 electronics = 0.1 }
+			traits = { industrial_concern }
+		}
+		nobel_company = {
+			allowed = { 
+				is_russian_tag = yes 
+				NOT = {	
+					original_tag = CER
+					original_tag = USS
+				}
+			}
+			cost = 100
+			picture = generic_motorized_equipment_manufacturer_3
+			available = { 
+				if = {
+					limit = { has_focus_tree = russian_focus }
+					has_completed_focus = RUS_nobel_partnership
+				}
+			}
+			research_bonus = { industry = 0.05 synth_resources = 0.1 }
+			traits = { refinery_concern }
+		}
+		putilov_factory = {
+			allowed = { 
+				is_russian_tag = yes 
+				NOT = {	
+					original_tag = CER
+					original_tag = USS
+				}
+			}
+			picture = putilov_company
+			available = { 
+				if = {
+					limit = { has_focus_tree = russian_focus }
+					has_completed_focus = RUS_extension_of_the_putilov_factory
+				}
+				if = {
+					limit = { tag = SOV }
+					has_completed_focus = SOV_nationalization
+				}
+				if = {
+					limit = { 
+						is_russian_tag = yes 
+						NOT = {
+							has_country_flag = RUS_soviet_tag
+						}	
+						country_exists = SOV	
+					}
+					NOT = { SOV = { has_completed_focus = SOV_nationalization } }
+				}
+			}
+			research_bonus = { industry = 0.07 }
 			modifier = {
-				consumer_goods_factor = 0.1
-				industrial_capacity_factory = 0.15
-				production_speed_industrial_complex_factor = 0.15
-				conversion_cost_civ_to_mil_factor = -0.25
-				democratic_drift = 0.01
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
 			}
-			traits = {
-				private_military_contractors
-			}
+			traits = { industrial_concern }
 		}
 	}
 }
