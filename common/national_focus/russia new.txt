@@ -2087,7 +2087,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			effect_tooltip = {
-				custom_effect_tooltip = appointed_as_war_minister_tt
+				RUS_vladimir_sukhomlinov = {
+					RUS_appoint_war_minister = yes
+				}
 				show_ideas_tooltip = RUS_vladimir_sukhomlinov
 			}
 		}
@@ -2441,8 +2443,11 @@ focus_tree = {
 			}
 		}
 		allow_branch = {
-			RUS_pyotr_stolypin = {
-				is_prime_minister = yes
+			OR = {
+				RUS_pyotr_stolypin = {
+					is_prime_minister = yes
+				}
+				is_debug = yes
 			}
 		}
 		completion_reward = {
@@ -3139,8 +3144,12 @@ focus_tree = {
 					RUS_appoint_interior_minister = yes
 				}
 			}
-			custom_effect_tooltip = appointed_as_interior_minister_tt
-			show_ideas_tooltip = RUS_nikolay_maklakov
+			effect_tooltip = {
+				RUS_nikolay_maklakov = {
+					RUS_appoint_interior_minister = yes
+				}
+				show_ideas_tooltip = RUS_nikolay_maklakov
+			}
 			country_event = ww1_kokovtsov.13
 		}
 		ai_will_do = {
@@ -3264,8 +3273,12 @@ focus_tree = {
 					RUS_appoint_interior_minister = yes
 				}
 			}
-			custom_effect_tooltip = appointed_as_interior_minister_tt
-			show_ideas_tooltip = RUS_sergei_kryzhanovsky
+			effect_tooltip = {
+				RUS_sergei_kryzhanovsky = {
+					RUS_appoint_interior_minister = yes
+				}
+				show_ideas_tooltip = RUS_sergei_kryzhanovsky
+			}
 			country_event = ww1_kokovtsov.14
 		}
 		ai_will_do = {
@@ -3553,8 +3566,12 @@ focus_tree = {
 						RUS_appoint_interior_minister = yes
 					}
 				}
-				custom_effect_tooltip = appointed_as_interior_minister_tt
-				show_ideas_tooltip = RUS_nikolai_shcherbatov
+				effect_tooltip = {
+					RUS_nikolai_shcherbatov = {
+						RUS_appoint_interior_minister = yes
+					}
+					show_ideas_tooltip = RUS_nikolai_shcherbatov
+				}
 				country_event = ww1_conservative.11
 			}
 			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
@@ -3685,8 +3702,36 @@ focus_tree = {
 						RUS_appoint_chairman = yes
 					}
 				}
-				custom_effect_tooltip = appointed_as_prime_minister_tt
-				show_ideas_tooltip = RUS_alexander_krivoshein
+				effect_tooltip = {
+					RUS_alexander_krivoshein = {
+						RUS_appoint_chairman = yes
+					}
+					show_ideas_tooltip = RUS_alexander_krivoshein
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = lvov_chairman_flag
+					has_country_flag = lvov_internal_affairs_flag
+				}
+				hidden_effect = {
+					every_character = {
+						limit = {
+							is_prime_minister = yes
+						}
+						RUS_remove_from_the_cabinet = yes
+					}
+					RUS_georgiy_lvov = {
+						RUS_appoint_chairman = yes
+					}
+				}
+				effect_tooltip = {
+					RUS_georgiy_lvov = {
+						RUS_appoint_chairman = yes
+						RUS_appoint_interior_minister = yes
+					}
+					show_ideas_tooltip = RUS_georgiy_lvov
+				}
 			}
 			else_if = {
 				limit = {
@@ -3703,8 +3748,12 @@ focus_tree = {
 						RUS_appoint_chairman = yes
 					}
 				}
-				custom_effect_tooltip = appointed_as_prime_minister_tt
-				show_ideas_tooltip = RUS_georgiy_lvov
+				effect_tooltip = {
+					RUS_georgiy_lvov = {
+						RUS_appoint_chairman = yes
+					}
+					show_ideas_tooltip = RUS_georgiy_lvov
+				}
 			}
 			if = {
 				limit = {
@@ -3724,26 +3773,12 @@ focus_tree = {
 						RUS_appoint_interior_minister = yes
 					}
 				}
-				custom_effect_tooltip = appointed_as_interior_minister_tt
-				show_ideas_tooltip = RUS_sergei_kryzhanovsky
-			}
-			else_if = {
-				limit = {
-					has_country_flag = lvov_internal_affairs_flag
-				}
-				hidden_effect = {
-					every_character = {
-						limit = {
-							is_minister_of_internal_affairs = yes
-						}
-						RUS_remove_from_the_cabinet = yes
-					}
-					RUS_georgiy_lvov = {
+				effect_tooltip = {
+					RUS_sergei_kryzhanovsky = {
 						RUS_appoint_interior_minister = yes
 					}
+					show_ideas_tooltip = RUS_sergei_kryzhanovsky
 				}
-				custom_effect_tooltip = appointed_as_interior_minister_tt
-				show_ideas_tooltip = RUS_georgiy_lvov
 			}
 			if = {
 				limit = {
@@ -3763,8 +3798,12 @@ focus_tree = {
 						RUS_appoint_finance_minister = yes
 					}
 				}
-				custom_effect_tooltip = appointed_as_minister_of_finance_tt
-				show_ideas_tooltip = RUS_pyotr_bark
+				effect_tooltip = {
+					RUS_pyotr_bark = {
+						RUS_appoint_finance_minister = yes
+					}
+					show_ideas_tooltip = RUS_pyotr_bark
+				}
 			}
 			else_if = {
 				limit = {
@@ -3784,8 +3823,12 @@ focus_tree = {
 						RUS_appoint_finance_minister = yes
 					}
 				}
-				custom_effect_tooltip = appointed_as_minister_of_finance_tt
-				show_ideas_tooltip = RUS_pyotr_bark
+				effect_tooltip = {
+					RUS_pyotr_bark = {
+						RUS_appoint_finance_minister = yes
+					}
+					show_ideas_tooltip = RUS_pyotr_bark
+				}
 			}
 			if = {
 				limit = {
@@ -3862,8 +3905,12 @@ focus_tree = {
 					RUS_appoint_finance_minister = yes
 				}
 			}
-			custom_effect_tooltip = appointed_as_minister_of_finance_tt
-			show_ideas_tooltip = RUS_ivan_shipov
+			effect_tooltip = {
+				RUS_ivan_shipov = {
+					RUS_appoint_finance_minister = yes
+				}
+				show_ideas_tooltip = RUS_ivan_shipov
+			}
 			country_event = ww1_conservative.8
 		}
 		ai_will_do = {
@@ -3906,8 +3953,12 @@ focus_tree = {
 					RUS_appoint_finance_minister = yes
 				}
 			}
-			custom_effect_tooltip = appointed_as_minister_of_finance_tt
-			show_ideas_tooltip = RUS_pyotr_bark
+			effect_tooltip = {
+				RUS_pyotr_bark = {
+					RUS_appoint_finance_minister = yes
+				}
+				show_ideas_tooltip = RUS_pyotr_bark
+			}
 			country_event = ww1_conservative.9
 			custom_effect_tooltip = unlocks_national_focus_tt
 			custom_effect_tooltip = RUS_anti_alcohol_campaign
@@ -3952,8 +4003,12 @@ focus_tree = {
 					RUS_appoint_interior_minister = yes
 				}
 			}
-			custom_effect_tooltip = appointed_as_interior_minister_tt
-			show_ideas_tooltip = RUS_alexei_khvostov
+			effect_tooltip = {
+				RUS_alexei_khvostov = {
+					RUS_appoint_interior_minister = yes
+				}
+				show_ideas_tooltip = RUS_alexei_khvostov
+			}
 			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
 			RUS_modify_loyalty_far_right = yes
 			add_days_mission_timeout = {
@@ -4038,8 +4093,12 @@ focus_tree = {
 						RUS_appoint_chairman = yes
 					}
 				}
-				custom_effect_tooltip = appointed_as_prime_minister_tt
-				show_ideas_tooltip = RUS_boris_sturmer
+				effect_tooltip = {
+					RUS_boris_sturmer = {
+						RUS_appoint_chairman = yes
+					}
+					show_ideas_tooltip = RUS_boris_sturmer
+				}
 				country_event = ww1_conservative.19
 			}
 			else = {
@@ -4058,8 +4117,12 @@ focus_tree = {
 						days = 1
 					}
 				}
-				custom_effect_tooltip = appointed_as_prime_minister_tt
-				show_ideas_tooltip = RUS_alexander_trepov
+				effect_tooltip = {
+					RUS_alexander_trepov = {
+						RUS_appoint_chairman = yes
+					}
+					show_ideas_tooltip = RUS_alexander_trepov
+				}
 			}
 			set_temp_variable = { RUS_modify_loyalty_far_right_var = 10 }
 			RUS_modify_loyalty_far_right = yes
@@ -4245,8 +4308,12 @@ focus_tree = {
 					RUS_appoint_chairman = yes
 				}
 			}
-			custom_effect_tooltip = appointed_as_prime_minister_tt
-			show_ideas_tooltip = RUS_alexei_khvostov
+			effect_tooltip = {
+				RUS_alexei_khvostov = {
+					RUS_appoint_chairman = yes
+				}
+				show_ideas_tooltip = RUS_alexei_khvostov
+			}
 			set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
 			RUS_modify_loyalty_center_left = yes
 			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
@@ -4282,8 +4349,23 @@ focus_tree = {
 		relative_position_id = RUS_control_the_interior
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = appointed_as_interior_minister_tt
-			show_ideas_tooltip = RUS_alexander_khvostov
+			hidden_effect = {
+				every_character = {
+					limit = {
+						is_minister_of_internal_affairs = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				RUS_alexander_khvostov = {
+					RUS_appoint_interior_minister = yes
+				}
+			}
+			effect_tooltip = {
+				RUS_alexander_khvostov = {
+					RUS_appoint_interior_minister = yes
+				}
+				show_ideas_tooltip = RUS_alexander_khvostov
+			}
 			add_political_power = 50
 			country_event = ww1_conservative.23
 			add_days_mission_timeout = {
@@ -4318,8 +4400,23 @@ focus_tree = {
 		relative_position_id = RUS_control_the_interior
 		available_if_capitulated = yes
 		completion_reward = {
-			custom_effect_tooltip = appointed_as_interior_minister_tt
-			show_ideas_tooltip = RUS_alexander_protopopov
+			hidden_effect = {
+				every_character = {
+					limit = {
+						is_minister_of_internal_affairs = yes
+					}
+					RUS_remove_from_the_cabinet = yes
+				}
+				RUS_alexander_protopopov = {
+					RUS_appoint_interior_minister = yes
+				}
+			}
+			effect_tooltip = {
+				RUS_alexander_protopopov = {
+					RUS_appoint_interior_minister = yes
+				}
+				show_ideas_tooltip = RUS_alexander_protopopov
+			}
 			set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
 			RUS_modify_loyalty_center_left = yes
 			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }

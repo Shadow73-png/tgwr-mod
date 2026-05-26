@@ -1,0 +1,113 @@
+#February Revolution
+RUS_reforms_decision_category = {
+	RUS_discontent_in_petrograd_mission = {
+		icon = eng_support_imperialist_coup
+		allowed = {
+			tag = RUS
+		}
+		activation = {
+			duma_exists = yes
+			has_war_with_major = yes
+			has_agrarian_question = yes
+			has_labour_question = yes
+			OR = {
+				is_debug = yes
+				AND = {
+					any_country = {
+						is_major = yes
+						war_length_with = { 
+							tag = ROOT 
+							months > 16 
+						}
+					}
+					OR = {
+						casualties > 3000000
+						AND = {
+							OR = {
+								AND = {
+									POL = {
+										exists = yes
+									}
+									surrender_progress > 0.04
+								}
+								surrender_progress > 0.1
+							}
+							casualties > 2500000
+						}
+						AND = {
+							OR = {
+								AND = {
+									POL = {
+										exists = yes
+									}
+									surrender_progress > 0.1
+								}
+								surrender_progress > 0.2
+							}
+							casualties > 2000000
+						}
+					}
+				}
+				AND = {
+					any_country = {
+						is_major = yes
+						war_length_with = { 
+							tag = ROOT 
+							months > 28 
+						}
+					}
+					OR = {
+						casualties > 2000000
+						AND = {
+							OR = {
+								AND = {
+									POL = {
+										exists = yes
+									}
+									surrender_progress > 0.04
+								}
+								surrender_progress > 0.1
+							}
+							casualties > 1500000
+						}
+						AND = {
+							OR = {
+								AND = {
+									POL = {
+										exists = yes
+									}
+									surrender_progress > 0.1
+								}
+								surrender_progress > 0.2
+							}
+							casualties > 1000000
+						}
+					}
+				}
+			}
+		}
+		available = {
+			OR = {
+				has_war_with_major = no
+				AND = {
+					has_agrarian_question = no
+					has_labour_question = no
+				}
+			}
+		}
+		days_mission_timeout = 30
+		fire_only_once = yes
+		is_good = no
+		timeout_effect = {
+			custom_effect_tooltip = RUS_discontent_in_petrograd_tt
+			if = {
+				limit = {
+					duma_exists = yes
+				}
+				hidden_effect = {
+					country_event = ww1_russia_revolution.1
+				}
+			}
+		}	
+	}
+}

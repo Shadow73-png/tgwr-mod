@@ -295,6 +295,36 @@ characters = {
 			traits = { far_right_policeman }
 		}
 	}
+	GEO_nikoloz_chkheidze={
+		name=RUS_nikolai_chkheidze
+		portraits={
+			civilian={
+				large="gfx/leaders/RUS/RUS_Nikolai_Chkheidze.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_nikolai_chkheidze
+			allowed = {
+				original_tag = RUS
+			}
+			traits = {
+				daddy
+			}
+			cost = 50
+			visible = {
+				is_country_leader = no
+			}
+			available = {
+				is_country_leader = no
+				is_part_of_the_cabinet = yes			
+			}
+			can_be_fired = no
+		}
+		country_leader={
+			ideology=reformist_socialism
+		}
+	}
 	RUS_pavel_milyukov = {
 		name = "RUS_pavel_milyukov"
 		advisor = {
@@ -311,7 +341,7 @@ characters = {
 				is_country_leader = no
 			}
 			available = {
-				is_country_leader = no	
+				is_country_leader = no
 				is_part_of_the_cabinet = yes			
 			}
 			can_be_fired = no
@@ -378,10 +408,6 @@ characters = {
 				large = "gfx/leaders/RUS/RUS_mikhail_rodzyanko.png"
 			}
 		}
-		country_leader = {
-			ideology = conservatism
-			traits = { moderate }
-		}
 	}
 	RUS_aleksandr_guchkov = {
 		advisor = {
@@ -394,7 +420,7 @@ characters = {
 				practical
 			}
 			cost = 50
-			available = {	
+			available = {
 				is_part_of_the_cabinet = yes			
 			}
 			can_be_fired = no
@@ -421,7 +447,7 @@ characters = {
 				is_country_leader = no
 			}
 			available = {
-				is_country_leader = no	
+				is_country_leader = no
 				is_part_of_the_cabinet = yes			
 			}
 			can_be_fired = no
@@ -431,10 +457,6 @@ characters = {
 				large = "gfx/leaders/RUS/RUS_georgy_lvov.png"
 				small = "gfx/interface/ideas/RUS/idea_RUS_georgy_lvov.png"
 			}
-		}
-		country_leader = {
-			ideology = social_liberalism
-			traits = { zemstvo_influencer }
 		}
 	}
 	RUS_alexander_kerensky = {
@@ -450,8 +472,8 @@ characters = {
 				is_country_leader = no
 			}
 			available = {
-				is_country_leader = no	
-				is_part_of_the_cabinet = yes			
+				is_country_leader = no
+				is_part_of_the_cabinet = yes		
 			}
 			can_be_fired = no
 		}	
@@ -460,10 +482,6 @@ characters = {
 				large = "gfx/leaders/RUS/RUS_alexander_kerensky.png"
 				small = "GFX_idea_alexander_kerensky"
 			}
-		}
-		country_leader = {
-			ideology = social_democracy
-			traits = { left_wing_populist }
 		}
 	}
 	RUS_nikolai_markov = {
@@ -480,10 +498,18 @@ characters = {
 				pogromist
 			}
 			cost = 50
+			visible = {
+				is_country_leader = no
+			}
 			available = {
+				is_country_leader = no
 				is_part_of_the_cabinet = yes			
 			}
 			can_be_fired = no
+		}
+		country_leader = {
+			ideology = ultranationalism
+			traits = { pogromist }
 		}
 	}
 	RUS_pyotr_durnovo = {
@@ -500,18 +526,10 @@ characters = {
 				reactionary_bureaucrat
 			}
 			cost = 50
-			visible = {
-				is_country_leader = no
-			}
 			available = {
-				is_country_leader = no	
 				is_part_of_the_cabinet = yes			
 			}
 			can_be_fired = no
-		}
-		country_leader = {
-			ideology = reactionism
-			traits = { reactionary_bureaucrat }
 		}
 	}
 	RUS_alexei_khvostov = {

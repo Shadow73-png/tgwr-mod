@@ -1,6 +1,7 @@
 add_namespace = ww1_russia_common
 add_namespace = ww1_russia_foreign
 add_namespace = ww1_russia_war
+add_namespace = ww1_russia_revolution
 add_namespace = ww1_stolypin
 add_namespace = ww1_kokovtsov
 add_namespace = ww1_conservative
@@ -716,18 +717,26 @@ country_event = {
 				RUS_boris_sturmer = {
 					is_prime_minister = yes
 				}
+			}		
+			effect_tooltip = {
+				RUS_boris_sturmer = {
+					RUS_appoint_chairman = yes
+				}
+				show_ideas_tooltip = RUS_boris_sturmer
 			}
-			custom_effect_tooltip = appointed_as_prime_minister_tt
-			show_ideas_tooltip = RUS_boris_sturmer
 		}
 		else_if = {
 			limit = {
 				RUS_alexander_trepov = {
 					is_prime_minister = yes
 				}
+			}		
+			effect_tooltip = {
+				RUS_alexander_trepov = {
+					RUS_appoint_chairman = yes
+				}
+				show_ideas_tooltip = RUS_alexander_trepov
 			}
-			custom_effect_tooltip = appointed_as_prime_minister_tt
-			show_ideas_tooltip = RUS_alexander_trepov
 		}
 		effect_tooltip = {
 			retire_character = RUS_ivan_goremykin
@@ -790,9 +799,13 @@ country_event = {
 				RUS_alexander_trepov = {
 					is_prime_minister = yes
 				}
+			}		
+			effect_tooltip = {
+				RUS_alexander_trepov = {
+					RUS_appoint_chairman = yes
+				}
+				show_ideas_tooltip = RUS_alexander_trepov
 			}
-			custom_effect_tooltip = appointed_as_prime_minister_tt
-			show_ideas_tooltip = RUS_alexander_trepov
 		}
 		effect_tooltip = {
 			retire_character = RUS_alexander_trepov
@@ -1133,10 +1146,13 @@ country_event = {
 				RUS_appoint_interior_minister = yes
 			}
 		}
-		custom_effect_tooltip = appointed_as_prime_minister_tt
-		show_ideas_tooltip = RUS_pyotr_durnovo
-		custom_effect_tooltip = appointed_as_interior_minister_tt
-		show_ideas_tooltip = RUS_pyotr_durnovo
+		effect_tooltip = {
+			RUS_pyotr_durnovo = {
+				RUS_appoint_chairman = yes
+				RUS_appoint_interior_minister = yes
+			}
+			show_ideas_tooltip = RUS_pyotr_durnovo
+		}
 		mark_focus_tree_layout_dirty = yes
 		set_temp_variable = {
 			RUS_modify_loyalty_far_right_var = 10
@@ -1154,10 +1170,18 @@ country_event = {
 				RUS_appoint_interior_minister = yes
 			}
 		}
-		custom_effect_tooltip = appointed_as_prime_minister_tt
-		show_ideas_tooltip = RUS_vladimir_kokovtsov
-		custom_effect_tooltip = appointed_as_interior_minister_tt
-		show_ideas_tooltip = RUS_aleksandr_makarov
+		effect_tooltip = {
+			RUS_vladimir_kokovtsov = {
+				RUS_appoint_chairman = yes
+			}
+			show_ideas_tooltip = RUS_vladimir_kokovtsov
+		}
+		effect_tooltip = {
+			RUS_aleksandr_makarov = {
+				RUS_appoint_interior_minister = yes
+			}
+			show_ideas_tooltip = RUS_aleksandr_makarov
+		}
 		complete_national_focus = RUS_policy_of_reconciliation
 		mark_focus_tree_layout_dirty = yes
 		hidden_effect = {
@@ -1186,10 +1210,18 @@ country_event = {
 				RUS_appoint_interior_minister = yes
 			}
 		}
-		custom_effect_tooltip = appointed_as_prime_minister_tt
-		show_ideas_tooltip = RUS_alexander_krivoshein
-		custom_effect_tooltip = appointed_as_prime_minister_tt
-		show_ideas_tooltip = RUS_sergei_kryzhanovsky
+		effect_tooltip = {
+			RUS_alexander_krivoshein = {
+				RUS_appoint_chairman = yes
+			}
+			show_ideas_tooltip = RUS_alexander_krivoshein
+		}
+		effect_tooltip = {
+			RUS_sergei_kryzhanovsky = {
+				RUS_appoint_interior_minister = yes
+			}
+			show_ideas_tooltip = RUS_sergei_kryzhanovsky
+		}
 		mark_focus_tree_layout_dirty = yes
 		set_temp_variable = {
 			RUS_modify_loyalty_center_right_var = 10
@@ -1670,8 +1702,12 @@ country_event = {
 					RUS_appoint_chairman = yes
 				}
 			}
-			custom_effect_tooltip = appointed_as_prime_minister_tt
-			show_ideas_tooltip = RUS_ivan_goremykin
+			effect_tooltip = {
+				RUS_ivan_goremykin = {
+					RUS_appoint_chairman = yes
+				}
+				show_ideas_tooltip = RUS_ivan_goremykin
+			}
 		}
 		else = {
 			hidden_effect = {
@@ -1679,8 +1715,12 @@ country_event = {
 					RUS_appoint_chairman = yes
 				}
 			}
-			custom_effect_tooltip = appointed_as_prime_minister_tt
-			show_ideas_tooltip = RUS_boris_sturmer
+			effect_tooltip = {
+				RUS_boris_sturmer = {
+					RUS_appoint_chairman = yes
+				}
+				show_ideas_tooltip = RUS_boris_sturmer
+			}
 		}
 		complete_national_focus = RUS_smooth_sailing
 		mark_focus_tree_layout_dirty = yes
@@ -2179,352 +2219,6 @@ country_event = {
 		name = ww1_conservative.26.a
 	}
 }
-#WORLD WAR I
-#####################
-#SECOND PATRIOTIC WAR
-country_event = {
-	id = ww1_russia_war.1
-	title = ww1_russia_war.1.t
-	desc = ww1_russia_war.1.d
-	picture = GFX_report_event_german_reichstag_gathering
-	is_triggered_only = yes
-	fire_only_once = yes
-	trigger = {
-		tag = RUS
-		has_war_with_major = yes
-		has_civil_war = no
-	}
-	immediate = {
-		hidden_effect = {
-			add_timed_idea = {
-				idea = RUS_sacred_unity
-				days = 365
-			}
-			if = {
-				limit = {
-					any_enemy_country = {
-						OR = {
-							original_tag = GER
-							is_in_faction_with = GER
-						}	
-					}
-				}
-				set_province_name = {
-					id = 3151
-					name = PETROGRAD_PROV
-				}
-				195 = {
-					set_state_name = PETROGRAD_STATE
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = partial_economic_mobilisation
-						has_idea = war_economy
-						has_idea = tot_economic_mobilisation
-					}
-				}
-				add_ideas = partial_economic_mobilisation
-			}
-			if = {
-				limit = {
-					duma_is_active = yes
-				}
-				set_temp_variable = { RUS_modify_loyalty_center_left_var = 10 }
-				RUS_modify_loyalty_center_left = yes
-				set_temp_variable = { RUS_modify_loyalty_center_right_var = 10 }
-				RUS_modify_loyalty_center_right = yes
-				set_temp_variable = { RUS_modify_loyalty_far_right_var = 5 }
-				RUS_modify_loyalty_far_right = yes
-			}
-			if = {
-				limit = {
-					is_russia_a_monarchy = yes
-					NOT = {
-
-					}
-				}
-				country_event = {
-					id = ww1_russia_war.2
-					days = 1
-				}
-			}
-		}
-	}
-	timeout_days = 4
-	#For Faith, Tsar, and Fatherland!
-	option = {
-		name = ww1_russia_war.1.a
-		effect_tooltip = {
-			add_timed_idea = {
-				idea = RUS_sacred_unity
-				days = 365
-			}
-			if = {
-				limit = {
-					any_enemy_country = {
-						OR = {
-							original_tag = GER
-							is_in_faction_with = GER
-						}	
-					}
-				}
-				set_province_name = {
-					id = 3151
-					name = PETROGRAD_PROV
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = war_economy
-						has_idea = tot_economic_mobilisation
-					}
-				}
-				add_ideas = partial_economic_mobilisation
-			}
-			if = {
-				limit = {
-					duma_is_active = yes
-				}
-				set_temp_variable = { RUS_modify_loyalty_center_left_var = 10 }
-				RUS_modify_loyalty_center_left = yes
-				set_temp_variable = { RUS_modify_loyalty_center_right_var = 10 }
-				RUS_modify_loyalty_center_right = yes
-				set_temp_variable = { RUS_modify_loyalty_far_right_var = 5 }
-				RUS_modify_loyalty_far_right = yes
-			}
-		}
-	}
-}
-#Grand Duke Nicholas appointed Commander-in-Chief
-country_event = {
-	id = ww1_russia_war.2
-	title = ww1_russia_war.2.t
-	desc = ww1_russia_war.2.d
-	picture = GFX_report_event_german_reichstag_gathering
-	is_triggered_only = yes
-	trigger = {
-		tag = RUS
-		has_war_with_major = yes
-		has_civil_war = no
-		is_russia_a_monarchy = yes
-	}
-	immediate = {
-		hidden_effect = {
-			activate_advisor = RUS_nikolai_nikolaevich
-		}
-	}
-	timeout_days = 4
-	#For Faith, Tsar, and Fatherland!
-	option = {
-		name = ww1_russia_war.2.a
-		effect_tooltip = {
-			activate_advisor = RUS_nikolai_nikolaevich
-		}
-	}
-}
-#Fall of FROM.FROM
-country_event = {
-	id = ww1_russia_war.3
-	title = ww1_russia_war.3.t
-	desc = ww1_russia_war.3.d
-	picture = GFX_report_event_german_reichstag_gathering
-	is_triggered_only = yes
-	trigger = {
-		tag = RUS
-		has_war_with_major = yes
-		has_civil_war = no
-	}
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					has_idea = RUS_sacred_unity
-				}
-				modify_timed_idea = {
-					idea = RUS_sacred_unity
-					days = -60
-				}
-			}
-			else_if = {
-				limit = {
-					FROM.FROM = {
-						is_owned_by = RUS
-					}
-				}
-				add_stability = -0.025
-			}
-		}
-	}
-	timeout_days = 4
-	#Unfortunate
-	option = {
-		name = ww1_russia_war.3.a
-		effect_tooltip = {
-			if = {
-				limit = {
-					has_idea = RUS_sacred_unity
-				}
-				modify_timed_idea = {
-					idea = RUS_sacred_unity
-					days = -60
-				}
-			}
-			else_if = {
-				limit = {
-					FROM.FROM = {
-						is_owned_by = RUS
-					}
-				}
-				add_stability = -0.025
-			}
-		}
-	}
-}
-#Capture of FROM.FROM
-country_event = {
-	id = ww1_russia_war.4
-	title = ww1_russia_war.4.t
-	desc = ww1_russia_war.4.d
-	picture = GFX_report_event_german_reichstag_gathering
-	is_triggered_only = yes
-	trigger = {
-		tag = RUS
-		has_war_with_major = yes
-		has_civil_war = no
-	}
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					has_idea = RUS_sacred_unity
-				}
-				modify_timed_idea = {
-					idea = RUS_sacred_unity
-					days = 60
-				}
-			}
-			else_if = {
-				limit = {
-					FROM.FROM = {
-						is_owned_by = RUS
-					}
-				}
-				add_stability = 0.025
-			}
-		}
-	}
-	timeout_days = 4
-	#Unfortunate
-	option = {
-		name = ww1_russia_war.4.a
-		effect_tooltip = {
-			if = {
-				limit = {
-					has_idea = RUS_sacred_unity
-				}
-				modify_timed_idea = {
-					idea = RUS_sacred_unity
-					days = 60
-				}
-			}
-			else_if = {
-				limit = {
-					FROM.FROM = {
-						is_owned_by = RUS
-					}
-				}
-				add_stability = 0.025
-			}
-		}
-	}
-}
-#Progressive Bloc formed
-country_event = {
-	id = ww1_russia_war.5
-	title = ww1_russia_war.5.t
-	desc = ww1_russia_war.5.d
-	picture = GFX_report_event_german_reichstag_gathering
-	is_triggered_only = yes
-	trigger = {
-		tag = RUS
-		has_war_with_major = yes
-		has_civil_war = no
-		has_idea = RUS_june_third_political_system_idea
-	}
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					has_idea = RUS_june_third_political_system_idea
-				}
-				swap_ideas = {
-					remove_idea = RUS_june_third_political_system_idea
-					add_idea = RUS_progressive_bloc_idea
-				}
-			}
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = -25 }
-			RUS_modify_loyalty_center_left = yes
-			set_temp_variable = { RUS_modify_loyalty_center_right_var = -25 }
-			RUS_modify_loyalty_center_right = yes
-			set_temp_variable = { RUS_modify_loyalty_far_right_var = -10 }
-			RUS_modify_loyalty_far_right = yes
-			country_event = {
-				id = ww1_russia_war.6
-				days = 1
-			}
-		}
-	}
-	timeout_days = 5
-	#We'll have to deal with them
-	option = {
-		name = ww1_russia_war.5.a
-		effect_tooltip = {
-			swap_ideas = {
-				remove_idea = RUS_june_third_political_system_idea
-				add_idea = RUS_progressive_bloc_idea
-			}
-			set_temp_variable = { RUS_modify_loyalty_center_left_var = -25 }
-			RUS_modify_loyalty_center_left = yes
-			set_temp_variable = { RUS_modify_loyalty_center_right_var = -25 }
-			RUS_modify_loyalty_center_right = yes
-			set_temp_variable = { RUS_modify_loyalty_far_right_var = -10 }
-			RUS_modify_loyalty_far_right = yes
-		}
-	}
-}
-#Question of the High Command
-country_event = {
-	id = ww1_russia_war.6
-	title = ww1_russia_war.6.t
-	desc = ww1_russia_war.6.d
-	picture = GFX_report_event_german_reichstag_gathering
-	is_triggered_only = yes
-	trigger = {
-		tag = RUS
-		has_war_with_major = yes
-		has_civil_war = no
-	}
-	timeout_days = 5
-	#Tsar will take the charge of the war effort!
-	option = {
-		name = ww1_russia_war.6.a
-		deactivate_advisor = RUS_nikolai_nikolaevich
-		activate_advisor = RUS_mikhail_alekseyev
-	}
-	#Make concessions to the progressive bloc
-	option = {
-		name = ww1_russia_war.6.b
-		effect_tooltip = {
-			swap_ideas = {
-				remove_idea = RUS_june_third_political_system_idea
-				add_idea = RUS_progressive_bloc_idea
-			}
-		}
-	}
-}
 #FOREIGN POLICY
 ###############
 country_event = {
@@ -2549,6 +2243,102 @@ country_event = {
 		}
 		ai_chance = {
 			base = 100
+		}
+	}
+}
+#WORLD WAR I
+#####################
+#SECOND PATRIOTIC WAR
+#REVOLUTION
+###########
+country_event = {
+	id = ww1_russia_revolution.1
+	title = ww1_russia_revolution.1.t
+	desc = ww1_russia_revolution.1.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = ww1_russia_revolution.2
+				days = 7
+			}
+		}
+	}
+	timeout_days = 4
+	option = {
+		name = ww1_russia_revolution.1.a
+	}
+}
+country_event = {
+	id = ww1_russia_revolution.2
+	title = ww1_russia_revolution.2.t
+	desc = ww1_russia_revolution.2.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			add_country_leader_role = {
+				character = RUS_mikhail_ii
+				promote_leader = yes
+				country_leader = {
+					ideology = semi_constitutional_monarchy
+				}
+			}
+			country_event = {
+				id = ww1_russia_revolution.3
+				days = 1
+			}
+		}
+	}
+	timeout_days = 1
+	option = {
+		name = ww1_russia_revolution.2.a
+		effect_tooltip = {
+			add_country_leader_role = {
+				character = RUS_mikhail_ii
+				promote_leader = yes
+				country_leader = {
+					ideology = semi_constitutional_monarchy
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_russia_revolution.3
+	title = ww1_russia_revolution.3.t
+	desc = ww1_russia_revolution.3.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			RUS_february_revolution = yes
+		}
+	}
+	option = {
+		name = ww1_russia_revolution.3.a
+		effect_tooltip = {
+			RUS_georgiy_lvov = {
+				RUS_appoint_chairman = yes
+				RUS_appoint_interior_minister = yes
+			}
+			show_ideas_tooltip = RUS_georgiy_lvov
+			RUS_aleksandr_guchkov = {
+				RUS_appoint_war_minister = yes
+			}
+			show_ideas_tooltip = RUS_aleksandr_guchkov
+			RUS_pavel_milyukov = {
+				RUS_appoint_foreign_minister = yes
+			}
+			show_ideas_tooltip = RUS_pavel_milyukov
+			RUS_alexander_kerensky = {
+				RUS_appoint_justice_minister = yes
+			}
+			show_ideas_tooltip = RUS_alexander_kerensky
 		}
 	}
 }
