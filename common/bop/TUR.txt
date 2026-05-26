@@ -1,3 +1,95 @@
+TUR_foreign_allignment = {
+	initial_value = 0.1
+	left_side = TUR_pro_central_powers_outlook
+	right_side = TUR_pro_entente_powers_outlook
+	decision_category = TUR_mufrit_struggle_decisions
+	range = {
+		id = TUR_unwilling_neutrality
+		min = -0.2
+		max = 0.2
+		modifier = {
+			war_support_factor = 0.05
+			improve_relations_maintain_cost_factor = 0.3
+			opinion_gain_monthly_factor = -0.3
+			custom_modifier_tooltip = TUR_diplomatic_isolation_tt
+		}
+		on_activate = { hidden_effect = { set_rule = {  can_join_factions = no } } }
+		on_deactivate = { hidden_effect = { set_rule = {  can_join_factions = yes } } }
+	}
+	side = {
+		id = TUR_pro_central_powers_outlook
+		icon = GFX_TUR_mufrit_struggle_sadik
+		range = {
+			id = TUR_leveraged_central_powers
+			min = -0.55
+			max = -0.2
+			modifier = {
+				war_support_factor = 0.02
+				improve_relations_maintain_cost_factor = 0.2
+				opinion_gain_monthly_factor = -0.2
+				custom_modifier_tooltip = TUR_diplomatic_isolation_tt2
+			}
+			on_activate = { hidden_effect = { set_rule = {  can_join_factions = no } } }
+			on_deactivate = { hidden_effect = { set_rule = {  can_join_factions = yes } } }
+		}
+		range = {
+			id = TUR_favored_central_powers
+			min = -0.9
+			max = -0.55
+			modifier = {
+				improve_relations_maintain_cost_factor = 0.1
+				opinion_gain_monthly_factor = -0.1
+			}
+			rule = { can_join_factions = no }
+		}
+		range = {
+			id = TUR_central_powers_allignment
+			min = -1
+			max = -0.9
+			modifier = {
+				improve_relations_maintain_cost_factor = -0.05
+				opinion_gain_monthly_factor = 0.05
+			}
+		}
+	}
+	side = {
+		id = TUR_pro_entente_powers_outlook
+		icon = GFX_TUR_mufrit_struggle_ismail
+		range = {
+			id = TUR_leveraged_entente
+			min = 0.2
+			max = 0.55
+			modifier = {
+				war_support_factor = 0.02
+				improve_relations_maintain_cost_factor = 0.2
+				opinion_gain_monthly_factor = -0.2
+				custom_modifier_tooltip = TUR_diplomatic_isolation_tt2
+			}
+			on_activate = { hidden_effect = { set_rule = {  can_join_factions = no } } }
+			on_deactivate = { hidden_effect = { set_rule = {  can_join_factions = yes } } }
+		}
+		range = {
+			id = TUR_favored_entente
+			min = 0.55
+			max = 0.9
+			modifier = {
+				improve_relations_maintain_cost_factor = 0.1
+				opinion_gain_monthly_factor = -0.1
+			}
+			rule = { can_join_factions = no }
+		}
+		range = {
+			id = TUR_entente_allignment
+			min = 0.9
+			max = 1
+			modifier = {
+				improve_relations_maintain_cost_factor = -0.05
+				opinion_gain_monthly_factor = 0.05
+			}
+		}
+	}
+}
+
 #hif power struggle
 #sadik bey vs sabri efendi
 #Münevveran Grubu adı verilen Lütfi Fikri, Rıza Nur*, Rıza Tevfik ve Ahmet Reşit Rey*, Mahir Said Pekmen (positivist), Dükakinzade Basri bey (debre), Hüseyin Siret Özsever* (also conservative), Kemal Midhat Fenmen*, Mithat Sami

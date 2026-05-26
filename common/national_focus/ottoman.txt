@@ -10040,24 +10040,42 @@ focus_tree = {
 		}
 		x = 54
 		y = 0
-		bypass = {
-			custom_trigger_tooltip = {
-				tooltip = TUR_does_not_have_diplomatic_isolation
-				NOT = {
-					has_idea = TUR_diplomatic_isolation
-					has_idea = TUR_diplomatic_isolation_1
-				}
-			}
-		}
+		#bypass = {
+		#	custom_trigger_tooltip = {
+		#		tooltip = TUR_does_not_have_diplomatic_isolation
+		#		NOT = {
+		#			has_idea = TUR_diplomatic_isolation
+		#			has_idea = TUR_diplomatic_isolation_1
+		#		}
+		#	}
+		#}
 		completion_reward = {
 			add_political_power = 50
-			custom_effect_tooltip = TUR_our_place_in_the_world_tt
-			hidden_effect = {
-				swap_ideas = {
-					remove_idea = TUR_diplomatic_isolation
-					add_idea = TUR_diplomatic_isolation_1
+			if = {
+				limit = {
+					power_balance_value = {
+						id = TUR_foreign_allignment
+						value < 0
+					}
+				}
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = -0.05
 				}
 			}
+			else = {
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = 0.05
+				}
+			}
+			#custom_effect_tooltip = TUR_our_place_in_the_world_tt
+			#hidden_effect = {
+			#	swap_ideas = {
+			#		remove_idea = TUR_diplomatic_isolation
+			#		add_idea = TUR_diplomatic_isolation_1
+			#	}
+			#}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -10086,6 +10104,10 @@ focus_tree = {
 				modifier = TUR_diplomatic_relations
 			}
 			add_political_power = 25
+			add_power_balance_value = {
+				id = TUR_foreign_allignment
+				value = 0.05
+			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -10114,6 +10136,10 @@ focus_tree = {
 				modifier = TUR_diplomatic_relations
 			}
 			add_political_power = 25
+			add_power_balance_value = {
+				id = TUR_foreign_allignment
+				value = -0.05
+			}
 		}
 		ai_will_do = { base = 30 }
 	}

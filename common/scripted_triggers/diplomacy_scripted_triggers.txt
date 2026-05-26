@@ -173,9 +173,9 @@ DIPLOMACY_GUARANTEE_ENABLE_TRIGGER = {
 		limit = {
 			NOT = { tag = TUR }
 			FROM = {
-				OR = {
-					has_idea = TUR_diplomatic_isolation
-					has_idea = TUR_diplomatic_isolation_1
+				is_power_balance_side_active = {
+					id = TUR_foreign_allignment
+					side = TUR_unwilling_neutrality
 				}
 			}
 		}
@@ -1843,7 +1843,22 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 	if = {
 		limit = {
 			NOT = { tag = TUR }
-			FROM = { has_idea = TUR_diplomatic_isolation }
+			FROM = {
+				OR = {
+					is_power_balance_side_active = {
+						id = TUR_foreign_allignment
+						side = TUR_unwilling_neutrality
+					}
+					is_power_balance_side_active = {
+						id = TUR_foreign_allignment
+						side = TUR_leveraged_central_powers
+					}
+					is_power_balance_side_active = {
+						id = TUR_foreign_allignment
+						side = TUR_leveraged_entente
+					}
+				}
+			}
 		}
 		custom_trigger_tooltip = {
 			tooltip = CANNOT_SEND_VOLUNTEERS_TO_OTTOMANS

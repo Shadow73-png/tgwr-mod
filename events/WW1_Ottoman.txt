@@ -17857,6 +17857,30 @@ country_event = { #ottoman foreign loan
 					target = FROM
 					modifier = TUR_foreign_loan_secured
 				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = FRA
+							original_tag = ENG
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = GER
+							original_tag = AUS
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
 			}
 		}
 		add_timed_idea = {
@@ -17892,6 +17916,30 @@ country_event = { #ottoman foreign loan
 				add_opinion_modifier = {
 					target = FROM
 					modifier = TUR_foreign_loan_secured
+				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = FRA
+							original_tag = ENG
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = GER
+							original_tag = AUS
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
 				}
 			}
 			add_timed_idea = {
@@ -17947,6 +17995,34 @@ country_event = { #ottoman foreign loan approved
 			target = FROM
 			modifier = TUR_foreign_loan_secured
 		}
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						original_tag = FRA
+						original_tag = ENG
+					}
+				}
+			}
+			add_power_balance_value = {
+				id = TUR_foreign_allignment
+				value = 0.05
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						original_tag = GER
+						original_tag = AUS
+					}
+				}
+			}
+			add_power_balance_value = {
+				id = TUR_foreign_allignment
+				value = -0.05
+			}
+		}
 		complete_national_focus = TUR_foreign_loan_negotiations
 		ai_chance = { base = 100 }
 	}
@@ -17977,6 +18053,34 @@ country_event = { #ottoman foreign loan with strings
 		add_opinion_modifier = {
 			target = FROM
 			modifier = TUR_foreign_loan_secured
+		}
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						original_tag = FRA
+						original_tag = ENG
+					}
+				}
+			}
+			add_power_balance_value = {
+				id = TUR_foreign_allignment
+				value = 0.05
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						original_tag = GER
+						original_tag = AUS
+					}
+				}
+			}
+			add_power_balance_value = {
+				id = TUR_foreign_allignment
+				value = -0.05
+			}
 		}
 		hidden_effect = { FROM = { country_event = { id = ottoman.264 days = 1 } } }
 		complete_national_focus = TUR_foreign_loan_negotiations
@@ -18118,6 +18222,30 @@ country_event = { #ottoman foreign loan with strings yes
 					add_timed_idea = {
 						idea = TUR_inflow_of_foreign_loan_2
 						days = 1100
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = FRA
+							original_tag = ENG
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = GER
+							original_tag = AUS
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
 					}
 				}
 			}
