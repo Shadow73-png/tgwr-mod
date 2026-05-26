@@ -1114,17 +1114,16 @@ characters = {
 				army_infantry_1
 			}
 			available = {
-				NOT = {
-					has_global_flag = AUH_franz_ferdinand_killed
+				custom_trigger_tooltip = {
+					tooltip = character_not_dead
+					NOT = { has_character_flag = character_died }
 				}
 			}
 			visible = {
-				NOT = {
-					has_global_flag = AUH_franz_ferdinand_killed
-				}
+				NOT = { has_character_flag = character_died }
 			}
-			ai_will_do = {
-				factor = 1
+			ai_will_do  = {
+				factor  = 1
 			}
 		}
 		corps_commander = {
@@ -1138,9 +1137,7 @@ characters = {
 			planning_skill = 2
 			logistics_skill = 1
 			visible = {
-				NOT = {
-					has_global_flag = AUH_franz_ferdinand_killed
-				}
+				NOT = { has_character_flag = character_died }	
 			}
 		}
 	}
