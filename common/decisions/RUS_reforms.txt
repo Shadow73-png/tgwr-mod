@@ -2204,46 +2204,4 @@ RUS_reforms_decision_category = {
 			}
 		}
 	}
-	#SUPPRESS STRIKES
-	RUS_suppress_strikes = {
-		icon = GFX_decision_oppression
-		allowed = {
-			original_tag = RUS
-		}
-		visible = {
-			has_revolution = no
-			has_labour_question = yes
-			has_completed_focus = RUS_crack_down_on_strikes
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = yes
-			}
-			NOT = {
-				has_idea = RUS_strikes_suppression
-			}
-		}
-		cost = 25
-		complete_effect = {
-			add_ideas = RUS_strikes_suppression
-		}
-	}
-	#Stop suppressing strikes
-	RUS_stop_strikes_suppression = {
-		icon = GFX_decision_oppression
-		allowed = {
-			original_tag = RUS
-		}
-		visible = {
-			has_revolution = no
-			has_labour_question = yes
-			has_completed_focus = RUS_crack_down_on_strikes
-			RUS_vladimir_kokovtsov = {
-				is_prime_minister = yes
-			}
-			has_idea = RUS_strikes_suppression
-		}
-		cost = 25
-		complete_effect = {
-			remove_ideas = RUS_strikes_suppression
-		}
-	}
 }
