@@ -459,7 +459,7 @@ MNT_agrarian_society = {
 	local_building_slots_factor = MNT_kolkomestaimabre
 	production_speed_buildings_factor = MNT_agr_build_speed
 	industrial_capacity_factory = MNT_agr_bad_factories
-	consumer_goods_factor = MNT_agr_good_factor
+	consumer_goods_factor = -0.05
 }
 
 MNT_too_many_ppl = {
@@ -467,7 +467,16 @@ MNT_too_many_ppl = {
 		always = yes
 	}
 	icon = GFX_idea_prc_low_popular_support3
-	consumer_goods_factor = MNT_overcrowding_good_factor
+	stability_factor = MNT_overcrowd_stab
+	war_support_factor = MNT_overcrowd_ws
 	political_power_gain = MNT_overcrowding_pp_gain
 	monthly_population = MNT_overcrowding_monthpop
+}
+MNT_debt_lol = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_none
+	consumer_goods_factor = MNT_debt_consumer_goods
+	stability_factor = -0.025
 }
