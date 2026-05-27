@@ -1,5 +1,6 @@
 ﻿add_namespace = ww1_persia
 add_namespace = ww1_persia_rework
+add_namespace = ww1_per_rus_strangling
 
 country_event = {
 	title = ww1_persia.1.t
@@ -1327,5 +1328,150 @@ country_event = {
 		name = ww1_persia_rework.4.a
 		add_stability = -0.03
 		add_manpower = -30
+	}
+}
+
+#First Ultimatum
+country_event = {
+	id = ww1_per_rus_strangling.1
+	title = ww1_per_rus_strangling.1.t
+	desc = ww1_per_rus_strangling.1.d
+	
+	picture = GFX_report_event_PER_russian_troops
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_rus_strangling.1.a #Britain help!
+		trigger = {
+			is_guaranteed_by = ENG
+		}
+		ENG = {
+			country_event = {
+				id = ww1_per_rus_strangling.2
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ww1_per_rus_strangling.1.b #we have no other choice
+		RUS = {
+			country_event = {
+				id = ww1_per_rus_strangling.4
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ww1_per_rus_strangling.1.c #reject it!
+		RUS = {
+			country_event = {
+				id = ww1_per_rus_strangling.5
+				days = 1
+			}
+		}
+	}
+}
+#Persia asks Britain for help
+country_event = {
+	id = ww1_per_rus_strangling.2
+	title = ww1_per_rus_strangling.2.t
+	desc = ww1_per_rus_strangling.2.d
+	
+	picture = GFX_report_event_PER_majlis
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_rus_strangling.2.a #no
+		FROM = {
+			country_event = {
+				id = ww1_per_rus_strangling.3
+				days = 1
+			}
+		}
+	}
+}
+#Britian said we should apologize to Russia
+country_event = {
+	id = ww1_per_rus_strangling.3
+	title = ww1_per_rus_strangling.3.t
+	desc = ww1_per_rus_strangling.3.d
+	
+	picture = GFX_report_event_eng_edward_grey
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_rus_strangling.1.b #we have no other choice
+		RUS = {
+			country_event = {
+				id = ww1_per_rus_strangling.4
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ww1_per_rus_strangling.1.c #reject it!
+		RUS = {
+			country_event = {
+				id = ww1_per_rus_strangling.5
+				days = 1
+			}
+		}
+	}
+}
+#Persia accepts our Ultimatum...
+country_event = {
+	id = ww1_per_rus_strangling.4
+	title = ww1_per_rus_strangling.4.t
+	desc = ww1_per_rus_strangling.4.d
+	
+	picture = GFX_report_event_PER_majlis
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_rus_strangling.4.a #Start writing a new one
+		FROM = {
+			country_event = {
+				id = ww1_per_rus_strangling.6
+				days = 1
+			}
+		}
+	}
+}
+#Persia rejects our Ultimatum!
+country_event = {
+	id = ww1_per_rus_strangling.5
+	title = ww1_per_rus_strangling.5.t
+	desc = ww1_per_rus_strangling.5.d
+	
+	picture = GFX_report_event_PER_majlis
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_rus_strangling.5.a #Thanks for the pretext!
+	}
+}
+#Russia says they'll make a new Ultimatum
+country_event = {
+	id = ww1_per_rus_strangling.6
+	title = ww1_per_rus_strangling.6.t
+	desc = ww1_per_rus_strangling.6.d
+	
+	picture = GFX_report_event_PER_russian_troops
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_rus_strangling.6.a #Excuse me?
 	}
 }

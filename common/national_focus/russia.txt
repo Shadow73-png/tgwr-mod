@@ -3667,27 +3667,37 @@ focus_tree = {
 				has_war_with = PER
 			}
 		}
+		select_effect = {
+			PER = {
+				country_event = ww1_per_rus_strangling.1
+			}		
+		}
+		will_lead_to_war_with = PER
 		completion_reward = {
 			add_named_threat = {
 				threat = 5
 				name = RUS_ultimatum_to_persia
 			}
-			TUR = {
-				every_owned_state = {
-					limit = {
-						has_contested_owner = PER
-					}
-					transfer_state_to = PER
-					hidden_effect = {
-						remove_contested_owner = PER
-					}
-				}
+			declare_war_on = {
+				target = PER
+				type = topple_government
 			}
-			PER = {
-				country_event = {
-					id = ww1_russia.63
-				}
-			}
+			# TUR = {
+			# 	every_owned_state = {
+			# 		limit = {
+			# 			has_contested_owner = PER
+			# 		}
+			# 		transfer_state_to = PER
+			# 		hidden_effect = {
+			# 			remove_contested_owner = PER
+			# 		}
+			# 	}
+			# }
+			# PER = {
+			# 	country_event = {
+			# 		id = ww1_russia.63
+			# 	}
+			# }
 		}
 		ai_will_do = {
 			factor = 1
