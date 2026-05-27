@@ -2253,6 +2253,25 @@ country_event = {
 			}
 		}
 	}
+	option = {
+		name = ww1_austriahungary.22.c
+		country_event = ww1_austriahungary.137
+		add_political_power = -50
+		country_event = ww1_austriahungary.214
+		trigger = {
+			if = {
+				limit = {
+					has_completed_focus = AUS_1911_elections
+				}
+				OR = {
+					has_global_flag = AUS_imperial_council_conservative
+				}
+				NOT = {
+					has_completed_focus = AUS_reformist_club
+				}
+			}
+		}
+	}
 }
 
 country_event = {
@@ -7393,6 +7412,26 @@ country_event = {
 	option = {
 		name = ww1_austriahungary.213.a
 		unlock_national_focus = AUS_bienerth_resigns
+	}
+}
+#CSP internal vote for MP
+country_event = {
+	id = ww1_austriahungary.214
+	title = ww1_austriahungary.214.t
+	desc = ww1_austriahungary.214.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary.214.a
+		AUS_aloys_von_liechtenstein = {
+			activate_advisor = AUS_aloys_von_liechtenstein
+		}
+	}
+	option = {
+		name = ww1_austriahungary.214.b
+		AUS_leopold_kunschak = {
+			activate_advisor = AUS_leopold_kunschak
+		}
 	}
 }
 add_namespace = ww1_austria_quests
