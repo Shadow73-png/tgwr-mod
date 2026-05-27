@@ -531,6 +531,30 @@ country_event = {
 		unlock_decision_tooltip = RUS_famine_relief
 	}
 }
+#The issue of wine monopoly
+country_event = {
+	id = ww1_russia_common.23
+	title = ww1_russia_common.23.t
+	desc = ww1_russia_common.23.d
+	picture = ww1_russia_prohibition
+	fire_only_once = yes
+	is_triggered_only = yes
+	#No half-measures
+	option = {
+		name = ww1_russia_common.23.a
+		remove_ideas = RUS_drunken_budget
+		add_ideas = RUS_prohibition
+	}
+	#Maybe we could raise alcohol exices instead
+	option = {
+		name = ww1_russia_common.23.b
+		remove_ideas = RUS_drunken_budget
+		add_timed_idea = {
+			idea = RUS_patched_up_budget
+			days = 365
+		}
+	}
+}
 #Monopolists try to bribe us
 country_event = {
 	id = ww1_russia_common.24
@@ -2249,6 +2273,159 @@ country_event = {
 #WORLD WAR I
 #####################
 #SECOND PATRIOTIC WAR
+country_event = {
+	id = ww1_russia_war.1
+	title = ww1_russia_war.1.t
+	desc = ww1_russia_war.1.d
+	picture = ww1_russia_second_patriotic_war
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					has_war_with = GER
+				}
+				set_province_name = {
+					id = 3151
+					name = PETROGRAD_PROV
+				}
+				195 = {
+					set_state_name = PETROGRAD_STATE
+				}
+				
+			}
+			add_timed_idea = {
+				idea = RUS_sacred_unity
+				days = 365
+			}
+			if = {
+				limit = {
+					duma_exists = yes
+				}
+				set_temp_variable = { RUS_modify_loyalty_center_left_var = 25 }
+				RUS_modify_loyalty_center_left = yes
+			}
+			country_event = {
+				id = ww1_russia_war.2
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ww1_russia_war.1.a
+		effect_tooltip = {
+			if = {
+				limit = {
+					has_war_with = GER
+				}
+				set_province_name = {
+					id = 3151
+					name = PETROGRAD_PROV
+				}
+			}
+			add_timed_idea = {
+				idea = RUS_sacred_unity
+				days = 365
+			}
+			if = {
+				limit = {
+					duma_exists = yes
+				}
+				set_temp_variable = { RUS_modify_loyalty_center_left_var = 25 }
+				RUS_modify_loyalty_center_left = yes
+			}
+
+		}
+	}
+}
+#Nikolai Nikolayevich appointed Commander-in-Chief
+country_event = {
+	id = ww1_russia_war.2
+	title = ww1_russia_war.2.t
+	desc = ww1_russia_war.2.d
+	picture = ww1_russia_nikolai_nikolaevich
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			RUS_nikolai_nikolaevich_romanov = {
+				RUS_appoint_commander_in_chief = yes
+			}
+			activate_advisor = RUS_nikolai_nikolaevich
+		}
+	}
+	option = {
+		name = ww1_russia_war.1.a
+		effect_tooltip = {
+			RUS_nikolai_nikolaevich_romanov = {
+				RUS_appoint_commander_in_chief = yes
+			}
+			show_ideas_tooltip = RUS_nikolai_nikolaevich
+		}
+	}
+}
+#Alcohol Riots!
+country_event = {
+	id = ww1_russia_war.3
+	title = ww1_russia_war.3.t
+	desc = ww1_russia_war.3.d
+	picture = ww1_russia_alcoholism
+	trigger = {
+		tag = RUS
+		has_war_with_major = yes
+		has_idea = RUS_prohibition
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			add_stability = -0.01
+			add_political_power = -25
+		}
+	}
+	option = {
+		name = ww1_russia_war.3.a
+		effect_tooltip = {
+			add_stability = -0.01
+			add_political_power = -25
+		}
+	}
+}
+#Alcoholism in the Army!
+country_event = {
+	id = ww1_russia_war.4
+	title = ww1_russia_war.4.t
+	desc = ww1_russia_war.4.d
+	picture = ww1_russia_alcoholism
+	trigger = {
+		tag = RUS
+		has_war_with_major = yes
+		OR = {
+			has_idea = RUS_drunken_budget
+			has_idea = RUS_patched_up_budget
+		}
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			add_timed_idea = {
+				idea = RUS_alcoholism_in_the_army
+				days = 180
+			}
+		}
+	}
+	option = {
+		name = ww1_russia_war.4.a
+		effect_tooltip = {
+			add_timed_idea = {
+				idea = RUS_alcoholism_in_the_army
+				days = 180
+			}
+		}
+	}
+}
+
+
 #REVOLUTION
 ###########
 country_event = {

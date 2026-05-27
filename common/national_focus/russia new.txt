@@ -1864,13 +1864,7 @@ focus_tree = {
 		relative_position_id = RUS_stolypins_reforms
 		available_if_capitulated = yes
 		completion_reward = {
-			remove_ideas = RUS_drunken_budget
-			add_timed_idea = {
-				idea = RUS_compensations_to_alcohol_producers
-				days = 180
-			}
-			add_stability = 0.025
-			add_war_support = 0.05
+			country_event = ww1_russia_common.23
 		}
 		ai_will_do = {
 			factor = 3
@@ -3654,6 +3648,9 @@ focus_tree = {
 			RUS_alexander_krivoshein = {
 				is_part_of_the_cabinet = yes
 			}
+			NOT = {
+				has_completed_focus = RUS_assume_command
+			}
 			hidden_trigger = {
 				has_revolution = no
 			}
@@ -4889,6 +4886,330 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_FOREIGN_POLICY
+		}
+	}
+	#####################
+	# SECOND PATRIOTIC WAR
+	#####################
+	focus = {
+		id = RUS_second_patriotic_war
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 0
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		bypass = {
+			has_war_with_major = yes
+		}
+		x = 3
+		y = 5
+		relative_position_id = RUS_persian_campaign
+		available_if_capitulated = yes
+		bypass_effect = {
+			hidden_effect = {
+				country_event = ww1_russia_war.1
+			}
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_battalions_of_death
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_second_patriotic_war
+		}
+		available = {
+			has_war_with_major = yes
+			has_idea = RUS_autocracy_in_all_but_name_idea
+		}
+		x = -3
+		y = 1
+		relative_position_id = RUS_second_patriotic_war
+		available_if_capitulated = yes
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_assume_command
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_second_patriotic_war
+		}
+		available = {
+			has_war_with_major = yes
+			NOT = {
+				has_idea = RUS_government_of_public_trust_idea
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = RUS_second_patriotic_war
+		available_if_capitulated = yes
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_prodrazverstka
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_second_patriotic_war
+		}
+		available = {
+			has_war_with_major = yes
+			has_idea = RUS_food_shortages
+		}
+		x = 1
+		y = 1
+		relative_position_id = RUS_second_patriotic_war
+		available_if_capitulated = yes
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_import_allied_weaponry
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_second_patriotic_war
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		x = 3
+		y = 1
+		relative_position_id = RUS_second_patriotic_war
+		available_if_capitulated = yes
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_everything_for_the_victory
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_second_patriotic_war
+		}
+		mutually_exclusive = {
+			focus = RUS_special_councils
+			focus = RUS_public_private_partnership
+		}
+		available = {
+			has_war_with_major = yes
+			has_idea = RUS_autocracy_in_all_but_name_idea
+		}
+		x = -2
+		y = 2
+		relative_position_id = RUS_second_patriotic_war
+		available_if_capitulated = yes
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_beat_the_workers_and_the_peasants
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_battalions_of_death
+		}
+		prerequisite = {
+			focus = RUS_everything_for_the_victory
+		}
+		available = {
+			has_war_with_major = yes
+			has_idea = RUS_autocracy_in_all_but_name_idea
+		}
+		x = -1
+		y = 1
+		relative_position_id = RUS_everything_for_the_victory
+		available_if_capitulated = yes
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_conscript_muslims
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_everything_for_the_victory
+			focus = RUS_special_councils
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		x = -1
+		y = 1
+		relative_position_id = RUS_special_councils
+		available_if_capitulated = yes
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_special_councils
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_second_patriotic_war
+		}
+		mutually_exclusive = {
+			focus = RUS_everything_for_the_victory
+			focus = RUS_public_private_partnership
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		x = 0
+		y = 2
+		relative_position_id = RUS_second_patriotic_war
+		available_if_capitulated = yes
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_public_private_partnership
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_second_patriotic_war
+		}
+		mutually_exclusive = {
+			focus = RUS_everything_for_the_victory
+			focus = RUS_special_councils
+		}
+		available = {
+			has_war_with_major = yes
+			has_idea = RUS_government_of_public_trust_idea
+		}
+		x = 2
+		y = 2
+		relative_position_id = RUS_second_patriotic_war
+		available_if_capitulated = yes
+		completion_reward = {
+			RUS_embrace_monopolies = yes
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_recognize_zemgor
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_special_councils
+			focus = RUS_public_private_partnership
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		x = -1
+		y = 1
+		relative_position_id = RUS_public_private_partnership
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = zemgor
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
+		}
+	}
+	focus = {
+		id = RUS_central_war_industry_committee
+		icon = GFX_focus_PER_push_to_deserts
+		cost = 5
+		prerequisite = {
+			focus = RUS_special_councils
+			focus = RUS_public_private_partnership
+		}
+		available = {
+			has_war_with_major = yes
+			has_idea = RUS_government_of_public_trust_idea
+		}
+		x = 1
+		y = 1
+		relative_position_id = RUS_public_private_partnership
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = cvpk
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_SECOND_PATRIOTIC_WAR
 		}
 	}
 }

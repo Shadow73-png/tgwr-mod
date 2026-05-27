@@ -17,21 +17,11 @@ characters = {
 			traits = {
 				army_chief_morale_1 
 			}
-			cost = 0
 			visible = {
-				has_country_leader = {
-					character = RUS_nikolai_ii
-					ruling_only = no 
-				}
-				is_russia_a_monarchy = yes
+				
 			}
 			available = {
-				has_country_leader = {
-					character = RUS_nikolai_ii
-					ruling_only = no 
-				}
-				is_russia_a_monarchy = yes
-				is_part_of_the_cabinet = yes
+				is_commander_in_chief = yes
 			}
 			ai_will_do = {
 				factor = 5.000
@@ -463,6 +453,21 @@ characters = {
 		name = "SOV_aleksandr_kerensky"
 		advisor = {
 			slot = political_advisor
+			idea_token = RUS_alexander_kerensky_chief
+			traits = {
+				army_chief_morale_2
+			}
+			cost = 50
+			visible = {
+				is_commander_in_chief = yes
+			}
+			available = {
+				is_commander_in_chief = yes		
+			}
+			can_be_fired = no
+		}
+		advisor = {
+			slot = political_advisor
 			idea_token = RUS_alexander_kerensky
 			traits = {
 				left_wing_populist
@@ -752,7 +757,6 @@ characters = {
 			traits = {
 				army_chief_entrenchment_2
 			}
-			cost = 0
 			visible = {
 				NOT = {
 					tag = SOV
@@ -803,13 +807,14 @@ characters = {
 			traits = {
 				army_chief_offensive_2 
 			}
-			cost = 0
 			ai_will_do = {
 				factor = 6.000
 			}
 			available = {
-				is_russia_a_monarchy = yes
-				is_part_of_the_cabinet = yes
+				is_commander_in_chief = yes
+			}
+			visible = {
+
 			}
 		}
 		portraits = {
@@ -844,17 +849,11 @@ characters = {
 			traits = {
 				army_chief_maneuver_2 
 			}
-			cost = 0
 			visible = {
-				NOT = {
-					tag = SOV
-				}	
-				SOV = {
-					exists = no 
-				}	
+				
 			}
 			available = {
-				is_part_of_the_cabinet = yes
+				is_commander_in_chief = yes
 			}
 			ai_will_do = {
 				factor = 5.000
@@ -914,8 +913,8 @@ characters = {
 			traits = {
 				army_chief_organizational_2 
 			}
-			cost = 0
 			available = {
+				is_commander_in_chief = yes
 			}
 			visible = {
 				NOT = {
@@ -1231,23 +1230,6 @@ characters = {
 	}
 	RUS_anton_denikin = {
 		name = "SOV_anton_denikin"
-		advisor = {
-			slot = army_chief
-			idea_token = RUS_anton_denikin
-			allowed = {
-					original_tag = RUS
-				}
-				traits = {
-					army_chief_planning_2 
-				}
-				cost = 0
-				available = {
-					is_part_of_the_cabinet = yes
-				}
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
 		portraits = {
 			army = {
 				small = "GFX_idea_RUS_anton_denikin"
@@ -2545,7 +2527,6 @@ characters = {
 			traits = {
 				army_chief_morale_2
 			}
-			cost = 0
 			available = {
 				is_country_leader = yes
 			}

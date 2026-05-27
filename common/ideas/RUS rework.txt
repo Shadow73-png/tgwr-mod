@@ -819,7 +819,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				political_power_gain = 0.3
+				political_power_gain = 0.1
 				consumer_goods_factor = 0.15
 				local_resources_factor = -0.2
 				fuel_gain_factor = -0.2
@@ -844,7 +844,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				political_power_gain = 0.2
+				political_power_gain = 0.1
 				consumer_goods_factor = 0.1
 				production_speed_industrial_complex_factor = -0.1
 				production_lack_of_resource_penalty_factor = 0.1 
@@ -867,7 +867,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				political_power_gain = 0.2
+				political_power_gain = 0.1
 				consumer_goods_factor = 0.1
 				local_resources_factor = -0.2
 				fuel_gain_factor = -0.2
@@ -890,7 +890,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				political_power_gain = 0.2
+				political_power_gain = 0.1
 				consumer_goods_factor = 0.1
 				local_resources_factor = -0.2
 				fuel_gain_factor = -0.2
@@ -963,7 +963,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				political_power_gain = 0.3
+				political_power_gain = 0.25
 				consumer_goods_factor = 0.1
 				local_resources_factor = -0.1
 				production_speed_buildings_factor = -0.1
@@ -1429,11 +1429,11 @@ ideas = {
 			
 			modifier = {
 				stability_factor = -0.025
-				political_power_gain = -0.1
+				political_power_factor = -0.1
 				consumer_goods_factor = -0.15
 			}
 		}
-		RUS_compensations_to_alcohol_producers = {
+		RUS_patched_up_budget = {
 			
 			allowed = { always = no }
 			
@@ -1442,8 +1442,43 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.1
+				political_power_factor = -0.1
+				consumer_goods_factor = -0.1
 			}
+		}
+		RUS_prohibition = {
+			
+			allowed = { always = no }
+			
+			allowed_civil_war = { original_tag = RUS }
+			
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = 0.15
+				war_support_factor = 0.05
+			}
+		}
+		RUS_alcoholism_in_the_army = {
+			
+			allowed = { always = no }
+			
+			allowed_civil_war = { original_tag = RUS }
+
+			available = {
+				has_war_with_major = yes
+				NOT = {
+					has_idea = RUS_prohibition
+				}
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.05
+				war_support_factor = -0.05
+			}
+
 		}
 		RUS_income_tax = {
 			picture = ITA_devaluated_lira
@@ -1475,22 +1510,26 @@ ideas = {
 				consumer_goods_factor = -0.1
 			}
 		}
-		RUS_censorship_campaign = {
-			picture = generic_oppression
+		RUS_food_shortages = {
+			picture = raj_risk_of_famine
 			
 			allowed = { always = no }
 			
 			allowed_civil_war = { original_tag = RUS }
 			
-			removal_cost = -1
-			
-			modifier = {
-				stability_weekly = 0.001
-				communism_drift = -0.02
-				democratic_drift = -0.02
-				neutrality_drift = 0.01
-				fascism_drift = 0.02
+			available = {
+				check_variable = { RUS_railway_modernization_progress < 100 }
+				check_variable = { RUS_food_shortage_progress < 100 }
 			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.05
+				political_power_factor = -0.1
+				monthly_population = -0.05
+			}
+
 		}
 		RUS_slight_army_disintegration = {
 			picture = RUS_army_disintegration
@@ -1612,34 +1651,6 @@ ideas = {
 				training_time_army_factor = 1
 			}
 		}
-		RUS_mass_mutinies = {
-			picture = RUS_order_no_1
-			
-			allowed = { always = no }
-			
-			allowed_civil_war = { original_tag = RUS }
-			
-			available = {
-
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				army_org_factor = -0.25
-				army_attack_factor = -0.5
-				army_defence_factor = -0.5
-				army_morale_factor = -0.25
-				conscription_factor = -0.5
-				custom_modifier_tooltip = cannot_train_units_tt
-			}
-			on_add = {
-				country_lock_all_division_template = yes
-			}
-			on_remove = {
-				country_lock_all_division_template = no
-			}
-		}
 
 		RUS_mass_protests_in_finland = {
 			picture = sisu
@@ -1662,8 +1673,9 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
+				political_power_factor = 0.15
 				stability_factor = 0.25
-				war_support_factor = 0.5
+				war_support_factor = 1
 			}
 			on_remove = {
 				if = {
@@ -1679,6 +1691,28 @@ ideas = {
 	}
 	industrial_concern = {
 		designer = yes
+		zemgor = {
+			allowed = { 
+				tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_recognize_zemgor
+			}
+			picture = generic_artillery_manufacturer_1
+			research_bonus = { naval_equipment=0.15 }
+			traits = { industrial_concern }
+		}
+		cvpk = {
+			allowed = { 
+				tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_central_war_industry_committee
+			}
+			picture = generic_artillery_manufacturer_1
+			research_bonus = { naval_equipment=0.15 }
+			traits = { industrial_concern }
+		}
 		kharkov_locomotive_factory = {
 			allowed = { 
 				is_russian_tag = yes 
