@@ -235,7 +235,7 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_montenegro.8.a
-		#unlock category loansharking
+		set_country_flag = MNT_loansharking_unlocked
 		add_political_power = -15
 	}
 }
@@ -247,7 +247,27 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_montenegro.9.a
-		#unlock recon and pioneers, get research bonuses of 50% on: hospital, logistics, military police
+		set_technology = {
+			tech_pioneers = 1
+		}
+		set_technology = {
+			tech_recon = 1
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = military_police_tech
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = hospital_tech
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = logistics_tech
+		}
 	}
 }
 country_event = {
