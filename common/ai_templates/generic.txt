@@ -14,7 +14,7 @@ armor_generic = {
 	role = armor
 	
 	upgrade_prio = {
-		factor = 2.17
+		factor = 4
 		modifier = {
 			factor = 0
 			NOT = {
@@ -30,16 +30,17 @@ armor_generic = {
 			factor = 2
 
 			modifier = {
+				factor = 3
+				num_of_military_factories < 60
+				num_of_military_factories > 20
+			}
+
+			modifier = {
 				factor = 0
 				NOT = {
 					has_tech = basic_light_tank_chassis
 				}
 			}
-		}
-		# }
-		
-		can_upgrade_in_field = {
-			has_equipment = { light_tank_chassis < 500 } 
 		}
 		
 		target_template = {
@@ -49,14 +50,11 @@ armor_generic = {
 			}
 			
 			regiments = {
-				light_armor = 4
-				infantry = 3
+				light_armor = 1
+				field_gun_brigade = 2
+				infantry = 8
 			}
 		}
-		
-		replace_at_match = 0.4
-		replace_with = medium_armor_default
-		target_min_match = 0.5
 	}
 
 
@@ -97,8 +95,9 @@ armor_generic = {
 			}
 			
 			regiments = {
-				heavy_armor = 4
-				infantry = 3
+				heavy_armor = 1
+				field_gun_brigade = 2
+				infantry = 8
 			}
 		}
 	}
@@ -141,8 +140,9 @@ armor_generic = {
 			}
 			
 			regiments = {
-				medium_armor = 4
-				motorized = 3
+				medium_armor = 1
+				field_gun_brigade = 2
+				infantry = 8
 			}
 		}
 	}
@@ -194,7 +194,7 @@ suppression_generic = { #suppre unit are same
 		factor = 1
 
 		modifier = {
-			factor = 20
+			factor = 5
 			has_war = yes
 		}
 	}
@@ -430,10 +430,6 @@ mountaineers_generic = {
 	
 		upgrade_prio = {
 			factor = 2
-
-			modifier = {
-				factor = 1
-			}
 		}
 	
 		#width_weight = 20.0
@@ -538,9 +534,6 @@ marines_generic = {
 		upgrade_prio = {
 			factor = 2
 
-			modifier = {
-				factor = 1
-			}
 			modifier = {
 				factor = 0
 				OR = {
