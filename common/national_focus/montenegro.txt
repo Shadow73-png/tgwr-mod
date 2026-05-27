@@ -2,6 +2,38 @@
 #					█▀▄▀█ █▀█ █▄░█ ▀█▀ █▀▀ █▄░█ █▀▀ █▀▀ █▀█ █▀█   █▀▀ █▀█ █▀▀ █░█ █▀
 #					█░▀░█ █▄█ █░▀█ ░█░ ██▄ █░▀█ ██▄ █▄█ █▀▄ █▄█   █▀░ █▄█ █▄▄ █▄█ ▄█
 #					^cringe af
+
+
+#───────────────────██
+#──────────────────█─██
+#──────────────────█───█
+#──────────────────█───█
+#──────────────────█───█
+#──────────────────█───█
+#──────────────────█───█▓		get real
+#──────────────────█───▓█
+#──────────────────█───░█
+#──────────────────█───░█
+#──────────────────█░░░─█
+#───────────▓███──██▓▓███
+#───────────██──▓██▓────██
+#───────────█▓────█▓─────▓█
+#───────────█▓─────█──────░█
+#██████─────█▓─────█────────█
+#████████▓███░──────█──█▓────█
+#█░░░░░░█───────────█░███────█▓
+#▓██████─────────────█▓██────██
+#███████░────────────────────▓█
+#▓██████░────────────────────░█
+#▓██████░────────────────────▓█
+#▓██████░────────────────────█▓
+#▓██████░────────────────────█
+#▓██████░───────────────────██
+#▓███░██░──────────────────█
+#▓███──████████████████████
+#██████
+
+
 focus_tree = {
 	id = montenegro_focus
 	country = {
@@ -50,18 +82,25 @@ focus_tree = {
 	focus = {
 		id = MNT_law_on_army
 		icon = GFX_focus_CZE_army_reform
-		cost = 4
-		x = 5
+		cost = 5
+		x = 7
 		y = 0
 		relative_position_id = MNT_russia_mil_treaty
 		available = {
 			has_completed_focus = MNT_kingdom_proclamation
 		}
 		completion_reward = {
-			#increase army law
-			#pioneers and recon research bonuses
+			swap_ideas = {
+				remove_idea = extensive_conscription
+				add_idea = service_by_requirement
+			}
 			country_event = ww1_montenegro.9
-			#hidden event report all reservists have emigrated or smth
+			hidden_effect = {
+				country_event = {
+					id = ww1_montenegro.12
+					days = 6
+				}
+			}
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -71,7 +110,7 @@ focus_tree = {
 		id = MNT_albania_situation1
 		icon = GFX_focus_generic_attack_albania
 		cost = 3
-		x = 3
+		x = 2
 		y = 0
 		available = {
 			always = no
@@ -100,6 +139,8 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = MNT_russia_mil_treaty
+		}
+		prerequisite = {
 			focus = MNT_albania_situation1
 		}
 		completion_reward = {
@@ -123,7 +164,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = ww1_montenegro.8
-			#decision category unlocked full of begmaxxing stuff
+			MNT_debt_consumer_goods = 0.025
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -191,7 +232,7 @@ focus_tree = {
 	focus = {
 		id = MNT_standardize_courts
 		icon = GFX_focus_generic_court
-		cost = 4
+		cost = 3
 		x = 0
 		y = 2
 		relative_position_id = MNT_kingdom_proclamation
