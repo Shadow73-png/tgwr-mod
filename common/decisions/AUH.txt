@@ -2527,7 +2527,10 @@ add_building_construction = {
 			original_tag = AUS
 		}
 		activation = {
-			always = no
+			NOT = {
+				has_completed_focus = AUS_1911_elections
+				has_completed_focus = AUS_bourgeoisie_unity
+			}
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -2538,29 +2541,15 @@ add_building_construction = {
 		complete_effect = {
 		}
 		timeout_effect = {
-		
+			#Bienerth Majority -- Has completed Moderate Electoral Alliance focus and the CSP has more points than any other party
 			if = {
 				limit = {
-					AND = {
-						has_completed_focus = AUS_reformist_club
-					OR = {
-						AND = {
-							check_variable = {
-								AUS_socdem_election_performance < AUS_conservative_election_performance
-							}
-							check_variable = {
-								AUS_conservative_election_performance > AUS_liberal_election_performance
-							}
-						}
-						AND = {
-							check_variable = {
-								AUS_socdem_election_performance = AUS_conservative_election_performance
-							}
-							check_variable = {
-								AUS_conservative_election_performance > AUS_socdem_election_performance
-							}
-						}
+					has_completed_focus = AUS_reformist_club
+					check_variable = {
+						AUS_socdem_election_performance < AUS_conservative_election_performance
 					}
+					check_variable = {
+						AUS_liberal_election_performance < AUS_conservative_election_performance
 					}
 				}
 				country_event = ww1_austriahungary.202
@@ -2576,56 +2565,61 @@ add_building_construction = {
 								AUS_liberal_election_performance > AUS_socdem_election_performance
 							}
 						}
-						AND = {
-							check_variable = {
-								AUS_conservative_election_performance = AUS_liberal_election_performance
-							}
-							check_variable = {
-								AUS_conservative_election_performance = AUS_socdem_election_performance
-							}
-						}
+						#AND = {
+						#	check_variable = {
+						#		AUS_conservative_election_performance = AUS_liberal_election_performance
+						#	}
+						#	check_variable = {
+						#		AUS_socdem_election_performance = AUS_liberal_election_performance
+						#	}
+						#}
+						#leaf how do you secure a majority when everybody's equal??
 					}
 				}
 				country_event = ww1_austriahungary.21
+				complete_national_focus = AUS_1911_elections
 			}
 			if = {
 				limit = {
-					AND = {
-						check_variable = {
-							AUS_socdem_election_performance > AUS_liberal_election_performance
+					OR = {
+						AND = {
+							check_variable = {
+								AUS_conservative_election_performance < AUS_socdem_election_performance
+							}
+							check_variable = {
+								AUS_liberal_election_performance < AUS_socdem_election_performance
+							}
 						}
-						check_variable = {
-							AUS_conservative_election_performance < AUS_socdem_election_performance
-						}
+						#AND = {
+						#	check_variable = {
+						#		AUS_conservative_election_performance = AUS_socdem_election_performance
+						#	}
+						#	check_variable = {
+						#		AUS_liberal_election_performance = AUS_socdem_election_performance
+						#	}
+						#}
+						#leaf how do you secure a majority when everybody's equal??
 					}
 				}
 				country_event = ww1_austriahungary.43
+				complete_national_focus = AUS_1911_elections
 			}
+
+			# CSP Majority -- Has NOT completed Moderate Electoral Alliance focus and the CSP has more points than any other party
 			if = {
 				limit = {
 					NOT = {
 						has_completed_focus = AUS_reformist_club
 					}
-					OR = {
-						AND = {
-							check_variable = {
-								AUS_socdem_election_performance < AUS_conservative_election_performance
-							}
-							check_variable = {
-								AUS_conservative_election_performance > AUS_liberal_election_performance
-							}
-						}
-						AND = {
-							check_variable = {
-								AUS_socdem_election_performance = AUS_conservative_election_performance
-							}
-							check_variable = {
-								AUS_conservative_election_performance > AUS_socdem_election_performance
-							}
-						}
+					check_variable = {
+						AUS_socdem_election_performance < AUS_conservative_election_performance
+					}
+					check_variable = {
+						AUS_conservative_election_performance > AUS_liberal_election_performance
 					}
 				}
 				country_event = ww1_austriahungary.44
+				complete_national_focus = AUS_1911_elections
 			}
 			hidden_effect = {
 				country_event = {
@@ -2637,7 +2631,6 @@ add_building_construction = {
 					days = 15
 				}
 			}
-			complete_national_focus = AUS_1911_elections
 		}
 	}
 	AUS_reduce_worker_rights = {

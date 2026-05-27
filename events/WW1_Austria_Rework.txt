@@ -1343,11 +1343,13 @@ country_event = {
 	trigger = {
 		has_war_with_major = yes
 		is_great_war_ongoing = yes
-OR = {
-	has_global_flag = AUS_mp_austria_autocrat
-	has_completed_focus = AUS_suspend_civil_liberties
-	has_completed_focus = AUS_soft_authoritarianism
-}
+		AUH_karl_von_sturgkh = {
+			has_character_flag = minister_AUS
+		}
+		OR = {
+			has_completed_focus = AUS_suspend_civil_liberties
+			has_completed_focus = AUS_soft_authoritarianism
+		}
 	}
 	mean_time_to_happen = {
 		days = 853
@@ -2188,7 +2190,7 @@ country_event = {
 		}
 	}
 }
-
+#unused content
 country_event = {
 	id = ww1_austriahungary.21
 	title = ww1_austriahungary.21.t
@@ -2223,7 +2225,6 @@ country_event = {
 		name = ww1_austriahungary.22.a
 		country_event = ww1_austriahungary.23
 		add_political_power = -50
-		custom_effect_tooltip = AUS_mp_austria_now_autocrat
 		ai_chance = {
 			base = 10
 		}
@@ -2232,12 +2233,7 @@ country_event = {
 				limit = {
 					has_completed_focus = AUS_1911_elections
 				}
-				OR = {
-					has_global_flag = AUS_imperial_council_liberal
-					has_global_flag = AUS_imperial_council_social_democrat
-					has_global_flag = AUS_imperial_council_conservative
-				}
-			
+				has_global_flag = AUS_imperial_council_conservative
 			}
 		}
 	}
@@ -2245,7 +2241,6 @@ country_event = {
 		name = ww1_austriahungary.22.b
 		country_event = ww1_austriahungary.137
 		add_political_power = -50
-		custom_effect_tooltip = AUS_mp_austria_now_reformist
 		trigger = {
 			if = {
 				limit = {
@@ -2254,10 +2249,6 @@ country_event = {
 				OR = {
 					has_global_flag = AUS_imperial_council_liberal
 					has_global_flag = AUS_imperial_council_social_democrat
-				}
-				NOT = {
-					has_completed_focus = AUS_destroy_decadent_democracy
-					has_completed_focus = AUS_the_conservative_duopoly
 				}
 			}
 		}
@@ -2278,7 +2269,7 @@ country_event = {
 			}
 			has_global_flag = second_round_of_choosing_MP_AUS
 		}
-		custom_effect_tooltip = historical_tt
+		#custom_effect_tooltip = historical_tt
 		AUS_fire_minister_advisor = yes
 		set_global_flag = AUS_karl_minister
 		set_global_flag = AUS_mp_austria_autocrat
@@ -2295,66 +2286,68 @@ country_event = {
 			}
 		}
 	}
-	option = {
-		name = ww1_austriahungary.23.b
-		trigger = {
-			NOT = {
-				has_global_flag = AUS_heinrich_minister
-				has_global_flag = AUS_paul_minister
-			}
-		}
-		AUS_fire_minister_advisor = yes
-		set_global_flag = AUS_heinrich_minister
-		set_global_flag = AUS_mp_austria_autocrat
-		clr_global_flag = AUS_mp_austria_reformist
-		AUS_heinrich_klam_martinic = {
-			set_character_flag = minister_AUS
-		}
-		activate_advisor = AUS_heinrich_klam_martinic
-		hidden_effect = {
-			IF = {
-				limit = {
-					date < 1911.8.8
-				}
-				hidden_effect = {
-					country_event = {
-						id = ww1_austriahungary.28
-						days = 20
-					}
-				}
-			}
-		}
-	}
-	option = {
-		name = ww1_austriahungary.23.c
-		trigger = {
-			NOT = {
-				has_global_flag = AUS_max_minister
-				has_global_flag = AUS_paul_minister
-			}
-		}
-		AUS_fire_minister_advisor = yes
-		set_global_flag = AUS_max_minister
-		set_global_flag = AUS_mp_austria_autocrat
-		clr_global_flag = AUS_mp_austria_reformist
-		AUS_max_von_heinlein = {
-			set_character_flag = minister_AUS
-		}
-		activate_advisor = AUS_max_von_heinlein
-		hidden_effect = {
-			IF = {
-				limit = {
-					date < 1911.8.8
-				}
-				hidden_effect = {
-					country_event = {
-						id = ww1_austriahungary.28
-						days = 20
-					}
-				}
-			}
-		}
-	}
+	#becomes MP in other way
+	#option = {
+	#	name = ww1_austriahungary.23.b
+	#	trigger = {
+	#		NOT = {
+	#			has_global_flag = AUS_heinrich_minister
+	#			has_global_flag = AUS_paul_minister
+	#		}
+	#	}
+	#	AUS_fire_minister_advisor = yes
+	#	set_global_flag = AUS_heinrich_minister
+	#	set_global_flag = AUS_mp_austria_autocrat
+	#	clr_global_flag = AUS_mp_austria_reformist
+	#	AUS_heinrich_klam_martinic = {
+	#		set_character_flag = minister_AUS
+	#	}
+	#	activate_advisor = AUS_heinrich_klam_martinic
+	#	hidden_effect = {
+	#		IF = {
+	#			limit = {
+	#				date < 1911.8.8
+	#			}
+	#			hidden_effect = {
+	#				country_event = {
+	#					id = ww1_austriahungary.28
+	#					days = 20
+	#				}
+	#			}
+	#		}
+	#	}
+	#}
+	#becomes MP in other way
+	#option = {
+	#	name = ww1_austriahungary.23.c
+	#	trigger = {
+	#		NOT = {
+	#			has_global_flag = AUS_max_minister
+	#			has_global_flag = AUS_paul_minister
+	#		}
+	#	}
+	#	AUS_fire_minister_advisor = yes
+	#	set_global_flag = AUS_max_minister
+	#	set_global_flag = AUS_mp_austria_autocrat
+	#	clr_global_flag = AUS_mp_austria_reformist
+	#	AUS_max_von_heinlein = {
+	#		set_character_flag = minister_AUS
+	#	}
+	#	activate_advisor = AUS_max_von_heinlein
+	#	hidden_effect = {
+	#		IF = {
+	#			limit = {
+	#				date < 1911.8.8
+	#			}
+	#			hidden_effect = {
+	#				country_event = {
+	#					id = ww1_austriahungary.28
+	#					days = 20
+	#				}
+	#			}
+	#		}
+	#	}
+	#}
 	option = {
 		name = ww1_austriahungary.23.e
 		trigger = {
