@@ -7217,6 +7217,13 @@ country_event = {
 	option = {
 		name = ww1_austriahungary.202.a
 		add_political_power = 100
+		set_global_flag = AUS_burgereese_wins_elections
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary.210
+				days = 2
+			}
+		}
 	}
 }
 #Schemua appointed army chief
@@ -7340,6 +7347,12 @@ country_event = {
 		set_variable = {
 			AUS_coalition_dissent = 0
 		}
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary.215
+				days = 3
+			}
+		}
 	}
 }
 #dissent over school funding
@@ -7374,6 +7387,7 @@ country_event = {
 		name = ww1_austriahungary.212.b
 		add_to_variable = {
 			AUS_pm_mandate_power = -1
+			tooltip = AUS_pm_mandate.tt
 		}
 		add_to_variable = {
 			AUS_romanian_loyalty = 5
@@ -7384,6 +7398,7 @@ country_event = {
 		name = ww1_austriahungary.212.c
 		add_to_variable = {
 			AUS_pm_mandate_power = -1
+			tooltip = AUS_pm_mandate.tt
 		}
 		add_to_variable = {
 			AUS_romanian_loyalty = 5
@@ -7394,6 +7409,7 @@ country_event = {
 		name = ww1_austriahungary.212.e
 		add_to_variable = {
 			AUS_pm_mandate_power = -2
+			tooltip = AUS_pm_mandate.tt
 		}
 		add_to_variable = {
 			AUS_romanian_loyalty = 15
@@ -7433,6 +7449,78 @@ country_event = {
 			activate_advisor = AUS_leopold_kunschak
 		}
 	}
+}
+country_event = {
+	id = ww1_austriahungary.215
+	title = ww1_austriahungary.215.t
+	desc = ww1_austriahungary.215.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary.215.a
+		activate_mission = AUS_tackle_first_czech_reforms
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary.216
+	title = ww1_austriahungary.216.t
+	desc = ww1_austriahungary.216.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	timeout_days = 7
+	option = {
+		name = ww1_austriahungary.216.a
+	
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary.217
+	title = ww1_austriahungary.217.t
+	desc = ww1_austriahungary.217.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	timeout_days = 5
+	option = {
+		name = ww1_austriahungary.217.a
+		add_stability = -0.03
+		add_political_power = -20
+	hidden_effect = {
+		country_event = {
+			id = ww1_austriahungary.218
+			days = 2
+		}
+	}
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary.218
+	title = ww1_austriahungary.218.t
+	desc = ww1_austriahungary.218.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	timeout_days = 5
+	option = {
+		name = ww1_austriahungary.218.a
+		add_stability = 0.03
+		add_political_power = 50
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary.219
+	title = ww1_austriahungary.219.t
+	desc = ww1_austriahungary.219.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary.219.a
+		add_stability = 0.02
+		add_political_power = 20
+	}
+	
 }
 add_namespace = ww1_austria_quests
 # forts dispatch event
