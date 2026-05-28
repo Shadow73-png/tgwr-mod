@@ -2148,13 +2148,12 @@ AUH_the_imperial_council = {
 		
 	}
 	AUS_invest_in_ports = {
-		icon = GFX_decision_hol_attract_foreign_investors
+		icon = GFX_decision_SWE_set_navy_budget
 		allowed = {
 			original_tag = AUS
 		}
 		visible = {
 			has_completed_focus = AUS_public_investments
-			
 		}
 		priority = 210
 		available = {
@@ -2164,16 +2163,24 @@ AUH_the_imperial_council = {
 				}
 				tooltip = AUS_at_least_one_pm_power
 			}
+			1198 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1198
+			}
 		}
 		fire_only_once = yes
-		days_remove = 240
+		days_remove = 200
 		cost = 0
 		ai_will_do = {
-			base = 0
-			
+			base = 0	
 		}
 		modifier = {
-			consumer_goods_factor = 0.15
+			civilian_factory_use = 1
 		}
 		complete_effect = {
 		}
@@ -2184,18 +2191,29 @@ AUH_the_imperial_council = {
 			}
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
-				AUS_EP_trade_ai_chance = 0.05
+				AUS_EP_trade_ai_chance = 0.1
 				tooltip = trade_opinion_factor_neutral_tt
 			}
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_consumer_goods = -0.025
-				tooltip = consumer_goods_factor_tt
-			}
 			1198 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
 				add_building_construction = {
 					type = naval_base
-					level = 1
+					level = 2
 					instant_build = yes
 					province = 6626
 				}
