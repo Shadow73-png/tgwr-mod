@@ -7217,6 +7217,13 @@ country_event = {
 	option = {
 		name = ww1_austriahungary.202.a
 		add_political_power = 100
+		set_global_flag = AUS_burgereese_wins_elections
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary.210
+				days = 2
+			}
+		}
 	}
 }
 #Schemua appointed army chief
@@ -7340,6 +7347,12 @@ country_event = {
 		set_variable = {
 			AUS_coalition_dissent = 0
 		}
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary.215
+				days = 3
+			}
+		}
 	}
 }
 #dissent over school funding
@@ -7433,6 +7446,18 @@ country_event = {
 			activate_advisor = AUS_leopold_kunschak
 		}
 	}
+}
+country_event = {
+	id = ww1_austriahungary.215
+	title = ww1_austriahungary.215.t
+	desc = ww1_austriahungary.215.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = ww1_austriahungary.215.a
+		activate_mission = AUS_tackle_first_czech_reforms
+	}
+	
 }
 add_namespace = ww1_austria_quests
 # forts dispatch event

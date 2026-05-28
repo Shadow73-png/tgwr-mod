@@ -919,6 +919,38 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
+		focus = {
+		id = AUS_linquistic_partition
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 4
+		relative_position_id = AUS_bourgeoisie_unity
+		prerequisite = {
+			focus = AUS_bourgeoisie_unity
+		}
+		prerequisite = {
+			focus = AUS_wait_them_out
+		}
+		x = -2
+		y = 1
+		available = {
+			AUS_richard_von_bienerth_schmerling = {
+				has_character_flag = minister_AUS
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = AUS_this_is_sensitive
+			add_days_mission_timeout = {
+				mission = AUS_coalition_dissent_mission
+				days = -100
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
 	focus = {
 		id = AUS_stapinskis_directive
 		icon = GFX_focus_BRA_the_polaca
@@ -975,18 +1007,15 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_bienerth_resigns
-		icon = GFX_focus_SWE_refuge_from_war
+		icon = GFX_focus_SWE_organize_a_putsch
 		cost = 4
 		relative_position_id = AUS_count_richard_von_bienerth_schmerling
 		x = 0
 		y = 9
 		available = {
-			AUS_richard_von_bienerth_schmerling = {
-				has_character_flag = minister_AUS
-			}
+		always = no
 		}
 		completion_reward = {
-			country_event = ww1_austriahungary.212
 		}
 		ai_will_do = {
 			base = 1
