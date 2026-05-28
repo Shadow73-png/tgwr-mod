@@ -62,11 +62,7 @@ debug_decisions = {
 		allowed = { original_tag = TUR }
 		complete_effect = {
 			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 2
-			}
-			add_power_balance_value = {
-				id = TUR_local_central_rule
+				id = TUR_foreign_allignment
 				value = 2
 			}
 		}
@@ -76,11 +72,7 @@ debug_decisions = {
 		allowed = { original_tag = TUR }
 		complete_effect = {
 			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -2
-			}
-			add_power_balance_value = {
-				id = TUR_local_central_rule
+				id = TUR_foreign_allignment
 				value = -2
 			}
 		}
@@ -653,8 +645,8 @@ TGWR_great_power_politics = {
 		available = {
 			OR = {
 				is_power_balance_in_range = {
-					id = TUR_unionist_struggle
-					range > TUR_unionist_struggle_enver_pasha_low_control
+					id = TUR_foreign_allignment
+					range > TUR_unwilling_neutrality
 				}
 				has_war_with = RUS
 				GER = { NOT = { has_war_with = RUS } }
@@ -664,8 +656,8 @@ TGWR_great_power_politics = {
 			has_country_flag = TUR_goeben_und_breslau
 			TUR_ismail_enver = { is_hired_as_advisor = yes }
 			is_power_balance_in_range = {
-				id = TUR_unionist_struggle
-				range < TUR_unionist_struggle_balanced
+				id = TUR_foreign_allignment
+				range < TUR_unwilling_neutrality
 			}
 			GER = { has_war_with = RUS }
 			NOT = {
@@ -31319,6 +31311,10 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_1_FRA = yes
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = 0.05
+				}
 			}
 			if = {
 				limit = { FRA = { has_country_flag = already_investing_in_the_ottomans_consumer } }
@@ -31330,6 +31326,10 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_2_FRA = yes
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = 0.07
+				}
 			}
 			if = {
 				limit = {
@@ -31361,6 +31361,10 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_3_FRA = yes
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = 0.1
+				}
 			}
 			if = {
 				limit = { FRA = { has_idea = TUR_minimal_investment_in_the_ottomans } }
@@ -31441,12 +31445,26 @@ economy_decisions = {
 				var:ENG.ottoman_investment_targeted_state = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
-						type = inENGstructure
+						type = infrastructure
 						level = 1
 						instant_build = yes
 					}
 				}
 				TUR_add_debt_1_ENG = yes
+				if = {
+					limit = { ENG = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = { ENG = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { ENG = { has_country_flag = already_investing_in_the_ottomans_consumer } }
@@ -31458,6 +31476,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_2_ENG = yes
+				if = {
+					limit = { ENG = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = { ENG = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -31489,6 +31521,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_3_ENG = yes
+				if = {
+					limit = { ENG = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = { ENG = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { ENG = { has_idea = TUR_minimal_investment_in_the_ottomans } }
@@ -31569,12 +31615,16 @@ economy_decisions = {
 				var:GER.ottoman_investment_targeted_state = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
-						type = inGERstructure
+						type = infrastructure
 						level = 1
 						instant_build = yes
 					}
 				}
 				TUR_add_debt_1_GER = yes
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = -0.05
+				}
 			}
 			if = {
 				limit = { GER = { has_country_flag = already_investing_in_the_ottomans_consumer } }
@@ -31586,6 +31636,10 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_2_GER = yes
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = -0.07
+				}
 			}
 			if = {
 				limit = {
@@ -31617,6 +31671,10 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_3_GER = yes
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = -0.1
+				}
 			}
 			if = {
 				limit = { GER = { has_idea = TUR_minimal_investment_in_the_ottomans } }
@@ -31697,12 +31755,26 @@ economy_decisions = {
 				var:BEL.ottoman_investment_targeted_state = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
-						type = inBELstructure
+						type = infrastructure
 						level = 1
 						instant_build = yes
 					}
 				}
 				TUR_add_debt_1_BEL = yes
+				if = {
+					limit = { BEL = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = { BEL = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { BEL = { has_country_flag = already_investing_in_the_ottomans_consumer } }
@@ -31714,6 +31786,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_2_BEL = yes
+				if = {
+					limit = { BEL = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = { BEL = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -31745,6 +31831,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_3_BEL = yes
+				if = {
+					limit = { BEL = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = { BEL = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { BEL = { has_idea = TUR_minimal_investment_in_the_ottomans } }
@@ -31825,12 +31925,26 @@ economy_decisions = {
 				var:HOL.ottoman_investment_targeted_state = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
-						type = inHOLstructure
+						type = infrastructure
 						level = 1
 						instant_build = yes
 					}
 				}
 				TUR_add_debt_1_HOL = yes
+				if = {
+					limit = { HOL = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = { HOL = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { HOL = { has_country_flag = already_investing_in_the_ottomans_consumer } }
@@ -31842,6 +31956,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_2_HOL = yes
+				if = {
+					limit = { HOL = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = { HOL = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -31873,6 +32001,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_3_HOL = yes
+				if = {
+					limit = { HOL = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = { HOL = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { HOL = { has_idea = TUR_minimal_investment_in_the_ottomans } }
@@ -31953,12 +32095,26 @@ economy_decisions = {
 				var:ITA.ottoman_investment_targeted_state = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
-						type = inITAstructure
+						type = infrastructure
 						level = 1
 						instant_build = yes
 					}
 				}
 				TUR_add_debt_1_ITA = yes
+				if = {
+					limit = { ITA = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = { ITA = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { ITA = { has_country_flag = already_investing_in_the_ottomans_consumer } }
@@ -31970,6 +32126,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_2_ITA = yes
+				if = {
+					limit = { ITA = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = { ITA = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -32001,6 +32171,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_3_ITA = yes
+				if = {
+					limit = { ITA = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = { ITA = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { ITA = { has_idea = TUR_minimal_investment_in_the_ottomans } }
@@ -32081,12 +32265,26 @@ economy_decisions = {
 				var:AUS.ottoman_investment_targeted_state = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
-						type = inAUSstructure
+						type = infrastructure
 						level = 1
 						instant_build = yes
 					}
 				}
 				TUR_add_debt_1_AUS = yes
+				if = {
+					limit = { AUS = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = { AUS = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { AUS = { has_country_flag = already_investing_in_the_ottomans_consumer } }
@@ -32098,6 +32296,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_2_AUS = yes
+				if = {
+					limit = { AUS = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = { AUS = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -32129,6 +32341,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_3_AUS = yes
+				if = {
+					limit = { AUS = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = { AUS = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { AUS = { has_idea = TUR_minimal_investment_in_the_ottomans } }
@@ -32209,12 +32435,26 @@ economy_decisions = {
 				var:USA.ottoman_investment_targeted_state = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
-						type = inUSAstructure
+						type = infrastructure
 						level = 1
 						instant_build = yes
 					}
 				}
 				TUR_add_debt_1_USA = yes
+				if = {
+					limit = { USA = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = { USA = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { USA = { has_country_flag = already_investing_in_the_ottomans_consumer } }
@@ -32226,6 +32466,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_2_USA = yes
+				if = {
+					limit = { USA = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = { USA = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -32257,6 +32511,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_3_USA = yes
+				if = {
+					limit = { USA = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = { USA = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { USA = { has_idea = TUR_minimal_investment_in_the_ottomans } }
@@ -32343,6 +32611,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_1_RUS = yes
+				if = {
+					limit = { RUS = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = { RUS = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { RUS = { has_country_flag = already_investing_in_the_ottomans_consumer } }
@@ -32354,6 +32636,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_2_RUS = yes
+				if = {
+					limit = { RUS = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = { RUS = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -32385,6 +32681,20 @@ economy_decisions = {
 					}
 				}
 				TUR_add_debt_3_RUS = yes
+				if = {
+					limit = { RUS = { is_in_faction_with = GER } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = { RUS = { is_in_faction_with = FRA } }
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { RUS = { has_idea = TUR_minimal_investment_in_the_ottomans } }
@@ -32436,6 +32746,7 @@ TUR_investing_in_the_sick_man = {
 			custom_trigger_tooltip = {
 				tooltip = already_investing_in_the_ottomans_tt
 				NOT = {
+					has_country_flag = already_investing_in_the_ottomans
 					has_active_mission = invest_in_ottoman_rumelia_mission
 					has_active_mission = invest_in_ottoman_anatolia_mission
 					has_active_mission = invest_in_ottoman_syria_mission
@@ -32593,6 +32904,36 @@ TUR_investing_in_the_sick_man = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_1_USA = yes }
 				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { has_country_flag = already_investing_in_the_ottomans_consumer }
@@ -32638,6 +32979,36 @@ TUR_investing_in_the_sick_man = {
 				if = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_2_USA = yes }
+				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
 				}
 			}
 			if = {
@@ -32703,6 +33074,36 @@ TUR_investing_in_the_sick_man = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_3_USA = yes }
 				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { has_idea = TUR_minimal_investment_in_the_ottomans }
@@ -32750,6 +33151,7 @@ TUR_investing_in_the_sick_man = {
 			custom_trigger_tooltip = {
 				tooltip = already_investing_in_the_ottomans_tt
 				NOT = {
+					has_country_flag = already_investing_in_the_ottomans
 					has_active_mission = invest_in_ottoman_rumelia_mission
 					has_active_mission = invest_in_ottoman_anatolia_mission
 					has_active_mission = invest_in_ottoman_syria_mission
@@ -32907,6 +33309,36 @@ TUR_investing_in_the_sick_man = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_1_USA = yes }
 				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { has_country_flag = already_investing_in_the_ottomans_consumer }
@@ -32952,6 +33384,36 @@ TUR_investing_in_the_sick_man = {
 				if = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_2_USA = yes }
+				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
 				}
 			}
 			if = {
@@ -33017,6 +33479,36 @@ TUR_investing_in_the_sick_man = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_3_USA = yes }
 				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { has_idea = TUR_minimal_investment_in_the_ottomans }
@@ -33064,6 +33556,7 @@ TUR_investing_in_the_sick_man = {
 			custom_trigger_tooltip = {
 				tooltip = already_investing_in_the_ottomans_tt
 				NOT = {
+					has_country_flag = already_investing_in_the_ottomans
 					has_active_mission = invest_in_ottoman_rumelia_mission
 					has_active_mission = invest_in_ottoman_anatolia_mission
 					has_active_mission = invest_in_ottoman_syria_mission
@@ -33221,6 +33714,36 @@ TUR_investing_in_the_sick_man = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_1_USA = yes }
 				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { has_country_flag = already_investing_in_the_ottomans_consumer }
@@ -33266,6 +33789,36 @@ TUR_investing_in_the_sick_man = {
 				if = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_2_USA = yes }
+				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
 				}
 			}
 			if = {
@@ -33331,6 +33884,36 @@ TUR_investing_in_the_sick_man = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_3_USA = yes }
 				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { has_idea = TUR_minimal_investment_in_the_ottomans }
@@ -33378,6 +33961,7 @@ TUR_investing_in_the_sick_man = {
 			custom_trigger_tooltip = {
 				tooltip = already_investing_in_the_ottomans_tt
 				NOT = {
+					has_country_flag = already_investing_in_the_ottomans
 					has_active_mission = invest_in_ottoman_rumelia_mission
 					has_active_mission = invest_in_ottoman_anatolia_mission
 					has_active_mission = invest_in_ottoman_syria_mission
@@ -33535,6 +34119,36 @@ TUR_investing_in_the_sick_man = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_1_USA = yes }
 				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { has_country_flag = already_investing_in_the_ottomans_consumer }
@@ -33580,6 +34194,36 @@ TUR_investing_in_the_sick_man = {
 				if = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_2_USA = yes }
+				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
 				}
 			}
 			if = {
@@ -33645,6 +34289,36 @@ TUR_investing_in_the_sick_man = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_3_USA = yes }
 				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
+				}
 			}
 			if = {
 				limit = { has_idea = TUR_minimal_investment_in_the_ottomans }
@@ -33692,6 +34366,7 @@ TUR_investing_in_the_sick_man = {
 			custom_trigger_tooltip = {
 				tooltip = already_investing_in_the_ottomans_tt
 				NOT = {
+					has_country_flag = already_investing_in_the_ottomans
 					has_active_mission = invest_in_ottoman_rumelia_mission
 					has_active_mission = invest_in_ottoman_anatolia_mission
 					has_active_mission = invest_in_ottoman_syria_mission
@@ -33849,6 +34524,36 @@ TUR_investing_in_the_sick_man = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_1_USA = yes }
 				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.05
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.05
+					}
+				}
 			}
 			if = {
 				limit = { has_country_flag = already_investing_in_the_ottomans_consumer }
@@ -33894,6 +34599,36 @@ TUR_investing_in_the_sick_man = {
 				if = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_2_USA = yes }
+				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.07
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.07
+					}
 				}
 			}
 			if = {
@@ -33958,6 +34693,36 @@ TUR_investing_in_the_sick_man = {
 				if = {
 					limit = { tag = USA }
 					TUR = { TUR_add_debt_3_USA = yes }
+				}
+				if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = -0.1
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							OR = {
+								original_tag = FRA
+								is_in_faction_with = FRA
+								original_tag = ENG
+								is_in_faction_with = ENG
+							}
+						}
+					}
+					add_power_balance_value = {
+						id = TUR_foreign_allignment
+						value = 0.1
+					}
 				}
 			}
 			if = {
@@ -34305,6 +35070,29 @@ TUR_islamic_economic_cooperation_category = {
 		ai_will_do = {
 			base = 20
 		}
+	}
+}
+
+TUR_foreign_allignment_decisions = {
+	TUR_pro_entente_propaganda = {
+		allowed = { original_tag = TUR }
+		icon = GFX_decision_unknown
+		cost = 15
+		days_remove = 30
+		complete_effect = {
+			
+		}
+		ai_will_do = { base = 0 }
+	}
+	TUR_pro_central_powers_propaganda = {
+		allowed = { original_tag = TUR }
+		icon = GFX_decision_unknown
+		cost = 15
+		days_remove = 30
+		complete_effect = {
+			
+		}
+		ai_will_do = { base = 0 }
 	}
 }
 

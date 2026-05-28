@@ -9638,6 +9638,36 @@ TUR_investment_add_effect = {
 				limit = { FROM = { tag = USA } }
 				TUR_add_debt_1_USA = yes
 			}
+			if = {
+				limit = {
+					FROM = {
+						OR = {
+							original_tag = GER
+							is_in_faction_with = GER
+						}
+					}
+				}
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = -0.05
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = {
+						OR = {
+							original_tag = 	FRA
+							is_in_faction_with = FRA
+							original_tag = 	ENG
+							is_in_faction_with = ENG
+						}
+					}
+				}
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = 0.05
+				}
+			}
 		}
 		if = {
 			limit = { FROM = { has_country_flag = already_investing_in_the_ottomans_consumer } }
@@ -9683,6 +9713,36 @@ TUR_investment_add_effect = {
 			if = {
 				limit = { FROM = { tag = USA } }
 				TUR_add_debt_2_USA = yes
+			}
+			if = {
+				limit = {
+					FROM = {
+						OR = {
+							original_tag = GER
+							is_in_faction_with = GER
+						}
+					}
+				}
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = -0.07
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = {
+						OR = {
+							original_tag = 	FRA
+							is_in_faction_with = FRA
+							original_tag = 	ENG
+							is_in_faction_with = ENG
+						}
+					}
+				}
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = 0.07
+				}
 			}
 		}
 		if = {
@@ -9749,6 +9809,36 @@ TUR_investment_add_effect = {
 			if = {
 				limit = { FROM = { tag = USA } }
 				TUR_add_debt_3_USA = yes
+			}
+			if = {
+				limit = {
+					FROM = {
+						OR = {
+							original_tag = GER
+							is_in_faction_with = GER
+						}
+					}
+				}
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = -0.1
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = {
+						OR = {
+							original_tag = 	FRA
+							is_in_faction_with = FRA
+							original_tag = 	ENG
+							is_in_faction_with = ENG
+						}
+					}
+				}
+				add_power_balance_value = {
+					id = TUR_foreign_allignment
+					value = 0.1
+				}
 			}
 		}
 		if = {
@@ -13798,6 +13888,10 @@ GER_TUR_military_mission_effect = {
 				set_nationality = TUR
 			}
 		}
+		add_power_balance_value = {
+			id = TUR_foreign_allignment
+			value = -0.15
+		}
 	}
 }
 restraint_GER_TUR_military_mission_effect = {
@@ -13814,7 +13908,7 @@ restraint_GER_TUR_military_mission_effect = {
 			remove_idea = TUR_german_military_command
 			add_idea = TUR_german_military_command_0
 		}
-	}	
+	}
 }	
 recall_GER_TUR_military_mission_effect = {
  	clr_global_flag = GER_TUR_military_mission
