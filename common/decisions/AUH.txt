@@ -3527,16 +3527,19 @@ AUH_stitching_the_quilt = {
 		}
 	}
 	AUS_mining_in_salzburg = {
-		icon = GFX_decision_generic_electricity
+		icon = aluminium
 		allowed = {
 			original_tag = AUS
 		}
-		priority = 20
+		priority = 15
 		visible = {
-			has_completed_focus = AUS_mantain_cheap_goods
+			#has_completed_focus = AUS_mantain_cheap_goods
 		}
 		available = {
-			has_completed_focus = AUS_mantain_cheap_goods
+			1190 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			num_of_civilian_factories_available_for_projects > 0
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -3545,7 +3548,10 @@ AUH_stitching_the_quilt = {
 		}
 		fire_only_once = yes
 		days_remove = 120
-		cost = 50
+		cost = 15
+		modifier = {
+			civilian_factory_use = 1
+		}
 		ai_will_do = {
 			base = 80
 		}
