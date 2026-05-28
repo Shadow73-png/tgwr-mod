@@ -3912,18 +3912,31 @@ AUS_spawn_MGS = {
 
 AUS_spawn_bohemian_crown = {
 	set_global_flag = AUS_bohemian_crown_created
+		every_owned_state = {
+                limit = {
+                    is_core_of = CZE
+                    NOT = {
+                        state = 1200
+                    }
+                }
+                transfer_state_to = CZE
+            }
 	CZE = {
-		set_state_controller = 69
-		set_state_controller = 9
-		set_state_controller = 75
-		set_state_controller = 1199
-		set_state_controller = 74
-		set_state_controller = 993
-		set_state_controller = 992
-		set_state_controller = 74
-		set_state_controller = 72
+
+            CZE = { set_country_flag = monarchist_puppet }
+           
+            hidden_effect = {
+                CZE = {
+                    set_popularities = {
+                        fascism = 0
+                        communism = 2
+                        democratic = 58
+                        neutrality = 40
+                    }
+                    add_ideas = HUN_ausgleich
+                }
+            }
 		add_to_tech_sharing_group = austrian_research
-		set_country_flag = monarchist_puppet
 		AUS = {
 			set_autonomy = {
 				target = CZE
