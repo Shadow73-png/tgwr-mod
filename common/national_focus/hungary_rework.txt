@@ -2187,10 +2187,10 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			has_country_flag = HUN_national_work_party_yes
-			has_country_leader = {
-				character = HUN_istvan_tisza
-				ruling_only = yes
+			has_government = neutrality
+			OR = {
+				communism > 0.15
+				democratic > 0.4
 			}
 		}
 		prerequisite = {
@@ -2379,6 +2379,49 @@ focus_tree = {
 		}
 		completion_reward = { }
 	}
+	#Negotiate with the Romanian Party
+	focus = {
+		id = HUN_negotiate_with_romanian_party
+		icon = GFX_focus_ROM_flag
+		cost = 3
+		relative_position_id = HUN_constitutional_minority_branch
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			
+		}
+		prerequisite = {
+			focus = HUN_constitutional_minority_branch
+		}
+		completion_reward = { }
+	}
+	#Negotiate with Slovak Party
+	focus = {
+		id = HUN_negotiate_with_slovak_party
+		icon = GFX_focus_AUH_integrate_slovakia
+		cost = 3
+		relative_position_id = HUN_negotiate_with_romanian_party
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			
+		}
+		prerequisite = {
+			focus = HUN_negotiate_with_romanian_party
+			focus = HUN_reconcile_croatia
+		}
+		completion_reward = { 
+			#decision to secure investment if you have Szell or 
+		}
+	}
 	#The Kings Right-Hand Man -Kalman Szell Path
 	focus = {
 		id = HUN_kings_right_hand_man
@@ -2556,7 +2599,7 @@ focus_tree = {
 		}
 		completion_reward = { }
 	}
-	#The Benevolent -Istvan Burián
+	#The Benevolent -Gyula Wlassics
 	focus = {
 		id = HUN_the_benevolent
 		icon = GFX_focus_PER_subserviant_to_noone
