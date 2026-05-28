@@ -936,9 +936,22 @@ focus_tree = {
 			AUS_richard_von_bienerth_schmerling = {
 				has_character_flag = minister_AUS
 			}
+			hidden_trigger = {
+				has_country_flag = AUS_ling_partitions_unlocked
+			}
+			custom_trigger_tooltip = {
+				check_variable = {
+					AUS_pm_mandate_power > 3
+				}
+				tooltip = AUS_at_least_three_pm_power
+			}
 		}
 		completion_reward = {
-			
+			add_to_variable = {
+				AUS_pm_mandate_power = -3
+				tooltip = AUS_pm_mandate.tt
+			}
+			add_stability = 0.075
 		}
 		ai_will_do = {
 			base = 1
