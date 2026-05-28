@@ -1,0 +1,110 @@
+
+#RUSSIA
+TGWR_great_power_politics = {
+	RUS_occupation_of_nothern_persia_timeout = {
+		icon = generic_planted_spear
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		#targets = { PER }
+
+		highlight_states = {
+			highlight_states_trigger = {
+				has_contested_owner = PER
+				is_owned_by = ROOT			
+			}
+		}
+
+		available = {
+			OR = {
+				has_war_with = PER
+				has_war_with = TUR
+			}			
+		}
+
+		cancel_trigger = {
+			hidden_trigger = {
+				NOT = {
+					any_owned_state = {
+						has_contested_owner = PER
+					}
+				}
+			}		
+		}
+
+		fire_only_once = yes
+
+		is_good = no
+		days_mission_timeout = 500
+
+		timeout_effect = {
+			every_owned_state = {
+				limit = {
+					has_contested_owner = PER
+				}
+				transfer_state_to = PER
+			}
+		}
+	}
+}
+#TURKEY
+TGWR_great_power_politics = {
+	berling_baghdad_revoke_the_permit = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			tag = TUR
+		}
+		visible = {
+			GER = {
+				has_active_mission = berling_baghdad_construction_mission
+			}
+			great_power_politics_sick_man_of_europe_visible = yes
+		}
+		complete_effect = {
+			hidden_effect = {
+				GER = {
+					remove_mission = berling_baghdad_construction_mission
+					set_country_flag = {
+						flag = cant_build_berlin_baghdad
+						days = 180
+					}
+				}
+			}
+			custom_effect_tooltip = revoke_permit_tt
+		}
+	}
+}
+#UK, RUSSIA
+TGWR_great_power_politics = {
+	berling_baghdad_lift_embargo = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			OR = {
+				tag = ENG
+				tag = RUS
+			}
+		}
+		targets = {
+			TUR GER
+		}
+		target_trigger = {
+			FROM = {
+				is_embargoed_by = ROOT
+			}
+		}
+		visible = {
+			great_power_politics_sick_man_of_europe_visible = yes
+		}
+		complete_effect = {
+			break_embargo = FROM
+			FROM = {
+				country_event = ww1_berlin_baghdad.12
+			}
+		}
+	}
+}
