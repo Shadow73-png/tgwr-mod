@@ -5576,12 +5576,12 @@ focus_tree = {
 			custom_effect_tooltip = stability_factor_minus_10
 			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = TUR_government_stability_reduce_10
-			set_power_balance = {
-				id = TUR_mufrit_struggle
-				left_side = TUR_mufrit_struggle_sadik
-				right_side = TUR_mufrit_struggle_ismail
-				set_value = -0.05
-			}
+#			set_power_balance = {
+#				id = TUR_mufrit_struggle
+#				left_side = TUR_mufrit_struggle_sadik
+#				right_side = TUR_mufrit_struggle_ismail
+#				set_value = -0.05
+#			}
 			TUR_government_popularity_calculate = yes
 		}
 		completion_reward = {
@@ -5677,12 +5677,12 @@ focus_tree = {
 				tooltip = TUR_government_stability_reduce_10
 				TUR_government_stability_var = -10
 			}
-			set_power_balance = {
-				id = TUR_mufrit_struggle
-				left_side = TUR_mufrit_struggle_sadik
-				right_side = TUR_mufrit_struggle_ismail
-				set_value = -0.05
-			}
+#			set_power_balance = {
+#				id = TUR_mufrit_struggle
+#				left_side = TUR_mufrit_struggle_sadik
+#				right_side = TUR_mufrit_struggle_ismail
+#				set_value = -0.05
+#			}
 			#hidden_effect = { set_cosmetic_tag = TUR_HIF }
 			TUR_government_stability_calculate = yes
 			TUR_government_popularity_calculate = yes
@@ -6067,10 +6067,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = empty_space
 			army_experience = 35
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -6110,10 +6110,10 @@ focus_tree = {
 			add_to_variable = { TUR_aoabe_army_attack_factor_tt = -0.03 }
 			add_to_variable = { TUR_aoabe_army_defence_factor_tt = -0.03 }
 			unlock_decision_tooltip = TUR_expand_the_military
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -6149,10 +6149,10 @@ focus_tree = {
 			else = { add_ideas = TUR_revitalized_intelligence_bureau }
 			unlock_decision_category_tooltip = TUR_intelligence_market
 			custom_effect_tooltip = TUR_officialize_the_second_bureau_tt
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = -0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = -0.15
+#			}
 		}
 		ai_will_do = {
 			base = 20
@@ -6207,10 +6207,10 @@ focus_tree = {
 			}
 			TUR_government_stability_calculate = yes
 			unlock_decision_tooltip = TUR_political_crackdowns
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = -0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = -0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -6237,10 +6237,10 @@ focus_tree = {
 			TUR_depoliticize_army_effect = yes
 			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = TUR_forced_military_depoliticization_tt
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = -0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = -0.2
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -6270,10 +6270,10 @@ focus_tree = {
 				slot = political_advisor
 				trait = TUR_supreme_minister_of_war
 			}
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = -0.3
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = -0.3
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -6294,29 +6294,6 @@ focus_tree = {
 				TUR_nazim_pasha = { is_hired_as_advisor = yes }
 			}
 		}
-		complete_tooltip = {
-			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
-			custom_effect_tooltip = max_command_power_mult_5
-			custom_effect_tooltip = empty_space
-			unlock_decision_tooltip = TUR_elevate_itilafism_in_the_army
-			291 = { add_compliance = 10 }
-			custom_effect_tooltip = TUR_increase_baghdad_centralization_5
-			add_to_variable = { global.TUR_baghdad_centralization = 5 }
-			if = {
-				limit = { has_country_flag = TUR_the_promised_candidate1 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.1
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_the_promised_candidate2 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.1
-				}
-			}
-		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
 			add_to_variable = {
@@ -6328,26 +6305,24 @@ focus_tree = {
 			291 = { add_compliance = 10 }
 			custom_effect_tooltip = TUR_increase_baghdad_centralization_5
 			add_to_variable = { global.TUR_baghdad_centralization = 5 }
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_mufrit_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.1
-				}
-				set_country_flag = TUR_the_promised_candidate1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.1
-				}
-				set_country_flag = TUR_the_promised_candidate2
-			}
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_mufrit_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = 0.1
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = -0.1
+#				}
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -6391,20 +6366,6 @@ focus_tree = {
 			}
 			else = { custom_effect_tooltip = TUR_mend_the_ties_tt }
 			set_global_flag = TUR_mend_the_ties
-			if = {
-				limit = { has_country_flag = TUR_mend_the_ties1 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.1
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_mend_the_ties2 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.1
-				}
-			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = available_political_advisor
@@ -6432,26 +6393,24 @@ focus_tree = {
 				set_country_flag = TUR_mend_the_ties_first
 			}
 			set_global_flag = TUR_mend_the_ties
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_mufrit_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.1
-				}
-				set_country_flag = TUR_mend_the_ties1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.1
-				}
-				set_country_flag = TUR_mend_the_ties2
-			}
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_mufrit_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = 0.1
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = -0.1
+#				}
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -6471,34 +6430,6 @@ focus_tree = {
 			OR = {
 				has_country_leader = { character = TUR_nazim_pasha }
 				TUR_nazim_pasha = { is_hired_as_advisor = yes }
-			}
-		}
-		complete_tooltip = {
-			custom_effect_tooltip = TUR_modify_TUR_army_of_a_bygone_era_name_tt
-			custom_effect_tooltip = max_planning_factor_5
-			custom_effect_tooltip = promote_cost_factor_minus_10
-			custom_effect_tooltip = empty_space
-			custom_effect_tooltip = TUR_allign_with_the_savior_officers_tt
-			custom_effect_tooltip = {
-				localization_key = remove_character_as_tt
-				CHARACTER = TUR_mehmed_vehip
-				ROLE = cc_leader
-			}
-			custom_effect_tooltip = remove_chief_of_army
-			show_ideas_tooltip = TUR_curuksulu_mahmud_pasa
-			if = {
-				limit = { has_country_flag = TUR_allign_with_the_savior_officers1 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.15
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_allign_with_the_savior_officers2 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.15
-				}
 			}
 		}
 		completion_reward = {
@@ -6525,25 +6456,23 @@ focus_tree = {
 			}
 			custom_effect_tooltip = remove_chief_of_army
 			show_ideas_tooltip = TUR_curuksulu_mahmud_pasa
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_mufrit_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.15
-				}
-				set_country_flag = TUR_allign_with_the_savior_officers1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.15
-				}
-				set_country_flag = TUR_allign_with_the_savior_officers2
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_mufrit_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = 0.15
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = -0.15
+#				}
 			}
 		}
 		ai_will_do = { base = 30 }
@@ -6565,40 +6494,6 @@ focus_tree = {
 			OR = {
 				has_country_leader = { character = TUR_nazim_pasha }
 				TUR_nazim_pasha = { is_hired_as_advisor = yes }
-			}
-		}
-		complete_tooltip = {
-			add_timed_idea = {
-				idea = TUR_party_donations
-				days = 780
-			}
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = TUR_mehmed_serif_pasa
-			custom_effect_tooltip = TUR_government_stability_add_5
-			if = {
-				limit = { has_idea = TUR_naval_blockade }
-				if = {
-					limit = { has_country_flag = TUR_patreons_of_the_party3 }
-					custom_effect_tooltip = TUR_naval_blockade_reduce_2
-				}
-				else_if = {
-					limit = { has_country_flag = TUR_patreons_of_the_party4 }
-					remove_ideas = TUR_naval_blockade
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_patreons_of_the_party1 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.1
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_patreons_of_the_party2 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.1
-				}
 			}
 		}
 		completion_reward = {
@@ -6646,25 +6541,23 @@ focus_tree = {
 				}
 				add_to_variable = { TUR_naval_blockade = -2 }
 			}
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_mufrit_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.1
-				}
-				set_country_flag = TUR_patreons_of_the_party1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.1
-				}
-				set_country_flag = TUR_patreons_of_the_party2
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_mufrit_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = 0.1
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = -0.1
+#				}
 			}
 		}
 		ai_will_do = { base = 30 }
@@ -6686,33 +6579,6 @@ focus_tree = {
 				TUR_nazim_pasha = { is_hired_as_advisor = yes }
 			}
 		}
-		complete_tooltip = {
-			add_timed_idea = {
-				idea = TUR_reorganizing_the_command_structure
-				days = 180
-			}
-			custom_effect_tooltip = TUR_reorganizing_the_command_structure_instant_desc
-			reverse_add_opinion_modifier = {
-				target = GER
-				modifier = TUR_reorganize_the_command_structure
-			}
-			unlock_decision_tooltip = TUR_sway_the_navy_mufrit
-			unlock_decision_tooltip = TUR_sway_the_airforce_mufrit
-			if = {
-				limit = { has_country_flag = TUR_reorganize_the_command_structure1 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.2
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_reorganize_the_command_structure2 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.2
-				}
-			}
-		}
 		completion_reward = {
 			add_timed_idea = {
 				idea = TUR_reorganizing_the_command_structure
@@ -6725,25 +6591,23 @@ focus_tree = {
 			}
 			unlock_decision_tooltip = TUR_sway_the_navy_mufrit
 			unlock_decision_tooltip = TUR_sway_the_airforce_mufrit
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_mufrit_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.2
-				}
-				set_country_flag = TUR_reorganize_the_command_structure1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.2
-				}
-				set_country_flag = TUR_reorganize_the_command_structure2
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_mufrit_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = 0.2
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = -0.2
+#				}
 			}
 		}
 		ai_will_do = { base = 30 }
@@ -6767,53 +6631,30 @@ focus_tree = {
 				TUR_nazim_pasha = { is_hired_as_advisor = yes }
 			}
 		}
-		complete_tooltip = {
-			add_trait = {
-				character = TUR_nazim_pasha
-				ideology = liberal_conservatism
-				trait = TUR_supreme_commander_of_the_ottoman_military
-			}
-			if = {
-				limit = { has_country_flag = TUR_merge_general_staff_and_commander_in_chief1 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.3
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_merge_general_staff_and_commander_in_chief2 }
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.3
-				}
-			}
-		}
 		completion_reward = {
 			add_trait = {
 				character = TUR_nazim_pasha
 				ideology = liberal_conservatism
 				trait = TUR_supreme_commander_of_the_ottoman_military
 			}
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_mufrit_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = 0.3
-				}
-				set_country_flag = TUR_merge_general_staff_and_commander_in_chief1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_mufrit_struggle
-					value = -0.3
-				}
-				set_country_flag = TUR_merge_general_staff_and_commander_in_chief2
-			}
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_mufrit_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = 0.3
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_mufrit_struggle
+#					value = -0.3
+#				}
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -6852,10 +6693,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = empty_space
 			unlock_decision_tooltip = TUR_mobilize_the_ulema
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -6894,10 +6735,10 @@ focus_tree = {
 			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = TUR_mehmed_atif
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = 0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = 0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -6932,10 +6773,10 @@ focus_tree = {
 					remove_ideas = TUR_naval_blockade
 				}
 			}
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = 0.1
+#			}
 		}
 		completion_reward = {
 			add_ideas = TUR_trade_rooms
@@ -6972,10 +6813,10 @@ focus_tree = {
 					}
 				}
 			}
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7018,10 +6859,10 @@ focus_tree = {
 					}
 				}
 			}
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = 0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = 0.2
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7064,10 +6905,10 @@ focus_tree = {
 				tooltip = TUR_government_stability_add_10
 				TUR_government_stability_var = 10
 			}
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = 0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = 0.2
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7096,10 +6937,10 @@ focus_tree = {
 				slot = political_advisor
 				trait = TUR_golden_child_of_the_empire
 			}
-			add_power_balance_value = {
-				id = TUR_mufrit_struggle
-				value = 0.3
-			}
+#			add_power_balance_value = {
+#				id = TUR_mufrit_struggle
+#				value = 0.3
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7181,12 +7022,12 @@ focus_tree = {
 			custom_effect_tooltip = neutrality_drift_minus_1
 			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = TUR_government_stability_add_10
-			set_power_balance = {
-				id = TUR_munevveran_struggle
-				left_side = TUR_munevveran_struggle_muessis_i_faal
-				right_side = TUR_munevveran_struggle_heyet_i_idare_azasi
-				set_value = 0.1
-			}
+#			set_power_balance = {
+#				id = TUR_munevveran_struggle
+#				left_side = TUR_munevveran_struggle_muessis_i_faal
+#				right_side = TUR_munevveran_struggle_heyet_i_idare_azasi
+#				set_value = -0.15
+#			}
 		}
 		completion_reward = {
 			add_popularity = {
@@ -7219,12 +7060,12 @@ focus_tree = {
 				tooltip = TUR_government_stability_add_10
 				TUR_government_stability_var = 10
 			}
-			set_power_balance = {
-				id = TUR_munevveran_struggle
-				left_side = TUR_munevveran_struggle_muessis_i_faal
-				right_side = TUR_munevveran_struggle_heyet_i_idare_azasi
-				set_value = -0.15
-			}
+#			set_power_balance = {
+#				id = TUR_munevveran_struggle
+#				left_side = TUR_munevveran_struggle_muessis_i_faal
+#				right_side = TUR_munevveran_struggle_heyet_i_idare_azasi
+#				set_value = -0.15
+#			}
 			set_variable = { fascism_party_popularity_var_government_committee = -0.05 }
 			TUR_government_stability_calculate = yes
 			TUR_government_popularity_calculate = yes
@@ -7284,10 +7125,10 @@ focus_tree = {
 			TUR_depoliticize_army_effect = yes
 			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = TUR_a_chance_at_redemption_tt
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7370,10 +7211,10 @@ focus_tree = {
 			else = { custom_effect_tooltip = TUR_delegitimize_young_officers_tt }
 			custom_effect_tooltip = TUR_delegitimize_young_officers_tt2
 			set_variable = { TUR_modernize_the_high_command_time = 90 }
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7419,10 +7260,10 @@ focus_tree = {
 			}
 			activate_advisor = TUR_riza_tevfik
 			set_can_be_fired_in_advisor_role = { character = TUR_riza_tevfik value = no }
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.05
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.05
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7473,10 +7314,10 @@ focus_tree = {
 			}
 			activate_advisor = TUR_damad_ferid
 			set_can_be_fired_in_advisor_role = { character = TUR_damad_ferid value = no }
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.05
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.05
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7501,10 +7342,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = TUR_welfare_spendings
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7553,10 +7394,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = TUR_unchecked_free_market
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7597,10 +7438,10 @@ focus_tree = {
 				TUR_government_stability_var = 15
 			}
 			TUR_government_stability_calculate = yes
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.2
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7718,10 +7559,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = empty_space
 			TUR_reload_minority_values = yes
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.3
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.3
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7747,10 +7588,10 @@ focus_tree = {
 				has_country_leader_with_trait = TUR_young_blood_faction
 				has_idea_with_trait_TUR_young_blood_faction = yes
 			}
-			is_power_balance_in_range = {
-				id = TUR_munevveran_struggle
-				range > TUR_munevveran_struggle_heyet_i_idare_azasi_low_authority
-			}
+#			is_power_balance_in_range = {
+#				id = TUR_munevveran_struggle
+#				range > TUR_munevveran_struggle_heyet_i_idare_azasi_low_authority
+#			}
 		}
 		completion_reward = {
 			add_country_leader_role = {
@@ -7778,10 +7619,10 @@ focus_tree = {
 				TUR_government_stability_var = -10
 			}
 			TUR_government_stability_calculate = yes
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.3
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.3
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7823,10 +7664,10 @@ focus_tree = {
 				}
 			}
 			add_political_power = 50
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7873,10 +7714,10 @@ focus_tree = {
 				idea = TUR_influx_of_new_members
 				days = 365
 			}
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7918,10 +7759,10 @@ focus_tree = {
 				TUR_sce_resistance_target = -0.05
 			}
 			custom_effect_tooltip = empty_space
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7948,10 +7789,10 @@ focus_tree = {
 		completion_reward = {
 			add_stability = -0.1
 			add_ideas = TUR_secular_holidays
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -7985,10 +7826,10 @@ focus_tree = {
 			}
 			unlock_decision_category_tooltip = TUR_balkan_customs_union_decision_category
 			custom_effect_tooltip = TUR_balkan_customs_union_tt2
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.2
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8039,10 +7880,10 @@ focus_tree = {
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = TUR_sukru_el_aseli
 			show_ideas_tooltip = TUR_mehmed_atif
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.2
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8067,10 +7908,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = TUR_religious_organization_autonomy
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8096,10 +7937,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = TUR_state_sponsored_bayrams
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8133,10 +7974,10 @@ focus_tree = {
 			}
 			unlock_decision_category_tooltip = TUR_islamic_economic_cooperation_category
 			custom_effect_tooltip = TUR_economic_ties_with_the_islamic_world_tt2
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.2
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8174,10 +8015,10 @@ focus_tree = {
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = TUR_mehmed_serif_pasa
 			show_ideas_tooltip = TUR_ali_kemal
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8228,10 +8069,10 @@ focus_tree = {
 			}
 			else = { custom_effect_tooltip = TUR_mend_the_ties_tt }
 			set_global_flag = TUR_mend_the_ties
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.2
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8276,10 +8117,10 @@ focus_tree = {
 				TUR_sce_political_power_factor = 0.05
 			}
 			custom_effect_tooltip = empty_space
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.3
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.3
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8305,10 +8146,10 @@ focus_tree = {
 				has_country_leader_with_trait = TUR_old_guard_faction
 				has_idea_with_trait_TUR_old_guard_faction = yes
 			}
-			is_power_balance_in_range = {
-				id = TUR_munevveran_struggle
-				range < TUR_munevveran_struggle_muessis_i_faal_low_authority
-			}
+#			is_power_balance_in_range = {
+#				id = TUR_munevveran_struggle
+#				range < TUR_munevveran_struggle_muessis_i_faal_low_authority
+#			}
 		}
 		completion_reward = {
 			hidden_effect = {
@@ -8343,10 +8184,10 @@ focus_tree = {
 				TUR_sce_neutrality_drift = 0.01
 			}
 			custom_effect_tooltip = empty_space
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.3
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.3
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8413,10 +8254,10 @@ focus_tree = {
 					}
 				}
 			}
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8449,10 +8290,10 @@ focus_tree = {
 			show_ideas_tooltip = TUR_nazaret_daghavarian
 			show_ideas_tooltip = TUR_karakin_pastermadjian
 			add_political_power = 50
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8486,10 +8327,10 @@ focus_tree = {
 			TUR_add_remove_illiterate_society = yes
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = TUR_sati_al_husri
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -8566,11 +8407,11 @@ focus_tree = {
 		relative_position_id = TUR_foreign_direct_investments
 		completion_reward = {
 			add_ideas = TUR_privatized_waqfs
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = -0.1
-			}
-		}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = -0.1
+#			}
+#		}
 		ai_will_do = { base = 30 }
 	}
 	focus = {
@@ -8598,10 +8439,10 @@ focus_tree = {
 				}
 				set_country_flag = TUR_ziraat_bankasi_kredi_programi
 			}
-			add_power_balance_value = {
-				id = TUR_munevveran_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_munevveran_struggle
+#				value = 0.1
+#			}
 		}
 	}
 	focus = {
@@ -9075,7 +8916,7 @@ focus_tree = {
 				set_variable = { TUR_reapproachment_with_level_mamuret_ul_aziz = 100 }
 				set_variable = { TUR_reapproachment_with_level_bitlis = 100 }
 				set_variable = { TUR_reapproachment_with_level_van = 100 }
-				et_variable = { TUR_reapproachment_with_level_diyarbakir = 100 }
+				set_variable = { TUR_reapproachment_with_level_diyarbakir = 100 }
 			}
 		}
 		ai_will_do = { base = 30 }
@@ -13433,12 +13274,12 @@ focus_tree = {
 			custom_effect_tooltip = stability_factor_3
 			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = TUR_government_stability_add_10
-			set_power_balance = {
-				id = TUR_government_committee_struggle
-				left_side = TUR_government_committee_struggle_committee
-				right_side = TUR_government_committee_struggle_government
-				set_value = 0.1
-			}
+#			set_power_balance = {
+#				id = TUR_government_committee_struggle
+#				left_side = TUR_government_committee_struggle_committee
+#				right_side = TUR_government_committee_struggle_government
+#				set_value = 0.1
+#			}
 		}
 		completion_reward = {
 			add_popularity = {
@@ -13467,12 +13308,12 @@ focus_tree = {
 				tooltip = TUR_government_stability_add_10
 				TUR_government_stability_var = 10
 			}
-			set_power_balance = {
-				id = TUR_government_committee_struggle
-				left_side = TUR_government_committee_struggle_committee
-				right_side = TUR_government_committee_struggle_government
-				set_value = 0.1
-			}
+#			set_power_balance = {
+#				id = TUR_government_committee_struggle
+#				left_side = TUR_government_committee_struggle_committee
+#				right_side = TUR_government_committee_struggle_government
+#				set_value = 0.1
+#			}
 			set_variable = { fascism_party_popularity_var_government_committee = -0.05 }
 			TUR_government_stability_calculate = yes
 			TUR_government_popularity_calculate = yes
@@ -13523,10 +13364,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_country_leader_trait = TUR_general_director_of_war_production
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -13545,10 +13386,10 @@ focus_tree = {
 		available = { has_dynamic_modifier = { modifier = TUR_committee_of_union_and_progress } }
 		completion_reward = {
 			add_ideas = TUR_sponsored_national_bourgeoisie
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -13698,10 +13539,10 @@ focus_tree = {
 			custom_effect_tooltip = empty_space
 			unlock_decision_tooltip = TUR_elevate_ittihadism_in_the_army
 			custom_effect_tooltip = TUR_promote_young_officers_tt
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -13723,10 +13564,10 @@ focus_tree = {
 			TUR_depoliticize_army_effect = yes
 			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = TUR_a_chance_at_redemption_tt
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -13785,10 +13626,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = TUR_reach_out_to_the_country_tt
 			hidden_effect = { add_dynamic_modifier = { modifier = TUR_rural_reach_dm } }
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.05
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.05
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -13820,10 +13661,10 @@ focus_tree = {
 				TUR_government_stability_var = 5
 			}
 			TUR_government_popularity_calculate = yes
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -13870,10 +13711,10 @@ focus_tree = {
 			show_ideas_tooltip = TUR_suleyman_askeri
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = TUR_yakub_cemil
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -13903,10 +13744,10 @@ focus_tree = {
 			custom_effect_tooltip = empty_space
 			set_variable = { TUR_corruption = 1 }
 			custom_effect_tooltip = TUR_politicized_appointments_tt
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -13945,10 +13786,10 @@ focus_tree = {
 				tooltip = TUR_government_stability_reduce_5
 				TUR_government_stability_var = -5
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.15
+#			}
 			TUR_government_stability_calculate = yes
 			TUR_government_popularity_calculate = yes
 		}
@@ -13981,10 +13822,10 @@ focus_tree = {
 				popularity = 0.05
 			}
 			TUR_government_popularity_calculate = yes
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -14024,10 +13865,10 @@ focus_tree = {
 				ideology = neutrality
 				popularity = 0.05
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.05
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.05
+#			}
 			TUR_government_popularity_calculate = yes
 		}
 		ai_will_do = { base = 30 }
@@ -14050,10 +13891,10 @@ focus_tree = {
 			custom_effect_tooltip = TUR_puppet_master_tt
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = TUR_halil_mentese
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -14084,10 +13925,10 @@ focus_tree = {
 				custom_effect_tooltip = TUR_empower_the_grand_vizier_tt
 				TUR_add_appropriate_grand_vizier_for_bop = yes
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.05
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.05
+#			}
 		}
 		completion_reward = {
 			TUR_ahmet_izzet = {
@@ -14100,10 +13941,10 @@ focus_tree = {
 				TUR_add_appropriate_grand_vizier_for_bop = yes
 				set_country_flag = TUR_premier_ahmet_izzet
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = -0.05
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = -0.05
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -14135,10 +13976,10 @@ focus_tree = {
 				custom_effect_tooltip = TUR_empower_the_grand_vizier_tt
 				TUR_add_appropriate_grand_vizier_for_bop = yes
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.05
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.05
+#			}
 		}
 		completion_reward = {
 			TUR_mahmud_sevket = {
@@ -14151,10 +13992,10 @@ focus_tree = {
 				TUR_add_appropriate_grand_vizier_for_bop = yes
 				set_country_flag = TUR_reign_of_the_generalissimo
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.05
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.05
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -14206,28 +14047,28 @@ focus_tree = {
 				ideology = fascism
 				popularity = 0.02
 			}
-			if = {
-				limit = {
-					OR = {
-						is_power_balance_side_active = {
-							id = TUR_government_committee_struggle
-							side = TUR_government_committee_struggle_mahmud_sevket
-						}
-						is_power_balance_side_active = {
-							id = TUR_government_committee_struggle
-							side = TUR_government_committee_struggle_ahmet_riza
-						}
-					}
-				}
-				custom_effect_tooltip = TUR_empower_the_meclis_tt
-				hidden_effect = {
-					set_power_balance = {
-						id = TUR_government_committee_struggle
-						right_side = TUR_government_committee_struggle_government
-					}
-				}
-				set_country_flag = TUR_empower_the_meclis
-			}
+#			if = {
+#				limit = {
+#					OR = {
+#						is_power_balance_side_active = {
+#							id = TUR_government_committee_struggle
+#							side = TUR_government_committee_struggle_mahmud_sevket
+#						}
+#						is_power_balance_side_active = {
+#							id = TUR_government_committee_struggle
+#							side = TUR_government_committee_struggle_ahmet_riza
+#						}
+#					}
+#				}
+#				custom_effect_tooltip = TUR_empower_the_meclis_tt
+#				hidden_effect = {
+#					set_power_balance = {
+#						id = TUR_government_committee_struggle
+#						right_side = TUR_government_committee_struggle_government
+#					}
+#				}
+#				set_country_flag = TUR_empower_the_meclis
+#			}
 			TUR_government_popularity_calculate = yes
 		}
 		ai_will_do = { base = 30 }
@@ -14412,10 +14253,10 @@ focus_tree = {
 					}
 				}
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -14442,10 +14283,10 @@ focus_tree = {
 				tooltip = TUR_government_stability_add_10
 				TUR_government_stability_var = 10
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -14631,10 +14472,10 @@ focus_tree = {
 					ROOT = { add_ideas = TUR_policy_of_reapproachment_5 }
 				}
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.25
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.25
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -14664,10 +14505,10 @@ focus_tree = {
 				TUR_sce_political_power_factor = -0.07
 			}
 			custom_effect_tooltip = empty_space
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.3
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.3
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -14858,10 +14699,10 @@ focus_tree = {
 					ROOT = { add_ideas = TUR_brutal_suppression_5 }
 				}
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.25
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.25
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -14936,10 +14777,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = empty_space
 			TUR_reload_minority_values = yes
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.3
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.3
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -14985,10 +14826,10 @@ focus_tree = {
 			else = { custom_effect_tooltip = TUR_mend_the_ties_tt }
 			set_global_flag = TUR_mend_the_ties
 			custom_effect_tooltip = TUR_government_stability_add_10
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.1
+#			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
@@ -15024,10 +14865,10 @@ focus_tree = {
 				TUR_government_stability_var = 10
 			}
 			TUR_government_stability_calculate = yes
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -15119,10 +14960,10 @@ focus_tree = {
 				}
 				unlock_decision_tooltip = TUR_retreat_from_qatar
 			}
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.05
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.05
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -15149,10 +14990,10 @@ focus_tree = {
 				country_event = { id = ottoman.288 }
 			}
 			custom_effect_tooltip = TUR_breaking_the_blockades_tt
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -15183,10 +15024,10 @@ focus_tree = {
 				custom_effect_tooltip = TUR_american_partnership_tt1
 			}
 			else = { custom_effect_tooltip = TUR_american_partnership_tt2 }
-			add_power_balance_value = {
-				id = TUR_government_committee_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_government_committee_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -15211,10 +15052,10 @@ focus_tree = {
 				has_country_leader = { character = TUR_ahmet_izzet }
 				has_country_leader = { character = TUR_mahmud_sevket }
 			}
-			is_power_balance_in_range = {
-				id = TUR_government_committee_struggle
-				range < TUR_government_committee_struggle_balanced
-			}
+#			is_power_balance_in_range = {
+#				id = TUR_government_committee_struggle
+#				range < TUR_government_committee_struggle_balanced
+#			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
@@ -15230,10 +15071,10 @@ focus_tree = {
 				tooltip = party_popularity_stability_factor_5
 				TUR_sce_party_popularity_stability_factor = 0.05
 			}
-			add_to_variable = {
-				tooltip = power_balance_weekly_minus_01
-				TUR_sce_power_balance_weekly = -0.001
-			}
+#			add_to_variable = {
+#				tooltip = power_balance_weekly_minus_01
+#				TUR_sce_power_balance_weekly = -0.001
+#			}
 			add_to_variable = {
 				tooltip = fascism_drift_1
 				TUR_sce_fascism_drift = 0.01
@@ -15261,12 +15102,12 @@ focus_tree = {
 		x = 1
 		y = 3
 		relative_position_id = TUR_empower_the_meclis
-		available = {
-			is_power_balance_in_range = {
-				id = TUR_government_committee_struggle
-				range = TUR_government_committee_struggle_balanced
-			}
-		}
+#		available = {
+#			is_power_balance_in_range = {
+#				id = TUR_government_committee_struggle
+#				range = TUR_government_committee_struggle_balanced
+#			}
+#		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
 			add_to_variable = {
@@ -15311,10 +15152,10 @@ focus_tree = {
 		relative_position_id = TUR_militarized_neutrality
 		available = {
 			has_country_leader = { character = TUR_ahmet_izzet }
-			is_power_balance_in_range = {
-				id = TUR_government_committee_struggle
-				range > TUR_government_committee_struggle_ahmet_izzet_low_authority
-			}
+#			is_power_balance_in_range = {
+#				id = TUR_government_committee_struggle
+#				range > TUR_government_committee_struggle_ahmet_izzet_low_authority
+#			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
@@ -15364,10 +15205,10 @@ focus_tree = {
 		relative_position_id = TUR_personality_cult
 		available = {
 			has_country_leader = { character = TUR_mahmud_sevket }
-			is_power_balance_in_range = {
-				id = TUR_government_committee_struggle
-				range > TUR_government_committee_struggle_mahmud_sevket_low_authority
-			}
+#			is_power_balance_in_range = {
+#				id = TUR_government_committee_struggle
+#				range > TUR_government_committee_struggle_mahmud_sevket_low_authority
+#			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_modify_TUR_second_constitutional_era_tt
@@ -15530,12 +15371,12 @@ focus_tree = {
 			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = TUR_government_stability_reduce_10
 			TUR_government_stability_calculate = yes
-			set_power_balance = {
-				id = TUR_unionist_struggle
-				left_side = TUR_unionist_struggle_enver_pasha
-				right_side = TUR_unionist_struggle_talat_pasha
-				set_value = 0
-			}
+#			set_power_balance = {
+#				id = TUR_unionist_struggle
+#				left_side = TUR_unionist_struggle_enver_pasha
+#				right_side = TUR_unionist_struggle_talat_pasha
+#				set_value = 0
+#			}
 		}
 		completion_reward = {
 			set_country_flag = TUR_three_pasha_government
@@ -15702,12 +15543,12 @@ focus_tree = {
 				tooltip = TUR_government_stability_reduce_10
 				TUR_government_stability_var = -10
 			}
-			set_power_balance = {
-				id = TUR_unionist_struggle
-				left_side = TUR_unionist_struggle_enver_pasha
-				right_side = TUR_unionist_struggle_talat_pasha
-				set_value = 0
-			}
+#			set_power_balance = {
+#				id = TUR_unionist_struggle
+#				left_side = TUR_unionist_struggle_enver_pasha
+#				right_side = TUR_unionist_struggle_talat_pasha
+#				set_value = 0
+#			}
 			#hidden_effect = { set_cosmetic_tag = TUR_CUP }
 			TUR_government_popularity_calculate = yes
 			mark_focus_tree_layout_dirty = yes
@@ -15744,10 +15585,10 @@ focus_tree = {
 			custom_effect_tooltip = empty_space
 			add_stability = 0.03
 			add_political_power = 25
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = 0.1
+#			}
 			TUR_government_popularity_calculate = yes
 		}
 		ai_will_do = { base = 30 }
@@ -15798,10 +15639,10 @@ focus_tree = {
 					remove_ideas = TUR_naval_blockade
 				}
 			}
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = 0.1
+#			}
 		}
 		completion_reward = {
 			add_timed_idea = {
@@ -15861,10 +15702,10 @@ focus_tree = {
 				}
 				add_to_variable = { TUR_naval_blockade = -5 }
 			}
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = 0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = 0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -15890,7 +15731,7 @@ focus_tree = {
 		}
 		complete_tooltip = {
 			add_ideas = TUR_ministry_of_food
-			custom_effect_tooltip = TUR_iase_nezareti_tt
+#			custom_effect_tooltip = TUR_iase_nezareti_tt
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = TUR_ali_ihsan_iloglu
 			if = {
@@ -15901,16 +15742,16 @@ focus_tree = {
 				limit = { has_country_flag = TUR_iase_nezareti2 }
 				remove_ideas = TUR_naval_blockade
 			}
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = 0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = 0.15
+#			}
 		}
 		completion_reward = {
 			add_ideas = TUR_ministry_of_food
 			hidden_effect = { add_ideas = TUR_ministry_of_food_yes }
-			custom_effect_tooltip = TUR_iase_nezareti_tt
-			set_variable = { TUR_feed_the_people_cost = 0.15 }
+#			custom_effect_tooltip = TUR_iase_nezareti_tt
+#			set_variable = { TUR_feed_the_people_cost = 0.15 }
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = TUR_ali_ihsan_iloglu
 			if = {
@@ -15946,10 +15787,10 @@ focus_tree = {
 					}
 				}
 			}
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = 0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = 0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -15987,10 +15828,10 @@ focus_tree = {
 				limit = { has_country_flag = TUR_utilize_halil_mentese }
 				activate_decision = TUR_dismiss_halil_mentese
 			}
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = 0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = 0.2
+#			}
 			TUR_government_popularity_calculate = yes
 		}
 		ai_will_do = { base = 30 }
@@ -16031,10 +15872,10 @@ focus_tree = {
 				ideology = fascism
 				popularity = 0.05
 			}
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = 0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = 0.15
+#			}
 			TUR_government_popularity_calculate = yes
 		}
 		ai_will_do = { base = 30 }
@@ -16086,10 +15927,10 @@ focus_tree = {
 				character = TUR_mehmed_talat
 				civilian = { large = "GFX_TUR_mehmed_talat_pasa_vizier" }
 			}
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = 0.3
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = 0.3
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -16122,10 +15963,10 @@ focus_tree = {
 				TUR_nazim_pasha = { remove_unit_leader_trait = trait_TUR_itilafist_sympathies }
 			}
 			unlock_decision_tooltip = TUR_elevate_ittihadism_in_the_army
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -16168,10 +16009,10 @@ focus_tree = {
 				}
 			}
 			unlock_decision_tooltip = TUR_form_ottoman_strength_clubs
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = -0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = -0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -16217,10 +16058,10 @@ focus_tree = {
 				custom_effect_tooltip = TUR_sabotage_the_suez_canal_unlock_operation_tt
 			}
 			custom_effect_tooltip = TUR_government_stability_reduce_5
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = -0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = -0.2
+#			}
 		}
 		completion_reward = {
 			if = {
@@ -16266,10 +16107,10 @@ focus_tree = {
 				tooltip = TUR_government_stability_reduce_5
 				TUR_government_stability_var = -5
 			}
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = -0.2
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = -0.2
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -16336,10 +16177,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = remove_chief_of_navy
 			show_ideas_tooltip = TUR_salih_hulusi
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = -0.1
+#			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_modify_TUR_army_of_a_bygone_era_name_tt
@@ -16379,10 +16220,10 @@ focus_tree = {
 			show_ideas_tooltip = TUR_nazim_pasha_army
 			custom_effect_tooltip = remove_chief_of_navy
 			show_ideas_tooltip = TUR_salih_hulusi
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = -0.1
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = -0.1
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -16409,10 +16250,10 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = TUR_visits_to_the_frontline_tt
 			TUR_ismail_enver = { add_unit_leader_trait = war_hero }
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = -0.15
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = -0.15
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -16448,10 +16289,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = TUR_chief_of_staff_of_the_commander_in_chief_tt
 			unlock_decision_tooltip = TUR_sway_the_airforce
-			add_power_balance_value = {
-				id = TUR_unionist_struggle
-				value = -0.3
-			}
+#			add_power_balance_value = {
+#				id = TUR_unionist_struggle
+#				value = -0.3
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -16475,28 +16316,6 @@ focus_tree = {
 				TUR_ahmed_cemal = { is_hired_as_advisor = yes }
 			}
 		}
-		complete_tooltip = {
-			custom_effect_tooltip = TUR_the_third_front_tt
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.05
-			}
-			if = {
-				limit = { has_country_flag = TUR_the_third_front1 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.1
-				}
-			}
-			custom_effect_tooltip = TUR_government_stability_add_5
-			if = {
-				limit = { has_country_flag = TUR_the_third_front2 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.1
-				}
-			}
-		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_the_third_front_tt
 			add_to_variable = { TUR_sce_stability_factor = 0.03 }
@@ -16505,26 +16324,24 @@ focus_tree = {
 				ideology = neutrality
 				popularity = 0.05
 			}
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_unionist_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.1
-				}
-				set_country_flag = TUR_the_third_front1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.1
-				}
-				set_country_flag = TUR_the_third_front2
-			}
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_unionist_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = 0.1
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = -0.1
+#				}
+#			}
 			add_to_variable = {
 				tooltip = TUR_government_stability_add_5
 				TUR_government_stability_var = 5
@@ -16551,28 +16368,6 @@ focus_tree = {
 				TUR_ahmed_cemal = { is_hired_as_advisor = yes }
 			}
 		}
-		complete_tooltip = {
-			custom_effect_tooltip = TUR_modify_TUR_donanma_yi_humayun
-			custom_effect_tooltip = naval_coordination_5
-			custom_effect_tooltip = naval_morale_factor_3
-			custom_effect_tooltip = empty_space
-			custom_effect_tooltip = TUR_reorganization_of_the_navy_tt
-			navy_experience = 30
-			if = {
-				limit = { has_country_flag = TUR_reorganization_of_the_navy1 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.1
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_reorganization_of_the_navy2 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.1
-				}
-			}
-		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_modify_TUR_donanma_yi_humayun
 			add_to_variable = {
@@ -16587,26 +16382,24 @@ focus_tree = {
 			custom_effect_tooltip = TUR_reorganization_of_the_navy_tt
 			set_variable = { TUR_reorganization_of_the_navy = 160 }
 			navy_experience = 30
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_unionist_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.1
-				}
-				set_country_flag = TUR_reorganization_of_the_navy1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.1
-				}
-				set_country_flag = TUR_reorganization_of_the_navy2
-			}
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_unionist_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = 0.1
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = -0.1
+#				}
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -16631,32 +16424,6 @@ focus_tree = {
 				TUR_ahmed_cemal = { is_hired_as_advisor = yes }
 			}
 		}
-		complete_tooltip = {
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.03
-			}
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = TUR_hamdullah_suphi_tanriover
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.02
-			}
-			if = {
-				limit = { has_country_flag = TUR_expand_turkish_hearts1 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.1
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_expand_turkish_hearts2 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.1
-				}
-			}
-		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_modify_TUR_crippling_illiteracy_tt
 			add_to_variable = {
@@ -16673,26 +16440,24 @@ focus_tree = {
 				ideology = fascism
 				popularity = 0.01
 			}
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_unionist_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.1
-				}
-				set_country_flag = TUR_expand_turkish_hearts1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.1
-				}
-				set_country_flag = TUR_expand_turkish_hearts2
-			}
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_unionist_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = 0.1
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = -0.1
+#				}
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -16714,27 +16479,6 @@ focus_tree = {
 				TUR_ahmed_cemal = { is_hired_as_advisor = yes }
 			}
 		}
-		complete_tooltip = {
-			custom_effect_tooltip = TUR_gather_opposition_on_both_fronts_tt
-			add_political_power = 25
-			unlock_decision_tooltip = TUR_undermine_enver
-			unlock_decision_tooltip = TUR_gather_moderate_opposition
-			custom_effect_tooltip = TUR_government_stability_add_5
-			if = {
-				limit = { has_country_flag = TUR_gather_opposition_on_both_fronts1 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.15
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_gather_opposition_on_both_fronts2 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.15
-				}
-			}
-		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_gather_opposition_on_both_fronts_tt
 			add_to_variable = { TUR_sce_political_power_factor = 0.02 }
@@ -16747,26 +16491,24 @@ focus_tree = {
 				tooltip = TUR_government_stability_add_5
 				TUR_government_stability_var = 5
 			}
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_unionist_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.15
-				}
-				set_country_flag = TUR_gather_opposition_on_both_fronts1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.15
-				}
-				set_country_flag = TUR_gather_opposition_on_both_fronts2
-			}
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_unionist_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = 0.15
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = -0.15
+#				}
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -16789,33 +16531,6 @@ focus_tree = {
 			}
 			TUR_halil_mentese = { is_hired_as_advisor = no }
 		}
-		complete_tooltip = {
-			activate_advisor = TUR_fethi_okyar
-			set_can_be_fired_in_advisor_role = { character = TUR_fethi_okyar value = no }
-			add_stability = 0.05
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.05
-			}
-			if = {
-				limit = { has_country_flag = TUR_appoint_fethi_bey }
-				activate_decision = TUR_dismiss_fethi_okyar
-			}
-			if = {
-				limit = { has_country_flag = TUR_appoint_fethi_bey1 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.15
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_appoint_fethi_bey2 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.15
-				}
-			}
-		}
 		completion_reward = {
 			activate_advisor = TUR_fethi_okyar
 			set_can_be_fired_in_advisor_role = { character = TUR_fethi_okyar value = no }
@@ -16827,42 +16542,38 @@ focus_tree = {
 			if = {
 				limit = { has_country_flag = TUR_utilize_fethi_okyar }
 				activate_decision = TUR_dismiss_fethi_okyar
-				set_country_flag = TUR_appoint_fethi_bey
 			}
-			if = {
-				limit = {
-					is_power_balance_side_active = {
-						id = TUR_unionist_struggle
-						side = TUR_unionist_struggle_cemal_pasha
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.15
-				}
-				set_country_flag = TUR_appoint_fethi_bey1
-			}
-			else = {
-				if = {
-					limit = {
-						power_balance_value = {
-							id = TUR_unionist_struggle
-							value < 0
-						}
-					}
-					add_power_balance_value = {
-						id = TUR_unionist_struggle
-						value = 0.15
-					}
-					set_country_flag = TUR_appoint_fethi_bey2
-				}
-				else = {
-					add_power_balance_value = {
-						id = TUR_unionist_struggle
-						value = -0.15
-					}
-					set_country_flag = TUR_appoint_fethi_bey1
-				}
+#			if = {
+#				limit = {
+#					is_power_balance_side_active = {
+#						id = TUR_unionist_struggle
+#						side = TUR_unionist_struggle_cemal_pasha
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = -0.15
+#				}
+#			}
+#			else = {
+#				if = {
+#					limit = {
+#						power_balance_value = {
+#							id = TUR_unionist_struggle
+#							value < 0
+#						}
+#					}
+#					add_power_balance_value = {
+#						id = TUR_unionist_struggle
+#						value = 0.15
+#					}
+#				}
+#				else = {
+#					add_power_balance_value = {
+#						id = TUR_unionist_struggle
+#						value = -0.15
+#					}
+#				}
 			}
 			TUR_government_popularity_calculate = yes
 		}
@@ -16886,84 +16597,59 @@ focus_tree = {
 				has_country_leader = { character = TUR_ahmed_cemal }
 				TUR_ahmed_cemal = { is_hired_as_advisor = yes }
 			}
-			is_power_balance_in_range = {
-				id = TUR_unionist_struggle
-				range > TUR_unionist_struggle_talat_pasha_low_control
-			}
-		}
-		complete_tooltip = {
-			custom_effect_tooltip = TUR_replace_enver_tt1
-			add_trait = {
-				character = TUR_ahmed_cemal
-				slot = political_advisor
-				trait = TUR_military_authority
-			}
-			custom_effect_tooltip = TUR_replace_enver_tt2
-			if = {
-				limit = { has_country_flag = TUR_replace_enver1 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.15
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_replace_enver2 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.15
-				}
-			}
+#			is_power_balance_in_range = {
+#				id = TUR_unionist_struggle
+#				range > TUR_unionist_struggle_talat_pasha_low_control
+#			}
 		}
 		completion_reward = {
-			custom_effect_tooltip = TUR_replace_enver_tt1
-			hidden_effect = {
-				set_power_balance = {
-					id = TUR_unionist_struggle
-					left_side = TUR_unionist_struggle_cemal_pasha
-				}
-			}
-			set_country_flag = TUR_cemal_pasha_balance_of_power_side
+#			custom_effect_tooltip = TUR_replace_enver_tt1
+#			hidden_effect = {
+#				set_power_balance = {
+#					id = TUR_unionist_struggle
+#					left_side = TUR_unionist_struggle_cemal_pasha
+#				}
+#			}
+#			set_country_flag = TUR_cemal_pasha_balance_of_power_side
 			add_trait = {
 				character = TUR_ahmed_cemal
 				slot = political_advisor
 				trait = TUR_military_authority
 			}
-			custom_effect_tooltip = TUR_replace_enver_tt2
-			if = {
-				limit = {
-					is_power_balance_side_active = {
-						id = TUR_unionist_struggle
-						side = TUR_unionist_struggle_cemal_pasha
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.2
-				}
-				set_country_flag = TUR_replace_enver1
-			}
-			else = {
-				if = {
-					limit = {
-						power_balance_value = {
-							id = TUR_unionist_struggle
-							value < 0
-						}
-					}
-					add_power_balance_value = {
-						id = TUR_unionist_struggle
-						value = 0.2
-					}
-					set_country_flag = TUR_replace_enver2
-				}
-				else = {
-					add_power_balance_value = {
-						id = TUR_unionist_struggle
-						value = -0.2
-					}
-					set_country_flag = TUR_replace_enver1
-				}
-			}
+#			custom_effect_tooltip = TUR_replace_enver_tt2
+#			if = {
+#				limit = {
+#					is_power_balance_side_active = {
+#						id = TUR_unionist_struggle
+#						side = TUR_unionist_struggle_cemal_pasha
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = -0.2
+#				}
+#			}
+#			else = {
+#				if = {
+#					limit = {
+#						power_balance_value = {
+#							id = TUR_unionist_struggle
+#							value < 0
+#						}
+#					}
+#					add_power_balance_value = {
+#						id = TUR_unionist_struggle
+#						value = 0.2
+#					}
+#					set_country_flag = TUR_replace_enver2
+#				}
+#				else = {
+#					add_power_balance_value = {
+#						id = TUR_unionist_struggle
+#						value = -0.2
+#					}
+#				}
+#			}
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -17056,24 +16742,6 @@ focus_tree = {
 		y = 3
 		relative_position_id = TUR_expand_turkish_hearts
 		available = { has_idea = TUR_ahmed_cemal }
-		complete_tooltip = {
-			custom_effect_tooltip = TUR_assign_cemal_to_syria_tt
-			if = {
-				limit = { has_country_flag = TUR_assign_cemal_to_syria1 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.3
-				}
-			}
-			if = {
-				limit = { has_country_flag = TUR_assign_cemal_to_syria2 }
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.3
-				}
-			}
-			country_event = ottoman.15
-		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_assign_cemal_to_syria_tt
 			hidden_effect = {
@@ -17450,26 +17118,24 @@ focus_tree = {
 					country_event = ottoman.133
 				}
 			}
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_unionist_struggle
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = 0.3
-				}
-				set_country_flag = TUR_assign_cemal_to_syria1
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_unionist_struggle
-					value = -0.3
-				}
-				set_country_flag = TUR_assign_cemal_to_syria2
-			}
+#			if = {
+#				limit = {
+#					power_balance_value = {
+#						id = TUR_unionist_struggle
+#						value < 0
+#					}
+#				}
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = 0.3
+#				}
+#			}
+#			else = {
+#				add_power_balance_value = {
+#					id = TUR_unionist_struggle
+#					value = -0.3
+#				}
+#			}
 			country_event = ottoman.15
 			hidden_effect = {
 				TRS = {
