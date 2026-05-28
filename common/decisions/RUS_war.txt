@@ -1,3 +1,118 @@
-RUS_reforms_decision_category = {
-	
+
+TGWR_great_power_politics = {
+	#Food shortages
+	RUS_food_supply_deteriorates_mission = {
+		icon = GFX_decision_generic_consumer_goods
+		allowed = { tag = RUS }
+		activation = {
+			has_country_flag = RUS_food_shortages_mechanic
+			has_war_with_major = yes
+			has_idea = RUS_inadequate_railway_system
+			check_variable = {
+				RUS_food_supply > RUS_railway_modernization_progress
+			}
+		}
+		available = {
+			OR =  {
+				has_war_with_major = no
+				NOT = {
+					has_idea = RUS_inadequate_railway_system
+				}
+				check_variable = {
+					var = RUS_railway_modernization_progress
+					value = RUS_food_supply
+					compare = greater_than_or_equals
+					tooltip = RUS_food_supply_check
+				}
+			}
+		}
+		is_good = no
+		days_mission_timeout = 30
+		selectable_mission = no
+		timeout_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_idea = RUS_food_shortages
+					}
+				}
+				add_ideas = RUS_food_shortages
+			}
+			set_temp_variable = {
+				RUS_add_food_supply_var = -5
+			}
+			RUS_add_food_supply = yes
+		}
+	}
+	RUS_commandeer_military_trains = {
+		icon = GFX_decision_generic_train
+		allowed = {
+			original_tag = RUS
+		}
+		cost = 25
+		days_remove = 30
+		available = {
+			has_equipment = {
+				train_equipment > 49
+			}
+		}
+		visible = {
+			has_country_flag = RUS_food_shortages_mechanic
+			has_war_with_major = yes
+			has_idea = RUS_inadequate_railway_system
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = -50
+				producer = RUS
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 50
+				producer = RUS
+			}
+			set_temp_variable = {
+				RUS_add_food_supply_var = 5
+			}
+			RUS_add_food_supply = yes
+		}
+	}
+	RUS_prodrazverstka_decision = {
+		icon = GFX_decision_POL_organize_strike_two
+		allowed = {
+			original_tag = RUS
+		}
+		cost = 25
+		days_remove = 30
+		available = {
+		}
+		visible = {
+			has_country_flag = RUS_food_shortages_mechanic
+			has_war_with_major = yes
+			has_idea = RUS_inadequate_railway_system
+			has_completed_focus = RUS_prodrazverstka
+		}
+		modifier = {
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					has_agrarian_question = yes
+				}
+				set_temp_variable = {
+					RUS_add_agrarian_reform_progress_var = -1
+				}
+				RUS_add_agrarian_reform_progress = yes
+			}
+			add_stability = -0.005
+			set_temp_variable = {
+				RUS_add_food_supply_var = 5
+			}
+			RUS_add_food_supply = yes
+		}
+	}
 }

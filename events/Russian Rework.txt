@@ -2424,6 +2424,123 @@ country_event = {
 		}
 	}
 }
+#Rodzyanko advises against firing Nikolai Nikolaevich
+country_event = {
+	id = ww1_russia_war.5
+	title = ww1_russia_war.5.t
+	desc = ww1_russia_war.5.d
+	picture = ww1_russia_rodzyanko
+	trigger = {
+		tag = RUS
+		focus_progress = {
+			focus = RUS_assume_command
+			progress > 0
+		}
+		duma_exists = yes
+	}
+	fire_only_once = yes
+	#It's none of his concern
+	option = {
+		name = ww1_russia_war.5.a
+	}
+	#Alright we concede
+	option = {
+		name = ww1_russia_war.5.b
+		add_political_power = -50
+		set_country_flag = RUS_kept_nikolai_nikolaevich
+	}
+}
+#Sukhomlinov Affair
+country_event = {
+	id = ww1_russia_war.6
+	title = ww1_russia_war.6.t
+	desc = ww1_russia_war.6.d
+	picture = ww1_russia_sukhomlinov
+	trigger = {
+		tag = RUS
+		any_country = {
+			is_major = yes
+			war_length_with = {
+				tag = RUS
+				months = 10
+			}
+		}
+		RUS_vladimir_sukhomlinov = {
+			has_trait = war_minister
+		}
+	}
+	fire_only_once = yes
+	#Fire him!
+	option = {
+		name = ww1_russia_war.6.a
+		if = {
+			limit = {
+				duma_exists = yes
+			}
+			set_temp_variable = { RUS_modify_loyalty_center_left_var = 5 }
+			RUS_modify_loyalty_center_left = yes
+			set_temp_variable = { RUS_modify_loyalty_center_right_var = 5 }
+			RUS_modify_loyalty_center_right = yes
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+		add_political_power = -50
+		add_war_support = 0.05
+		hidden_effect = {
+			RUS_vladimir_sukhomlinov = {
+				remove_trait = {
+					slot = theorist
+					trait = war_minister
+				}
+			}
+			deactivate_advisor = RUS_vladimir_sukhomlinov
+		}
+	}
+	#We don't need to do that
+	option = {
+		name = ww1_russia_war.6.b
+		add_political_power = 50
+		add_war_support = -0.05
+	}
+}
+#Food shortages!
+country_event = {
+	id = ww1_russia_war.7
+	title = ww1_russia_war.7.t
+	desc = ww1_russia_war.7.d
+	picture = ww1_russia_food_shortages
+	trigger = {
+		tag = RUS
+		any_country = {
+			is_major = yes
+			war_length_with = {
+				tag = RUS
+				months = 12
+			}
+		}
+		check_variable = { RUS_railway_modernization_progress < 100 }
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			add_ideas = RUS_food_shortages
+			set_country_flag = RUS_food_shortages_mechanic
+			set_variable = {
+				RUS_food_supply = 50
+			}
+		}
+	}
+	#Fire him!
+	option = {
+		name = ww1_russia_war.7.a
+		effect_tooltip = {
+			add_ideas = RUS_food_shortages
+			custom_effect_tooltip = RUS_food_shortages_tt
+		}
+	}
+}
 
 
 #REVOLUTION

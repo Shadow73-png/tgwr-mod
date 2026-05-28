@@ -4955,8 +4955,14 @@ focus_tree = {
 		}
 		available = {
 			has_war_with_major = yes
-			NOT = {
-				has_idea = RUS_government_of_public_trust_idea
+			if = {
+				limit = {
+					duma_exists = yes
+				}
+				NOT = {
+					has_country_flag = RUS_kept_nikolai_nikolaevich
+					has_idea = RUS_government_of_public_trust_idea
+				}
 			}
 		}
 		x = -1
@@ -4964,6 +4970,27 @@ focus_tree = {
 		relative_position_id = RUS_second_patriotic_war
 		available_if_capitulated = yes
 		completion_reward = {
+			hidden_effect = {
+				if = {
+					limit = {
+						RUS_nikolai_nikolaevich_romanov = {
+							has_trait = commander_in_chief
+						}
+					}
+					RUS_nikolai_nikolaevich_romanov = {
+						remove_trait = {
+							slot = army_chief
+							trait = commander_in_chief
+						}
+					}
+					deactivate_advisor = RUS_nikolai_nikolaevich
+				}
+				activate_advisor = RUS_nicholas_II
+			}
+			RUS_nikolai_ii = {
+				RUS_appoint_commander_in_chief = yes
+			}
+			show_ideas_tooltip = RUS_nicholas_II
 		}
 		ai_will_do = {
 			factor = 3
@@ -4989,6 +5016,7 @@ focus_tree = {
 		relative_position_id = RUS_second_patriotic_war
 		available_if_capitulated = yes
 		completion_reward = {
+			unlock_decision_tooltip = RUS_prodrazverstka_decision
 		}
 		ai_will_do = {
 			factor = 3
@@ -5042,6 +5070,7 @@ focus_tree = {
 		relative_position_id = RUS_second_patriotic_war
 		available_if_capitulated = yes
 		completion_reward = {
+			add_ideas = war_economy
 		}
 		ai_will_do = {
 			factor = 3
