@@ -660,6 +660,7 @@
 				SER = {
 					remove_state_core = 106
 					remove_state_core = 203
+					remove_state_core = 1258
 					remove_state_core = 1140
 					remove_state_core = 1213
 					set_country_flag = BW1_loser
@@ -1031,17 +1032,24 @@
 				limit = {
 					tag = TUR
 				}
-				country_event = ottoman.42
-				country_event = ottoman.45
-				country_event = ottoman.38
-				country_event = ottoman.118
-				country_event = ottoman.119
-				country_event = ottoman.151
-				country_event = ottoman.152
-				country_event = ottoman.153
-				country_event = ottoman.98
-				country_event = ottoman.164
-				country_event = ottoman.170
+				if = {
+					limit = { 
+						has_completed_focus = TUR_legacy_of_the_4th_lancers
+					}
+					country_event = ottoman.38
+				}
+				else = {					
+					country_event = ottoman.42
+					country_event = ottoman.45
+					country_event = ottoman.118
+					country_event = ottoman.119
+					country_event = ottoman.151
+					country_event = ottoman.152
+					country_event = ottoman.153
+					country_event = ottoman.98
+					country_event = ottoman.164
+					country_event = ottoman.170
+				}
 			}			
 			else_if = { ### Serbia ###
 				limit = {
@@ -5150,28 +5158,6 @@
 						10 = { RUS = { set_country_flag = SOV_AI_RANDOM_THIRD_FORCE } }
 					}
 				}
-				if = {
-					limit = {
-						has_game_rule = {
-							rule = rule_russian_flag
-							option = AHISTORICAL_RUSSIAN_FLAG
-						}
-					}
-					RUS = {
-						set_cosmetic_tag = RUS_ahistorical_flag
-					}
-				}
-				else_if = {
-					limit = {
-						has_game_rule = {
-							rule = rule_russian_flag
-							option = IMPERIAL_RUSSIAN_FLAG
-						}
-					}
-					RUS = {
-						set_cosmetic_tag = RUS_absolutism
-					}
-				}
 			}
 			SIB = {
 				if = {
@@ -6517,11 +6503,43 @@
 								limit = {
 									OR = {
 										has_subject = PREV
-										has_idea = SPR_pact_of_cartagena_1907
+										SPR = {
+											has_idea = SPR_pact_of_cartagena_1907
+										}
 									}
 								}
 								transfer_state = 1236
+								transfer_state = 1254
 							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { 
+					tag = MOR
+					FROM = {
+						tag = GUD
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = MOR
+						transfer_troops = no
+					}
+					ROOT = {
+						every_character = {
+							limit = {
+								is_generic_character = no
+								NOT = {
+									is_character = MOR_harry_aubrey_de_vere_maclean
+								}
+							}
+							set_nationality = FROM
+						}
+						every_core_state = {
+							remove_core_of = ROOT
+							add_core_of = FROM
 						}
 					}
 				}
@@ -12351,33 +12369,6 @@
 				}
 				ROOT = {
 					country_event = ww1_china.303
-				}
-			}
-			# Battle of Tiznit
-			if = {
-				limit = {
-					NOT = {
-						has_global_flag = battle_of_tiznit
-					}
-					has_start_date < 1914.1.1
-					ROOT = {
-						has_war_with = GUD
-					}
-					FROM.FROM = {
-						state = 1237
-					}
-				}
-				set_global_flag = battle_of_tiznit
-				every_country = {
-					limit = {
-						any_owned_state = {
-							region = 182
-						}
-					}
-					country_event = {
-						id = ww1_morocco.88
-						hours = 3
-					}
 				}
 			}
 		}
