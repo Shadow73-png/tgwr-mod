@@ -1,6 +1,3 @@
-
-
-
 AUS_update_food = {
 	set_variable = {
 		AUS_new_loyalty_penalty = AUS_intensity_of_food_shortages
@@ -20,7 +17,6 @@ AUS_update_food = {
 	subtract_from_variable = {
 		AUS_loyalty_delta = AUS_loyalty_change
 	}
-	
 	add_to_variable = {
 		AUS_ruthenian_loyalty = AUS_loyalty_delta
 	}
@@ -224,14 +220,11 @@ AUS_update_imperial_council_effects = {
 		multiply_variable = {
 			AUS_imperial_council_democratic_drift = 0.016
 		}
-	
 	}
 	else = {
 		set_variable = {
 			AUS_imperial_council_democratic_drift = 0
 		}
-		
-		
 	}
 	### SOCIAL DEMOCRAT EFFECTS ###
 	if = {
@@ -278,7 +271,6 @@ AUS_update_imperial_council_effects = {
 }
 
 AUS_update_state_of_realm = {
-
 	AUS_loyalty_max_min_calculation = yes
 	set_variable = {
 		AUS_admin_struggle_slav_var = 25
@@ -447,7 +439,6 @@ AUS_loyalty_max_min_calculation = {
 		add_to_variable = {
 			AUS_cze_min_loyalty = 20
 		}
-		
 	}
 	#Czech loyalty calculation: Maximums
 	set_variable = {
@@ -470,13 +461,13 @@ AUS_loyalty_max_min_calculation = {
 		}
 	}
 	if = {
-			limit = {
-				has_country_flag = AUS_centralization_and_discipline_flag
-			}
-			add_to_variable = {
-				AUS_cze_max_loyalty = -5
-			}
+		limit = {
+			has_country_flag = AUS_centralization_and_discipline_flag
 		}
+		add_to_variable = {
+			AUS_cze_max_loyalty = -5
+		}
+	}
 	if = {
 		limit = {
 			has_country_flag = AUS_cze_autonomy_demands
@@ -511,11 +502,10 @@ AUS_loyalty_max_min_calculation = {
 	}
 	####################################
 	clamp_variable = {
-	    var = AUS_czechoslovak_loyalty
-	    min = AUS_cze_min_loyalty
-	    max = AUS_cze_max_loyalty
+		var = AUS_czechoslovak_loyalty
+		min = AUS_cze_min_loyalty
+		max = AUS_cze_max_loyalty
 	}
-
 	#Croat Clamp Calc
 	set_variable = {
 		AUS_cro_min_loyalty = 0
@@ -542,9 +532,9 @@ AUS_loyalty_max_min_calculation = {
 	}
 	# add here sidz
 	clamp_variable = {
-	    var = AUS_croat_loyalty
-	    min = AUS_cro_min_loyalty
-	    max = AUS_cro_max_loyalty
+		var = AUS_croat_loyalty
+		min = AUS_cro_min_loyalty
+		max = AUS_cro_max_loyalty
 	}
 	####################################
 	#serb Clamp Calc
@@ -573,9 +563,9 @@ AUS_loyalty_max_min_calculation = {
 	}
 	# add here sidz
 	clamp_variable = {
-	    var = AUS_serb_loyalty
-	    min = AUS_ser_min_loyalty
-	    max = AUS_ser_max_loyalty
+		var = AUS_serb_loyalty
+		min = AUS_ser_min_loyalty
+		max = AUS_ser_max_loyalty
 	}
 	####################################
 	#POLES Clamp calc
@@ -606,7 +596,6 @@ AUS_loyalty_max_min_calculation = {
 			AUS_pol_min_loyalty = 30
 		}
 	}
-
 	set_variable = {
 		AUS_pol_max_loyalty = 100
 	}
@@ -627,15 +616,14 @@ AUS_loyalty_max_min_calculation = {
 		}
 	}
 	clamp_variable = {
-	    var = AUS_pole_loyalty
-	    min = AUS_pol_min_loyalty
-	    max = AUS_pol_max_loyalty
+		var = AUS_pole_loyalty
+		min = AUS_pol_min_loyalty
+		max = AUS_pol_max_loyalty
 	}
 	####################################
 	set_variable = {
 		AUS_ukr_min_loyalty = 0
 	}
-	
 	if = {
 		limit = {
 			is_great_war_ongoing = no
@@ -644,7 +632,7 @@ AUS_loyalty_max_min_calculation = {
 			AUS_ukr_min_loyalty = 10
 		}
 	}
-if = {
+	if = {
 		limit = {
 			has_country_flag = AUS_ukr_does_not_want_to_leave
 		}
@@ -672,9 +660,9 @@ if = {
 		}
 	}
 	clamp_variable = {
-	    var = AUS_ruthenian_loyalty
-	    min = AUS_ukr_min_loyalty
-	    max = AUS_ukr_max_loyalty
+		var = AUS_ruthenian_loyalty
+		min = AUS_ukr_min_loyalty
+		max = AUS_ukr_max_loyalty
 	}
 	####################################
 	set_variable = {
@@ -699,22 +687,21 @@ if = {
 	set_variable = {
 		AUS_rom_max_loyalty = 100
 	}
-		if = {
-			limit = {
-				has_country_flag = AUS_centralization_and_discipline_flag
-			}
-			add_to_variable = {
-				AUS_rom_max_loyalty = -5
-			}
+	if = {
+		limit = {
+			has_country_flag = AUS_centralization_and_discipline_flag
 		}
-	clamp_variable = {
-	    var = AUS_romanian_loyalty
-	    min = AUS_rom_min_loyalty
-	    max = AUS_rom_max_loyalty
+		add_to_variable = {
+			AUS_rom_max_loyalty = -5
+		}
 	}
-
-
+	clamp_variable = {
+		var = AUS_romanian_loyalty
+		min = AUS_rom_min_loyalty
+		max = AUS_rom_max_loyalty
+	}
 }
+
 AUS_state_of_the_monarchy_dm_update = {
 	# stability modifier based on average of loyalty
 	# 50l (neutral)
@@ -1066,203 +1053,367 @@ AUS_state_of_the_monarchy_dm_update = {
 			AUS_state_of_the_realm_stability_var = 0.2
 		}
 	}
-###################
+	###################
 	## CZECHS (BOHEMIANS) (and slovakians grrr)
 	if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty = 50 }
+			check_variable = {
+				AUS_czechoslovak_loyalty = 50
+			}
 		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 44 }
-			check_variable = { AUS_czechoslovak_loyalty < 50 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 44
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 50
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = -0.03 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = -0.03 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = -0.03
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = -0.03
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 39 }
-			check_variable = { AUS_czechoslovak_loyalty < 45 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 39
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 45
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = -0.06 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = -0.06 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = -0.06
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = -0.06
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 34 }
-			check_variable = { AUS_czechoslovak_loyalty < 40 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 34
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 40
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = -0.09 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = -0.09 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = -0.09
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = -0.09
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 29 }
-			check_variable = { AUS_czechoslovak_loyalty < 35 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 29
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 35
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = -0.12 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = -0.12 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = -0.12
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = -0.12
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 24 }
-			check_variable = { AUS_czechoslovak_loyalty < 30 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 24
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 30
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = -0.15 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = -0.15 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = -0.15
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = -0.15
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 19 }
-			check_variable = { AUS_czechoslovak_loyalty < 25 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 19
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 25
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = -0.18 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = -0.18 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = -0.18
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = -0.18
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty < 20 }
+			check_variable = {
+				AUS_czechoslovak_loyalty < 20
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = -0.20 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = -0.20 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = -0.2
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = -0.2
+		}
 	}
-
 	# ABOVE 50 (bonuses)
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 50 }
-			check_variable = { AUS_czechoslovak_loyalty < 56 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 50
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 56
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = 0.03 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = 0.03 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = 0.03
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = 0.03
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 55 }
-			check_variable = { AUS_czechoslovak_loyalty < 61 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 55
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 61
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = 0.06 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = 0.06 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = 0.06
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = 0.06
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 60 }
-			check_variable = { AUS_czechoslovak_loyalty < 66 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 60
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 66
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = 0.09 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = 0.09 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = 0.09
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = 0.09
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 65 }
-			check_variable = { AUS_czechoslovak_loyalty < 71 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 65
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 71
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = 0.12 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = 0.12 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = 0.12
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = 0.12
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 70 }
-			check_variable = { AUS_czechoslovak_loyalty < 76 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 70
+			}
+			check_variable = {
+				AUS_czechoslovak_loyalty < 76
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = 0.15 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = 0.15 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = 0.15
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = 0.15
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_czechoslovak_loyalty > 75 }
+			check_variable = {
+				AUS_czechoslovak_loyalty > 75
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_prod_eff_growth = 0.15 }
-		set_variable = { AUS_state_of_the_realm_prod_eff_cap = 0.15 }
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_growth = 0.15
+		}
+		set_variable = {
+			AUS_state_of_the_realm_prod_eff_cap = 0.15
+		}
 	}
-
 	# EASTERN MINORITIES
-
-	set_variable = { AUS_eastern_minorities_avg = 0 }
-	add_to_variable = { AUS_eastern_minorities_avg = AUS_pole_loyalty }
-	add_to_variable = { AUS_eastern_minorities_avg = AUS_ruthenian_loyalty }
-	add_to_variable = { AUS_eastern_minorities_avg = AUS_romanian_loyalty }
+	set_variable = {
+		AUS_eastern_minorities_avg = 0
+	}
+	add_to_variable = {
+		AUS_eastern_minorities_avg = AUS_pole_loyalty
+	}
+	add_to_variable = {
+		AUS_eastern_minorities_avg = AUS_ruthenian_loyalty
+	}
+	add_to_variable = {
+		AUS_eastern_minorities_avg = AUS_romanian_loyalty
+	}
 	divide_variable = {
 		var = AUS_eastern_minorities_avg
 		value = 3
 	}
 	if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg = 50 }
+			check_variable = {
+				AUS_eastern_minorities_avg = 50
+			}
 		}
 	}
 	# penalties
 	else_if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg > 44 }
-			check_variable = { AUS_eastern_minorities_avg < 50 }
+			check_variable = {
+				AUS_eastern_minorities_avg > 44
+			}
+			check_variable = {
+				AUS_eastern_minorities_avg < 50
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_consumer_goods_var = 0.04 }
+		set_variable = {
+			AUS_state_of_the_realm_consumer_goods_var = 0.04
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg > 39 }
-			check_variable = { AUS_eastern_minorities_avg < 45 }
+			check_variable = {
+				AUS_eastern_minorities_avg > 39
+			}
+			check_variable = {
+				AUS_eastern_minorities_avg < 45
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_consumer_goods_var = 0.08 }
+		set_variable = {
+			AUS_state_of_the_realm_consumer_goods_var = 0.08
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg > 34 }
-			check_variable = { AUS_eastern_minorities_avg < 40 }
+			check_variable = {
+				AUS_eastern_minorities_avg > 34
+			}
+			check_variable = {
+				AUS_eastern_minorities_avg < 40
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_consumer_goods_var = 0.12 }
+		set_variable = {
+			AUS_state_of_the_realm_consumer_goods_var = 0.12
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg > 29 }
-			check_variable = { AUS_eastern_minorities_avg < 35 }
+			check_variable = {
+				AUS_eastern_minorities_avg > 29
+			}
+			check_variable = {
+				AUS_eastern_minorities_avg < 35
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_consumer_goods_var = 0.16 }
+		set_variable = {
+			AUS_state_of_the_realm_consumer_goods_var = 0.16
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg < 30 }
+			check_variable = {
+				AUS_eastern_minorities_avg < 30
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_consumer_goods_var = 0.20 }
+		set_variable = {
+			AUS_state_of_the_realm_consumer_goods_var = 0.2
+		}
 	}
-
 	# bonuses
 	else_if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg > 50 }
-			check_variable = { AUS_eastern_minorities_avg < 56 }
+			check_variable = {
+				AUS_eastern_minorities_avg > 50
+			}
+			check_variable = {
+				AUS_eastern_minorities_avg < 56
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_consumer_goods_var = -0.04 }
+		set_variable = {
+			AUS_state_of_the_realm_consumer_goods_var = -0.04
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg > 55 }
-			check_variable = { AUS_eastern_minorities_avg < 61 }
+			check_variable = {
+				AUS_eastern_minorities_avg > 55
+			}
+			check_variable = {
+				AUS_eastern_minorities_avg < 61
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_consumer_goods_var = -0.08 }
+		set_variable = {
+			AUS_state_of_the_realm_consumer_goods_var = -0.08
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg > 60 }
-			check_variable = { AUS_eastern_minorities_avg < 66 }
+			check_variable = {
+				AUS_eastern_minorities_avg > 60
+			}
+			check_variable = {
+				AUS_eastern_minorities_avg < 66
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_consumer_goods_var = -0.12 }
+		set_variable = {
+			AUS_state_of_the_realm_consumer_goods_var = -0.12
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg > 65 }
-			check_variable = { AUS_eastern_minorities_avg < 71 }
+			check_variable = {
+				AUS_eastern_minorities_avg > 65
+			}
+			check_variable = {
+				AUS_eastern_minorities_avg < 71
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_consumer_goods_var = -0.16 }
+		set_variable = {
+			AUS_state_of_the_realm_consumer_goods_var = -0.16
+		}
 	}
 	else_if = {
 		limit = {
-			check_variable = { AUS_eastern_minorities_avg > 70 }
+			check_variable = {
+				AUS_eastern_minorities_avg > 70
+			}
 		}
-		set_variable = { AUS_state_of_the_realm_consumer_goods_var = -0.20 }
+		set_variable = {
+			AUS_state_of_the_realm_consumer_goods_var = -0.2
+		}
 	}
 }
 
@@ -3025,7 +3176,6 @@ AUS_increase_southern_admin_10 = {
 #			add_idea = AUS_southern_administration_
 #		}
 #	}
-
 AUS_how_many_states_have_neglected_fathers = {
 	hidden_effect = {
 		every_state = {
@@ -3169,6 +3319,7 @@ AUS_1914_effects = {
 	AUS_update_imperial_council_effects = yes
 	AUS_update_state_of_realm = yes
 }
+
 MGS_upgrade_government_legit = {
 	if = {
 		limit = {
@@ -3213,52 +3364,64 @@ MGS_upgrade_government_legit = {
 		remove_ideas = MGS_illegitimate_government_1
 	}
 }
-MGS_upgrade_nation_in_ruins = {
 
+MGS_upgrade_nation_in_ruins = {
 	if = {
-		limit = { has_idea = MGS_nation_in_ruins6 }
+		limit = {
+			has_idea = MGS_nation_in_ruins6
+		}
 		swap_ideas = {
 			remove_idea = MGS_nation_in_ruins6
 			add_idea = MGS_nation_in_ruins5
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_nation_in_ruins5 }
+		limit = {
+			has_idea = MGS_nation_in_ruins5
+		}
 		swap_ideas = {
 			remove_idea = MGS_nation_in_ruins5
 			add_idea = MGS_nation_in_ruins4
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_nation_in_ruins4 }
+		limit = {
+			has_idea = MGS_nation_in_ruins4
+		}
 		swap_ideas = {
 			remove_idea = MGS_nation_in_ruins4
 			add_idea = MGS_nation_in_ruins3
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_nation_in_ruins3 }
+		limit = {
+			has_idea = MGS_nation_in_ruins3
+		}
 		swap_ideas = {
 			remove_idea = MGS_nation_in_ruins3
 			add_idea = MGS_nation_in_ruins2
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_nation_in_ruins2 }
+		limit = {
+			has_idea = MGS_nation_in_ruins2
+		}
 		swap_ideas = {
 			remove_idea = MGS_nation_in_ruins2
 			add_idea = MGS_nation_in_ruins1
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_nation_in_ruins1 }
+		limit = {
+			has_idea = MGS_nation_in_ruins1
+		}
 		remove_ideas = MGS_nation_in_ruins1
 	}
 }
-MGS_worsen_nation_in_ruins = {
 
+MGS_worsen_nation_in_ruins = {
 	if = {
-		limit = { 
+		limit = {
 			NOT = {
 				has_idea = MGS_nation_in_ruins1
 				has_idea = MGS_nation_in_ruins2
@@ -3271,43 +3434,53 @@ MGS_worsen_nation_in_ruins = {
 		add_ideas = MGS_nation_in_ruins1
 	}
 	else_if = {
-		limit = { has_idea = MGS_nation_in_ruins1 }
+		limit = {
+			has_idea = MGS_nation_in_ruins1
+		}
 		swap_ideas = {
 			remove_idea = MGS_nation_in_ruins1
 			add_idea = MGS_nation_in_ruins2
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_nation_in_ruins2 }
+		limit = {
+			has_idea = MGS_nation_in_ruins2
+		}
 		swap_ideas = {
 			remove_idea = MGS_nation_in_ruins2
 			add_idea = MGS_nation_in_ruins3
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_nation_in_ruins3 }
+		limit = {
+			has_idea = MGS_nation_in_ruins3
+		}
 		swap_ideas = {
 			remove_idea = MGS_nation_in_ruins3
 			add_idea = MGS_nation_in_ruins4
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_nation_in_ruins4 }
+		limit = {
+			has_idea = MGS_nation_in_ruins4
+		}
 		swap_ideas = {
 			remove_idea = MGS_nation_in_ruins4
 			add_idea = MGS_nation_in_ruins5
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_nation_in_ruins5 }
+		limit = {
+			has_idea = MGS_nation_in_ruins5
+		}
 		swap_ideas = {
 			remove_idea = MGS_nation_in_ruins5
 			add_idea = MGS_nation_in_ruins6
 		}
 	}
 }
-MGS_downgrade_government_legit = {
 
+MGS_downgrade_government_legit = {
 	if = {
 		limit = {
 			NOT = {
@@ -3321,106 +3494,134 @@ MGS_downgrade_government_legit = {
 		add_ideas = MGS_illegitimate_government_1
 	}
 	else_if = {
-		limit = { has_idea = MGS_illegitimate_government_1 }
+		limit = {
+			has_idea = MGS_illegitimate_government_1
+		}
 		swap_ideas = {
 			remove_idea = MGS_illegitimate_government_1
 			add_idea = MGS_illegitimate_government_2
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_illegitimate_government_2 }
+		limit = {
+			has_idea = MGS_illegitimate_government_2
+		}
 		swap_ideas = {
 			remove_idea = MGS_illegitimate_government_2
 			add_idea = MGS_illegitimate_government_3
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_illegitimate_government_3 }
+		limit = {
+			has_idea = MGS_illegitimate_government_3
+		}
 		swap_ideas = {
 			remove_idea = MGS_illegitimate_government_3
 			add_idea = MGS_illegitimate_government_4
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_illegitimate_government_4 }
+		limit = {
+			has_idea = MGS_illegitimate_government_4
+		}
 		swap_ideas = {
 			remove_idea = MGS_illegitimate_government_4
 			add_idea = MGS_illegitimate_government_5
 		}
 	}
 }
-MGS_upgrade_resistance_to_occupation = {
 
+MGS_upgrade_resistance_to_occupation = {
 	if = {
-		limit = { has_idea = MGS_resistance_to_occupation10 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation10
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation10
 			add_idea = MGS_resistance_to_occupation9
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation9 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation9
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation9
 			add_idea = MGS_resistance_to_occupation8
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation8 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation8
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation8
 			add_idea = MGS_resistance_to_occupation7
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation7 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation7
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation7
 			add_idea = MGS_resistance_to_occupation6
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation6 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation6
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation6
 			add_idea = MGS_resistance_to_occupation5
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation5 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation5
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation5
 			add_idea = MGS_resistance_to_occupation4
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation4 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation4
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation4
 			add_idea = MGS_resistance_to_occupation3
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation3 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation3
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation3
 			add_idea = MGS_resistance_to_occupation2
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation2 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation2
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation2
 			add_idea = MGS_resistance_to_occupation
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation }
+		limit = {
+			has_idea = MGS_resistance_to_occupation
+		}
 		remove_ideas = MGS_resistance_to_occupation
 	}
 }
-MGS_worsen_resistance_to_occupation = {
 
+MGS_worsen_resistance_to_occupation = {
 	if = {
 		limit = {
 			NOT = {
@@ -3434,75 +3635,93 @@ MGS_worsen_resistance_to_occupation = {
 				has_idea = MGS_resistance_to_occupation8
 				has_idea = MGS_resistance_to_occupation9
 				has_idea = MGS_resistance_to_occupation10
-				
 			}
 		}
 		add_ideas = MGS_resistance_to_occupation
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation }
+		limit = {
+			has_idea = MGS_resistance_to_occupation
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation
 			add_idea = MGS_resistance_to_occupation2
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation2 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation2
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation2
 			add_idea = MGS_resistance_to_occupation3
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation3 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation3
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation3
 			add_idea = MGS_resistance_to_occupation4
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation4 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation4
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation4
 			add_idea = MGS_resistance_to_occupation5
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation5 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation5
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation5
 			add_idea = MGS_resistance_to_occupation6
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation6 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation6
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation6
 			add_idea = MGS_resistance_to_occupation7
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation7 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation7
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation7
 			add_idea = MGS_resistance_to_occupation8
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation8 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation8
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation8
 			add_idea = MGS_resistance_to_occupation9
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_resistance_to_occupation9 }
+		limit = {
+			has_idea = MGS_resistance_to_occupation9
+		}
 		swap_ideas = {
 			remove_idea = MGS_resistance_to_occupation9
 			add_idea = MGS_resistance_to_occupation10
 		}
 	}
 }
+
 MGS_food_worsen = {
 	if = {
 		limit = {
@@ -3518,82 +3737,106 @@ MGS_food_worsen = {
 		add_ideas = MGS_food_shortage_0
 	}
 	else_if = {
-		limit = { has_idea = MGS_food_shortage_0 }
+		limit = {
+			has_idea = MGS_food_shortage_0
+		}
 		swap_ideas = {
 			remove_idea = MGS_food_shortage_0
 			add_idea = MGS_food_shortage_1
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_food_shortage_1 }
+		limit = {
+			has_idea = MGS_food_shortage_1
+		}
 		swap_ideas = {
 			remove_idea = MGS_food_shortage_1
 			add_idea = MGS_food_shortage_2
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_food_shortage_2 }
+		limit = {
+			has_idea = MGS_food_shortage_2
+		}
 		swap_ideas = {
 			remove_idea = MGS_food_shortage_2
 			add_idea = MGS_food_shortage_3
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_food_shortage_3 }
+		limit = {
+			has_idea = MGS_food_shortage_3
+		}
 		swap_ideas = {
 			remove_idea = MGS_food_shortage_3
 			add_idea = MGS_food_shortage_4
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_food_shortage_4 }
+		limit = {
+			has_idea = MGS_food_shortage_4
+		}
 		swap_ideas = {
 			remove_idea = MGS_food_shortage_4
 			add_idea = MGS_food_shortage_5
 		}
 	}
 }
+
 MGS_food_improve = {
 	if = {
-		limit = { has_idea = MGS_food_shortage_5 }
+		limit = {
+			has_idea = MGS_food_shortage_5
+		}
 		swap_ideas = {
 			remove_idea = MGS_food_shortage_5
 			add_idea = MGS_food_shortage_4
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_food_shortage_4 }
+		limit = {
+			has_idea = MGS_food_shortage_4
+		}
 		swap_ideas = {
 			remove_idea = MGS_food_shortage_4
 			add_idea = MGS_food_shortage_3
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_food_shortage_3 }
+		limit = {
+			has_idea = MGS_food_shortage_3
+		}
 		swap_ideas = {
 			remove_idea = MGS_food_shortage_3
 			add_idea = MGS_food_shortage_2
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_food_shortage_2 }
+		limit = {
+			has_idea = MGS_food_shortage_2
+		}
 		swap_ideas = {
 			remove_idea = MGS_food_shortage_2
 			add_idea = MGS_food_shortage_1
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_food_shortage_1 }
+		limit = {
+			has_idea = MGS_food_shortage_1
+		}
 		swap_ideas = {
 			remove_idea = MGS_food_shortage_1
 			add_idea = MGS_food_shortage_0
 		}
 	}
 	else_if = {
-		limit = { has_idea = MGS_food_shortage_0 }
+		limit = {
+			has_idea = MGS_food_shortage_0
+		}
 		remove_ideas = MGS_food_shortage_0
 	}
 }
+
 AUS_spawn_MGS = {
 	set_global_flag = MGS_exists
 	create_dynamic_country = {
@@ -3634,8 +3877,11 @@ AUS_spawn_MGS = {
 		set_state_controller = 107
 		set_state_controller = 847
 		set_state_controller = 760
-		MGS = { 
-			country_event = { id = ww1_occupiedserbia.15 days = 5 } 
+		MGS = {
+			country_event = {
+				id = ww1_occupiedserbia.15
+				days = 5
+			}
 		}
 		add_ideas = idea_army_restrictions
 		add_ideas = disarmed_nation
@@ -3643,7 +3889,7 @@ AUS_spawn_MGS = {
 		add_ideas = MGS_nation_in_ruins4
 		add_ideas = MGS_resistance_to_occupation
 		if = {
-			limit = { 
+			limit = {
 				NOT = {
 					AUS = {
 						NOT = {
@@ -3658,8 +3904,46 @@ AUS_spawn_MGS = {
 		}
 		MGS = {
 			set_power_balance = {
-    			id = MGS_austria_hungary_interests
+				id = MGS_austria_hungary_interests
 			}
 		}
+	}
+}
+
+AUS_spawn_bohemian_crown = {
+	set_global_flag = AUS_bohemian_crown_created
+		every_owned_state = {
+                limit = {
+                    is_core_of = CZE
+                    NOT = {
+                        state = 1200
+                    }
+                }
+                transfer_state_to = CZE
+            }
+	CZE = {
+
+            CZE = { set_country_flag = monarchist_puppet }
+           
+            hidden_effect = {
+                CZE = {
+                    set_popularities = {
+                        fascism = 0
+                        communism = 2
+                        democratic = 58
+                        neutrality = 40
+                    }
+                    add_ideas = HUN_ausgleich
+                }
+            }
+		add_to_tech_sharing_group = austrian_research
+		AUS = {
+			set_autonomy = {
+				target = CZE
+				autonomous_state = autonomy_tgwr_real_union
+				freedom_level = 0.85
+			}
+		}
+		
 	}
 }
