@@ -2032,6 +2032,157 @@ AUH_the_imperial_council = {
 		}
 		
 	}
+	AUS_state_control_critical_industries = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_support_military_companies
+		}
+		priority = 210
+		available = {
+			has_completed_focus = AUS_listen_to_the_militarys_pleas
+			custom_trigger_tooltip = {
+				check_variable = {
+					AUS_pm_mandate_power > 0
+				}
+				tooltip = AUS_at_least_one_pm_power
+			}
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			base = 0
+			
+		}
+		modifier = {
+			
+		}
+		complete_effect = {
+			add_to_variable = {
+				AUS_pm_mandate_power = -1
+				tooltip = AUS_pm_mandate.tt
+			}
+			
+		}
+		remove_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+	}
+	AUS_fund_railways = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_support_military_companies
+		}
+		priority = 210
+		available = {
+			has_completed_focus = AUS_listen_to_the_militarys_pleas
+			custom_trigger_tooltip = {
+				check_variable = {
+					AUS_pm_mandate_power > 0
+				}
+				tooltip = AUS_at_least_one_pm_power
+			}
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			base = 0
+			
+		}
+		modifier = {
+			production_speed_railways_factor = 0.075
+		}
+		complete_effect = {
+			add_to_variable = {
+				AUS_pm_mandate_power = -1
+				tooltip = AUS_pm_mandate.tt
+			}
+			
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_modify_army.tt
+			add_to_variable = {
+				AUS_mea_army_supply_consumption = -0.05
+				tooltip = supply_consumption_factor_tt
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 5
+			}
+		}
+	}
+	AUS_raise_landwehr_budget = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_support_military_companies
+		}
+		priority = 210
+		available = {
+			has_completed_focus = AUS_listen_to_the_militarys_pleas
+			custom_trigger_tooltip = {
+				check_variable = {
+					AUS_pm_mandate_power > 0
+				}
+				tooltip = AUS_at_least_one_pm_power
+			}
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			base = 0
+			
+		}
+		modifier = {
+			
+		}
+		complete_effect = {
+			add_to_variable = {
+				AUS_pm_mandate_power = -1
+				tooltip = AUS_pm_mandate.tt
+			}
+			
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_factory_output = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+		}
+	}
 	AUS_break_up_huge_estates = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
