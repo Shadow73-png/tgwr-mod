@@ -5351,6 +5351,9 @@ focus_tree = {
 				has_capitulated = yes
 			}
 		}
+		bypass = {
+			has_capitulated = yes
+		}
 		completion_reward = {
 			add_ideas = SER_idea_exodus
 			if = {
@@ -5374,9 +5377,55 @@ focus_tree = {
 					set_country_flag = FRA_exiled_serbian_forces
 				}
 			}
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 100
+				}
+			}
+		}
+		bypass_effect = {
+			add_ideas = SER_idea_exodus
+			if = {
+				limit = {
+					has_completed_focus = SER_treaty_with_Albania
+					ALB = {
+						has_war = no
+						is_subject = no
+						has_country_leader = {
+							character = ALB_essad_pasha_toptani
+						}
+					}
+				}
+				country_event = ww1_albania.8
+				custom_effect_tooltip = which_will_give_tt
+				event_option_tooltip = ww1_serbia.8.a
+			}
+			if = {
+				limit = {
+					has_war_together_with = FRA
+				}
+				FRA = {
+					set_country_flag = FRA_exiled_serbian_forces
+				}
+			}
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 100
+				}
+			}		
 		}
 		ai_will_do = {
-			factor = 1000
+			base = 0
+			modifier = {
+				add = 10000
+				OR = {
+					surrender_progress > 0.8
+					has_war_with = BUL
+					has_capitulated = yes
+				}
+			}
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
