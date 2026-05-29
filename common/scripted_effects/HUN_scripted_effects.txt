@@ -63,11 +63,11 @@ HUN_set_compromise_gov_NMP_wins_1910 = {
 	#F48P makes up 52%
 	#F48P Justh
 	set_variable = {
-		HUN_F48P_j_seats = 50
+		HUN_F48P_j_seats = 44
 	}
 	#F48P Kossuth
 	set_variable = {
-		HUN_F48P_k_seats = 57
+		HUN_F48P_k_seats = 54
 	}
 	#O48FG Szabo
 	set_variable = {
@@ -77,13 +77,25 @@ HUN_set_compromise_gov_NMP_wins_1910 = {
 	set_variable = {
 		HUN_knp_seats = 13
 	}
+	#Independent 48ers
 	set_variable = {
-		HUN_total_f48p_seats = 125
+		HUN_ind_48 = 10
+	}
+	set_variable = {
+		HUN_total_f48p_seats = 126
 	}
 	#NMP Makes up 61%
 	#NMP
 	set_variable = {
-		HUN_nmp_seats = 277
+		HUN_nmp_seats = 256
+	}
+	#Independent 67ers
+	set_variable = {
+		HUN_ind_67 = 21
+	}
+	#Total 67ers excluding OA
+	set_variable = {
+		HUN_total_nmp_seats = 277
 	}
 	#PNR (Romanian Party)
 	set_variable = {
@@ -120,16 +132,40 @@ HUN_reset_in_favour_voters = {
 	}
 }
 HUN_voting_on_nmp_favour_law = {
-	set_temp_variable = {
-		HUN_nmp_seats_temp = HUN_nmp_seats
+	if = {
+		limit = { 
+			has_completed_focus = HUN_national_work_party
+			has_global_flag = HUN_compromise_gov_in_charge
+		}
+		set_temp_variable = {
+			HUN_nmp_seats_temp = HUN_total_nmp_seats
+		}
+		multiply_temp_variable = {
+			HUN_total_nmp_seats = 0.9
+		}
+		add_to_variable = {
+				HUN_nmp_seats_temp = 15 #OA and Independent support
+			}
+		add_to_variable = {
+			HUN_parliment_in_favour_voters = HUN_nmp_seats_temp
+		}
+		round_variable = HUN_parliment_in_favour_voters
+		else = {
+			set_temp_variable = {
+				HUN_nmp_seats_temp = HUN_nmp_seats
+			}
+			multiply_temp_variable = {
+				HUN_nmp_seats_temp = 0.9
+			}
+			add_to_variable = {
+				HUN_nmp_seats_temp = 15 #OA and Independent support
+			}
+			add_to_variable = {
+				HUN_parliment_in_favour_voters = HUN_nmp_seats_temp
+			}
+			round_variable = HUN_parliment_in_favour_voters
+		}
 	}
-	multiply_temp_variable = {
-		HUN_nmp_seats_temp = 0.9
-	}
-	add_to_variable = {
-		HUN_parliment_in_favour_voters = HUN_nmp_seats_temp
-	}
-	round_variable = HUN_parliment_in_favour_voters
 }
 HUN_voting_on_f48p_favour_law = {
 	set_temp_variable = {

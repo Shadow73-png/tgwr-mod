@@ -6,6 +6,11 @@ debug_decisions = {
 		available = {
 			is_ai = no
 		}
+		visible = {
+			NOT = {
+				has_global_flag = HUN_istvan_tisza_killed
+			}
+		}
 		complete_effect = {
 			set_global_flag = HUN_istvan_tisza_killed
 			mark_focus_tree_layout_dirty = yes
@@ -89,6 +94,21 @@ debug_decisions = {
 		complete_effect = {
 			set_global_flag = HUN_compromise_gov_in_charge
 			HUN_set_compromise_gov_parliment_1910 = yes
+		}
+		fire_only_once = no
+	}
+	HUN_set_compromise_gov_flag_tisza_shot = {
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			is_ai = no
+		}
+		complete_effect = {
+			set_global_flag = HUN_compromise_gov_in_charge
+			HUN_set_compromise_gov_NMP_wins_1910 = yes
+			set_global_flag = HUN_istvan_tisza_killed
+			mark_focus_tree_layout_dirty = yes
 		}
 		fire_only_once = no
 	}
@@ -2329,6 +2349,30 @@ HUN_alt_parliment_cat = {
 		complete_effect = {
 			country_event = {
 				id = ww1_hungary.83
+			}
+		}
+	}
+	HUN_review_important_bills = {
+		priority = -1
+		fire_only_once = no
+		icon = GFX_decision_unknown
+		allowed = {
+			original_tag = HUN
+		}
+		cost = 0
+		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
+		}
+		visible = {
+			has_global_flag = HUN_compromise_gov_in_charge
+		}
+		fire_only_once = yes
+		complete_effect = {
+			custom_effect_tooltip = HUN_review_important_bills.tt
+			hidden_effect = {
+				country_event = {
+					id = ww1_hungary.83
+				}
 			}
 		}
 	}

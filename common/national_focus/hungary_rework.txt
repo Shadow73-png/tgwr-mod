@@ -1120,9 +1120,10 @@ focus_tree = {
 			FOCUS_FILTER_MANPOWER
 		}
 		available = {
+			AUS_HUN_exists = yes
 			OR = {
-				is_subject_of = AUS
-				is_in_faction_with = AUS
+				has_idea = HUN_franz_joseph_i
+				has_country_flag = HUN_national_work_party_yes
 			}
 			AUS = {
 				owns_state = 88
@@ -1136,9 +1137,12 @@ focus_tree = {
 			hidden_effect = {
 				if = {
 					limit = { 
-						has_country_leader = {
-							character = HUN_istvan_tisza
-							ruling_only = yes
+						OR = {
+							has_country_leader = {
+								character = HUN_istvan_tisza
+								ruling_only = yes
+							}
+							has_idea = HUN_istvan_tisza
 						}
 					}
 					country_event = {
@@ -1581,6 +1585,11 @@ focus_tree = {
 	}
 	#Consolidate NMP Power
 	focus = {
+		allow_branch = {
+			NOT = {
+				has_completed_focus = HUN_constitutional_party
+			}
+		}
 		id = HUN_consolidate_nmp_party
 		icon = GFX_focus_generic_subjugation
 		cost = 1.5
@@ -1611,7 +1620,7 @@ focus_tree = {
 			focus = HUN_constitutional_party
 		}
 		select_effect = {
-			
+			mark_focus_tree_layout_dirty = yes
 		}
 		completion_reward = { 
 			if = {
@@ -2219,6 +2228,12 @@ focus_tree = {
 		relative_position_id = HUN_disrupt_opp_efforts
 		x = 1
 		y = 1
+		offset = {
+			y = -3
+			trigger = {
+				has_completed_focus = HUN_constitutional_party
+			}
+		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -2297,12 +2312,23 @@ focus_tree = {
 
 	## CONSTITUTIONAL PARTY PATH ##
 	focus = {
+		allow_branch = {
+			NOT = {
+				has_completed_focus = HUN_consolidate_nmp_party
+			}
+		}
 		id = HUN_constitutional_party
 		icon = GFX_goal_generic_improve_relations
 		cost = 0
 		relative_position_id = HUN_compromise_gov
 		x = 0
 		y = 6
+		offset = {
+			y = -3
+			trigger = {
+				has_completed_focus = HUN_constitutional_party
+			}
+		}
 		search_filters = {
 			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
@@ -2316,6 +2342,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = HUN_consolidate_nmp_party
+		}
+		select_effect = {
+			mark_focus_tree_layout_dirty = yes
 		}
 		completion_reward = { 
 			hidden_effect = {
@@ -2560,6 +2589,12 @@ focus_tree = {
 		relative_position_id = HUN_broker_a_deal_w_karolyi_oa
 		x = 2
 		y = 0
+		offset = {
+			x = -3
+			trigger = {
+				has_completed_focus = HUN_continue_the_daranyi_experiment
+			}
+		}
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -2578,7 +2613,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_broker_a_deal_w_karolyi_oa
 		}
-		completion_reward = { }
+		completion_reward = { 
+			mark_focus_tree_layout_dirty = yes
+		}
 	}
 	#A Deal with Károlyi
 	focus = {
@@ -2588,6 +2625,12 @@ focus_tree = {
 		relative_position_id = HUN_attempt_to_bridge_the_gap
 		x = -3
 		y = 1
+		offset = {
+			x = 1
+			trigger = {
+				has_completed_focus = HUN_broker_a_deal_w_karolyi_oa
+			}
+		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
@@ -2601,7 +2644,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_continue_the_daranyi_experiment
 		}
-		completion_reward = { }
+		completion_reward = { 
+			mark_focus_tree_layout_dirty = yes
+		}
 	}
 	#Inspire Economic Stabalization
 	focus = {
@@ -2801,7 +2846,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		search_filters = {
-			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_ARMY_XP
@@ -6118,6 +6162,7 @@ focus_tree = {
 	 focus = {
 		allow_branch = {
 			is_in_faction_with = GER
+			has_country_flag = HUN_national_work_party_yes
 		}
 		id = HUN_confirm_our_committment_to_germany
 		icon = GFX_focus_align_germany
@@ -6418,12 +6463,7 @@ focus_tree = {
 				uses = 1
 				bonus = 1.5
 			}
-			add_tech_bonus = {
-				name = HUN_carpathian_fighting_forces
-				category = mountaineers_tech
-				uses = 1
-				bonus = 0.5
-			}
+			custom_effect_tooltip = empty_space_tt
 			AUH_franz_rohr_von_denta = {
 				add_trait = {
 					trait = trait_mountaineer

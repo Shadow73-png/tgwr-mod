@@ -1063,14 +1063,15 @@ characters={
 			}
 		}
 		corps_commander = {
-			traits = {
-				
-			}
+			traits = { career_officer defensive_doctrine }
 			skill = 1
-			attack_skill = 2
-			defense_skill = 2
+			attack_skill = 1
+			defense_skill = 3
 			planning_skill = 2
 			logistics_skill = 2
+			visible = {
+				AUS_HUN_exists = yes
+			}
 		}
 	}
 	HUN_gusztav_gratz={
@@ -1455,8 +1456,32 @@ characters={
 	}
 	HUN_johann_karg_von_bebenburg = {
 		name="HUN_johann_karg_von_bebenburg"
+		advisor={
+			slot = army_chief
+			idea_token = HUN_ferenc_julier_army_chief
+			allowed  = {
+				original_tag  = HUN
+			}
+			available = {
+				NOT = {
+					has_country_flag = great_war_loser
+				}
+			}
+			visible = {
+				NOT = {
+					has_country_flag = great_war_loser
+				}
+			}
+			traits = {
+				army_infantry_1
+			}
+			cost = 100
+			ai_will_do = {
+				factor  = 1
+			}
+		}
 		corps_commander = {
-			traits = {  }
+			traits = { career_officer infantry_leader }
 			skill = 1
 			attack_skill = 2
 			defense_skill = 1
