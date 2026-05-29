@@ -851,9 +851,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		available = {
-			NOT = {
-				has_active_mission = AUS_imperial_elections
-			}
+			has_global_flag = AUS_burgereese_wins_elections
 			AUS_richard_von_bienerth_schmerling = {
 				has_character_flag = minister_AUS
 			}
@@ -1356,6 +1354,9 @@ focus_tree = {
 		x = -3
 		y = 1
 		available = {
+			AUS_richard_von_bienerth_schmerling = {
+				has_character_flag = minister_AUS
+			}
 		}
 		completion_reward = {
 			if = {
@@ -1777,7 +1778,14 @@ focus_tree = {
 		}
 		relative_position_id = AUS_inspectorates_local_governments
 		available = {
-			AUS_has_reformist_minister = yes
+			if = {
+				limit = {
+					has_focus_tree = austria_tree
+				}
+				AUS_richard_von_bienerth_schmerling = {
+					has_character_flag = minister_AUS
+				}
+			}
 		}
 		completion_reward = { 
 			add_popularity = {
