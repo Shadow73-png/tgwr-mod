@@ -15367,6 +15367,10 @@ focus_tree = {
 					slot = political_advisor
 					value = no
 				}
+				add_trait = {
+					slot = political_advisor
+					trait = TUR_pro_german_foreign_policy
+				}
 			}
 			if = {
 				limit = { has_country_flag = TUR_three_pasha_government1 }
@@ -15388,6 +15392,10 @@ focus_tree = {
 				set_can_be_fired_in_advisor_role = {
 					slot = political_advisor
 					value = no
+				}
+				add_trait = {
+					slot = political_advisor
+					trait = TUR_pro_french_foreign_policy
 				}
 			}
 			if = {
@@ -15453,6 +15461,10 @@ focus_tree = {
 			}
 			activate_advisor = TUR_ismail_enver
 			TUR_ismail_enver = {
+				add_trait = {
+					slot = political_advisor
+					trait = TUR_pro_german_foreign_policy
+				}
 				set_can_be_fired_in_advisor_role = {
 					slot = political_advisor
 					value = no
@@ -15495,6 +15507,10 @@ focus_tree = {
 			}
 			activate_advisor = TUR_ahmed_cemal
 			TUR_ahmed_cemal = {
+				add_trait = {
+					slot = political_advisor
+					trait = TUR_pro_french_foreign_policy
+				}
 				set_can_be_fired_in_advisor_role = {
 					slot = political_advisor
 					value = no
@@ -16667,6 +16683,16 @@ focus_tree = {
 				character = TUR_ahmed_cemal
 				slot = political_advisor
 				trait = TUR_military_authority
+			}
+			TUR_ismail_enver = {
+				remove_trait = {
+					slot = political_advisor
+					trait = TUR_pro_german_foreign_policy
+				}
+			}
+			add_timed_idea = {
+				idea = TUR_transitioning_command
+				days = 90
 			}
 #			custom_effect_tooltip = TUR_replace_enver_tt2
 #			if = {

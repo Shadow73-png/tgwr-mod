@@ -646,7 +646,7 @@ TGWR_great_power_politics = {
 			OR = {
 				is_power_balance_in_range = {
 					id = TUR_foreign_alignment
-					range > TUR_unwilling_neutrality
+					range > TUR_central_powers_alignment
 				}
 				has_war_with = RUS
 				GER = { NOT = { has_war_with = RUS } }
@@ -657,7 +657,7 @@ TGWR_great_power_politics = {
 			TUR_ismail_enver = { is_hired_as_advisor = yes }
 			is_power_balance_in_range = {
 				id = TUR_foreign_alignment
-				range < TUR_unwilling_neutrality
+				range = TUR_central_powers_alignment
 			}
 			GER = { has_war_with = RUS }
 			NOT = {
@@ -35076,9 +35076,10 @@ TUR_islamic_economic_cooperation_category = {
 TUR_foreign_alignment_decisions = {
 	TUR_pro_entente_propaganda = {
 		allowed = { original_tag = TUR }
-		icon = GFX_decision_unknown
+		icon = GFX_decision_eng_propaganda_campaigns
 		cost = 15
-		days_remove = 30
+		days_remove = 35
+		modifier = { power_balance_daily = 0.001 }
 		complete_effect = {
 			
 		}
@@ -35086,11 +35087,42 @@ TUR_foreign_alignment_decisions = {
 	}
 	TUR_pro_central_powers_propaganda = {
 		allowed = { original_tag = TUR }
-		icon = GFX_decision_unknown
+		icon = GFX_decision_eng_propaganda_campaigns
 		cost = 15
-		days_remove = 30
+		days_remove = 35
+		modifier = { power_balance_daily = -0.001 }
 		complete_effect = {
 			
+		}
+		ai_will_do = { base = 0 }
+	}
+	TUR_push_for_entente_allignment = {
+		allowed = { original_tag = TUR }
+		icon = GFX_decision_generic_speech
+		cost = 30
+		days_remove = 70
+		available = { TUR_regime_is_more_popular_than_opposition_twice = yes }
+		modifier = { drift_defence_factor = -0.05 }
+		complete_effect = {
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = 0.15
+			}
+		}
+		ai_will_do = { base = 0 }
+	}
+	TUR_push_for_central_powers_allignment = {
+		allowed = { original_tag = TUR }
+		icon = GFX_decision_generic_speech
+		cost = 30
+		days_remove = 70
+		available = { TUR_regime_is_more_popular_than_opposition_twice = yes }
+		modifier = { drift_defence_factor = -0.05 }
+		complete_effect = {
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = -0.15
+			}
 		}
 		ai_will_do = { base = 0 }
 	}

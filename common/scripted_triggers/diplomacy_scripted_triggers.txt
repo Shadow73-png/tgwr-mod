@@ -1844,19 +1844,9 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 		limit = {
 			NOT = { tag = TUR }
 			FROM = {
-				OR = {
-					is_power_balance_side_active = {
-						id = TUR_foreign_alignment
-						side = TUR_unwilling_neutrality
-					}
-					is_power_balance_side_active = {
-						id = TUR_foreign_alignment
-						side = TUR_leveraged_central_powers
-					}
-					is_power_balance_side_active = {
-						id = TUR_foreign_alignment
-						side = TUR_leveraged_entente
-					}
+				is_power_balance_side_active = {
+					id = TUR_foreign_alignment
+					side = TUR_unwilling_neutrality
 				}
 			}
 		}

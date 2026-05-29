@@ -7687,6 +7687,14 @@ country_event = { #goeben und breslau
 	mean_time_to_happen = { months = 1 }
 	option = {
 		name = ottoman.59.a
+		trigger = {
+			NOT = {
+				is_power_balance_in_range = {
+					id = TUR_foreign_alignment
+					range = TUR_entente_alignment
+				}
+			}
+		}
 		custom_effect_tooltip = historical_tt
 		GER = {
 			transfer_ship = {
@@ -7705,9 +7713,15 @@ country_event = { #goeben und breslau
 			}
 		}
 		set_country_flag = TUR_goeben_und_breslau
-		GER = {
-			hidden_effect = { country_event = { id = ottoman.60 hours = 8 } }
-			event_option_tooltip = ottoman.60.a
+		hidden_effect = {
+			GER = {
+				hidden_effect = { country_event = { id = ottoman.60 hours = 8 } }
+				event_option_tooltip = ottoman.60.a
+			}
+		}
+		add_power_balance_value = {
+			id = TUR_foreign_allignment
+			value = -0.3
 		}
 		custom_effect_tooltip = dangerous_tt
 		ai_chance = {
@@ -7733,6 +7747,14 @@ country_event = { #goeben und breslau
 	}
 	option = {
 		name = ottoman.59.b
+		trigger = {
+			NOT = {
+				is_power_balance_in_range = {
+					id = TUR_foreign_alignment
+					range = TUR_central_powers_alignment
+				}
+			}
+		}
 		GER = {
 			destroy_ships = {
 				type = ship_hull_cruiser
