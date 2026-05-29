@@ -358,6 +358,53 @@ focus_tree = {
 			}
 		}
 	 }
+	focus = {
+		id = HUN_expand_womens_edu
+	icon = GFX_focus_SWE_education_reform
+	cost = 3
+	x = 3
+	y = 1
+	offset = {
+		trigger = {
+			has_focus_tree = austria_tree
+		}
+		x = -2
+		y = 0
+	}
+	offset = {
+		x = -55
+		y = 1
+		trigger = {
+			has_focus_tree = TGWR_hungary_focus
+		}
+	}
+	prerequisite = {
+		focus = AUS_inspectorates_local_governments
+		focus = HUN_benefit_business
+		focus = HUN_judgement_reforms
+	}
+	relative_position_id = AUS_inspectorates_local_governments
+	available = {
+	}
+	completion_reward = {
+		custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_baron_smart = 0.03
+				tooltip = research_speed_factor_tt
+			}
+			add_stability = 0.02
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.025
+			}
+	}
+	ai_will_do = {
+		base = 1
+	}
+	search_filters = {
+		FOCUS_FILTER_HISTORICAL
+	}
+	}
 	#Pass Minor Military Bills
 	focus = {
 		id = HUN_pass_minor_military_bills
@@ -2419,7 +2466,7 @@ focus_tree = {
 			focus = HUN_reconcile_croatia
 		}
 		completion_reward = { 
-			#decision to secure investment if you have Szell or 
+			#decision to secure investment by Austria for Pozsony if you have Szell or Wlassics
 		}
 	}
 	#The Kings Right-Hand Man -Kalman Szell Path
@@ -2466,7 +2513,9 @@ focus_tree = {
 			focus = HUN_kings_right_hand_man
 		}
 		bypass_if_unavailable = yes
-		completion_reward = { }
+		completion_reward = { 
+			#Decision for Choply declaration again by the king
+		}
 	}
 	#Haven for Jewish Biz
 	focus = {
