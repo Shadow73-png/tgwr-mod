@@ -158,6 +158,9 @@ characters={
 						has_government = democratic
 					}
 					NOT = {
+						hidden_trigger = {
+							has_idea = HUN_disrupt_opp_efforts
+						}
 						has_country_leader = {
 							character = HUN_istvan_tisza
 						}
@@ -329,6 +332,9 @@ characters={
 					has_government = democratic
 				}
 				NOT = {
+					hidden_trigger = {
+						has_idea = HUN_disrupt_opp_efforts
+					}
 					OR = {
 						has_country_flag = HUN_constitutional_party_fallout
 						has_country_flag = HUN_people_dont_like_tisza
@@ -509,6 +515,12 @@ characters={
 					has_government = neutrality
 					has_government = democratic
 				}
+				NOT = {
+					hidden_trigger = {
+						has_idea = HUN_disrupt_opp_efforts
+					}
+					has_country_flag = HUN_people_dont_like_tisza
+				}
 				hidden_trigger = {
 					date < 1915.8.16 #dies
 				}
@@ -556,6 +568,12 @@ characters={
 				HUN_legal_and_religious_scholar
 			}
 			available = {
+				NOT = {
+					has_country_flag = HUN_people_dont_like_tisza
+					hidden_trigger = {
+						has_idea = HUN_disrupt_opp_efforts
+					}
+				}
 				OR = {
 					has_government = neutrality
 					has_government = democratic
@@ -1126,6 +1144,9 @@ characters={
 					has_government = communism
 					has_government = fascism
 					has_country_flag = HUN_people_dont_like_tisza
+					hidden_trigger = {
+						has_idea = HUN_disrupt_opp_efforts
+					}
 				}
 			}
 			cost = 130
@@ -1566,6 +1587,7 @@ characters={
 				original_tag = HUN
 			}
 			available = {
+				has_completed_focus = HUN_embrace_barons
 				OR = {
 					has_government = neutrality
 					has_government = democratic

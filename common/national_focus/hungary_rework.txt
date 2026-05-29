@@ -52,7 +52,7 @@ focus_tree = {
 	#Aftermath of the Wekerle Coalition
 	focus = {
 		id = HUN_aftermath_of_werkle
-		icon = GFX_focus_HUN_hungarian_tradition
+		icon = GFX_focus_AUH_support_hungary
 		cost = 0
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -145,7 +145,7 @@ focus_tree = {
 		id = HUN_kick_the_can
 		icon = GFX_focus_BEL_government_resigns
 		relative_position_id = HUN_aftermath_of_werkle
-		x = 2
+		x = 0
 		y = 2
 		cost = 2.9
 		search_filters = {
@@ -333,10 +333,12 @@ focus_tree = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		available = {
-			has_country_flag = HUN_national_work_party_yes
+			has_government = neutrality
+			NOT = {
+				has_completed_focus = HUN_fix_the_greivances_of_peasants
+			}
 		}
 		prerequisite = {
-		#	focus = HUN_lower_chamber
 			focus = HUN_compromise_gov
 			focus = HUN_tighten_grip_on_croat_ban
 		}
@@ -360,50 +362,36 @@ focus_tree = {
 	 }
 	focus = {
 		id = HUN_expand_womens_edu
-	icon = GFX_focus_SWE_education_reform
-	cost = 3
-	x = 3
-	y = 1
-	offset = {
-		trigger = {
-			has_focus_tree = austria_tree
-		}
-		x = -2
-		y = 0
-	}
-	offset = {
-		x = -55
+		icon = GFX_focus_SWE_education_reform
+		cost = 2
+		x = 1
 		y = 1
-		trigger = {
-			has_focus_tree = TGWR_hungary_focus
+		prerequisite = {
+			focus = HUN_benefit_business
+			focus = HUN_judgement_reforms
 		}
-	}
-	prerequisite = {
-		focus = AUS_inspectorates_local_governments
-		focus = HUN_benefit_business
-		focus = HUN_judgement_reforms
-	}
-	relative_position_id = AUS_inspectorates_local_governments
-	available = {
-	}
-	completion_reward = {
-		custom_effect_tooltip = HUN_modify_eco_tt
-			add_to_variable = {
-				HUN_baron_smart = 0.03
-				tooltip = research_speed_factor_tt
-			}
-			add_stability = 0.02
-			add_popularity = {
+		relative_position_id = HUN_judgement_reforms
+		available = {
+		}
+		completion_reward = {
+			custom_effect_tooltip = HUN_modify_eco_tt
+				add_to_variable = {
+					HUN_baron_smart = 0.03
+					tooltip = research_speed_factor_tt
+				}
+				add_stability = 0.02
+				add_popularity = {
 				ideology = democratic
 				popularity = 0.025
 			}
-	}
-	ai_will_do = {
-		base = 1
-	}
-	search_filters = {
-		FOCUS_FILTER_HISTORICAL
-	}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
 	}
 	#Pass Minor Military Bills
 	focus = {
@@ -411,7 +399,7 @@ focus_tree = {
 		icon = GFX_focus_GER_customs_union
 		cost = 5
 		relative_position_id = HUN_national_work_party
-		x = 4
+		x = 0
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -508,6 +496,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_stronghanded_methods
+		}
+		prerequisite = {
+			focus = HUN_kick_the_can
 		}
 		completion_reward = { 
 			add_to_variable = {
@@ -2561,6 +2552,56 @@ focus_tree = {
 		}
 		completion_reward = { }
 	}
+	#Continue the Darányi Experiment
+	focus = {
+		id = HUN_continue_the_daranyi_experiment
+		icon = GFX_goal_unkown
+		cost = 3
+		relative_position_id = HUN_broker_a_deal_w_karolyi_oa
+		x = 2
+		y = 0
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_country_leader = {
+				character = HUN_kalman_szell
+			}
+			has_completed_focus = HUN_embrace_barons
+		}
+		prerequisite = {
+			focus = HUN_rejuvinate_the_post_saving_bank
+		}
+		mutually_exclusive = {
+			focus = HUN_broker_a_deal_w_karolyi_oa
+		}
+		completion_reward = { }
+	}
+	#A Deal with Károlyi
+	focus = {
+		id = HUN_broker_a_deal_w_karolyi_oa
+		icon = GFX_goal_unkown
+		cost = 3
+		relative_position_id = HUN_attempt_to_bridge_the_gap
+		x = -3
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_character = HUN_mihaly_karolyi
+		}
+		prerequisite = {
+			focus = HUN_rejuvinate_the_post_saving_bank
+		}
+		mutually_exclusive = {
+			focus = HUN_continue_the_daranyi_experiment
+		}
+		completion_reward = { }
+	}
 	#Inspire Economic Stabalization
 	focus = {
 		id = HUN_inspire_economic_stab
@@ -3210,6 +3251,9 @@ focus_tree = {
 				HUN_baron_smart = 0.05
 				tooltip = research_speed_factor_tt
 			}
+			custom_effect_tooltip = empty_space_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = HUN_ignac_daranyi
 			hidden_effect = {
 				country_event = {
 					id = ww1_hungary.58
@@ -3272,7 +3316,14 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		available = {
-			
+			if = {
+				limit = { 
+					has_completed_focus = HUN_compromise_gov
+				}
+				NOT = {
+					has_country_flag = HUN_compromise_economics_mihaly
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_embrace_barons
@@ -3653,6 +3704,50 @@ focus_tree = {
 			}
 		}
 	 }
+	#Bosnian Rail Financing (if Hungary owns Bosnia)
+	focus = {
+		allow_branch = {
+			OR = {
+				owns_state = 104
+				NOT = {
+					AUS_HUN_exists = yes
+				}
+			}
+		}
+		id = HUN_bosnia_rail_owned
+		icon = GFX_focus_PER_feat_of_engineering
+		cost = 2
+		relative_position_id = HUN_develop_the_periphery
+		x = 1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			OR = {
+				owns_state = 104
+				has_subject = BOS
+			}
+		}
+		prerequisite = {
+			focus = HUN_develop_the_periphery
+			focus = HUN_prioritize_heartlands
+		}
+		completion_reward = { 
+			104 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_dynamic_modifier = {
+					modifier = HUN_rail_state_bonus
+					days = 600
+				}
+			}
+		}
+	}
 	#Continue Rail Mandates
 	focus = {
 		id = HUN_continue_rail_mandates
@@ -7355,6 +7450,10 @@ focus_tree = {
 }
 
 joint_focus = {
+	allow_branch = {
+		country_exists = BOS
+		AUS_HUN_exists = yes
+	}
 	id = HUN_bosnian_rail_expansion
 	icon = GFX_focus_PER_feat_of_engineering
 	text_icon = joint_HUN_BOS_focus_style
@@ -7430,6 +7529,7 @@ joint_focus = {
 				104 = {
 					add_dynamic_modifier = {
 						modifier = HUN_rail_state_bonus
+						days = 600
 					}
 				}
 			}
@@ -7451,6 +7551,7 @@ joint_focus = {
 			104 = {
 				add_dynamic_modifier = {
 					modifier = HUN_rail_state_bonus
+					days = 750
 				}
 			}
 		}
