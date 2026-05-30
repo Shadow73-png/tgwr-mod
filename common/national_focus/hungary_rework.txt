@@ -1128,7 +1128,13 @@ focus_tree = {
 			AUS = {
 				owns_state = 88
 			}
+			NOT = {
+				AUS = {
+					has_completed_focus = AUS_prioritize_wellbeing_of_galacia
+				}
+			}
 		}
+		bypass_if_unavailable = yes
 		prerequisite = {
 			focus = HUN_speaker_tisza
 			focus = HUN_assist_urbanization
@@ -1159,9 +1165,6 @@ focus_tree = {
 						OR = {
 							has_completed_focus = AUS_invest_in_the_east
 							has_completed_focus = AUS_tackle_galician_poverty
-							#NOT = {
-							#	has_completed_focus = AUS_cultivate_polish_loyalty
-							#}
 							NOT = {
 								has_completed_focus = AUS_polish_baku
 							}
@@ -4210,9 +4213,7 @@ focus_tree = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		available = {
-			any_owned_state = {
-				is_core_of = HUN
-			}
+			has_war = no
 		}
 		prerequisite = {
 			focus = HUN_limited_worker_rights
@@ -5584,7 +5585,7 @@ focus_tree = {
 				}
 				check_variable = {
 					var = HUN_national_work_party_authority_var
-					value > 50
+					value > 200
 					tooltip = HUN_national_work_party_greater_than_tt
 				}
 			}
@@ -5596,7 +5597,41 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_rely_on_austrian_arms
 		}
-		completion_reward = { }
+		completion_reward = {
+			155 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			43 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:HUN_femaru_fegyver_es_gepgyar_organization = {
+					add_mio_size = 2
+				}
+			}
+			else = {
+				43 = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		 }
 	}
 	#Rely on Austrian Arms
 	focus = {
@@ -5614,6 +5649,9 @@ focus_tree = {
 		available = {
 			AUS_HUN_exists = yes
 			has_war_with_major = yes
+			AUS = {
+				has_tech = infantry_weapons2
+			}
 		}
 		prerequisite = {
 			focus = HUN_utilize_austrian_war_industry
@@ -5621,7 +5659,25 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_boost_army_funding
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_2
+				amount = 5000
+			}
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_mil_speed = 0.1
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+			custom_effect_tooltip = empty_space_tt
+			AUS = {
+				custom_effect_tooltip = AUS_modify_eco.tt
+				add_to_variable = {
+					AUS_EP_consumer_goods = -0.05
+					tooltip = consumer_goods_factor_tt
+				}
+			}
+		}
 	}
 	#Reform Army Judicial Practices
 	focus = {
