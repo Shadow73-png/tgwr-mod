@@ -1048,7 +1048,6 @@ focus_tree = {
 			custom_effect_tooltip = TUR_dealing_with_the_arabist_movement_tt
 
 			TUR_reload_minority_values = yes
-			TUR_reload_minority_values = yes
 			TUR_ahmed_cemal = { add_country_leader_trait = TUR_kasap_cemal }
 		}
 		ai_will_do = {
@@ -2343,11 +2342,478 @@ focus_tree = {
 			TUR_create_cairo_vilayet = yes
 			TUR_create_aswan_vilayet = yes
 			TUR_create_khartoum_vilayet = yes
+			set_temp_variable = { TUR_ottoman_provinces_in_egypt = 0 }
+			hidden_effect = {
+				if = { #SUEZ
+					limit = { 447 = { TUR_is_controlled_by_us_or_committee_government = yes } }
+					if = { #SUEZ ORTHODOX ARAB
+						limit = {
+							447 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_orthodox_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_suez = 0 }
+						if = {
+							limit = {
+								447 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_orthodox_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_suez = 447.TUR_arab_orthodox_state_variable }
+							if = {
+								limit = {
+									447 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_suez = 0 }
+							}
+							if = {
+								limit = { 447 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_suez = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_suez = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_suez = TUR_orthodox_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_suez = 100 }
+					}
+					if = { #SUEZ SUNNI ARAB
+						limit = {
+							447 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_sunni_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_suez = 0 }
+						if = {
+							limit = {
+								447 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_sunni_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_suez = 447.TUR_arab_sunni_state_variable }
+							if = {
+								limit = {
+									447 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_suez = 0 }
+							}
+							if = {
+								limit = { 447 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_suez = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_suez = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_suez = TUR_sunni_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_suez = 100 }
+					}
+					#CALCULATE TOTAL VALUE
+					set_temp_variable = { TUR_minority_value_suez = 0 }
+					add_to_temp_variable = { TUR_minority_value_suez = TUR_ottoman_provinces_in_egypt_orthodox_suez }
+					add_to_temp_variable = { TUR_minority_value_suez = TUR_ottoman_provinces_in_egypt_sunni_suez }
+				}
+				add_to_temp_variable = { TUR_ottoman_provinces_in_egypt = TUR_minority_value_suez }
+				add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_pp = TUR_political_power_value_suez }
+
+				if = { #ALEXANDRIA
+					limit = {
+						OR = {
+							1146 = { TUR_is_controlled_by_us_or_committee_government = yes }
+							452 = { TUR_is_controlled_by_us_or_committee_government = yes }
+						}
+					}
+					if = { #ALEXANDRIA ORTHODOX ARAB
+						limit = {
+							1146 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_orthodox_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_alexandria = 0 }
+						if = {
+							limit = {
+								1146 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_orthodox_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_alexandria = 1146.TUR_arab_orthodox_state_variable }
+							if = {
+								limit = {
+									1146 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_alexandria = 0 }
+							}
+							if = {
+								limit = { 1146 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_alexandria = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_alexandria = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_alexandria = TUR_orthodox_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_alexandria = 100 }
+					}
+					if = { #ALEXANDRIA SUNNI ARAB
+						limit = {
+							1146 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_sunni_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_alexandria = 0 }
+						if = {
+							limit = {
+								1146 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_sunni_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_alexandria = 1146.TUR_arab_sunni_state_variable }
+							if = {
+								limit = {
+									1146 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_alexandria = 0 }
+							}
+							if = {
+								limit = { 1146 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_alexandria = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_alexandria = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_alexandria = TUR_sunni_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_alexandria = 100 }
+					}
+					if = { #ALEXANDRIA ORTHODOX ARAB
+						limit = {
+							452 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_orthodox_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_matrouh = 0 }
+						if = {
+							limit = {
+								452 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_orthodox_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_matrouh = 452.TUR_arab_orthodox_state_variable }
+							if = {
+								limit = {
+									452 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_matrouh = 0 }
+							}
+							if = {
+								limit = { 452 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_matrouh = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_matrouh = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_matrouh = TUR_orthodox_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_matrouh = 100 }
+					}
+					if = { #ALEXANDRIA SUNNI ARAB
+						limit = {
+							452 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_sunni_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_matrouh = 0 }
+						if = {
+							limit = {
+								452 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_sunni_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_matrouh = 452.TUR_arab_sunni_state_variable }
+							if = {
+								limit = {
+									452 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_matrouh = 0 }
+							}
+							if = {
+								limit = { 452 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_matrouh = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_matrouh = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_matrouh = TUR_sunni_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_matrouh = 100 }
+					}
+					#CALCULATE TOTAL VALUE
+					set_temp_variable = { TUR_minority_value_alexandria = 0 }
+					add_to_temp_variable = { TUR_minority_value_alexandria = TUR_ottoman_provinces_in_egypt_orthodox_alexandria }
+					add_to_temp_variable = { TUR_minority_value_alexandria = TUR_ottoman_provinces_in_egypt_sunni_alexandria }
+					add_to_temp_variable = { TUR_minority_value_alexandria = TUR_ottoman_provinces_in_egypt_orthodox_matrouh }
+					add_to_temp_variable = { TUR_minority_value_alexandria = TUR_ottoman_provinces_in_egypt_sunni_matrouh }
+				}
+				add_to_temp_variable = { TUR_ottoman_provinces_in_egypt = TUR_minority_value_alexandria }
+				add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_pp = TUR_political_power_value_alexandria }
+
+				if = { #CAIRO
+					limit = { 446 = { TUR_is_controlled_by_us_or_committee_government = yes } }
+					if = { #CAIRO ORTHODOX ARAB
+						limit = {
+							446 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_orthodox_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_cairo = 0 }
+						if = {
+							limit = {
+								446 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_orthodox_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_cairo = 446.TUR_arab_orthodox_state_variable }
+							if = {
+								limit = {
+									446 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_cairo = 0 }
+							}
+							if = {
+								limit = { 446 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_cairo = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_cairo = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_cairo = TUR_orthodox_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_cairo = 100 }
+					}
+					if = { #CAIRO SUNNI ARAB
+						limit = {
+							446 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_sunni_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_cairo = 0 }
+						if = {
+							limit = {
+								446 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_sunni_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_cairo = 446.TUR_arab_sunni_state_variable }
+							if = {
+								limit = {
+									446 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_cairo = 0 }
+							}
+							if = {
+								limit = { 446 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_cairo = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_cairo = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_cairo = TUR_sunni_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_cairo = 100 }
+					}
+					#CALCULATE TOTAL VALUE
+					set_temp_variable = { TUR_minority_value_cairo = 0 }
+					add_to_temp_variable = { TUR_minority_value_cairo = TUR_ottoman_provinces_in_egypt_orthodox_cairo }
+					add_to_temp_variable = { TUR_minority_value_cairo = TUR_ottoman_provinces_in_egypt_sunni_cairo }
+				}
+				add_to_temp_variable = { TUR_ottoman_provinces_in_egypt = TUR_minority_value_cairo }
+				add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_pp = TUR_political_power_value_cairo }
+
+				if = { #ASWAN
+					limit = { 456 = { TUR_is_controlled_by_us_or_committee_government = yes } }
+					if = { #ASWAN ORTHODOX ARAB
+						limit = {
+							456 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_orthodox_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_aswan = 0 }
+						if = {
+							limit = {
+								456 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_orthodox_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_aswan = 456.TUR_arab_orthodox_state_variable }
+							if = {
+								limit = {
+									456 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_aswan = 0 }
+							}
+							if = {
+								limit = { 456 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_aswan = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_aswan = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_aswan = TUR_orthodox_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_orthodox_aswan = 100 }
+					}
+					if = { #ASWAN SUNNI ARAB
+						limit = {
+							456 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_sunni_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_aswan = 0 }
+						if = {
+							limit = {
+								456 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_sunni_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_aswan = 456.TUR_arab_sunni_state_variable }
+							if = {
+								limit = {
+									456 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_aswan = 0 }
+							}
+							if = {
+								limit = { 456 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_aswan = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_aswan = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_aswan = TUR_sunni_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_aswan = 100 }
+					}
+					#CALCULATE TOTAL VALUE
+					set_temp_variable = { TUR_minority_value_aswan = 0 }
+					add_to_temp_variable = { TUR_minority_value_aswan = TUR_ottoman_provinces_in_egypt_orthodox_aswan }
+					add_to_temp_variable = { TUR_minority_value_aswan = TUR_ottoman_provinces_in_egypt_sunni_aswan }
+				}
+				add_to_temp_variable = { TUR_ottoman_provinces_in_egypt = TUR_minority_value_aswan }
+				add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_pp = TUR_political_power_value_aswan }
+
+				if = { #KHARTOUM
+					limit = { 551 = { TUR_is_controlled_by_us_or_committee_government = yes } }
+					if = { #KHARTOUM SUNNI ARAB
+						limit = {
+							551 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_arab_sunni_state_variable < 0 }
+							}
+						}
+						set_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_khartoum = 0 }
+						if = {
+							limit = {
+								551 = {
+									TUR_is_controlled_by_us_or_committee_government = yes
+									check_variable = { TUR_arab_sunni_state_variable < 0 }
+								}
+							}
+							add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_khartoum = 551.TUR_arab_sunni_state_variable }
+							if = {
+								limit = {
+									551 = {
+										OR = {
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+											has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+										}
+									}
+								}
+								multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_khartoum = 0 }
+							}
+							if = {
+								limit = { 551 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+								divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_khartoum = 2 }
+							}
+						}
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_khartoum = TUR_arab_population_factor_new }
+						multiply_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_khartoum = TUR_sunni_population_factor_new }
+						divide_temp_variable = { TUR_ottoman_provinces_in_egypt_sunni_khartoum = 100 }
+					}
+					#CALCULATE TOTAL VALUE
+					set_temp_variable = { TUR_minority_value_khartoum = 0 }
+					add_to_temp_variable = { TUR_minority_value_khartoum = TUR_ottoman_provinces_in_egypt_sunni_khartoum }
+				}
+				add_to_temp_variable = { TUR_ottoman_provinces_in_egypt = TUR_minority_value_khartoum }
+				add_to_temp_variable = { TUR_ottoman_provinces_in_egypt_pp = TUR_political_power_value_khartoum }
+			}
+			if = {
+				limit = {
+					OR = {
+						controls_state = 447
+						controls_state = 446
+						controls_state = 1146
+						controls_state = 452
+						controls_state = 456
+						controls_state = 551
+					}
+				}
+				custom_effect_tooltip = TUR_ottoman_provinces_in_egypt_tt
+			}
 			unlock_decision_tooltip = TUR_caliphs_authority_in_egypt
 			unlock_decision_tooltip = TUR_integrate_the_egyptian_elite
 			unlock_decision_tooltip = TUR_integrate_the_egyptian_economy
 			unlock_decision_tooltip = TUR_integrate_the_egyptian_society
-			custom_effect_tooltip = TUR_ottoman_provinces_in_egypt_tt
+			custom_effect_tooltip = TUR_ottoman_provinces_in_egypt_tt2
 			if = {
 				limit = { has_power_balance = { id = TUR_local_central_rule } }
 				add_power_balance_value = {
@@ -2355,6 +2821,8 @@ focus_tree = {
 					value = 0.1
 				}
 			}
+			TUR_reload_minority_values = yes
+			ottoman_centralization_variable_check = yes
 		}
 		ai_will_do = {
 			base = 50
@@ -2549,6 +3017,7 @@ focus_tree = {
 				}
 			}
 			TUR_reload_minority_values = yes
+			ottoman_centralization_variable_check = yes
 		}
 		ai_will_do = {
 			base = 50
@@ -2759,7 +3228,7 @@ focus_tree = {
 	focus = {
 		id = TUR_reorganize_the_syrian_army_groups
 		icon = GFX_focus_generic_military_mission
-		cost = 5
+		cost = 10
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 		}
@@ -2924,6 +3393,9 @@ focus_tree = {
 		relative_position_id = TUR_reorganize_the_syrian_army_groups
 		available = { overlord = { has_completed_focus = TUR_arrival_of_yildirim_army_group } }
 		completion_reward = {
+			custom_effect_tooltip = TUR_subjugate_the_yildirim_army_group_tt
+			set_variable = { TUR_aoabe_army_speed_factor = 0.05 }
+			set_variable = { TUR_aoabe_breakthrough_factor = 0.05 }
 			overlord = { country_event = ottoman_syria.72 }
 			effect_tooltip = {
 				overlord = { delete_unit = { division_template = "Yıldırım Birlikleri" } }
