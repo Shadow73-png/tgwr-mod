@@ -1172,17 +1172,20 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-						custom_effect_tooltip = AUS_poles_love_yop.tt
-		
+			custom_effect_tooltip = AUS_poles_love_yop.tt
 			country_event = ww1_austriahungary.221
-				add_to_variable = {
-					AUS_pole_loyalty = 15
-					tooltip = AUS_loyalty_pole_tt
-				}
-				AUS_update_state_of_realm = yes
-					swap_ideas = {
+			add_to_variable = {
+				AUS_pole_loyalty = 15
+				tooltip = AUS_loyalty_pole_tt
+			}
+			AUS_update_state_of_realm = yes
+			swap_ideas = {
 				remove_idea = AUS_dysfunctional_galician_diet
 				add_idea = AUS_polish_domination_of_galicia
+			}
+			add_to_variable = {
+				AUS_ruthenian_loyalty = -20
+				tooltip = AUS_loyalty_ruthenians_tt
 			}
 		}
 		ai_will_do = {
@@ -1655,6 +1658,13 @@ focus_tree = {
 		bypass_if_unavailable = yes
 		completion_reward = {
 			add_to_variable = {
+				AUS_czechoslovak_loyalty = -5
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			AUS_update_state_of_realm = yes
+			
+			custom_effect_tooltip = empty_space_tt
+			add_to_variable = {
 				AUS_pm_mandate_power = -1
 				tooltip = AUS_pm_mandate.tt
 			}
@@ -1698,7 +1708,10 @@ focus_tree = {
 				}
 				tooltip = AUS_at_least_one_pm_power
 			}
-			threat > 0.1
+			OR = {
+				has_war = yes
+				threat > 0.1
+			}
 		}
 		bypass_if_unavailable = yes
 		completion_reward = {
@@ -6444,22 +6457,22 @@ focus_tree = {
 		relative_position_id = AUS_template_for_leaf
 		available = {
 			always = no
-			custom_trigger_tooltip = {
-				tooltip = "The great war has started bla bla"
-			}
 		}
 		prerequisite = {
 			focus = AUS_template_for_leaf
 		}
 		completion_reward = {
 			add_to_variable = {
-				AUS_cumulative_inflation = 0.05
-				tooltip = AUS_cumulative_inflation_tt
+				AUS_pm_mandate_power = -1
+				tooltip = AUS_pm_mandate.tt
 			}
-			#add_to_variable = {
-			#	AUS_energy_total = 5
-			#	tooltip = AUS_energy_total_tt
-			#}
+			#
+			custom_effect_tooltip = empty_space_tt
+			#
+			add_to_variable = {
+				AUS_overton_window = 1
+				tooltip = AUS_overton_window_shift_right
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -6491,32 +6504,6 @@ focus_tree = {
 			FOCUS_FILTER_LOYALTY
 		}
 	}
-	#focus = {
-	#	id = AUS_template_for_leaf4
-	#	icon = GFX_focus_generic_education_tgwr
-	#	cost = 4
-	#	x = 0
-	#	y = 2
-	#	relative_position_id = AUS_template_for_leaf
-	#	available = {
-	#		always = no
-	#		custom_trigger_tooltip = {
-	#			tooltip = "The great war has started bla bla"
-	#		}
-	#	}
-	#	prerequisite = {
-	#		focus = AUS_template_for_leaf
-	#	}
-	#	completion_reward = {
-	#		add_ideas = AUH_defunct_reichsrat5
-	#	}
-	#	ai_will_do = {
-	#		base = 1
-	#	}
-	#	search_filters = {
-	#		FOCUS_FILTER_LOYALTY
-	#	}
-	#}
 	focus = {
 		id = AUS_limit_czech_authority
 		icon = GFX_focus_generic_swooping_falcon
