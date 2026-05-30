@@ -1968,7 +1968,6 @@ AUH_the_imperial_council = {
 		cost = 30
 		ai_will_do = {
 			base = 0
-			
 		}
 		modifier = {
 			political_power_factor = -0.1
@@ -1979,13 +1978,14 @@ AUH_the_imperial_council = {
 				mission = AUS_coalition_dissent_mission
 				days = -30
 			}
-			
 		}
 		remove_effect = {
 			add_days_mission_timeout = {
 				mission = AUS_tackle_first_czech_reforms
 				days = 15
 			}
+			set_country_flag = AUS_decide_language_districts
+			custom_effect_tooltip = AUS_unlock_linguistic_focus
 			country_event = ww1_austriahungary.219
 			set_country_flag = AUS_bohemian_districts_drawn
 			country_event = ww1_austriahungary.220
@@ -2226,7 +2226,7 @@ AUH_the_imperial_council = {
 			original_tag = AUS
 		}
 		visible = {
-			#has_completed_focus = AUS_public_investments
+			has_completed_focus = AUS_public_investments
 		}
 		priority = 210
 		available = {
