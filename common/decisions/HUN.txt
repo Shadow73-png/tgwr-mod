@@ -2630,7 +2630,8 @@ HUN_alt_parliment_cat = {
 						HUN_parliment_in_favour_voters > 206
 					}
 				}
-					add_popularity = {
+				clr_country_flag = HUN_dismantle_war_powers
+				add_popularity = {
 					ideology = neutrality
 					popularity = -0.05
 				}
@@ -2642,6 +2643,61 @@ HUN_alt_parliment_cat = {
 				add_to_variable = {
 					HUN_army_experience_gain = 0.05
 					tooltip = experience_gain_army_factor_tt
+				}
+				else = {
+					add_political_power = -25
+					add_stability = -0.02
+				}
+			}
+		}
+	}
+	HUN_civil_procedure_act = {
+		icon = GFX_decision_eng_trade_unions_support
+		cost = 5
+		allowed = {
+			original_tag = HUN
+		}
+		fire_only_once = no
+		days_remove = 30
+		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
+			has_completed_focus = HUN_judgement_reforms
+		}
+		visible = {
+			has_global_flag = HUN_compromise_gov_in_charge
+			has_completed_focus = HUN_judgement_reforms
+			has_country_flag = HUN_civil_procedure_act
+		}
+		complete_effect = {
+			HUN_voting_flag = yes
+			HUN_voting_on_oa_and_nmp = yes
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_parliment_amount_in_favour.tt
+			if = {
+				limit = { 
+					check_variable = {
+						HUN_parliment_in_favour_voters > 206
+					}
+				}
+				clr_global_flag = HUN_civil_procedure_act
+				add_political_power = 15
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.025
+				}
+				custom_effect_tooltip = HUN_modify_eco_tt
+				add_to_variable = {
+					HUN_eco_stab = 0.03
+					tooltip = stability_factor_tt
+				}
+				add_to_variable = {
+					HUN_eco_trade_opinion = 0.1
+					tooltip = trade_opinion_factor_tt
+				}
+				add_to_variable = {
+					HUN_eco_consumer_good = -0.05
+					tooltip = consumer_goods_factor_tt
 				}
 				else = {
 					add_political_power = -25
