@@ -1926,6 +1926,11 @@ HUN_national_work_party_cat = {
 		}
 		timeout_effect = {
 			country_event = ww1_hungary.103
+			add_political_power = -100
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
 		}
 		complete_effect = {
 		}
@@ -2492,6 +2497,153 @@ HUN_alt_parliment_cat = {
 			}
 			clr_country_flag = HUN_is_voting_in_parliment
 			HUN_reset_in_favour_voters = yes
+		}
+	}
+	HUN_war_requirements_act = {
+		icon = GFX_decision_eng_trade_unions_support
+		cost = 5
+		allowed = {
+			original_tag = HUN
+		}
+		fire_only_once = no
+		days_remove = 30
+		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
+			has_completed_focus = HUN_war_requirements_act2
+		}
+		visible = {
+			has_global_flag = HUN_compromise_gov_in_charge
+			has_completed_focus = HUN_war_requirements_act2
+			has_country_flag = HUN_war_requirements_act
+		}
+		complete_effect = {
+			HUN_voting_flag = yes
+			HUN_voting_on_oa_and_nmp = yes
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_parliment_amount_in_favour.tt
+			if = {
+				limit = { 
+					check_variable = {
+						HUN_parliment_in_favour_voters > 206
+					}
+				}
+				custom_effect_tooltip = HUN_modify_army_tt
+				add_to_variable = {
+					HUN_supply_consumption = -0.1
+					tooltip = supply_consumption_factor_tt
+				}
+				add_to_variable = {
+					HUN_mobilization_speed = 0.05
+					tooltip = mobilization_speed_tt
+				}
+				custom_effect_tooltip = HUN_modify_eco_tt
+				add_to_variable = {
+					HUN_eco_mil_speed = 0.05
+					tooltip = production_speed_arms_factory_factor_tt
+				}
+				else = {
+					add_political_power = -25
+					add_stability = -0.02
+				}
+			}
+			clr_country_flag = HUN_is_voting_in_parliment
+			HUN_reset_in_favour_voters = yes
+		}
+	}
+	HUN_pass_minor_military_bills = {
+		icon = GFX_decision_eng_trade_unions_support
+		cost = 5
+		allowed = {
+			original_tag = HUN
+		}
+		fire_only_once = no
+		days_remove = 30
+		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
+			has_completed_focus = HUN_pass_minor_military_bills2
+		}
+		visible = {
+			has_global_flag = HUN_compromise_gov_in_charge
+			has_completed_focus = HUN_pass_minor_military_bills2
+			has_country_flag = HUN_pass_minor_military_bills
+		}
+		complete_effect = {
+			HUN_voting_flag = yes
+			HUN_voting_on_oa_and_nmp = yes
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_parliment_amount_in_favour.tt
+			if = {
+				limit = { 
+					check_variable = {
+						HUN_parliment_in_favour_voters > 206
+					}
+				}
+				clr_country_flag = HUN_pass_minor_military_bills
+				army_experience = 15
+				add_command_power = 15
+				custom_effect_tooltip = HUN_modify_army_tt
+				add_to_variable = {
+					HUN_recruitable_pop = 0.025
+					tooltip = recruitable_population_factor_tt
+				}
+				else = {
+					add_political_power = -25
+					add_stability = -0.02
+				}
+			}
+			clr_country_flag = HUN_is_voting_in_parliment
+			HUN_reset_in_favour_voters = yes
+		}
+	}
+	HUN_dismantle_war_powers = {
+		icon = GFX_decision_eng_trade_unions_support
+		cost = 5
+		allowed = {
+			original_tag = HUN
+		}
+		fire_only_once = no
+		days_remove = 30
+		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
+			has_completed_focus = HUN_war_requirements_act2
+		}
+		visible = {
+			has_global_flag = HUN_compromise_gov_in_charge
+			has_completed_focus = HUN_war_requirements_act2
+			has_country_flag = HUN_dismantle_war_powers
+		}
+		complete_effect = {
+			HUN_voting_flag = yes
+			HUN_voting_on_oa_and_nmp = yes
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_parliment_amount_in_favour.tt
+			if = {
+				limit = { 
+					check_variable = {
+						HUN_parliment_in_favour_voters > 206
+					}
+				}
+					add_popularity = {
+					ideology = neutrality
+					popularity = -0.05
+				}
+				custom_effect_tooltip = HUN_modify_army_tt
+				add_to_variable = {
+					HUN_mobilization_speed = 0.15
+					tooltip = mobilization_speed_tt
+				}
+				add_to_variable = {
+					HUN_army_experience_gain = 0.05
+					tooltip = experience_gain_army_factor_tt
+				}
+				else = {
+					add_political_power = -25
+					add_stability = -0.02
+				}
+			}
 		}
 	}
 }

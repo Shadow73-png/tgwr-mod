@@ -134,12 +134,20 @@ HUN_national_work_party_cat = {
             has_country_flag = HUN_national_work_party_yes
         }
         NOT = {
-            has_completed_focus = HUN_compromise_gov
+            OR = {
+                has_completed_focus = HUN_compromise_gov
+                has_global_flag = HUN_compromise_gov_in_charge
+            }
         }
     }
     visible = {
         hidden_trigger = {
-            has_country_flag = HUN_national_work_party_yes
+         NOT = {
+            OR = {
+                has_completed_focus = HUN_compromise_gov
+                has_global_flag = HUN_compromise_gov_in_charge
+            }
+         }
         }
     }
     visible_when_empty = yes

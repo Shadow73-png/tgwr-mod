@@ -5,8 +5,34 @@ add_namespace = ww1_hun_revolution
 ## 1910 hungarian elections
 country_event = {
 	id = ww1_hungary_auh.1
-	title = ww1_hungary_auh.1.t
-	desc = ww1_hungary_auh.1.d
+	title = {
+		text = ww1_hungary_auh.1.t
+		trigger = {
+			NOT = {
+				has_completed_focus = HUN_mend_the_rapture
+			}
+		}
+	}
+	title = {
+		text = ww1_hungary_auh.1.ta
+		trigger = {
+			has_completed_focus = HUN_mend_the_rapture
+		}
+	}
+	desc = {
+		text = ww1_hungary_auh.1.d
+		trigger = {
+			NOT = {
+				has_completed_focus = HUN_mend_the_rapture
+			}
+		}
+	}
+	desc = {
+		text = ww1_hungary_auh.1.da
+		trigger = {
+			has_completed_focus = HUN_mend_the_rapture
+		}
+	}
 	picture = GFX_report_event_hungarian_parliment
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -304,7 +330,6 @@ country_event = {
 		hidden_effect = {
 			country_event = ww1_hungary.59
 			promote_character = HUN_janos_hadik
-			complete_national_focus = HUN_constitutional_party
 		}
 		set_party_name = {
 			ideology = neutrality
@@ -2560,6 +2585,10 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 	option = {
+		name = ww1_hungary.59.b
+		add_political_power = -10
+	}
+	option = {
 		name = ww1_hungary.59.a
 		add_popularity = {
 			ideology = democratic
@@ -2569,10 +2598,6 @@ country_event = {
 			ideology = communism
 			popularity = 0.005
 		}
-	}
-	option = {
-		name = ww1_hungary.59.b
-		add_political_power = -10
 	}
 }
 #Budapest Aviation Event Starts
@@ -3708,5 +3733,36 @@ country_event = {
 	option = {
 		name = ww1_hungary.103.a
 		set_country_flag = HUN_constitutional_party_fallout
+	}
+}
+#Kalman Szell Passes Away
+country_event = {
+	id = ww1_hungary.104
+	title = ww1_hungary.104.t
+	desc = {
+		text = ww1_hungary.104.da
+		trigger = {
+			NOT = {
+				has_completed_focus = HUN_kings_right_hand_man
+			}
+		}
+	}
+	desc = {
+		text = ww1_hungary.104.db
+		trigger = {
+			has_completed_focus = HUN_kings_right_hand_man
+		}
+	}
+	#picture = GFX_report_event_tisza_elected_speaker
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_hungary.104.a
+		trigger = {
+			NOT = {
+				has_completed_focus = HUN_kings_right_hand_man
+			}
+		}
+		retire_character = HUN_kalman_szell
 	}
 }

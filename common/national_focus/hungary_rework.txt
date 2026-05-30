@@ -1316,7 +1316,7 @@ focus_tree = {
 					value > 70
 					tooltip = HUN_national_work_party_greater_than_tt
 				}
-				neutrality > 0.85
+				neutrality > 0.75
 			}
 		}
 		prerequisite = {
@@ -2249,6 +2249,20 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
+			if = {
+				limit = { 
+					has_completed_focus = HUN_constitutional_party
+				}
+				has_global_flag = HUN_compromise_gov_in_charge
+				OR = {
+					has_country_leader = {
+						character = HUN_gyula_andrassy
+					}
+					has_country_leader = {
+						character = HUN_janos_hadik
+					}
+				}
+			}
 			has_government = neutrality
 			OR = {
 				communism > 0.15
@@ -2327,7 +2341,7 @@ focus_tree = {
 			}
 		}
 		id = HUN_constitutional_party
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_focus_HUN_hungarian_tradition
 		cost = 0
 		relative_position_id = HUN_compromise_gov
 		x = 0
@@ -2424,6 +2438,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
 			hidden_trigger = {
 				NOT = {
 					has_country_flag = HUN_national_work_party_yes
@@ -2449,6 +2464,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
 			has_dynamic_modifier = HUN_croatian_sabor
 		}
 		prerequisite = {
@@ -2469,7 +2485,10 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			any_owned_state = {
+				is_core_of = HUN
+			}
 		}
 		prerequisite = {
 			focus = HUN_constitutional_minority_branch
@@ -2489,7 +2508,10 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			any_owned_state = {
+				is_core_of = SLO
+			}
 		}
 		prerequisite = {
 			focus = HUN_negotiate_with_romanian_party
@@ -2534,9 +2556,9 @@ focus_tree = {
 		}
 		available = {
 			has_idea = HUN_franz_joseph_i
+			has_global_flag = HUN_compromise_gov_in_charge
 			has_country_leader = {
 				character = HUN_kalman_szell
-				ruling_only = yes
 			}
 		}
 		prerequisite = {
@@ -2562,6 +2584,10 @@ focus_tree = {
 		}
 		available = {
 			has_idea = HUN_franz_joseph_i
+			has_global_flag = HUN_compromise_gov_in_charge
+			has_country_leader = {
+				character = HUN_kalman_szell
+			}
 		}
 		prerequisite = {
 			focus = HUN_increase_kings_presence
@@ -2611,6 +2637,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
 			has_country_leader = {
 				character = HUN_kalman_szell
 			}
@@ -2647,6 +2674,7 @@ focus_tree = {
 		}
 		available = {
 			has_character = HUN_mihaly_karolyi
+			has_global_flag = HUN_compromise_gov_in_charge
 		}
 		prerequisite = {
 			focus = HUN_rejuvinate_the_post_saving_bank
@@ -2671,7 +2699,7 @@ focus_tree = {
 			
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
 		}
 		prerequisite = {
 			focus = HUN_kings_right_hand_man
@@ -2692,6 +2720,7 @@ focus_tree = {
 			FOCUS_FILTER_MANPOWER
 		}
 		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
 			owns_state = 513
 		}
 		prerequisite = {
@@ -2713,7 +2742,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
 		}
 		prerequisite = {
 			focus = HUN_inspire_economic_stab
@@ -2737,7 +2766,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
 		}
 		prerequisite = {
 			focus = HUN_balancing_the_budget
@@ -2800,7 +2829,16 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
+			#OA needs to control a certain amount of seats
 		}
 		prerequisite = {
 			focus = HUN_the_cenrist_within_the_moderates
@@ -2820,7 +2858,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		available = {
-			
+			#OA OR F48P needs to control a certain amount of seats
 		}
 		prerequisite = {
 			focus = HUN_distinguish_hungarian_industry
@@ -2840,7 +2878,16 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
+			#OA needs to control a certain amount of seats
 		}
 		prerequisite = {
 			focus = HUN_distinguish_hungarian_industry
@@ -2861,13 +2908,38 @@ focus_tree = {
 			FOCUS_FILTER_ARMY_XP
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_funnel_funds_into_industry
 		}
 		completion_reward = { 
-			
+			set_country_flag = HUN_pass_minor_military_bills
+			unlock_decision_tooltip = HUN_pass_minor_military_bills
+			custom_effect_tooltip = HUN_if_law_passes
+			effect_tooltip = {
+				army_experience = 15
+				add_command_power = 15
+				custom_effect_tooltip = HUN_modify_army_tt
+				add_to_variable = {
+					HUN_recruitable_pop = 0.025
+					tooltip = recruitable_population_factor_tt
+				}
+			}
+			custom_effect_tooltip = empty_space_tt
+			custom_effect_tooltip = HUN_if_law_fails
+			effect_tooltip = {
+				add_political_power = -25
+				add_stability = -0.02
+			}
 		}
 	 }
 	#Calm the Socialist Push
@@ -2882,7 +2954,15 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_funnel_funds_into_industry
@@ -2904,7 +2984,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
 		}
 		prerequisite = {
 			focus = HUN_calm_the_socialist_push
@@ -2927,7 +3007,16 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
+			#OA needs to control a certain amount of seats
 		}
 		prerequisite = {
 			focus = HUN_funnel_funds_into_industry
@@ -2946,7 +3035,15 @@ focus_tree = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_befriend_county_elites
@@ -2967,7 +3064,15 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_the_cenrist_within_the_moderates
@@ -3020,7 +3125,15 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_build_a_moderate_coalition
@@ -3040,7 +3153,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			has_country_flag = HUN_compromise_gov_in_charge
+			has_global_flag = HUN_compromise_gov_in_charge
 		}
 		prerequisite = {
 			focus = HUN_build_a_moderate_coalition
@@ -3060,7 +3173,15 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_protect_parliment_sanctity
@@ -3080,6 +3201,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
 			has_global_flag = HUN_army_question_crisis_answered
 			has_country_flag = HUN_national_work_party_yes
 			OR = {
@@ -3129,6 +3251,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
 			has_country_flag = HUN_national_work_party_yes
 			OR = {
 				has_war_support > 0.4
@@ -3142,19 +3265,30 @@ focus_tree = {
 			focus = HUN_prepare_for_balkan_volatility2
 		}
 		completion_reward = { 
-			custom_effect_tooltip = HUN_modify_army_tt
-			add_to_variable = {
-				HUN_supply_consumption = -0.1
-				tooltip = supply_consumption_factor_tt
-			}
-			add_to_variable = {
-				HUN_mobilization_speed = 0.05
-				tooltip = mobilization_speed_tt
-			}
+			set_country_flag = HUN_war_requirements_act
+			unlock_decision_tooltip = HUN_expand_workers_rights_law
+			custom_effect_tooltip = HUN_if_law_passes
 			custom_effect_tooltip = HUN_modify_eco_tt
-			add_to_variable = {
-				HUN_eco_mil_speed = 0.05
-				tooltip = production_speed_arms_factory_factor_tt
+			effect_tooltip = {
+				add_to_variable = {
+					HUN_supply_consumption = -0.1
+					tooltip = supply_consumption_factor_tt
+				}
+				add_to_variable = {
+					HUN_mobilization_speed = 0.05
+					tooltip = mobilization_speed_tt
+				}
+				custom_effect_tooltip = HUN_modify_eco_tt
+				add_to_variable = {
+					HUN_eco_mil_speed = 0.05
+					tooltip = production_speed_arms_factory_factor_tt
+				}
+			}
+			custom_effect_tooltip = empty_space_tt
+			custom_effect_tooltip = HUN_if_law_fails
+			effect_tooltip = {
+				add_political_power = -25
+				add_stability = -0.02
 			}
 		}
 	 }
@@ -3171,12 +3305,36 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
 		}
 		prerequisite = {
 			focus = HUN_prepare_for_balkan_volatility2
 		}
-		completion_reward = { }
+		completion_reward = { 
+			set_country_flag = HUN_dismantle_war_powers
+			custom_effect_tooltip = HUN_if_law_passes
+			effect_tooltip = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = -0.05
+				}
+				custom_effect_tooltip = HUN_modify_army_tt
+				add_to_variable = {
+					HUN_mobilization_speed = 0.15
+					tooltip = mobilization_speed_tt
+				}
+				add_to_variable = {
+					HUN_army_experience_gain = 0.05
+					tooltip = experience_gain_army_factor_tt
+				}
+				custom_effect_tooltip = empty_space_tt
+				custom_effect_tooltip = HUN_if_law_fails
+				effect_tooltip = {
+					add_political_power = -25
+					add_stability = -0.02
+				}
+			}
+		}
 	}
 	#Befriend County Elites
 	focus = {
@@ -3191,7 +3349,15 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_protect_parliment_sanctity
@@ -3211,7 +3377,15 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		available = {
-			
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_befriend_county_elites
@@ -4350,7 +4524,7 @@ focus_tree = {
 			focus = HUN_prevent_economic_canabalization
 		}
 		completion_reward = {
-				custom_effect_tooltip = HUN_modify_eco_tt
+			custom_effect_tooltip = HUN_modify_eco_tt
 			add_to_variable = {
 				HUN_eco_effeciency_retention = 0.05
 				tooltip = line_change_production_efficiency_factor_tt
@@ -5072,6 +5246,7 @@ focus_tree = {
 						tooltip = consumer_goods_factor_tt
 					}					
 				}
+				custom_effect_tooltip = empty_space_tt
 				custom_effect_tooltip = HUN_if_law_fails
 				effect_tooltip = {
 					add_political_power = -25

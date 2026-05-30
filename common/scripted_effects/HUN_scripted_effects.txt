@@ -206,6 +206,21 @@ HUN_voting_on_oa_and_f48p = {
 	}
 	round_variable = HUN_parliment_in_favour_voters
 }
+HUN_voting_on_oa_and_nmp = {
+	set_temp_variable = {
+		HUN_oa_seats_temp = HUN_oa_seats
+	}
+	add_to_temp_variable = {
+		HUN_oa_seats_temp = HUN_nmp_seats
+	}
+	multiply_temp_variable = {
+		HUN_oa_seats_temp = 0.8
+	}
+	add_to_variable = {
+		HUN_parliment_in_favour_voters = HUN_oa_seats_temp
+	}
+	round_variable = HUN_parliment_in_favour_voters
+}
 HUN_voting_on_army_bill_reg = {
 	set_temp_variable = {
 		HUN_nmp_seats_temp = HUN_nmp_seats
