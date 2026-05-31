@@ -1894,7 +1894,7 @@ AUH_the_imperial_council = {
 		}
 		days_mission_timeout = 150
 		available = {
-			always = no
+			has_completed_focus = AUS_linguistic_partition
 		}
 		activation = {
 			always = no
@@ -1944,7 +1944,7 @@ AUH_the_imperial_council = {
 		}
 		fire_only_once = yes
 		days_remove = 30
-		cost = 30
+		cost = 20
 		ai_will_do = {
 			base = 0
 			
@@ -1992,7 +1992,7 @@ AUH_the_imperial_council = {
 		}
 		fire_only_once = yes
 		days_remove = 30
-		cost = 30
+		cost = 20
 		ai_will_do = {
 			base = 0
 		}
@@ -2016,6 +2016,36 @@ AUH_the_imperial_council = {
 			country_event = ww1_austriahungary.219
 			set_country_flag = AUS_bohemian_districts_drawn
 			country_event = ww1_austriahungary.220
+		}
+		
+	}
+	AUS_negotiate_bohemian_language_in_schools = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_linguistic_partition
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = no
+		cost = 20
+		ai_will_do = {
+			base = 0
+		}
+		complete_effect = {
+			custom_effect_tooltip = AUS_this_is_sensitive
+			country_event = ww1_austriahungary.222
+		}
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = AUS_tackle_first_czech_reforms
+				days = 15
+			}
+			
 		}
 		
 	}
