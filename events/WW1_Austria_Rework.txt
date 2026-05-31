@@ -5882,6 +5882,7 @@ country_event = {
 	desc = ww1_austriahungary.221.d
 	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
+
 	option = {
 		name = ww1_austriahungary.221.a
 		add_stability = -0.04
@@ -5895,6 +5896,7 @@ country_event = {
 	desc = ww1_austriahungary.222.d
 	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
+	fire_only_once = no
 	option = {
 		name = ww1_austriahungary.222.a
 		unlock_decision_tooltip = AUS_decide_language_of_districts
@@ -5912,28 +5914,60 @@ country_event = {
 		else = {
 			custom_effect_tooltip = AUS_you_can_do_it_narrowly
 			add_political_power = -100
+				set_country_flag = AUS_reforms_for_czechs_education_passed
+
 		}
 	}
 	option = {
 		name = ww1_austriahungary.222.c
 		trigger = {
 			NOT = {
-					has_completed_focus = AUS_split_the_german_nationalists
-				}
-				
-		}
-	custom_effect_tooltip = AUS_the_king_will_article_14
-	add_days_mission_timeout = {
-		mission = AUS_coalition_dissent_mission
-		days = -60
-	}
-	add_to_variable = {
-				AUS_pm_mandate_power = -1
-				tooltip = AUS_pm_mandate.tt
+				has_completed_focus = AUS_split_the_german_nationalists
 			}
+		}
+		custom_effect_tooltip = AUS_the_king_will_article_14
+		add_days_mission_timeout = {
+			mission = AUS_coalition_dissent_mission
+			days = -60
+		}
+		add_to_variable = {
+			AUS_pm_mandate_power = -1
+			tooltip = AUS_pm_mandate.tt
+		}
+			set_country_flag = AUS_reforms_for_czechs_education_passed
+
+	}
+	option = {
+		name = ww1_austriahungary.222.e
+		trigger = {
+			NOT = {
+				has_completed_focus = AUS_split_the_german_nationalists
+			}
+		}
+		complete_national_focus = AUS_bienerth_resigns
+		set_country_flag = AUS_reforms_for_czechs_education_passed
 	}
 }
+country_event = {
+	id = ww1_austriahungary.223
+	title = ww1_austriahungary.223.t
+	desc = ww1_austriahungary.223.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+		fire_only_once = no
 
+	option = {
+		name = ww1_austriahungary.223.a
+		set_global_flag = AUS_bienerth_socialist_coalition
+	}
+	option = {
+		name = ww1_austriahungary.223.b
+		country_event = {
+			id = ww1_austriahungary.222
+		}
+	}
+	
+}
 add_namespace = ww1_austria_quests
 # forts dispatch event
 #country_event = {
@@ -6433,13 +6467,31 @@ country_event = {
 		hidden_effect = {
 			88 = {
 				create_unit = {
-					division = "name = "I Brygada Legionów Polskich" division_template = "Brygada Legionów Polskich" start_experience_factor = 0.1 start_equipment_factor = 0.9"
+					division = "name = "
+					I
+					Brygada
+					Legionów
+					Polskich
+					" division_template = "
+					Brygada
+					Legionów
+					Polskich
+					" start_experience_factor = 0.1 start_equipment_factor = 0.9"
 					owner = ROOT
 				}
 			}
 			91 = {
 				create_unit = {
-					division = "name = "II Brygada Legionów Polskich" division_template = "Brygada Legionów Polskich" start_experience_factor = 0.1 start_equipment_factor = 0.9"
+					division = "name = "
+					II
+					Brygada
+					Legionów
+					Polskich
+					" division_template = "
+					Brygada
+					Legionów
+					Polskich
+					" start_experience_factor = 0.1 start_equipment_factor = 0.9"
 					owner = ROOT
 				}
 			}
@@ -6448,7 +6500,16 @@ country_event = {
 					is_core_of = POL
 				}
 				create_unit = {
-					division = "name = "III Brygada Legionów Polskich" division_template = "Brygada Legionów Polskich" start_experience_factor = 0.1 start_equipment_factor = 0.9"
+					division = "name = "
+					III
+					Brygada
+					Legionów
+					Polskich
+					" division_template = "
+					Brygada
+					Legionów
+					Polskich
+					" start_experience_factor = 0.1 start_equipment_factor = 0.9"
 					owner = ROOT
 				}
 			}

@@ -835,7 +835,22 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_bourgeoisie_unity
-		icon = GFX_focus_PER_embrace_opulence
+		icon = {
+			trigger = {
+			NOT = {
+				has_country_flag = AUS_bienerth_socialist_coalition
+			}
+			}
+			value = GFX_focus_PER_embrace_opulence
+		}
+		icon = {
+			trigger = {
+				has_country_flag = AUS_bienerth_socialist_coalition
+			
+			}
+			value = GFX_focus_generic_scales_replacement
+		}
+		dynamic = yes
 		cost = 4
 		relative_position_id = AUS_reformist_club
 		prerequisite = {
@@ -1008,15 +1023,14 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-		add_days_mission_timeout = {
-			mission = AUS_tackle_first_czech_reforms
-			days = 270
-		}
+			add_days_mission_timeout = {
+				mission = AUS_tackle_first_czech_reforms
+				days = 270
+			}
 			add_to_variable = {
 				AUS_pm_mandate_power = -3
 				tooltip = AUS_pm_mandate.tt
 			}
-		
 			set_country_flag = AUS_linguistic_partition_flag
 			clr_country_flag = AUS_cze_autonomy_demands
 			add_stability = 0.075
@@ -1026,7 +1040,6 @@ focus_tree = {
 				tooltip = AUS_loyalty_czechoslovakia_tt
 			}
 			custom_effect_tooltip = AUS_linguistic_partition.tt
-				
 			AUS_update_state_of_realm = yes
 			custom_effect_tooltip = AUS_unlocks_the_rest_of_the_compromise
 		}
@@ -1050,6 +1063,34 @@ focus_tree = {
 			AUS_richard_von_bienerth_schmerling = {
 				has_character_flag = minister_AUS
 			}
+			has_global_flag = AUS_reforms_for_czechs_education_passed
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = AUS_a_toast_to_our_new_comrades
+		icon = GFX_focus_FRA_ally_republicans
+		cost = 4
+		relative_position_id = AUS_bourgeoisie_unity
+		x = -5
+		y = 2
+		available = {
+			AUS_richard_von_bienerth_schmerling = {
+				has_character_flag = minister_AUS
+			}
+			has_country_flag = AUS_bienerth_socialist_coalition
+		}
+		allow_branch = {
+			OR = {
+				is_debug = yes
+				has_country_flag = AUS_bienerth_socialist_coalition
+			}
 		}
 		completion_reward = {
 		}
@@ -1066,6 +1107,7 @@ focus_tree = {
 		relative_position_id = AUS_bourgeoisie_unity
 		prerequisite = {
 			focus = AUS_finalize_a_national_compromise
+			focus = AUS_a_toast_to_our_new_comrades
 		}
 		x = -4
 		y = 3
@@ -1236,6 +1278,7 @@ focus_tree = {
 		id = AUS_der_burgerliche_block
 		icon = GFX_focus_ARG_strengthening_the_concordancia
 		cost = 4
+		dynamic = yes
 		mutually_exclusive = {
 			focus = AUS_bienerth_resigns
 		}
@@ -1555,7 +1598,22 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_covert_support_to_union_busters
-		icon = GFX_focus_RAJ_union_busting
+			icon = {
+			trigger = {
+			NOT = {
+				has_country_flag = AUS_bienerth_socialist_coalition
+			}
+			}
+			value = GFX_focus_RAJ_union_busting
+		}
+		icon = {
+			trigger = {
+				has_country_flag = AUS_bienerth_socialist_coalition
+			
+			}
+			value = GFX_focus_FIN_finnish_federation_of_trade_unions
+		}
+		dynamic = yes
 		cost = 4
 		relative_position_id = AUS_social_and_economic_reform
 		prerequisite = {
@@ -1593,8 +1651,24 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_support_military_companies
-		icon = GFX_focus_generic_reorient_production
 		cost = 4
+			icon = {
+			trigger = {
+			NOT = {
+				has_country_flag = AUS_bienerth_socialist_coalition
+			}
+			}
+			value = GFX_focus_generic_reorient_production
+		}
+		icon = {
+			trigger = {
+				has_country_flag = AUS_bienerth_socialist_coalition
+			
+			}
+			value = GFX_goal_generic_construction
+		}
+		dynamic = yes
+		
 		relative_position_id = AUS_social_and_economic_reform
 		prerequisite = {
 			focus = AUS_covert_support_to_union_busters
@@ -1672,7 +1746,6 @@ focus_tree = {
 				tooltip = AUS_loyalty_czechoslovakia_tt
 			}
 			AUS_update_state_of_realm = yes
-			
 			custom_effect_tooltip = empty_space_tt
 			add_to_variable = {
 				AUS_pm_mandate_power = -1
