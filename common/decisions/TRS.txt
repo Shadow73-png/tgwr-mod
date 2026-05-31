@@ -287,14 +287,16 @@ TUR_millet_system = {
 		icon = GFX_decision_oppression
 		allowed = { original_tag = TUR }
 		state_target = yes
-		target_trigger = { FROM = { state = 553 } }
+		targets = { 553 }
 		highlight_states = { highlight_state_targets = { state = FROM } }
 		on_map_mode = map_and_decisions_view
-		visible = {
+		target_root_trigger = {
 			OR = {
 				has_completed_focus = TUR_subjugate_christians
 				has_completed_focus = TUR_status_of_the_autonomies
 			}
+		}
+		visible = {
 			NOT = { has_global_flag = TRS_subjugate_the_maronite_patriarch }
 			controls_state = 553
 		}
@@ -303,10 +305,25 @@ TUR_millet_system = {
 		complete_effect = {
 			FROM = {
 				if = {
-					limit = { check_variable = { TUR_ottoman_army_defence_factor_arab < 0 } }
+					limit = {
+						check_variable = {
+							var = TUR_ottoman_army_defence_factor_arab
+							value = -0.05
+							compare = less_than_or_equals
+						}
+					}
 					custom_effect_tooltip = TRS_subjugate_the_maronite_patriarch_tt
 					add_to_variable = { TUR_ottoman_army_defence_factor_arab = 0.05 }
 					custom_effect_tooltip = empty_space
+				}
+				else_if = {
+					limit = { check_variable = { TUR_ottoman_army_defence_factor_arab < 0 } }
+					hidden_effect = {
+						set_temp_variable = { ROOT.TUR_minority_army_defence_factor_arab = FROM.TUR_ottoman_army_defence_factor_arab }
+						multiply_temp_variable = { ROOT.TUR_minority_army_defence_factor_arab = -1 }
+					}
+					custom_effect_tooltip = TRS_subjugate_the_maronite_patriarch_tt2
+					set_variable = { TUR_ottoman_army_defence_factor_arab = 0 }
 				}
 			}
 			custom_effect_tooltip = TUR_increase_beirut_centralization_5
@@ -335,41 +352,29 @@ TUR_millet_system = {
 	TRS_exile_unruly_bishops = {
 		icon = GFX_decision_hol_draw_up_staff_plans
 		allowed = { original_tag = TUR }
+		targets = { 852 553 }
 		state_target = yes
-		target_trigger = {
-			FROM = {
-				OR = {
-					state = 852
-					state = 553
-				}
-			}
-		}
-		highlight_states = { highlight_state_targets = { state = FROM } }
-		on_map_mode = map_only
-		visible = {
+		target_root_trigger = {
 			OR = {
 				has_completed_focus = TUR_subjugate_christians
 				has_completed_focus = TUR_status_of_the_autonomies
 			}
+		}
+		highlight_states = { highlight_state_targets = { state = FROM } }
+		target_trigger = {
 			FROM = {
 				check_variable = { TUR_ottoman_army_defence_factor_arab < 0 }
 				has_dynamic_modifier = { modifier = TUR_arab_minority }
 			}
-			controls_state = FROM
 		}
+		on_map_mode = map_only
+		visible = { controls_state = FROM }
 		available = { FROM = { NOT = { has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon } } } }
 		cost = 10
 		complete_effect = {
 			FROM = {
-				if = {
-					limit = { check_variable = { TUR_ottoman_army_defence_factor_arab < -0.025 } }
-					custom_effect_tooltip = TRS_subjugate_the_maronite_patriarch_tt
-					add_to_variable = { TUR_ottoman_army_defence_factor_arab = 0.05 }
-				}
-				else = {
-					custom_effect_tooltip = TRS_subjugate_the_maronite_patriarch_tt2
-					add_to_variable = { TUR_ottoman_army_defence_factor_arab = 0.025 }
-				}
+				custom_effect_tooltip = TRS_subjugate_the_maronite_patriarch_tt
+				add_to_variable = { TUR_ottoman_army_defence_factor_arab = 0.025 }
 			}
 			if = {
 				limit = {
@@ -415,48 +420,96 @@ TUR_millet_system = {
 		visible = {
 			has_completed_focus = TUR_subjugate_christians
 			OR = {
-				852 = {
-					has_dynamic_modifier = { modifier = TUR_arab_minority }
-					check_variable = { TUR_arab_population_stability_factor < 0 }
+				any_controlled_state = {
+					has_state_flag = TUR_aleppo
+					OR = {
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+						check_variable = { TUR_greek_orthodox_state_variable < 0 }
+					}
 				}
-				553 = {
-					has_dynamic_modifier = { modifier = TUR_arab_minority }
-					check_variable = { TUR_arab_population_stability_factor < 0 }
+				any_controlled_state = {
+					has_state_flag = TUR_beirut
+					OR = {
+						check_variable = { TUR_arab_orthodox_state_variable < 0 }
+						check_variable = { TUR_arab_catholic_state_variable < 0 }
+					}
 				}
-			}
-			OR = {
-				controls_state = 852
-				controls_state = 553
 			}
 		}
-		cost = 5
-		days_remove = 80
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					has_state_flag = TUR_aleppo
+					has_state_flag = TUR_beirut
+				}
+				OR = {
+					check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+					check_variable = { TUR_greek_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_orthodox_state_variable < 0 }
+					check_variable = { TUR_arab_catholic_state_variable < 0 }
+				}
+			}
+		}
+		cost = 10
+		days_remove = 70
 		modifier = { consumer_goods_factor = 0.05 }
 		complete_effect = {
-			every_controlled_state = {
-				limit = {
-					OR = {
-						state = 553
-						state = 852
-					}
-					check_variable = { TUR_arab_population_stability_factor < 0 }
-				}
-				custom_effect_tooltip = TRS_fund_regional_churches_tt1
+			set_variable = { TUR_apostolic_population_factor_aleppo = TUR_apostolic_population_factor_new }
+			set_variable = { TUR_orthodox_population_factor_aleppo = TUR_orthodox_population_factor_new }
+			set_variable = { TUR_orthodox_population_factor_beirut = TUR_orthodox_population_factor_new }
+			set_variable = { TUR_catholic_population_factor_beirut = TUR_catholic_population_factor_new }
+
+			hidden_effect = {
+				set_temp_variable = { old_armenian_value = TUR_armenian_apostolic_minority_value_aleppo }
+				set_temp_variable = { TRS_fund_regional_churches_armenian = old_armenian_value }
+				divide_temp_variable = { TRS_fund_regional_churches_armenian = TUR_apostolic_population_factor_new }
+
+				set_temp_variable = { old_orthodox_value = TUR_greek_orthodox_minority_value_aleppo }
+				add_to_temp_variable = { old_orthodox_value = TUR_arab_orthodox_minority_value_beirut }
+				set_temp_variable = { TRS_fund_regional_churches_orthodox = old_orthodox_value }
+				divide_temp_variable = { TRS_fund_regional_churches_orthodox = TUR_orthodox_population_factor_new }
+
+				set_temp_variable = { old_catholic_value = TUR_arab_catholic_minority_value_beirut }
+				set_temp_variable = { TRS_fund_regional_churches_catholic = old_catholic_value }
+				divide_temp_variable = { TRS_fund_regional_churches_catholic = TUR_catholic_population_factor_new }
+
+				set_temp_variable = { TRS_fund_regional_churches = TRS_fund_regional_churches_catholic }
+				add_to_temp_variable = { TRS_fund_regional_churches = TRS_fund_regional_churches_orthodox }
+				add_to_temp_variable = { TRS_fund_regional_churches = TRS_fund_regional_churches_armenian }
+				multiply_temp_variable = { TRS_fund_regional_churches = -1 }
+
+				subtract_from_temp_variable = { TRS_fund_regional_churches = TRS_fund_regional_churches_old }
 			}
-			hidden_effect = { add_to_variable = { TUR_arab_temp_variable = 0.001 } }
+			custom_effect_tooltip = TRS_fund_regional_churches_tt
 			TUR_reload_minority_values = yes
 		}
 		remove_effect = {
-			every_controlled_state = {
-				limit = {
-					OR = {
-						state = 553
-						state = 852
-					}
-				}
-				custom_effect_tooltip = TRS_fund_regional_churches_tt2
+			clear_variable = TUR_apostolic_population_factor_aleppo
+			clear_variable = TUR_orthodox_population_factor_aleppo
+			clear_variable = TUR_orthodox_population_factor_beirut
+			clear_variable = TUR_catholic_population_factor_beirut
+
+			hidden_effect = {
+				set_temp_variable = { old_armenian_value = TUR_armenian_apostolic_minority_value_aleppo }
+				set_temp_variable = { TRS_fund_regional_churches_armenian = old_armenian_value }
+				divide_temp_variable = { TRS_fund_regional_churches_armenian = TUR_apostolic_population_factor_new }
+
+				set_temp_variable = { old_orthodox_value = TUR_greek_orthodox_minority_value_aleppo }
+				add_to_temp_variable = { old_orthodox_value = TUR_arab_orthodox_minority_value_beirut }
+				set_temp_variable = { TRS_fund_regional_churches_orthodox = old_orthodox_value }
+				divide_temp_variable = { TRS_fund_regional_churches_orthodox = TUR_orthodox_population_factor_new }
+
+				set_temp_variable = { old_catholic_value = TUR_arab_catholic_minority_value_beirut }
+				set_temp_variable = { TRS_fund_regional_churches_catholic = old_catholic_value }
+				divide_temp_variable = { TRS_fund_regional_churches_catholic = TUR_catholic_population_factor_new }
+
+				set_temp_variable = { TRS_fund_regional_churches2 = TRS_fund_regional_churches_catholic }
+				add_to_temp_variable = { TRS_fund_regional_churches2 = TRS_fund_regional_churches_orthodox }
+				add_to_temp_variable = { TRS_fund_regional_churches2 = TRS_fund_regional_churches_armenian }
+
+				subtract_from_temp_variable = { TRS_fund_regional_churches2 = TRS_fund_regional_churches_old }
 			}
-			hidden_effect = { add_to_variable = { TUR_arab_temp_variable = -0.001 } }
+			custom_effect_tooltip = TRS_fund_regional_churches_tt2
 			TUR_reload_minority_values = yes
 		}
 		ai_will_do = {
@@ -470,22 +523,22 @@ TUR_millet_system = {
 	TRS_displace_jewish_settlements = {
 		icon = GFX_decision_generic_political_rally
 		allowed = { tag = TRS }
+		targets = { 454 858 }
 		state_target = yes
-		target_trigger = { FROM = { has_dynamic_modifier = { modifier = TUR_jewish_minority } } }
-		highlight_states = { highlight_state_targets = { state = FROM } }
+		target_root_trigger = { has_completed_focus = TUR_deport_jewish_settlements }
 		on_map_mode = map_only
-		visible = {
-			has_completed_focus = TUR_deport_jewish_settlements
-			controls_state = FROM
+		target_trigger = {
 			FROM = {
+				has_dynamic_modifier = { modifier = TUR_jewish_minority }
 				OR = {
-					check_variable = { TUR_ottoman_local_building_slots_factor_jewish < 0 }
-					check_variable = { TUR_ottoman_state_production_speed_buildings_factor_jewish > 0 }
+					check_variable = { TUR_ottoman_local_building_slots_factor_jewish < 0.02 }
+					check_variable = { TUR_ottoman_state_production_speed_buildings_factor_jewish > 0.01 }
 				}
 			}
 		}
+		visible = { controls_state = FROM }
 		days_remove = 60
-		custom_cost_text = decision_cost_CP_25
+		custom_cost_text = decision_cost_CP_10_PP_10
 		custom_cost_trigger = {
 			has_political_power > 9.9
 			command_power > 9.9
@@ -505,56 +558,76 @@ TUR_millet_system = {
 				add_political_power = -10
 			}
 			add_equipment_to_stockpile = { type = train_equipment amount = -5 }
-			hidden_effect = {
-				FROM = {
-					if = {
-						limit = { NOT = { has_variable = TRS_displace_jewish_settlements } }
-						set_temp_variable = { TRS_displace_jewish_settlements = state_population }
-						divide_temp_variable = { TRS_displace_jewish_settlements = -5 }
-						set_temp_variable = { THIS.TRS_displace_jewish_settlements_2 = TRS_displace_jewish_settlements }
-						divide_temp_variable = { THIS.TRS_displace_jewish_settlements_2 = -5 }
-						set_variable = { TRS_displace_jewish_settlements = state_population }
-						divide_variable = { TRS_displace_jewish_settlements = -5 }
-						set_variable = { TRS_displace_jewish_settlements_2 = TRS_displace_jewish_settlements }
-						divide_variable = { TRS_displace_jewish_settlements_2 = -5 }
-					}
-				}
-			}
 		}
 		remove_effect = {
 			add_equipment_to_stockpile = { type = train_equipment amount = 5 }
-			FROM = {
-				TUR_reduce_jewish_judaic_level = yes
-				if = {
-					limit = { NOT = { has_variable = TRS_displace_jewish_settlements } }
-					set_temp_variable = { TRS_displace_jewish_settlements = state_population }
-					divide_temp_variable = { TRS_displace_jewish_settlements = -5 }
-					set_temp_variable = { global.TRS_displace_jewish_settlements_2 = TRS_displace_jewish_settlements }
-					divide_temp_variable = { global.TRS_displace_jewish_settlements_2 = -5 }
-				}
-				add_manpower = TRS_displace_jewish_settlements
-				every_state = {
-					limit = {
-						is_controlled_by = ROOT
-						all_neighbor_state = { controller = { NOT = { has_war_with = ROOT } } }
+			TUR_reduce_jewish_effect = yes
+			if = {
+				limit = { NOT = { has_variable = TRS_displace_jewish_settlements } }
+				set_temp_variable = { TRS_displace_jewish_settlements = FROM.state_population }
+				divide_temp_variable = { TRS_displace_jewish_settlements = -5 }
+				set_temp_variable = { TRS_displace_jewish_settlements_2 = TRS_displace_jewish_settlements }
+				divide_temp_variable = { TRS_displace_jewish_settlements_2 = -5 }
+			}
+			FROM = { add_manpower = TRS_displace_jewish_settlements }
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						state = 454
+						state = 858
 					}
-					random_select_amount = 5
-					if = {
-						limit = { NOT = { has_variable = TRS_displace_jewish_settlements } }
-						add_manpower = global.TRS_displace_jewish_settlements_2
-					}
-					else = { add_manpower = TRS_displace_jewish_settlements_2 }
 				}
+				add_manpower = TRS_displace_jewish_settlements_2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						state = 454
+						state = 858
+					}
+					all_neighbor_state = { controller = { NOT = { has_war_with = ROOT } } }
+				}
+				add_manpower = TRS_displace_jewish_settlements_2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						state = 454
+						state = 858
+					}
+					all_neighbor_state = { controller = { NOT = { has_war_with = ROOT } } }
+				}
+				add_manpower = TRS_displace_jewish_settlements_2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						state = 454
+						state = 858
+					}
+					all_neighbor_state = { controller = { NOT = { has_war_with = ROOT } } }
+				}
+				add_manpower = TRS_displace_jewish_settlements_2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						state = 454
+						state = 858
+					}
+					all_neighbor_state = { controller = { NOT = { has_war_with = ROOT } } }
+				}
+				add_manpower = TRS_displace_jewish_settlements_2
 			}
 			if = {
-				limit = { FROM = { state = 454 } }
-				custom_effect_tooltip = TUR_increase_jerusalem_centralization_5
-				add_to_variable = { global.TUR_jerusalem_centralization = 5 }
-			}
-			if = {
-				limit = { FROM = { state = 858 } }
+				limit = { FROM = { has_state_flag = TUR_beirut } }
 				custom_effect_tooltip = TUR_increase_beirut_centralization_5
 				add_to_variable = { global.TUR_beirut_centralization = 5 }
+			}
+			if = {
+				limit = { FROM = { has_state_flag = TUR_jerusalem } }
+				custom_effect_tooltip = TUR_increase_jerusalem_centralization_5
+				add_to_variable = { global.TUR_jerusalem_centralization = 5 }
 			}
 			TUR_reload_minority_values = yes
 			ottoman_centralization_variable_check = yes

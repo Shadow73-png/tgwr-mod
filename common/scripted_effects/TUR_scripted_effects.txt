@@ -11021,7 +11021,6 @@ TUR_create_armenian_vilayet = {
 		reserve_dynamic_country = yes
 		set_country_flag = western_armenia
 		set_country_flag = is_ottoman_autonomous_vilayet
-		set_country_flag = has_adopted_TUR_minority_system
 		hidden_effect = {
 			set_cosmetic_tag = ARM_vilayet
 			set_stability = 62
@@ -16623,6 +16622,41 @@ TUR_remove_georgians_effect = {
 	multiply_temp_variable = { TUR_deport_georgians = TUR_apostolic_population_factor_new }
 	divide_temp_variable = { TUR_deport_georgians = -100 }
 	custom_effect_tooltip = TUR_deport_georgians_tt
+	force_update_dynamic_modifier = yes
+}
+
+TUR_reduce_jewish_effect = {
+	FROM = {
+		custom_effect_tooltip = TUR_modify_jewish_minority
+		if = {
+			limit = {
+				check_variable = { TUR_jewish_judaic_state_variable < -0.3 }
+				OR = {
+					check_variable = { TUR_ottoman_local_building_slots_factor_jewish < 0.02 }
+					check_variable = { TUR_ottoman_state_production_speed_buildings_factor_jewish > 0.01 }
+				}
+			}
+			custom_effect_tooltip = TUR_minority_local_building_slots_factor1
+			add_to_variable = { TUR_ottoman_local_building_slots_factor_jewish = 0.02 }
+			custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor1
+			add_to_variable = { TUR_ottoman_state_production_speed_buildings_factor_jewish = -0.01 }
+		}
+		else = {
+			hidden_effect = {
+				set_temp_variable = { ROOT.TUR_minority_local_building_slots_factor_jewish = FROM.TUR_ottoman_local_building_slots_factor_jewish }
+				multiply_temp_variable = { ROOT.TUR_minority_local_building_slots_factor_jewish = -1 }
+				set_temp_variable = { ROOT.TUR_minority_state_production_speed_buildings_factor_jewish = FROM.TUR_ottoman_state_production_speed_buildings_factor_jewish }
+				multiply_temp_variable = { ROOT.TUR_minority_state_production_speed_buildings_factor_jewish = -1 }
+			}
+			custom_effect_tooltip = TUR_minority_local_building_slots_factor_jewish
+			set_variable = { TUR_ottoman_local_building_slots_factor_jewish = 0 }
+			custom_effect_tooltip = TUR_minority_state_production_speed_buildings_factor_jewish
+			set_variable = { TUR_ottoman_state_production_speed_buildings_factor_jewish = 0 }
+		}
+		clamp_variable = { var = TUR_ottoman_local_building_slots_factor_jewish max = 0 }
+		clamp_variable = { var = TUR_ottoman_state_production_speed_buildings_factor_jewish min = 0 }
+		custom_effect_tooltip = empty_space
+	}
 	force_update_dynamic_modifier = yes
 }
 

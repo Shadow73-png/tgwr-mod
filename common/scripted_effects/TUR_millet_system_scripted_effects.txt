@@ -7524,6 +7524,10 @@ TUR_minority_system_aleppo = {
 				}
 				multiply_variable = { ROOT.TUR_armenian_apostolic_minority_value_aleppo = TUR_armenian_population_factor_new }
 				multiply_variable = { ROOT.TUR_armenian_apostolic_minority_value_aleppo = TUR_apostolic_population_factor_new }
+				if = {
+					limit = { has_variable = TUR_apostolic_population_factor_aleppo }
+					divide_variable = { ROOT.TUR_armenian_apostolic_minority_value_aleppo = TUR_apostolic_population_factor_aleppo }
+				}
 				divide_variable = { ROOT.TUR_armenian_apostolic_minority_value_aleppo = 100 }
 			}
 			else = { clear_variable = ROOT.TUR_armenian_apostolic_minority_value_aleppo }
@@ -7562,6 +7566,10 @@ TUR_minority_system_aleppo = {
 					}
 				}
 				multiply_variable = { ROOT.TUR_greek_orthodox_minority_value_aleppo = TUR_greek_population_factor_new }
+				if = {
+					limit = { has_variable = TUR_orthodox_population_factor_aleppo }
+					divide_variable = { ROOT.TUR_greek_orthodox_minority_value_aleppo = TUR_orthodox_population_factor_aleppo }
+				}
 				multiply_variable = { ROOT.TUR_greek_orthodox_minority_value_aleppo = TUR_orthodox_population_factor_new }
 				divide_variable = { ROOT.TUR_greek_orthodox_minority_value_aleppo = 100 }
 			}
@@ -8203,7 +8211,7 @@ TUR_minority_system_beirut = {
 				divide_variable = { ROOT.TUR_arab_sunni_minority_value_beirut = 100 }
 			}
 			else = { clear_variable = ROOT.TUR_arab_sunni_minority_value_beirut }
-			if = { #BEIRUT shia ARAB
+			if = { #BEIRUT SHIA ARAB
 				limit = {
 					any_of_scopes = {
 						TUR_is_controlled_by_us_or_committee_government = yes
@@ -8242,7 +8250,7 @@ TUR_minority_system_beirut = {
 				divide_variable = { ROOT.TUR_arab_shia_minority_value_beirut = 100 }
 			}
 			else = { clear_variable = ROOT.TUR_arab_shia_minority_value_beirut }
-			if = { #BEIRUT orthodox ARAB
+			if = { #BEIRUT ORTHODOX ARAB
 				limit = {
 					any_of_scopes = {
 						TUR_is_controlled_by_us_or_committee_government = yes
@@ -8278,10 +8286,14 @@ TUR_minority_system_beirut = {
 				}
 				multiply_variable = { ROOT.TUR_arab_orthodox_minority_value_beirut = TUR_arab_population_factor_new }
 				multiply_variable = { ROOT.TUR_arab_orthodox_minority_value_beirut = TUR_orthodox_population_factor_new }
+				if = {
+					limit = { has_variable = TUR_orthodox_population_factor_aleppo }
+					divide_variable = { ROOT.TUR_arab_orthodox_minority_value_beirut = TUR_orthodox_population_factor_beirut }
+				}
 				divide_variable = { ROOT.TUR_arab_orthodox_minority_value_beirut = 100 }
 			}
 			else = { clear_variable = ROOT.TUR_arab_orthodox_minority_value_beirut }
-			if = { #BEIRUT catholic ARAB
+			if = { #BEIRUT CATHOLIC ARAB
 				limit = {
 					any_of_scopes = {
 						TUR_is_controlled_by_us_or_committee_government = yes
@@ -8317,6 +8329,10 @@ TUR_minority_system_beirut = {
 				}
 				multiply_variable = { ROOT.TUR_arab_catholic_minority_value_beirut = TUR_arab_population_factor_new }
 				multiply_variable = { ROOT.TUR_arab_catholic_minority_value_beirut = TUR_catholic_population_factor_new }
+				if = {
+					limit = { has_variable = TUR_catholic_population_factor_beirut }
+					divide_variable = { ROOT.TUR_arab_catholic_minority_value_beirut = TUR_catholic_population_factor_beirut }
+				}
 				divide_variable = { ROOT.TUR_arab_catholic_minority_value_beirut = 100 }
 			}
 			else = { clear_variable = ROOT.TUR_arab_catholic_minority_value_beirut }

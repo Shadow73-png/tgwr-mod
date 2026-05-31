@@ -1408,7 +1408,9 @@ TGWR_great_power_politics = {
 TUR_millet_system = {
 	TUR_looming_rebellion_dummy = {
 		icon = GFX_decision_SWI_consolidate_council_power
-		allowed = { original_tag = TUR }
+		allowed = { always = yes }
+		visible = { TUR_has_minority_system = yes }
+		priority = 100
 		available = {
 			any_owned_state = {
 				TUR_revolt_decision_trigger = yes
