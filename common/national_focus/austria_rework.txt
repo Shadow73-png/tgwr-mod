@@ -1145,6 +1145,8 @@ focus_tree = {
 			}
 			}
 			has_global_flag = AUS_reforms_for_czechs_education_passed
+			has_country_flag = AUS_flag_prague_uni_permitted
+			has_country_flag = AUS_flag_agree_demands_224
 		}
 		completion_reward = {
 		}
@@ -1391,8 +1393,32 @@ focus_tree = {
 		}
 		completion_reward = {
 			unlock_decision_tooltip = {
-				decision = AUS_permit_minority_universities
-				show_effect_tooltip = yes
+				decision = AUS_permit_prague_university
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_permit_ukranian_university
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_permit_italian_university
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_permit_ruthenian_university
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_permit_south_slavic_university
+			}
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				custom_effect_tooltip = AUS_modify_eco.tt
+				add_to_variable = {
+					AUS_ep_research_speed = 0.01
+					tooltip = research_speed_factor_tt
+				}
+				custom_effect_tooltip = AUS_modify_aps.tt
+				add_to_variable = {
+					AUS_aps_dem_gain = 0.01
+					tooltip = democratic_drift
+				}
 			}
 		}
 		ai_will_do = {
