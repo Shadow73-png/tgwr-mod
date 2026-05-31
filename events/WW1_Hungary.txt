@@ -37,17 +37,18 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	immediate = {
-		set_country_flag = HUN_1910_elections_done
 		hidden_effect = {
-			country_event = {
-				id = ww1_hungary.38
-				days = 45
-			}
+			set_country_flag = HUN_1910_elections_done
 		}
 	}
 	##the national work party is elected
 	option = {
 		name = ww1_hungary_auh.1.a
+		trigger = {
+			NOT = {
+				has_completed_focus = HUN_mend_the_rapture
+			}
+		}
 		custom_effect_tooltip = historical_tt
 		set_country_flag = HUN_1910_elections_NMP
 		set_country_flag = HUN_national_work_party_yes	
@@ -59,6 +60,10 @@ country_event = {
 		}
 		hidden_effect = {
 			country_event = ww1_hungary.59
+			country_event = {
+				id = ww1_hungary.38
+				days = 45
+			}
 			uncomplete_national_focus = {
 				focus = HUN_mend_the_rapture
 			}
@@ -1620,7 +1625,20 @@ country_event = {
 country_event = {
 	id = ww1_hungary.24
 	title = ww1_hungary.24.t
-	desc = ww1_hungary.24.d
+	desc = { #historical
+		text = ww1_hungary.24.d
+		trigger = {
+			NOT = {
+				has_completed_focus = HUN_corner_nmp_elites
+			}
+		}
+	}
+	desc = { 
+		text = ww1_hungary.24.da
+		trigger = {
+			has_completed_focus = HUN_corner_nmp_elites
+		}
+	}
 	is_triggered_only = yes
 	fire_only_once = yes
 	trigger = {
@@ -1629,8 +1647,26 @@ country_event = {
 		}
 	}
 	picture = GFX_report_event_lukacs_sued
-	option = {
+	option = { #historical
+		trigger = {
+			NOT = {
+				has_completed_focus = HUN_corner_nmp_elites
+			}
+		}
 		name = ww1_hungary.24.a
+		add_political_power = -150
+		activate_mission = HUN_laszlo_lukacs_case
+		add_country_leader_trait = corrupted_minister
+		add_to_variable = {
+			HUN_national_work_party_authority_var = -50
+			tooltip = HUN_modify_national_work_party_tt
+		}
+	}
+	option = {
+		name = ww1_hungary.24.b
+		trigger = {
+			has_completed_focus = HUN_corner_nmp_elites
+		}
 		add_political_power = -150
 		activate_mission = HUN_laszlo_lukacs_case
 		add_country_leader_trait = corrupted_minister
@@ -1648,8 +1684,18 @@ country_event = {
 	desc = {
 		text = ww1_hungary.25.d
 		trigger = {
-			check_variable = {
-				HUN_national_work_party_authority_var < 200
+			if = {
+				limit = { 
+					has_country_flag = HUN_national_work_party_yes
+				}
+				check_variable = {
+					HUN_national_work_party_authority_var < 200
+				}
+				else = {
+					check_variable = {
+						HUN_nmp_seats < 200
+					}
+				}
 			}
 		}
 	}
@@ -1669,17 +1715,41 @@ country_event = {
 	option = {
 		name = ww1_hungary.25.a
 		trigger = {
-			check_variable = {
-				HUN_national_work_party_authority_var < 200
+			if = {
+				limit = { 
+					has_country_flag = HUN_national_work_party_yes
+				}
+				check_variable = {
+					HUN_national_work_party_authority_var < 200
+				}
+				else = {
+					check_variable = {
+						HUN_nmp_seats < 200
+					}
+				}
 			}
 		}
-		add_to_variable = {
-			HUN_national_work_party_authority_var = -75
-		}
-		hidden_effect = {
-			country_event = {
-				id = ww1_hungary.26
-				days = 10
+		if = {
+			limit = { 
+				has_country_flag = HUN_national_work_party_yes
+			}
+			add_to_variable = {
+				HUN_national_work_party_authority_var = -75
+			}
+			hidden_effect = {
+				country_event = {
+					id = ww1_hungary.26
+					days = 10
+				}
+			}
+			else = {
+				add_to_variable = {
+					HUN_oa_seats = 30
+				}
+				add_to_variable = {
+					HUN_nmp_seats = -30
+				}
+				custom_effect_tooltip = ww1_hungary.25.a.tt
 			}
 		}
 	}
@@ -1687,8 +1757,37 @@ country_event = {
 	option = {
 		name = ww1_hungary.25.b
 		trigger = {
-			check_variable = {
-				HUN_national_work_party_authority_var > 200
+			if = {
+				limit = { 
+					has_country_flag = HUN_national_work_party_yes
+				}
+				check_variable = {
+					HUN_national_work_party_authority_var > 200
+				}
+				else = {
+					check_variable = {
+						HUN_nmp_seats > 200
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_country_flag = HUN_national_work_party_yes
+			}
+			add_to_variable = {
+				HUN_national_work_party_authority_var = 5-
+				tooltip = HUN_modify_national_work_party_tt
+			}
+			round_variable = HUN_national_work_party_authority_var
+			else = {
+				add_to_variable = {
+					HUN_oa_seats = 30
+				}
+				add_to_variable = {
+					HUN_nmp_seats = -30
+				}
+				custom_effect_tooltip = ww1_hungary.25.a.tt
 			}
 		}
 	}

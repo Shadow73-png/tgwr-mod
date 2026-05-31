@@ -118,6 +118,7 @@ HUN_voting_flag = {
 	set_country_flag = HUN_is_voting_in_parliment
 }
 HUN_reset_in_favour_voters = {
+	HUN_remove_sways = yes 
 	set_variable = {
 		HUN_parliment_in_favour_voters = 0
 	}
@@ -183,8 +184,11 @@ HUN_voting_on_oa_favour_law = {
 	set_temp_variable = {
 		HUN_oa_seats_temp = HUN_oa_seats
 	}
+	multiply_temp_variable = {
+		HUN_oa_seats_temp = 0.9
+	}
 	add_to_temp_variable = {
-		HUN_oa_seats_temp = 182 #Broad support
+		HUN_oa_seats_temp = 150 #Broad support
 	}
 	add_to_variable = {
 		HUN_parliment_in_favour_voters = HUN_oa_seats_temp
@@ -235,4 +239,13 @@ HUN_voting_on_army_bill_reg = {
 		HUN_parliment_in_favour_voters = HUN_nmp_seats_temp
 	}
 	round_variable = HUN_parliment_in_favour_voters
+}
+HUN_remove_sways = {
+	clr_country_flag = HUN_oa_opps_swayed
+	clr_country_flag = HUN_nmp_opps_swayed
+	clr_country_flag = HUN_f48p_opps_swayed
+}
+HUN_clr_opps = {
+	clr_country_flag = HUN_f48p_in_opposition
+	clr_country_flag = HUN_nmp_in_opposition
 }

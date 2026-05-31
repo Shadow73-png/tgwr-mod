@@ -2847,6 +2847,38 @@ focus_tree = {
 		}
 		completion_reward = { }
 	}
+	#The Aristicrat Rival
+	focus = {
+		id = HUN_the_aristocrat_rival
+		icon = GFX_focus_PER_embrace_opulence
+		cost = 5
+		relative_position_id = HUN_the_cenrist_within_the_moderates
+		x = 0
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_POLITICAL_CHARACTER
+		}
+		available = {
+			has_global_flag = HUN_compromise_gov_in_charge
+			has_country_leader = {
+				character = HUN_janos_hadik
+			}
+			OR = {
+				has_global_flag = great_war
+				AUS = {
+					has_country_leader = {
+						character = AUH_franz_ferdinand
+					}
+				}
+			}
+		}
+		prerequisite = {
+			focus = HUN_the_cenrist_within_the_moderates
+		}
+		completion_reward = { }
+	}
 	#Distinguish Hungarian Industry
 	focus = {
 		id = HUN_distinguish_hungarian_industry
@@ -2869,7 +2901,10 @@ focus_tree = {
 					character = HUN_janos_hadik
 				}
 			}
-			#OA needs to control a certain amount of seats
+			check_variable = {
+				HUN_oa_seats > 80
+				tooltip = HUN_oa_seats_greater_than.tt
+			}
 		}
 		prerequisite = {
 			focus = HUN_the_cenrist_within_the_moderates
@@ -2918,7 +2953,10 @@ focus_tree = {
 					character = HUN_janos_hadik
 				}
 			}
-			#OA needs to control a certain amount of seats
+			check_variable = {
+				HUN_oa_seats > 100
+				tooltip = HUN_oa_seats_greater_than.tt
+			}
 		}
 		prerequisite = {
 			focus = HUN_distinguish_hungarian_industry
@@ -3165,12 +3203,36 @@ focus_tree = {
 					character = HUN_janos_hadik
 				}
 			}
+			has_character = HUN_laszlo_luckacs
+			NOT = {
+				has_completed_focus = HUN_lukacs_transition
+			}
 		}
+		bypass_if_unavailable = yes
 		prerequisite = {
 			focus = HUN_build_a_moderate_coalition
 		}
 		completion_reward = { 
-			#Probe into Laszlo Lukacs for fraud
+			if = {
+				limit = { 
+					NOT = {
+						has_completed_focus = HUN_lukacs_transition
+					}
+				}
+				unlock_decision_tooltip = HUN_probe_into_laszlo_lukacs
+				custom_effect_tooltip = when_taken
+				effect_tooltip = {
+					activate_mission = HUN_laszlo_lukacs_case2
+				}
+				custom_effect_tooltip = empty_space_tt
+			}
+			add_to_variable = {
+				HUN_oa_seats = 15
+			}
+			add_to_variable = {
+				HUN_nmp_seats = -15
+			}
+			custom_effect_tooltip = HUN_corner_nmp_elites.tt
 		}
 	}
 	#Protect Parliment's Sanctity
@@ -3218,6 +3280,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_protect_parliment_sanctity
+		}
+		prerequisite = {
+			focus = HUN_corner_nmp_elites
 		}
 		completion_reward = { }
 	}
@@ -3391,6 +3456,10 @@ focus_tree = {
 					character = HUN_janos_hadik
 				}
 			}
+			check_variable = {
+				HUN_oa_seats > 75
+				tooltip = HUN_oa_seats_greater_than.tt
+			}
 		}
 		prerequisite = {
 			focus = HUN_protect_parliment_sanctity
@@ -3403,8 +3472,8 @@ focus_tree = {
 		icon = GFX_focus_ARG_keep_it_in_the_party
 		cost = 3
 		relative_position_id = HUN_befriend_county_elites
-		x = 0
-		y = 2
+		x = -1
+		y = 1
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
@@ -3422,6 +3491,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_befriend_county_elites
+		}
+		prerequisite = {
+			focus = HUN_reform_floor_rules
 		}
 		completion_reward = { }
 	}
@@ -4143,7 +4215,21 @@ focus_tree = {
 			FOCUS_FILTER_STABILITY
 		}
 		available = {
-			
+			if = {
+				limit = { 
+					has_global_flag = HUN_compromise_gov_in_charge
+				}
+				OR = {
+					check_variable = {
+						HUN_oa_seats > 80
+						tooltip = HUN_oa_seats_greater_than.tt
+					}
+					check_variable = {
+						HUN_nmp_seats > 200
+						tooltip = HUN_nmp_seats_greater_than.tt
+					}
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_continue_protectionist_policies
