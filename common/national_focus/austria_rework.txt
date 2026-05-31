@@ -1340,6 +1340,30 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = ww1_austriahungary.212
+			unlock_decision_tooltip = {
+				decision = AUS_permit_ukranian_university
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_broader_ruthenian_cultural_and_educational_autonomy
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_promise_minimum_seats_for_ukranians
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_reopen_ruthenian_diet
+				show_effect_tooltip = yes
+			}
+			add_to_variable = {
+				AUS_ruthenian_loyalty = 20
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_pole_loyalty = -10
+				tooltip = AUS_loyalty_pole_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -1865,11 +1889,18 @@ focus_tree = {
 		}
 		bypass_if_unavailable = yes
 		completion_reward = {
-			if = {
-				limit = {
-					has_idea = civilian_economy
-				}
-				add_ideas = low_economic_mobilisation
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+			add_to_variable = {
+				AUS_ep_construction_speed = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.05
+				tooltip = consumer_goods_factor_tt
 			}
 		}
 		ai_will_do = {
