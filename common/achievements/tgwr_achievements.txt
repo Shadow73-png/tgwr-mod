@@ -438,7 +438,6 @@ prussia_of_the_balkans_ww1 = {
 		has_war = no
 		has_country_flag = great_war_winner
 		owns_state = 345
-		owns_state = 1255
 		owns_state = 347
 		owns_state = 1018
 		owns_state = 805
@@ -495,7 +494,11 @@ viva_il_re = {
 	happened = {
 		is_subject = no
 		has_civil_war = no
-		
+		has_completed_focus = ITA_empower_the_king
+		has_country_leader = {
+			character = ITA_vittorio_emanuele_iii
+			ruling_only = yes
+		}
 	}
 }
 liberation_day = {
@@ -533,26 +536,6 @@ ultimate_balancing_act = {
 		has_completed_focus = ITA_ally_the_catholic_electoral_union
 	}
 }
-libya_with_a_side_of_greek = {
-	possible = {
-		# is_ironman = yes
-		difficulty > 1
-		has_start_date < 1914.1.1
-		original_tag = ITA
-		has_any_custom_difficulty_setting = no
-		game_rules_allow_achievements = yes
-	}
-	happened = {
-		has_global_flag = libyan_crisis_resolved
-		owns_state = 448
-		owns_state = 450
-		owns_state = 1060
-		owns_state = 1157
-		owns_state = 1061
-		owns_state = 899
-		owns_state = 164
-	}
-}
 cadornas_italy = {
 	possible = {
 		# is_ironman = yes
@@ -586,5 +569,69 @@ greatest_romania = {
 		has_completed_focus = ROM_ignore_the_entente_protests
 		has_subject = HUN
 		ROM_owns_controls_achievement_trigger_states = yes
+	}
+}
+
+
+#Austrian achievements
+
+austrian_netherlands = {
+	possible = {
+		# is_ironman = yes
+		difficulty > 1
+		has_start_date < 1910.5.2
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		original_tag = AUS
+	}
+
+	happened = {
+		is_subject = no
+		OR = {
+			AND = {
+				owns_state = 6
+				owns_state = 34
+				owns_state = 1092
+			}
+			HOL = {
+				is_subject_of = AUS
+				OR = {
+					owns_state = 7
+					AND = {
+						owns_state = 6
+						owns_state = 34
+					}
+				}
+			}
+			BEL = {
+				is_subject_of = AUS
+				owns_state = 6
+				owns_state = 34
+			}
+		}
+	}
+}
+under_new_management = {
+	possible = {
+		# is_ironman = yes
+		difficulty > 1
+		has_start_date < 1910.5.2
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		original_tag = SER
+	}
+
+	happened = {
+		is_subject_of = AUS
+		has_country_flag = AUH_serbia_governate_flag
+		all_state = {
+			is_core_of = SER
+			NOT = {
+				controller = {
+					is_ally_with = ROOT
+				}
+			}
+			is_owned_by = ROOT
+		}
 	}
 }
