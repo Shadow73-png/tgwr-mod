@@ -1835,7 +1835,7 @@ focus_tree = {
 		bypass_if_unavailable = yes
 		completion_reward = {
 			add_to_variable = {
-				AUS_czechoslovak_loyalty = -5
+				AUS_czechoslovak_loyalty = -15
 				tooltip = AUS_loyalty_czechoslovakia_tt
 			}
 			AUS_update_state_of_realm = yes
@@ -1848,10 +1848,28 @@ focus_tree = {
 				mission = AUS_coalition_dissent_mission
 				days = -100
 			}
-			custom_effect_tooltip = AUS_modify_aps.tt
-			add_to_variable = {
-				AUS_aps_consumer_goods = -0.1
-				tooltip = consumer_goods_factor_tt
+			if = {
+				limit = {
+					has_country_flag = AUS_flag_agree_demands_224
+				}
+				custom_effect_tooltip = AUS_modify_aps.tt
+				add_to_variable = {
+					AUS_aps_consumer_goods = -0.1
+					tooltip = consumer_goods_factor_tt
+				}
+				9 = {
+					add_dynamic_modifier = {
+						modifier = generic_local_investments
+						days = 180
+					}
+				}
+			}
+			else = {
+				custom_effect_tooltip = AUS_modify_aps.tt
+				add_to_variable = {
+					AUS_aps_consumer_goods = -0.15
+					tooltip = consumer_goods_factor_tt
+				}
 			}
 			custom_effect_tooltip = AUS_taxes_bohemia_tt
 		}
