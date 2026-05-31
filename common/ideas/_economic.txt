@@ -74,12 +74,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.215
@@ -150,12 +150,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.215
@@ -200,12 +200,12 @@ ideas = {
 			allowed_to_remove = {
 				OR = {
 					threat > 0.75
-					is_in_major_war = yes
+					has_war = yes 
 				}
 				if = {
 					limit = { original_tag = USA }
 					OR = {
-						is_in_major_war = yes
+						has_war = yes
 						has_completed_focus = USA_revision_of_the_military_budget
 						has_completed_focus = USA_arms_tax
 					}
@@ -237,12 +237,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.215
@@ -283,12 +283,12 @@ ideas = {
 				OR = {
 					threat > 0.75
 					has_war_support > 0.75
-					is_in_major_war = yes
+					has_war = yes					
 				}
 				if = {
 					limit = { original_tag = USA }
 					OR = {
-						is_in_major_war = yes
+						has_war = yes
 						has_completed_focus = USA_revision_of_the_military_budget
 						has_completed_focus = USA_arms_tax
 					}
@@ -324,12 +324,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.215
@@ -457,10 +457,10 @@ ideas = {
 				}
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}
 			}
@@ -490,12 +490,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.215
@@ -513,7 +513,7 @@ ideas = {
 			available = {
 				has_war_support > 0.15
 				OR = {
-					is_in_major_war = yes				
+					has_war = yes
 					threat > 0.10
 					has_government = fascism
 					custom_trigger_tooltip = {
@@ -527,7 +527,7 @@ ideas = {
 							is_GER_a_monarchy = yes
 						}
 						AND = {
-							is_in_major_war = yes			
+							has_war = yes
 							OR = {
 								has_completed_focus = GER_regulating_the_war_economy
 								has_completed_focus = GER_war_socialism
@@ -541,7 +541,12 @@ ideas = {
 					}
 				}
 				NOT = {
-					has_country_flag = cant_change_from_civilian_economy				
+					has_country_flag = cant_change_from_civilian_economy
+				}
+				hidden_trigger = {
+					NOT = {
+						has_idea = FRA_wadai_war
+					}	
 				}
 				if = {
 					limit = {
@@ -559,7 +564,7 @@ ideas = {
 				else_if = {
 					limit = { original_tag = LUX }
 					OR = {
-						is_in_major_war = yes
+						has_war = yes
 						NOT = {
 							has_idea = LUX_london_treaty
 						}
@@ -583,10 +588,10 @@ ideas = {
 				}
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}
 			}
@@ -616,12 +621,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.215
@@ -669,7 +674,7 @@ ideas = {
 			available = {
 				has_war_support > 0.25
 				OR = {
-					is_in_major_war = yes
+					has_war = yes
 					threat > 0.25
 					has_government = fascism
 					custom_trigger_tooltip = {
@@ -679,6 +684,11 @@ ideas = {
 				}		
 				NOT = {
 					has_country_flag = cant_change_from_civilian_economy
+				}
+				hidden_trigger = {
+					NOT = {
+						has_idea = FRA_wadai_war
+					}
 				}
 				if = {
 					limit = { original_tag = ENG } 
@@ -710,7 +720,7 @@ ideas = {
 				else_if = {
 					limit = { original_tag = LUX }
 					OR = {
-						is_in_major_war = yes
+						has_war = yes
 						NOT = {
 							has_idea = LUX_london_treaty
 						}
@@ -734,10 +744,10 @@ ideas = {
 				}
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}
 			}
@@ -767,12 +777,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.215
@@ -818,7 +828,7 @@ ideas = {
 			
 			available = {
 				
-				is_in_major_war = yes
+				has_war = yes
 				has_war_support > 0.5
 				if = {
 					limit = {
@@ -877,7 +887,7 @@ ideas = {
 				else_if = {
 					limit = { original_tag = LUX }
 					OR = {
-						is_in_major_war = yes
+						has_war = yes
 						NOT = {
 							has_idea = LUX_london_treaty
 						}
@@ -901,10 +911,10 @@ ideas = {
 				}
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}
 			}
@@ -934,12 +944,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.215
@@ -961,10 +971,10 @@ ideas = {
 				}
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}
 			}
@@ -1003,7 +1013,7 @@ ideas = {
 		tot_economic_mobilisation = {
 			
 			available = {
-				is_in_major_war = yes
+				has_war = yes
 				has_war_support > 0.8
 				if = {
 					limit = {
@@ -1062,7 +1072,7 @@ ideas = {
 				else_if = {
 					limit = { original_tag = LUX }
 					OR = {
-						is_in_major_war = yes
+						has_war = yes
 						NOT = {
 							has_idea = LUX_london_treaty
 						}
@@ -1086,10 +1096,10 @@ ideas = {
 				}
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}
 			}
@@ -1119,12 +1129,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.215
@@ -1146,10 +1156,10 @@ ideas = {
 				}
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}
 			}
@@ -1291,10 +1301,10 @@ ideas = {
 				}	
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}		
 			}
@@ -1338,7 +1348,7 @@ ideas = {
 			ai_will_do = {
 				factor = 1
 				modifier = {
-					is_in_major_war = yes
+					has_war = yes
 					factor = 0
 				}
 				modifier = {
@@ -1372,12 +1382,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.216
@@ -1424,10 +1434,10 @@ ideas = {
 				}	
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}	
 			}
@@ -1439,7 +1449,7 @@ ideas = {
 			ai_will_do = {
 				factor = 1
 				modifier = {
-					is_in_major_war = yes
+					has_war = yes
 					has_idea = free_trade
 					factor = 40
 				}
@@ -1474,12 +1484,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.216
@@ -1511,10 +1521,10 @@ ideas = {
 				}
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}
 			}
@@ -1588,12 +1598,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.216
@@ -1610,15 +1620,8 @@ ideas = {
 					limit = { has_idea = PAP_captivus_vaticani }
 					has_idea = PAP_captivus_vaticani
 				}
-				else_if = {
-					limit = {
-						has_idea = isolation 
-						NOT = { original_tag = USA }
-					}
-					has_idea = isolation
-				}
 				else = {
-					is_in_major_war = yes
+					has_war = yes
 					OR = {
 						has_government = fascism
 						custom_trigger_tooltip = {
@@ -1651,10 +1654,10 @@ ideas = {
 				}
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}
 			}
@@ -1680,10 +1683,10 @@ ideas = {
 				}	
 				else_if = {
 					limit = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 					NOT = {
-						has_idea = AUS_condominum
+						has_idea = AUH_condominium
 					}
 				}
 			}
@@ -1721,12 +1724,12 @@ ideas = {
 							tag = HUN
 						}	
 						any_subject_country = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 					}
 					every_subject_country = {
 						limit = {
-							has_idea = AUS_condominum
+							has_idea = AUH_condominium
 						}
 						country_event = {
 							id = ww1_auh.216
