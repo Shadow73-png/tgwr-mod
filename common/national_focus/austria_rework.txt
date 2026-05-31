@@ -1141,7 +1141,10 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			country_event = ww1_austriahungary.212
+			unlock_decision_tooltip = {
+				decision = AUS_permit_minority_universities
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -5900,6 +5903,20 @@ focus_tree = {
 				category = cat_synth_oil
 			}
 			AUS_update_state_of_realm = yes
+			every_state = {
+				limit = {
+					owner = {
+						tag = AUS
+						is_subject_of = AUS
+					}
+					has_dynamic_modifier = {
+						modifier = refinery_lightly_damaged_modifier
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = refinery_lightly_damaged_modifier
+				}
+			}
 		}
 		ai_will_do = {
 			base = 1

@@ -1581,6 +1581,33 @@ AUS_minorities_mechanic = {
 			}
 		}
 	}
+	AUS_appoint_count_francis_thun = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_global_flag = AUS_unlock_new_boh_governor
+		}
+		priority = 20
+		available = {
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 100
+		}
+		complete_effect = {
+			set_global_flag = AUS_unlock_new_boh_governor2
+		}
+		cost = 5
+		remove_effect = {
+			add_to_variable = {
+				AUS_czechoslovak_loyalty = 10
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			AUS_update_state_of_realm = yes
+		}
+	}
 }
 
 AUH_automatic_mechanics = {
@@ -3406,9 +3433,7 @@ AUH_stitching_the_quilt = {
 			original_tag = AUS
 		}
 		visible = {
-			#has_completed_focus = AUS_autonomy_and_reconciliation
-			always = no
-			#daggie
+			has_completed_focus = AUS_permit_minority_universities
 		}
 		priority = 210
 		available = {
@@ -3918,33 +3943,6 @@ AUH_stitching_the_quilt = {
 			add_to_variable = {
 				AUS_croat_loyalty = 10
 				tooltip = AUS_loyalty_croatian_tt
-			}
-			AUS_update_state_of_realm = yes
-		}
-	}
-	AUS_appoint_count_francis_thun = {
-		icon = GFX_decision_hol_attract_foreign_investors
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_global_flag = AUS_unlock_new_boh_governor
-		}
-		priority = 20
-		available = {
-		}
-		fire_only_once = yes
-		ai_will_do = {
-			base = 100
-		}
-		complete_effect = {
-			set_global_flag = AUS_unlock_new_boh_governor2
-		}
-		cost = 5
-		remove_effect = {
-			add_to_variable = {
-				AUS_czechoslovak_loyalty = 10
-				tooltip = AUS_loyalty_czechoslovakia_tt
 			}
 			AUS_update_state_of_realm = yes
 		}
