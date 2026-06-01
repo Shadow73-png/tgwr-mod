@@ -21347,3 +21347,51 @@ country_event = { #asian corps
 		ai_chance = { base = 100 }
 	}
 }
+
+country_event = { #ask persia to join the war
+	id = ottoman.305
+	title = ottoman.305.t
+	desc = ottoman.305.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty1
+	option = {
+		name = ottoman.305.a
+		FROM = { add_to_faction = PER }
+		hidden_effect = { FROM = { country_event = { id = ottoman.306 hours = 8 } } }
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = ottoman.305.b
+		hidden_effect = { FROM = { country_event = { id = ottoman.307 hours = 8 } } }
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = { #ask senusiyya to join the war yes
+	id = ottoman.306
+	title = ottoman.306.t
+	desc = ottoman.306.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty1
+	option = {
+		name = ottoman.306.a
+		effect_tooltip = { add_to_faction = PER }
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = { #ask senusiyya to join the war np
+	id = ottoman.307
+	title = ottoman.307.t
+	desc = ottoman.307.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty1
+	option = {
+		name = ottoman.307.a
+		ai_chance = { base = 100 }
+	}
+}

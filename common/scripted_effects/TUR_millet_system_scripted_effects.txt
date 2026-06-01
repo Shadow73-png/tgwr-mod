@@ -1448,6 +1448,7 @@ ottoman_centralization_variable_check = {
 		clamp_variable = { var = global.TUR_trabzon_centralization max = global.TUR_trabzon_max_centralization }
 		clamp_variable = { var = global.TUR_sivas_centralization max = global.TUR_sivas_max_centralization }
 		clamp_variable = { var = global.TUR_diyarbakir_centralization max = global.TUR_diyarbakir_max_centralization }
+		clamp_variable = { var = global.TUR_kurdistan_centralization max = global.TUR_kurdistan_max_centralization }
 		clamp_variable = { var = global.TUR_erzurum_centralization max = global.TUR_erzurum_max_centralization }
 		clamp_variable = { var = global.TUR_mamuret_ul_aziz_centralization max = global.TUR_mamuret_ul_aziz_max_centralization }
 		clamp_variable = { var = global.TUR_bitlis_centralization max = global.TUR_bitlis_max_centralization }
@@ -1491,6 +1492,7 @@ ottoman_centralization_variable_check = {
 		clamp_variable = { var = global.TUR_trabzon_centralization min = 0 }
 		clamp_variable = { var = global.TUR_sivas_centralization min = 0 }
 		clamp_variable = { var = global.TUR_diyarbakir_centralization min = 0 }
+		clamp_variable = { var = global.TUR_kurdistan_centralization min = 0 }
 		clamp_variable = { var = global.TUR_erzurum_centralization min = 0 }
 		clamp_variable = { var = global.TUR_mamuret_ul_aziz_centralization min = 0 }
 		clamp_variable = { var = global.TUR_bitlis_centralization min = 0 }
@@ -1754,6 +1756,17 @@ ottoman_centralization_variable_check = {
 		for_each_scope_loop = {
 			array = global.TUR_diyarbakir
 			set_variable = { TUR_vc_effect = ROOT.TUR_diyarbakir_vc_effect }
+		}
+		set_variable = { TUR_kurdistan_vc_effect = global.TUR_kurdistan_centralization }
+		set_variable = { TUR_kurdistan_vc_base = TUR_kurdistan_vc_effect }
+		subtract_from_variable = { TUR_kurdistan_vc_base = 100 }
+		set_variable = { TUR_kurdistan_vc_tt = TUR_kurdistan_vc_base }
+		set_variable = { TUR_kurdistan_vc_tt2 = TUR_kurdistan_vc_tt }
+		multiply_variable = { TUR_kurdistan_vc_tt2 = -1 }
+		divide_variable = { TUR_kurdistan_vc_tt = 2 }
+		for_each_scope_loop = {
+			array = global.TUR_kurdistan
+			set_variable = { TUR_vc_effect = ROOT.TUR_kurdistan_vc_effect }
 		}
 		set_variable = { TUR_erzurum_vc_effect = global.TUR_erzurum_centralization }
 		set_variable = { TUR_erzurum_vc_base = TUR_erzurum_vc_effect }
@@ -2461,6 +2474,10 @@ TUR_enact_vilayet_with_at_least_15_centralization = {
 		custom_effect_tooltip = TUR_decrease_diyarbakir_centralization_15
 	}
 	if = {
+		limit = { has_country_flag = TUR_kurdistan_centralization_select }
+		custom_effect_tooltip = TUR_decrease_kurdistan_centralization_15
+	}
+	if = {
 		limit = { has_country_flag = TUR_bitlis_centralization_select }
 		custom_effect_tooltip = TUR_decrease_bitlis_centralization_15
 	}
@@ -2557,6 +2574,7 @@ TUR_reload_vilayet_with_at_least_15_centralization = {
 		clr_country_flag = TUR_trabzon_centralization_select
 		clr_country_flag = TUR_sivas_centralization_select
 		clr_country_flag = TUR_diyarbakir_centralization_select
+		clr_country_flag = TUR_kurdistan_centralization_select
 		clr_country_flag = TUR_erzurum_centralization_select
 		clr_country_flag = TUR_mamuret_ul_aziz_centralization_select
 		clr_country_flag = TUR_bitlis_centralization_select
@@ -2797,6 +2815,16 @@ TUR_reload_vilayet_with_at_least_15_centralization = {
 					}
 				}
 				set_country_flag = TUR_diyarbakir_centralization_select
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+					    NOT = { any_controlled_state = { has_state_flag = TUR_kurdistan } }
+					    check_variable = { global.TUR_kurdistan_centralization < 15 }
+					}
+				}
+				set_country_flag = TUR_kurdistan_centralization_select
 			}
 			5 = {
 				modifier = {
@@ -7190,6 +7218,213 @@ TUR_minority_system_diyarbakir = {
 		force_update_dynamic_modifier = yes
 	}
 }
+TUR_minority_system_kurdistan = {
+	hidden_effect = {
+		if = { #kurdistan
+			limit = {
+				any_of_scopes = {
+					TUR_is_controlled_by_us_or_committee_government = yes
+					array = global.TUR_kurdistan
+					TUR_state_has_minority_modifier = yes
+				}
+			}
+			if = { #kurdistan APOSTOLIC ARMENIANS
+				limit = {
+					any_of_scopes = {
+						TUR_is_controlled_by_us_or_committee_government = yes
+						array = global.TUR_kurdistan
+						has_dynamic_modifier = { modifier = TUR_armenian_minority }
+						check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+					}
+				}
+				set_variable = { ROOT.TUR_armenian_apostolic_minority_value_kurdistan = 0 }
+				for_each_scope_loop = {
+					array = global.TUR_kurdistan
+					if = {
+						limit = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							has_dynamic_modifier = { modifier = TUR_armenian_minority }
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+						}
+						add_to_variable = { ROOT.TUR_armenian_apostolic_minority_value_kurdistan = TUR_armenian_apostolic_state_variable }
+						if = {
+							limit = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+							multiply_variable = { ROOT.TUR_armenian_apostolic_minority_value_kurdistan = 0 }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+							divide_variable = { ROOT.TUR_armenian_apostolic_minority_value_kurdistan = 2 }
+						}
+					}
+				}
+				multiply_variable = { ROOT.TUR_armenian_apostolic_minority_value_kurdistan = TUR_armenian_population_factor_new }
+				multiply_variable = { ROOT.TUR_armenian_apostolic_minority_value_kurdistan = TUR_apostolic_population_factor_new }
+				divide_variable = { ROOT.TUR_armenian_apostolic_minority_value_kurdistan = 100 }
+			}
+			else = { clear_variable = ROOT.TUR_armenian_apostolic_minority_value_kurdistan }
+			if = { #kurdistan SYRIAC ASSYRIANS
+				limit = {
+					any_of_scopes = {
+						TUR_is_controlled_by_us_or_committee_government = yes
+						array = global.TUR_kurdistan
+						has_dynamic_modifier = { modifier = TUR_assyrian_minority }
+						check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+					}
+				}
+				set_variable = { ROOT.TUR_assyrian_syriac_minority_value_kurdistan = 0 }
+				for_each_scope_loop = {
+					array = global.TUR_kurdistan
+					if = {
+						limit = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							has_dynamic_modifier = { modifier = TUR_assyrian_minority }
+							check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+						}
+						add_to_variable = { ROOT.TUR_assyrian_syriac_minority_value_kurdistan = TUR_assyrian_syriac_state_variable }
+						if = {
+							limit = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+							multiply_variable = { ROOT.TUR_assyrian_syriac_minority_value_kurdistan = 0 }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+							divide_variable = { ROOT.TUR_assyrian_syriac_minority_value_kurdistan = 2 }
+						}
+					}
+				}
+				multiply_variable = { ROOT.TUR_assyrian_syriac_minority_value_kurdistan = TUR_assyrian_population_factor_new }
+				multiply_variable = { ROOT.TUR_assyrian_syriac_minority_value_kurdistan = TUR_syriac_population_factor_new }
+				divide_variable = { ROOT.TUR_assyrian_syriac_minority_value_kurdistan = 100 }
+			}
+			else = { clear_variable = ROOT.TUR_assyrian_syriac_minority_value_kurdistan }
+			if = { #kurdistan SUNNI KURDISH
+				limit = {
+					any_of_scopes = {
+						TUR_is_controlled_by_us_or_committee_government = yes
+						array = global.TUR_kurdistan
+						has_dynamic_modifier = { modifier = TUR_kurdish_minority }
+						check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+					}
+				}
+				set_variable = { ROOT.TUR_kurdish_sunni_minority_value_kurdistan = 0 }
+				for_each_scope_loop = {
+					array = global.TUR_kurdistan
+					if = {
+						limit = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							has_dynamic_modifier = { modifier = TUR_kurdish_minority }
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+						add_to_variable = { ROOT.TUR_kurdish_sunni_minority_value_kurdistan = TUR_kurdish_sunni_state_variable }
+						if = {
+							limit = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+							multiply_variable = { ROOT.TUR_kurdish_sunni_minority_value_kurdistan = 0 }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+							divide_variable = { ROOT.TUR_kurdish_sunni_minority_value_kurdistan = 2 }
+						}
+					}
+				}
+				multiply_variable = { ROOT.TUR_kurdish_sunni_minority_value_kurdistan = TUR_kurdish_population_factor_new }
+				multiply_variable = { ROOT.TUR_kurdish_sunni_minority_value_kurdistan = TUR_sunni_population_factor_new }
+				divide_variable = { ROOT.TUR_kurdish_sunni_minority_value_kurdistan = 100 }
+			}
+			else = { clear_variable = ROOT.TUR_kurdish_sunni_minority_value_kurdistan }
+			if = { #kurdistan SHIA TURKISH
+				limit = {
+					any_of_scopes = {
+						TUR_is_controlled_by_us_or_committee_government = yes
+						array = global.TUR_kurdistan
+						has_dynamic_modifier = { modifier = TUR_turkish_minority }
+						check_variable = { TUR_turkish_shia_state_variable < 0 }
+					}
+				}
+				set_variable = { ROOT.TUR_turkish_shia_minority_value_kurdistan = 0 }
+				for_each_scope_loop = {
+					array = global.TUR_kurdistan
+					if = {
+						limit = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							has_dynamic_modifier = { modifier = TUR_turkish_minority }
+							check_variable = { TUR_turkish_shia_state_variable < 0 }
+						}
+						add_to_variable = { ROOT.TUR_turkish_shia_minority_value_kurdistan = TUR_turkish_shia_state_variable }
+						if = {
+							limit = {
+								OR = {
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+									has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+								}
+							}
+							multiply_variable = { ROOT.TUR_turkish_shia_minority_value_kurdistan = 0 }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } }
+							divide_variable = { ROOT.TUR_turkish_shia_minority_value_kurdistan = 2 }
+						}
+					}
+				}
+				multiply_variable = { ROOT.TUR_turkish_shia_minority_value_kurdistan = TUR_turkish_population_factor_new }
+				multiply_variable = { ROOT.TUR_turkish_shia_minority_value_kurdistan = TUR_shia_population_factor_new }
+				divide_variable = { ROOT.TUR_turkish_shia_minority_value_kurdistan = 100 }
+			}
+			else = { clear_variable = ROOT.TUR_turkish_shia_minority_value_kurdistan }
+			#CALCULATE TOTAL VALUE
+			set_variable = { ROOT.TUR_minority_value_kurdistan = 0 }
+			if = {
+				limit = { has_completed_focus = TUR_autonomy_in_non_muslim_vilayets }
+				set_variable = { ROOT.TUR_political_power_value_kurdistan = 0 }
+				add_to_variable = { ROOT.TUR_political_power_value_kurdistan = ROOT.TUR_armenian_apostolic_minority_value_kurdistan }
+				add_to_variable = { ROOT.TUR_political_power_value_kurdistan = ROOT.TUR_assyrian_syriac_minority_value_kurdistan }
+				#
+				add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_kurdish_sunni_minority_value_kurdistan }
+				add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_turkish_shia_minority_value_kurdistan }
+				#
+				set_variable = { global.TUR_kurdistan_max_centralization = 100 }
+				set_temp_variable = { TUR_christian_centralization_value_kurdistan = ROOT.TUR_political_power_value_kurdistan }
+				multiply_temp_variable = { TUR_christian_centralization_value_kurdistan = 1000 }
+				add_to_variable = { global.TUR_kurdistan_max_centralization = TUR_christian_centralization_value_kurdistan }
+			}
+			else = {
+				if = {
+					limit = { has_completed_focus = TUR_adem_i_merkeziyetcilik }
+					set_variable = { ROOT.TUR_political_power_value_kurdistan = -0.005 }
+					divide_variable = { ROOT.TUR_armenian_apostolic_minority_value_kurdistan = 2 }
+					divide_variable = { ROOT.TUR_assyrian_syriac_minority_value_kurdistan = 2 }
+					divide_variable = { ROOT.TUR_kurdish_sunni_minority_value_kurdistan = 2 }
+					divide_variable = { ROOT.TUR_turkish_shia_minority_value_kurdistan = 2 }
+				}
+				add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_armenian_apostolic_minority_value_kurdistan }
+				add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_assyrian_syriac_minority_value_kurdistan }
+				add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_kurdish_sunni_minority_value_kurdistan }
+				add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_turkish_shia_minority_value_kurdistan }
+			}
+		}
+		else = {
+			set_variable = { ROOT.TUR_minority_value_kurdistan = 0 }
+			set_variable = { ROOT.TUR_political_power_value_kurdistan = 0 }
+		}
+		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_kurdistan }
+		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_kurdistan }
+		TUR_reintroduce_jizya_effect = yes
+		force_update_dynamic_modifier = yes
+	}
+}
 TUR_minority_system_bitlis = {
 	hidden_effect = {
 		if = { #BITLIS
@@ -9636,6 +9871,7 @@ TUR_reload_minority_values = {
 		TUR_minority_system_erzurum = yes
 		TUR_minority_system_mamuret_ul_aziz = yes
 		TUR_minority_system_diyarbakir = yes
+		TUR_minority_system_kurdistan = yes
 		TUR_minority_system_bitlis = yes
 		TUR_minority_system_van = yes
 		TUR_minority_system_aleppo = yes
@@ -9867,6 +10103,16 @@ TUR_adem_i_merkeziyetcilik_effect = {
 		add_to_variable = { ROOT.TUR_minority_value_diyarbakir = ROOT.TUR_bulgarian_orthodox_minority_value_diyarbakir }
 		add_to_variable = { ROOT.TUR_minority_value_diyarbakir = ROOT.TUR_turkish_sunni_minority_value_diyarbakir }
 		#
+		set_variable = { ROOT.TUR_political_power_value_kurdistan = -0.005 }
+		divide_variable = { ROOT.TUR_albanian_sunni_minority_value_kurdistan = 2 }
+		divide_variable = { ROOT.TUR_serbian_orthodox_minority_value_kurdistan = 2 }
+		divide_variable = { ROOT.TUR_bulgarian_orthodox_minority_value_kurdistan = 2 }
+		divide_variable = { ROOT.TUR_turkish_sunni_minority_value_kurdistan = 2 }
+		add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_albanian_sunni_minority_value_kurdistan }
+		add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_serbian_orthodox_minority_value_kurdistan }
+		add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_bulgarian_orthodox_minority_value_kurdistan }
+		add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_turkish_sunni_minority_value_kurdistan }
+		#
 		set_variable = { ROOT.TUR_political_power_value_aleppo = -0.005 }
 		divide_variable = { ROOT.TUR_albanian_sunni_minority_value_aleppo = 2 }
 		divide_variable = { ROOT.TUR_serbian_orthodox_minority_value_aleppo = 2 }
@@ -10041,6 +10287,8 @@ TUR_adem_i_merkeziyetcilik_effect = {
 		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_erzurum }
 		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_diyarbakir }
 		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_diyarbakir }
+		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_kurdistan }
+		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_kurdistan }
 		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_adana }
 		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_adana }
 		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_bitlis }
@@ -10277,6 +10525,18 @@ TUR_autonomy_in_non_muslim_vilayets_effect = {
 		multiply_temp_variable = { TUR_christian_centralization_value_diyarbakir = 1000 }
 		add_to_variable = { global.TUR_diyarbakir_max_centralization = TUR_christian_centralization_value_diyarbakir }
 
+		set_variable = { ROOT.TUR_political_power_value_kurdistan = 0 }
+		add_to_variable = { ROOT.TUR_political_power_value_kurdistan = ROOT.TUR_armenian_apostolic_minority_value_kurdistan }
+		add_to_variable = { ROOT.TUR_political_power_value_kurdistan = ROOT.TUR_assyrian_syriac_minority_value_kurdistan }
+		#
+		add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_arab_sunni_minority_value_kurdistan }
+		add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_kurdish_sunni_minority_value_kurdistan }
+		#
+		set_variable = { global.TUR_kurdistan_max_centralization = 100 }
+		set_temp_variable = { TUR_christian_centralization_value_kurdistan = ROOT.TUR_political_power_value_kurdistan }
+		multiply_temp_variable = { TUR_christian_centralization_value_kurdistan = 1000 }
+		add_to_variable = { global.TUR_kurdistan_max_centralization = TUR_christian_centralization_value_kurdistan }
+
 		set_variable = { ROOT.TUR_political_power_value_bitlis = 0 }
 		add_to_variable = { ROOT.TUR_political_power_value_bitlis = ROOT.TUR_armenian_apostolic_minority_value_bitlis }
 		#
@@ -10384,6 +10644,8 @@ TUR_autonomy_in_non_muslim_vilayets_effect = {
 		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_erzurum }
 		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_diyarbakir }
 		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_diyarbakir }
+		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_kurdistan }
+		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_kurdistan }
 		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_adana }
 		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_adana }
 		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_bitlis }
@@ -10620,6 +10882,18 @@ TUR_autonomy_in_non_muslim_vilayets_effect = {
 		multiply_temp_variable = { TUR_christian_centralization_value_diyarbakir = 1000 }
 		add_to_variable = { global.TUR_diyarbakir_max_centralization = TUR_christian_centralization_value_diyarbakir }
 
+		set_variable = { ROOT.TUR_political_power_value_kurdistan = 0 }
+		add_to_variable = { ROOT.TUR_political_power_value_kurdistan = ROOT.TUR_armenian_apostolic_minority_value_kurdistan }
+		add_to_variable = { ROOT.TUR_political_power_value_kurdistan = ROOT.TUR_assyrian_syriac_minority_value_kurdistan }
+		#
+		add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_arab_sunni_minority_value_kurdistan }
+		add_to_variable = { ROOT.TUR_minority_value_kurdistan = ROOT.TUR_kurdish_sunni_minority_value_kurdistan }
+		#
+		set_variable = { global.TUR_kurdistan_max_centralization = 100 }
+		set_temp_variable = { TUR_christian_centralization_value_kurdistan = ROOT.TUR_political_power_value_kurdistan }
+		multiply_temp_variable = { TUR_christian_centralization_value_kurdistan = 1000 }
+		add_to_variable = { global.TUR_kurdistan_max_centralization = TUR_christian_centralization_value_kurdistan }
+
 		set_variable = { ROOT.TUR_political_power_value_bitlis = 0 }
 		add_to_variable = { ROOT.TUR_political_power_value_bitlis = ROOT.TUR_armenian_apostolic_minority_value_bitlis }
 		#
@@ -10727,6 +11001,8 @@ TUR_autonomy_in_non_muslim_vilayets_effect = {
 		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_erzurum }
 		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_diyarbakir }
 		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_diyarbakir }
+		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_kurdistan }
+		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_kurdistan }
 		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_adana }
 		add_to_variable = { TUR_sublime_realm_pp_variable = ROOT.TUR_political_power_value_adana }
 		add_to_variable = { TUR_sublime_realm_variable = ROOT.TUR_minority_value_bitlis }
@@ -10803,6 +11079,9 @@ TUR_reintroduce_jizya_effect = {
 			set_variable = { ROOT.TUR_jizya_value_diyarbakir = 0 }
 			add_to_variable = { ROOT.TUR_jizya_value_diyarbakir = ROOT.TUR_armenian_apostolic_minority_value_diyarbakir }
 			add_to_variable = { ROOT.TUR_jizya_value_diyarbakir = ROOT.TUR_assyrian_syriac_minority_value_diyarbakir }
+			set_variable = { ROOT.TUR_jizya_value_kurdistan = 0 }
+			add_to_variable = { ROOT.TUR_jizya_value_kurdistan = ROOT.TUR_armenian_apostolic_minority_value_kurdistan }
+			add_to_variable = { ROOT.TUR_jizya_value_kurdistan = ROOT.TUR_assyrian_syriac_minority_value_kurdistan }
 			set_variable = { ROOT.TUR_jizya_value_bitlis = 0 }
 			add_to_variable = { ROOT.TUR_jizya_value_bitlis = ROOT.TUR_armenian_apostolic_minority_value_bitlis }
 			set_variable = { ROOT.TUR_jizya_value_van = 0 }
@@ -10837,6 +11116,7 @@ TUR_reintroduce_jizya_effect = {
 			add_to_variable = { TUR_jizya_consumer_goods_variable = ROOT.TUR_jizya_value_sivas }
 			add_to_variable = { TUR_jizya_consumer_goods_variable = ROOT.TUR_jizya_value_erzurum }
 			add_to_variable = { TUR_jizya_consumer_goods_variable = ROOT.TUR_jizya_value_diyarbakir }
+			add_to_variable = { TUR_jizya_consumer_goods_variable = ROOT.TUR_jizya_value_kurdistan }
 			add_to_variable = { TUR_jizya_consumer_goods_variable = ROOT.TUR_jizya_value_adana }
 			add_to_variable = { TUR_jizya_consumer_goods_variable = ROOT.TUR_jizya_value_bitlis }
 			add_to_variable = { TUR_jizya_consumer_goods_variable = ROOT.TUR_jizya_value_van }

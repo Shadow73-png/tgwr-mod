@@ -3011,6 +3011,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TUR_our_place_in_the_world
 		available = { any_controlled_state = { has_dynamic_modifier = { modifier = TUR_bulgarian_minority } } }
+		bypass_if_unavailable = yes
 		completion_reward = {
 			every_state = {
 				limit = {
@@ -3198,6 +3199,7 @@ focus_tree = {
 		y = 0
 		relative_position_id = TUR_law_on_churches
 		available = { any_controlled_state = { has_dynamic_modifier = { modifier = TUR_arab_minority } } }
+		bypass_if_unavailable = yes
 		complete_tooltip = {
 			every_state = {
 				limit = { has_state_flag = TUR_secure_power_in_arabia }
@@ -9974,8 +9976,57 @@ focus_tree = {
 		x = 9
 		y = 1
 		relative_position_id = TUR_our_place_in_the_world
-		available = { NOT = { PER = { has_idea = PER_idea_constitutional_revolution } } }
+		available = {
+			PER = {
+				exists = yes
+				is_subject = no
+				NOT = { has_idea = PER_idea_constitutional_revolution }
+			}
+			any_controlled_state = {
+				custom_trigger_tooltip = {
+					tooltip = has_contested_owner_PER
+					has_contested_owner = PER
+				}
+			}
+		}
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = TUR_promises_to_the_persian_revolutionaries }
+				transfer_state_to = PER
+				remove_contested_owner = PER
+			}
+			PER = {
+				add_opinion_modifier = {
+					target = PER
+					modifier = TUR_constitutionalist_allies
+				}
+				add_ai_strategy = {
+					type = alliance
+					id = TUR
+					value = 50
+				}
+			}
+			unlock_decision_tooltip = TUR_alliance_with_persia
+		}
 		completion_reward = {
+			every_controlled_state = {
+				limit = { has_contested_owner = PER }
+				transfer_state_to = PER
+				remove_contested_owner = PER
+				set_state_flag = TUR_promises_to_the_persian_revolutionaries
+			}
+			PER = {
+				add_opinion_modifier = {
+					target = PER
+					modifier = TUR_constitutionalist_allies
+				}
+				add_ai_strategy = {
+					type = alliance
+					id = TUR
+					value = 50
+				}
+			}
+			unlock_decision_tooltip = TUR_alliance_with_persia
 		}
 		ai_will_do = { base = 30 }
 	}
@@ -10000,8 +10051,542 @@ focus_tree = {
 			owns_state = 419
 			owns_state = 1250
 			owns_state = 1252
+			custom_trigger_tooltip = {
+				tooltip = TUR_government_stability_at_least_50
+				check_variable = { TUR_government_stability_var > 49 }
+			}
 		}
 		completion_reward = {
+			TUR_create_kurdistan_vilayet = yes
+			hidden_effect = {
+				if = { #KURDISTAN APOSTOLIC ARMENIAN
+					limit = {
+						1245 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_armenian_apostolic_1245 = 0 }
+					if = {
+						limit = {
+							1245 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_armenian_apostolic_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_armenian_apostolic_1245 = 1245.TUR_armenian_apostolic_state_variable }
+						if = {
+							limit = {
+								1245 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_armenian_apostolic_1245 = 0 }
+						}
+						if = {
+							limit = { 1245 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_armenian_apostolic_1245 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_armenian_apostolic_1245 = TUR_armenian_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_armenian_apostolic_1245 = TUR_apostolic_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_armenian_apostolic_1245 = 100 }
+				}
+				if = { #KURDISTAN SUNNI KURDISH
+					limit = {
+						1245 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1245 = 0 }
+					if = {
+						limit = {
+							1245 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1245 = 1245.TUR_kurdish_sunni_state_variable }
+						if = {
+							limit = {
+								1245 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1245 = 0 }
+						}
+						if = {
+							limit = { 1245 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1245 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1245 = TUR_kurdish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1245 = TUR_sunni_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1245 = 100 }
+				}
+				if = { #KURDISTAN SHIA TURKISH
+					limit = {
+						1245 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_turkish_shia_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1245 = 0 }
+					if = {
+						limit = {
+							1245 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_turkish_shia_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1245 = 1245.TUR_turkish_shia_state_variable }
+						if = {
+							limit = {
+								1245 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1245 = 0 }
+						}
+						if = {
+							limit = { 1245 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1245 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1245 = TUR_turkish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1245 = TUR_shia_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1245 = 100 }
+				}
+				if = { #KURDISTAN SUNNI KURDISH
+					limit = {
+						1212 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1212 = 0 }
+					if = {
+						limit = {
+							1212 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1212 = 1212.TUR_kurdish_sunni_state_variable }
+						if = {
+							limit = {
+								1212 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1212 = 0 }
+						}
+						if = {
+							limit = { 1212 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1212 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1212 = TUR_kurdish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1212 = TUR_sunni_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1212 = 100 }
+				}
+				if = { #KURDISTAN SHIA TURKISH
+					limit = {
+						1212 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_turkish_shia_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1212 = 0 }
+					if = {
+						limit = {
+							1212 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_turkish_shia_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1212 = 1212.TUR_turkish_shia_state_variable }
+						if = {
+							limit = {
+								1212 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1212 = 0 }
+						}
+						if = {
+							limit = { 1212 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1212 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1212 = TUR_turkish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1212 = TUR_shia_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1212 = 100 }
+				}
+				if = { #KURDISTAN SUNNI KURDISH
+					limit = {
+						419 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_419 = 0 }
+					if = {
+						limit = {
+							419 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_419 = 419.TUR_kurdish_sunni_state_variable }
+						if = {
+							limit = {
+								419 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_419 = 0 }
+						}
+						if = {
+							limit = { 419 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_419 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_419 = TUR_kurdish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_419 = TUR_sunni_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_419 = 100 }
+				}
+				if = { #KURDISTAN SYRIAC ASSYRIAN
+					limit = {
+						419 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_assyrian_syriac_419 = 0 }
+					if = {
+						limit = {
+							419 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_assyrian_syriac_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_assyrian_syriac_419 = 419.TUR_assyrian_syriac_state_variable }
+						if = {
+							limit = {
+								419 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_assyrian_syriac_419 = 0 }
+						}
+						if = {
+							limit = { 419 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_assyrian_syriac_419 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_assyrian_syriac_419 = TUR_assyrian_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_assyrian_syriac_419 = TUR_syriac_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_assyrian_syriac_419 = 100 }
+				}
+				if = { #KURDISTAN SHIA TURKISH
+					limit = {
+						419 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_turkish_shia_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_419 = 0 }
+					if = {
+						limit = {
+							419 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_turkish_shia_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_419 = 419.TUR_turkish_shia_state_variable }
+						if = {
+							limit = {
+								419 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_419 = 0 }
+						}
+						if = {
+							limit = { 419 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_419 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_419 = TUR_turkish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_419 = TUR_shia_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_419 = 100 }
+				}
+				if = { #KURDISTAN SUNNI KURDISH
+					limit = {
+						1250 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1250 = 0 }
+					if = {
+						limit = {
+							1250 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1250 = 1250.TUR_kurdish_sunni_state_variable }
+						if = {
+							limit = {
+								1250 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1250 = 0 }
+						}
+						if = {
+							limit = { 1250 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1250 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1250 = TUR_kurdish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1250 = TUR_sunni_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1250 = 100 }
+				}
+				if = { #KURDISTAN SHIA TURKISH
+					limit = {
+						1250 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_turkish_shia_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1250 = 0 }
+					if = {
+						limit = {
+							1250 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_turkish_shia_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1250 = 1250.TUR_turkish_shia_state_variable }
+						if = {
+							limit = {
+								1250 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1250 = 0 }
+						}
+						if = {
+							limit = { 1250 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1250 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1250 = TUR_turkish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1250 = TUR_shia_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1250 = 100 }
+				}
+				if = { #KURDISTAN SUNNI KURDISH
+					limit = {
+						1252 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1252 = 0 }
+					if = {
+						limit = {
+							1252 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1252 = 1252.TUR_kurdish_sunni_state_variable }
+						if = {
+							limit = {
+								1252 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1252 = 0 }
+						}
+						if = {
+							limit = { 1252 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1252 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1252 = TUR_kurdish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1252 = TUR_sunni_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_1252 = 100 }
+				}
+				if = { #KURDISTAN SHIA TURKISH
+					limit = {
+						1252 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_turkish_shia_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1252 = 0 }
+					if = {
+						limit = {
+							1252 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_turkish_shia_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1252 = 1252.TUR_turkish_shia_state_variable }
+						if = {
+							limit = {
+								1252 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1252 = 0 }
+						}
+						if = {
+							limit = { 1252 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1252 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1252 = TUR_turkish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1252 = TUR_shia_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_turkish_shia_1252 = 100 }
+				}
+				if = { #KURDISTAN SUNNI KURDISH
+					limit = {
+						421 = {
+							TUR_is_controlled_by_us_or_committee_government = yes
+							check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+						}
+					}
+					set_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_421 = 0 }
+					if = {
+						limit = {
+							421 = {
+								TUR_is_controlled_by_us_or_committee_government = yes
+								check_variable = { TUR_kurdish_sunni_state_variable < 0 }
+							}
+						}
+						add_to_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_421 = 421.TUR_kurdish_sunni_state_variable }
+						if = {
+							limit = {
+								421 = {
+									OR = {
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet_lebanon }
+										has_dynamic_modifier = { modifier = TUR_autonomous_vilayet }
+									}
+								}
+							}
+							multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_421 = 0 }
+						}
+						if = {
+							limit = { 421 = { has_dynamic_modifier = { modifier = TUR_semi_autonomous_vilayet } } }
+							divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_421 = 2 }
+						}
+					}
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_421 = TUR_kurdish_population_factor_new }
+					multiply_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_421 = TUR_sunni_population_factor_new }
+					divide_temp_variable = { TUR_integrate_persian_kurds_kurdish_sunni_421 = 100 }
+				}
+				#CALCULATE TOTAL VALUE
+				set_temp_variable = { TUR_minority_value_kurdistan = 0 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_armenian_apostolic_1245 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_kurdish_sunni_1245 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_turkish_shia_1245 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_kurdish_sunni_1212 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_turkish_shia_1212 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_kurdish_sunni_419 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_assyrian_syriac_419 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_turkish_shia_419 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_kurdish_sunni_1250 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_turkish_shia_1250 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_kurdish_sunni_1252 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_turkish_shia_1252 }
+				add_to_temp_variable = { TUR_minority_value_kurdistan = TUR_integrate_persian_kurds_turkish_shia_421 }
+					
+				add_to_temp_variable = { TUR_integrate_persian_kurds = TUR_minority_value_kurdistan }
+				add_to_temp_variable = { TUR_integrate_persian_kurds_pp = TUR_political_power_value_kurdistan }
+			}
+			if = {
+				limit = {
+					OR = {
+						controls_state = 1245
+						controls_state = 1212
+						controls_state = 419
+						controls_state = 1250
+						controls_state = 1252
+						controls_state = 421
+					}
+				}
+				custom_effect_tooltip = TUR_integrate_persian_kurds_tt
+			}
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 1245
+						state = 1212
+						state = 419
+						state = 1250
+						state = 1252
+					}
+					has_contested_owner = PER
+				}
+				remove_contested_owner = PER
+				set_state_flag = TUR_integrate_persian_kurds1
+			}
+			every_state = {
+				limit = {
+					OR = {
+						state = 1245
+						state = 1212
+						state = 419
+						state = 1250
+						state = 1252
+					}
+					NOT = { is_owned_by = ROOT }
+				}
+				add_contested_owner = ROOT
+				set_state_flag = TUR_integrate_persian_kurds2
+			}
 		}
 		ai_will_do = { base = 30 }
 	}

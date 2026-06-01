@@ -17268,7 +17268,6 @@ TUR_create_suez_vilayet = {
 		if = {
 			limit = { 447 = { controller = { TUR_has_minority_system = yes } } }
 			447 = {
-				add_dynamic_modifier = { modifier = TUR_arab_minority }
 				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
 				set_state_flag = TUR_suez
 				add_to_array = { global.TUR_suez = THIS }
@@ -17306,7 +17305,6 @@ TUR_create_alexandria_vilayet = {
 		if = {
 			limit = { 1146 = { controller = { TUR_has_minority_system = yes } } }
 			1146 = {
-				add_dynamic_modifier = { modifier = TUR_arab_minority }
 				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
 				set_state_flag = TUR_alexandria
 				add_to_array = { global.TUR_alexandria = THIS }
@@ -17322,7 +17320,6 @@ TUR_create_alexandria_vilayet = {
 		if = {
 			limit = { 452 = { controller = { TUR_has_minority_system = yes } } }
 			452 = {
-				add_dynamic_modifier = { modifier = TUR_arab_minority }
 				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
 				set_state_flag = TUR_alexandria
 				add_to_array = { global.TUR_alexandria = THIS }
@@ -17355,7 +17352,6 @@ TUR_create_cairo_vilayet = {
 		if = {
 			limit = { 446 = { controller = { TUR_has_minority_system = yes } } }
 			446 = {
-				add_dynamic_modifier = { modifier = TUR_arab_minority }
 				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
 				set_state_flag = TUR_cairo
 				add_to_array = { global.TUR_cairo = THIS }
@@ -17385,7 +17381,6 @@ TUR_create_aswan_vilayet = {
 		if = {
 			limit = { 456 = { controller = { TUR_has_minority_system = yes } } }
 			456 = {
-				add_dynamic_modifier = { modifier = TUR_arab_minority }
 				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
 				set_state_flag = TUR_aswan
 				add_to_array = { global.TUR_aswan = THIS }
@@ -17415,7 +17410,6 @@ TUR_create_khartoum_vilayet = {
 		if = {
 			limit = { 551 = { controller = { TUR_has_minority_system = yes } } }
 			551 = {
-				add_dynamic_modifier = { modifier = TUR_arab_minority }
 				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
 				set_state_flag = TUR_khartoum
 				add_to_array = { global.TUR_khartoum = THIS }
@@ -17445,7 +17439,6 @@ TUR_create_bosnia_vilayet = {
 		if = {
 			limit = { 104 = { controller = { TUR_has_minority_system = yes } } }
 			104 = {
-				add_dynamic_modifier = { modifier = TUR_serbian_minority }
 				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
 				set_state_flag = TUR_bosnia
 				add_to_array = { global.TUR_bosnia = THIS }
@@ -17455,6 +17448,173 @@ TUR_create_bosnia_vilayet = {
 			104 = {
 				set_state_flag = TUR_bosnia
 				add_to_array = { global.TUR_bosnia = THIS }
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+	}
+	TUR_reload_minority_values = yes
+}
+
+TUR_create_kurdistan_vilayet = {
+	custom_effect_tooltip = TUR_create_kurdistan_vilayet_tt
+	1245 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_armenian_minority }
+			add_dynamic_modifier = { modifier = TUR_kurdish_minority }
+			if = {
+				limit = { has_country_flag = TUR_turkish_minority }
+				add_dynamic_modifier = { modifier = TUR_turkish_minority }
+			}
+		}
+	}
+	1212 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_kurdish_minority }
+			if = {
+				limit = { has_country_flag = TUR_turkish_minority }
+				add_dynamic_modifier = { modifier = TUR_turkish_minority }
+			}
+		}
+	}
+	419 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_kurdish_minority }
+			add_dynamic_modifier = { modifier = TUR_assyrian_minority }
+			if = {
+				limit = { has_country_flag = TUR_turkish_minority }
+				add_dynamic_modifier = { modifier = TUR_turkish_minority }
+			}
+		}
+	}
+	1250 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_kurdish_minority }
+			if = {
+				limit = { has_country_flag = TUR_turkish_minority }
+				add_dynamic_modifier = { modifier = TUR_turkish_minority }
+			}
+		}
+	}
+	1252 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_kurdish_minority }
+			if = {
+				limit = { has_country_flag = TUR_turkish_minority }
+				add_dynamic_modifier = { modifier = TUR_turkish_minority }
+			}
+		}
+	}
+	421 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_kurdish_minority }
+		}
+	}
+	hidden_effect = {
+		if = {
+			limit = { 1245 = { controller = { TUR_has_minority_system = yes } } }
+			1245 = {
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+			}
+		}
+		else = {
+			1245 = {
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+		if = {
+			limit = { 1212 = { controller = { TUR_has_minority_system = yes } } }
+			1212 = {
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+			}
+		}
+		else = {
+			1212 = {
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+		if = {
+			limit = { 419 = { controller = { TUR_has_minority_system = yes } } }
+			419 = {
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+			}
+		}
+		else = {
+			419 = {
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+		if = {
+			limit = { 1250 = { controller = { TUR_has_minority_system = yes } } }
+			1250 = {
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+			}
+		}
+		else = {
+			1250 = {
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+		if = {
+			limit = { 1252 = { controller = { TUR_has_minority_system = yes } } }
+			1252 = {
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+			}
+		}
+		else = {
+			1252 = {
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+		if = {
+			limit = { 421 = { controller = { TUR_has_minority_system = yes } } }
+			421 = {
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
+			}
+		}
+		else = {
+			421 = {
+				set_state_flag = TUR_kurdistan
+				add_to_array = { global.TUR_kurdistan = THIS }
 				set_state_flag = TUR_vilayet_centralization_no_control
 			}
 		}

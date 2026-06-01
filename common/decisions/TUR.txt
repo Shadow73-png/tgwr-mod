@@ -1403,6 +1403,31 @@ TGWR_great_power_politics = {
 			}
 		}
 	}
+	TUR_alliance_with_persia = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+		allowed = { tag = TUR }
+		cost = 25
+		fire_only_once = yes
+		visible = {
+			great_power_politics_strangling_of_persia_visible = yes
+			has_completed_focus = TUR_promises_to_the_persian_revolutionaries
+		}
+		available = {
+			is_in_faction = yes
+			any_allied_country = { is_major = yes }
+			has_war_with_major = yes
+			NOT = { has_war_with = PER }
+			PER = { is_in_faction = no }
+		}
+		complete_effect = {
+			PER = { country_event = { id = ottoman.305 hours = 8 } }
+			custom_effect_tooltip = if_they_accept_tt
+			event_option_tooltip = ottoman.306.a
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
 }
 
 TUR_millet_system = {
@@ -1425,9 +1450,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_kostantiniyye_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 347 }
 		visible = {
 			TUR_owns_kostantiniyye_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1447,9 +1470,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_catalca_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 1018 }
 		visible = {
 			TUR_owns_catalca_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1469,9 +1490,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_izmit_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 1019 }
 		visible = {
 			TUR_owns_izmit_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1491,9 +1510,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_edirne_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 756 }
 		visible = {
 			TUR_owns_edirne_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1513,9 +1530,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_selanik_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 345 }
 		visible = {
 			TUR_owns_selanik_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1537,7 +1552,6 @@ TUR_millet_system = {
 		custom_cost_trigger = { hidden_trigger = { always = no } }
 		#state_target = yes
 		on_map_mode = map_only
-		#targets = { 203 }
 		visible = {
 			TUR_owns_manastir_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1557,9 +1571,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_yanya_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 758 }
 		visible = {
 			TUR_owns_yanya_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1579,9 +1591,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_iskodra_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 870 }
 		visible = {
 			TUR_owns_iskodra_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1601,9 +1611,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_kosova_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 106 }
 		visible = {
 			TUR_owns_kosova_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1623,9 +1631,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_bosnia_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 104 }
 		visible = {
 			TUR_owns_bosnia_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1646,9 +1652,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_crete_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 182 }
 		visible = {
 			TUR_owns_crete_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1668,9 +1672,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_archipelago_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 790 }
 		visible = {
 			TUR_owns_archipelago_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1690,9 +1692,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_cyprus_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 183 }
 		visible = {
 			TUR_owns_cyprus_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1712,9 +1712,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_biga_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 861 }
 		visible = {
 			TUR_owns_biga_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1734,9 +1732,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_hudavendigar_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 854 }
 		visible = {
 			TUR_owns_hudavendigar_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1756,9 +1752,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_aydin_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 339 }
 		visible = {
 			TUR_owns_aydin_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1778,9 +1772,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_kastamonu_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 356 }
 		visible = { 
 			TUR_owns_kastamonu_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1800,9 +1792,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_konya_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 346 }
 		visible = {
 			TUR_owns_konya_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1822,9 +1812,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_ankara_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 49 }
 		visible = {
 			TUR_owns_ankara_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1844,9 +1832,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_trabzon_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 354 }
 		visible = {
 			TUR_owns_trabzon_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1866,9 +1852,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_sivas_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 349 }
 		visible = {
 			TUR_owns_sivas_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1888,15 +1872,9 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_diyarbakir_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 350 }
 		visible = {
-			OR = {
-				350 = { TUR_is_controlled_by_us_or_committee_government = yes }
-				1028 = { TUR_is_controlled_by_us_or_committee_government = yes }
-				884 = { TUR_is_controlled_by_us_or_committee_government = yes }
-			}
+			TUR_owns_diyarbakir_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
 		}
 		highlight_states = {
@@ -1909,21 +1887,34 @@ TUR_millet_system = {
 			}
 		}
 	}
+	TUR_kurdistan_vilayet = {
+		icon = GFX_TUR_minority_state_modifier_bg
+		allowed = { original_tag = TUR }
+		custom_cost_text = ottoman_kurdistan_vilayet_tt
+		custom_cost_trigger = { hidden_trigger = { always = no } }
+		on_map_mode = map_only
+		visible = {
+			TUR_owns_kurdistan_vilayet = yes
+			has_country_flag = TUR_millet_system_onmap_selected
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				has_state_flag = TUR_kurdistan
+				OR = {
+					TUR_is_controlled_by_us_or_committee_government = yes
+					controller = { has_country_flag = TUR_revolting_country }
+				}
+			}
+		}
+	}
 	TUR_erzurum_vilayet = {
 		icon = GFX_TUR_minority_state_modifier_bg
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_erzurum_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 353 }
 		visible = {
-			OR = {
-				353 = { TUR_is_controlled_by_us_or_committee_government = yes }
-				806 = { TUR_is_controlled_by_us_or_committee_government = yes }
-				816 = { TUR_is_controlled_by_us_or_committee_government = yes }
-				855 = { TUR_is_controlled_by_us_or_committee_government = yes }
-			}
+			TUR_owns_erzurum_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
 		}
 		highlight_states = {
@@ -1941,15 +1932,9 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_mamuret_ul_aziz_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 881 }
 		visible = {
-			OR = {
-				881 = { TUR_is_controlled_by_us_or_committee_government = yes }
-				1025 = { TUR_is_controlled_by_us_or_committee_government = yes }
-				1033 = { TUR_is_controlled_by_us_or_committee_government = yes }
-			}
+			TUR_owns_mamuret_ul_aziz_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
 		}
 		highlight_states = {
@@ -1967,9 +1952,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_bitlis_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 1022 }
 		visible = {
 			TUR_owns_bitlis_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -1989,9 +1972,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_van_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 352 }
 		visible = {
 			TUR_owns_van_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2011,9 +1992,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_adana_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 344 }
 		visible = {
 			TUR_owns_adana_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2033,9 +2012,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_aleppo_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 677 }
 		visible = {
 			TUR_owns_aleppo_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2055,9 +2032,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_deir_ez_zor_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 1023 }
 		visible = {
 			TUR_owns_deir_ez_zor_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2077,9 +2052,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_mosul_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 676 }
 		visible = {
 			TUR_owns_mosul_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2099,9 +2072,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_beirut_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 553 }
 		visible = {
 			TUR_owns_beirut_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2121,9 +2092,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_damascus_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 554 }
 		visible = {
 			TUR_owns_damascus_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2143,9 +2112,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_baghdad_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 291 }
 		visible = {
 			TUR_owns_baghdad_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2165,9 +2132,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_jerusalem_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 454 }
 		visible = {
 			TUR_owns_jerusalem_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2187,9 +2152,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_basra_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 874 }
 		visible = {
 			TUR_owns_basra_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2209,9 +2172,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_hejaz_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 679 }
 		visible = {
 			TUR_owns_hejaz_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2231,9 +2192,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_yemen_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 654 }
 		visible = {
 			TUR_owns_yemen_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2253,9 +2212,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_suez_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 447 }
 		visible = {
 			TUR_owns_suez_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2276,9 +2233,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_alexandria_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 1146 }
 		visible = {
 			TUR_owns_alexandria_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2299,9 +2254,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_cairo_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = {446  }
 		visible = {
 			TUR_owns_cairo_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2322,9 +2275,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_aswan_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 456 }
 		visible = {
 			TUR_owns_aswan_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2345,9 +2296,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_khartoum_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 551 }
 		visible = {
 			TUR_owns_khartoum_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
@@ -2368,9 +2317,7 @@ TUR_millet_system = {
 		allowed = { original_tag = TUR }
 		custom_cost_text = ottoman_trablusgarp_vilayet_tt
 		custom_cost_trigger = { hidden_trigger = { always = no } }
-#		state_target = yes
 		on_map_mode = map_only
-#		targets = { 448 }
 		visible = {
 			TUR_owns_trablusgarp_vilayet = yes
 			has_country_flag = TUR_millet_system_onmap_selected
