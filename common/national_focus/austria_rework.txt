@@ -809,16 +809,15 @@ focus_tree = {
 		id = AUS_bourgeoisie_unity
 		icon = {
 			trigger = {
-			NOT = {
-				has_country_flag = AUS_bienerth_socialist_coalition
-			}
+				NOT = {
+					has_country_flag = AUS_bienerth_socialist_coalition
+				}
 			}
 			value = GFX_focus_PER_embrace_opulence
 		}
 		icon = {
 			trigger = {
 				has_country_flag = AUS_bienerth_socialist_coalition
-			
 			}
 			value = GFX_focus_generic_scales_replacement
 		}
@@ -869,16 +868,15 @@ focus_tree = {
 		id = AUS_sanitarer_kordon
 		icon = {
 			trigger = {
-			NOT = {
-				has_country_flag = AUS_bienerth_socialist_coalition
+				NOT = {
+					has_country_flag = AUS_bienerth_socialist_coalition
+				}
 			}
-			}
-			value =  GFX_focus_ger_bulwark_against_bolshevism
+			value = GFX_focus_ger_bulwark_against_bolshevism
 		}
 		icon = {
 			trigger = {
 				has_country_flag = AUS_bienerth_socialist_coalition
-			
 			}
 			value = GFX_goal_generic_national_unity
 		}
@@ -934,8 +932,9 @@ focus_tree = {
 				AUS_parliament_relations = 0.25
 				tooltip = AUS_p_loyalty_tt
 			}
+			AUS_update_state_of_realm = yes
 			unlock_decision_tooltip = {
-				decision = AUS_strenghten_coalition_unity
+				decision = AUS_strenghten_coalition_unity_decision
 				show_effect_tooltip = yes
 			}
 		}
@@ -980,15 +979,25 @@ focus_tree = {
 		y = 4
 		available = {
 			AUS_bienerth_MP = yes
-			check_variable = {
-				AUS_liberal_concession > 2
-			}
+			
 			custom_trigger_tooltip = {
 				tooltip = AUS_completed_liberal_concessions_tt
+				check_variable = {
+				AUS_liberal_concession > 2
+			}
 			}
 		}
 		completion_reward = {
 			country_event = ww1_austriahungary.225
+			add_days_mission_timeout = {
+			mission = AUS_coalition_dissent_mission
+			days = 180
+		}
+			add_to_variable = {
+				AUS_pm_mandate_power = 3
+				tooltip = AUS_pm_mandate.tt
+			}
+
 		}
 		ai_will_do = {
 			base = 1
@@ -1058,11 +1067,25 @@ focus_tree = {
 		y = 2
 		available = {
 			AUS_bienerth_MP = yes
-			has_global_flag = AUS_reforms_for_czechs_education_passed
+			has_country_flag = AUS_reforms_for_czechs_education_passed
 			has_country_flag = AUS_flag_prague_uni_permitted
-			has_country_flag = AUS_flag_agree_demands_224
 		}
 		completion_reward = {
+			country_event = ww1_austriahungary.226
+				custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_pp_gain = 0.05
+				tooltip = political_power_factor_tt
+			}
+			add_to_variable = {
+				AUS_aps_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+			clr_country_flag = AUS_czech_language_issue_active
+			custom_effect_tooltip = AUS_solved_education_issue.tt
+			AUS_update_state_of_realm = yes
+			remove_mission = AUS_tackle_first_czech_reforms
+			remove_mission = AUH_bohemian_parliament_shenanigans
 		}
 		ai_will_do = {
 			base = 1
@@ -1124,7 +1147,7 @@ focus_tree = {
 		search_filters = {
 		}
 	}
-		focus = {
+	focus = {
 		id = AUS_the_moderating_effect
 		icon = GFX_focus_generic_social_democracy
 		cost = 4
@@ -1219,6 +1242,15 @@ focus_tree = {
 			AUS_bienerth_MP = yes
 		}
 		completion_reward = {
+			country_event = ww1_austriahungary.199
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				add_to_variable = {
+					AUS_pole_loyalty = 20
+					tooltip = AUS_loyalty_pole_tt
+				}
+				AUS_update_state_of_realm = yes
+			}
 			clr_country_flag = AUS_pol_politically_privileged
 			set_country_flag = AUS_pol_stapinski_hi
 			AUS_update_state_of_realm = yes
@@ -1703,18 +1735,17 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_covert_support_to_union_busters
-			icon = {
+		icon = {
 			trigger = {
-			NOT = {
-				has_country_flag = AUS_bienerth_socialist_coalition
-			}
+				NOT = {
+					has_country_flag = AUS_bienerth_socialist_coalition
+				}
 			}
 			value = GFX_focus_RAJ_union_busting
 		}
 		icon = {
 			trigger = {
 				has_country_flag = AUS_bienerth_socialist_coalition
-			
 			}
 			value = GFX_focus_FIN_finnish_federation_of_trade_unions
 		}
@@ -1755,23 +1786,21 @@ focus_tree = {
 	focus = {
 		id = AUS_support_military_companies
 		cost = 4
-			icon = {
+		icon = {
 			trigger = {
-			NOT = {
-				has_country_flag = AUS_bienerth_socialist_coalition
-			}
+				NOT = {
+					has_country_flag = AUS_bienerth_socialist_coalition
+				}
 			}
 			value = GFX_focus_generic_reorient_production
 		}
 		icon = {
 			trigger = {
 				has_country_flag = AUS_bienerth_socialist_coalition
-			
 			}
 			value = GFX_goal_generic_construction
 		}
 		dynamic = yes
-		
 		relative_position_id = AUS_social_and_economic_reform
 		prerequisite = {
 			focus = AUS_covert_support_to_union_busters
@@ -1841,12 +1870,6 @@ focus_tree = {
 		bypass_if_unavailable = yes
 		completion_reward = {
 			add_to_variable = {
-				AUS_czechoslovak_loyalty = -15
-				tooltip = AUS_loyalty_czechoslovakia_tt
-			}
-			AUS_update_state_of_realm = yes
-			custom_effect_tooltip = empty_space_tt
-			add_to_variable = {
 				AUS_pm_mandate_power = -1
 				tooltip = AUS_pm_mandate.tt
 			}
@@ -1876,8 +1899,13 @@ focus_tree = {
 					AUS_aps_consumer_goods = -0.15
 					tooltip = consumer_goods_factor_tt
 				}
+				add_to_variable = {
+					AUS_czechoslovak_loyalty = -15
+					tooltip = AUS_loyalty_czechoslovakia_tt
+				}
 			}
 			custom_effect_tooltip = AUS_taxes_bohemia_tt
+			AUS_update_state_of_realm = yes
 		}
 		ai_will_do = {
 			base = 1
