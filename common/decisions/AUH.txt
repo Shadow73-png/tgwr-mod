@@ -2692,6 +2692,45 @@ AUH_the_imperial_council = {
 			}
 		}	
 	}
+	AUS_rallying_around_flag = {
+		priority = 100
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		days_mission_timeout = 30
+		available = {
+			NOT = {
+				has_completed_focus = AUS_exploit_world_tension
+			}
+		}
+		visible = {
+			original_tag = AUS
+		}
+		activation = {
+			original_tag = AUS
+			has_completed_focus = AUS_exploit_world_tension
+			threat > 0.12
+		}
+		cancel_trigger = {
+			threat < 0.12
+		}
+		timeout_effect = {
+			activate_mission = AUS_rallying_around_flag
+			add_to_variable = {
+				AUS_pm_mandate_power = 2
+				tooltip = AUS_pm_mandate.tt
+			}
+			add_days_mission_timeout = {
+				mission = AUS_coalition_dissent_mission
+				days = 20
+			}
+		}
+		complete_effect = {
+		}
+		fire_only_once = no
+		is_good = no
+	}
 	AUS_state_control_critical_industries = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
