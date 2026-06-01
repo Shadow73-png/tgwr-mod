@@ -2700,8 +2700,9 @@ AUH_the_imperial_council = {
 		}
 		days_mission_timeout = 30
 		available = {
-			NOT = {
-				has_completed_focus = AUS_exploit_world_tension
+			OR = {
+			has_war_with_major = yes
+has_completed_focus = AUS_bienerth_resigns
 			}
 		}
 		visible = {
@@ -2717,10 +2718,7 @@ AUH_the_imperial_council = {
 		}
 		timeout_effect = {
 			activate_mission = AUS_rallying_around_flag
-			add_to_variable = {
-				AUS_pm_mandate_power = 2
-				tooltip = AUS_pm_mandate.tt
-			}
+
 			add_days_mission_timeout = {
 				mission = AUS_coalition_dissent_mission
 				days = 20
@@ -2729,7 +2727,7 @@ AUH_the_imperial_council = {
 		complete_effect = {
 		}
 		fire_only_once = no
-		is_good = no
+		is_good = yes
 	}
 	AUS_state_control_critical_industries = {
 		icon = GFX_decision_hol_attract_foreign_investors
