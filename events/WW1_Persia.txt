@@ -1353,6 +1353,9 @@ country_event = {
 				days = 1
 			}
 		}
+		ai_chance = {
+			base = 100
+		}
 	}
 	option = {
 		name = ww1_per_rus_strangling.1.b #we have no other choice
@@ -1362,6 +1365,13 @@ country_event = {
 				days = 1
 			}
 		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
 	}
 	option = {
 		name = ww1_per_rus_strangling.1.c #reject it!
@@ -1369,6 +1379,17 @@ country_event = {
 			country_event = {
 				id = ww1_per_rus_strangling.5
 				days = 1
+			}
+		}
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 2
+				has_country_leader_ideology = social_democracy
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
 			}
 		}
 	}
@@ -1413,6 +1434,9 @@ country_event = {
 				days = 1
 			}
 		}
+		ai_chance = {
+			base = 90
+		}
 	}
 	option = {
 		name = ww1_per_rus_strangling.1.c #reject it!
@@ -1420,6 +1444,17 @@ country_event = {
 			country_event = {
 				id = ww1_per_rus_strangling.5
 				days = 1
+			}
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_country_leader_ideology = social_democracy
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
 			}
 		}
 	}
@@ -1474,4 +1509,199 @@ country_event = {
 	option = {
 		name = ww1_per_rus_strangling.6.a #Excuse me?
 	}
+}
+
+#Russian Invasion!
+country_event = {
+	id = ww1_per_rus_strangling.7
+	title = ww1_per_rus_strangling.7.t
+	desc = ww1_per_rus_strangling.7.d
+	
+	picture = GFX_report_event_PER_russian_invasion
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_rus_strangling.7.a
+		effect_tooltip = {
+			activate_targeted_decision = {
+				target = RUS
+				decision = PER_russian_invasion
+			}
+		}
+	}
+}
+
+#Russians are near Tehran!
+country_event = {
+	id = ww1_per_rus_strangling.8
+	title = ww1_per_rus_strangling.8.t
+	desc = ww1_per_rus_strangling.8.d
+	
+	picture = GFX_report_event_PER_russian_troops
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	timeout_days = 1
+	
+	option = { #Accept the ultimatum...
+		name = ww1_per_rus_strangling.8.a
+		trigger = {
+			NOT = {
+				has_government = communism
+			}
+		}
+		if = {
+			limit = { 
+				has_government = democratic
+			}
+			hidden_effect = {
+				country_event = ww1_per_rus_strangling.9
+			}
+			effect_tooltip = {
+				RUS = {
+					country_event = ww1_per_rus_strangling.10
+				}
+			}
+		}
+		else = {
+			RUS = {
+				country_event = ww1_per_rus_strangling.10
+			}
+		}
+		ai_chance = {
+			base = 70
+		}
+	}
+	option = { #Organise the defences!
+		name = ww1_per_rus_strangling.8.b
+		add_war_support = 0.05
+		RUS = {
+			activate_targeted_decision = {
+				target = PER
+				decision = RUS_secure_tehran
+			}
+		}
+		activate_targeted_decision = {
+			target = RUS
+			decision = PER_hold_tehran
+		}
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+#Parliment rejects the ultimatum!
+country_event = {
+	id = ww1_per_rus_strangling.9
+	title = ww1_per_rus_strangling.9.t
+	desc = ww1_per_rus_strangling.9.d
+	
+	picture = GFX_report_event_PER_russian_troops
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	timeout_days = 1
+	
+	option = { #Shut it down!
+		name = ww1_per_rus_strangling.9.a
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = yes
+		}
+		trigger = {
+			NOT = {
+				has_country_leader_ideology = social_democracy
+			}
+		}
+		ai_chance = {
+			base = 90
+		}
+	}
+	option = { #Organise the defences!
+		name = ww1_per_rus_strangling.8.b
+		add_war_support = 0.05
+		RUS = {
+			activate_targeted_decision = {
+				target = PER
+				decision = RUS_secure_tehran
+			}
+		}
+		activate_targeted_decision = {
+			target = RUS
+			decision = PER_hold_tehran
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+#Persia accepts the ultimatum
+country_event = {
+	id = ww1_per_rus_strangling.10
+	title = ww1_per_rus_strangling.10.t
+	desc = ww1_per_rus_strangling.10.d
+	
+	picture = GFX_report_event_PER_russian_troops
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	timeout_days = 2
+	
+	option = {
+		name = ww1_per_rus_strangling.10.a
+		FROM = {
+			white_peace = ROOT
+			retire_character = PER_william_morgan_shuster
+			PER_double_worsen_foreign_advisors = yes
+		}
+	}
+
+}
+
+#Mohammad Ali Shah restored by Russia
+country_event = {
+	id = ww1_per_rus_strangling.11
+	title = ww1_per_rus_strangling.11.t
+	desc = ww1_per_rus_strangling.11.d
+	
+	picture = GFX_report_event_PER_mohammad_ali_shah_restoration
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	timeout_days = 1
+	
+	option = {
+		name = ww1_per_rus_strangling.11.a
+		white_peace = FROM
+		retire_character = PER_william_morgan_shuster
+		PER_double_worsen_foreign_advisors = yes
+		PER = {
+			PER_mohammad_ali_shah = {
+				set_nationality = ROOT
+				promote_character = absolute_monarchy
+				promote_character = reactionism
+			}
+		}
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
+	}
+
 }

@@ -51,4 +51,255 @@ TGWR_great_power_politics = {
 			}
 		}
 	}
+	RUS_invasion_of_persia = {
+		icon = generic_planted_spear
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		targets = { PER }
+
+		highlight_states = {
+			highlight_state_targets = { state = 266 }
+			highlight_provinces = { 10837 }
+			highlight_only_provinces = yes
+		}
+
+		available = {
+			OR = {
+				controls_province = 10837
+				266 = {
+					any_neighbor_state = {
+						is_controlled_by = ROOT
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		is_good = no
+		days_mission_timeout = 30
+
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						controls_province = 10837
+					}
+				}
+				PER = {
+					country_event = ww1_per_rus_strangling.8
+				}
+			}
+			else = {
+				activate_targeted_decision = {
+					target = PER
+					decision = RUS_secure_tehran
+				}
+				PER = {
+					activate_targeted_decision = {
+						target = RUS
+						decision = PER_hold_tehran
+					}
+				}
+			}
+		}
+
+		timeout_effect = {
+			white_peace = PER
+			every_owned_state = {
+				limit = {
+					has_contested_owner = PER
+				}
+				transfer_state_to = PER
+			}
+		}
+	}
+	RUS_secure_tehran = {
+		icon = generic_planted_spear
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		targets = { PER }
+
+		highlight_states = {
+			highlight_state_targets = { state = 266 }
+			highlight_provinces = { 10837 }
+			highlight_only_provinces = yes
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+			controls_province = 10837
+		}
+
+		fire_only_once = yes
+
+		is_good = yes
+		days_mission_timeout = 14
+
+		timeout_effect = {
+			if = {
+				limit = { 
+					controls_province = 10837
+				}
+				PER = {
+					country_event = ww1_per_rus_strangling.11
+				}
+			}
+			else = {
+				white_peace = PER
+				every_owned_state = {
+					limit = {
+						has_contested_owner = PER
+					}
+					transfer_state_to = PER
+				}
+			}
+		}
+	}
 }
+#PERSIA
+TGWR_great_power_politics = {
+	PER_russian_invasion = {
+		icon = generic_planted_spear
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		targets = { RUS }
+
+		highlight_states = {
+			highlight_state_targets = { state = 266 }
+			highlight_provinces = { 10837 }
+			highlight_only_provinces = yes
+		}
+
+		available = {
+			RUS = {
+				OR = {
+					controls_province = 10837
+					266 = {
+						any_neighbor_state = {
+							is_controlled_by = RUS
+						}
+					}
+				}
+			}			
+		}
+
+		fire_only_once = yes
+
+		is_good = yes
+		days_mission_timeout = 30
+
+		complete_effect = {
+			effect_tooltip = {
+				RUS = {
+					if = {
+						limit = {
+							NOT = {
+								controls_province = 10837
+							}
+						}
+						PER = {
+							country_event = ww1_per_rus_strangling.8
+						}
+					}
+					else = {
+						activate_targeted_decision = {
+							target = PER
+							decision = RUS_secure_tehran
+						}
+					}
+				}			
+			}			
+		}
+
+		timeout_effect = {
+			effect_tooltip = {
+				RUS = {
+					white_peace = PER
+					every_owned_state = {
+						limit = {
+							has_contested_owner = PER
+						}
+						transfer_state_to = PER
+					}
+				}
+			}		
+		}
+	}
+	PER_hold_tehran = {
+		icon = generic_planted_spear
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		targets = { RUS }
+
+		highlight_states = {
+			highlight_state_targets = { state = 266 }
+			highlight_provinces = { 10837 }
+			highlight_only_provinces = yes
+		}
+
+		available = {		
+			hidden_trigger = {
+				always = no
+			}
+			RUS = {
+				controls_province = 10837
+			}			
+		}
+
+		fire_only_once = yes
+
+		is_good = yes
+		days_mission_timeout = 14
+
+		timeout_effect = {
+			effect_tooltip = {
+				RUS = {
+					if = {
+						limit = { 
+							controls_province = 10837
+						}
+						PER = {
+							country_event = ww1_per_rus_strangling.11
+						}
+					}
+					else = {
+						white_peace = PER
+						every_owned_state = {
+							limit = {
+								has_contested_owner = PER
+							}
+							transfer_state_to = PER
+						}
+					}
+				}				
+			}			
+		}
+	}
+}	
