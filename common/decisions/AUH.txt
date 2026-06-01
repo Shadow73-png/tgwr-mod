@@ -2118,7 +2118,9 @@ AUH_the_imperial_council = {
 		}
 		visible = {
 			has_completed_focus = AUS_bourgeoisie_unity
-			
+			check_variable = {
+				AUS_polish_cock_sucked = 0
+			}
 		}
 		priority = 210
 		available = {
@@ -2137,8 +2139,49 @@ AUH_the_imperial_council = {
 				AUS_pm_mandate_power = 1
 				tooltip = AUS_pm_mandate.tt
 			}
+			add_to_variable = {
+				AUS_polish_cock_sucked = 1
+			}
 		}
-		
+	}
+	AUS_pork_barrel_politics = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_bourgeoisie_unity	
+			check_variable = {
+				AUS_polish_cock_sucked = 1
+			}
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 180
+		cost = 50
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+			add_to_variable = {
+				AUS_polish_cock_sucked = 1
+			}
+		}
+		modifier = {
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			88 = {
+				add_building_construction = {
+    				type = infrastructure
+    				level = 1
+    				instant_build = yes
+				}
+			}
+		}
 	}
 	AUS_tackle_first_czech_reforms  = {
 		icon = GFX_decision_eng_trade_unions_demand
