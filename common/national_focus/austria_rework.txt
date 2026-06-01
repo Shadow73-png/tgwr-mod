@@ -1023,7 +1023,7 @@ focus_tree = {
 			has_country_flag = AUS_ling_partitions_unlocked
 			custom_trigger_tooltip = {
 				check_variable = {
-					AUS_pm_mandate_power > 3
+					AUS_pm_mandate_power > 2
 				}
 				tooltip = AUS_at_least_three_pm_power
 			}
@@ -1069,8 +1069,18 @@ focus_tree = {
 			AUS_bienerth_MP = yes
 			has_country_flag = AUS_reforms_for_czechs_education_passed
 			has_country_flag = AUS_flag_prague_uni_permitted
+			custom_trigger_tooltip = {
+				check_variable = {
+					AUS_pm_mandate_power > 2
+				}
+				tooltip = AUS_at_least_three_pm_power
+			}
 		}
 		completion_reward = {
+			add_to_variable = {
+				AUS_pm_mandate_power = -3
+				tooltip = AUS_pm_mandate.tt
+			}
 			country_event = ww1_austriahungary.226
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
