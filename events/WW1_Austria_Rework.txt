@@ -5712,10 +5712,10 @@ country_event = {
 				}
 			}
 			custom_effect_tooltip = AUS_modify_aps.tt
-		add_to_variable = {
-			AUS_aps_pp_gain = -0.05
-			tooltip = political_power_factor_tt
-		}
+			add_to_variable = {
+				AUS_aps_pp_gain = -0.05
+				tooltip = political_power_factor_tt
+			}
 		}
 		else = {
 			complete_national_focus = AUS_bienerth_resigns
@@ -5891,7 +5891,6 @@ country_event = {
 	desc = ww1_austriahungary.221.d
 	picture = GFX_report_event_poland_rejects
 	is_triggered_only = yes
-
 	option = {
 		name = ww1_austriahungary.221.a
 		add_stability = -0.04
@@ -5926,8 +5925,7 @@ country_event = {
 		else = {
 			custom_effect_tooltip = AUS_you_can_do_it_narrowly
 			add_political_power = -100
-				set_country_flag = AUS_reforms_for_czechs_education_passed
-
+			set_country_flag = AUS_reforms_for_czechs_education_passed
 		}
 	}
 	option = {
@@ -5946,8 +5944,7 @@ country_event = {
 			AUS_pm_mandate_power = -1
 			tooltip = AUS_pm_mandate.tt
 		}
-			set_country_flag = AUS_reforms_for_czechs_education_passed
-
+		set_country_flag = AUS_reforms_for_czechs_education_passed
 	}
 	option = {
 		name = ww1_austriahungary.222.e
@@ -5960,14 +5957,14 @@ country_event = {
 		set_country_flag = AUS_reforms_for_czechs_education_passed
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.223
 	title = ww1_austriahungary.223.t
 	desc = ww1_austriahungary.223.d
 	picture = GFX_report_event_worker_protests
 	is_triggered_only = yes
-		fire_only_once = no
-
+	fire_only_once = no
 	option = {
 		name = ww1_austriahungary.223.a
 		set_country_flag = AUS_bienerth_socialist_coalition
@@ -5981,8 +5978,8 @@ country_event = {
 			id = ww1_austriahungary.222
 		}
 	}
-	
 }
+
 country_event = {
 	id = ww1_austriahungary.224
 	title = ww1_austriahungary.224.t
@@ -5993,12 +5990,34 @@ country_event = {
 	option = {
 		name = ww1_austriahungary.224.a
 		set_country_flag = AUS_flag_agree_demands_224
-		custom_effect_tooltip = AUS_needed_for_finalisation_tt
+		custom_effect_tooltip = AUS_change_effects_of_taxes
+		effect_tooltip = {
+			add_to_variable = {
+				AUS_pm_mandate_power = -1
+				tooltip = AUS_pm_mandate.tt
+			}
+			add_days_mission_timeout = {
+				mission = AUS_coalition_dissent_mission
+				days = -100
+			}
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_consumer_goods = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			9 = {
+				add_dynamic_modifier = {
+					modifier = generic_local_investments
+					days = 180
+				}
+			}
+		}
 	}
 	option = {
 		name = ww1_austriahungary.224.b
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.225
 	title = ww1_austriahungary.225.t
@@ -6014,6 +6033,7 @@ country_event = {
 		}
 	}
 }
+
 add_namespace = ww1_austria_quests
 # forts dispatch event
 #country_event = {
@@ -6450,34 +6470,76 @@ country_event = {
 			name = "Brygada Legionów Polskich"
 			division_cap = 3
 			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 0 y = 2 }
-				infantry = { x = 1 y = 0 }
-				infantry = { x = 1 y = 1 }
-				infantry = { x = 1 y = 2 }
-				infantry = { x = 2 y = 0 }
-				infantry = { x = 2 y = 1 }
-				infantry = { x = 2 y = 2 }
-				infantry = { x = 3 y = 0 }
-				infantry = { x = 3 y = 1 }
-				cavalry = { x = 4 y = 0 }
-				field_gun_brigade = { x = 3 y = 2 }
+				infantry = {
+					x = 0
+					y = 0
+				}
+				infantry = {
+					x = 0
+					y = 1
+				}
+				infantry = {
+					x = 0
+					y = 2
+				}
+				infantry = {
+					x = 1
+					y = 0
+				}
+				infantry = {
+					x = 1
+					y = 1
+				}
+				infantry = {
+					x = 1
+					y = 2
+				}
+				infantry = {
+					x = 2
+					y = 0
+				}
+				infantry = {
+					x = 2
+					y = 1
+				}
+				infantry = {
+					x = 2
+					y = 2
+				}
+				infantry = {
+					x = 3
+					y = 0
+				}
+				infantry = {
+					x = 3
+					y = 1
+				}
+				cavalry = {
+					x = 4
+					y = 0
+				}
+				field_gun_brigade = {
+					x = 3
+					y = 2
+				}
 			}
 			support = {
-				recon = { x = 0 y = 0 }
+				recon = {
+					x = 0
+					y = 0
+				}
 			}
 		}
 		hidden_effect = {
 			88 = {
 				create_unit = {
-					division = "name = \"I Brygada Legionów Polskich\" division_template = \"Brygada Legionów Polskich\" start_experience_factor = 0.1 start_equipment_factor = 0.9"
+					division = "name = "I Brygada Legionów Polskich" division_template = "Brygada Legionów Polskich" start_experience_factor = 0.1 start_equipment_factor = 0.9"
 					owner = ROOT
 				}
 			}
 			91 = {
 				create_unit = {
-					division = "name = \"II Brygada Legionów Polskich\" division_template = \"Brygada Legionów Polskich\" start_experience_factor = 0.1 start_equipment_factor = 0.9"
+					division = "name = "II Brygada Legionów Polskich" division_template = "Brygada Legionów Polskich" start_experience_factor = 0.1 start_equipment_factor = 0.9"
 					owner = ROOT
 				}
 			}
@@ -6486,7 +6548,7 @@ country_event = {
 					is_core_of = POL
 				}
 				create_unit = {
-					division = "name = \"III Brygada Legionów Polskich\" division_template = \"Brygada Legionów Polskich\" start_experience_factor = 0.1 start_equipment_factor = 0.9"
+					division = "name = "III Brygada Legionów Polskich" division_template = "Brygada Legionów Polskich" start_experience_factor = 0.1 start_equipment_factor = 0.9"
 					owner = ROOT
 				}
 			}
