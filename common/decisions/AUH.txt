@@ -2208,9 +2208,9 @@ AUH_the_imperial_council = {
 		allowed = {
 			original_tag = AUS
 		}
-		days_mission_timeout = 120
+		days_mission_timeout = 90
 		available = {
-			always = no
+			has_completed_focus = AUS_der_burgerliche_block
 		}
 		activation = {
 			always = no
@@ -2220,6 +2220,7 @@ AUH_the_imperial_council = {
 				AUS_coalition_dissent = 1
 			}
 			country_event = ww1_austriahungary.211
+			activate_mission = AUS_coalition_dissent_mission
 		}
 		complete_effect = {
 		}
@@ -2402,6 +2403,9 @@ AUH_the_imperial_council = {
 		}
 		remove_effect = {
 			add_to_variable = {
+				AUS_farmer_cock_sucked = 1
+			}
+			add_to_variable = {
 				AUS_pm_mandate_power = 1
 				tooltip = AUS_pm_mandate.tt
 			}
@@ -2441,6 +2445,9 @@ AUH_the_imperial_council = {
 		complete_effect = {
 		}
 		remove_effect = {
+			add_to_variable = {
+				AUS_farmer_cock_sucked = 1
+			}
 			add_to_variable = {
 				AUS_pm_mandate_power = 1
 				tooltip = AUS_pm_mandate.tt
@@ -2488,6 +2495,9 @@ AUH_the_imperial_council = {
 		}
 		remove_effect = {
 			add_to_variable = {
+				AUS_farmer_cock_sucked = 1
+			}
+			add_to_variable = {
 				AUS_pm_mandate_power = 1
 				tooltip = AUS_pm_mandate.tt
 			}
@@ -2528,6 +2538,9 @@ AUH_the_imperial_council = {
 		complete_effect = {
 		}
 		remove_effect = {
+			add_to_variable = {
+				AUS_farmer_cock_sucked = 1
+			}
 			add_to_variable = {
 				AUS_pm_mandate_power = 1
 				tooltip = AUS_pm_mandate.tt
@@ -2742,8 +2755,9 @@ AUH_the_imperial_council = {
 		}
 		days_mission_timeout = 30
 		available = {
-			NOT = {
-				has_completed_focus = AUS_exploit_world_tension
+			OR = {
+			has_war_with_major = yes
+has_completed_focus = AUS_bienerth_resigns
 			}
 		}
 		visible = {
@@ -2759,10 +2773,7 @@ AUH_the_imperial_council = {
 		}
 		timeout_effect = {
 			activate_mission = AUS_rallying_around_flag
-			add_to_variable = {
-				AUS_pm_mandate_power = 2
-				tooltip = AUS_pm_mandate.tt
-			}
+
 			add_days_mission_timeout = {
 				mission = AUS_coalition_dissent_mission
 				days = 20
@@ -2771,7 +2782,7 @@ AUH_the_imperial_council = {
 		complete_effect = {
 		}
 		fire_only_once = no
-		is_good = no
+		is_good = yes
 	}
 	AUS_state_control_critical_industries = {
 		icon = GFX_decision_hol_attract_foreign_investors

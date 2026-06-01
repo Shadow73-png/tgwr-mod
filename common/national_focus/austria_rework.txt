@@ -960,6 +960,8 @@ focus_tree = {
 			threat > 0.12
 		}
 		completion_reward = {
+			activate_mission = AUS_rallying_around_flag
+			custom_effect_tooltip = AUS_rallying_mission_does
 		}
 		ai_will_do = {
 			base = 1
@@ -979,25 +981,23 @@ focus_tree = {
 		y = 4
 		available = {
 			AUS_bienerth_MP = yes
-			
 			custom_trigger_tooltip = {
 				tooltip = AUS_completed_liberal_concessions_tt
 				check_variable = {
-				AUS_liberal_concession > 2
-			}
+					AUS_liberal_concession > 2
+				}
 			}
 		}
 		completion_reward = {
 			country_event = ww1_austriahungary.225
 			add_days_mission_timeout = {
-			mission = AUS_coalition_dissent_mission
-			days = 180
-		}
+				mission = AUS_coalition_dissent_mission
+				days = 180
+			}
 			add_to_variable = {
 				AUS_pm_mandate_power = 3
 				tooltip = AUS_pm_mandate.tt
 			}
-
 		}
 		ai_will_do = {
 			base = 1
@@ -1023,7 +1023,7 @@ focus_tree = {
 			has_country_flag = AUS_ling_partitions_unlocked
 			custom_trigger_tooltip = {
 				check_variable = {
-					AUS_pm_mandate_power > 3
+					AUS_pm_mandate_power > 2
 				}
 				tooltip = AUS_at_least_three_pm_power
 			}
@@ -1069,10 +1069,20 @@ focus_tree = {
 			AUS_bienerth_MP = yes
 			has_country_flag = AUS_reforms_for_czechs_education_passed
 			has_country_flag = AUS_flag_prague_uni_permitted
+			custom_trigger_tooltip = {
+				check_variable = {
+					AUS_pm_mandate_power > 2
+				}
+				tooltip = AUS_at_least_three_pm_power
+			}
 		}
 		completion_reward = {
+			add_to_variable = {
+				AUS_pm_mandate_power = -3
+				tooltip = AUS_pm_mandate.tt
+			}
 			country_event = ww1_austriahungary.226
-				custom_effect_tooltip = AUS_modify_aps.tt
+			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
 				AUS_aps_pp_gain = 0.05
 				tooltip = political_power_factor_tt
@@ -1438,6 +1448,37 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = AUS_bienerth_resigns
 		}
+		available = {
+			has_completed_focus = AUS_exploit_world_tension
+			custom_trigger_tooltip = {
+				NOT = {
+					has_country_flag = AUS_czech_language_issue_active
+				}
+				tooltip = AUS_to_form_solved_czechs
+			}
+			custom_trigger_tooltip = {
+				has_completed_focus = AUS_split_the_german_nationalists
+				tooltip = AUS_to_form_have_liberal_party
+			}
+			OR = {
+				custom_trigger_tooltip = {
+					check_variable = {
+						AUS_polish_cock_sucked > 2
+					}
+					tooltip = AUS_to_form_have_3_pro_pole_actions
+				}
+				has_completed_focus = AUS_clamp_on_galicia
+			}
+			custom_trigger_tooltip = {
+					check_variable = {
+						AUS_farmer_cock_sucked > 4
+					}
+					tooltip = AUS_to_form_have_5_farm_cock_sucked
+				}
+			NOT = {
+				has_idea = AUS_dysfunctional_galician_diet
+			}
+		}
 		prerequisite = {
 			focus = AUS_moderate_bank_policy
 			focus = AUS_reconcile_with_ruthenians
@@ -1447,10 +1488,8 @@ focus_tree = {
 		relative_position_id = AUS_count_richard_von_bienerth_schmerling
 		x = -1
 		y = 9
-		available = {
-			always = no
-		}
 		completion_reward = {
+			remove_mission = AUS_coalition_dissent_mission
 		}
 		ai_will_do = {
 			base = 1
@@ -1499,6 +1538,9 @@ focus_tree = {
 			AUS_bienerth_MP = yes
 		}
 		completion_reward = {
+			add_to_variable = {
+				AUS_farmer_cock_sucked = 1
+			}
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
 				AUS_aps_ruling_stab = 0.05
@@ -2193,6 +2235,9 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_to_variable = {
+				AUS_farmer_cock_sucked = 1
+			}
 			add_to_variable = {
 				AUS_pm_mandate_power = -1
 				tooltip = AUS_pm_mandate.tt
