@@ -852,6 +852,14 @@ focus_tree = {
 			}
 			AUS_update_imperial_council_effects = yes
 			custom_effect_tooltip = AUS_more_decisions_for_parliamentary_power
+			set_variable = {
+				AUS_farmer_concession = 0
+			}
+			custom_effect_tooltip = AUS_farmer_concession_tt
+			set_variable = {
+				AUS_liberal_concession = 0
+			}
+			custom_effect_tooltip = AUS_liberal_concession_tt
 		}
 		ai_will_do = {
 			base = 1
@@ -924,6 +932,14 @@ focus_tree = {
 			AUS_bienerth_MP = yes
 		}
 		completion_reward = {
+			add_to_variable = {
+				AUS_parliament_relations = 0.25
+				tooltip = AUS_p_loyalty_tt
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_strenghten_coalition_unity
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -965,8 +981,15 @@ focus_tree = {
 		y = 4
 		available = {
 			AUS_bienerth_MP = yes
+			check_variable = {
+				AUS_liberal_concession > 2
+			}
+			custom_trigger_tooltip = {
+				tooltip = AUS_completed_liberal_concessions_tt
+			}
 		}
 		completion_reward = {
+			country_event = ww1_austriahungary.225
 		}
 		ai_will_do = {
 			base = 1
@@ -1297,6 +1320,9 @@ focus_tree = {
 		available = {
 			has_idea = AUS_dysfunctional_galician_diet
 			AUS_bienerth_MP = yes
+			NOT = {
+				has_country_flag = AUS_clamp_galicia_locked
+			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_poles_love_yop.tt
