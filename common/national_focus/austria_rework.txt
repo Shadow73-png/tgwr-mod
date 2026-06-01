@@ -978,25 +978,23 @@ focus_tree = {
 		y = 4
 		available = {
 			AUS_bienerth_MP = yes
-			
 			custom_trigger_tooltip = {
 				tooltip = AUS_completed_liberal_concessions_tt
 				check_variable = {
-				AUS_liberal_concession > 2
-			}
+					AUS_liberal_concession > 2
+				}
 			}
 		}
 		completion_reward = {
 			country_event = ww1_austriahungary.225
 			add_days_mission_timeout = {
-			mission = AUS_coalition_dissent_mission
-			days = 180
-		}
+				mission = AUS_coalition_dissent_mission
+				days = 180
+			}
 			add_to_variable = {
 				AUS_pm_mandate_power = 3
 				tooltip = AUS_pm_mandate.tt
 			}
-
 		}
 		ai_will_do = {
 			base = 1
@@ -1071,7 +1069,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = ww1_austriahungary.226
-				custom_effect_tooltip = AUS_modify_aps.tt
+			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
 				AUS_aps_pp_gain = 0.05
 				tooltip = political_power_factor_tt
@@ -1434,6 +1432,31 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = AUS_bienerth_resigns
 		}
+		available = {
+			has_completed_focus = AUS_exploit_world_tension
+			custom_trigger_tooltip = {
+				NOT = {
+					has_country_flag = AUS_czech_language_issue_active
+				}
+				tooltip = AUS_to_form_solved_czechs
+			}
+			custom_trigger_tooltip = {
+				has_completed_focus = AUS_split_the_german_nationalists
+				tooltip = AUS_to_form_have_liberal_party
+			}
+				OR = {
+					custom_trigger_tooltip = {
+				check_var = {
+					AUS_polish_cock_sucked > 2
+				}
+				tooltip = AUS_to_form_have_3_pro_pole_actions
+			}
+			has_completed_focus = AUS_clamp_on_galicia
+				}
+			NOT = {
+				has_idea = AUS_dysfunctional_galician_diet
+			}
+		}
 		prerequisite = {
 			focus = AUS_moderate_bank_policy
 			focus = AUS_reconcile_with_ruthenians
@@ -1443,10 +1466,8 @@ focus_tree = {
 		relative_position_id = AUS_count_richard_von_bienerth_schmerling
 		x = -1
 		y = 9
-		available = {
-			always = no
-		}
 		completion_reward = {
+			remove_mission = AUS_der_burgerliche_block
 		}
 		ai_will_do = {
 			base = 1
