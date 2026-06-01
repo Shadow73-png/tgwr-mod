@@ -2335,7 +2335,9 @@ AUH_the_imperial_council = {
 		}
 		visible = {
 			has_completed_focus = AUS_bourgeoisie_unity
-			
+			check_variable = {
+				AUS_farmer_concession = 0
+			}
 		}
 		priority = 210
 		available = {
@@ -2357,8 +2359,333 @@ AUH_the_imperial_council = {
 				AUS_pm_mandate_power = 1
 				tooltip = AUS_pm_mandate.tt
 			}
+			add_to_variable = {
+				AUS_farmer_concession = 1
+			}
+			add_days_mission_timeout = {
+				mission = AUS_coalition_dissent_mission 
+				days = -15
+			}
+		}	
+	}
+	AUS_agr_tarrifs = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
 		}
-		
+		visible = {
+			has_completed_focus = AUS_bourgeoisie_unity
+			check_variable = {
+				AUS_farmer_concession = 1
+			}
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			consumer_goods_factor = 0.1
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_pm_mandate_power = 1
+				tooltip = AUS_pm_mandate.tt
+			}
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.02
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_farmer_concession = 1
+			}
+			add_days_mission_timeout = {
+				mission = AUS_coalition_dissent_mission 
+				days = -15
+			}
+		}	
+	}
+	AUS_support_agr_organisations = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_bourgeoisie_unity
+			check_variable = {
+				AUS_farmer_concession = 2
+			}
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			political_power_factor = -0.05
+			consumer_goods_factor = 0.05
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_pm_mandate_power = 1
+				tooltip = AUS_pm_mandate.tt
+			}
+			add_stability = 0.02
+			add_to_variable = {
+				AUS_farmer_concession = 1
+			}
+			add_days_mission_timeout = {
+				mission = AUS_coalition_dissent_mission 
+				days = -15
+			}
+		}	
+	AUS_fund_agr_schools = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_bourgeoisie_unity
+			check_variable = {
+				AUS_farmer_concession = 3
+			}
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			consumer_goods_factor = 0.1
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_pm_mandate_power = 1
+				tooltip = AUS_pm_mandate.tt
+			}
+			custom_effect_tooltip = AUS_modify_eco
+			add_to_variable = {
+				AUS_ep_research_speed = 0.02
+				tooltip = research_speed_factor_tt
+			}
+			add_days_mission_timeout = {
+				mission = AUS_coalition_dissent_mission 
+				days = -15
+			}
+		}	
+	}
+	AUS_lower_business_tax = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_bourgeoisie_unity
+			check_variable = {
+				AUS_liberal_concession = 0
+			}
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			political_power_factor = -0.075
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_pm_mandate_power = 1
+				tooltip = AUS_pm_mandate.tt
+			}
+			custom_effect_tooltip = AUS_modify_eco
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_ep_civ_speed = 0.03
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			add_to_variable = {
+				AUS_liberal_concession = 1
+			}
+		}	
+	}
+	AUS_lower_censorship_pacifist_literature = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_bourgeoisie_unity
+			check_variable = {
+				AUS_liberal_concession = 1
+			}
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			political_power_factor = -0.1
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_pm_mandate_power = 1
+				tooltip = AUS_pm_mandate.tt
+			}
+			add_war_support = -0.05
+			add_to_variable = {
+				AUS_liberal_concession = 1
+			}
+		}	
+	}
+	AUS_reduce_church_influence_school_funding = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_bourgeoisie_unity
+			check_variable = {
+				AUS_liberal_concession = 2
+			}
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			political_power_factor = -0.1
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_pm_mandate_power = 1
+				tooltip = AUS_pm_mandate.tt
+			}
+			add_days_mission_timeout = {
+				mission = AUS_coalition_dissent_mission
+				days = -30
+			}
+			add_to_variable = {
+				AUS_liberal_concession = 1
+			}
+		}	
+	}
+	AUS_pledge_commitment_civil_liberties = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_bourgeoisie_unity
+			check_variable = {
+				AUS_liberal_concession = 2
+			}
+			NOT = {
+				has_completed_focus = AUS_clamp_on_galicia
+			}
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 0
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			political_power_factor = -0.1
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_stability = 0.02
+			set_country_flag = AUS_clamp_galicia_locked
+			custom_effect_tooltip = AUS_lock_clamp_galicia_locked_tt
+			add_to_variable = {
+				AUS_pm_mandate_power = 1
+				tooltip = AUS_pm_mandate.tt
+			}
+		}	
+	}
+	AUS_strenghten_coalition_unity = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_tighten_interparty_cooperation
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 30
+		cost = 15
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = AUS_coalition_dissent_mission
+				days = 60
+			}
+		}	
 	}
 	AUS_state_control_critical_industries = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -2746,7 +3073,6 @@ AUH_the_imperial_council = {
 			mission = AUS_coalition_dissent_mission
 			days = 30
 		}
-		
 		}
 		
 	}
