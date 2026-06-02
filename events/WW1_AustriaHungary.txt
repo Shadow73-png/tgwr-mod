@@ -7762,7 +7762,10 @@ country_event = {
 				limit = {
 					is_owned_by = PREV.PREV
 					OR = {
-						state = 870
+						AND = {
+							state = 870
+							NOT = { ROOT = { has_global_flag = montenegrin_occupy_shkoder } }
+						}
 						state = 1214
 						state = 1240
 					}

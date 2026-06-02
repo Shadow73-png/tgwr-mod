@@ -2351,12 +2351,6 @@ focus_tree = {
 					random_select_amount = 6
 					limit = {
 						OR = {
-							tag = FRA
-							tag = ENG
-							tag = ITA
-							tag = RUS
-							tag = AUS
-							tag = GER
 							is_major = yes
 							NOT = { has_war_with = ROOT }
 						}
@@ -2447,12 +2441,6 @@ focus_tree = {
 						random_select_amount = 6
 						limit = {
 							OR = {
-								tag = FRA
-								tag = ENG
-								tag = ITA
-								tag = RUS
-								tag = AUS
-								tag = GER
 								is_major = yes
 								NOT = { has_war_with = ROOT }
 							}
@@ -2547,12 +2535,6 @@ focus_tree = {
 						random_select_amount = 6
 						limit = {
 							OR = {
-								tag = FRA
-								tag = ENG
-								tag = ITA
-								tag = RUS
-								tag = AUS
-								tag = GER
 								is_major = yes
 								NOT = { has_war_with = ROOT }
 							}
@@ -2561,6 +2543,17 @@ focus_tree = {
 						set_country_flag = is_part_of_international_control_commission
 						give_guarantee = ROOT
 					}
+				}
+				has_global_flag = montenegrin_occupy_shkoder
+				every_state = {
+					limit = {
+						ALB_medium_albania_states = yes
+						OR = {
+							NOT = { state = 870 }
+							NOT = { ROOT = { has_global_flag = montenegrin_occupy_shkoder } }
+						}
+					}
+					set_state_flag = ALB_lc_state_to_alb
 				}
 			}
 			remove_ideas = ALB_unrecognized_state

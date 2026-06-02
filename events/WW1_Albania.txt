@@ -3427,7 +3427,10 @@ country_event = { #ottoman peace notification london conference
 		every_state = {
 			limit = {
 				OR = {
-					state = 870
+					AND = {
+						state = 870
+						NOT = { ROOT = { has_global_flag = montenegrin_occupy_shkoder } }
+					}
 					state = 1214
 					state = 1240
 					state = 44
@@ -3444,7 +3447,10 @@ country_event = { #ottoman peace notification london conference
 			every_state = {
 				limit = {
 					OR = {
-						state = 870
+						AND = {
+							state = 870
+							NOT = { ROOT = { has_global_flag = montenegrin_occupy_shkoder } }
+						}
 						state = 1214
 						state = 1240
 						state = 44
