@@ -1032,17 +1032,24 @@
 				limit = {
 					tag = TUR
 				}
-				country_event = ottoman.42
-				country_event = ottoman.45
-				country_event = ottoman.38
-				country_event = ottoman.118
-				country_event = ottoman.119
-				country_event = ottoman.151
-				country_event = ottoman.152
-				country_event = ottoman.153
-				country_event = ottoman.98
-				country_event = ottoman.164
-				country_event = ottoman.170
+				if = {
+					limit = { 
+						has_completed_focus = TUR_legacy_of_the_4th_lancers
+					}
+					country_event = ottoman.38
+				}
+				else = {					
+					country_event = ottoman.42
+					country_event = ottoman.45
+					country_event = ottoman.118
+					country_event = ottoman.119
+					country_event = ottoman.151
+					country_event = ottoman.152
+					country_event = ottoman.153
+					country_event = ottoman.98
+					country_event = ottoman.164
+					country_event = ottoman.170
+				}
 			}			
 			else_if = { ### Serbia ###
 				limit = {
@@ -1293,12 +1300,6 @@
 						original_tag = TUN
 						original_tag = ALG
 					}
-					OR = {
-						has_cosmetic_tag = FRA_classic_blue
-						has_cosmetic_tag = FRA_socialist_red_alone
-						has_cosmetic_tag = ALG_FRA
-						has_cosmetic_tag = TUN_FRA
-					}
 				}
 				if = {
 					limit = {
@@ -1321,12 +1322,6 @@
 						original_tag = MOR
 						original_tag = TUN
 						original_tag = ALG
-					}
-					OR = {
-						has_cosmetic_tag = FRA_classic_blue
-						has_cosmetic_tag = FRA_socialist_red_alone
-						has_cosmetic_tag = ALG_FRA
-						has_cosmetic_tag = TUN_FRA
 					}
 				}
 				if = {
@@ -9394,9 +9389,7 @@
 						limit = { 
 							NOT = {
 								has_cosmetic_tag = FRA_socialism
-								has_cosmetic_tag = FRA_socialism_not_commune
-								has_cosmetic_tag = FRA_socialism_syndicalist
-								has_cosmetic_tag = FRA_socialism_republic_of
+								has_cosmetic_tag = FRA_democratic
 								has_cosmetic_tag = NFA
 								has_country_flag = AEF
 								has_country_flag = AOF
@@ -10182,9 +10175,7 @@
 								has_cosmetic_tag = GER_socialism
 							}
 							has_cosmetic_tag = FRA_socialism
-							has_cosmetic_tag = FRA_socialism_not_commune
-							has_cosmetic_tag = FRA_socialism_syndicalist
-							has_cosmetic_tag = FRA_socialism_republic_of
+							has_cosmetic_tag = FRA_democratic
 							has_cosmetic_tag = FIN_socialist
 							has_cosmetic_tag = FIN_red
 							has_cosmetic_tag = SOV_puppet
