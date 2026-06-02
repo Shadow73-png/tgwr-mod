@@ -6054,6 +6054,31 @@ country_event = {
 		add_stability = -0.05
 	}
 }
+country_event = {
+	id = ww1_austriahungary.228
+	title = ww1_austriahungary.228.t
+	desc = ww1_austriahungary.228.d
+	picture = GFX_report_event_worker_protests
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.228.a
+		set_political_power = 0
+			AUS_fire_minister_advisor = yes
+		set_global_flag = AUS_karl_minister
+		AUH_karl_von_sturgkh = {
+			set_character_flag = minister_AUS
+		}
+		activate_advisor = AUH_karl_von_sturgkh
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 10
+				has_global_flag = AUS_paul_minister
+			}
+		}
+	}
+}
 add_namespace = ww1_austria_quests
 # forts dispatch event
 #country_event = {
