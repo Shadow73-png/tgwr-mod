@@ -39,3 +39,29 @@ TGWR_great_power_politics = {
 		}
 	}
 }
+
+foreign_politics = {
+	MNT_occupy_shkoder = {
+		allowed = { original_tag = MNT }
+		icon = GFX_decision_generic_operation
+		visible = {
+			870 = { has_dynamic_modifier = { modifier = ALB_entente_supervision } }
+			FROM = {
+				original_tag = ALB
+				NOT = { tag = ALB }
+				controls_state = 870
+			}
+			is_great_war_ongoing = yes
+			is_in_faction_with = ENT
+		}
+		target_trigger = { FROM = { owns_state = 870 } }
+		available = { FROM = { NOT = { is_in_faction_with = ENT } } }
+		complete_effect = {
+			if = {
+				limit = { owner = { any_controlled_state = { NOT = { state = 870 } } } }
+				annex_country = { target = FROM }
+			}
+			else = { transfer_state = 870 }
+		}
+	}
+}
