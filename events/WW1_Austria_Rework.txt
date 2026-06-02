@@ -8030,9 +8030,7 @@ country_event = {
 			has_completed_focus = AUS_uphold_civilian_rights
 		}
 	}
-	mean_time_to_happen = {
-		days = 720
-	}
+	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.59.a
@@ -8047,15 +8045,37 @@ country_event = {
 	trigger = {
 		tag = AUS
 		has_global_flag = great_war
-		
+		NOT = {
+			has_global_flag = great_war_ends
+		}
 	}
-	mean_time_to_happen = {
-		days = 810
-	}
+	is_triggered_only = yes
+	
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.60.a
 add_war_support = -0.02
+	}
+}
+country_event = {
+	id = ww1_austriahungary_war.61
+	title = ww1_austriahungary_war.61.t
+	desc = ww1_austriahungary_war.61.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		tag = AUS
+		has_global_flag = great_war
+		NOT = {
+			has_global_flag = great_war_ends
+		}
+	
+	}
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.61.a
+		
 	}
 }
 #war time search end
