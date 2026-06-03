@@ -56,19 +56,18 @@ PER_constitutional_revolution_category = {
 			always = no
 		}
 
-		available = {
-			OR = {
-				has_country_leader_ideology = absolute_monarchy
-				has_country_leader_ideology = reactionism
-			}
-		}
-
 		targets = { PRS }
 		
 		war_with_target_on_timeout = yes
 		
 		activation = {
 			always = no
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
 
 		highlight_states = {
@@ -78,14 +77,16 @@ PER_constitutional_revolution_category = {
 		}
 
 		cancel_trigger = {
-			OR = {
-				has_capitulated = yes
-				NOT = {
-					has_war_with = PEX
-					owns_state = 421
-					has_contested_owner = 421
+			hidden_trigger = {
+				OR = {
+					has_capitulated = yes
+					NOT = {
+						has_war_with = PEX
+						owns_state = 421
+						has_contested_owner = 421
+					}
 				}
-			}		
+			}
 		}
 
 		fire_only_once = yes
@@ -95,6 +96,10 @@ PER_constitutional_revolution_category = {
 
 		timeout_effect = {
 			hidden_effect = {
+				421 = {
+					transfer_state_to = PEX
+				}
+				set_province_controller = 4943
 				every_core_state = {
 					add_core_of = PRS
 				}
@@ -106,8 +111,6 @@ PER_constitutional_revolution_category = {
 				}
 			}
 			PRS = {
-				set_state_owner = 421
-				set_province_controller = 5098
 				declare_war_on = { target = ROOT type = civil_war }
 				hidden_effect = {
 					add_civil_war_target = ROOT
@@ -126,9 +129,8 @@ PER_constitutional_revolution_category = {
 		}
 
 		available = {
-			OR = {
-				has_country_leader_ideology = absolute_monarchy
-				has_country_leader_ideology = reactionism
+			hidden_trigger = {
+				always = no
 			}
 		}
 
@@ -145,12 +147,14 @@ PER_constitutional_revolution_category = {
 		}
 
 		cancel_trigger = {
-			OR = {
-				has_capitulated = yes
-				NOT = {
-					has_war_with = PEX
-					owns_state = 1013
-					has_contested_owner = 1013
+			hidden_trigger = {
+				OR = {
+					has_capitulated = yes
+					NOT = {
+						has_war_with = PEX
+						owns_state = 1013
+						has_contested_owner = 1013
+					}
 				}
 			}
 		}
@@ -161,10 +165,10 @@ PER_constitutional_revolution_category = {
 		days_mission_timeout = 426
 
 		timeout_effect = {
-			1013 = {
-				transfer_state_to = PEX
-			}
 			hidden_effect = {
+				1013 = {
+					transfer_state_to = PEX
+				}
 				every_core_state = {
 					add_core_of = PEX
 				}

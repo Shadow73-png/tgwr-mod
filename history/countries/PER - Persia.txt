@@ -13,15 +13,17 @@ set_autonomy = {
 	autonomous_state = autonomy_tgwr_feudal_autonomy
 	freedom_level = 0.5
 }
+MAK = { set_country_flag = feudal_autonomy }
 set_autonomy = {
 	target = MAK
-	autonomous_state = autonomy_satellite
-	freedom_level = 0.9
+	autonomous_state = autonomy_tgwr_feudal_autonomy
+	freedom_level = 0.5
 }
+MRG = { set_country_flag = feudal_autonomy }
 set_autonomy = {
 	target = MRG
-	autonomous_state = autonomy_satellite
-	freedom_level = 0.9
+	autonomous_state = autonomy_tgwr_feudal_autonomy
+	freedom_level = 0.5
 }
 
 recruit_character = PER_ahmad_shah_qajar
@@ -60,36 +62,9 @@ recruit_character = PER_mirza_kuchik_khan
 recruit_character = PER_mohammad_ali_shah
 recruit_character = PER_abulfath_mirza
 
-
-#Foreign influence
-	set_variable = { var = ENG.PER_foreign_influence value = 0.2 }
-	set_variable = { var = RUS.PER_foreign_influence value = 0.1 }
-	set_variable = { var = GER.PER_foreign_influence value = 0.05 }	
-	set_variable = { var = TUR.PER_foreign_influence value = 0.01 }	
-	every_other_country = {
-		limit = {
-			OR = {
-				tag = ENG
-				tag = RUS
-				tag = GER
-				tag = TUR
-			}
-		}
-		PER_calculate_influnce_in_persia_modifiers = yes
-		add_dynamic_modifier = {
-			modifier = PER_influence_in_persia_modifier
-		}
-	}
-	PER_calculate_foreign_influnce = yes
-	add_dynamic_modifier = {
-		modifier = PER_foreign_influence_modifier
-	}
-	ARB = {
-		PER_calculate_foreign_influnce = yes
-		add_dynamic_modifier = {
-			modifier = PER_foreign_influence_modifier
-		}
-	}
+add_dynamic_modifier = {
+	modifier = PER_foreign_influence_modifier
+}
 
 1910.1.1 = {
 	set_politics = {
@@ -109,12 +84,30 @@ recruit_character = PER_abulfath_mirza
 	add_ideas = {
 		free_trade
 		PER_idea_rural_society
-		#PER_idea_foreign_reliance
 		PER_ali_reza_khan_regent
-		PER_anglo_persian_oil
 		PER_foreign_advisors_2
 	}
-	#add_timed_idea = { idea = PER_idea_constitutional_revolution days = 360 }
+
+	#Foreign influence
+	set_variable = { var = ENG.PER_foreign_influence value = 0.2 }
+	set_variable = { var = RUS.PER_foreign_influence value = 0.1 }
+	set_variable = { var = GER.PER_foreign_influence value = 0.05 }	
+	set_variable = { var = TUR.PER_foreign_influence value = 0.01 }	
+	every_other_country = {
+		limit = {
+			OR = {
+				tag = ENG
+				tag = RUS
+				tag = GER
+				tag = TUR
+			}
+		}
+		PER_calculate_influnce_in_persia_modifiers = yes
+		add_dynamic_modifier = {
+			modifier = PER_influence_in_persia_modifier
+		}
+	}
+	PER_calculate_foreign_influnce = yes
 
 	set_technology = {
 		#infantry
