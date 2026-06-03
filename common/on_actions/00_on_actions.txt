@@ -848,7 +848,10 @@ on_actions = {
 	on_deployed_leader_defeated = {
 		effect = {
 			if = {
-				limit = { can_be_captured = yes }
+				limit = { 
+					can_be_captured = yes 
+					is_country_leader = no
+				}
 				# TODO TAOG: a percentage chance to be captured? Other effects otherwise?
 
 				# is_in_state requires the leader to still be deployed, so check before capture_by
