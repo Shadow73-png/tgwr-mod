@@ -110,6 +110,33 @@ ideas = {
 				monthly_population = 0.1
 				custom_modifier_tooltip = cannot_train_units_tt
 			}
+			available = {
+				check_variable = {
+					PER_centralization_level < 10
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 9.9
+						}
+						NOT = {
+							check_variable = {
+								PER_centralization_level > 99.9
+							}
+						}
+					}
+					add_ideas = PER_centralization_level_1
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 99.9
+						}
+					}
+				}
+			}
 		}
 		PER_centralization_level_1 = {
 			allowed = { always = no }
@@ -125,6 +152,44 @@ ideas = {
 				army_defence_against_major_factor = 0.18
 				monthly_population = 0.09
 				custom_modifier_tooltip = cannot_train_units_tt
+			}
+			available = {
+				check_variable = {
+					PER_centralization_level > 9.9
+				}
+				check_variable = {
+					PER_centralization_level < 20
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level < 10
+						}
+					}
+					add_ideas = PER_centralization_level_0
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 19.9
+						}
+						NOT = {
+							check_variable = {
+								PER_centralization_level > 99.9
+							}
+						}
+					}
+					add_ideas = PER_centralization_level_2
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 99.9
+						}
+					}
+				}
 			}
 		}
 		PER_centralization_level_2 = {
@@ -142,6 +207,44 @@ ideas = {
 				monthly_population = 0.08
 				custom_modifier_tooltip = cannot_train_units_tt
 			}
+			available = {
+				check_variable = {
+					PER_centralization_level > 19.9
+				}
+				check_variable = {
+					PER_centralization_level < 30
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level < 20
+						}
+					}
+					add_ideas = PER_centralization_level_1
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 29.9
+						}
+						NOT = {
+							check_variable = {
+								PER_centralization_level > 99.9
+							}
+						}
+					}
+					add_ideas = PER_centralization_level_3
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 99.9
+						}
+					}
+				}
+			}
 		}
 		PER_centralization_level_3 = {
 			allowed = { always = no }
@@ -157,6 +260,44 @@ ideas = {
 				army_defence_against_major_factor = 0.14
 				monthly_population = 0.07
 				custom_modifier_tooltip = cannot_train_units_tt
+			}
+			available = {
+				check_variable = {
+					PER_centralization_level > 29.9
+				}
+				check_variable = {
+					PER_centralization_level < 40
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level < 30
+						}
+					}
+					add_ideas = PER_centralization_level_2
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 39.9
+						}
+						NOT = {
+							check_variable = {
+								PER_centralization_level > 99.9
+							}
+						}
+					}
+					add_ideas = PER_centralization_level_4
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 99.9
+						}
+					}
+				}
 			}
 		}
 		PER_centralization_level_4 = {
@@ -174,6 +315,44 @@ ideas = {
 				monthly_population = 0.06
 				custom_modifier_tooltip = cannot_train_units_tt
 			}
+			available = {
+				check_variable = {
+					PER_centralization_level > 39.9
+				}
+				check_variable = {
+					PER_centralization_level < 50
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level < 40
+						}
+					}
+					add_ideas = PER_centralization_level_3
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 49.9
+						}
+						NOT = {
+							check_variable = {
+								PER_centralization_level > 99.9
+							}
+						}
+					}
+					add_ideas = PER_centralization_level_5
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 99.9
+						}
+					}
+				}
+			}
 		}
 		PER_centralization_level_5 = {
 			allowed = { always = no }
@@ -189,6 +368,44 @@ ideas = {
 				army_defence_against_major_factor = 0.1
 				monthly_population = 0.05
 				custom_modifier_tooltip = cannot_train_units_tt
+			}
+			available = {
+				check_variable = {
+					PER_centralization_level > 49.9
+				}
+				check_variable = {
+					PER_centralization_level < 60
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level < 50
+						}
+					}
+					add_ideas = PER_centralization_level_4
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 59.9
+						}
+						NOT = {
+							check_variable = {
+								PER_centralization_level > 99.9
+							}
+						}
+					}
+					add_ideas = PER_centralization_level_6
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 99.9
+						}
+					}
+				}
 			}
 		}
 		PER_centralization_level_6 = {
@@ -206,6 +423,44 @@ ideas = {
 				monthly_population = 0.04
 				custom_modifier_tooltip = cannot_train_units_tt
 			}
+			available = {
+				check_variable = {
+					PER_centralization_level > 59.9
+				}
+				check_variable = {
+					PER_centralization_level < 70
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level < 60
+						}
+					}
+					add_ideas = PER_centralization_level_5
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 69.9
+						}
+						NOT = {
+							check_variable = {
+								PER_centralization_level > 99.9
+							}
+						}
+					}
+					add_ideas = PER_centralization_level_7
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 99.9
+						}
+					}
+				}
+			}
 		}
 		PER_centralization_level_7 = {
 			allowed = { always = no }
@@ -216,11 +471,49 @@ ideas = {
 			picture = per_rural_society
 			name = PER_centralization_level_0
 			modifier = {
-				political_power_gain = -0.015
+				political_power_gain = -0.15
 				research_speed_factor = -0.09
 				army_defence_against_major_factor = 0.06
 				monthly_population = 0.03
 				custom_modifier_tooltip = cannot_train_units_tt
+			}
+			available = {
+				check_variable = {
+					PER_centralization_level > 69.9
+				}
+				check_variable = {
+					PER_centralization_level < 80
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level < 70
+						}
+					}
+					add_ideas = PER_centralization_level_6
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 79.9
+						}
+						NOT = {
+							check_variable = {
+								PER_centralization_level > 99.9
+							}
+						}
+					}
+					add_ideas = PER_centralization_level_8
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 99.9
+						}
+					}
+				}
 			}
 		}
 		PER_centralization_level_8 = {
@@ -238,6 +531,44 @@ ideas = {
 				monthly_population = 0.02
 				custom_modifier_tooltip = cannot_train_units_tt
 			}
+			available = {
+				check_variable = {
+					PER_centralization_level > 79.9
+				}
+				check_variable = {
+					PER_centralization_level < 90
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level < 80
+						}
+					}
+					add_ideas = PER_centralization_level_7
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 89.9
+						}
+						NOT = {
+							check_variable = {
+								PER_centralization_level > 99.9
+							}
+						}
+					}
+					add_ideas = PER_centralization_level_9
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 99.9
+						}
+					}
+				}
+			}
 		}
 		PER_centralization_level_9 = {
 			allowed = { always = no }
@@ -253,6 +584,31 @@ ideas = {
 				army_defence_against_major_factor = 0.02
 				monthly_population = 0.01
 				custom_modifier_tooltip = cannot_train_units_tt
+			}
+			available = {
+				check_variable = {
+					PER_centralization_level > 89.9
+				}
+				check_variable = {
+					PER_centralization_level < 100
+				}
+			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level < 90
+						}
+					}
+					add_ideas = PER_centralization_level_8
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							PER_centralization_level > 99.9
+						}
+					}
+				}
 			}
 		}
 		PER_foreign_advisors_0 = { #hostile
