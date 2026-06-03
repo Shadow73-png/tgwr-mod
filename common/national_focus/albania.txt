@@ -4569,6 +4569,7 @@ focus_tree = {
 			FOCUS_FILTER_MINORITY
 			FOCUS_FILTER_ANNEXATION
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		prerequisite = { focus = ALB_present_the_fourteen_demands }
 		mutually_exclusive = { focus = ALB_albanian_independence }
@@ -5229,7 +5230,7 @@ focus_tree = {
 			}
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
-				amount = 20000
+				amount = 5000 #20000
 				producer = var:global.ALB_order_foreign_equipments_major
 			}
 			add_equipment_to_stockpile = {
@@ -6048,6 +6049,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		prerequisite = { focus = ALB_congress_of_trieste }
 		mutually_exclusive = { focus = ALB_prince_king_karl_i focus = ALB_prince_king_viktor_i focus = ALB_prince_king_fuadi_i }
@@ -6124,6 +6126,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		prerequisite = { focus = ALB_congress_of_trieste }
 		mutually_exclusive = { focus = ALB_prince_king_vilhelm_i focus = ALB_prince_king_viktor_i focus = ALB_prince_king_fuadi_i }
@@ -6198,6 +6201,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		prerequisite = { focus = ALB_congress_of_trieste }
 		mutually_exclusive = { focus = ALB_prince_king_vilhelm_i focus = ALB_prince_king_karl_i focus = ALB_prince_king_fuadi_i }
@@ -6272,6 +6276,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		prerequisite = { focus = ALB_congress_of_trieste }
 		mutually_exclusive = { focus = ALB_prince_king_vilhelm_i focus = ALB_prince_king_karl_i focus = ALB_prince_king_viktor_i }
@@ -7389,6 +7394,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		prerequisite = { focus = ALB_declare_state_of_emergency }
 		mutually_exclusive = { focus = ALB_congress_of_trieste }
@@ -7983,6 +7989,43 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALB_crush_the_catholic_separatists
+		icon = GFX_generic_attack_mirdita
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_invite_the_ottoman_prince focus = ALB_toptanis_gamble }
+		x = -2
+		y = 1
+		relative_position_id = ALB_invite_the_ottoman_prince
+		available = {
+			if = {
+				limit = { country_exists = ACA }
+				country_exists = ACA
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = ALB_crush_the_catholic_separatists_trigger
+					always = no
+				}
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { country_exists = ACA }
+				create_wargoal = {
+					target = ACA
+					type = annex_everything
+				}
+			}
+			else = { custom_effect_tooltip = ALB_crush_the_catholic_separatists_tt }
+		}
+		ai_will_do = { factor = 20 }
+	}
+
+	focus = {
 		id = ALB_count_our_casualties
 		icon = GFX_focus_generic_field_hostpital
 		cost = 5
@@ -8542,6 +8585,7 @@ focus_tree = {
 		cost = 10
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		prerequisite = { focus = ALB_declare_state_of_emergency }
 		mutually_exclusive = { focus = ALB_congress_of_trieste }
@@ -9194,6 +9238,43 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALB_crush_the_muslim_separatists
+		icon = GFX_focus_attack_ottoman
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = ALB_elect_a_catholic_monarch focus = ALB_proclaim_a_rival_principality }
+		x = -4
+		y = 1
+		relative_position_id = ALB_elect_a_catholic_monarch
+		available = {
+			if = {
+				limit = { country_exists = AMA }
+				country_exists = AMA
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = ALB_crush_the_muslim_separatists_trigger
+					always = no
+				}
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { country_exists = AMA }
+				create_wargoal = {
+					target = AMA
+					type = annex_everything
+				}
+			}
+			else = { custom_effect_tooltip = ALB_crush_the_muslim_separatists_tt }
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
 		id = ALB_amnesty_for_the_tribes
 		icon = GFX_goal_generic_improve_relations
 		cost = 5
@@ -9327,7 +9408,7 @@ focus_tree = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = ALB_elect_a_catholic_monarch }
-		x = -3
+		x = -2
 		y = 1
 		relative_position_id = ALB_elect_a_catholic_monarch
 		completion_reward = {
@@ -9350,7 +9431,7 @@ focus_tree = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = ALB_reapproach_the_albanian_nationalists }
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = ALB_reapproach_the_albanian_nationalists
 		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
@@ -9422,7 +9503,7 @@ focus_tree = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = ALB_invite_the_hungarian_aristocracy }
-		x = -2
+		x = 2
 		y = 2
 		relative_position_id = ALB_invite_the_hungarian_aristocracy
 		completion_reward = {

@@ -76,6 +76,7 @@ focus = {
 	}
 	search_filters = {
 		FOCUS_FILTER_HISTORICAL
+		FOCUS_FILTER_COMPLETED_BY_EVENT
 	}
 	x = 15
 	y = 0
@@ -103,6 +104,9 @@ focus = {
 	y = 1
 	prerequisite = {
 		focus = GRE_dragoumis_resignation
+	}
+	search_filters = {
+		FOCUS_FILTER_COMPLETED_BY_EVENT
 	}
 	mutually_exclusive = {
 		focus = GRE_appoint_venizelos
@@ -161,6 +165,7 @@ focus = {
 	}
 	search_filters = {
 		FOCUS_FILTER_HISTORICAL
+		FOCUS_FILTER_COMPLETED_BY_EVENT
 	}
 	mutually_exclusive = {
 		focus = GRE_appoint_gounaris
@@ -6213,17 +6218,6 @@ focus = {
 		completion_reward = {
 			339 = {
 				if = {
-					limit = { 
-						has_dynamic_modifier = { modifier = TUR_turkish_resistance }       
-					}
-					remove_dynamic_modifier = {
-						modifier = TUR_turkish_resistance
-					}
-					add_dynamic_modifier = {
-						modifier = TUR_turkish_resistance_rework
-					}
-				}
-				if = {
 					limit = { has_resistance = yes }
 					add_compliance = 20
 				}
@@ -6249,46 +6243,7 @@ focus = {
 			factor = 1
 		}
 		completion_reward = {
-			if = {
-				limit = { 
-					339 = { is_owned_by = ROOT }
-				}
-				339 = {
-					remove_dynamic_modifier = {
-						modifier = TUR_turkish_resistance_rework
-					}
-				}
-			}
-			if = {
-				limit = { 
-					756 = { is_owned_by = ROOT }
-				}
-				756 = {
-					remove_dynamic_modifier = {
-						modifier = TUR_turkish_resistance_rework
-					}
-				}
-			}
-			if = {
-				limit = { 
-					341 = { is_owned_by = ROOT }
-				}
-				341 = {
-					remove_dynamic_modifier = {
-						modifier = TUR_turkish_resistance_rework
-					}
-				}
-			}
-			if = {
-				limit = { 
-					860 = { is_owned_by = ROOT }
-				}
-				860 = {
-					remove_dynamic_modifier = {
-						modifier = TUR_turkish_resistance_rework
-					}
-				}
-			}
+			
 		}
 	}
 	focus = {
