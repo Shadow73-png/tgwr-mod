@@ -1322,6 +1322,7 @@ AUS_minorities_mechanic = {
 		fire_only_once = no
 		is_good = no
 	}
+	
 	AUH_bohemian_parliament_shenanigans = {
 		priority = 100
 		icon = GFX_decision_generic_ignite_civil_war
@@ -2616,7 +2617,7 @@ AUH_the_imperial_council = {
 				AUS_pm_mandate_power = 1
 				tooltip = AUS_pm_mandate.tt
 			}
-			custom_effect_tooltip = AUS_modify_eco
+			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_consumer_goods = 0.05
 				tooltip = consumer_goods_factor_tt
@@ -2752,7 +2753,7 @@ AUH_the_imperial_council = {
 			original_tag = AUS
 		}
 		visible = {
-			has_idea = AUH_blocked_budgets_2
+			has_country_flag = AUS_can_reform_obstructionism
 		}
 		priority = 210
 		available = {
@@ -2998,7 +2999,7 @@ has_completed_focus = AUS_bienerth_resigns
 			original_tag = AUS
 		}
 		visible = {
-			has_completed_focus = AUS_bourgeoisie_unity
+			has_completed_focus = AUS_forment_strong_small_farms
 			
 		}
 		priority = 210
@@ -3549,6 +3550,66 @@ has_completed_focus = AUS_bienerth_resigns
 			remove_ideas = AUS_dysfunctional_galician_diet
 			unlock_national_focus = AUS_polish_loyalty
 		}
+	}
+		AUH_obstructionist_imperial_council= {
+		priority = 1002
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		highlight_states = {
+			
+		}
+		days_mission_timeout = AUS_bohemia_mission_var
+		available = {
+			OR = {
+				hidden_trigger = {
+					has_country_flag = AUS_perm_obstructionism
+				}
+			}
+		}
+		visible = {
+			original_tag = AUS
+		}
+		activation = {
+			original_tag = AUS
+			NOT = {
+				has_country_flag = AUS_obstructionism_is_gone
+			}
+		}
+		timeout_effect = {
+			random_list = {
+			20 = {
+				country_event = {
+					id = ww1_austriahungary.231
+				}
+			}
+			20 = {
+				country_event = {
+					id = ww1_austriahungary.232
+				}
+			}
+			20 = {
+				country_event = {
+					id = ww1_austriahungary.233
+				}
+			}
+			20 = {
+				country_event = {
+					id = ww1_austriahungary.234
+				}
+			}
+			20 = {
+				country_event = {
+					id = ww1_austriahungary.235
+				}
+			}
+			}
+		}
+		complete_effect = {
+		}
+		fire_only_once = no
+		is_good = no
 	}
 	AUS_imperial_elections = {
 		icon = GFX_decision_generic_scorched_earth
