@@ -1521,15 +1521,27 @@ country_event = {
 	
 	fire_only_once = yes
 	is_triggered_only = yes
+
+	timeout_days = 1
 	
 	option = {
 		name = ww1_per_rus_strangling.7.a
-		effect_tooltip = {
+		RUS = {
+			declare_war_on = {
+				target = PER
+				type = topple_government
+			}
+			activate_targeted_decision = {
+				target = PER
+				decision = RUS_invasion_of_persia
+			}
+		}	
+		PER = {
 			activate_targeted_decision = {
 				target = RUS
 				decision = PER_russian_invasion
 			}
-		}
+		}	
 	}
 }
 
