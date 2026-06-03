@@ -330,12 +330,16 @@ PER_guard_of_the_domains = {
 		}
 
 		cancel_trigger = {
-			has_war_with = RUS
-			check_variable = {
-				PER_cossack_cap = 0
-			}
-			check_variable = {
-				PER_recruited_cossacks = 0
+			hidden_trigger = {
+				OR = {
+					has_war_with = RUS
+					check_variable = {
+						PER_cossack_cap = 0
+					}
+					check_variable = {
+						PER_recruited_cossacks = 0
+					}
+				}
 			}
 		}
 
