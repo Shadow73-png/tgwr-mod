@@ -466,4 +466,107 @@ PER_guarded_domains = {
 			}
 		}
 	}
+	#Extortion
+	PER_extort_FROM = {
+		icon = GFX_decision_CHL_carabineros
+		allowed = {
+			original_tag = PER
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_core_of = ROOT
+				is_owned_and_controlled_by = ROOT
+				impassable = no
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = PER_has_treasury_gendarmerie_in_state_tt
+				FROM = {
+					any_state_division = {
+						division_has_majority_template = militia
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_PER_constitutionalism = yes
+			has_completed_focus = PER_treasury_gendarmerie
+			PER_william_morgan_shuster = {
+				is_hired_as_advisor = yes
+			}
+		}
+
+		fire_only_once = yes
+		on_map_mode = map_and_decisions_view
+		days_remove = 30
+		remove_effect = {
+			set_temp_variable = {
+				PER_add_funds_var = 1
+			}
+			add_to_variable = {
+				var = PER_available_funds
+				value = PER_add_funds_var
+				tooltip = PER_add_funds_tt
+			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	#Expansion of Gendarmerie
+	PER_expand_government_gendarmerie = {
+		icon = generic_reorganize_irregulars
+		allowed = {
+			original_tag = PER
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = PER_has_funds_tt
+				check_variable = { PER_available_funds > 0}
+			}
+		}
+
+		visible = {
+			has_PER_constitutionalism = yes
+			has_completed_focus = PER_create_the_government_gendarmerie
+			has_template = "Government Gendarmerie"
+		}
+
+		fire_only_once = no
+		on_map_mode = map_and_decisions_view
+		days_remove = 30
+
+		complete_effect = {
+			set_temp_variable = {
+				PER_add_funds_var = -1
+			}
+			add_to_variable = {
+				var = PER_available_funds
+				value = PER_add_funds_var
+				tooltip = PER_add_funds_tt
+			}
+			add_to_variable = {
+				PER_gendarmerie_cap = 1
+			}
+			set_division_template_cap = { 
+				division_template = "Government Gendarmerie" 
+				division_cap = PER_gendarmerie_cap
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Government Gendarmerie\" division_template = \"Government Gendarmerie\" start_experience_factor = 0.2 start_equipment_factor = 1 force_equipment_variants = { infantry_equipment_n1 = { owner = \"PER\" }}" 
+					owner = ROOT
+					count = 1
+				}
+			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
 }

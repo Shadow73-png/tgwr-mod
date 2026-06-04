@@ -134,6 +134,26 @@
 	
 		completion_reward = {
 			add_ideas = PER_idea_government_gendarmerie
+			division_template = {
+				name = "Government Gendarmerie"
+				is_locked = yes
+				division_names_group = USA_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+				}
+			}
+			set_division_template_cap = { 
+				division_template = "Government Gendarmerie" 
+				division_cap = PER_gendarmerie_cap
+			}
+			266 = {
+				create_unit = {
+					division = "name = \"Government Gendarmerie\" division_template = \"Government Gendarmerie\" start_experience_factor = 0.2 start_equipment_factor = 1 force_equipment_variants = { infantry_equipment_n1 = { owner = \"PER\" }}" 
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = yes
+				}
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_CHARACTER }
@@ -285,45 +305,36 @@
 		prerequisite = {
 			focus = PER_empower_the_treasurer_general
 		}
-		prerequisite = {
-			focus = PER_invite_swedish_officers
-		}
 		relative_position_id = PER_empower_the_treasurer_general
-		x = -1
-		y = 2
+		x = 0
+		y = 1
 		available = {
 			has_government = democratic
+			PER_william_morgan_shuster = {
+				is_hired_as_advisor = yes
+			}
 		}
 	
 		completion_reward = {
 			PER_improve_foreign_advisors = yes
-		}
-
-		search_filters = { FOCUS_FILTER_HISTORICAL }
-		ai_will_do = {
-			factor = 25
-		}
-	}
-
-	focus = {
-		id = PER_treasury_gendarmerie
-		icon = GFX_generic_police_state
-		cost = 10
-		prerequisite = {
-			focus = PER_empower_the_treasurer_general
-		}
-		prerequisite = {
-			focus = PER_invite_swedish_officers
-		}
-		relative_position_id = PER_empower_the_treasurer_general
-		x = -1
-		y = 2
-		available = {
-			has_government = democratic
-		}
-	
-		completion_reward = {
-			PER_improve_foreign_advisors = yes
+			division_template = {
+				name = "Treasury Gendarmerie"
+				is_locked = yes
+				division_cap = 1 
+				division_names_group = USA_INF_01
+				regiments = {
+					militia = { x = 0 y = 0 }
+				}
+			}
+			266 = {
+				create_unit = {
+					division = "name = \"Treasury Gendarmerie\" division_template = \"Treasury Gendarmerie\" start_experience_factor = 0.2 start_equipment_factor = 1 force_equipment_variants = { infantry_equipment_n1 = { owner = \"PER\" }}" 
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = yes
+				}
+			}
+			unlock_decision_tooltip = PER_extort_FROM
 		}
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
