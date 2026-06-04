@@ -6,7 +6,7 @@ NDefines.NAI.ENTRENCHMENT_WEIGHT = 10.0					-- AI should favour units with less 
 
 NDefines.NAI.LAND_COMBAT_GUIDE_DISTANCE = 0.0			-- Distance within whch we'll care a bit more about sending planes regardless of whether our boiz are dying
 
-NDefines.NAI.CANCEL_COMBAT_MIN_DURATION_HOURS = 36		-- Only allow cancelling (normal) combat if at least <value> hours have passed
+NDefines.NAI.CANCEL_COMBAT_MIN_DURATION_HOURS = 48		-- Only allow cancelling (normal) combat if at least <value> hours have passed
 
 NDefines.NAI.UNIT_ASSIGNMENT_TERRAIN_IMPORTANCE = 1								-- Terrain score for units are multiplied by this when the AI is deciding which front they should be assigned to
 	
@@ -18,8 +18,6 @@ NDefines.NAI.PLAN_ACTIVATION_SUPERIORITY_AGGRO = 5 --default 1.0		-- How aggress
 	--planning
 NDefines.NAI.AI_FRONT_MOVEMENT_FACTOR_FOR_READY = 0.3
 
-NDefines.NAI.MIN_PLAN_VALUE_TO_MICRO_INACTIVE = 0.15 --default 0.2				-- The AI will not consider members of groups which plan is not activated AND evaluates lower than this.
-	
 NDefines.NAI.MAX_UNITS_FACTOR_AREA_ORDER = 1.75 --default 1.0					-- Factor for max number of units to assign to area defense orders
 NDefines.NAI.DESIRED_UNITS_FACTOR_AREA_ORDER = 0.7	--default^			-- Factor for desired number of units to assign to area defense orders
 NDefines.NAI.MIN_UNITS_FACTOR_AREA_ORDER = 0.4	--default^^				-- Factor for min number of units to assign to area defense orders
@@ -145,13 +143,9 @@ NDefines.NAI.PLAN_MIN_SIZE_FOR_FALLBACK = 100000					                -- A countr
 NDefines.NAI.RECON_PLANES_NAVAL = 0.1
 NDefines.NAI.RECON_PLANES_LAND_COMBAT = 25
 
-NDefines.NAI.LOW_PRIO_TEMPLATE_BONUS_FOR_GARRISONS = 300000
-NDefines.NAI.LOW_PRIO_TEMPLATE_PENALTY_FOR_FRONTS = 300000
+NDefines.NAI.LOW_PRIO_TEMPLATE_BONUS_FOR_GARRISONS = 5000
+NDefines.NAI.LOW_PRIO_TEMPLATE_PENALTY_FOR_FRONTS = 1500
 NDefines.NAITheatre.AI_THEATRE_SUPPLY_CRISIS_LIMIT = 0.25
-
-NDefines.NAI.DESPERATE_AI_MIN_UNIT_ASSIGN_TO_ESCAPE = 1					-- AI will assign at least this amount of units to break from desperate situations
-
-NDefines.NAI.DESPERATE_AI_WEAK_UNIT_STR_LIMIT = 0.99					-- ai will increase number of units assigned to break from desperate situations when units are start falling lower than this str limit
 
 NDefines.NAI.FORT_LEVEL_TO_CONSIDER_HIGHLY_FORTIFIED = 4							-- Provinces above this level of fortification will be considered highly fortified by plan evaluation
 NDefines.NAI.FORTIFIED_RATIO_TO_CONSIDER_A_FRONT_FORTIFIED = 0.25 					-- ai will consider a front fortified if this ratio of provinces has fort
@@ -263,8 +257,8 @@ NDefines.NAI.DIPLOMACY_ACCEPT_ATTACHE_OPINION_TRASHHOLD = 0
 NDefines.NAI.ASSIGN_TANKS_TO_WAR_FRONT = 10
 NDefines.NAI.ASSIGN_TANKS_TO_NON_WAR_FRONT = 0.1
 
-NDefines.NAI.AIFC_UPDATE_FREQUENCY_DAYS = 5
-NDefines.NAI.AIFC_MAX_NR_FRONTS = 3
+NDefines.NAI.AIFC_UPDATE_FREQUENCY_DAYS = 7
+NDefines.NAI.AIFC_MAX_NR_FRONTS = 4
 NDefines.NAI.AIFC_UNIT_RATIO_BASE = 0.18
 NDefines.NAI.AIFC_CA_DIVISIONS_PER_PROVINCE = 3
 NDefines.NAI.AIFC_ACTIVATE_AVG_ORG_RATIO_THRESHOLD = 0.2
@@ -273,8 +267,8 @@ NDefines.NAI.AIFC_TARGET_SUPPLY_HUB_BASE_SCORE = 30.0
 NDefines.NAI.AIFC_TARGET_NAVAL_BASE_BASE_SCORE = 10.0
 NDefines.NAI.AIFC_TARGET_NAVAL_BASE_SCORE_PER_LEVEL = 1.5
 NDefines.NAI.AIFC_REFRESH_NEED_PER_DAY = 1.2
-NDefines.NAI.AIFC_REFRESH_NEED_SUPPLY_FACTOR_PER_DAY = 1.2
-NDefines.NAI.AIFC_FRESHNESS_ADD_ON_PROGRESS = 25.0
+NDefines.NAI.AIFC_REFRESH_NEED_SUPPLY_FACTOR_PER_DAY = 1.4
+NDefines.NAI.AIFC_FRESHNESS_ADD_ON_PROGRESS = 22.0
 
 NDefines.NAI.AIFC_PATH_COST_TRN_MOUNTAINS = 3
 NDefines.NAI.AIFC_PATH_COST_TRN_MARSH = 3
