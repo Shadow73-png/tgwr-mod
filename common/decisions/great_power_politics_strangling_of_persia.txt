@@ -302,4 +302,247 @@ TGWR_great_power_politics = {
 			}			
 		}
 	}
-}	
+}
+#OTTOMANS
+TGWR_great_power_politics = {
+	TUR_occupation_of_western_persia_timeout = {
+		icon = generic_planted_spear
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 419
+				state = 1212
+				state = 1250
+				state = 1252
+			}
+		}
+
+		available = {
+			OR = {
+				has_war_with = PER
+				has_war_with = RUS
+				custom_trigger_tooltip = {
+					tooltip = TUR_controls_western_persia_tt
+					all_state = {
+						if = {
+							limit = {
+								OR = {
+									state = 419
+									state = 1212
+									state = 1250
+									state = 1252
+								}
+							}
+							is_owned_and_controlled_by = ROOT
+						}
+					}
+				}
+			}			
+		}
+
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					has_war_with = PER
+					has_war_with = RUS	
+					NOT = {
+						any_owned_state = {
+							OR = {
+								state = 419
+								state = 1212
+								state = 1250
+								state = 1252
+							}
+						}
+					}
+				}
+			}		
+		}
+
+		fire_only_once = yes
+
+		is_good = no
+		days_mission_timeout = 720
+
+		timeout_effect = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 419
+						state = 1212
+						state = 1250
+						state = 1252
+					}
+				}
+				transfer_state_to = PER
+			}
+		}
+	}
+	TUR_expand_power_base_in_FROM = {
+		icon = generic_prepare_civil_war
+		allowed = {
+			original_tag = TUR
+		}
+		state_target = yes
+		targets = {
+			419
+			1212
+			1250
+			1252
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = PER
+				NOT = {
+					has_state_flag = TUR_expanded_power_base
+				}
+			}
+		}
+
+		available = {
+			set_temp_variable = {
+				PER_TUR_influence_trigger_var = 0.05
+			}
+			custom_trigger_tooltip = {
+				tooltip = TUR_has_influence_tt
+				OR = {
+					check_variable = {
+						TUR.PER_foreign_influence = PER_TUR_influence_trigger_var
+					}
+					check_variable = {
+						TUR.PER_foreign_influence > PER_TUR_influence_trigger_var
+					}
+				}
+			}
+		}
+		visible = {
+			has_active_mission = TUR_occupation_of_western_persia_timeout
+			great_power_politics_strangling_of_persia_visible = yes
+		}
+
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					NOT = {
+						has_active_mission = TUR_occupation_of_western_persia_timeout
+					}
+					FROM = {
+						NOT = {
+							is_owned_and_controlled_by = PER
+						}
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+		on_map_mode = map_and_decisions_view
+		days_remove = 60
+		complete_effect = {
+			set_temp_variable = {
+				PER_modify_TUR_influence_var = -0.05
+			}
+			add_to_variable = {
+				var = TUR.PER_foreign_influence
+				value = PER_modify_TUR_influence_var
+				tooltip = PER_modify_TUR_influence_tt
+			}
+			PER_calculate_foreign_influnce = yes
+		}
+		remove_effect = {
+			FROM = {
+				set_state_flag = TUR_expanded_power_base
+			}
+			custom_effect_tooltip = TUR_expanded_power_base
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	TUR_occupy_FROM = {
+		icon = generic_prepare_civil_war
+		allowed = {
+			original_tag = TUR
+		}
+		state_target = yes
+		targets = {
+			419
+			1212
+			1250
+			1252
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = PER
+				has_state_flag = TUR_expanded_power_base
+			}
+		}
+
+		available = {
+			set_temp_variable = {
+				PER_TUR_influence_trigger_var = 0.05
+			}
+			custom_trigger_tooltip = {
+				tooltip = TUR_has_influence_tt
+				OR = {
+					check_variable = {
+						TUR.PER_foreign_influence = PER_TUR_influence_trigger_var
+					}
+					check_variable = {
+						TUR.PER_foreign_influence > PER_TUR_influence_trigger_var
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_active_mission = TUR_occupation_of_western_persia_timeout
+			great_power_politics_strangling_of_persia_visible = yes
+		}
+
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					NOT = {
+						has_active_mission = TUR_occupation_of_western_persia_timeout
+					}
+					FROM = {
+						NOT = {
+							is_owned_and_controlled_by = PER
+						}
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+		on_map_mode = map_and_decisions_view
+		days_remove = 60
+		complete_effect = {
+			set_temp_variable = {
+				PER_modify_TUR_influence_var = -0.05
+			}
+			add_to_variable = {
+				var = TUR.PER_foreign_influence
+				value = PER_modify_TUR_influence_var
+				tooltip = PER_modify_TUR_influence_tt
+			}
+			PER_calculate_foreign_influnce = yes
+		}
+		remove_effect = {
+			FROM = {
+				transfer_state_to = ROOT
+			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+}
