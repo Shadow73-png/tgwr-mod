@@ -8283,6 +8283,7 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_war.61.a
 		custom_effect_tooltip = AUS_karls_decisions
+		#re open parliament, complaint commission, ministry of health, ministry of food security, remove Conrad, charities, amnestied, reduce censorship
 		set_country_flag = AUS_karl_decisions_shown
 		hidden_effect = {
 			HUN = {
@@ -8373,7 +8374,7 @@ country_event = {
 	desc = ww1_austriahungary_war.66.d
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
-	fire_only_once = no
+	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.66.a
 		activate_mission = HUN_tisza_resigns_mission
@@ -8386,7 +8387,7 @@ country_event = {
 	desc = ww1_austriahungary_war.67.d
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
-	fire_only_once = no
+	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.67.a
 		add_popularity = {
@@ -8397,7 +8398,25 @@ country_event = {
 		add_stability = 0.02
 	}
 }
-
+country_event = {
+	id = ww1_austriahungary_war.68
+	title = ww1_austriahungary_war.68.t
+	desc = ww1_austriahungary_war.68.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		SOV = {
+			exists = yes
+		}
+	}
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.68.a
+	add_popularity = {
+		ideology = communism
+		popularity = 0.1
+	}
+	}
+}
 #war time search end
 ##################
 #####  DEBUG #####
