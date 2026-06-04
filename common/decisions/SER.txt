@@ -92,7 +92,10 @@ SER_black_hand_category = {
 				limit = { has_country_flag = greater_serbia_chosen }
 				set_cosmetic_tag = SER_empire
 			}
-			else = { set_cosmetic_tag = YUG }
+			else = { 
+				set_cosmetic_tag = YUG 
+				SER_YUG_regnal_number_change = yes
+			}
 		}
 	}
 	SER_integrate_balkan_nations = {
@@ -1988,6 +1991,7 @@ peace_deals = {
 					surrender_progress > 0.4
 					BUL = {
 						controls_state = 203
+						controls_state = 1258
 						controls_state = 106
 						controls_state = 821
 						controls_state = 1213
@@ -2009,8 +2013,13 @@ peace_deals = {
 						345 = {
 							is_fully_controlled_by = BUL
 						}
-						731 = {
-							is_controlled_by = BUL
+						AND = {
+							731 = {
+								is_controlled_by = BUL
+							}
+							1256 = {
+								is_controlled_by = BUL
+							}
 						}
 					}
 				}
@@ -2019,7 +2028,7 @@ peace_deals = {
 	}
 }
 
-GER_great_war = {
+TGWR_great_power_politics = {
 	#invasion of Banat
 	SER_invade_BNT = { 
 		icon = generic_ignite_civil_war

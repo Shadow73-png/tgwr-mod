@@ -386,20 +386,6 @@ country_event = {
 		add_to_tech_sharing_group = russian_research
 		if = {
 			limit = {
-				has_idea = FRA_wadai_war
-			}
-			effect_tooltip = {
-				army_experience = 10
-			}
-			hidden_effect = {
-				army_experience = 101
-			}
-			else = {
-				army_experience = 10
-			}
-		}			
-		if = {
-			limit = {
 				tag = ROOT
 				has_tech = basic_armored_car
 				RUS = {
@@ -472,20 +458,25 @@ country_event = {
 	picture = GFX_report_event_soldiers_in_france
 	is_triggered_only = yes
 	trigger = {
-		has_cosmetic_tag = GEO_TSCN_committee
+		has_country_leader = {
+			character = DON_vasiliy_kharlamov
+		}
 	}
 	option = {
 		name = ww1_russia.32.a
-		set_cosmetic_tag = GEO_TSCN_commissariat
 		set_party_name = {
 			ideology = neutrality
-			long_name = GEO_TSCN_commissariat_party 
-			name = GEO_TSCN_commissariat_party 
+			long_name = TSCN_commissariat_party 
+			name = TSCN_commissariat_party 
 		}
-		GEO_evgeni_gegechkori = {
-			promote_character = social_democracy
-			promote_character = authoritarian_democracy
-		}
+		GEO = {
+			GEO_evgeni_gegechkori = {
+				set_nationality = ROOT
+				promote_character = social_democracy
+				promote_character = authoritarian_democracy
+				set_character_flag = georgian_character
+			}
+		}	
 		hidden_effect = {
 			DON_vasiliy_kharlamov = {
 				set_nationality = DON
@@ -519,8 +510,8 @@ country_event = {
 # 		set_cosmetic_tag = GEO_TSCN
 # 		set_party_name = { 
 # 			ideology = neutrality 
-# 			long_name = GEO_TSCN_neutrality_party 
-# 			name = GEO_TSCN_neutrality_party 
+# 			long_name = TSCN_neutrality_party 
+# 			name = TSCN_neutrality_party 
 # 		}
 # 		set_politics = {
 # 			ruling_party = democratic
@@ -1190,11 +1181,21 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_russia.49.a
-		RUS = {
-			transfer_state = 419
-			transfer_state = 420
-			transfer_state = 877
-			transfer_state = 1212
+		PER = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 419
+						state = 420
+						state = 877
+						state = 1212
+						state = 1245
+						state = 1250
+						state = 1251
+					}				
+				}
+				transfer_state_to = RUS
+			}
 		}
 		add_ai_strategy = {
 			type = alliance
@@ -1775,6 +1776,9 @@ country_event = {
 		1212 = {
 			set_border_war = yes
 		}
+		1245 = {
+			set_border_war = yes
+		}
 		ai_chance = {
 			factor = 100
 		}
@@ -1832,10 +1836,19 @@ country_event = {
 			416 = {
 				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
+			1242 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
+			1243 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
 			417 = {
-					add_dynamic_modifier = { modifier = per_russian_sphere  }
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
 			418 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
+			1241 = {
 				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
 			420 = {
@@ -1871,6 +1884,9 @@ country_event = {
 		add_state_claim = 419
 		add_state_claim = 877
 		add_state_claim = 1212
+		add_state_claim = 1245
+		add_state_claim = 1250
+		add_state_claim = 1251
 		877 = {
 			add_manpower = -1200
 		}
@@ -1890,10 +1906,19 @@ country_event = {
 			416 = {
 				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
+			1242 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
+			1243 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
 			417 = {
-					add_dynamic_modifier = { modifier = per_russian_sphere  }
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
 			418 = {
+				add_dynamic_modifier = { modifier = per_russian_sphere  }
+			}
+			1241 = {
 				add_dynamic_modifier = { modifier = per_russian_sphere  }
 			}
 			420 = {
@@ -1937,6 +1962,9 @@ country_event = {
 			1212 = {
 				set_border_war = no
 			}
+			1245 = {
+				set_border_war = no
+			}
 		}
 		ai_chance = {
 			factor = 100
@@ -1976,10 +2004,20 @@ country_event = {
 			category = land_doctrine
 			cost_reduction = 0.5
 		}
-		PER = {
-			transfer_state = 877
-			transfer_state = 1212
-			transfer_state = 419
+		RUS = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 877
+						state = 1212
+						state = 1245
+						state = 419
+						state = 1250
+						state = 1251
+					}
+				}
+				transfer_state_to = PER
+			}
 		}
 		hidden_effect = {
 			419 = {
@@ -1992,6 +2030,9 @@ country_event = {
 				set_border_war = no
 			}
 			1212 = {
+				set_border_war = no
+			}
+			1245 = {
 				set_border_war = no
 			}
 		}
@@ -2219,12 +2260,19 @@ country_event = {
 				owns_state = 417
 				owns_state = 421
 				owns_state = 416
+				owns_state = 1242
+				owns_state = 1243
 				owns_state = 266
 				owns_state = 418
+				owns_state = 1241
 				owns_state = 414
+				owns_state = 1244
 				owns_state = 411
 				owns_state = 877
 				owns_state = 1212
+				owns_state = 1245
+				owns_state = 1250
+				owns_state = 1251
 			}
 		}
 	}
@@ -3209,11 +3257,16 @@ country_event = {
 	trigger = {
 		original_tag = RUS
 		date > 1916.1.1
-		has_character = RUS_illarion_vorontsovdashkov
+		has_character = RUS_illarion_vorontsov_dashkov
 	}
 	immediate = {
 		hidden_effect = {
-			retire_character = RUS_illarion_vorontsovdashkov
+			RUS_illarion_vorontsov_dashkov = {
+				set_character_flag = character_died
+			}
+			CAU = {
+				retire_character = CAU_illarion_vorontsov_dashkov
+			}
 		}
 	}
 	mean_time_to_happen = {
@@ -3221,11 +3274,7 @@ country_event = {
 	}
 	option = {
 		name = ww1_russia.96.a
-		effect_tooltip = {
-			RUS_illarion_vorontsovdashkov = {
-				remove_unit_leader_role = yes
-			}
-		}
+		retire_character = RUS_illarion_vorontsov_dashkov
 	}
 }
 # Polish Autonomy after Great War
@@ -3561,7 +3610,6 @@ country_event = {
 						state = 93
 						state = 192
 						state = 197
-						state = 203
 						state = 226
 						state = 200
 						state = 196
@@ -3574,6 +3622,7 @@ country_event = {
 						state = 227
 						state = 808
 						state = 766
+						state = 1263
 						state = 78
 						state = 137
 						state = 955
@@ -4065,6 +4114,25 @@ country_event = {
 							}
 							transfer_state_to = TUR
 						}
+					}
+					if = {
+						limit = {
+							CAU = {
+								is_subject_of = RUS
+							}
+						}
+						CAU = {
+							every_owned_state = {
+								limit = {
+
+									OR = {
+										is_core_of = TUR
+										is_claimed_by = TUR
+									}
+								}
+								transfer_state_to = TUR
+							}
+						}			
 					}
 				}
 			}

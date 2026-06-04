@@ -83,8 +83,9 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		tag = AUS
-		any_enemy_country = {
+		any_country = {
 			is_major = yes
+			has_war_with = AUS
 		}
 		has_country_flag = AUH_ITA_trentino_proposal
 		NOT = {
@@ -124,6 +125,7 @@ country_event = {
 						state = 513
 						state = 736
 						state = 1197
+						state = 1260
 						state = 1198
 						state = 1010
 					}
@@ -376,6 +378,7 @@ country_event = {
 				is_owned_or_subject_trigger = yes
 				OR = {
 					state = 104
+					state = 1261
 					state = 575
 				}
 			}
@@ -936,6 +939,7 @@ country_event = {
 		OR = {
 			owns_state = 159
 			owns_state = 160
+			owns_state = 1259
 		}
 	}
 	option = {
@@ -948,6 +952,7 @@ country_event = {
 				OR = {
 					state = 159
 					state = 160
+					state = 1259
 				}
 			}
 			hidden_effect = { add_core_of = VNC }
@@ -1060,6 +1065,7 @@ country_event = {
 			}
 			OR = {
 				owns_state = 160
+				owns_state = 1259
 				owns_state = 159
 			}
 		}
@@ -1092,6 +1098,7 @@ country_event = {
 						}
 						OR = {
 							owns_state = 160
+							owns_state = 1259
 							owns_state = 159
 						}
 					}
@@ -1100,6 +1107,7 @@ country_event = {
 							OR = {
 								state = 159
 								state = 160
+								state = 1259
 							}
 						}
 						transfer_state_to = PREV.PREV
@@ -1120,6 +1128,7 @@ country_event = {
 							}
 							OR = {
 								owns_state = 160
+								owns_state = 1259
 								owns_state = 159
 							}
 						}
@@ -1128,6 +1137,7 @@ country_event = {
 								OR = {
 									state = 159
 									state = 160
+									state = 1259
 								}
 							}
 							transfer_state_to = PREV.PREV
@@ -1320,10 +1330,12 @@ country_event = {
 						OR = {
 							state = 159
 							state = 160
+							state = 1259
 							state = 244
 							state = 513
 							state = 736
 							state = 1197
+							state = 1260
 							state = 1198
 							state = 1010
 						}
@@ -2298,42 +2310,42 @@ country_event = {
 	}
 }
 
-#country_event = {
-#	id = ww1_auh.54
-#	title = ww1_auh.54.t
-#	desc = ww1_auh.54.d
-#	picture = GFX_report_event_ger_civil_war
-#	fire_only_once = yes
-#	trigger = {
-#		104 = {
-#			CONTROLLER = {
-#				OR = {
-#					tag = AUS
-#					is_puppet_of = AUS
-#				}
-#			}
-#			NOT = {
-#				has_state_flag = BOS_pacified
-#			}	
-#		}
-#		has_global_flag = BOS_independence_war
-#		NOT = {
-#			has_country_flag = BOS_independence_war_triggered
-#		}
-#	}
-#	option = {
-#		name = ww1_auh.54.a
-#		set_country_flag = BOS_independence_war_triggered
-#		104 = {
-#			set_state_flag = BOS_pacified
-#			add_core_of = AUS
-#			add_manpower = -25000
-#		}
-#		annex_country = {
-#			target = BOS
-#		}
-#	}
-#}
+country_event = {
+	id = ww1_auh.54
+	title = ww1_auh.54.t
+	desc = ww1_auh.54.d
+	picture = GFX_report_event_ger_civil_war
+	fire_only_once = yes
+	trigger = {
+		104 = {
+			CONTROLLER = {
+				OR = {
+					tag = AUS
+					is_puppet_of = AUS
+				}
+			}
+			NOT = {
+				has_state_flag = BOS_pacified
+			}	
+		}
+		has_global_flag = BOS_independence_war
+		NOT = {
+			has_country_flag = BOS_independence_war_triggered
+		}
+	}
+	option = {
+		name = ww1_auh.54.a
+		set_country_flag = BOS_independence_war_triggered
+		104 = {
+			set_state_flag = BOS_pacified
+			add_core_of = AUS
+			add_manpower = -25000
+		}
+		annex_country = {
+			target = BOS
+		}
+	}
+}
 
 country_event = {
 	id = ww1_auh.55
@@ -4660,6 +4672,7 @@ country_event = {
 					OR = {
 						state = 575
 						state = 104
+						state = 1261
 					}
 				}
 				transfer_state_to = SER
@@ -6057,6 +6070,8 @@ country_event = {
 				}
 				transfer_state = 104
 				add_state_core = 104
+				transfer_state = 1261
+				add_state_core = 1261
 			}
 		}
 		HUN = {
@@ -7375,6 +7390,7 @@ country_event = {
 				owns_state = 1225
 				owns_state = 871
 				owns_state = 1214
+				owns_state = 1240
 				owns_state = 1215
 			}
 		}	
@@ -7413,6 +7429,7 @@ country_event = {
 					owns_state = 870
 					owns_state = 871
 					owns_state = 1214
+					owns_state = 1240
 					owns_state = 1215
 				}
 				NOT = {
@@ -7513,6 +7530,7 @@ country_event = {
 					state = 870
 					state = 871
 					state = 1214
+					state = 1240
 					state = 1215
 				}
 			}
@@ -8873,6 +8891,7 @@ country_event = {
 					}
 					OR = {
 						state = 104
+						state = 1261
 						state = 575
 					}
 				}
@@ -11269,6 +11288,7 @@ country_event = {
 								state = 163
 								state = 736
 								state = 1197
+								state = 1260
 								state = 1198
 								state = 1010
 								state = 39
@@ -11292,6 +11312,7 @@ country_event = {
 								state = 163
 								state = 736
 								state = 1197
+								state = 1260
 								state = 1198
 								state = 1010
 							}
@@ -11325,6 +11346,7 @@ country_event = {
 						}
 						transfer_state = 44
 						transfer_state = 1214
+						transfer_state = 1240
 						transfer_state = 1215
 						105 = { #Montenegro
 							owner = {

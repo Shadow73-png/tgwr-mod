@@ -1,4 +1,5 @@
-GER_great_war = {
+TGWR_great_power_politics = {
+	#great_power_politics_misc
 	MOR_pacify_countryside = {
 		allowed = {
 			original_tag = MOR
@@ -6,10 +7,10 @@ GER_great_war = {
 		icon = GFX_decision_generic_prepare_civil_war
 		available = {
 			has_war = no
-
 		}
 		visible = {
 			has_country_flag = MOR_pacify_countryside
+			great_power_politics_misc_visible = yes
 			NOT = {
 				has_country_flag = MOR_start_war_with_hostile_caids
 			}
@@ -142,7 +143,7 @@ crisis = {
 
 	MOR_raise_militias_fes = {
 		allowed = {
-			original_tag = MOR
+			tag = MOR
 		}
 		icon = GFX_decision_generic_prepare_civil_war
 		available = {
@@ -152,7 +153,7 @@ crisis = {
 		}
 		visible = {
 			has_war = yes
-			is_puppet = no
+			is_subject = no
 			NOT = {
 				has_country_flag = MOR_raise_militias_fes
 			}
@@ -176,7 +177,7 @@ crisis = {
 
 	MOR_raise_militias_casablanca = {
 		allowed = {
-			original_tag = MOR
+			tag = MOR
 		}
 		icon = GFX_decision_generic_prepare_civil_war
 		available = {
@@ -186,7 +187,7 @@ crisis = {
 		}
 		visible = {
 			has_war = yes
-			is_puppet = no
+			is_subject = no
 			NOT = {
 				has_country_flag = MOR_raise_militias_casablanca
 			}
@@ -210,7 +211,7 @@ crisis = {
 
 	MOR_raise_militias_rif = {
 		allowed = {
-			original_tag = MOR
+			tag = MOR
 		}
 		icon = GFX_decision_generic_prepare_civil_war
 		available = {
@@ -220,7 +221,7 @@ crisis = {
 		}
 		visible = {
 			has_war = yes
-			is_puppet = no
+			is_subject = no
 			NOT = {
 				has_country_flag = MOR_raise_militias_rif
 			}
@@ -690,6 +691,57 @@ MOR_navy_decisions = {
 		}
 		ai_will_do = {
 			factor = 100
+		}
+	}
+
+
+	# starting 1910 Jihad mission
+	GUD_jihad_against_french = {
+		allowed = {
+			always = no
+		}
+		activation = {
+			always = no
+		}
+		fire_only_once = yes
+		days_mission_timeout = 53
+		available = {
+			MOR = {
+				has_capitulated = yes # it doesnt really check there, annex is scripted in 01_tgwr_on_actions
+			}
+		}
+		complete_effect = {
+			annex_country = {
+				target = MOR
+				transfer_troops = no
+			}
+			every_enemy_country = {
+				ROOT = {
+					white_peace = PREV
+				}
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				surrender_progress > 0.05
+				NOT = {
+					has_war_with = MOR
+				}
+			}
+		}
+		timeout_effect = {
+			every_enemy_country = {
+				ROOT = {
+					white_peace = PREV
+				}
+			}
+		}
+		cancel_effect = {
+			every_enemy_country = {
+				ROOT = {
+					white_peace = PREV
+				}
+			}			
 		}
 	}
 }
