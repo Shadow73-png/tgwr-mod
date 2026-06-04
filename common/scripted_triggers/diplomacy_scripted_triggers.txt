@@ -172,12 +172,7 @@ DIPLOMACY_GUARANTEE_ENABLE_TRIGGER = {
 	if = {
 		limit = {
 			NOT = { tag = TUR }
-			FROM = {
-				is_power_balance_side_active = {
-					id = TUR_foreign_alignment
-					side = TUR_unwilling_neutrality
-				}
-			}
+			FROM = { has_country_flag = TUR_unwilling_neutrality_flag }
 		}
 		custom_trigger_tooltip = {
 			tooltip = CANNOT_GUARANTEE_TO_OTTOMANS
@@ -1843,12 +1838,7 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 	if = {
 		limit = {
 			NOT = { tag = TUR }
-			FROM = {
-				is_power_balance_side_active = {
-					id = TUR_foreign_alignment
-					side = TUR_unwilling_neutrality
-				}
-			}
+			FROM = { has_country_flag = TUR_unwilling_neutrality_flag }
 		}
 		custom_trigger_tooltip = {
 			tooltip = CANNOT_SEND_VOLUNTEERS_TO_OTTOMANS

@@ -40,3 +40,57 @@ defined_text = {
 		localization_key = ALB_albanian_air_corps_yes
 	}
 }
+
+
+defined_text = {
+	name = ALB_organic_statute_of_albania
+	text = {
+		trigger = {
+			has_completed_focus = ALB_form_the_general_council
+			NOT = { has_completed_focus = ALB_form_the_albanian_national_council }
+		}
+		localization_key = ALB_statuti_organik_i_shqiperise
+	}
+	text = {
+		trigger = { has_completed_focus = ALB_equal_representation_in_the_assembly }
+		localization_key = ALB_statuti_organik_i_shqiperise
+	}
+	text = {
+		trigger = { has_completed_focus = ALB_equal_representation_in_the_assembly }
+		localization_key = ALB_statuti_organik_i_shqiperise
+	}
+	text = {
+		trigger = {
+			OR = {
+				NOT = { has_completed_focus = ALB_form_the_general_council }
+				AND = {
+					has_completed_focus = ALB_form_the_general_council
+					has_completed_focus = ALB_form_the_albanian_national_council
+				}
+			}
+		}
+		localization_key = ALB_statuti_organik_i_shqiperise
+	}
+}
+
+defined_text = {
+	name = ALB_albanian_assembly
+	text = {
+		trigger = { has_completed_focus = ALB_equal_representation_in_the_assembly }
+		localization_key = ALB_albanian_assembly_tt
+	}
+}
+defined_text = {
+	name = ALB_general_council
+	text = {
+		trigger = { has_completed_focus = ALB_form_the_general_council }
+		localization_key = ALB_general_council_tt
+	}
+}
+defined_text = {
+	name = ALB_christian_council
+	text = {
+		trigger = { has_completed_focus = ALB_provisional_catholic_albania }
+		localization_key = ALB_christian_council_tt
+	}
+}

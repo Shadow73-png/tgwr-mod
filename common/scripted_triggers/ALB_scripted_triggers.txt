@@ -157,13 +157,7 @@ ALB_big_albania_states = {
 
 ALB_albanian_assembly_trigger = {
 	if = {
-		limit = {
-			OR = {
-				has_idea = ALB_albanian_assembly
-				has_idea = ALB_administrative_council
-				has_idea = ALB_administrative_council_2
-			}
-		}
+		limit = { has_completed_focus = ALB_equal_representation_in_the_assembly }
 		if = {
 			limit = { ALB_is_muslim_character = yes }
 			custom_trigger_tooltip = {
@@ -212,11 +206,8 @@ ALB_albanian_assembly_trigger = {
 	}
 	if = {
 		limit = {
-			OR = {
-				has_idea = ALB_general_council
-				has_idea = ALB_general_council_2
-				has_idea = ALB_general_council_3
-			}
+			has_completed_focus = ALB_form_the_general_council
+			NOT = { has_completed_focus = ALB_form_the_albanian_national_council }
 		}
 		if = {
 			limit = {
@@ -227,11 +218,7 @@ ALB_albanian_assembly_trigger = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = ALB_cannot_have_catholic_or_orthodox_advisor_tt
-				NOT = {
-					has_idea = ALB_general_council
-					has_idea = ALB_general_council_2
-					has_idea = ALB_general_council_3
-				}
+				always = no
 			}
 		}
 	}

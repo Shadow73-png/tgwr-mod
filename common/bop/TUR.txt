@@ -13,8 +13,18 @@ TUR_foreign_alignment = {
 			opinion_gain_monthly_factor = -0.2
 			custom_modifier_tooltip = TUR_diplomatic_isolation_tt
 		}
-		on_activate = { hidden_effect = { set_rule = {  can_join_factions = no } } }
-		on_deactivate = { hidden_effect = { set_rule = {  can_join_factions = yes } } }
+		on_activate = {
+			hidden_effect = {
+				set_country_flag = TUR_unwilling_neutrality_flag
+				set_rule = {  can_join_factions = no }
+			}
+		}
+		on_deactivate = {
+			hidden_effect = {
+				clr_country_flag = TUR_unwilling_neutrality_flag
+				set_rule = {  can_join_factions = yes }
+			}
+		}
 	}
 	side = {
 		id = TUR_pro_central_powers_outlook

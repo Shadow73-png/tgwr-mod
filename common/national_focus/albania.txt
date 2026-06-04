@@ -92,6 +92,12 @@ focus_tree = {
 		bypass_if_unavailable = yes
 		completion_reward = {
 			ALB_puppet_promote_local_leader = yes
+			custom_effect_tooltip = modify_ALB_country_in_disarray
+			add_to_variable = {
+				tooltip = war_support_factor_5
+				ALB_sos_war_support_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
 			add_autonomy_score = { value = 200 }
 		}
 		ai_will_do = { factor = 100 }
@@ -132,6 +138,7 @@ focus_tree = {
 		bypass_if_unavailable = yes
 		completion_reward = {
 			add_ideas = ALB_administrative_council
+			custom_effect_tooltip = ALB_administrative_council_instant_desc
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -386,6 +393,18 @@ focus_tree = {
 		available = { is_subject = yes }
 		bypass_if_unavailable = yes
 		completion_reward = {
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = political_power_factor_5
+				ALB_sos_political_power_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
+			hidden_effect = {
+				remove_dynamic_modifier = { modifier = ALB_country_in_disarray }
+				add_dynamic_modifier = { modifier = ALB_organic_statute_of_albania }
+				set_variable = { ALB_sos_war_support_factor = ALB_as_war_support_factor }
+				set_variable = { ALB_sos_political_power_factor = ALB_as_political_power_factor }
+			}
 			set_party_name = {
 				ideology = neutrality
 				name = ALB_regency_party
@@ -527,7 +546,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 100
-			add_stability = -0.1
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = war_support_factor_minus_5
+				ALB_sos_war_support_factor = -0.05
+			}
+			custom_effect_tooltip = empty_space
 			if = {
 				limit = { is_subject = yes }
 				overlord = {
@@ -1208,6 +1232,9 @@ focus_tree = {
 		}
 		bypass_if_unavailable = yes
 		complete_tooltip = {
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_shqiperise
+			custom_effect_tooltip = war_support_factor_10
+			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = ALB_kick_the_occupiers_out_tt
 			every_country = {
 				limit = { has_country_flag = ALB_kick_the_occupiers_out }
@@ -1215,6 +1242,12 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = war_support_factor_10
+				ALB_sos_war_support_factor = 0.1
+			}
+			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = ALB_kick_the_occupiers_out_tt
 			every_other_country = {
 				limit = {
@@ -2694,6 +2727,12 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			custom_effect_tooltip = modify_ALB_country_in_disarray
+			add_to_variable = {
+				tooltip = war_support_factor_5
+				ALB_sos_war_support_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = ALB_rilindja_kombetare_tt
 		}
 		ai_will_do = { factor = 100 }
@@ -4350,7 +4389,14 @@ focus_tree = {
 				news_event = { id = albania.36 hours = 6 }
 				country_event = { id = albania.82 days = 365 random_days = 30 } #albanian nationalist party
 			}
-			add_ideas = ALB_unrecognized_state
+			custom_effect_tooltip = modify_ALB_country_in_disarray
+			add_to_variable = {
+				tooltip = war_support_factor_5
+				ALB_sos_war_support_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
+			custom_effect_tooltip = ALB_unrecognized_state_tt
+			hidden_effect = { add_ideas = ALB_unrecognized_state }
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5696,6 +5742,12 @@ focus_tree = {
 				name = ALB_national_party
 				long_name = ALB_national_party_long
 			}
+			custom_effect_tooltip = modify_ALB_country_in_disarray
+			add_to_variable = {
+				tooltip = war_support_factor_minus_10
+				ALB_sos_war_support_factor = -0.1
+			}
+			custom_effect_tooltip = empty_space
 			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
@@ -5759,8 +5811,12 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_albanian_independence
 		completion_reward = {
-			add_stability = 0.1
-			add_war_support = 0.1
+			custom_effect_tooltip = modify_ALB_country_in_disarray
+			add_to_variable = {
+				tooltip = war_support_factor_10
+				ALB_sos_war_support_factor = 0.1
+			}
+			custom_effect_tooltip = empty_space
 			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
@@ -5779,8 +5835,17 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_albanian_independence
 		completion_reward = {
-			add_political_power = 75
-			add_war_support = -0.05
+			add_political_power = 25
+			custom_effect_tooltip = modify_ALB_country_in_disarray
+			add_to_variable = {
+				tooltip = war_support_factor_minus_5
+				ALB_sos_war_support_factor = -0.05
+			}
+			add_to_variable = {
+				tooltip = improve_relations_maintain_cost_factor_minus_25
+				ALB_sos_improve_relations_maintain_cost_factor = -0.25
+			}
+			custom_effect_tooltip = empty_space
 			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
@@ -6795,8 +6860,27 @@ focus_tree = {
 		y = 2
 		relative_position_id = ALB_congress_of_trieste
 		completion_reward = {
-			add_ideas = ALB_statuti_organik_i_shqiperise
-			custom_effect_tooltip = ALB_the_organic_statute_of_albania_tt
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = stability_weekly_01
+				ALB_sos_stability_weekly = 0.001
+			}
+			add_to_variable = {
+				tooltip = party_popularity_stability_factor_10
+				ALB_sos_party_popularity_stability_factor = 0.1
+			}
+			add_to_variable = {
+				tooltip = justify_war_goal_time_100
+				ALB_sos_justify_war_goal_time = 1
+			}
+			custom_effect_tooltip = empty_space
+			set_rule = { can_join_factions = no }
+			hidden_effect = {
+				remove_dynamic_modifier = { modifier = ALB_country_in_disarray }
+				add_dynamic_modifier = { modifier = ALB_organic_statute_of_albania }
+				set_variable = { ALB_sos_war_support_factor = ALB_as_war_support_factor }
+				set_variable = { ALB_sos_political_power_factor = ALB_as_political_power_factor }
+			}
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -6814,7 +6898,12 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_the_organic_statute_of_albania
 		completion_reward = {
-			add_ideas = ALB_council_of_ministers
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = political_power_factor_10
+				ALB_sos_political_power_factor = 0.1
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -6833,7 +6922,17 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_the_organic_statute_of_albania
 		completion_reward = {
-			add_ideas = ALB_albanian_assembly
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_shqiperise
+			custom_effect_tooltip = ALB_albanian_assembly_tt
+			add_to_variable = {
+				tooltip = stability_factor_10
+				ALB_sos_stability_factor = 0.1
+			}
+			add_to_variable = {
+				tooltip = political_advisor_cost_factor_minus_25
+				ALB_sos_political_advisor_cost_factor = -0.25
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -6977,12 +7076,7 @@ focus_tree = {
 			has_civil_war = no
 		}
 		completion_reward = {
-			hidden_effect = {
-				swap_ideas = {
-					remove_idea = ALB_statuti_organik_i_shqiperise
-					add_idea = ALB_statuti_organik_i_shqiperise_2
-				}
-			}
+			set_rule = { can_join_factions = yes }
 			custom_effect_tooltip = ALB_join_on_in_the_austrian_side_tt
 			every_country = {
 				limit = {
@@ -7020,10 +7114,12 @@ focus_tree = {
 			has_civil_war = no
 		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = ALB_statuti_organik_i_shqiperise
-				add_idea = ALB_statuti_organik_i_shqiperise_3
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = enemy_justify_war_goal_time_100
+				ALB_sos_enemy_justify_war_goal_time = 1
 			}
+			custom_effect_tooltip = empty_space
 			add_ideas = ALB_princes_bugdet_2
 			custom_effect_tooltip = ALB_balance_the_sponsors_tt
 			custom_effect_tooltip = ALB_balance_the_sponsors_tt2
@@ -7053,12 +7149,7 @@ focus_tree = {
 			has_civil_war = no
 		}
 		completion_reward = {
-			hidden_effect = {
-				swap_ideas = {
-					remove_idea = ALB_statuti_organik_i_shqiperise
-					add_idea = ALB_statuti_organik_i_shqiperise_2
-				}
-			}
+			set_rule = { can_join_factions = yes }
 			custom_effect_tooltip = ALB_join_on_in_the_italian_side_tt
 			every_country = {
 				limit = {
@@ -7701,7 +7792,7 @@ focus_tree = {
 				country_event = { id = albania.67 hours = 8 }
 				custom_effect_tooltip = if_they_accept_tt
 				event_option_tooltip = albania.68.a
-				custom_effect_tooltip = ALB_negotiate_italian_financial_support_country_tt
+				custom_effect_tooltip = ALB_treaty_of_serbian_albanian_alliance_tt
 			}
 		}
 		select_effect = {
@@ -7724,8 +7815,14 @@ focus_tree = {
 				custom_effect_tooltip = if_they_accept_tt
 				custom_effect_tooltip = empty_space
 				event_option_tooltip = albania.68.a
-				SER = { custom_effect_tooltip = ALB_negotiate_italian_financial_support_country_tt }
-				hidden_effect = { ALB_esad_toptani = { set_nationality = ROOT } }
+			}
+			custom_effect_tooltip = empty_space
+			SER = { custom_effect_tooltip = ALB_treaty_of_serbian_albanian_alliance_tt }
+			hidden_effect = {
+				every_possible_country = {
+					limit = { has_character = ALB_esad_toptani }
+					ALB_esad_toptani = { set_nationality = ROOT }
+				}
 			}
 		}
 		ai_will_do = { factor = 20 }
@@ -7761,7 +7858,7 @@ focus_tree = {
 				set_country_flag = muslim_albania_focus
 				mark_focus_tree_layout_dirty = yes
 				if = {
-					limit = { PREV = { has_completed_focus = ALB_duam_duam_baben_turqine } }
+					limit = { has_country_flag = ALB_kruje_party }
 					set_politics = {
 						ruling_party = fascism
 						elections_allowed = no
@@ -7806,6 +7903,9 @@ focus_tree = {
 						name = ALB_muslim_party
 						long_name = ALB_muslim_party
 					}
+					custom_effect_tooltip = modify_ALB_country_in_disarray
+					custom_effect_tooltip = war_support_factor_10
+					custom_effect_tooltip = empty_space
 				}
 				every_possible_country = {
 					limit = { has_character = ALB_qamil_zyber_xhameta }
@@ -7850,7 +7950,7 @@ focus_tree = {
 					add_dynamic_modifier = { modifier = ALB_illiterate_society }
 					set_variable = { ALB_is_stability_factor = ALB.ALB_is_stability_factor }
 					set_variable = { ALB_is_research_speed = ALB.ALB_is_research_speed }
-					add_dynamic_modifier = { modifier = ALB_albanian_society_bad }
+					add_dynamic_modifier = { modifier = ALB_country_in_disarray }
 					set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
 					set_variable = { ALB_as_war_support_factor = ALB.ALB_as_war_support_factor }
 					uncomplete_national_focus = {
@@ -7998,7 +8098,19 @@ focus_tree = {
 				name = ALB_muslim_general_council_party
 				long_name = ALB_muslim_general_council_party
 			}
-			add_ideas = ALB_general_council
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_myslimaneve
+			custom_effect_tooltip = ALB_general_council_tt
+			add_to_variable = {
+				tooltip = political_advisor_cost_factor_minus_25
+				ALB_sos_political_advisor_cost_factor = -0.25
+			}
+			custom_effect_tooltip = empty_space
+			hidden_effect = {
+				remove_dynamic_modifier = { modifier = ALB_country_in_disarray }
+				add_dynamic_modifier = { modifier = ALB_organic_statute_of_albania }
+				set_variable = { ALB_sos_war_support_factor = ALB_as_war_support_factor }
+				set_variable = { ALB_sos_political_power_factor = ALB_as_political_power_factor }
+			}
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -8016,10 +8128,12 @@ focus_tree = {
 		y = 2
 		relative_position_id = ALB_form_the_general_council
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = ALB_general_council
-				add_idea = ALB_general_council_2
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_myslimanev
+			add_to_variable = {
+				tooltip = political_power_factor_5
+				ALB_sos_political_power_factor = 0.05
 			}
+			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = ALB_spread_through_local_councils_tt
 		}
 		ai_will_do = { factor = 20 }
@@ -8491,10 +8605,24 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_return_to_the_caliphs_suzerainty
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = ALB_general_council_2
-				add_idea = ALB_general_council_3
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_myslimanev
+			add_to_variable = {
+				tooltip = political_power_factor_10
+				ALB_sos_political_power_factor = 0.1
 			}
+			add_to_variable = {
+				tooltip = consumer_goods_factor_10
+				ALB_sos_consumer_goods_factor = 0.1
+			}
+			add_to_variable = {
+				tooltip = party_popularity_stability_factor_10
+				ALB_sos_party_popularity_stability_factor = 0.1
+			}
+			add_to_variable = {
+				tooltip = political_advisor_cost_factor_10
+				ALB_sos_political_advisor_cost_factor = 0.1
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -8757,13 +8885,17 @@ focus_tree = {
 		relative_position_id = ALB_toptanis_gamble
 		available = { has_country_leader = { character = ALB_esad_toptani } }
 		completion_reward = {
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise_myslimaneve
 			custom_effect_tooltip = ALB_form_the_albanian_national_council_tt
-			hidden_effect = {
-				swap_ideas = {
-					remove_idea = ALB_general_council_2
-					add_idea = ALB_albanian_national_council
-				}
+			add_to_variable = {
+				tooltip = political_power_factor_minus_5
+				ALB_sos_political_power_factor = -0.05
 			}
+			add_to_variable = {
+				tooltip = stability_factor_5
+				ALB_sos_stability_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -8972,6 +9104,9 @@ focus_tree = {
 					name = ALB_catholic_party
 					long_name = ALB_catholic_party
 				}
+				custom_effect_tooltip = modify_ALB_country_in_disarray
+				custom_effect_tooltip = war_support_factor_10
+				custom_effect_tooltip = empty_space
 				every_possible_country = {
 					limit = { has_character = ALB_prenk_bib_doda }
 					ALB_prenk_bib_doda = {
@@ -9015,7 +9150,7 @@ focus_tree = {
 					add_dynamic_modifier = { modifier = ALB_illiterate_society }
 					set_variable = { ALB_is_stability_factor = ALB.ALB_is_stability_factor }
 					set_variable = { ALB_is_research_speed = ALB.ALB_is_research_speed }
-					add_dynamic_modifier = { modifier = ALB_albanian_society_bad }
+					add_dynamic_modifier = { modifier = ALB_country_in_disarray }
 					set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
 					set_variable = { ALB_as_war_support_factor = ALB.ALB_as_war_support_factor }
 					uncomplete_national_focus = {
@@ -9025,8 +9160,12 @@ focus_tree = {
 					}
 					every_possible_country = {
 						limit = {
-							ALB_is_catholic_character = yes
-							ALB_is_northern_character = yes
+							any_character = {
+								OR = {
+									ALB_is_catholic_character = yes
+									ALB_is_northern_character = yes
+								}
+							}
 						}
 						every_character = {
 							limit = {
@@ -9130,7 +9269,22 @@ focus_tree = {
 				name = ALB_doda_party
 				long_name = ALB_doda_party
 			}
-			add_ideas = ALB_tribal_council
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_katolikeve
+			add_to_variable = {
+				tooltip = war_stability_factor_5
+				ALB_sos_war_stability_factor = 0.05
+			}
+			add_to_variable = {
+				tooltip = political_advisor_cost_factor_minus_15
+				ALB_sos_political_advisor_cost_factor = -0.15
+			}
+			custom_effect_tooltip = empty_space
+			hidden_effect = {
+				remove_dynamic_modifier = { modifier = ALB_country_in_disarray }
+				add_dynamic_modifier = { modifier = ALB_organic_statute_of_albania }
+				set_variable = { ALB_sos_war_support_factor = ALB_as_war_support_factor }
+				set_variable = { ALB_sos_political_power_factor = ALB_as_political_power_factor }
+			}
 			custom_effect_tooltip = ALB_tribal_allegiances_tt
 			custom_effect_tooltip = ALB_mirdita_command_tt
 		}
@@ -9149,11 +9303,17 @@ focus_tree = {
 		y = 2
 		relative_position_id = ALB_mirdita_command
 		completion_reward = {
-			custom_effect_tooltip = ALB_all_christian_struggle_tt
-			swap_ideas = {
-				remove_idea = ALB_tribal_council
-				add_idea = ALB_tribal_council_2
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_krishtereve
+			add_to_variable = {
+				tooltip = party_popularity_stability_factor_10
+				ALB_sos_party_popularity_stability_factor = 0.1
 			}
+			add_to_variable = {
+				tooltip = war_stability_factor_5
+				ALB_sos_war_stability_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
+			custom_effect_tooltip = ALB_all_christian_struggle_tt
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -9283,13 +9443,17 @@ focus_tree = {
 				name = ALB_provisional_catholic_party
 				long_name = ALB_provisional_catholic_party
 			}
-			custom_effect_tooltip = ALB_provisional_catholic_albania_tt
-			hidden_effect = {
-				swap_ideas = {
-					remove_idea = ALB_tribal_council_2
-					add_idea = ALB_christian_council
-				}
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_krishtereve
+			custom_effect_tooltip = ALB_christian_council_tt
+			add_to_variable = {
+				tooltip = political_power_factor_5
+				ALB_sos_political_power_factor = 0.05
 			}
+			add_to_variable = {
+				tooltip = party_popularity_stability_factor_minus_5
+				ALB_sos_party_popularity_stability_factor = -0.05
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -9332,10 +9496,20 @@ focus_tree = {
 					swap_country_leader_traits = { remove = ALB_kapedan_of_the_mirdita add = ALB_president_of_the_mirdita ideology = religious_communism }
 				}
 			}
-			swap_ideas = {
-				remove_idea = ALB_tribal_council_2
-				add_idea = ALB_council_of_mirdita
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_mirdites
+			add_to_variable = {
+				tooltip = political_power_gain_5
+				ALB_sos_political_power_gain = 0.05
 			}
+			add_to_variable = {
+				tooltip = party_popularity_stability_factor_5
+				ALB_sos_party_popularity_stability_factor = 0.05
+			}
+			add_to_variable = {
+				tooltip = war_stability_factor_minus_5
+				ALB_sos_war_stability_factor = -0.05
+			}
+			custom_effect_tooltip = empty_space
 			every_core_state = {
 				limit = { ALB_is_northern_state = no }
 				remove_core_of = ROOT
@@ -9717,10 +9891,16 @@ focus_tree = {
 					}
 				}
 			}
-			swap_ideas = {
-				remove_idea = ALB_christian_council
-				add_idea = ALB_christian_council_2
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_krishtereve
+			add_to_variable = {
+				tooltip = conscription_1.5
+				ALB_sos_conscription = 0.05
 			}
+			add_to_variable = {
+				tooltip = army_org_regain_5
+				ALB_sos_army_org_regain = 0.05
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -9738,7 +9918,20 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_court_of_the_warrior_prince
 		completion_reward = {
-			add_ideas = ALB_hungarian_aristocracy
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_krishtereve
+			add_to_variable = {
+				tooltip = political_power_factor_5
+				ALB_sos_political_power_factor = 0.05
+			}
+			add_to_variable = {
+				tooltip = political_advisor_cost_factor_minus_10
+				ALB_sos_political_advisor_cost_factor = -0.1
+			}
+			add_to_variable = {
+				tooltip = neutrality_drift_2
+				ALB_sos_neutrality_drift = 0.02
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -9965,7 +10158,16 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_proclaim_a_rival_principality
 		completion_reward = {
-			add_ideas = ALB_code_of_the_mountain
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_mirdites
+			add_to_variable = {
+				tooltip = conscription_3
+				ALB_sos_conscription = 0.03
+			}
+			add_to_variable = {
+				tooltip = required_garrison_factor_minus_50
+				ALB_sos_required_garrison_factor = -0.5
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -9982,19 +10184,20 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_codify_the_kanun
 		completion_reward = {
-			if = {
-				limit = { has_idea = ALB_code_of_the_mountain_3 }
-				swap_ideas = {
-					remove_idea = ALB_code_of_the_mountain_3
-					add_idea = ALB_code_of_the_mountain_4
-				}
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_mirdites
+			add_to_variable = {
+				tooltip = war_support_factor_5
+				ALB_sos_war_support_factor = 0.05
 			}
-			else = {
-				swap_ideas = {
-					remove_idea = ALB_code_of_the_mountain
-					add_idea = ALB_code_of_the_mountain_2
-				}
+			add_to_variable = {
+				tooltip = army_core_defence_factor_10
+				ALB_sos_army_core_defence_factor = 0.1
 			}
+			add_to_variable = {
+				tooltip = resistance_target_on_our_occupied_states_minus_25
+				ALB_sos_resistance_target_on_our_occupied_states = -0.25
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -10012,19 +10215,16 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_codify_the_kanun
 		completion_reward = {
-			if = {
-				limit = { has_idea = ALB_code_of_the_mountain_2 }
-				swap_ideas = {
-					remove_idea = ALB_code_of_the_mountain_2
-					add_idea = ALB_code_of_the_mountain_4
-				}
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_mirdites
+			add_to_variable = {
+				tooltip = monthly_population_15
+				ALB_sos_monthly_population = 0.15
 			}
-			else = {
-				swap_ideas = {
-					remove_idea = ALB_code_of_the_mountain
-					add_idea = ALB_code_of_the_mountain_3
-				}
+			add_to_variable = {
+				tooltip = stability_factor_5
+				ALB_sos_stability_factor = 0.05
 			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -10041,10 +10241,16 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_proclaim_a_rival_principality
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = ALB_council_of_mirdita
-				add_idea = ALB_council_of_mirdita_2
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_mirdites
+			add_to_variable = {
+				tooltip = supply_consumption_factor_minus_5
+				ALB_sos_supply_consumption_factor = -0.05
 			}
+			add_to_variable = {
+				tooltip = training_time_factor_minus_10
+				ALB_sos_training_time_factor = -0.1
+			}
+			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = ALB_tribal_allegiances_tt
 		}
 		ai_will_do = { factor = 100 }

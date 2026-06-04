@@ -1829,9 +1829,9 @@ ALB_rising_opposition = {
 					add_dynamic_modifier = { modifier = ALB_illiterate_society }
 					set_variable = { ALB_is_stability_factor = ALB.ALB_is_stability_factor }
 					set_variable = { ALB_is_research_speed = ALB.ALB_is_research_speed }
-					add_dynamic_modifier = { modifier = ALB_albanian_society_bad }
+					add_dynamic_modifier = { modifier = ALB_country_in_disarray }
 					set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
-					set_variable = { ALB_as_war_support_factor = ALB.ALB_as_war_support_factor }
+					add_to_variable = { ALB_as_war_support_factor = 0.1 }
 					unlock_national_focus = ALB_albanian_independence
 					unlock_national_focus = ALB_ideals_of_romantic_independence
 					uncomplete_national_focus = {
@@ -2720,6 +2720,11 @@ foreign_politics = {
 					}
 					set_popularities = { neutrality = 100 }
 					set_country_flag = ALB_colaboration_tag
+					hidden_effect = {
+						add_dynamic_modifier = { modifier = ALB_country_in_disarray }
+						set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
+						set_variable = { ALB_as_war_support_factor = ALB.ALB_as_war_support_factor }
+					}
 					if = {
 						limit = { NOT = { has_template = "Kryengritësit Shqiptarë" } }
 						division_template = {
@@ -3155,6 +3160,7 @@ crisis = {
 						name = ALB_kruje_party
 						long_name = ALB_kruje_party
 					}
+					set_country_flag = ALB_kruje_party
 				}
 				else = {
 					set_politics = {
@@ -3178,6 +3184,9 @@ crisis = {
 						name = ALB_muslim_party
 						long_name = ALB_muslim_party
 					}
+					custom_effect_tooltip = modify_ALB_country_in_disarray
+					custom_effect_tooltip = war_support_factor_10
+					custom_effect_tooltip = empty_space
 				}
 				every_possible_country = {
 					limit = { has_character = ALB_qamil_zyber_xhameta }
@@ -3220,9 +3229,10 @@ crisis = {
 					add_dynamic_modifier = { modifier = ALB_illiterate_society }
 					set_variable = { ALB_is_stability_factor = ALB.ALB_is_stability_factor }
 					set_variable = { ALB_is_research_speed = ALB.ALB_is_research_speed }
-					add_dynamic_modifier = { modifier = ALB_albanian_society_bad }
+					add_dynamic_modifier = { modifier = ALB_country_in_disarray }
 					set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
 					set_variable = { ALB_as_war_support_factor = ALB.ALB_as_war_support_factor }
+					add_to_variable = { ALB_as_war_support_factor = 0.1 }
 					unlock_national_focus = ALB_duam_duam_baben_turqine
 					uncomplete_national_focus = {
 						focus = ALB_congress_of_trieste
@@ -3398,6 +3408,9 @@ crisis = {
 					name = ALB_catholic_party
 					long_name = ALB_catholic_party
 				}
+				custom_effect_tooltip = modify_ALB_country_in_disarray
+				custom_effect_tooltip = war_support_factor_10
+				custom_effect_tooltip = empty_space
 				every_possible_country = {
 					limit = { has_character = ALB_prenk_bib_doda }
 					ALB_prenk_bib_doda = {
@@ -3440,9 +3453,10 @@ crisis = {
 					add_dynamic_modifier = { modifier = ALB_illiterate_society }
 					set_variable = { ALB_is_stability_factor = ALB.ALB_is_stability_factor }
 					set_variable = { ALB_is_research_speed = ALB.ALB_is_research_speed }
-					add_dynamic_modifier = { modifier = ALB_albanian_society_bad }
+					add_dynamic_modifier = { modifier = ALB_country_in_disarray }
 					set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
 					set_variable = { ALB_as_war_support_factor = ALB.ALB_as_war_support_factor }
+					add_to_variable = { ALB_as_war_support_factor = 0.1 }
 					unlock_national_focus = ALB_fight_for_the_faith_fight_for_our_way_of_life
 					uncomplete_national_focus = {
 						focus = ALB_congress_of_trieste
