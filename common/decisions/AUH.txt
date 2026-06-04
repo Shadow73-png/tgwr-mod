@@ -876,6 +876,33 @@ AUH_great_war_bullshit = {
 			}
 		}
 	}
+	AUS_cut_bread_rations_in_half = {
+		icon = GFX_decision_eng_trade_unions_support
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 20
+		visible = {
+			has_completed_focus = AUS_humanitarian_plead
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		fire_only_once = yes
+		days_remove = 35
+		cost = 25
+		ai_will_do = {
+			base = 80
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_intensity_of_food_shortages = -1
+				tooltip = AUS_intensity_of_food_shortages_tt
+			}
+		}
+	}
 	AUS_begin_the_rationing_of_flour_bread = {
 		icon = GFX_decision_eng_trade_unions_support
 		allowed = {
