@@ -6576,6 +6576,50 @@ debug_decisions = {
 			AUS_spawn_MGS = yes
 		}
 	}
+	see_max_minority_hatred = {
+		allowed = {
+			original_tag = AUS
+		}
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_debug = yes
+			has_variable = AUS_serb_loyalty
+			has_variable = AUS_pole_loyalty
+			has_variable = AUS_czechoslovak_loyalty
+			has_variable = AUS_croat_loyalty
+			has_variable = AUS_ruthenian_loyalty
+			has_variable = AUS_romanian_loyalty
+		}
+		complete_effect = {
+				add_to_variable = {
+				AUS_ruthenian_loyalty = -500
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_pole_loyalty = -500
+				tooltip = AUS_loyalty_pole_tt
+			}
+			add_to_variable = {
+				AUS_czechoslovak_loyalty = -500
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			add_to_variable = {
+				AUS_serb_loyalty = -500
+				tooltip = AUS_loyalty_serb_tt
+			}
+			add_to_variable = {
+				AUS_croat_loyalty = -500
+				tooltip = AUS_loyalty_croatian_tt
+			}
+			add_to_variable = {
+				AUS_romanian_loyalty = -500
+				tooltip = AUS_loyalty_romanians_tt
+			}
+			AUS_update_state_of_realm = yes
+		}
+	}
 	reset_minority_loyalties = {
 		allowed = {
 			original_tag = AUS
