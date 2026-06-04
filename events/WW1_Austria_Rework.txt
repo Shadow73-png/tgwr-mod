@@ -8413,8 +8413,27 @@ country_event = {
 		name = ww1_austriahungary_war.68.a
 	add_popularity = {
 		ideology = communism
-		popularity = 0.1
+		popularity = 0.05
 	}
+	}
+}
+country_event = {
+	id = ww1_austriahungary_war.69
+	title = ww1_austriahungary_war.69.t
+	desc = ww1_austriahungary_war.69.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+			tag = AUS
+		has_global_flag = great_war
+		NOT = {
+			has_global_flag = great_war_ends
+		}
+	}
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.69.a
+		activate_mission = AUS_minority_caps_gone
+custom_effect_tooltip = AUS_minority_caps_gone_tt
 	}
 }
 #war time search end
