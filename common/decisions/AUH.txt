@@ -1477,6 +1477,36 @@ AUS_minorities_mechanic = {
 			AUS_increase_southern_admin = yes
 		}
 	}
+	AUS_pressure_reforms_in_tisza_hungary = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_country_flag = AUS_karl_decisions_shown
+		}
+		priority = 100
+		available = {
+			HUN = {
+				has_country_leader = HUN_istvan_tisza
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			HUN = {
+				country_event = ww1_austriahungary_war.66
+				effect_tooltip = {
+					activate_mission = HUN_tisza_resigns_mission
+					custom_effect_tooltip = AUS_tisza_cant_handle_da_smoke
+				}
+			}
+		}
+		cost = 20
+		
+	}
 	AUS_propaganda_in_bosnia = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
