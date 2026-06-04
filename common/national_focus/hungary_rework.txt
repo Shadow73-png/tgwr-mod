@@ -229,43 +229,6 @@ focus_tree = {
 			
 		}
 	}
-	
-	#Establish The Guard of the Chamber of Representatives (Lower Chamber)
-	#focus = {
-	#	id = HUN_lower_chamber
-	#	icon = GFX_focus_generic_advanced_military_studies
-	#	cost = 5
-	#	search_filters = {
-	#		FOCUS_FILTER_HISTORICAL
-	#		FOCUS_FILTER_INTERNAL_AFFAIRS
-	#		FOCUS_FILTER_POLITICAL
-	#	}
-	#	relative_position_id = HUN_kick_the_can
-	#	x = 0
-	#	y = 1
-	#	available = {
-	#		has_country_flag = HUN_national_work_party_yes
-	#		check_variable = {
-	#			var = HUN_national_work_party_authority_var
-	#			value > 75
-	#			tooltip = HUN_national_work_party_greater_than_tt
-	#		}
-	#	}
-	#	prerequisite = {
-	#		focus = HUN_kick_the_can
-	#	}
-	#	completion_reward = { 
-	#		add_political_power = 10
-	#		add_popularity = {
-	#			ideology = neutrality
-	#			popularity = 0.05
-	#		}
-	#		add_to_variable = {
-	#			HUN_national_work_party_authority_var = 10
-	#			tooltip = HUN_modify_national_work_party_tt
-	#		}
-	#	}
-	# }
 	#Pass The Judgement Reforms
 	focus = {
 		id = HUN_judgement_reforms
@@ -6013,6 +5976,25 @@ focus_tree = {
 			}
 		}
 	}
+	 ## Ausgliech Politics ## 
+	 focus = {
+		id = HUN_ausgliech_politics
+		icon = GFX_focus_AUH_monarchy
+		cost = 0
+		relative_position_id = HUN_aftermath_of_werkle
+		x = 60
+		y = 0
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_INTERNATIONAL_TRADE
+		}
+		available = {
+			AUS_HUN_exists = yes
+		}
+		completion_reward = { }
+	 }
 	 ## The Beginning of the Great War Branch ##
 	 focus = {
 		id = HUN_great_war_focus
@@ -6739,7 +6721,31 @@ focus_tree = {
 		}
 		completion_reward = { }
 	 }
-	 #To the Easter Flank
+	 #A Blank page
+	 focus = {
+		id = HUN_a_blank_page
+		icon = GFX_goal_unkown
+		cost = 0
+		relative_position_id = HUN_treuga_dei
+		x = 24
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		prerequisite = {
+			focus = HUN_treuga_dei
+		}
+		completion_reward = { }
+	 }
+	 #To the Eastern Flank
 	 focus = {
 		id = HUN_to_the_eastern_flank
 		icon = GFX_focus_attack_russia
