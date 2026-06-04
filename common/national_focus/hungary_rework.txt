@@ -6144,6 +6144,12 @@ focus_tree = {
 		relative_position_id = HUN_failure_of_treuga_dei
 		x = -2
 		y = 1
+		offset = {
+			x = 2
+			trigger = {
+				has_completed_focus = HUN_stand_with_tisza_gov
+			}
+		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -6162,6 +6168,7 @@ focus_tree = {
 			focus = HUN_look_for_a_way_out
 		}
 		completion_reward = { 
+			mark_focus_tree_layout_dirty = yes
 			add_political_power = 50
 			add_to_variable = {
 				HUN_national_work_party_authority_var = 10
@@ -6470,6 +6477,9 @@ focus_tree = {
 		completion_reward = { 
 			custom_effect_tooltip = HUN_modify_eco_tt
 			add_to_variable = {
+				
+			}
+			add_to_variable = {
 				HUN_eco_lack_of_resources_penalty = -0.05
 				tooltip = production_lack_of_resource_penalty_factor_tt
 			}
@@ -6678,6 +6688,9 @@ focus_tree = {
 	 focus = {
 		allow_branch = {
 			has_country_flag = HUN_national_work_party_yes
+			NOT = {
+				has_completed_focus = HUN_stand_with_tisza_gov
+			}
 		}
 		id = HUN_look_for_a_way_out
 		icon = GFX_generic_abolish_slavery
@@ -6702,6 +6715,11 @@ focus_tree = {
 	 }
 	 #The German Plan
 	 focus = {
+		allow_branch = {
+			NOT = {
+				has_completed_focus = HUN_stand_with_tisza_gov
+			}
+		}
 		id = HUN_the_german_plan
 		icon = GFX_focus_ger_weltpolitik_ww1
 		cost = 1
@@ -6821,7 +6839,6 @@ focus_tree = {
 			has_war_with_major = yes
 		}
 		prerequisite = {
-			focus = HUN_mobilize_the_hussars
 			focus = HUN_whip_honved_into_shape
 		}
 		completion_reward = { 
@@ -7317,7 +7334,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_pin_all_hopes_on_russian_defeat
-			focus = HUN_price_regulations
 		}
 		completion_reward = { 
 			custom_effect_tooltip = HUN_modify_eco_tt
@@ -7786,6 +7802,7 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_consider_transylvanian_concessions
+			focus = HUN_secure_grain
 		}
 		bypass = {
 			is_in_faction_with = RUS
