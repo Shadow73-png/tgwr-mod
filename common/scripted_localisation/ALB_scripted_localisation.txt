@@ -49,20 +49,33 @@ defined_text = {
 			has_completed_focus = ALB_form_the_general_council
 			NOT = { has_completed_focus = ALB_form_the_albanian_national_council }
 		}
-		localization_key = ALB_statuti_organik_i_shqiperise
+		localization_key = ALB_statuti_organik_i_myslimaneve
 	}
 	text = {
-		trigger = { has_completed_focus = ALB_equal_representation_in_the_assembly }
-		localization_key = ALB_statuti_organik_i_shqiperise
+		trigger = {
+			has_completed_focus = ALB_mirdita_command
+			NOT = { has_completed_focus = ALB_all_christian_struggle }
+		}
+		localization_key = ALB_statuti_organik_i_katolikeve
 	}
 	text = {
-		trigger = { has_completed_focus = ALB_equal_representation_in_the_assembly }
-		localization_key = ALB_statuti_organik_i_shqiperise
+		trigger = {
+			has_completed_focus = ALB_all_christian_struggle
+			NOT = { has_completed_focus = ALB_new_regime_in_mirdita }
+		}
+		localization_key = ALB_statuti_organik_i_krishtereve
+	}
+	text = {
+		trigger = { has_completed_focus = ALB_new_regime_in_mirdita }
+		localization_key = ALB_statuti_organik_i_mirdites
 	}
 	text = {
 		trigger = {
 			OR = {
-				NOT = { has_completed_focus = ALB_form_the_general_council }
+				NOT = {
+					has_completed_focus = ALB_form_the_general_council
+					has_completed_focus = ALB_mirdita_command
+				}
 				AND = {
 					has_completed_focus = ALB_form_the_general_council
 					has_completed_focus = ALB_form_the_albanian_national_council
