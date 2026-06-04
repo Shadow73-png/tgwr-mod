@@ -486,6 +486,22 @@ characters={
 			logistics_skill=3
 		}
 	}
+	AUH_karl_von_kirchbach_auf_lauterbach = {
+		portraits={
+			army={
+				large="gfx/leaders/AUH/AUH_karl_von_kirchbach_auf_lauterbach.png"
+				small="gfx/interface/ideas/AUH/idea_AUH_karl_von_kirchbach_auf_lauterbach.png"
+			}
+		}
+		corps_commander={
+			traits={ old_guard war_hero brilliant_strategist cavalry_leader }
+			skill=4
+			attack_skill=3
+			defense_skill=4
+			planning_skill=2
+			logistics_skill=2
+		}
+	}
 	AUH_josef_roth={
 		name="AUH_josef_roth"
 		portraits={
@@ -923,17 +939,16 @@ characters={
 				army_infantry_1 
 			}
 			available = {
-				NOT = {
-					has_global_flag = AUH_franz_ferdinand_killed
-				}	
+				custom_trigger_tooltip = {
+					tooltip = character_not_dead
+					NOT = { has_character_flag = character_died }
+				}
 			}
 			visible = {
-				NOT = {
-					has_global_flag = AUH_franz_ferdinand_killed
-				}	
+				NOT = { has_character_flag = character_died }
 			}
 			ai_will_do  = {
-				factor  = 1.000
+				factor  = 1
 			}
 		}
 		corps_commander={
@@ -944,9 +959,7 @@ characters={
 			planning_skill=2
 			logistics_skill=1
 			visible = {
-				NOT = {
-					has_global_flag = AUH_franz_ferdinand_killed
-				}	
+				NOT = { has_character_flag = character_died }	
 			}
 		}
 	}
