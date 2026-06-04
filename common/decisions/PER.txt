@@ -549,7 +549,7 @@ PER_guarded_domains = {
 		on_map_mode = map_and_decisions_view
 		days_remove = 30
 
-		remove_effect = {
+		complete_effect = {
 			set_temp_variable = {
 				PER_add_funds_var = -1
 			}
@@ -558,12 +558,16 @@ PER_guarded_domains = {
 				value = PER_add_funds_var
 				tooltip = PER_add_funds_tt
 			}
+		}
+		remove_effect = {
 			add_to_variable = {
 				PER_gendarmerie_cap = 1
 			}
-			set_division_template_cap = { 
-				division_template = "Government Gendarmerie" 
-				division_cap = PER_gendarmerie_cap
+			hidden_effect = {
+				set_division_template_cap = { 
+					division_template = "Government Gendarmerie" 
+					division_cap = PER_gendarmerie_cap
+				}
 			}
 			random_owned_state = {
 				create_unit = {
