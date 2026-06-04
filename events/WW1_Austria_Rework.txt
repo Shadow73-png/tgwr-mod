@@ -8282,13 +8282,7 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.61.a
-		HUN = {
-				country_event = ww1_austriahungary_war.66
-				effect_tooltip = {
-					activate_mission = HUN_tisza_resigns_mission
-					custom_effect_tooltip = AUS_tisza_cant_handle_da_smoke
-				}
-			}
+		
 		custom_effect_tooltip = AUS_karls_decisions
 		#re open parliament, complaint commission, ministry of health, ministry of food security, remove Conrad, charities, amnestied, reduce censorship
 		set_country_flag = AUS_karl_decisions_shown
@@ -8360,6 +8354,18 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_war.64.a
 		add_stability = 0.04
+		if = {
+			limit = {
+				Tag = AUS
+			}
+			HUN = {
+				country_event = ww1_austriahungary_war.66
+				effect_tooltip = {
+					activate_mission = HUN_tisza_resigns_mission
+					custom_effect_tooltip = AUS_tisza_cant_handle_da_smoke
+				}
+			}
+		}
 	}
 }
 
