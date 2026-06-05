@@ -10864,6 +10864,20 @@ joint_focus = {
 	prerequisite = { focus = ALB_cosy_up_to_the_serbs focus = SER_balkan_strategy }
 	x = 0
 	y = 0
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			OR = {
+				original_tag = ALB
+				any_country = { has_completed_focus = ALB_cosy_up_to_the_serbs }
+			}
+		}
+	}
 	offset = {
 		x = 51
 		y = 7
@@ -11250,6 +11264,20 @@ joint_focus = {
 	prerequisite = { focus = ALB_form_the_albanian_national_council focus = SER_balkan_strategy }
 	x = 0
 	y = 0
+	allow_branch = {
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			OR = {
+				original_tag = ALB
+				has_global_flag = ALB_treaty_of_nis
+			}
+		}
+	}
 	offset = {
 		x = 9
 		y = 15
@@ -11630,7 +11658,7 @@ joint_focus = {
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
-	prerequisite = { focus = ALB_revive_italian_relations }
+	prerequisite = { focus = ALB_revive_italian_relations focus = ITA_fall_of_the_great focus = ITA_seek_emergency_powers focus = ITA_destiny_arrives_all_the_same }
 	x = 0
 	y = 0
 	offset = {
@@ -11639,8 +11667,8 @@ joint_focus = {
 		trigger = { original_tag = ALB }
 	}
 	offset = {
-		x = -9
-		y = 7
+		x = 85
+		y = 4
 		trigger = { original_tag = ITA }
 	}
 	completion_reward_joint_originator = {
@@ -11834,7 +11862,7 @@ joint_focus = {
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
-	prerequisite = { focus = ALB_crown_the_ottoman_albanian }
+	prerequisite = { focus = ALB_crown_the_ottoman_albanian focus = TUR_our_place_in_the_world }
 	x = 0
 	y = 0
 	offset = {
@@ -11843,8 +11871,8 @@ joint_focus = {
 		trigger = { original_tag = ALB }
 	}
 	offset = {
-		x = -9
-		y = 7
+		x = 54
+		y = 1
 		trigger = { original_tag = TUR }
 	}
 	completion_reward_joint_originator = {
@@ -11859,6 +11887,138 @@ joint_focus = {
 		modifier = {
 			factor = 5
 			original_tag = ITA
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_re_esrtablish_market_accesses
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_TUR_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_ottoman_material_support }
+	x = -1
+	y = 1
+	relative_position_id = ALB_ottoman_material_support
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = ITA
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_albanian_turkish_cultural_programs
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_TUR_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_ottoman_material_support }
+	x = 1
+	y = 1
+	relative_position_id = ALB_ottoman_material_support
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = ITA
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_religious_legitimacy
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_TUR_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_re_esrtablish_market_accesses focus = ALB_albanian_turkish_cultural_programs }
+	x = 1
+	y = 1
+	relative_position_id = ALB_re_esrtablish_market_accesses
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = ITA
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_privilaged_partnership
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_religious_legitimacy }
+	x = 0
+	y = 1
+	relative_position_id = ALB_religious_legitimacy
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_utilize_turkish_inteligence
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_TUR_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_religious_legitimacy }
+	x = 2
+	y = 1
+	relative_position_id = ALB_religious_legitimacy
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
 		}
 	}
 }
