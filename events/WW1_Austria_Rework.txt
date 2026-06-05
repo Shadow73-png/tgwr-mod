@@ -6766,85 +6766,85 @@ country_event = {
 		#			x = 0
 		#			y = 0
 		#		}
-			#	infantry = {
+		#	infantry = {
 		#			x = 0
-			#		y = 1
-			#	}
+		#		y = 1
+		#	}
 		#		infantry = {
-			#		x = 0
+		#		x = 0
 		#			y = 2
-			#	}
+		#	}
 		#		infantry = {
-			#		x = 1
-			#		y = 0
-			#	}
-			#	infantry = {
-			#		x = 1
-			#		y = 1
-			#	}
-			#	infantry = {
+		#		x = 1
+		#		y = 0
+		#	}
+		#	infantry = {
+		#		x = 1
+		#		y = 1
+		#	}
+		#	infantry = {
 		#			x = 1
-			#		y = 2
-			#	}
-			#	infantry = {
-			#		x = 2
-			#		y = 0
-			#	}
-			#	infantry = {
-			#		x = 2
-			#		y = 1
-			#	}
-			#	infantry = {
-			#		x = 2
-			#		y = 2
-			#	}
-			#	infantry = {
-			#		x = 3
-			#		y = 0
-			#	}
-			#	infantry = {
+		#		y = 2
+		#	}
+		#	infantry = {
+		#		x = 2
+		#		y = 0
+		#	}
+		#	infantry = {
+		#		x = 2
+		#		y = 1
+		#	}
+		#	infantry = {
+		#		x = 2
+		#		y = 2
+		#	}
+		#	infantry = {
+		#		x = 3
+		#		y = 0
+		#	}
+		#	infantry = {
 		#			x = 3
 		#			y = 1
-			#	}
-			#	cavalry = {
-			#		x = 4
-			#		y = 0
+		#	}
+		#	cavalry = {
+		#		x = 4
+		#		y = 0
 		#		}
-			#	field_gun_brigade = {
-				#	x = 3
-			#		y = 2
-			#	}
+		#	field_gun_brigade = {
+		#	x = 3
+		#		y = 2
 		#	}
-			#support = {
-			#	recon = {
-			#		x = 0
-			#		y = 0
-			#	}
 		#	}
-#		}
-	#	hidden_effect = {
+		#support = {
+		#	recon = {
+		#		x = 0
+		#		y = 0
+		#	}
+		#	}
+		#		}
+		#	hidden_effect = {
 		#	88 = {
-			#	create_unit = {
+		#	create_unit = {
 		#			division = "name = "I Brygada Legionów Polskich" division_template = "Brygada Legionów Polskich" start_experience_factor = 0.1 start_equipment_factor = 0.9"
 		#			owner = ROOT
-			#	}
-			#}
+		#	}
+		#}
 		#	91 = {
 		#		create_unit = {
 		#			division = "name = "II Brygada Legionów Polskich" division_template = "Brygada Legionów Polskich" start_experience_factor = 0.1 start_equipment_factor = 0.9"
 		#			owner = ROOT
-	#			}
+		#			}
 		#	}
 		#	random_owned_controlled_state = {
 		#		limit = {
 		#			is_core_of = POL
-				#}
+		#}
 		#		create_unit = {
 		#			division = "name = "III Brygada Legionów Polskich" division_template = "Brygada Legionów Polskich" start_experience_factor = 0.1 start_equipment_factor = 0.9"
 		#			owner = ROOT
 		#		}
 		#	}
-	#	}
+		#	}
 	}
 }
 
@@ -8285,7 +8285,6 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.61.a
-		
 		custom_effect_tooltip = AUS_karls_decisions
 		#re open parliament, complaint commission, ministry of health, ministry of food security, remove Conrad, charities, amnestied, reduce censorship
 		set_country_flag = AUS_karl_decisions_shown
@@ -8414,6 +8413,7 @@ country_event = {
 		add_stability = 0.02
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.68
 	title = ww1_austriahungary_war.68.t
@@ -8423,29 +8423,32 @@ country_event = {
 		SOV = {
 			exists = yes
 		}
-			custom_trigger_tooltip = {
-				tooltip = AUS_food_shortages_5_trigger
-				check_variable = {
-					AUS_intensity_of_food_shortages > 5
-				}
+		tag = AUS
+		has_war_with_major = yes
+		custom_trigger_tooltip = {
+			tooltip = AUS_food_shortages_5_trigger
+			check_variable = {
+				AUS_intensity_of_food_shortages > 5
 			}
+		}
 	}
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.68.a
-	add_popularity = {
-		ideology = communism
-		popularity = 0.05
-	}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.69
 	title = ww1_austriahungary_war.69.t
 	desc = ww1_austriahungary_war.69.d
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
-			tag = AUS
+		tag = AUS
 		has_global_flag = great_war
 		NOT = {
 			has_global_flag = great_war_ends
@@ -8455,30 +8458,101 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_war.69.a
 		activate_mission = AUS_minority_caps_gone
-custom_effect_tooltip = AUS_minority_caps_gone_tt
+		custom_effect_tooltip = AUS_minority_caps_gone_tt
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.70
 	title = ww1_austriahungary_war.70.t
 	desc = ww1_austriahungary_war.70.d
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
-			tag = AUS
+		tag = AUS
+		has_war_with_major = yes
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.70.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary_war.71
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ww1_austriahungary_war.71
+	title = ww1_austriahungary_war.71.t
+	desc = ww1_austriahungary_war.71.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		tag = AUS
+		has_war_with_major = yes
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.71.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary_war.72
+				days = 20
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_austriahungary_war.72
+	title = ww1_austriahungary_war.72.t
+	desc = ww1_austriahungary_war.72.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		tag = AUS
+		has_war_with_major = yes
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.72.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+		add_war_support = -0.05
+	}
+}
+#war time search end
+#collapse events
+country_event = {
+	id = ww1_austriahungary_collapse.1
+	title = ww1_austriahungary_collapse.1.t
+	desc = ww1_austriahungary_collapse.1.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		tag = AUS
 		check_variable = {
 			AUS_total_loyalty < 16
 		}
 	}
 	fire_only_once = yes
 	option = {
-		name = ww1_austriahungary_war.70.a
-	add_stability = -0.05
-
-	
+		name = ww1_austriahungary_collapse.1.a
+		add_stability = -0.05
 	}
 }
 
-#war time search end
 ##################
 #####  DEBUG #####
 ##################
