@@ -18,6 +18,9 @@ focus_tree = {
 	}
 	initial_show_position = { focus = ALB_rilindja_kombetare }
 	shared_focus = ALB_form_the_albanian_serbian_commission
+	shared_focus = ALB_form_the_albanian_serbian_commission2
+	shared_focus = ALB_first_tirana_treaty
+	shared_focus = ALB_ottoman_material_support
 
 	###PUPPET###
 	focus = {
@@ -4832,7 +4835,7 @@ focus_tree = {
 			FOCUS_FILTER_MANPOWER
 			FOCUS_FILTER_HISTORICAL
 		}
-		x = 69
+		x = 72
 		y = 0
 		available_if_capitulated = yes
 		completion_reward = {
@@ -6291,14 +6294,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = ALB_foreign_policy_priority
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ALB_has_toptani_government
-				has_country_flag = ALB_toptani_government
-			}
-		}
 		completion_reward = {
-			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6315,14 +6311,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_foreign_policy_priority
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ALB_has_toptani_government
-				has_country_flag = ALB_toptani_government
-			}
-		}
 		completion_reward = {
-			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6339,17 +6328,43 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = ALB_foreign_policy_priority
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ALB_has_toptani_government
-				has_country_flag = ALB_toptani_government
-			}
-		}
 		completion_reward = {
-			mark_focus_tree_layout_dirty = yes
 		}
 		ai_will_do = { factor = 100 }
 	}
+
+	focus = {
+		id = ALB_return_the_immigrants
+		icon = GFX_focus_PER_islamic_solidarity
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_revive_italian_relations focus = ALB_cosy_up_to_the_serbs focus = ALB_crown_the_ottoman_albanian }
+		x = 2
+		y = 1
+		relative_position_id = ALB_revive_italian_relations
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
+		id = ALB_invite_foreign_gendarmerie_mission
+		icon = GFX_focus_PER_islamic_solidarity
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_revive_italian_relations focus = ALB_cosy_up_to_the_serbs focus = ALB_crown_the_ottoman_albanian }
+		x = -2
+		y = 1
+		relative_position_id = ALB_crown_the_ottoman_albanian
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	
 
 #	focus = {
 #		id = ALB_bekir_fikris_landing
@@ -8983,79 +8998,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ALB_albanian_serbian_union
-		icon = GFX_focus_Serbian_Crown
-		text_icon = joint_ALB_focus_style
-		cost = 10
-		search_filters = {
-			FOCUS_FILTER_POLITICAL_CHARACTER
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-		}
-		prerequisite = { focus = ALB_albanian_serbian_political_integration }
-		x = 2
-		y = 4
-		offset = {
-			x = -10
-			y = -8
-			trigger = { original_tag = SER }
-		}
-		relative_position_id = ALB_form_the_albanian_national_council
-		available = {
-			original_tag = ALB
-			ALB = { has_country_leader = { character = ALB_esad_toptani } }
-			custom_trigger_tooltip = {
-				tooltip = ALB_has_signed_treaty_of_nis
-				has_global_flag = ALB_treaty_of_nis
-			}
-		}
-		completion_reward = {
-			set_politics = {
-				ruling_party = neutrality
-				elections_allowed = no
-				name = ALB_house_of_toptani_party
-				long_name = ALB_house_of_toptani_party
-			}
-			effect_tooltip = {
-				ALB_esad_toptani = { custom_effect_tooltip = ALB_albanian_serbian_union_tt }
-				SER = {
-					set_autonomy = {
-						target = ALB
-						autonomous_state = autonomy_tgwr_real_union
-						end_wars = no
-						end_civil_wars = no
-					}
-				}
-			}
-			hidden_effect = {
-				ALB_esad_toptani = {
-					set_character_name = ALB_esad_toptani_prince
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = absolute_monarchy
-							traits = { ALB_fulfilled_ambitions }
-						}
-					}
-				}
-				set_country_flag = monarchist_puppet
-				SER = { country_event = { id = albania.79 hours = 8 } }
-			}
-			set_portraits = {
-				character = ALB_esad_toptani
-				civilian = {
-					large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
-					small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized.png"
-				}
-				army = {
-					large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
-					small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized_army.png"
-				}
-			}
-		}
-		ai_will_do = { factor = 100 }
-	}
-
-	focus = {
 		id = ALB_fight_for_the_faith_fight_for_our_way_of_life
 		icon = GFX_focus_mex_restore_the_army_of_christ
 		cost = 10
@@ -10919,25 +10861,18 @@ joint_focus = {
 		FOCUS_FILTER_HISTORICAL
 		FOCUS_FILTER_POLITICAL
 	}
-	prerequisite = { focus = ALB_form_the_albanian_national_council focus = SER_balkan_strategy }
-	x = 8
+	prerequisite = { focus = ALB_cosy_up_to_the_serbs focus = SER_balkan_strategy }
+	x = 0
 	y = 0
 	offset = {
-		x = 1
-		y = 15
+		x = 51
+		y = 7
 		trigger = { original_tag = ALB }
 	}
 	offset = {
-		x = -9
+		x = -1
 		y = 7
 		trigger = { original_tag = SER }
-	}
-	available = {
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
-		custom_trigger_tooltip = {
-			tooltip = ALB_has_signed_treaty_of_nis
-			has_global_flag = ALB_treaty_of_nis
-		}
 	}
 	completion_reward_joint_originator = {
 		add_ideas = ALB_albanian_serbian_commission
@@ -10967,25 +10902,9 @@ joint_focus = {
 		FOCUS_FILTER_MANPOWER
 	}
 	prerequisite = { focus = ALB_form_the_albanian_serbian_commission }
-	x = 0
-	y = 0
-	offset = {
-		x = 8
-		y = 16
-		trigger = { original_tag = ALB }
-	}
-	offset = {
-		x = -2
-		y = 8
-		trigger = { original_tag = SER }
-	}
-	available = {
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
-		custom_trigger_tooltip = {
-			tooltip = ALB_has_signed_treaty_of_nis
-			has_global_flag = ALB_treaty_of_nis
-		}
-	}
+	x = -1
+	y = 1
+	relative_position_id = ALB_form_the_albanian_serbian_commission
 	completion_reward_joint_originator = {
 		if = {
 			limit = { has_idea = ALB_albanian_serbian_commission_3 }
@@ -11039,25 +10958,9 @@ joint_focus = {
 		FOCUS_FILTER_INDUSTRY
 	}
 	prerequisite = { focus = ALB_form_the_albanian_serbian_commission }
-	x = 0
-	y = 0
-	offset = {
-		x = 10
-		y = 16
-		trigger = { original_tag = ALB }
-	}
-	offset = {
-		x = 0
-		y = 8
-		trigger = { original_tag = SER }
-	}
-	available = {
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
-		custom_trigger_tooltip = {
-			tooltip = ALB_has_signed_treaty_of_nis
-			has_global_flag = ALB_treaty_of_nis
-		}
-	}
+	x = 1
+	y = 1
+	relative_position_id = ALB_form_the_albanian_serbian_commission
 	completion_reward_joint_originator = {
 		if = {
 			limit = { has_idea = ALB_albanian_serbian_commission_2 }
@@ -11112,24 +11015,10 @@ joint_focus = {
 		FOCUS_FILTER_INDUSTRY
 	}
 	prerequisite = { focus = ALB_albanian_serbian_central_bank }
-	x = 0
-	y = 0
-	offset = {
-		x = 11
-		y = 17
-		trigger = { original_tag = ALB }
-	}
-	offset = {
-		x = 1
-		y = 9
-		trigger = { original_tag = SER }
-	}
+	x = 1
+	y = 1
+	relative_position_id = ALB_albanian_serbian_central_bank
 	available = {
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
-		custom_trigger_tooltip = {
-			tooltip = ALB_has_signed_treaty_of_nis
-			has_global_flag = ALB_treaty_of_nis
-		}
 		can_build_railway = {
 			start_province = 11586
    			target_province = 12700
@@ -11181,20 +11070,423 @@ joint_focus = {
 		FOCUS_FILTER_POLITICAL
 		FOCUS_FILTER_STABILITY
 	}
-	prerequisite = { focus = ALB_albanian_serbian_central_bank }
 	prerequisite = { focus = ALB_albanian_serbian_joint_army }
+	prerequisite = { focus = ALB_albanian_serbian_central_bank }
+	x = 1
+	y = 1
+	relative_position_id = ALB_albanian_serbian_joint_army
+	completion_reward_joint_originator = {
+		swap_ideas = {
+			remove_idea = ALB_albanian_serbian_commission_4
+			add_idea = ALB_albanian_serbian_commission_5
+		}
+		if = {
+			limit = {
+				1240 = {
+					OR = {
+						is_owned_by = ALB
+						has_state_flag = ALB_albanian_serbian_political_integration
+					}
+				}
+			}
+			1240 = {
+				transfer_state_to = SER
+				add_core_of = SER
+				set_state_flag = ALB_albanian_serbian_political_integration
+			}
+		}
+		add_stability = 0.05
+	}
+	completion_reward_joint_member = {
+		swap_ideas = {
+			remove_idea = ALB_albanian_serbian_commission_4
+			add_idea = ALB_albanian_serbian_commission_5
+		}
+		if = {
+			limit = {
+				1240 = {
+					OR = {
+						is_owned_by = ALB
+						has_state_flag = ALB_albanian_serbian_political_integration
+					}
+				}
+			}
+			1240 = {
+				transfer_state_to = SER
+				add_core_of = SER
+				set_state_flag = ALB_albanian_serbian_political_integration
+			}
+		}
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = SER
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_albanian_serbian_union
+	icon = GFX_focus_Serbian_Crown
+	text_icon = joint_ALB_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL_CHARACTER
+		FOCUS_FILTER_INTERNAL_AFFAIRS
+	}
+	prerequisite = { focus = ALB_albanian_serbian_political_integration }
+	mutually_exclusive = { focus = ALB_our_greatest_allies }
+	x = -1
+	y = 1
+	relative_position_id = ALB_albanian_serbian_political_integration
+	available = {
+		original_tag = ALB
+		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+	}
+	completion_reward_joint_originator = {
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+			name = ALB_house_of_toptani_party
+			long_name = ALB_house_of_toptani_party
+		}
+		effect_tooltip = {
+			ALB_esad_toptani = { custom_effect_tooltip = ALB_albanian_serbian_union_tt }
+			SER = {
+				set_autonomy = {
+					target = ALB
+					autonomous_state = autonomy_tgwr_real_union
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+		}
+		hidden_effect = {
+			ALB_esad_toptani = {
+				set_character_name = ALB_esad_toptani_prince
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						ideology = absolute_monarchy
+						traits = { ALB_fulfilled_ambitions }
+					}
+				}
+			}
+			set_country_flag = monarchist_puppet
+			SER = { country_event = { id = albania.79 hours = 8 } }
+		}
+		set_portraits = {
+			character = ALB_esad_toptani
+			civilian = {
+				large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
+				small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized.png"
+			}
+			army = {
+				large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
+				small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized_army.png"
+			}
+		}
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+	}
+}
+joint_focus = {
+	id = ALB_our_greatest_allies
+	icon = GFX_focus_BRA_reach_out_to_military_dem
+	text_icon = joint_ALB_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL_CHARACTER
+		FOCUS_FILTER_INTERNAL_AFFAIRS
+	}
+	prerequisite = { focus = ALB_albanian_serbian_political_integration }
+	mutually_exclusive = { focus = ALB_albanian_serbian_union }
+	x = 1
+	y = 1
+	relative_position_id = ALB_albanian_serbian_political_integration
+	available = { original_tag = ALB }
+	completion_reward_joint_originator = {
+		swap_ideas = {
+			remove_idea = ALB_albanian_serbian_commission_5
+			add_idea = ALB_albanian_serbian_commission_6
+		}
+		give_guarantee = SER
+		give_military_access = SER
+	}
+	completion_reward_joint_member = {
+		swap_ideas = {
+			remove_idea = ALB_albanian_serbian_commission_5
+			add_idea = ALB_albanian_serbian_commission_6
+		}
+		give_guarantee = ALB
+		give_military_access = ALB
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_form_the_albanian_serbian_commission2
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_SER_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_HISTORICAL
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_form_the_albanian_national_council focus = SER_balkan_strategy }
 	x = 0
 	y = 0
 	offset = {
 		x = 9
-		y = 17
+		y = 15
 		trigger = { original_tag = ALB }
 	}
 	offset = {
 		x = -1
-		y = 9
+		y = 7
 		trigger = { original_tag = SER }
 	}
+	available = {
+		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		custom_trigger_tooltip = {
+			tooltip = ALB_has_signed_treaty_of_nis
+			has_global_flag = ALB_treaty_of_nis
+		}
+	}
+	completion_reward_joint_originator = {
+		add_ideas = ALB_albanian_serbian_commission
+		add_political_power = 35
+	}
+	completion_reward_joint_member = {
+		add_ideas = ALB_albanian_serbian_commission
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = SER
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_albanian_serbian_joint_army2
+	icon = GFX_focus_generic_full_social_mobilization
+	text_icon = joint_ALB_SER_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_MANPOWER
+	}
+	prerequisite = { focus = ALB_form_the_albanian_serbian_commission2 }
+	x = -1
+	y = 1
+	relative_position_id = ALB_form_the_albanian_serbian_commission2
+	available = {
+		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		custom_trigger_tooltip = {
+			tooltip = ALB_has_signed_treaty_of_nis
+			has_global_flag = ALB_treaty_of_nis
+		}
+	}
+	completion_reward_joint_originator = {
+		if = {
+			limit = { has_idea = ALB_albanian_serbian_commission_3 }
+			swap_ideas = {
+				remove_idea = ALB_albanian_serbian_commission_3
+				add_idea = ALB_albanian_serbian_commission_4
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = ALB_albanian_serbian_commission
+				add_idea = ALB_albanian_serbian_commission_2
+			}
+		}
+		army_experience = 35
+	}
+	completion_reward_joint_member = {
+		if = {
+			limit = { has_idea = ALB_albanian_serbian_commission_3 }
+			swap_ideas = {
+				remove_idea = ALB_albanian_serbian_commission_3
+				add_idea = ALB_albanian_serbian_commission_4
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = ALB_albanian_serbian_commission
+				add_idea = ALB_albanian_serbian_commission_2
+			}
+		}
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = SER
+		}
+	}
+}
+
+
+joint_focus = {
+	id = ALB_albanian_serbian_central_bank2
+	icon = GFX_focus_generic_monetary_union
+	text_icon = joint_ALB_SER_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+	prerequisite = { focus = ALB_form_the_albanian_serbian_commission2 }
+	x = 1
+	y = 1
+	relative_position_id = ALB_form_the_albanian_serbian_commission2
+	available = {
+		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		custom_trigger_tooltip = {
+			tooltip = ALB_has_signed_treaty_of_nis
+			has_global_flag = ALB_treaty_of_nis
+		}
+	}
+	completion_reward_joint_originator = {
+		if = {
+			limit = { has_idea = ALB_albanian_serbian_commission_2 }
+			swap_ideas = {
+				remove_idea = ALB_albanian_serbian_commission_2
+				add_idea = ALB_albanian_serbian_commission_4
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = ALB_albanian_serbian_commission
+				add_idea = ALB_albanian_serbian_commission_3
+			}
+		}
+		ALB_reduce_customs_duty_effectiveness_3 = yes
+		add_cic = 500
+	}
+	completion_reward_joint_member = {
+		if = {
+			limit = { has_idea = ALB_albanian_serbian_commission_2 }
+			swap_ideas = {
+				remove_idea = ALB_albanian_serbian_commission_2
+				add_idea = ALB_albanian_serbian_commission_4
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = ALB_albanian_serbian_commission
+				add_idea = ALB_albanian_serbian_commission_3
+			}
+		}
+		ALB_reduce_customs_duty_effectiveness_3 = yes
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = SER
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_belgrade_durres_railway2
+	icon = GFX_goal_generic_construct_infrastructure
+	text_icon = joint_ALB_SER_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+	prerequisite = { focus = ALB_albanian_serbian_central_bank2 }
+	x = 1
+	y = 1
+	relative_position_id = ALB_albanian_serbian_central_bank2
+	available = {
+		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		custom_trigger_tooltip = {
+			tooltip = ALB_has_signed_treaty_of_nis
+			has_global_flag = ALB_treaty_of_nis
+		}
+		can_build_railway = {
+			start_province = 11586
+   			target_province = 12700
+			build_only_on_allied = yes
+		}
+	}
+	completion_reward_joint_originator = {
+		build_railway = {
+			level = 1
+			controller_priority = {
+				base = 1
+				modifier = {
+					tag = SER
+					add = 2
+				}
+			}
+			fallback = yes
+    		path = { 11586 11583 6998 9602 11887 9906 9874 9849 11762 9780 12700 }
+			start_province = 11586
+   			target_province = 12700
+		}
+		44 = {
+			add_building_construction = {
+				type = supply_node
+				level = 1
+				instant_build = yes
+				province = 12700
+			}
+		}
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = SER
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_albanian_serbian_political_integration2
+	icon = GFX_focus_AUS_lawmaking_leniency
+	text_icon = joint_ALB_SER_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
+	}
+	prerequisite = { focus = ALB_albanian_serbian_joint_army2 }
+	prerequisite = { focus = ALB_albanian_serbian_central_bank2 }
+	x = 1
+	y = 1
+	relative_position_id = ALB_albanian_serbian_joint_army2
 	available = {
 		ALB = { has_country_leader = { character = ALB_esad_toptani } }
 		custom_trigger_tooltip = {
@@ -11253,6 +11545,320 @@ joint_focus = {
 		modifier = {
 			factor = 5
 			original_tag = SER
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_albanian_serbian_union2
+	icon = GFX_focus_Serbian_Crown
+	text_icon = joint_ALB_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL_CHARACTER
+		FOCUS_FILTER_INTERNAL_AFFAIRS
+	}
+	prerequisite = { focus = ALB_albanian_serbian_political_integration2 }
+	x = 0
+	y = 1
+	relative_position_id = ALB_albanian_serbian_political_integration2
+	available = {
+		original_tag = ALB
+		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		custom_trigger_tooltip = {
+			tooltip = ALB_has_signed_treaty_of_nis
+			has_global_flag = ALB_treaty_of_nis
+		}
+	}
+	completion_reward_joint_originator = {
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+			name = ALB_house_of_toptani_party
+			long_name = ALB_house_of_toptani_party
+		}
+		effect_tooltip = {
+			ALB_esad_toptani = { custom_effect_tooltip = ALB_albanian_serbian_union_tt }
+			SER = {
+				set_autonomy = {
+					target = ALB
+					autonomous_state = autonomy_tgwr_real_union
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+		}
+		hidden_effect = {
+			ALB_esad_toptani = {
+				set_character_name = ALB_esad_toptani_prince
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						ideology = absolute_monarchy
+						traits = { ALB_fulfilled_ambitions }
+					}
+				}
+			}
+			set_country_flag = monarchist_puppet
+			SER = { country_event = { id = albania.79 hours = 8 } }
+		}
+		set_portraits = {
+			character = ALB_esad_toptani
+			civilian = {
+				large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
+				small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized.png"
+			}
+			army = {
+				large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
+				small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized_army.png"
+			}
+		}
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_first_tirana_treaty
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_ITA_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_revive_italian_relations }
+	x = 0
+	y = 0
+	offset = {
+		x = 47
+		y = 7
+		trigger = { original_tag = ALB }
+	}
+	offset = {
+		x = -9
+		y = 7
+		trigger = { original_tag = ITA }
+	}
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = ITA
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_second_tirana_treaty
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_ITA_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_first_tirana_treaty }
+	x = 0
+	y = 1
+	relative_position_id = ALB_first_tirana_treaty
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = ITA
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_develop_the_adriatic_coast
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_ITA_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_second_tirana_treaty }
+	x = -2
+	y = 1
+	relative_position_id = ALB_second_tirana_treaty
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = ITA
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_mountaineer_training_facilities
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_ITA_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_second_tirana_treaty }
+	x = 0
+	y = 1
+	relative_position_id = ALB_second_tirana_treaty
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = ITA
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_invite_italian_businesses
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_ITA_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_second_tirana_treaty }
+	x = 2
+	y = 1
+	relative_position_id = ALB_second_tirana_treaty
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = ITA
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_italy_of_the_balkans
+	icon = GFX_focus_Serbian_Crown
+	text_icon = joint_ALB_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL_CHARACTER
+		FOCUS_FILTER_INTERNAL_AFFAIRS
+	}
+	prerequisite = { focus = ALB_second_tirana_treaty }
+	mutually_exclusive = { focus = ALB_personal_union_with_italy }
+	x = -1
+	y = 2
+	relative_position_id = ALB_second_tirana_treaty
+	available = {
+		original_tag = ALB
+	}
+	completion_reward_joint_originator = {
+		
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+	}
+}
+joint_focus = {
+	id = ALB_personal_union_with_italy
+	icon = GFX_focus_Serbian_Crown
+	text_icon = joint_ALB_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL_CHARACTER
+		FOCUS_FILTER_INTERNAL_AFFAIRS
+	}
+	prerequisite = { focus = ALB_second_tirana_treaty }
+	mutually_exclusive = { focus = ALB_italy_of_the_balkans }
+	x = 1
+	y = 2
+	relative_position_id = ALB_second_tirana_treaty
+	available = {
+		original_tag = ALB
+	}
+	completion_reward_joint_originator = {
+		
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+	}
+}
+
+joint_focus = {
+	id = ALB_ottoman_material_support
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_TUR_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_crown_the_ottoman_albanian }
+	x = 0
+	y = 0
+	offset = {
+		x = 55
+		y = 7
+		trigger = { original_tag = ALB }
+	}
+	offset = {
+		x = -9
+		y = 7
+		trigger = { original_tag = TUR }
+	}
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+		modifier = {
+			factor = 5
+			original_tag = ITA
 		}
 	}
 }
