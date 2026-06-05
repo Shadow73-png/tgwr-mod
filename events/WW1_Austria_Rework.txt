@@ -8505,9 +8505,34 @@ country_event = {
 			ideology = communism
 			popularity = 0.02
 		}
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary_war.72
+				days = 20
+			}
+		}
 	}
 }
-
+country_event = {
+	id = ww1_austriahungary_war.72
+	title = ww1_austriahungary_war.72.t
+	desc = ww1_austriahungary_war.72.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		tag = AUS
+		has_war_with_major = yes
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.72.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+		add_war_support = -0.05
+	}
+}
 #war time search end
 #collapse events
 country_event = {
