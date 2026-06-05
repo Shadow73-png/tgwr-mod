@@ -15,7 +15,7 @@ focus_tree = {
 	initial_show_position = { focus = HUN_aftermath_of_werkle }
 	#Shared Focus's with Austria
 	shared_focus = AUS_ratify_new_budget
-	shared_focus = AUS_expand_womens_education
+	#shared_focus = AUS_expand_womens_education
 	shared_focus = AUS_manfred_weiss_works_expansion
 	shared_focus = AUS_mavag_armored_trains
 	shared_focus = AUS_expand_the_UFAG
@@ -25,6 +25,11 @@ focus_tree = {
 	shared_focus = HUN_consider_transylvanian_concessions
 
 	#Shortcuts
+	shortcut = {
+		name = HUN_ausgliech_politics
+		target = HUN_ausgliech_politics
+		scroll_wheel_factor = 1
+	}
 	shortcut = {
 		name = economic_tree_shortcut
 		target = HUN_second_industrial_revolution
@@ -6095,7 +6100,7 @@ focus_tree = {
 		icon = GFX_focus_SWE_organize_a_putsch
 		cost = 0
 		relative_position_id = HUN_treuga_dei
-		x = 16
+		x = 15
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -6166,6 +6171,12 @@ focus_tree = {
 		relative_position_id = HUN_stand_with_tisza_gov
 		x = 2
 		y = 1
+		offset = {
+			x = -1
+			trigger = {
+				has_completed_focus = HUN_stand_with_tisza_gov
+			}
+		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INDUSTRY
@@ -6174,6 +6185,14 @@ focus_tree = {
 		}
 		available = {
 			has_completed_focus = HUN_pow_labor
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_istvan_tisza
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_stand_with_tisza_gov
@@ -6363,6 +6382,12 @@ focus_tree = {
 		relative_position_id = HUN_finish_police_reorg
 		x = -1
 		y = 1
+		offset = {
+			trigger = {
+				has_completed_focus = HUN_a_blank_page
+			}
+			x = 1
+		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INDUSTRY
@@ -6399,6 +6424,11 @@ focus_tree = {
 	 }
 	 #Diósgyőr Steel works
 	 focus = {
+		allow_branch = {
+			NOT = {
+				has_completed_focus = HUN_a_blank_page
+			}
+		}
 		id = HUN_diosgyor_steel_works
 		icon = GFX_focus_generic_steel_mill
 		cost = 5
@@ -6438,12 +6468,25 @@ focus_tree = {
 	 }
 	#National Coal Committee
 	focus = {
+		allow_branch = {
+			OR = {
+				has_country_flag = HUN_national_work_party_yes
+				has_completed_focus = HUN_a_blank_page
+			}
+		}
 		id = HUN_national_coal_committee
 		icon = GFX_focus_generic_coal_mining
 		cost = 5
 		relative_position_id = HUN_diosgyor_steel_works
 		x = 1
 		y = 1
+		offset = {
+			trigger = {
+				has_completed_focus = HUN_a_blank_page
+			}
+			x = 2
+			y = -4
+		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INDUSTRY
@@ -6455,6 +6498,7 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_diosgyor_steel_works
+			focus = HUN_a_blank_page
 		}
 		completion_reward = { 
 			custom_effect_tooltip = HUN_modify_eco_tt
@@ -6516,6 +6560,12 @@ focus_tree = {
 		relative_position_id = HUN_diosgyor_steel_works
 		x = -1
 		y = 1
+		offset = {
+			trigger = {
+				has_completed_focus = HUN_a_blank_page
+			}
+			x = 1
+		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_POLITICAL
@@ -6557,6 +6607,11 @@ focus_tree = {
 	 }
 	 #Perpetuating the Memory of Heroes
 	 focus = {
+		allow_branch = {
+			NOT = {
+				has_completed_focus = HUN_a_blank_page
+			}
+		}
 		id = HUN_perpetuate_memory_of_heroes
 		icon = GFX_SOV_depoliticize_the_military_ccp_2d_sov_compatibility
 		cost = 3
@@ -6595,13 +6650,18 @@ focus_tree = {
 		relative_position_id = HUN_national_coal_committee
 		x = 1
 		y = 1
+		offset = {
+			trigger = {
+				has_completed_focus = HUN_a_blank_page
+			}
+			x = -1
+		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INDUSTRY
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		available = {
-			has_country_flag = HUN_national_work_party_yes
 			has_war_with_major = yes
 		}
 		prerequisite = {
@@ -6618,7 +6678,8 @@ focus_tree = {
 				tooltip = local_resources_factor_tt
 			}
 			add_to_variable = {
-				HUN_eco_lack_of_resources_penalty = 0.05
+				HUN_eco_lack_of_resources_penalty = -0.05
+				tooltip = production_lack_of_resource_penalty_factor_tt
 			}
 		 }
 	 }
@@ -6723,12 +6784,21 @@ focus_tree = {
 	 }
 	 #A Blank page
 	 focus = {
+		allow_branch = {
+			has_completed_focus = HUN_stand_with_tisza_gov
+		}
 		id = HUN_a_blank_page
 		icon = GFX_goal_unkown
 		cost = 0
 		relative_position_id = HUN_treuga_dei
 		x = 24
 		y = 1
+		offset = {
+			trigger = {
+				has_completed_focus = HUN_a_blank_page
+			}
+			x = -3
+		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -6743,7 +6813,12 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_treuga_dei
 		}
-		completion_reward = { }
+		completion_reward = { 
+			HUN_sandor_wekerle = {
+				clr_character_flag = out_of_comission_for_sickness
+			}
+			mark_focus_tree_layout_dirty = yes
+		}
 	 }
 	 #To the Eastern Flank
 	 focus = {
@@ -6751,7 +6826,7 @@ focus_tree = {
 		icon = GFX_focus_attack_russia
 		cost = 2
 		relative_position_id = HUN_treuga_dei
-		x = 7
+		x = 6
 		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -7112,47 +7187,24 @@ focus_tree = {
 				HUN_treuga_dei_stab = 0.05
 				tooltip = stability_factor_tt
 			}
-		}
-	 }
-	 #Enlist Civillian Doctors
-	 focus = {
-		id = HUN_enlist_civ_doctors
-		icon = GFX_focus_generic_bad_medical
-		cost = 1
-		relative_position_id = HUN_village_police
-		x = 1
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_STABILITY
-		}
-		available = {
-			has_war_with_major = yes
-			longest_war_length > 10
-			OR = {
-				has_idea = extensive_conscription
-				has_idea = partial_economic_mobilisation
-			}
-		}
-		prerequisite = {
-			focus = HUN_village_police
-		}
-		completion_reward = { 
-			add_days_mission_timeout = {
-				mission = HUN_great_war_discontent_mission
-				days = -25
-			}
-			custom_effect_tooltip = HUN_modify_eco_tt
-			add_to_variable = {
-				HUN_eco_consumer_good = -0.025
-				tooltip = consumer_goods_factor_tt
-			}
-			add_tech_bonus = {
-				name = HUN_enlist_civ_doctors
-				category = hospital_tech
-				bonus = 2
-				uses = 1
+			custom_effect_tooltip = empty_space_tt
+			unlock_decision_tooltip = HUN_enlist_civ_doctors
+			effect_tooltip = {
+				add_days_mission_timeout = {
+					mission = HUN_great_war_discontent_mission
+					days = -25
+				}
+				custom_effect_tooltip = HUN_modify_eco_tt
+				add_to_variable = {
+					HUN_eco_consumer_good = -0.025
+					tooltip = consumer_goods_factor_tt
+				}
+				add_tech_bonus = {
+					name = HUN_enlist_civ_doctors
+					category = hospital_tech
+					bonus = 2
+					uses = 1
+				}
 			}
 		}
 	 }
@@ -7249,7 +7301,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_cut_welfare_programs
-			focus = HUN_enlist_civ_doctors
 		}
 		completion_reward = { 
 			add_to_variable = {

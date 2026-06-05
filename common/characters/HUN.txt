@@ -108,11 +108,58 @@ characters={
 			visible = {
 				is_country_leader = no
 				NOT = {
-					has_country_flag = great_war_loser
+					OR = {
+						has_country_flag = great_war_loser
+						has_idea = HUN_istvan_tisza_evil
+					}
 				}
 			}
 			traits = {
 				HUN_iron_earl
+				cant_be_replaced
+			}
+			ai_will_do = {
+				factor  = 0.000
+			}
+		}
+		country_leader={
+			ideology=authoritarian_democracy
+			traits = {
+				HUN_iron_earl3
+				HUN_dualist_strong_man
+			}
+		}
+	}
+	HUN_istvan_tisza_evil = {
+		name="HUN_istvan_tisza"
+		portraits={
+			civilian={
+				large = "gfx/leaders/HUN/HUN_Istvan_Tisza.png"
+				small = "gfx/interface/ideas/HUN/idea_HUN_Istvan_Tisza.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = HUN_istvan_tisza_evil
+			removal_cost = -1
+			can_be_fired = no
+			cost = 100
+			available = {
+				has_government = neutrality
+				is_country_leader = no
+				custom_trigger_tooltip = {
+					tooltip = cant_be_replaced
+				}
+			}
+			visible = {
+				has_completed_focus = HUN_a_blank_page
+				is_country_leader = no
+				NOT = {
+					has_country_flag = great_war_loser
+				}
+			}
+			traits = {
+				HUN_evil_tisza
 				cant_be_replaced
 			}
 			ai_will_do = {
