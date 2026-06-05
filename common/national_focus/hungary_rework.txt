@@ -6820,6 +6820,100 @@ focus_tree = {
 			mark_focus_tree_layout_dirty = yes
 		}
 	 }
+	 #Ally the Abdicated
+	 focus = {
+		allow_branch = {
+			has_completed_focus = HUN_a_blank_page
+		}
+		id = HUN_ally_abdicated
+		icon = GFX_goal_unkown
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_POLITICAL_CHARACTER
+		}
+		relative_position_id = HUN_a_blank_page
+		x = 0
+		y = 1
+		available = {
+			has_country_leader = {
+				character = HUN_moric_esterhazy
+			}
+			has_idea = HUN_istvan_tisza_evil
+		}
+		prerequisite = {
+			focus = HUN_a_blank_page
+		}
+		mutually_exclusive = {
+			focus = HUN_form_a_hybrid_coalition
+			focus = HUN_dissolve_parliament
+		}
+		completion_reward = { }
+	 }
+	 #Form a Hybrid Coalition
+	 focus = {
+		allow_branch = {
+			has_completed_focus = HUN_a_blank_page
+		}
+		id = HUN_form_a_hybrid_coalition
+		icon = GFX_goal_unkown
+		cost = 1
+		relative_position_id = HUN_ally_abdicated
+		x = 3
+		y = 0
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_POLITICAL_CHARACTER
+		}
+		available = {
+			has_country_leader = {
+				character = HUN_moric_esterhazy
+			}
+			has_idea = HUN_istvan_tisza_evil
+		}
+		prerequisite = {
+			focus = HUN_a_blank_page
+		}
+		mutually_exclusive = {
+			focus = HUN_ally_abdicated
+			focus = HUN_dissolve_parliament
+		}
+		completion_reward = { }
+	 }
+	 #Dissolve Parliament
+	 focus = {
+		allow_branch = {
+			has_completed_focus = HUN_a_blank_page
+		}
+		id = HUN_dissolve_parliament
+		icon = GFX_goal_unkown
+		cost = 2
+		relative_position_id = HUN_form_a_hybrid_coalition
+		x = 3
+		y = 0
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICALFOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_country_leader = {
+				character = HUN_moric_esterhazy
+			}
+			has_idea = HUN_istvan_tisza_evil
+		}
+		prerequisite = {
+			focus = HUN_a_blank_page
+		}
+		mutually_exclusive = {
+			focus = HUN_form_a_hybrid_coalition
+			focus = HUN_ally_abdicated
+		}
+		completion_reward = { }
+	 }
 	 #To the Eastern Flank
 	 focus = {
 		id = HUN_to_the_eastern_flank
