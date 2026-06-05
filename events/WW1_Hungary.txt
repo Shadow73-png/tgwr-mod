@@ -3891,6 +3891,11 @@ country_event = {
 		}
 		activate_advisor = HUN_istvan_tisza_evil
 		promote_character = HUN_moric_esterhazy
+		set_party_name = { #Silent code, not a compromise path
+			ideology = neutrality
+			long_name = HUN_esterhazy_gov
+			name = HUN_esterhazy_gov
+		}	
 	}
 }
 #Appointment of Moric Esterhazy/ Resignation of Tisza (AUS event)
@@ -3903,5 +3908,46 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_hungary.106.a
+	}
+}
+#Worrying Militarization of Factories
+country_event = {
+	id = ww1_hungary.107
+	title = ww1_hungary.107.t
+	desc = ww1_hungary.107.d
+	#picture = GFX_report_event_tisza_elected_speaker
+	fire_only_once = yes
+	is_triggered_only = no
+	trigger = {
+		original_tag = HUN
+		longest_war_length > 16
+		has_war_with_major = yes
+		has_dynamic_modifier = HUN_transitioning_economy
+		has_global_flag = great_war
+	}
+	option = {
+		name = ww1_hungary.107.a
+		add_to_variable = {
+			HUN_food_stab_var = -10
+			tooltip = HUN_food_var_minus_10.tt
+		}
+		add_days_mission_timeout = {
+			mission = HUN_fading_food_stability_mission
+			days = -100
+		}
+		custom_effect_tooltip = empty_space_tt
+		custom_effect_tooltip = HUN_modify_eco_tt
+		add_to_variable = {
+			HUN_eco_mil_speed = 0.05
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+		add_to_variable = {
+			HUN_eco_consumer_good = 0.05
+			tooltip = consumer_goods_factor_tt
+		}
+		add_to_variable = {
+			HUN_eco_civ_speed = -0.05
+			tooltip = production_speed_industrial_complex_factor_tt
+		}
 	}
 }
