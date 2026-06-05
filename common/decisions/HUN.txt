@@ -426,42 +426,6 @@ peace_deals = {
 }
 TGWR_great_power_politics = {
 	#great_power_politics_great_war
-	HUN_revenge_on_bruderkrieg = {
-		icon = GFX_decision_generic_prepare_civil_war
-		available = {
-			FROM = { has_war_with_major = yes }
-		}	
-		visible = {
-			great_power_politics_great_war_visible = yes
-			has_country_flag = hungarian_revanchism
-			country_exists = FROM
-			is_subject = no
-			FROM = { is_subject = no }
-			NOT = { is_in_faction_with = FROM }
-		}
-		fire_only_once = yes
-		allowed = {
-			tag = HUN
-		}
-		available = {
-			casualties > 25000
-		}
-		visible = {
-			OR = {
-				has_war_with_major = yes
-				is_debug = yes
-			}
-		}
-		cost = 30
-		fire_only_once = no
-		days_re_enable = 375
-		days_remove = 35
-		modifier = {
-			stability_weekly = 0.002	
-			war_stability_factor = 0.1
-			weekly_casualties_war_support = 0.005
-		}
-	}
 	HUN_send_equipment_to_austria = {
 		icon = GFX_decision_generic_prepare_civil_war
 		available = {
@@ -681,6 +645,40 @@ TGWR_great_power_politics = {
 					mission = HUN_truega_dei_mission
 					days = -100
 				}
+			}
+		}
+	}
+	HUN_enlist_civ_doctors = {
+		icon = GFX_decision_SWE_set_army_budget
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 10
+		}
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_war_with_major = yes
+		}
+		visible = {
+			has_war_with_major = yes
+		}
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = HUN_great_war_discontent_mission
+				days = -25
+			}
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.025
+				tooltip = consumer_goods_factor_tt
+			}
+			add_tech_bonus = {
+				name = HUN_enlist_civ_doctors
+				category = hospital_tech
+				bonus = 2
+				uses = 1
 			}
 		}
 	}
