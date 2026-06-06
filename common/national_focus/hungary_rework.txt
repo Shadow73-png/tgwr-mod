@@ -2294,6 +2294,42 @@ focus_tree = {
 			}
 		}
 	}
+	#Introduce Secret Ballots to Budapest
+	focus = {
+		id = HUN_introduce_secret_ballots_to_budapest
+		icon = GFX_goal_unkown
+		cost = 5
+		relative_position_id = HUN_break_up_labour_movements
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			has_war = no
+			has_elections = yes
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+				has_country_leader = {
+					character = HUN_istvan_tisza
+				}
+			}
+		}
+		prerequisite = {
+			focus = HUN_break_up_labour_movements
+			focus = HUN_oa_cooperate_with_karyoli
+		}
+		mutually_exclusive = {
+			focus = HUN_national_secret_ballot
+		}
+		completion_reward = { }
+	}
 	#Rule Through Decree
 	focus = {
 		id = HUN_rule_through_decree
@@ -3022,12 +3058,53 @@ focus_tree = {
 		}
 		available = {
 			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
 		}
 		prerequisite = {
 			focus = HUN_calm_the_socialist_push
 		}
 		mutually_exclusive = {
 			focus = HUN_break_up_labour_movements
+		}
+		completion_reward = { }
+	}
+	#Introduce National Secret Ballots
+	focus = {
+		id = HUN_national_secret_ballot
+		icon = GFX_goal_unkown
+		cost = 5
+		relative_position_id = HUN_oa_cooperate_with_karyoli
+		x = -1
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		available = {
+			has_war = no
+			has_elections = yes
+			has_global_flag = HUN_compromise_gov_in_charge
+			OR = {
+				has_country_leader = {
+					character = HUN_gyula_andrassy
+				}
+				has_country_leader = {
+					character = HUN_janos_hadik
+				}
+			}
+		}
+		prerequisite = {
+			focus = HUN_oa_cooperate_with_karyoli
+		}
+		mutually_exclusive = {
+			focus = HUN_introduce_secret_ballots_to_budapest
 		}
 		completion_reward = { }
 	}
@@ -3441,7 +3518,7 @@ focus_tree = {
 		cost = 3
 		relative_position_id = HUN_befriend_county_elites
 		x = -1
-		y = 1
+		y = 2
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_POLITICAL
@@ -3462,6 +3539,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_reform_floor_rules
+		}
+		mutually_exclusive = {
+			focus = HUN_national_secret_ballot
 		}
 		completion_reward = { }
 	}
@@ -6981,7 +7061,8 @@ focus_tree = {
 			NOT = {
 				has_completed_focus = HUN_secure_party_loyalty
 			}
-			democratic > 0.7
+			democratic > 0.
+			surrender_progress < 0.05
 		}
 		prerequisite = {
 			focus = HUN_a_blank_page
