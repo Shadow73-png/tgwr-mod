@@ -6882,7 +6882,18 @@ focus_tree = {
 			focus = HUN_ally_abdicated
 			focus = HUN_dissolve_parliament
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_ideas = HUN_hybrid_coalition
+			if = {
+				limit = { 
+					has_idea = HUN_raging_suffrage_and_labor_movements
+				}
+				swap_ideas = {
+					remove_idea = HUN_raging_suffrage_and_labor_movements
+					add_idea = HUN_raging_suffrage_and_labor_movements2
+				}
+			}
+		}
 	 }
 	 #Transfer Powers of the Transylvanian Resettlement Committee
 	 focus = {
@@ -6908,6 +6919,7 @@ focus_tree = {
 			focus = HUN_form_a_hybrid_coalition
 			focus = HUN_dissolve_parliament
 		}
+		bypass_if_unavailable = yes
 		completion_reward = { 
 			every_owned_state = {
 				limit = {
