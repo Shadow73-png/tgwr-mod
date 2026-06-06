@@ -6841,6 +6841,8 @@ focus_tree = {
 				character = HUN_moric_esterhazy
 			}
 			has_idea = HUN_istvan_tisza_evil
+			has_completed_focus = HUN_secure_party_loyalty
+			neutrality > 0.7
 		}
 		prerequisite = {
 			focus = HUN_a_blank_page
@@ -6901,12 +6903,47 @@ focus_tree = {
 			any_controlled_state = {
 				is_core_of = ROM
 			}
+			has_dynamic_modifier = HUN_transylvanian_resettlement_committee
 		}
 		prerequisite = {
 			focus = HUN_form_a_hybrid_coalition
 			focus = HUN_dissolve_parliament
 		}
-		completion_reward = { }
+		completion_reward = { 
+			every_owned_state = {
+				limit = {
+					has_dynamic_modifier = HUN_transylvanian_resettlement_committee
+				}
+				remove_dynamic_modifier = {
+					modifier = HUN_transylvanian_resettlement_committee
+				}
+			}
+			custom_effect_tooltip = empty_space_tt
+			unlock_decision_tooltip = HUN_admin_of_registered_roma_pop
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				every_controlled_state = {
+				limit = {
+					is_core_of = TRA
+					is_owned_by = ROOT
+					}
+					add_manpower = 500
+				}
+				add_political_power = 30
+				custom_effect_tooltip = empty_space_tt
+				if = {
+					limit = { 
+						AUS_HUN_exists = yes
+					}
+					AUS = {
+						add_to_variable = {
+							AUS_romanian_loyalty = 5
+							tooltip = AUS_loyalty_romanians_tt
+						}
+					}
+				}
+			}
+		}
 	 }
 	 #Dissolve Parliament
 	 focus = {
@@ -6930,6 +6967,10 @@ focus_tree = {
 				character = HUN_moric_esterhazy
 			}
 			has_idea = HUN_istvan_tisza_evil
+			NOT = {
+				has_completed_focus = HUN_secure_party_loyalty
+			}
+			democratic > 0.7
 		}
 		prerequisite = {
 			focus = HUN_a_blank_page

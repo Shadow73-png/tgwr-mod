@@ -671,7 +671,7 @@ TGWR_great_power_politics = {
 		fire_only_once = yes
 		cost = 20
 		ai_will_do = {
-			factor = 10
+			factor = 25
 		}
 		allowed = {
 			original_tag = HUN
@@ -698,6 +698,56 @@ TGWR_great_power_politics = {
 				bonus = 2
 				uses = 1
 			}
+		}
+	}
+	HUN_admin_of_registered_roma_pop = {
+		icon = GFX_decision_unknown
+		fire_only_once = yes
+		cost = 20
+		days_remove = 30
+		ai_will_do = {
+			factor = 25
+		}
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_war_with_major = yes
+			any_owned_state = {
+				AND = {
+					is_core_of = TRA
+					infrastructure < 3
+				}
+			}
+		}
+		visible = {
+			has_war_with_major = yes
+			any_owned_state = {
+				is_core_of = TRA
+			}
+		} 
+		complete_effect = {
+			if = {
+				limit = { 
+					AUS_HUN_exists = yes
+				}
+				AUS = {
+					add_to_variable = {
+						AUS_romanian_loyalty = 5
+						tooltip = AUS_loyalty_romanians_tt
+					}
+				}
+			}
+		}
+		remove_effect = {
+			every_controlled_state = {
+				limit = {
+					is_core_of = TRA
+					is_owned_by = ROOT
+				}
+				add_manpower = 500
+			}
+			add_political_power = 30
 		}
 	}
 }
