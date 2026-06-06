@@ -3331,11 +3331,12 @@ country_event = {
 			remove_dynamic_modifier = {
 				modifier = HUN_local_opposition
 			}
-			AUS = {
-				add_to_variable = {
-					AUS_romanian_loyalty = -5
-					tooltip = AUS_loyalty_romanians_tt
-				}
+		}
+		custom_effect_tooltip = empty_space_tt
+		AUS = {
+			add_to_variable = {
+				AUS_romanian_loyalty = -5
+				tooltip = AUS_loyalty_romanians_tt
 			}
 		}
 	}
@@ -3885,6 +3886,7 @@ country_event = {
 	}
 	option = {
 		name = ww1_hungary.105.a
+		add_ideas = HUN_raging_suffrage_and_labor_movements
 		effect_tooltip = {
 			complete_national_focus = HUN_a_blank_page
 		}
@@ -3972,5 +3974,38 @@ country_event = {
 		name = ww1_hungary.108.a
 		add_war_support = -0.05
 		add_stability = -0.02
+	}
+}
+#Refugee Crisis in Trans
+country_event = {
+	id = ww1_hungary.109
+	title = ww1_hungary.109.t
+	desc = ww1_hungary.109.d
+	#picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_hungary.109.a
+		add_political_power = -25
+		add_stability = -0.02
+		every_owned_state = {
+			limit = {
+				is_core_of = TRA
+			}
+			add_dynamic_modifier = {
+				modifier = HUN_transylvanian_resettlement_committee
+				days = 1200
+			}
+		}
+		custom_effect_tooltip = empty_space_tt
+		every_owned_state = {
+			limit = {
+				is_core_of = TRA
+				has_dynamic_modifier = HUN_local_opposition
+			}
+			remove_dynamic_modifier = {
+				modifier = HUN_local_opposition
+			}
+		}
 	}
 }
