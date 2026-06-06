@@ -11013,6 +11013,21 @@ TRS_remove_arab_opposition = {
 			remove_ideas = TRS_arab_opposition_9
 		}
 	}
+	if = {
+		limit = {
+			1261 = { has_state_flag = TUR_negotiating_our_claims_modifier }
+		}
+		1261 = {
+			custom_effect_tooltip = TUR_ottoman_add_claims_tt
+			hidden_effect = { add_dynamic_modifier = { modifier = TUR_ottoman_claimed_state } }
+			if = {
+			limit = {
+				has_state_flag = TUR_negotiating_our_claims_claimed
+			}
+			add_claim_by = TUR
+			}
+		}
+	}
 }
 
 TUR_create_armenian_vilayet = {

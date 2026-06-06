@@ -1746,189 +1746,6 @@ DIPLOMACY_ASSUME_FACTION_LEADERSHIP_ENABLE_TRIGGER = {
 		}
 	}
 }
-DIPLOMACY_KICK_FROM_FACTION_ENABLE_TRIGGER = {
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_kick_faction
-				option = BLOCKED
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_KICK_FROM_FACTION_BLOCKED_TOOLTIP
-			always = no
-		}
-		else = {
-			custom_trigger_tooltip = {
-				tooltip = RULE_KICK_FROM_FACTION_ALLOWED_TOOLTIP
-				if = {
-					limit = {
-						is_faction_leader = yes
-					}
-					has_global_flag = interbellum
-					hidden_trigger = {
-						OR = {
-							has_country_flag = interbellum
-							NOT = {
-								has_country_flag = great_war_loser
-								has_country_flag = great_war_winner
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_volunteers
-				option = ALWAYS_FREE
-			}
-		}
-		always = yes
-	}
-	else_if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_volunteers
-				option = LIMITED
-			}
-		}
-		always = yes
-	}
-	else_if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_volunteers
-				option = SAME_IDEOLOGY
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_VOLUNTEERS_SAME_IDEOLOGY_TT
-			has_government = FROM
-		}
-	}
-	else_if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_volunteers
-				option = BLOCKED
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_VOLUNTEERS_BLOCKED_TT
-			always = no
-		}
-	}
-	if = {
-		limit = {
-			has_game_rule = {
-				rule = allow_volunteers
-				option = BLOCKED
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = RULE_VOLUNTEERS_BLOCKED_TT
-			always = no
-		}
-	}
-	if = {
-		limit = {
-			NOT = { tag = TUR }
-			FROM = { has_country_flag = TUR_unwilling_neutrality_flag }
-		}
-		custom_trigger_tooltip = {
-			tooltip = CANNOT_SEND_VOLUNTEERS_TO_OTTOMANS
-			always = no
-		}
-	}
-}
-DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
-	if = { 
-		limit = {
-			# has_dlc = "Arms Against Tyranny"
-			ROOT = {
-				original_tag = ICE
-				has_idea = neutrality_idea
-				is_subject = yes 
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = ICELAND_HAS_DECLARED_NEUTRALITY_JOIN
-			always = no
-		}
-	}
-	else_if = { 
-		limit = {
-			ROOT = {
-				has_idea = standing_alone
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = standing_alone_tt
-			always = no
-		}
-	}
-	else_if = { 
-		limit = {
-			FROM = {
-				has_idea = standing_alone
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = standing_alone_tt
-			always = no
-		}
-	}
-	else_if = { 
-		limit = {
-			ROOT = {
-				has_idea = FRA_interim_government
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = FRA_interim_government_tt
-			always = no
-		}
-	}
-	else_if = { 
-		limit = {
-			FROM = {
-				original_tag = TUR
-				any_enemy_country = {
-					has_idea = TUR_war_of_independence
-				}
-			}
-		}
-		custom_trigger_tooltip = {
-			tooltip = TUR_war_of_independence_tt
-			always = no
-		}
-	}
-	else_if = {
-		limit = {
-			FROM = {
-				has_idea = idea_armistice
-			}
-		}
-		NOT = {
-			has_idea = idea_armistice
-		}
-	}
-	else_if = {
-		limit = {
-			FROM = {
-				has_idea = idea_army_restrictions
-			}
-		}
-		NOT = {
-			has_idea = idea_army_restrictions
-		}
-	}
-}
 DIPLOMACY_SEND_ATTACHE_ENABLE_TRIGGER = {
 }
 DIPLOMACY_REQUEST_EXP_FORCE_ENABLE_TRIGGER = {
@@ -2467,6 +2284,29 @@ DIPLOMACY_WAR_ENABLE_TRIGGER = {
 			has_wargoal_against = FROM
 		}
     }
+}
+
+DIPLOMACY_JOIN_FACTION_ENABLE_TRIGGER = {
+	FROM = {
+		has_war_together_with = ROOT
+		is_in_colonial_war = no
+	}
+
+}
+
+DIPLOMACY_GUARANTEE_ENABLE_TRIGGER_OVERRIDES_GAME_TRIGGER = {
+	diplomatic_trigger_always_no = yes
+}
+
+DIPLOMACY_PEACE_PROPOSAL_ENABLE_TRIGGER = {
+	diplomatic_trigger_always_no = yes
+}
+
+DIPLOMACY_IMPROVERELATION_ENABLE_TRIGGER = {
+}
+
+DIPLOMACY_NONAGGRESSIONPACT_ENABLE_TRIGGER = {
+	diplomatic_trigger_always_no = yes
 }
 
 DIPLOMACY_REVOKE_NONAGGRESSIONPACT_ENABLE_TRIGGER = {

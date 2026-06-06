@@ -736,170 +736,6 @@ ITA_war_prep = {
 	}
 }
 
-ITA_great_war_austria = {
-	ITA_the_knock_out_blow = {
-		icon = GFX_decision_hol_draw_up_staff_plans
-		cost = 10
-		allowed = {
-			original_tag = AUS
-		}
-		available = {
-			has_war_with = ITA
-			is_in_faction_with = GER
-			NOT = {
-				has_global_flag = great_war_ends
-				has_global_flag = GER_capitulation
-				has_global_flag = ENT_capitulation
-			}
-		}
-		visible = {
-			has_war_with = ITA
-			is_in_faction_with = GER
-			NOT = {
-				has_global_flag = great_war_ends
-				has_global_flag = GER_capitulation
-				has_global_flag = ENT_capitulation
-			}
-		}
-		fire_only_once = yes
-		ai_will_do = {
-			base = 0
-			modifier = {
-				add = 1
-				war_length_with = {
-					tag = ITA
-					months > 3
-				}
-			}
-			modifier = {
-				add = 5
-				war_length_with = {
-					tag = ITA
-					months > 5
-				}
-			}
-			modifier = {
-				add = 10
-				war_length_with = {
-					tag = ITA
-					months > 8
-				}
-			}
-			modifier = {
-				add = 200
-				war_length_with = {
-					tag = ITA
-					months > 12
-				}
-			}
-		}
-		complete_effect = {
-			add_timed_idea = {
-				idea = ITA_final_blow_idea_AUS
-				days = 90
-			}
-			hidden_effect = {
-				ITA = {
-					country_event = ww1_italy.295
-				}
-			}
-		}
-	}
-	AUS_blockade_italy = {
-		days_remove = 180
-		icon = GFX_decision_generic_ignite_civil_war
-		fire_only_once = no
-		allowed = {
-			tag = AUS
-		}
-		available = {
-			FROM = {
-				NOT = {
-					has_completed_focus = ITA_impliment_cunibertis_theory
-				}
-			}
-			has_completed_focus = AUH_naval_excercices 
-		}
-		targets = {
-			ITA
-		}
-		visible = {
-			has_war_with = FROM
-		}
-		complete_effect = {
-			custom_effect_tooltip = ITA_british_pov_thing
-			effect_tooltip = {
-				add_to_variable = {
-					ITA_bread_shortages = 1
-					tooltip = ITA_modify_bread_shortages_tt
-				}
-				add_to_variable = {
-					ITA_percieved_usefulness = -2
-					tooltip = ITA_modify_war_score_tt
-				}
-			}
-			FROM = {
-				country_event = ww1_italy.292
-			}
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-	AUS_shell_venice = {
-		days_remove = 180
-		icon = GFX_decision_generic_ignite_civil_war
-		fire_only_once = no
-		allowed = {
-			tag = AUS
-		}
-		available = {
-			FROM = {
-				NOT = {
-					has_completed_focus = ITA_utilize_the_radio
-				}
-			}
-			controls_state = 736
-		}
-		target_trigger = {
-			FROM = {
-				controls_state = 160
-			}
-		}
-		target_root_trigger = {
-			has_completed_focus = AUH_naval_excercices 
-		}
-		targets = {
-			ITA
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = 160
-			}
-		}
-		visible = {
-			has_war_with = FROM
-		}
-		complete_effect = {
-			160 = {
-				add_dynamic_modifier = {
-					modifier = ITA_aus_shell
-					scope = FROM
-					days = 30
-				}
-			}
-			custom_effect_tooltip = ITA_british_pov_thing
-			add_to_variable = {
-				ITA.ITA_percieved_usefulness = -2
-				tooltip = ITA_modify_war_score_tt
-			}
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-}
-
 ITA_great_war = {
 	ITA_reset_capture_points = {
 		allowed = {
@@ -3309,7 +3145,7 @@ ITA_libyan_war = {
 		fire_only_once = yes
 	}
 	ITA_bombard_the_libyan_coast = {
-		cost = 15
+		cost = 0
 		days_remove = 100
 		icon = GFX_decision_generic_ignite_civil_war
 		fire_only_once = yes
@@ -3317,9 +3153,14 @@ ITA_libyan_war = {
 			original_tag = ITA
 		}
 		available = {
-			ships_in_area = {
-				area = 29
-				size > 15
+			OR = {
+				ships_in_area = {
+					area = 29
+					size > 15
+				}
+				hidden_trigger = {
+					is_ai = yes
+				}
 			}
 		}
 		target_trigger = {
@@ -3331,9 +3172,6 @@ ITA_libyan_war = {
 					}
 				}
 			}
-		}
-		target_root_trigger = {
-			has_completed_focus = ITA_new_naval_guns
 		}
 		targets = {
 			TUR
@@ -3450,25 +3288,27 @@ ITA_libyan_war = {
 		}
 	}
 	ITA_raid_beirut_port = {
-		cost = 10
+		cost = 0
 		icon = GFX_decision_generic_army_support
 		fire_only_once = yes
 		allowed = {
 			original_tag = ITA
 		}
 		available = {
-			ships_in_area = {
-				area = 69
-				size > 15
+			OR = {
+				ships_in_area = {
+					area = 69
+					size > 15
+				}
+				hidden_trigger = {
+					is_ai = yes
+				}
 			}
 		}
 		target_trigger = {
 			FROM = {
 				owns_state = 553
 			}
-		}
-		target_root_trigger = {
-			has_completed_focus = ITA_2_enemies_2_navies
 		}
 		targets = {
 			TUR
@@ -5428,6 +5268,7 @@ ITA_reforming_the_country = {
 			158
 			159
 			160
+			1259
 			833
 			161
 			162
@@ -8263,6 +8104,7 @@ ITA_reforming_the_country = {
 					state = 161
 					state = 159
 					state = 160
+					state = 1259
 					state = 1216
 				}
 			}
@@ -8284,6 +8126,7 @@ ITA_reforming_the_country = {
 						state = 161
 						state = 159
 						state = 160
+						state = 1259
 						state = 1216
 					}
 				}
@@ -11228,6 +11071,11 @@ ITA_war_preperations = {
 				tooltip = heat_attrition_factor_tt
 			}
 			add_to_variable = {
+				var = ITA_libya_preparation_land_mastery
+				value = 0.15
+				tooltip = land_mastery_gain_factor_tt
+			}
+			add_to_variable = {
 				var = ITA_preperation_experience_var
 				value = 0.05
 				tooltip = experience_gain_army_factor_tt
@@ -12224,22 +12072,24 @@ ITA_army_reforms = {
 				add_building_construction = {
 					type = bunker
 					level = 2
+					province = 1126
+				}
+			}
+			1259 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
 					province = 628
 				}
 				add_building_construction = {
 					type = bunker
 					level = 2
 					province = 9613
-				}
+				}		
 				add_building_construction = {
 					type = bunker
 					level = 2
 					province = 13376
-				}
-				add_building_construction = {
-					type = bunker
-					level = 2
-					province = 1126
 				}
 				add_building_construction = {
 					type = bunker
@@ -12295,6 +12145,8 @@ ITA_army_reforms = {
 					level = 3
 					province = 603
 				}
+			}
+			159 = {
 				add_building_construction = {
 					type = bunker
 					level = 2
@@ -12736,13 +12588,19 @@ ITA_army_reforms = {
 			has_war_with = AUS
 		}
 		available = {
-			1197 = {
-				is_owned_and_controlled_by = AUS
+			OR = {
+				1197 = {
+					is_owned_and_controlled_by = AUS
+				}
+				1260 = {
+					is_owned_and_controlled_by = AUS
+				}
 			}
 		}
 		highlight_states = {
 			highlight_state_targets = {
 				state = 1197
+				state = 1260
 			}
 		}
 		cancel_trigger = {
@@ -12772,6 +12630,13 @@ ITA_army_reforms = {
 					scope = ROOT
 				}
 			}
+			1260 = {
+				add_dynamic_modifier = {
+					modifier = ITA_offensive
+					days = 120
+					scope = ROOT
+				}
+			}
 		}
 	}
 	ITA_veneto_counteroffensive = {
@@ -12785,11 +12650,21 @@ ITA_army_reforms = {
 			# no cw check needed as communist italy cant do these focuses
 		}
 		available = {
-			160 = {
-				NOT = {
-					is_fully_controlled_by = ROOT
-					has_dynamic_modifier = {
-						modifier = ITA_stand_on_the_piave
+			AND = {
+				160 = {
+					NOT = {
+						is_fully_controlled_by = ROOT
+						has_dynamic_modifier = {
+							modifier = ITA_stand_on_the_piave
+						}
+					}
+				}
+				1259 = {
+					NOT = {
+						is_fully_controlled_by = ROOT
+						has_dynamic_modifier = {
+							modifier = ITA_stand_on_the_piave
+						}
 					}
 				}
 			}
@@ -12818,6 +12693,13 @@ ITA_army_reforms = {
 		}
 		remove_effect = {
 			160 = {
+				add_dynamic_modifier = {
+					modifier = ITA_veneto_offensive
+					days = 100
+					scope = ROOT
+				}
+			}
+			1259 = {
 				add_dynamic_modifier = {
 					modifier = ITA_veneto_offensive
 					days = 100
