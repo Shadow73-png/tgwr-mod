@@ -189,21 +189,13 @@ PER_guarded_domains = {
 		on_map_mode = map_and_decisions_view
 
 		complete_effect = {
-			set_temp_variable = {
-				PER_modify_RUS_influence_var = 0.01
-			}
 			add_to_variable = {
-				var = RUS.PER_foreign_influence
-				value = PER_modify_RUS_influence_var
+				RUS.PER_foreign_influence = 0.01
 				tooltip = PER_modify_RUS_influence_tt
 			}
 			PER_calculate_foreign_influnce = yes
-			set_temp_variable = {
-				PER_add_cossack_regiment_var = 1
-			}
 			add_to_variable = {
-				var = PER_recruited_cossacks
-				value = PER_add_cossack_regiment_var
+				PER_recruited_cossacks = 1
 				tooltip = PER_raise_cossack_regiment_tt
 			}
 			set_variable = {
@@ -218,6 +210,20 @@ PER_guarded_domains = {
 					owner = ROOT
 					count = 1
 				}
+			}
+			if = {
+				limit = {
+					PER_recruited_cossacks = 0
+				}
+				if = {
+					limit = {
+						has_character = PER_iskandar_khan_setkhanian
+					}
+					show_unit_leaders_tooltip = PER_iskandar_khan_setkhanian
+				}
+				show_unit_leaders_tooltip = PER_reza_khan
+				show_unit_leaders_tooltip = PER_abdollah_amir_tahmasebi
+				show_unit_leaders_tooltip = PER_karim_buzarjomehri
 			}
 		}
 		ai_will_do = {
@@ -238,12 +244,8 @@ PER_guarded_domains = {
 		on_map_mode = map_and_decisions_view
 
 		complete_effect = {
-			set_temp_variable = {
-				PER_modify_RUS_influence_var = PER_recruited_cossacks_decimal_var
-			}
 			add_to_variable = {
-				var = RUS.PER_foreign_influence
-				value = PER_modify_RUS_influence_var
+				RUS.PER_foreign_influence = PER_recruited_cossacks_decimal_var
 				tooltip = PER_modify_RUS_influence_tt
 			}
 			PER_calculate_foreign_influnce = yes
@@ -355,12 +357,8 @@ PER_guarded_domains = {
 		on_map_mode = map_and_decisions_view
 
 		complete_effect = {
-			set_temp_variable = {
-				PER_add_bakhtiaris_var = 1
-			}
 			add_to_variable = {
-				var = PER_recruited_bakhtiari
-				value = PER_add_bakhtiaris_var
+				PER_recruited_bakhtiari = 1
 				tooltip = PER_raise_bakhtiaris_tt
 			}
 			set_variable = {
@@ -597,6 +595,97 @@ PER_guarded_domains = {
 		}
 		ai_will_do = {
 			base = 100
+		}
+	}
+	#Taking Loans
+	PER_ask_for_loan_FROM = {
+		icon = gre_investment_decisions
+		allowed = {
+			original_tag = PER
+		}
+
+		targets = {
+			ENG
+			RUS
+			GER
+			TUR
+		}
+
+		#targets_dynamic = yes
+
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = PER_influence_in_persia_modifier
+				has_capitulated = no
+			}
+		}
+
+		target_root_trigger = {
+			has_completed_focus = PER_ask_for_loans
+			has_dynamic_modifier = PER_foreign_influence_modifier
+		}
+
+		available = {
+			NOT = {
+				has_war_with = FROM
+			}
+		}
+		
+		visible = {
+			has_dynamic_modifier = PER_foreign_influence_modifier
+		}
+
+		fire_only_once = no
+
+		custom_cost_text = PER_2_influence
+
+		custom_cost_trigger = {
+			always = yes
+		}
+
+		days_re_enable = 30
+
+		complete_effect = {
+			set_country_flag = PER_asking_for_loan
+			FROM = {
+				country_event = ww1_per_generic.1
+			}
+			custom_effect_tooltip = if_FROM_agrees
+			effect_tooltip = {
+				FROM = {
+					add_political_power = -50
+				}
+				add_to_variable = {
+					PER_available_funds = 1
+					tooltip = PER_add_funds_tt
+				}
+				add_to_variable = {
+					FROM.PER_foreign_influence = 0.02
+					tooltip = PER_modify_FROM_influence_tt
+				}
+			}			
+			custom_effect_tooltip = back_in_30_days
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = PER_asking_for_loan
+					has_country_flag = PER_recivied_loan
+					FROM = {
+						has_country_flag = PER_refused_to_provide_loan
+					}
+				}				
+			}
+			modifier = {
+				factor = 0.5
+				FROM = { tag = GER }			
+			}
+			modifier = {
+				factor = 0.1
+				FROM = { tag = TUR }			
+			}
 		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿add_namespace = ww1_persia
 add_namespace = ww1_persia_rework
 add_namespace = ww1_per_rus_strangling
+add_namespace = ww1_per_generic
 
 country_event = {
 	title = ww1_persia.1.t
@@ -1716,4 +1717,108 @@ country_event = {
 		}
 	}
 
+}
+
+### Generic Persian events ###
+#Persia asks for a loan
+country_event = {
+	id = ww1_per_generic.1
+	title = ww1_per_generic.1.t
+	desc = ww1_per_generic.1.d
+	
+	picture = GFX_report_event_PER_majlis
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_generic.1.a
+		add_political_power = -50
+		FROM = {
+			add_to_variable = {
+				PER_available_funds = 1
+				tooltip = PER_add_funds_tt
+			}
+			add_to_variable = {
+				ROOT.PER_foreign_influence = 0.02
+				tooltip = PER_modify_ROOT_influence_tt
+			}
+			PER_calculate_foreign_influnce = yes
+			set_country_flag = {
+				flag = PER_recivied_loan
+				days = 150
+				value = 1
+			}
+			country_event = ww1_per_generic.2
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_political_power < 10
+				factor = 0
+			}
+			modifier = {
+				has_political_power < 50
+				factor = 0.5
+			}
+		}
+	}
+	option = {
+		name = ww1_per_generic.1.b
+		set_country_flag = {
+			flag = PER_refused_to_provide_loan
+			days = 360
+			value = 1
+		}
+		FROM = {
+			country_event = ww1_per_generic.3
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+}
+#FROM agrees
+country_event = {
+	id = ww1_per_generic.2
+	title = ww1_per_generic.2.t
+	desc = ww1_per_generic.2.d
+	
+	picture = GFX_report_event_PER_majlis
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_generic.2.a
+		clr_country_flag = PER_asking_for_loan
+		effect_tooltip = {
+			add_to_variable = {
+				PER_available_funds = 1
+				tooltip = PER_add_funds_tt
+			}
+			add_to_variable = {
+				FROM.PER_foreign_influence = 0.02
+				tooltip = PER_modify_FROM_influence_tt
+			}
+		}
+	}
+}
+
+#FROM refuses
+country_event = {
+	id = ww1_per_generic.3
+	title = ww1_per_generic.3.t
+	desc = ww1_per_generic.3.d
+	
+	picture = GFX_report_event_PER_majlis
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_generic.3.a
+		clr_country_flag = PER_asking_for_loan
+	}
 }

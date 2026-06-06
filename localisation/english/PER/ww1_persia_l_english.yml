@@ -62,7 +62,7 @@
  PER_raise_cossack_regiment_in_FROM: "Raise a Cossack Regiment in [FROM.GetName]"
  PER_extend_the_cossack_contract: "Extend the Cossack Brigade Contract"
  PER_cossacks_leaving_mission: "Cossacks Brigade Stands Down"
- PER_raise_cossack_regiment_tt: "Change number of raised cossack regiments by [?PER_add_cossack_regiment_var|.0Y=]"
+ PER_raise_cossack_regiment_tt: "Change number of raised cossack regiments by $RIGHT|.0Y=$"
  PER_can_recruit_cossacks_tt: "We can recruit only [?PER_cossack_cap|.0Y] cossack regiment(s)"
  PER_cossacks_stand_down_tt: "§tCurrently hired cossak regiments will stand down!§!"
  
@@ -70,7 +70,7 @@
  PER_raise_bakhtiaris_FROM: "Raise Bakhtiaris"
  PER_bakhtiaris_leaving_mission: "Bakhtiari Tribesmen are Leaving the Front"
  PER_disband_tribal_troops: "Disband Tribal Troops"
- PER_raise_bakhtiaris_tt: "Change number of raised Bakhtiari regiments by [?PER_add_bakhtiaris_var|.0Y=]"
+ PER_raise_bakhtiaris_tt: "Change number of raised Bakhtiari regiments by $RIGHT|.0Y=$"
  PER_can_recruit_bakhtiari_tt: "We can recruit only [?PER_bakhtiari_cap|.0Y] Bakhtiari regiment(s)"
  RUS_tribes_stand_down_tt: "§tCurrently hired tribal regiments will stand down!§!"
 
@@ -79,10 +79,16 @@
 
  PER_extort_FROM: "Extort Nobles in [FROM.GetName]"
  PER_has_treasury_gendarmerie_in_state_tt: "Has Treasury Gendarmerie in [FROM.GetName]"
- PER_add_funds_tt: "Modify §YAvailable Funds§! by [?PER_add_funds_var|.0Y=]"
+ PER_add_funds_tt: "Modify §YAvailable Funds§! by $RIGHT|.0Y=$"
  PER_has_funds_tt: "We have §YAvailable Funds§!"
 
  PER_expand_government_gendarmerie: "Expand the Government Gendarmerie"
+
+ PER_ask_for_loan_FROM: "Take a loan from [FROM.GetName]"
+
+ PER_2_influence: "£GFX_strangling_of_persia_texticon  §Y+2%§!"
+ PER_2_influence_blocked: "£GFX_strangling_of_persia_texticon  §R+2%§!"
+ PER_2_influence_tooltip: "£GFX_strangling_of_persia_texticon  §Y+2%§! Foreign Influence."
 
  #Modifiers
  PER_foreign_influence_modifier: "Foreign Influence"
@@ -93,10 +99,12 @@
  PER_GER_foreign_influence: "[GER.getFlag]§Y[GER.getAdjective]§! Influence: [?GER.PER_foreign_influence|0Y%]\n"
  PER_TUR_foreign_influence: "[TUR.getFlag]§Y[TUR.getAdjective]§! Influence: [?TUR.PER_foreign_influence|0Y%]\n"
 
- PER_modify_ENG_influence_tt: "[ENG.getFlag]§Y[ENG.getAdjective]§! Influence: [?PER_modify_ENG_influence_var|.0Y%=]"
- PER_modify_RUS_influence_tt: "[RUS.getFlag]§Y[RUS.getAdjective]§! Influence: [?PER_modify_RUS_influence_var|.0Y%=]"
- PER_modify_GER_influence_tt: "[GER.getFlag]§Y[VER.getAdjective]§! Influence: [?PER_modify_GER_influence_var|.0Y%=]"
- PER_modify_TUR_influence_tt: "[TUR.getFlag]§Y[TUR.getAdjective]§! Influence: [?PER_modify_TUR_influence_var|.0Y%=]"
+ PER_modify_ENG_influence_tt: "[ENG.getFlag]§Y[ENG.getAdjective]§! Influence: $RIGHT|.0Y%=$"
+ PER_modify_RUS_influence_tt: "[RUS.getFlag]§Y[RUS.getAdjective]§! Influence: $RIGHT|.0Y%=$"
+ PER_modify_GER_influence_tt: "[GER.getFlag]§Y[GER.getAdjective]§! Influence: $RIGHT|.0Y%=$"
+ PER_modify_TUR_influence_tt: "[TUR.getFlag]§Y[TUR.getAdjective]§! Influence: $RIGHT|.0Y%=$"
+ PER_modify_FROM_influence_tt: "[FROM.getFlag]§Y[FROM.getAdjective]§! Influence: $RIGHT|.0Y%=$"
+ PER_modify_ROOT_influence_tt: "[ROOT.getFlag]§Y[ROOT.getAdjective]§! Influence: $RIGHT|.0Y%=$"
  
  ENG_has_influence_tt: "[ENG.getFlag]§Y[ENG.getAdjective]§! Influence: [?PER_ENG_influence_trigger_var|.0Y%]"
  RUS_has_influence_tt: "[RUS.getFlag]§Y[RUS.getAdjective]§! Influence: [?PER_RUS_influence_trigger_var|.0Y%]"
@@ -197,5 +205,16 @@
  ww1_per_rus_strangling.11.t: "Restoration of Mohammad Ali Shah"
  ww1_per_rus_strangling.11.d: ""
  ww1_per_rus_strangling.11.a: "Masha'Allah, we're back again."
+
+ ww1_per_generic.1.t: "[FROM.GetNameDefCap] is Asking for a Loan"
+ ww1_per_generic.1.d: ""
+ ww1_per_generic.1.a: "This will expand our influence."
+ ww1_per_generic.1.b: "Persia is not worth a scrap."
+ ww1_per_generic.2.t: "[FROM.GetName] Agreed to Issue a Loan"
+ ww1_per_generic.2.d: ""
+ ww1_per_generic.2.a: "Much obliged."
+ ww1_per_generic.3.t: "[FROM.GetName] Refused to Issue a Loan"
+ ww1_per_generic.3.d: ""
+ ww1_per_generic.3.a: "We have other options."
 
 
