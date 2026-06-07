@@ -205,6 +205,93 @@ RUS_civil_war = {
 			}
 		}
 	}
+	SRA_core_states = {
+		icon = generic_army_support
+		allowed = {
+			tag = SRA
+		}
+
+		cost = 10
+
+		state_target = yes
+		targets = {
+			940
+			233
+			234
+			579
+			137
+			235
+			236
+			590
+			217
+			265
+			245
+			238
+			218
+			222
+			240
+			220
+			260
+			401
+			239
+			257
+			258
+			223
+			224
+			242
+			205
+			246
+			210
+			209
+			925
+			251
+			249
+			399
+			400
+			397
+			250
+			255
+			256
+			252
+			254
+			253
+			248
+			247
+			351
+			263
+			214
+			264
+			926
+			955
+			238
+			## States excluded: Karelia, Ukraine, byelorussia, St. Petersburg && Moscow, Urals + Asia, baltics, poland, transcaucasia and Terek
+		}
+		on_map_mode = map_and_decisions_view
+		days_remove = 10
+		visible = {
+			has_country_flag = vol_core_states
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = {
+					is_core_of = SRA
+				}
+			}
+		}
+		complete_effect = {
+
+		}
+		remove_effect = {
+			FROM = {
+				add_core_of = SRA
+				SRA = {
+					set_state_owner = PREV
+				}
+			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
 	SRA_rehabilitate_officers = {
 		icon = generic_army_support
 		allowed = {
@@ -608,16 +695,16 @@ RUS_civil_war = {
 		}
 
 		available = {
-			OR = {
-				controls_province = 6380 #moscow
-				if = {
-					limit = { 
-						is_subject = yes
-					}
-					OVERLORD = {
-						controls_province = 6380 #moscow
-					}
+			if = {
+				limit = { 
+					is_subject = yes
 				}
+				OVERLORD = {
+					controls_province = 6380 #moscow
+				}
+			}
+			else = {
+				controls_province = 6380 
 			}
 		}
 
@@ -659,7 +746,7 @@ RUS_civil_war = {
 		available = {
 			controls_province = 9355 #kursk
 			controls_province = 3578 #Saratov
-			controls_province = 260  #Voronezh
+			controls_province = 413  #Voronezh
 		}
 
 		days_mission_timeout = 100
@@ -677,7 +764,7 @@ RUS_civil_war = {
 		is_good = no
 
 		activation = {
-			always = no
+			has_country_flag = SRA_moscow_directive_phase_1
 		}
 
 		timeout_effect = {	
@@ -1620,7 +1707,7 @@ SRA_rada_interactions = {
 			}
 			capital_scope = {
 				create_unit = {
-					division = "name = \"Kuban Cossacks\" division_template = \"Kazachiy polk VSYUR\" start_experience_factor = 0.5 start_equipment_factor = 0.7"
+					division = "name = \"Kuban Cossacks\" division_template = \"Kazachiy polk VSYUR\" start_experience_factor = 0.5"
 					owner = ROOT
 					count = 2
 					allow_spawning_on_enemy_provs = no
