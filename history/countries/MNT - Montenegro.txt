@@ -1,9 +1,9 @@
-﻿capital = 105
+capital = 105
 
 set_fuel_ratio = 0.20
 set_research_slots = 2
 set_stability = 0.55
-set_war_support = 0.7
+set_war_support = 0.67
 set_convoys = 1
 
 #Petrovićs
@@ -41,10 +41,27 @@ MNT_podgorica_assembly = {
 	set_character_flag = dont_transfer
 }
 
-#agr dyn mod
+#dynamic modifiers for army
+set_variable = {
+	var = MNT_army_attack
+	value = -0.01
+}
+set_variable = {
+	var = MNT_army_defence
+	value = -0.01
+}
+set_variable = {
+	var = MNT_army_org
+	value = -0.01
+}
+set_variable = {
+	var = MNT_army_speed
+	value = -0.01
+}
+#these are dynamic modifiers bitch
 set_variable = {
 	var = MNT_agr_build_speed
-	value = -0.1
+	value = -0.18
 }
 set_variable = {
 	var = MNT_kolkomestaimabre
@@ -55,12 +72,24 @@ set_variable = {
 	value = -0.1
 }
 set_variable = {
-	var = MNT_agr_good_factor
-	value = 0.1
+	var = MNT_overcrowding_monthpop
+	value = -0.05
 }
 set_variable = {
-	var = MNT_agr_army_eats
-	value = -0.05
+	var = MNT_debt_consumer_goods
+	value = 0.14
+}
+set_variable = {
+	var = MNT_overcrowding_pp_gain
+	value = -0.12
+}
+set_variable = {
+	var = MNT_overcrowd_stab
+	value = -0.06
+}
+set_variable = {
+	var = MNT_overcrowd_ws
+	value = 0.07
 }
 
 every_character = {
@@ -136,6 +165,15 @@ every_character = {
 	}	
 	add_dynamic_modifier = {
 		modifier = MNT_agrarian_society
+	}
+	add_dynamic_modifier = {
+		modifier = MNT_too_many_ppl
+	}
+	add_dynamic_modifier = {
+		modifier = MNT_debt_lol
+	}
+	add_dynamic_modifier = {
+		modifier = MNT_dm_army
 	}
 }
 1914.1.1 = {
