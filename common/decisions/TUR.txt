@@ -26376,7 +26376,7 @@ economy_decisions = {
 						has_decision = TUR_construct_mandira_kirkkilise_line
 						has_decision = TUR_complete_kirkagac_bandirma_line
 						has_decision = TUR_extend_sutlac_egirdir_line
-						has_decision = TUR_construct_hudaydah_sana_line
+						has_decision = TUR_construct_hudeyde_sana_line
 					}
 				}
 			}
@@ -26637,7 +26637,7 @@ economy_decisions = {
 						has_decision = TUR_construct_mandira_kirkkilise_line
 						has_decision = TUR_complete_kirkagac_bandirma_line
 						has_decision = TUR_extend_sutlac_egirdir_line
-						has_decision = TUR_construct_hudaydah_sana_line
+						has_decision = TUR_construct_hudeyde_sana_line
 					}
 				}
 			}
@@ -26785,6 +26785,395 @@ economy_decisions = {
 				date > 1912.1.1 
 			}
 		}
+	}
+	TUR_construct_adapazari_eregli_line = {
+		icon = GFX_decision_generic_railway
+		allowed = { original_tag = TUR }
+		visible = {
+			has_completed_focus = TUR_intensify_railway_construction
+			can_build_railway = {
+				start_province = 890
+				target_province = 11866
+				build_only_on_allied = yes
+			}
+			#OR = {
+			#	has_dynamic_modifier = { modifier = TUR_OPDA }
+			#	has_decision = TUR_construct_adapazari_eregli_line
+			#}
+			NOT = { has_global_flag = TUR_construct_adapazari_eregli_line }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TUR_OPDA_trigger_tooltip
+				OR = {
+					has_idea = TUR_OPDA_idea
+					has_idea = TUR_OPDA_idea_2
+					has_idea = TUR_OPD_idea
+					has_idea = TUR_OPD_idea_2
+					has_idea = TUR_OPD_idea_3
+				}
+			}
+			NOT = {
+				custom_trigger_tooltip = {
+					tooltip = TUR_another_railway_project_trigger
+					OR = {
+						has_decision = TUR_construct_mandira_kirkkilise_line
+						has_decision = TUR_complete_kirkagac_bandirma_line
+						has_decision = TUR_extend_sutlac_egirdir_line
+						has_decision = TUR_construct_adapazari_eregli_line
+						has_decision = TUR_construct_adapazari_eregli_line
+					}
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				custom_trigger_tooltip = {
+				tooltip = TUR_construct_adapazari_eregli_line_trigger
+					can_build_railway = {
+						start_province = 890
+						target_province = 11866
+						build_only_on_allied = yes
+					}
+				}
+			}
+		}
+		highlight_states = { highlight_provinces = { 890 6871 3905 3919 11866 } }
+		fire_only_once = yes
+		cost = 30
+		priority = 97
+		days_remove = TUR_railway_privatization_speed?70
+		complete_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_war_with = GER
+						is_embargoed_by = GER
+					}
+				}
+				random_other_country = {
+					limit = {
+						NOT = { has_war_with = ROOT }
+						has_dynamic_modifier = { modifier = TUR_OPDA_foreign_power }
+					}
+					TUR_add_debt_1_THIS = yes
+					if = {
+						limit = { has_power_balance = { id = TUR_foreign_alignment } }
+						if = {
+							limit = { is_in_faction_with = FRA }
+							add_power_balance_value = {
+								id = TUR_foreign_alignment
+								value = 0.05
+							}
+						}
+						if = {
+							limit = { is_in_faction_with = GER }
+							add_power_balance_value = {
+								id = TUR_foreign_alignment
+								value = -0.05
+							}
+						}
+					}
+				}
+			}
+			else = {
+				TUR_add_debt_1_GER = yes
+				if = {
+					limit = { has_power_balance = { id = TUR_foreign_alignment } }
+					add_power_balance_value = {
+						id = TUR_foreign_alignment
+						value = -0.05
+					}
+				}
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = TUR_construct_adapazari_eregli_line_tt1
+			hidden_effect = {
+				build_railway = {
+					level = 1
+					path = { 890 6871 3905 3919 11866 }
+					fallback = yes
+					start_province = 890
+					target_province = 11866
+				}
+			}
+			356 = {
+				custom_effect_tooltip = TUR_construct_adapazari_eregli_line_tt2
+				hidden_effect = {
+					add_building_construction = {
+						type = naval_base
+						level = 1
+						instant_build = yes
+						province = 11866
+					}
+				}
+			}
+			custom_effect_tooltip = TUR_increase_kastamonu_centralization_3
+			add_to_variable = { global.TUR_kastamonu_centralization = 3 }
+			set_global_flag = TUR_construct_adapazari_eregli_line
+		}
+		ai_will_do = { base = 0 }
+	}
+	TUR_construct_inebolu_bolu_line = {
+		icon = GFX_decision_generic_railway
+		allowed = { original_tag = TUR }
+		visible = {
+			has_completed_focus = TUR_intensify_railway_construction
+			can_build_railway = {
+				start_province = 3982
+				target_province = 3919
+				build_only_on_allied = yes
+			}
+			#OR = {
+			#	has_dynamic_modifier = { modifier = TUR_OPDA }
+			#	has_decision = TUR_construct_inebolu_bolu_line
+			#}
+			NOT = { has_global_flag = TUR_construct_inebolu_bolu_line }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TUR_OPDA_trigger_tooltip
+				OR = {
+					has_idea = TUR_OPDA_idea
+					has_idea = TUR_OPDA_idea_2
+					has_idea = TUR_OPD_idea
+					has_idea = TUR_OPD_idea_2
+					has_idea = TUR_OPD_idea_3
+				}
+			}
+			NOT = {
+				custom_trigger_tooltip = {
+					tooltip = TUR_another_railway_project_trigger
+					OR = {
+						has_decision = TUR_construct_mandira_kirkkilise_line
+						has_decision = TUR_complete_kirkagac_bandirma_line
+						has_decision = TUR_extend_sutlac_egirdir_line
+						has_decision = TUR_construct_inebolu_bolu_line
+						has_decision = TUR_construct_inebolu_bolu_line
+					}
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				custom_trigger_tooltip = {
+				tooltip = TUR_construct_inebolu_bolu_line_trigger
+					can_build_railway = {
+						start_province = 3982
+						target_province = 3919
+						build_only_on_allied = yes
+					}
+				}
+			}
+		}
+		highlight_states = { highlight_provinces = { 3982 6938 6920 3919 } }
+		fire_only_once = yes
+		cost = 30
+		priority = 97
+		days_remove = TUR_railway_privatization_speed?70
+		complete_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_war_with = FRA
+						is_embargoed_by = FRA
+					}
+				}
+				random_other_country = {
+					limit = {
+						NOT = { has_war_with = ROOT }
+						has_dynamic_modifier = { modifier = TUR_OPDA_foreign_power }
+					}
+					TUR_add_debt_1_THIS = yes
+					if = {
+						limit = { has_power_balance = { id = TUR_foreign_alignment } }
+						if = {
+							limit = { is_in_faction_with = FRA }
+							add_power_balance_value = {
+								id = TUR_foreign_alignment
+								value = 0.05
+							}
+						}
+						if = {
+							limit = { is_in_faction_with = GER }
+							add_power_balance_value = {
+								id = TUR_foreign_alignment
+								value = -0.05
+							}
+						}
+					}
+				}
+			}
+			else = {
+				TUR_add_debt_1_FRA = yes
+				if = {
+					limit = { has_power_balance = { id = TUR_foreign_alignment } }
+					add_power_balance_value = {
+						id = TUR_foreign_alignment
+						value = 0.05
+					}
+				}
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = TUR_construct_inebolu_bolu_line_tt1
+			hidden_effect = {
+				build_railway = {
+					level = 1
+					path = { 3982 6938 6920 3919 }
+					fallback = yes
+					start_province = 3982
+					target_province = 3919
+				}
+			}
+			1031 = {
+				custom_effect_tooltip = TUR_construct_inebolu_bolu_line_tt2
+				hidden_effect = {
+					add_building_construction = {
+						type = naval_base
+						level = 1
+						instant_build = yes
+						province = 3982
+					}
+				}
+			}
+			custom_effect_tooltip = TUR_increase_kastamonu_centralization_5
+			add_to_variable = { global.TUR_kastamonu_centralization = 5 }
+			set_global_flag = TUR_construct_inebolu_bolu_line
+		}
+		ai_will_do = { base = 0 }
+	}
+	TUR_construct_samsun_kastamonu_line = {
+		icon = GFX_decision_generic_railway
+		allowed = { original_tag = TUR }
+		visible = {
+			has_completed_focus = TUR_intensify_railway_construction
+			can_build_railway = {
+				start_province = 11881
+				target_province = 6938
+				build_only_on_allied = yes
+			}
+			#OR = {
+			#	has_dynamic_modifier = { modifier = TUR_OPDA }
+			#	has_decision = TUR_construct_samsun_kastamonu_line
+			#}
+			NOT = { has_global_flag = TUR_construct_samsun_kastamonu_line }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TUR_OPDA_trigger_tooltip
+				OR = {
+					has_idea = TUR_OPDA_idea
+					has_idea = TUR_OPDA_idea_2
+					has_idea = TUR_OPD_idea
+					has_idea = TUR_OPD_idea_2
+					has_idea = TUR_OPD_idea_3
+				}
+			}
+			NOT = {
+				custom_trigger_tooltip = {
+					tooltip = TUR_another_railway_project_trigger
+					OR = {
+						has_decision = TUR_construct_mandira_kirkkilise_line
+						has_decision = TUR_complete_kirkagac_bandirma_line
+						has_decision = TUR_extend_sutlac_egirdir_line
+						has_decision = TUR_construct_samsun_kastamonu_line
+						has_decision = TUR_construct_samsun_kastamonu_line
+					}
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				custom_trigger_tooltip = {
+				tooltip = TUR_construct_samsun_kastamonu_line_trigger
+					can_build_railway = {
+						start_province = 11881
+						target_province = 6938
+						build_only_on_allied = yes
+					}
+				}
+			}
+		}
+		highlight_states = { highlight_provinces = { 11881 11897 6978 3982 6938 } }
+		fire_only_once = yes
+		cost = 30
+		priority = 97
+		days_remove = TUR_railway_privatization_speed?70
+		complete_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_war_with = FRA
+						is_embargoed_by = FRA
+					}
+				}
+				random_other_country = {
+					limit = {
+						NOT = { has_war_with = ROOT }
+						has_dynamic_modifier = { modifier = TUR_OPDA_foreign_power }
+					}
+					TUR_add_debt_3_THIS = yes
+					if = {
+						limit = { has_power_balance = { id = TUR_foreign_alignment } }
+						if = {
+							limit = { is_in_faction_with = FRA }
+							add_power_balance_value = {
+								id = TUR_foreign_alignment
+								value = 0.05
+							}
+						}
+						if = {
+							limit = { is_in_faction_with = GER }
+							add_power_balance_value = {
+								id = TUR_foreign_alignment
+								value = -0.05
+							}
+						}
+					}
+				}
+			}
+			else = {
+				TUR_add_debt_3_FRA = yes
+				if = {
+					limit = { has_power_balance = { id = TUR_foreign_alignment } }
+					add_power_balance_value = {
+						id = TUR_foreign_alignment
+						value = 0.05
+					}
+				}
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = TUR_construct_samsun_kastamonu_line_tt1
+			hidden_effect = {
+				build_railway = {
+					level = 1
+					path = { 11881 11897 6978 3982 6938 }
+					fallback = yes
+					start_province = 11881
+					target_province = 6938
+				}
+			}
+			356 = {
+				custom_effect_tooltip = TUR_construct_samsun_kastamonu_line_tt2
+				hidden_effect = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						instant_build = yes
+						province = 6938
+					}
+				}
+			}
+			custom_effect_tooltip = TUR_increase_trabzon_centralization_3
+			add_to_variable = { global.TUR_trabzon_centralization = 3 }
+			custom_effect_tooltip = TUR_increase_kastamonu_centralization_5
+			add_to_variable = { global.TUR_kastamonu_centralization = 5 }
+			set_global_flag = TUR_construct_samsun_kastamonu_line
+		}
+		ai_will_do = { base = 0 }
 	}
 	TUR_construct_izmir_biga_line = {
 		icon = GFX_decision_generic_railway
@@ -26951,7 +27340,7 @@ economy_decisions = {
 						has_decision = TUR_construct_mandira_kirkkilise_line
 						has_decision = TUR_complete_kirkagac_bandirma_line
 						has_decision = TUR_extend_sutlac_egirdir_line
-						has_decision = TUR_construct_hudaydah_sana_line
+						has_decision = TUR_construct_hudeyde_sana_line
 					}
 				}
 			}
@@ -27542,7 +27931,7 @@ economy_decisions = {
 		}
 		ai_will_do = { base = 0 }
 	}
-	TUR_construct_hudaydah_sana_line = {
+	TUR_construct_hudeyde_sana_line = {
 		icon = GFX_decision_generic_railway
 		allowed = { original_tag = TUR }
 		visible = {
@@ -27554,9 +27943,9 @@ economy_decisions = {
 			}
 			#OR = {
 			#	has_dynamic_modifier = { modifier = TUR_OPDA }
-			#	has_decision = TUR_construct_hudaydah_sana_line
+			#	has_decision = TUR_construct_hudeyde_sana_line
 			#}
-			NOT = { has_global_flag = TUR_construct_hudaydah_sana_line }
+			NOT = { has_global_flag = TUR_construct_hudeyde_sana_line }
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -27576,7 +27965,7 @@ economy_decisions = {
 						has_decision = TUR_construct_mandira_kirkkilise_line
 						has_decision = TUR_complete_kirkagac_bandirma_line
 						has_decision = TUR_extend_sutlac_egirdir_line
-						has_decision = TUR_construct_hudaydah_sana_line
+						has_decision = TUR_construct_hudeyde_sana_line
 					}
 				}
 			}
@@ -27584,7 +27973,7 @@ economy_decisions = {
 		cancel_trigger = {
 			NOT = {
 				custom_trigger_tooltip = {
-				tooltip = TUR_construct_hudaydah_sana_line_trigger
+				tooltip = TUR_construct_hudeyde_sana_line_trigger
 					can_build_railway = {
 						start_province = 10752
 						target_province = 1920
@@ -27643,7 +28032,7 @@ economy_decisions = {
 			}
 		}
 		remove_effect = {
-			custom_effect_tooltip = TUR_construct_hudaydah_sana_line_tt1
+			custom_effect_tooltip = TUR_construct_hudeyde_sana_line_tt1
 			hidden_effect = {
 				build_railway = {
 					level = 1
@@ -27661,7 +28050,7 @@ economy_decisions = {
 				}
 			}
 			654 = {
-				custom_effect_tooltip = TUR_construct_hudaydah_sana_line_tt2
+				custom_effect_tooltip = TUR_construct_hudeyde_sana_line_tt2
 				hidden_effect = {
 					add_building_construction = {
 						type = supply_node
@@ -27679,12 +28068,12 @@ economy_decisions = {
 			}
 			custom_effect_tooltip = TUR_increase_yemen_centralization_10
 			add_to_variable = { global.TUR_yemen_centralization = 10 }
-			set_global_flag = TUR_construct_hudaydah_sana_line
+			set_global_flag = TUR_construct_hudeyde_sana_line
 		}
 		ai_will_do = { base = 0 }
 	}
-	TUR_construct_hudaydah_sana_line_no_debt = {
-		name = TUR_construct_hudaydah_sana_line
+	TUR_construct_hudeyde_sana_line_no_debt = {
+		name = TUR_construct_hudeyde_sana_line
 		icon = GFX_decision_generic_railway
 		allowed = { original_tag = TUR }
 		visible = {
@@ -27697,9 +28086,9 @@ economy_decisions = {
 			}
 			NOT = {
 				has_dynamic_modifier = { modifier = TUR_OPDA }
-				has_decision = TUR_construct_hudaydah_sana_line
+				has_decision = TUR_construct_hudeyde_sana_line
 			}
-			NOT = { has_global_flag = TUR_construct_hudaydah_sana_line }
+			NOT = { has_global_flag = TUR_construct_hudeyde_sana_line }
 		}
 		available = {
 			enemies_naval_strength_ratio < 1
@@ -27708,7 +28097,7 @@ economy_decisions = {
 		cancel_trigger = {
 			NOT = {
 				custom_trigger_tooltip = {
-				tooltip = TUR_construct_hudaydah_sana_line_trigger
+				tooltip = TUR_construct_hudeyde_sana_line_trigger
 					can_build_railway = {
 						start_province = 10752
 						target_province = 1920
@@ -27724,7 +28113,7 @@ economy_decisions = {
 		days_remove = TUR_railway_privatization_speed?70
 		modifier = { civilian_factory_use = 3 }
 		remove_effect = {
-			custom_effect_tooltip = TUR_construct_hudaydah_sana_line_tt1
+			custom_effect_tooltip = TUR_construct_hudeyde_sana_line_tt1
 			hidden_effect = {
 				build_railway = {
 					level = 1
@@ -27742,7 +28131,7 @@ economy_decisions = {
 				}
 			}
 			654 = {
-				custom_effect_tooltip = TUR_construct_hudaydah_sana_line_tt2
+				custom_effect_tooltip = TUR_construct_hudeyde_sana_line_tt2
 				hidden_effect = {
 					add_building_construction = {
 						type = supply_node
@@ -27760,7 +28149,7 @@ economy_decisions = {
 			}
 			custom_effect_tooltip = TUR_increase_yemen_centralization_10
 			add_to_variable = { global.TUR_yemen_centralization = 10 }
-			set_global_flag = TUR_construct_hudaydah_sana_line
+			set_global_flag = TUR_construct_hudeyde_sana_line
 		}
 		ai_will_do = { base = 0 }
 	}
