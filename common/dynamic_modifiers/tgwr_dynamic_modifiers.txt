@@ -1131,17 +1131,48 @@ SER_serbian_exile = {
 	local_non_core_manpower = 0.7
 	local_manpower = 0.2
 }
+# MONTENEGRO
+
 MNT_agrarian_society = {
 	enable = {
 		always = yes
 	}
-	icon = GFX_idea_GRE_agrarian_society
+	icon = GFX_idea_MNT_mountain_farmers
 	local_building_slots_factor = MNT_kolkomestaimabre
-	state_production_speed_buildings_factor = MNT_agr_build_speed
+	production_speed_buildings_factor = MNT_agr_build_speed
 	industrial_capacity_factory = MNT_agr_bad_factories
-	consumer_goods_factor = MNT_agr_good_factor
-	supply_consumption_factor = MNT_agr_army_eats
+	consumer_goods_factor = -0.05
 }
+
+MNT_too_many_ppl = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_prc_low_popular_support3
+	stability_factor = MNT_overcrowd_stab
+	war_support_factor = MNT_overcrowd_ws
+	political_power_gain = MNT_overcrowding_pp_gain
+	monthly_population = MNT_overcrowding_monthpop
+}
+MNT_debt_lol = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_none
+	consumer_goods_factor = MNT_debt_consumer_goods
+	stability_factor = -0.025
+}
+MNT_dm_army = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_none
+	army_attack_factor = MNT_army_attack
+	army_defence_factor = MNT_army_defence
+	army_speed_factor = MNT_army_speed
+	army_org_factor = MNT_army_org
+}
+
 ALB_greek_minority = {
     enable = {
 		is_core_of = controller
