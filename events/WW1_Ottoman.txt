@@ -7995,6 +7995,14 @@ country_event = { #Berlin-Baghdad railway
 	option = {
 		name = ottoman.64.a
 		event_option_tooltip = ottoman.65.a
+		set_global_flag = TUR_berlin_baghdad_railway_mission
+		if = {
+			limit = { has_completed_focus = TUR_intensify_railway_construction }
+			unlock_decision_tooltip = TUR_extend_the_bagdad_railway
+			unlock_decision_tooltip = TUR_construct_nusaybin_ergani_line
+			unlock_decision_tooltip = TUR_construct_musul_suleymaniye_line
+			unlock_decision_tooltip = TUR_construct_tikrit_hanekin_line
+		}
 		add_power_balance_value = {
 			id = TUR_foreign_alignment
 			value = -0.15
