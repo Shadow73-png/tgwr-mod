@@ -2796,8 +2796,8 @@ focus_tree = {
 		ai_will_do = { base = 30 }
 	}
 	focus = {
-		id = TUR_yesilkoy_airbase
-		icon = GFX_focus_generic_air_bases
+		id = TUR_tayyare_mektebi
+		icon = GFX_focus_SOV_flying_clubs
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -2806,9 +2806,39 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = TUR_found_the_aircraft_committee
+		available = { has_air_experience > 15 }
+		continue_if_invalid = yes
+		completion_reward = {
+			air_experience = -15
+			custom_effect_tooltip = TUR_tayyare_mektebi_tt
+			set_variable = { TUR_hk_air_ace_generation_chance_factor = 0.2 }
+			custom_effect_tooltip = available_chief_of_airforce
+			show_ideas_tooltip = TUR_cemil_ucman
+			custom_effect_tooltip = available_chief_of_airforce
+			show_ideas_tooltip = TUR_sureyya_ilmen
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				custom_effect_tooltip = ETH_unlock_spirit_airforce_tt
+			}
+		}
+		ai_will_do = {
+			base = 45
+		}
+	}
+	focus = {
+		id = TUR_yesilkoy_airbase
+		icon = GFX_focus_generic_air_bases
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+		prerequisite = { focus = TUR_tayyare_mektebi }
+		x = 0
+		y = 2
+		relative_position_id = TUR_tayyare_mektebi
 		available = {
 			controls_state = 347
-			has_air_experience > 15
+			has_air_experience > 30
 		}
 		bypass = {
 			347 = {
@@ -2820,7 +2850,7 @@ focus_tree = {
 		}
 		continue_if_invalid = yes
 		completion_reward = {
-			air_experience = -15
+			air_experience = -30
 			custom_effect_tooltip = TUR_yesilkoy_airbase_tt
 			set_variable = { TUR_hk_air_accidents_factor = -0.1 }
 			add_equipment_to_stockpile = {
@@ -2841,48 +2871,16 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = TUR_tayyare_mektebi
-		icon = GFX_focus_SOV_flying_clubs
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-		}
-		prerequisite = {
-			focus = TUR_yesilkoy_airbase
-		}
-		x = 0
-		y = 2
-		relative_position_id = TUR_yesilkoy_airbase
-		available = { has_air_experience > 30 }
-		continue_if_invalid = yes
-		completion_reward = {
-			air_experience = -30
-			custom_effect_tooltip = TUR_tayyare_mektebi_tt
-			set_variable = { TUR_hk_air_ace_generation_chance_factor = 0.2 }
-			custom_effect_tooltip = available_chief_of_airforce
-			show_ideas_tooltip = TUR_cemil_ucman
-			custom_effect_tooltip = available_chief_of_airforce
-			show_ideas_tooltip = TUR_sureyya_ilmen
-			if = {
-				limit = { has_dlc = "No Step Back" }
-				custom_effect_tooltip = ETH_unlock_spirit_airforce_tt
-			}
-		}
-		ai_will_do = {
-			base = 45
-		}
-	}
-	focus = {
 		id = TUR_general_inspectorate_of_air_forces
 		icon = GFX_focus_usa_escort_fighters
 		cost = 10
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 		}
-		prerequisite = { focus = TUR_tayyare_mektebi }
+		prerequisite = { focus = TUR_yesilkoy_airbase }
 		x = 0
 		y = 1
-		relative_position_id = TUR_tayyare_mektebi
+		relative_position_id = TUR_yesilkoy_airbase
 		available = { has_air_experience > 100 }
 		continue_if_invalid = yes
 		completion_reward = {
@@ -13301,37 +13299,6 @@ focus_tree = {
 		}
 	}
 	###OPDA###
-	focus = {
-		id = TUR_debt_responsibility
-		icon = GFX_focus_generic_banking
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_OTTOMAN_DEBT
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_STABILITY
-		}
-		prerequisite = { focus = TUR_economic_liberalism focus = TUR_listian_protectionism }
-		x = 4
-		y = 1
-		relative_position_id = TUR_economic_liberalism
-		completion_reward = {
-			custom_effect_tooltip = TUR_debt_responsibility_tt
-			hidden_effect = {
-				remove_ideas = TUR_OPDA_idea
-				add_ideas = TUR_OPDA_idea_2
-			}
-			add_to_variable = { opda_political_power_cost = -0.05 }
-			add_stability = 0.05
-		}
-		ai_will_do = {
-			base = 30
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
-	}
 #	focus = {
 #		id = TUR_sale_of_israel
 #		icon = GFX_focus_jewish_money
@@ -13699,10 +13666,10 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_OTTOMAN_DEBT
 		}
-		prerequisite = { focus = TUR_debt_responsibility }
-		x = 0
-		y = 2
-		relative_position_id = TUR_debt_responsibility
+		prerequisite = { focus = TUR_economic_liberalism focus = TUR_listian_protectionism }
+		x = 4
+		y = 1
+		relative_position_id = TUR_economic_liberalism
 		available = {
 			OR = {
 				threat > 0.25
@@ -13740,10 +13707,9 @@ focus_tree = {
 			FOCUS_FILTER_OTTOMAN_DEBT
 		}
 		prerequisite = { focus = TUR_economic_liberalism }
-		prerequisite = { focus = TUR_debt_responsibility }
-		x = -1
-		y = 1
-		relative_position_id = TUR_debt_responsibility
+		x = 2
+		y = 3
+		relative_position_id = TUR_economic_liberalism
 		complete_tooltip = {
 			add_ideas = TUR_imperial_ottoman_bank
 			custom_effect_tooltip = TUR_imperial_ottoman_bank_instant_desc
@@ -13816,10 +13782,9 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		prerequisite = { focus = TUR_listian_protectionism }
-		prerequisite = { focus = TUR_debt_responsibility }
-		x = 1
-		y = 1
-		relative_position_id = TUR_debt_responsibility
+		x = -2
+		y = 3
+		relative_position_id = TUR_listian_protectionism
 		available = {
 			OR = {
 				NOT = {

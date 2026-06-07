@@ -137,6 +137,25 @@ ALB_post_independence_cosmetic_effect = {
 	mark_focus_tree_layout_dirty = yes
 }
 
+ALB_post_independence_country_effect = {
+	if = {
+		limit = { has_cosmetic_tag = ALB_boletini_flag }
+		set_country_flag = ALB_boletini_independence
+	}
+	else_if = {
+		limit = { has_cosmetic_tag = ALB_kimza_flag }
+		set_country_flag = ALB_kimza_independence
+	}
+	else_if = {
+		limit = { has_cosmetic_tag = ALB_toptani_flag }
+		set_country_flag = ALB_toptani_independence
+	}
+	else = {
+		set_country_flag = ALB_vlora_independence
+	}
+	mark_focus_tree_layout_dirty = yes
+}
+
 ALB_congress_of_trieste_effect = {
 	if = {
 		limit = {

@@ -4632,6 +4632,7 @@ focus_tree = {
 			}
 		}
 		complete_tooltip = {
+			ALB_post_independence_country_effect = yes
 			add_stability = 0.1
 			ALB = {
 				set_cosmetic_tag = ALB_vilayet
@@ -5691,6 +5692,7 @@ focus_tree = {
 			mark_focus_tree_layout_dirty = yes
 		}
 		completion_reward = {
+			ALB_post_independence_country_effect = yes
 			every_character = {
 				limit = { is_country_leader = yes }
 				set_nationality = ITA
@@ -5868,6 +5870,7 @@ focus_tree = {
 		relative_position_id = ALB_ideals_of_romantic_independence
 		completion_reward = {
 			set_cosmetic_tag = ALB_republic
+			add_country_leader_trait = ALB_prime_minister
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5949,7 +5952,8 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_republican_ideals
 		completion_reward = {
-			
+			remove_country_leader_trait = ALB_prime_minister
+			add_country_leader_trait = ALB_president
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6080,7 +6084,7 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
-		id = ALB_welcome_back_the_romanian_diaspora
+		id = ALB_strenghten_ties_with_romania
 		icon = GFX_focus_PER_islamic_solidarity
 		cost = 5
 		search_filters = {
@@ -6148,7 +6152,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_welcome_back_the_romanian_diaspora }
+		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
 		mutually_exclusive = { focus = ALB_playing_both_sides focus = ALB_entente_allignment }
 		x = 3
 		y = 1
@@ -6164,7 +6168,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_welcome_back_the_romanian_diaspora }
+		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
 		mutually_exclusive = { focus = ALB_central_powers_allignment focus = ALB_entente_allignment }
 		x = 5
 		y = 1
@@ -6180,7 +6184,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_welcome_back_the_romanian_diaspora }
+		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
 		mutually_exclusive = { focus = ALB_central_powers_allignment focus = ALB_playing_both_sides }
 		x = 7
 		y = 1
@@ -6197,7 +6201,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_welcome_back_the_romanian_diaspora }
+		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
 		x = 1
 		y = 1
 		relative_position_id = ALB_paternal_republic
@@ -6243,7 +6247,7 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_welcome_back_the_romanian_diaspora }
+		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
 		x = 9
 		y = 1
 		relative_position_id = ALB_paternal_republic
@@ -11273,8 +11277,14 @@ joint_focus = {
 				}
 			}
 			OR = {
-				original_tag = ALB
-				has_global_flag = ALB_treaty_of_nis
+				AND = {
+					original_tag = ALB
+					has_country_flag = muslim_albania_focus
+				}
+				AND = {
+					original_tag = SER
+					has_global_flag = ALB_treaty_of_nis
+				}
 			}
 		}
 	}
@@ -11948,6 +11958,30 @@ joint_focus = {
 }
 
 joint_focus = {
+	id = ALB_utilize_turkish_inteligence
+	icon = GFX_focus_generic_industrialists
+	text_icon = joint_ALB_TUR_focus_style
+	cost = 5
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = ALB_albanian_turkish_cultural_programs }
+	x = 1
+	y = 1
+	relative_position_id = ALB_albanian_turkish_cultural_programs
+	completion_reward_joint_originator = {
+	}
+	completion_reward_joint_member = {
+	}
+	ai_will_do = {
+		modifier = {
+			factor = 30
+			original_tag = ALB
+		}
+	}
+}
+
+joint_focus = {
 	id = ALB_religious_legitimacy
 	icon = GFX_focus_generic_industrialists
 	text_icon = joint_ALB_TUR_focus_style
@@ -11984,7 +12018,8 @@ joint_focus = {
 		FOCUS_FILTER_POLITICAL
 	}
 	prerequisite = { focus = ALB_religious_legitimacy }
-	x = 0
+	mutually_exclusive = { focus = ALB_assume_direct_control }
+	x = -1
 	y = 1
 	relative_position_id = ALB_religious_legitimacy
 	completion_reward_joint_originator = {
@@ -12000,15 +12035,16 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = ALB_utilize_turkish_inteligence
+	id = ALB_assume_direct_control
 	icon = GFX_focus_generic_industrialists
-	text_icon = joint_ALB_TUR_focus_style
+	text_icon = joint_ALB_focus_style
 	cost = 5
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
 	prerequisite = { focus = ALB_religious_legitimacy }
-	x = 2
+	mutually_exclusive = { focus = ALB_privilaged_partnership }
+	x = 1
 	y = 1
 	relative_position_id = ALB_religious_legitimacy
 	completion_reward_joint_originator = {
