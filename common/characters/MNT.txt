@@ -11,18 +11,17 @@ characters = {
 			traits = {
 				headstrong
 			}
-			desc = "MNT_nikola_desc"
+			desc = "MNT_nikola_i_desc"
 		}
 		field_marshal = {
 			skill = 2
-			attack_skill = 2
-			defense_skill = 1
-			planning_skill = 2
-			logistics_skill = 1
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
 			traits = {
 				trait_royal
 				politically_connected
-				old_guard
 			}
 		}
 	}
@@ -33,23 +32,23 @@ characters = {
 				large = "gfx/leaders/MNT/MNT_Danilo_Petrovic_Njegos.png"
 			}
 		}
-#		corps_commander = {
-#			traits = {
-#				trait_royal
-#				politically_connected
-#			}
-#			skill = 2
-#			attack_skill = 2
-#			defense_skill = 1
-#			planning_skill = 2
-#			logistics_skill = 1
-#			#legacy_id = 22560
-#			visible = {
-#				NOT = {
-#					has_government = communism
-#				}
-#			}
-#		}
+		corps_commander = {
+			traits = {
+				trait_royal
+				politically_connected
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+			#legacy_id = 22560
+			visible = {
+				NOT = {
+					has_government = communism
+				}
+			}
+		}
 		country_leader = {
 			ideology = semi_constitutional_monarchy
 		}
@@ -115,7 +114,7 @@ characters = {
 			}
 		}
 		corps_commander = {
-			traits = {  }
+			traits = { artillery_officer }
 			skill = 3
 			attack_skill = 2
 			defense_skill = 3
@@ -123,7 +122,7 @@ characters = {
 			logistics_skill = 3
 		}
 		country_leader = {
-			ideology = stratocracy	#what?
+			ideology = stratocracy
 		}
 	}
 	MNT_janko_vukotic = {
@@ -164,13 +163,13 @@ characters = {
 				factor = 1
 			}
 		}
-		corps_commander = {
+		field_marshal = {
 			traits = { politically_connected trait_royal }
 			skill = 3
 			attack_skill = 3
-			defense_skill = 3
-			planning_skill = 2
-			logistics_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
 			#legacy_id = 22561
 		}
 		country_leader = {
@@ -185,27 +184,26 @@ characters = {
 				small = "gfx/interface/ideas/MNT/idea_MNT_Vukasin_Markovic.png"
 			}
 		}
-#		advisor = {
-#			slot = political_advisor
-#			idea_token = MNT_vukasin_markovic
-#			allowed = {
-#				original_tag = MNT
-#			}
-#			traits = {
-#				communist_revolutionary
-#			}
-#			available = {
-#				OR = {
-#					date > 1917.1.1
-#					has_country_flag = great_war_loser
-#					has_completed_focus = socialist_reforms
-#				}
-#			}
-#			ai_will_do = {
-#				factor = 0
-#			}
-#		}
-#socialist uprising is unlikely but he could be a pol advisor in federative yugoslavia maybe
+		advisor = {
+			slot = political_advisor
+			idea_token = MNT_vukasin_markovic
+			allowed = {
+				original_tag = MNT
+			}
+			traits = {
+				communist_revolutionary
+			}
+			available = {
+				OR = {
+					date > 1917.1.1
+					has_country_flag = great_war_loser
+					has_completed_focus = socialist_reforms
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
 		country_leader = {
 			ideology = vanguardism
 		}
@@ -247,7 +245,7 @@ characters = {
 			planning_skill = 1
 			logistics_skill = 1
 			visible = {
-#				has_global_flag = great_war_ends
+				has_global_flag = great_war_ends
 			}
 		}
 		country_leader = {
@@ -329,27 +327,27 @@ characters = {
 			ideology = revolutionary_nationalism
 		}
 	}
-#	MNT_lakic_vojvodic = {
-#		name = "MNT_lakic_vojvodic"
-#		portraits = {
-#			army = {
-#				large = "gfx/leaders/MNT/MNT_Lakic_Vojvodic.png"
-#			}
-#		}
-#		corps_commander = {
-#			traits = {
-#				old_guard politically_connected
-#			}
-#			skill = 1
-#			attack_skill = 1
-#			defense_skill = 1
-#			planning_skill = 1
-#			logistics_skill = 1
-#			visible = {
-#				date < 1924.4.12
-#			}
-#		}
-#	}
+	MNT_lakic_vojvodic = {
+		name = "MNT_lakic_vojvodic"
+		portraits = {
+			army = {
+				large = "gfx/leaders/MNT/MNT_Lakic_Vojvodic.png"
+			}
+		}
+		corps_commander = {
+			traits = {
+				old_guard politically_connected
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			visible = {
+				date < 1924.4.12
+			}
+		}
+	}
 	MNT_radomir_vesovic = {
 		advisor = {
 			slot = theorist
@@ -370,44 +368,6 @@ characters = {
 		portraits = {
 			army = {
 				small = "GFX_idea_generic_army_europe_1"
-			}
-		}
-		corps_commander = {
-			traits = { 
-				politically_connected 
-				trait_royal 
-				trait_reckless 
-			}
-			skill = 1
-			attack_skill = 3
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 2
-			visible = {
-				has_global_flag = balkan_league_fail
-				has_global_flag = balkan_league_success
-			}
-		}
-	}
-	MNT_luka_gojnic = {
-		name = "MNT_luka_gojnic"
-		portraits = {
-			army = {
-				small = "GFX_idea_generic_army_europe_1"
-			}
-		}
-		corps_commander = {
-			traits = { 
-			}
-			skill = 1
-			attack_skill = 2
-			defense_skill = 2
-			planning_skill = 2
-			logistics_skill = 2
-			visible = {
-				has_global_flag = balkan_league_fail
-				has_global_flag = balkan_league_success
-				#sidz re edit this 
 			}
 		}
 	}
