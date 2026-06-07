@@ -1,4 +1,4 @@
-TGWR_great_power_politics = {
+GER_great_war = {
 	MNT_nikola_i_absolute_monarch = {
 		priority = 10
 
@@ -7,7 +7,6 @@ TGWR_great_power_politics = {
 			original_tag = MNT
 		}
 		visible = {
-			great_power_politics_great_war_visible = yes
 			has_country_leader = {
 				character = MNT_nikola_i
 			}
@@ -39,67 +38,3 @@ TGWR_great_power_politics = {
 		}
 	}
 }
-
-MNT_king_shenanigans = {
-	MNT_become_king = {
-		allowed = {
-			original_tag = MNT
-		}
-		activation = {
-			has_start_date > 1910.1.1
-			NOT = {
-				has_country_flag = MNT_king_proclaimed
-			}
-		}
-		available = {
-			has_completed_focus = MNT_kingdom_proclamation
-		}
-		days_mission_timeout = 149
-		is_good = yes
-		complete_effect = {
-			add_political_power = 10
-			add_war_support = 0.02
-			set_country_flag = MNT_king_proclaimed
-		}
-		timeout_effect = {
-			add_stability = -0.05
-			add_political_power = -40
-		}
-	}
-	#smth with reservists missing report 
-}
-
-MNT_loansharking = {
-	MNT_secure_enough_money = {
-		allowed = {
-			original_tag = MNT
-		}
-		activation = {
-			has_completed_focus = MNT_begmaxxing
-		}
-		available = {
-			has_completed_focus = MNT_begmaxxing
-		}
-		timeout_effect = {
-			add_stability = -0.05
-			add_political_power = -40
-			add_to_variable = {
-				MNT_agr_good_factor = 0.04
-			}
-		}
-		is_good = yes
-		complete_effect = {
-			add_political_power = 10
-			add_war_support = 0.02
-		}
-	}
-}
-
-#code this sector when albania update releases
-#MNT_albanian_category = {
-#	MNT_alb_1910 = {
-#		allowed = {
-#			original_tag = MNT
-#		}
-#	}
-#}
