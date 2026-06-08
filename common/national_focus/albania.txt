@@ -19,7 +19,7 @@ focus_tree = {
 	initial_show_position = { focus = ALB_rilindja_kombetare }
 	shared_focus = ALB_form_the_albanian_serbian_commission
 	shared_focus = ALB_form_the_albanian_serbian_commission2
-	shared_focus = ALB_first_tirana_treaty
+	shared_focus = ALB_pact_of_friendship_and_security
 	shared_focus = ALB_ottoman_material_support
 
 	###PUPPET###
@@ -11108,14 +11108,29 @@ joint_focus = {
 		ALB = { has_country_leader = { character = ALB_esad_toptani } }
 	}
 	completion_reward_joint_originator = {
-		set_politics = {
-			ruling_party = neutrality
-			elections_allowed = no
-			name = ALB_house_of_toptani_party
-			long_name = ALB_house_of_toptani_party
+		if = {
+			limit = { has_country_leader = { character = ALB_esad_toptani } }
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+				name = ALB_house_of_toptani_party
+				long_name = ALB_house_of_toptani_party
+			}
+			effect_tooltip = { ALB_esad_toptani = { custom_effect_tooltip = ALB_albanian_serbian_union_tt } }
+			hidden_effect = {
+				ALB_esad_toptani = {
+					set_character_name = ALB_esad_toptani_prince
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							ideology = absolute_monarchy
+							traits = { ALB_fulfilled_ambitions }
+						}
+					}
+				}
+			}
 		}
 		effect_tooltip = {
-			ALB_esad_toptani = { custom_effect_tooltip = ALB_albanian_serbian_union_tt }
 			SER = {
 				set_autonomy = {
 					target = ALB
@@ -11126,16 +11141,6 @@ joint_focus = {
 			}
 		}
 		hidden_effect = {
-			ALB_esad_toptani = {
-				set_character_name = ALB_esad_toptani_prince
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						ideology = absolute_monarchy
-						traits = { ALB_fulfilled_ambitions }
-					}
-				}
-			}
 			set_country_flag = monarchist_puppet
 			SER = { country_event = { id = albania.79 hours = 8 } }
 		}
@@ -11602,7 +11607,7 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = ALB_first_tirana_treaty
+	id = ALB_pact_of_friendship_and_security
 	icon = GFX_focus_generic_industrialists
 	text_icon = joint_ALB_ITA_focus_style
 	cost = 5
@@ -11639,17 +11644,17 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = ALB_second_tirana_treaty
+	id = ALB_treaty_of_defensive_alliance
 	icon = GFX_focus_generic_industrialists
 	text_icon = joint_ALB_ITA_focus_style
 	cost = 5
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
-	prerequisite = { focus = ALB_first_tirana_treaty }
+	prerequisite = { focus = ALB_pact_of_friendship_and_security }
 	x = 0
 	y = 1
-	relative_position_id = ALB_first_tirana_treaty
+	relative_position_id = ALB_pact_of_friendship_and_security
 	completion_reward_joint_originator = {
 	}
 	completion_reward_joint_member = {
@@ -11674,10 +11679,10 @@ joint_focus = {
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
-	prerequisite = { focus = ALB_second_tirana_treaty }
+	prerequisite = { focus = ALB_treaty_of_defensive_alliance }
 	x = -2
 	y = 1
-	relative_position_id = ALB_second_tirana_treaty
+	relative_position_id = ALB_treaty_of_defensive_alliance
 	completion_reward_joint_originator = {
 	}
 	completion_reward_joint_member = {
@@ -11702,10 +11707,10 @@ joint_focus = {
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
-	prerequisite = { focus = ALB_second_tirana_treaty }
+	prerequisite = { focus = ALB_treaty_of_defensive_alliance }
 	x = 0
 	y = 1
-	relative_position_id = ALB_second_tirana_treaty
+	relative_position_id = ALB_treaty_of_defensive_alliance
 	completion_reward_joint_originator = {
 	}
 	completion_reward_joint_member = {
@@ -11730,10 +11735,10 @@ joint_focus = {
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
 	}
-	prerequisite = { focus = ALB_second_tirana_treaty }
+	prerequisite = { focus = ALB_treaty_of_defensive_alliance }
 	x = 2
 	y = 1
-	relative_position_id = ALB_second_tirana_treaty
+	relative_position_id = ALB_treaty_of_defensive_alliance
 	completion_reward_joint_originator = {
 	}
 	completion_reward_joint_member = {
@@ -11759,11 +11764,11 @@ joint_focus = {
 		FOCUS_FILTER_POLITICAL_CHARACTER
 		FOCUS_FILTER_INTERNAL_AFFAIRS
 	}
-	prerequisite = { focus = ALB_second_tirana_treaty }
+	prerequisite = { focus = ALB_treaty_of_defensive_alliance }
 	mutually_exclusive = { focus = ALB_personal_union_with_italy }
 	x = -1
 	y = 2
-	relative_position_id = ALB_second_tirana_treaty
+	relative_position_id = ALB_treaty_of_defensive_alliance
 	available = {
 		original_tag = ALB
 	}
@@ -11786,11 +11791,11 @@ joint_focus = {
 		FOCUS_FILTER_POLITICAL_CHARACTER
 		FOCUS_FILTER_INTERNAL_AFFAIRS
 	}
-	prerequisite = { focus = ALB_second_tirana_treaty }
+	prerequisite = { focus = ALB_treaty_of_defensive_alliance }
 	mutually_exclusive = { focus = ALB_italy_of_the_balkans }
 	x = 1
 	y = 2
-	relative_position_id = ALB_second_tirana_treaty
+	relative_position_id = ALB_treaty_of_defensive_alliance
 	available = {
 		original_tag = ALB
 	}
@@ -11973,7 +11978,7 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = ALB_utilize_turkish_inteligence
+	id = ALB_utilize_turkish_intelligence
 	icon = GFX_focus_generic_industrialists
 	text_icon = joint_ALB_TUR_focus_style
 	cost = 5
