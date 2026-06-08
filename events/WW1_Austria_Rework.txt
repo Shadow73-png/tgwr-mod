@@ -8276,11 +8276,9 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		is_great_war_ongoing = yes
-		has_war_with_major = yes
-		has_country_leader = {
-			character = AUH_karl_i
-			ruling_only = yes
+		has_global_flag = great_war
+		NOT = {
+			has_global_flag = great_war_ends
 		}
 	}
 	is_triggered_only = yes
@@ -8456,6 +8454,7 @@ country_event = {
 			has_global_flag = great_war_ends
 		}
 	}
+	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.69.a
@@ -8535,6 +8534,7 @@ country_event = {
 		add_war_support = -0.05
 	}
 }
+
 #war time search end
 #collapse events
 country_event = {
