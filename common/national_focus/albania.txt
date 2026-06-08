@@ -6368,65 +6368,6 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 100 }
 	}
-	
-
-#	focus = {
-#		id = ALB_bekir_fikris_landing
-#		icon = GFX_focus_generic_naval_invasion
-#		cost = 5
-#		search_filters = {
-#			FOCUS_FILTER_INTERNAL_AFFAIRS
-#		}
-#		prerequisite = { focus = ALB_secure_the_vlora_triangle }
-#		prerequisite = { focus = ALB_albanian_independence }
-#		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_ideals_of_romantic_independence focus = ALB_foreign_policy_priority }
-#		x = 0
-#		y = 2
-#		relative_position_id = ALB_secure_the_vlora_triangle
-#		available = {
-#			custom_trigger_tooltip = {
-#				tooltip = ALB_has_vlora_government
-#				has_country_flag = ALB_vlora_government
-#			}
-#		}
-#		completion_reward = {
-#			add_manpower = 350
-#			TUR = {
-#				send_equipment = {
-#					equipment = infantry_equipment
-#					amount = 400
-#					target = ROOT
-#				}
-#				send_equipment = {
-#					equipment = field_gun_equipment
-#					amount = 4
-#					target = ROOT
-#				}
-#				send_equipment = {
-#					equipment = howitzer_equipment
-#					amount = 4
-#					target = ROOT
-#				}
-#			}
-#			custom_effect_tooltip = available_high_command
-#			show_ideas_tooltip = ALB_bekir_fikri
-#			effect_tooltip = {
-#				ALB_bekir_fikri = {
-#					add_corps_commander_role = {
-#						traits = { commando irregulars_officer guerilla_fighter defend }
-#						skill = 2
-#						attack_skill = 1
-#						defense_skill = 2
-#						planning_skill = 3
-#						logistics_skill = 1
-#					}
-#				}
-#			}
-#			give_military_access = TUR
-#			mark_focus_tree_layout_dirty = yes
-#		}
-#		ai_will_do = { factor = 100 }
-#	}
 
 	focus = {
 		id = ALB_congress_of_trieste
@@ -11886,8 +11827,82 @@ joint_focus = {
 		trigger = { original_tag = TUR }
 	}
 	completion_reward_joint_originator = {
+		if = {
+			limit = { tag = TUR }
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 400
+				target = ROOT
+			}
+			send_equipment = {
+				equipment = field_gun_equipment
+				amount = 4
+				target = ROOT
+			}
+			send_equipment = {
+				equipment = howitzer_equipment
+				amount = 4
+				target = ROOT
+			}
+		}
+		if = {
+			limit = { tag = ALB }
+			add_manpower = 350
+			custom_effect_tooltip = available_high_command
+			show_ideas_tooltip = ALB_bekir_fikri
+			effect_tooltip = {
+				ALB_bekir_fikri = {
+					add_corps_commander_role = {
+						traits = { commando irregulars_officer guerilla_fighter defend }
+						skill = 2
+						attack_skill = 1
+						defense_skill = 2
+						planning_skill = 3
+						logistics_skill = 1
+					}
+				}
+			}
+			give_military_access = TUR
+		}
 	}
 	completion_reward_joint_member = {
+		if = {
+			limit = { tag = TUR }
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 400
+				target = ROOT
+			}
+			send_equipment = {
+				equipment = field_gun_equipment
+				amount = 4
+				target = ROOT
+			}
+			send_equipment = {
+				equipment = howitzer_equipment
+				amount = 4
+				target = ROOT
+			}
+		}
+		if = {
+			limit = { tag = ALB }
+			add_manpower = 350
+			custom_effect_tooltip = available_high_command
+			show_ideas_tooltip = ALB_bekir_fikri
+			effect_tooltip = {
+				ALB_bekir_fikri = {
+					add_corps_commander_role = {
+						traits = { commando irregulars_officer guerilla_fighter defend }
+						skill = 2
+						attack_skill = 1
+						defense_skill = 2
+						planning_skill = 3
+						logistics_skill = 1
+					}
+				}
+			}
+			give_military_access = TUR
+		}
 	}
 	ai_will_do = {
 		modifier = {
