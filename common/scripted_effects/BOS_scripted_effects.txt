@@ -128,12 +128,15 @@ BOS_1913_partial_election = {
 }
 BOS_parliament_update = {
 	BOS_clamp_opinion_vars = yes
+
+	#accumulative variables
 	set_variable = {
 		BOS_diet_war_support = 0
 	}
 	set_variable = {
 		BOS_diet_pp_gain = 0
 	}
+	#serbs
 	if = {
 		limit = {
 			check_variable = {
@@ -245,11 +248,9 @@ BOS_parliament_update = {
 		set_variable = {
 			BOS_diet_stability = 0.05
 		}
-		#add_to_variable = {
-		#	BOS_diet_war_support = 0
-		#}
 	}
 	#########
+	#CROATS (unfortunately in bosnia)
 	if = {
 		limit = {
 			check_variable = {
