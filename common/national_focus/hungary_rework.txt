@@ -2652,6 +2652,38 @@ focus_tree = {
 		}
 		completion_reward = { }
 	}
+	#A Deal with Károlyi
+	focus = {
+		id = HUN_broker_a_deal_w_karolyi_oa
+		icon = GFX_goal_unkown
+		cost = 3
+		relative_position_id = HUN_attempt_to_bridge_the_gap
+		x = -3
+		y = 1
+		offset = {
+			x = 1
+			trigger = {
+				has_completed_focus = HUN_broker_a_deal_w_karolyi_oa
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			has_character = HUN_mihaly_karolyi
+			has_global_flag = HUN_compromise_gov_in_charge
+		}
+		prerequisite = {
+			focus = HUN_rejuvinate_the_post_saving_bank
+		}
+		mutually_exclusive = {
+			focus = HUN_continue_the_daranyi_experiment
+		}
+		completion_reward = { 
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
 	#Continue the Darányi Experiment
 	focus = {
 		id = HUN_continue_the_daranyi_experiment
@@ -2684,38 +2716,6 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = HUN_broker_a_deal_w_karolyi_oa
-		}
-		completion_reward = { 
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	#A Deal with Károlyi
-	focus = {
-		id = HUN_broker_a_deal_w_karolyi_oa
-		icon = GFX_goal_unkown
-		cost = 3
-		relative_position_id = HUN_attempt_to_bridge_the_gap
-		x = -3
-		y = 1
-		offset = {
-			x = 1
-			trigger = {
-				has_completed_focus = HUN_broker_a_deal_w_karolyi_oa
-			}
-		}
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_POLITICAL
-		}
-		available = {
-			has_character = HUN_mihaly_karolyi
-			has_global_flag = HUN_compromise_gov_in_charge
-		}
-		prerequisite = {
-			focus = HUN_rejuvinate_the_post_saving_bank
-		}
-		mutually_exclusive = {
-			focus = HUN_continue_the_daranyi_experiment
 		}
 		completion_reward = { 
 			mark_focus_tree_layout_dirty = yes
@@ -3086,6 +3086,9 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		mutually_exclusive = {
+			focus = HUN_introduce_secret_ballots_to_budapest
 		}
 		available = {
 			has_war = no
@@ -7061,7 +7064,7 @@ focus_tree = {
 			NOT = {
 				has_completed_focus = HUN_secure_party_loyalty
 			}
-			democratic > 0.
+			democratic > 0.05 #shadow what is this exactly
 			surrender_progress < 0.05
 		}
 		prerequisite = {
