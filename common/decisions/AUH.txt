@@ -1481,7 +1481,7 @@ AUS_minorities_mechanic = {
 		days_mission_timeout = AUS_admin_struggle_slav_var
 		available = {
 			OR = {
-				has_completed_focus = AUS_the_hostile_enemy_of_austria
+				#has_completed_focus = AUS_the_hostile_enemy_of_austria
 				has_completed_focus = AUS_suppress_the_terrorists
 				AND = {
 					AUS_has_SER_state = no
@@ -1495,7 +1495,7 @@ AUS_minorities_mechanic = {
 		activation = {
 			original_tag = AUS
 			NOT = {
-				has_completed_focus = AUS_the_hostile_enemy_of_austria
+				#has_completed_focus = AUS_the_hostile_enemy_of_austria
 				has_completed_focus = AUS_suppress_the_terrorists
 			}
 			OR = {
@@ -6552,6 +6552,104 @@ AUS_quests = {
 		}
 	}
 }
+
+
+AUS_karl_category = {
+	AUS_karl_reopen_parliament = {
+		icon = generic_construction
+		available = {
+			# has parliament closed flag
+		}
+		days_remove = 20
+		remove_effect = {
+			# set parliament open flag
+		}
+	}
+	AUS_create_the_complaint_commission = {
+		icon = generic_construction
+		available = {
+			#?
+		}
+		days_remove = 20
+		remove_effect = {
+			
+		}
+		complete_effect = {
+			
+		}
+	}
+	AUS_create_ministry_health = {
+		icon = generic_construction
+		available = {
+			#?
+		}
+		days_remove = 15
+		remove_effect = {
+			add_stability = 0.04
+		}
+	}
+	AUS_create_food_security = {
+		icon = generic_construction
+		available = {
+			#?
+		}
+		days_remove = 15
+		remove_effect = {
+			add_war_support = 0.05
+		}
+	}
+	AUS_remove_conrad_from_command = {
+		icon = generic_construction
+		available = {
+			AUH_conrad_von_hotzendorf = {
+				NOT = {
+					has_character_flag = dismissed
+				}
+			}
+		}
+		days_remove = 20
+		remove_effect = {
+			AUH_conrad_von_hotzendorf = {
+				set_character_flag = dismissed
+			}
+		}
+	}
+	AUS_karl_organize_charities = {
+		icon = generic_construction
+		available = {
+			
+		}
+		days_remove = 20
+		remove_effect = {
+			#??
+		}
+	}
+	AUS_karl_amnesties = {
+		icon = generic_construction
+		available = {
+			
+		}
+		days_remove = 20
+		remove_effect = {
+			#??
+		}
+	}
+	AUS_karl_reduce_censorship = {
+		icon = generic_construction
+		available = {
+			
+		}
+		days_remove = 20
+		remove_effect = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_stability = 0.05
+		}
+	}
+}
+
 
 debug_decisions = {
 	AUH_bohemian_crown = {

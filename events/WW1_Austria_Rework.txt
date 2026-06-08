@@ -8276,9 +8276,11 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		has_global_flag = great_war
-		NOT = {
-			has_global_flag = great_war_ends
+		is_great_war_ongoing = yes
+		has_war_with_major = yes
+		has_country_leader = {
+			character = AUH_karl_i
+			ruling_only = yes
 		}
 	}
 	is_triggered_only = yes
