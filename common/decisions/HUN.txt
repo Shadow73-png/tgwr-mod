@@ -750,6 +750,32 @@ TGWR_great_power_politics = {
 			add_political_power = 30
 		}
 	}
+	HUN_digep_factory_mission = {
+		icon = GFX_decision_generic_political_address
+		priority = 99
+		days_mission_timeout = 50
+		is_good = yes
+		fire_only_once = yes
+		activation = {
+			always = no
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		timeout_effect = {
+			43 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+		complete_effect = {
+		}
+	}
 }
 
 political_actions = {

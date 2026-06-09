@@ -4009,3 +4009,31 @@ country_event = {
 		}
 	}
 }
+#Digep Artillery Factory Strikes
+country_event = {
+	id = ww1_hungary.110
+	title = ww1_hungary.110.t
+	desc = ww1_hungary.110.d
+	picture = GFX_report_event_generic_strike
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_hungary.110.a
+		if = {
+			limit = { 
+				has_active_mission = HUN_digep_factory_mission
+			}
+			add_days_mission_timeout = {
+				mission = HUN_digep_factory_mission
+				days = 300
+			}
+		}
+		add_stability = -0.02
+		add_war_support = -0.02
+		custom_effect_tooltip = HUN_modify_eco_tt
+		add_to_variable = {
+			HUN_eco_construction_speed = -0.05
+			tooltip = production_speed_buildings_factor_tt
+		}
+	}
+}

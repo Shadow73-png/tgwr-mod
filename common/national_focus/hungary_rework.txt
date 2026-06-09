@@ -6808,7 +6808,18 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_1917_agricultural_labor_decree
 		}
-		completion_reward = { }
+		completion_reward = {
+			activate_mission = HUN_digep_factory_mission
+			custom_effect_tooltip = HUN_digep_factory_mission.tt
+			hidden_effect = {
+				if = {
+					limit = { 
+						has_stability < 0.75 #historical
+					}
+					country_event = ww1_hungary.110
+				}
+			}
+		 }
 	 }
 	 #Look for a way out
 	 focus = {
@@ -6867,6 +6878,11 @@ focus_tree = {
 	 }
 	 #A Blank page
 	 focus = {
+		allow_branch = {
+			NOT = {
+				has_completed_focus = HUN_look_for_a_way_out
+			}
+		}
 		id = HUN_a_blank_page
 		icon = GFX_goal_generic_neutrality_focus
 		cost = 0
@@ -6903,7 +6919,10 @@ focus_tree = {
 	 #Ally the Abdicated
 	 focus = {
 		allow_branch = {
-			has_completed_focus = HUN_a_blank_page
+			OR = {
+				has_completed_focus = HUN_a_blank_page
+				is_debug = yes
+			}
 		}
 		id = HUN_ally_abdicated
 		icon = GFX_focus_NOR_empower_sivorg
@@ -6936,7 +6955,10 @@ focus_tree = {
 	 #Form a Hybrid Coalition
 	 focus = {
 		allow_branch = {
-			has_completed_focus = HUN_a_blank_page
+			OR = {
+				has_completed_focus = HUN_a_blank_page
+				is_debug = yes
+			}
 		}
 		id = HUN_form_a_hybrid_coalition
 		icon = GFX_focus_NOR_the_stumbling_storting
@@ -6979,7 +7001,7 @@ focus_tree = {
 	 #Transfer Powers of the Transylvanian Resettlement Committee
 	 focus = {
 		id = HUN_transfer_power_of_trc
-		icon = GFX_goal_unkown
+		icon = GFX_focus_GER_romanian_pact
 		cost = 2
 		relative_position_id = HUN_form_a_hybrid_coalition
 		x = 2
@@ -7040,7 +7062,10 @@ focus_tree = {
 	 #Dissolve Parliament
 	 focus = {
 		allow_branch = {
-			has_completed_focus = HUN_a_blank_page
+			OR = {
+				has_completed_focus = HUN_a_blank_page
+				is_debug = yes
+			}
 		}
 		id = HUN_dissolve_parliament
 		icon = GFX_goal_unkown
@@ -7062,7 +7087,7 @@ focus_tree = {
 			NOT = {
 				has_completed_focus = HUN_secure_party_loyalty
 			}
-			democratic > 0.05 #shadow what is this exactly
+			democratic > 0.5
 			surrender_progress < 0.05
 		}
 		prerequisite = {
