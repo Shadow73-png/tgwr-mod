@@ -298,7 +298,15 @@ SER_colonize_claims = {
 		target_root_trigger = { has_completed_focus = SER_colonize_kosovo }
 		cost = 50
 		visible = { FROM = { is_controlled_by = ROOT } }
-		available = { FROM = { compliance > 35 } }
+		available = {
+			FROM = {
+				compliance > 35
+				if = {
+					limit = { state = 847 }
+					NOT = { has_dynamic_modifier = { modifier = ALB_committee_for_the_liberation_of_kosova } }
+				}
+			}
+		}
 		cancel_trigger = { FROM = { NOT = { is_controlled_by = ROOT } } }
 		remove_effect = {
 			add_state_core = FROM

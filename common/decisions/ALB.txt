@@ -3947,3 +3947,62 @@ operations = {
 		ai_will_do = { base = 100 }
 	}
 }
+operations = {
+	ALB_crush_the_kosovo_committee = {
+		icon = GFX_decision_border_war
+		allowed = { always = yes }
+		cancel_trigger = {
+			divisions_in_state = {
+				size < 1
+				state = 847
+			}
+		}
+		custom_cost_text = decision_cost_CP_15
+		custom_cost_trigger = { command_power > 14.9 }
+		highlight_states = { highlight_state_targets = { state = 847 } }
+		visible = {
+			847 = { has_dynamic_modifier = { modifier = ALB_committee_for_the_liberation_of_kosova } }
+            OR = {
+                NOT = {
+                    original_tag = SER
+					controls_state = 847
+                }
+                AND = {
+                    original_tag = SER
+                    has_completed_focus = SER_colonize_kosovo
+					controls_state = 847
+                }
+                AND = {
+                    original_tag = ALB
+                    OR = {
+                        has_completed_focus = ALB_cosy_up_to_the_serbs
+                        AND = {
+                            has_completed_focus = ALB_toptanis_gamble
+                            has_global_flag = ALB_treaty_of_nis
+                        }
+                    }
+                    SER = { controls_state = 847 }
+                }
+            }
+		}
+		available = {
+			divisions_in_state = {
+				size > 0
+				state = 847
+			}
+		}
+		days_remove = 35
+		complete_effect = { hidden_effect = { add_command_power = -15 } }
+		remove_effect = {
+			if = {
+				limit = { 847 = { resistance > 10 } }
+				add_resistance = -10
+			}
+			else = { has_dynamic_modifier = { modifier = ALB_committee_for_the_liberation_of_kosova } }
+			custom_effect_tooltip = ALB_crush_the_kosovo_committee_tt
+		}
+		ai_will_do = {
+			base = 20
+		}
+	}
+}
