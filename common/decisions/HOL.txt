@@ -1732,6 +1732,9 @@ HOL_dc_woe = {
 		fire_only_once = yes
 		visible = {
 			has_completed_focus = HOL_prepare_for_war
+			NOT = {
+				has_war = yes
+			}
 		}
 		complete_effect = {
 			FRA = {
@@ -1759,6 +1762,9 @@ HOL_dc_woe = {
 		fire_only_once = yes
 		visible = {
 			has_completed_focus = HOL_prepare_for_war
+			NOT = {
+				has_war = yes
+			}
 		}
 		complete_effect = {
 			GER = {
@@ -2216,6 +2222,20 @@ HOL_dc_woe = {
 			add_to_variable = {
 				HOL_variable_food = -1
 			}
+			if = {
+				limit = {
+					check_variable = {
+						HOL_variable_food = 0
+					}
+				}
+				add_stability = -0.05
+				add_war_support = -0.05
+				add_political_power = -25
+			}
+			clamp_variable = {
+				var = HOL_variable_food
+				min = 0
+			}
 			hidden_effect = {
 				activate_mission = HOL_supply_lowers
 			}
@@ -2432,6 +2452,12 @@ HOL_dc_ua = {
 			remove_ideas = HOL_labor_action2
 			remove_ideas = HOL_labor_action
 			remove_ideas = HOL_labor_action3
+			set_country_flag = HOL_flag_remove_labor_action
+			custom_effect_tooltip = HOL_modify_social_kwestie_tt
+			add_to_variable = {
+				HOL_variable_lc_socialism_popularity = -0.05
+				tooltip = communism_drift_tt
+			}
 		}
 		cost = 100
 		ai_will_do = {
@@ -2483,6 +2509,12 @@ HOL_dc_ua2 = {
 			remove_ideas = HOL_labor_action2
 			remove_ideas = HOL_labor_action
 			remove_ideas = HOL_labor_action3
+			set_country_flag = HOL_flag_remove_labor_action
+			custom_effect_tooltip = HOL_modify_social_kwestie_tt
+			add_to_variable = {
+				HOL_variable_lc_socialism_popularity = -0.05
+				tooltip = communism_drift_tt
+			}
 		}
 		cost = 50
 		ai_will_do = {

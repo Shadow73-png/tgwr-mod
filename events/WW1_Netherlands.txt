@@ -3361,3 +3361,22 @@ country_event = {
 		clr_country_flag = HOL_flag_sdap_gov
 	}
 }
+#famine
+country_event = {
+	id = ww1_holland.141
+	title = ww1_holland.141.t
+	desc = ww1_holland.141.d
+	fire_only_once = yes
+	trigger = {
+		check_variable = {
+			HOL_variable_food = 0
+		}
+	}
+	option = {
+		name = ww1_holland.141.a
+		add_timed_idea = {
+			idea = HOL_famine
+			days = 360
+		}
+	}
+}

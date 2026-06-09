@@ -349,6 +349,7 @@ ideas = {
 			}
 			cancel = {
 				OR = {
+					has_country_flag = HOL_flag_remove_labor_action
 					communism > 0.15
 					has_completed_focus = HOL_break_capitalist_system
 					has_completed_focus = HOL_adopt_christian_ideals
@@ -391,6 +392,7 @@ ideas = {
 			}
 			cancel = {
 				OR = {
+					has_country_flag = HOL_flag_remove_labor_action
 					communism > 0.3
 					communism < 0.15
 					has_completed_focus = HOL_break_capitalist_system
@@ -434,6 +436,7 @@ ideas = {
 			}
 			cancel = {
 				OR = {
+					has_country_flag = HOL_flag_remove_labor_action
 					communism < 0.3
 					has_completed_focus = HOL_break_capitalist_system
 					has_completed_focus = HOL_adopt_christian_ideals
@@ -869,6 +872,22 @@ ideas = {
 			}
 			modifier = {
 				production_speed_arms_factory_factor = 0.1
+			}
+        }
+		HOL_famine = {
+            picture = ARG_maintain_neutrality
+            removal_cost = -1
+			allowed = { always = no }
+			available = {
+				
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				stability_factor = -0.15
+				consumer_goods_factor = 0.15
+				monthly_population_factor = -0.2
 			}
         }
 	}
