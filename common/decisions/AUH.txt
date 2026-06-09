@@ -149,6 +149,108 @@ AUH_great_war_bullshit = {
 			base = 10
 		}
 	}
+	AUS_involve_military_policing = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = 30
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_hand_in_hand
+		}
+		available = {
+			has_war = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 1
+		}
+		remove_effect = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_to_variable = {
+				AUS_czechoslovak_loyalty = -2
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			add_to_variable = {
+				AUS_croat_loyalty = -2
+				tooltip = AUS_loyalty_croatian_tt
+			}
+			add_to_variable = {
+				AUS_serb_loyalty = -2
+				tooltip = AUS_loyalty_serb_tt
+			}
+			add_to_variable = {
+				AUS_pole_loyalty = -2
+				tooltip = AUS_loyalty_pole_tt
+			}
+			add_to_variable = {
+				AUS_ruthenian_loyalty = -2
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_romanian_loyalty = -2
+				tooltip = AUS_loyalty_romanians_tt
+			}
+		}
+	}
+	AUS_seize_army_equipment = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = 30
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_hand_in_hand
+		}
+		available = {
+			has_war = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 1
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1500
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+			}
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = 100
+			}
+			add_to_variable = {
+				AUS_czechoslovak_loyalty = -5
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			add_to_variable = {
+				AUS_croat_loyalty = -5
+				tooltip = AUS_loyalty_croatian_tt
+			}
+			add_to_variable = {
+				AUS_serb_loyalty = -5
+				tooltip = AUS_loyalty_serb_tt
+			}
+			add_to_variable = {
+				AUS_pole_loyalty = -5
+				tooltip = AUS_loyalty_pole_tt
+			}
+			add_to_variable = {
+				AUS_ruthenian_loyalty = -5
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_romanian_loyalty = -5
+				tooltip = AUS_loyalty_romanians_tt
+			}
+		}
+	}
 	AUS_crackdown_on_bohemian_groups = {
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
@@ -5446,6 +5548,7 @@ AUH_austrian_military = {
 			}
 		}
 	}
+	
 	AUS_put_factory_workers_under_military_control = {
 		icon = GFX_decision_generic_industry
 		cost = 20
