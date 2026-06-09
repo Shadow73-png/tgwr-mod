@@ -715,6 +715,34 @@
 		}
 	}
 	focus = {
+		id = BUL_integrate_macedonian_lands
+		icon = GFX_focus_BUL_promote_bulgarian_nationalism
+		cost = 5
+		prerequisite = {
+			focus = BUL_lone_victor
+			focus = BUL_thieving_allies
+			focus = BUL_our_darkest_hours
+		}
+		available = {
+			any_owned_state = {
+				is_core_of = MAC
+				NOT = { is_core_of = ROOT }
+			}
+		}
+		relative_position_id = BUL_lone_victor
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			unlock_decision_tooltip = BUL_integrate_macedonian_states
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
 		id = BUL_war_with_serbia
 		icon = GFX_focus_attack_serbia
 		cost = 3

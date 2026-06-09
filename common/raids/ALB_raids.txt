@@ -1,0 +1,94 @@
+types = {
+    ALB_combat_kosovar_separatists = {
+        days_to_prepare = 35
+        category = land_infiltration_raids
+        arrow = { type = land }
+        launch_sound = raid_land_launchable_sound
+        target_icon = GFX_other_target_icon
+        ai_will_do = { base = 20 }
+        allowed = { always = yes }
+        visible = {
+            847 = { has_dynamic_modifier = { modifier = ALB_committee_for_the_liberation_of_kosova } }
+            OR = {
+                NOT = {
+                    original_tag = SER
+                    owns_state = 847
+                }
+                AND = {
+                    original_tag = SER
+                    has_completed_focus = SER_colonize_kosovo
+                    owns_state = 847
+                }
+                AND = {
+                    original_tag = ALB
+                    OR = {
+                        has_completed_focus = ALB_cosy_up_to_the_serbs
+                        AND = {
+                            has_completed_focus = ALB_toptanis_gamble
+                            has_global_flag = ALB_treaty_of_nis
+                        }
+                    }
+                    SER = { owns_state = 847 }
+                }
+            }
+        }
+        unit_model = {
+         	entity = infantry_entity
+      	}
+        show_target = {
+            var:target_state = {
+                state = 847 
+            }
+        }
+        target_type = { state = 847 }
+        unit_requirements = {
+ 			battalion_types = {
+ 				infantry = { min = 1 }
+ 			}
+		}
+        unit_requirements = {
+			battalion_types = {
+				militia = { min = 1 }
+			}
+		}
+        unit_requirements = {
+			battalion_types = {
+				irregular_infantry = { min = 1 }
+			}
+		}
+        success_factors = {
+ 			success = {
+ 				base = 1
+            }
+        }
+        launchable = { 847 = { has_dynamic_modifier = { modifier = ALB_committee_for_the_liberation_of_kosova } } }
+        starting_point = {
+		    building_types = { supply_node }
+		    allow_faction_buildings = yes
+		}
+        success_levels = {
+            failure = {
+                actor_effects = {
+                    847 = {
+                        add_compliance = -10
+                        add_resistance = 15
+                    }
+                }
+            }
+            limited_success = {
+                actor_effects = { 847 = { add_resistance = -25 } }
+            }
+            success = {
+                actor_effects = { 847 = { remove_dynamic_modifier = { modifier = ALB_committee_for_the_liberation_of_kosova } } }
+            }
+            critical_success = {
+                actor_effects = {
+                    847 = {
+                        remove_dynamic_modifier = { modifier = ALB_committee_for_the_liberation_of_kosova }
+                        add_resistance = -30
+                    }
+                }
+            }
+        }
+    }
+}

@@ -3862,11 +3862,14 @@ unknown_lands_2 = {
 	local_supply_impact_factor = 0.1
 }
 TUR_organized_local_resistance = {
-	enable = { original_tag = ITA }
+	enable = { always = yes }
 	attacker_modifier = yes
 	remove_trigger = { 
-		ROOT.owner = { 
-			NOT = { has_war_with = ITA  original_tag = ITA }
+		ROOT.owner = {
+			OR = {
+				NOT = { has_war_with = ITA }
+				original_tag = ITA
+			}
 		}
 	}
 	icon = GFX_modifiers_SOV_civilian_labor_in_defense
@@ -4053,7 +4056,7 @@ ALB_committee_for_the_liberation_of_kosova = {
 	attrition_for_controller = 0.3
 	resistance_target = 0.35
 	resistance_damage_to_garrison = 0.25
-	resistance_decay = -0.5
+	compliance_growth = -0.5
 }
 ALB_committee_for_the_liberation_of_kosova_good = {
 	enable = { always = yes }

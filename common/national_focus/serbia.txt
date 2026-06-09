@@ -2170,8 +2170,8 @@ focus_tree = {
 			OR = {
 				TUR = {
 					custom_trigger_tooltip = {
-						tooltip = TUR_has_had_war_with_a_major_tt
-						has_country_flag = TUR_has_had_war_with_a_major
+						tooltip = has_had_war_with_a_major
+						has_country_flag = has_had_war_with_a_major
 					}
 				}
 				TUR = { has_active_mission = TUR_comply_with_the_14_points }
@@ -2191,6 +2191,62 @@ focus_tree = {
 			FOCUS_FILTER_WAR_SUPPORT
 			FOCUS_FILTER_HISTORICAL
 		}
+	}
+	focus = {
+		id = SER_colonize_vardar_macedonia
+		icon = GFX_focus_YUG_dissolve_serbia
+		cost = 5
+		relative_position_id = SER_balkan_strategy
+		prerequisite = {
+			focus = SER_balkan_strategy
+		}
+		available = {
+			any_owned_state = {
+				NOT = { is_core_of = ROOT }
+				is_claimed_by = ROOT
+				is_core_of = MAC
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+			FOCUS_FILTER_HISTORICAL
+		}
+		completion_reward = {
+			unlock_decision_tooltip = SER_colonize_vardar_macedonia_decision
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		x = -3
+		y = 1
+	}
+	focus = {
+		id = SER_colonize_kosovo
+		icon = GFX_SER_colonize_kosovo
+		cost = 5
+		relative_position_id = SER_colonize_vardar_macedonia
+		prerequisite = {
+			focus = SER_colonize_vardar_macedonia
+		}
+		available = {
+			any_owned_state = {
+				NOT = { is_core_of = ROOT }
+				is_claimed_by = ROOT
+				is_core_of = ALB
+			}
+		}
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+			FOCUS_FILTER_HISTORICAL
+		}
+		completion_reward = {
+			unlock_decision_tooltip = SER_colonize_kosovo_decision
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		x = 0
+		y = 1
 	}
 	focus = {
 		id = SER_balkan_alliance
@@ -3997,7 +4053,10 @@ focus_tree = {
 			focus = SER_form_the_general_staff
 		}
 		available = {
-			has_global_flag = kis_firstbalkan_war
+			custom_trigger_tooltip = {
+				tooltip = has_had_war_with_TUR
+				has_country_flag = has_had_war_with_TUR
+			}
 		}
 		completion_reward = {
 			swap_ideas = {
@@ -5399,21 +5458,6 @@ focus_tree = {
 		}
 		bypass_effect = {
 			add_ideas = SER_idea_exodus
-			if = {
-				limit = {
-					has_completed_focus = SER_treaty_with_Albania
-					ALB = {
-						has_war = no
-						is_subject = no
-						has_country_leader = {
-							character = ALB_essad_pasha_toptani
-						}
-					}
-				}
-				country_event = ww1_albania.8
-				custom_effect_tooltip = which_will_give_tt
-				event_option_tooltip = ww1_serbia.8.a
-			}
 			if = {
 				limit = {
 					has_war_together_with = FRA

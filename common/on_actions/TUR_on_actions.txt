@@ -1416,6 +1416,7 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
+					is_subject = yes
 					overlord = { has_idea = TUR_yusuf_akcura_idea }
 					ROOT = {
 						OR = {
@@ -1452,8 +1453,24 @@ on_actions = {
 		}
 		effect = {
 			if = {
-				limit = { TRS = { has_dynamic_modifier = { modifier = TUR_sublime_realm } } }
-				TRS = { TUR_minority_revolt_effect = yes }
+				limit = {
+					original_tag = TUR
+					OR = {
+						has_country_flag = TUR_ottoman_syria
+						has_country_flag = TUR_ottoman_cemal
+					}
+					has_dynamic_modifier = { modifier = TUR_sublime_realm }
+				}
+				random_country = {
+					limit = {
+						original_tag = TUR
+						OR = {
+							has_country_flag = TUR_ottoman_syria
+							has_country_flag = TUR_ottoman_cemal
+						}
+					}
+					TUR_minority_revolt_effect = yes
+				}
 			}
 		}
 	}
@@ -2804,17 +2821,11 @@ on_actions = {
 			if = {
 				limit = {
 					OR = {
-						AND = {
-							FROM = { is_major = yes }
-							ROOT = { original_tag = TUR }
-						}
-						AND = {
-							FROM = { original_tag = TUR }
-							ROOT = { is_major = yes }
-						}
+						FROM = { is_major = yes }
+						ROOT = { is_major = yes }
 					}
 				}
-				TUR = { set_country_flag = TUR_has_had_war_with_a_major }
+				TUR = { set_country_flag = has_had_war_with_a_major }
 			}
 			if = {
 				limit = {

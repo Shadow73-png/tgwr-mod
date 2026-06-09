@@ -11826,6 +11826,11 @@ country_event = { #pashas back from libya
 	desc = ottoman.148.d
 	picture = GFX_report_event_ottoman_pasha_in_libya
 	trigger = {
+		OR = {
+			has_character = TUR_ismail_enver
+			has_character = TUR_mustafa_kemal
+			has_character = TUR_fethi_okyar
+		}
 		has_global_flag = ottoman_pasha_in_libya
 		OR = {
 			NOT = { any_owned_state = { has_state_flag = TUR_trablusgarp } }
@@ -11846,7 +11851,10 @@ country_event = { #pashas back from libya
 		name = ottoman.148.a
 		custom_effect_tooltip = ottoman_pashas_back_from_libya
 		if = {
-			limit = { TUR_ismail_enver = { has_character_flag = TUR_in_libya } }
+			limit = {
+				has_character = TUR_ismail_enver
+				TUR_ismail_enver = { has_character_flag = TUR_in_libya }
+			}
 			TUR_ismail_enver = {
 				custom_effect_tooltip = ottoman_pashas_back_from_libya
 				if = {
@@ -11859,7 +11867,10 @@ country_event = { #pashas back from libya
 			}
 		}
 		if = {
-			limit = { TUR_mustafa_kemal = { has_character_flag = TUR_in_libya } }
+			limit = {
+				has_character = TUR_mustafa_kemal
+				TUR_mustafa_kemal = { has_character_flag = TUR_in_libya }
+			}
 			TUR_mustafa_kemal = {
 				custom_effect_tooltip = ottoman_pashas_back_from_libya
 				if = {
@@ -11872,7 +11883,10 @@ country_event = { #pashas back from libya
 			}
 		}
 		if = {
-			limit = { TUR_fethi_okyar = { has_character_flag = TUR_in_libya } }
+			limit = {
+				has_character = TUR_fethi_okyar
+				TUR_fethi_okyar = { has_character_flag = TUR_in_libya }
+			}
 			TUR_fethi_okyar = {
 				custom_effect_tooltip = ottoman_pashas_back_from_libya
 				clr_character_flag = TUR_in_libya
@@ -11880,7 +11894,10 @@ country_event = { #pashas back from libya
 			}
 		}
 		every_state = {
-			limit = { has_state_flag = TUR_trablusgarp }
+			limit = {
+				has_dynamic_modifier = { modifier = TUR_organized_local_resistance scope = TUR }
+				has_state_flag = TUR_trablusgarp
+			}
 			remove_dynamic_modifier = { modifier = TUR_organized_local_resistance scope = TUR }
 		}
 	}
@@ -14597,7 +14614,7 @@ country_event = { #ottoman invasion of egypt event for intervention
 			NOT = { has_global_flag = TUR_occupying_egypt }
 			has_country_flag = great_war_winner_leader
 		}
-		FROM = { country_event = { id = ottoman.198 hours = 8 } }
+		FROM = { country_event = { id = ottoman.1981 hours = 8 } }
 		custom_effect_tooltip = if_they_accept_tt
 		effect_tooltip = {
 			every_country = {
@@ -14637,7 +14654,7 @@ country_event = { #ottoman invasion of egypt event for intervention
 }
 
 country_event = { #ottoman invasion of egypt event for intervention against ottomans
-	id = ottoman.198
+	id = ottoman.1981
 	title = ottoman.198.t
 	desc = ottoman.198.d
 	is_triggered_only = yes
@@ -14653,7 +14670,7 @@ country_event = { #ottoman invasion of egypt event for intervention against otto
 				}
 			}
 			white_peace = EGY
-			set_country_flag = ottoman.198
+			set_country_flag = ottoman198
 		}
 		every_state = {
 			limit = {
@@ -14673,7 +14690,7 @@ country_event = { #ottoman invasion of egypt event for intervention against otto
 				is_core_of = EGY
 			}
 			transfer_state_to = EGY
-			set_state_flag = ottoman.198
+			set_state_flag = ottoman198
 		}
 		447 = { set_demilitarized_zone = yes }
 		clr_global_flag = TUR_ottoman_invasion_of_egypt
@@ -14712,11 +14729,11 @@ country_event = { #ottoman invasion of egypt event for intervention against otto
 		name = ottoman.199.a
 		effect_tooltip = {
 			every_country = {
-				limit = { has_country_flag = ottoman.198 }
+				limit = { has_country_flag = ottoman198 }
 				white_peace = EGY
 			}
 			every_state = {
-				limit = { has_state_flag = ottoman.198 }
+				limit = { has_state_flag = ottoman198 }
 				transfer_state_to = EGY
 			}
 			447 = { set_demilitarized_zone = yes }
@@ -14735,11 +14752,11 @@ country_event = { #ottoman invasion of egypt event for intervention against otto
 		name = ottoman.200.a
 		effect_tooltip = {
 			every_country = {
-				limit = { has_country_flag = ottoman.198 }
+				limit = { has_country_flag = ottoman198 }
 				white_peace = EGY
 			}
 			every_state = {
-				limit = { has_state_flag = ottoman.198 }
+				limit = { has_state_flag = ottoman198 }
 				transfer_state_to = EGY
 			}
 			447 = { set_demilitarized_zone = yes }

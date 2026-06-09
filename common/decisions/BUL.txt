@@ -906,6 +906,34 @@ BUL_form_byzantine_empire_category = {
 		}
 	}
 }
+BUL_assimilation_of_our_claims = {
+	BUL_integrate_macedonian_states = {
+		icon = GFX_decision_infiltrate_state
+		fire_only_once = no
+		days_remove = 70
+		allowed = { original_tag = BUL }
+		state_target = yes
+		targets = { 788 184 1141 225 345 759 1140 1258 731 1256 203 1213 106 }
+		on_map_mode = map_only
+		days_re_enable = 180
+		target_trigger = {
+			FROM = {
+				is_claimed_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+		target_root_trigger = { has_completed_focus = BUL_integrate_macedonian_lands }
+		cost = 50
+		cancel_trigger = { FROM = { NOT = { is_controlled_by = ROOT } } }
+		visible = { FROM = { is_controlled_by = ROOT } }
+		remove_effect = {
+			add_state_core = FROM
+		}
+		ai_will_do = {
+			factor = 20
+		}
+	}
+}
 BUL_weapon_order = {
 	BUL_order_planes_from_germany = {
 		icon = GFX_decision_generic_prepare_civil_war

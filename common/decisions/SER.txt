@@ -253,6 +253,62 @@ SER_black_hand_category = {
 	}
 }
 
+SER_colonize_claims = {
+	SER_colonize_vardar_macedonia_decision = {
+		icon = GFX_decision_infiltrate_state
+		fire_only_once = no
+		days_remove = 70
+		allowed = { original_tag = SER }
+		state_target = yes
+		targets = { 106 1140 1258 203 1141 759 225 119 }
+		on_map_mode = map_only
+		days_re_enable = 180
+		target_trigger = {
+			FROM = {
+				is_claimed_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+		target_root_trigger = { has_completed_focus = SER_colonize_vardar_macedonia }
+		cost = 50
+		visible = { FROM = { is_controlled_by = ROOT } }
+		cancel_trigger = { FROM = { NOT = { is_controlled_by = ROOT } } }
+		remove_effect = {
+			add_state_core = FROM
+		}
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	SER_colonize_kosovo_decision = {
+		icon = GFX_decision_infiltrate_state
+		fire_only_once = no
+		days_remove = 70
+		allowed = { original_tag = SER }
+		state_target = yes
+		targets = { 847 848 1240 1213 }
+		on_map_mode = map_only
+		days_re_enable = 180
+		target_trigger = {
+			FROM = {
+				is_claimed_by = ROOT
+				is_owned_by = ROOT
+			}
+		}
+		target_root_trigger = { has_completed_focus = SER_colonize_kosovo }
+		cost = 50
+		visible = { FROM = { is_controlled_by = ROOT } }
+		available = { FROM = { compliance > 35 } }
+		cancel_trigger = { FROM = { NOT = { is_controlled_by = ROOT } } }
+		remove_effect = {
+			add_state_core = FROM
+		}
+		ai_will_do = {
+			factor = 20
+		}
+	}
+}
+
 balkan_league_category = {
 	# SER_seize_Ohrid = {
 	# 	allowed = {

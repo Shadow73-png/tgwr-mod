@@ -21002,9 +21002,12 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			NOT = { has_completed_focus = TUR_mufrit_takeover }
 		}
 		available = {
-			ALB_ismail_qemali = {
-				is_hired_as_advisor = no
-				is_country_leader = no
+			if = {
+				limit = { has_character = ALB_ismail_qemali }
+				ALB_ismail_qemali = {
+					is_hired_as_advisor = no
+					is_country_leader = no
+				}
 			}
 			has_completed_focus = TUR_allign_with_the_moderate_liberals
 		}
@@ -29462,7 +29465,7 @@ economy_decisions = {
 		}
 		ai_will_do = { base = 0 }
 	}
-	TUR_construct_ankara_kayseri_line = {
+	TUR_construct_ankara_kayseri_line2 = {
 		icon = GFX_decision_generic_railway
 		allowed = { original_tag = TUR }
 		visible = {
