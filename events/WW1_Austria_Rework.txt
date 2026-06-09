@@ -8690,6 +8690,16 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_collapse.8.a
+		AUH_release_CZE = yes
+		hidden_effect = {
+			every_state = {
+				limit = {
+					state = 9
+					is_owned_by = AUS
+				}
+				transfer_state_to = CZE
+			}
+		}
 	}
 }
 #sudetenland and german bohemia
@@ -8714,6 +8724,51 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_collapse.10.a
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = HUN
+						is_owned_by = AUS
+					}
+					state = 109
+				}
+				CRO = {
+					safe_transfer_state_to = yes
+				}
+			}
+		}
+		AUH_release_CRO_state_of_croats_and_slovenes = yes
+		hidden_effect = {
+			HUN = {
+				if = {
+					limit = {
+						has_cosmetic_tag = HUN_archkingdom
+					}
+					drop_cosmetic_tag = yes
+					clr_country_flag = HUN_archkingdom
+				}
+			}
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = HUN
+						is_owned_by = AUS
+						is_owned_by = BOS
+					}
+					OR = {
+						is_core_of = BOS
+						is_core_of = CRO
+					}
+					NOT = {
+						state = 163
+					}
+				}
+				CRO = {
+					safe_transfer_state_to = yes
+				}
+			}
+		}
 	}
 }
 #green peasant revolts
