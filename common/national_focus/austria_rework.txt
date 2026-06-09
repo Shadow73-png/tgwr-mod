@@ -7126,6 +7126,23 @@ focus_tree = {
 		}
 		relative_position_id = AUS_bolster_size_of_army
 		available = {
+			NOT = {
+				custom_trigger_tooltip = {
+					AUH_blasius_schemua = {
+						has_character_flag = AUS_chief_of_army
+					}
+					AUH_oskar_potiorek = {
+						has_character_flag = AUS_chief_of_army
+					}
+					AUH_conrad_von_hotzendorf = {
+						has_character_flag = AUS_chief_of_army
+					}
+					AUH_eugen_von_osterreich_teschen = {
+						has_character_flag = AUS_chief_of_army
+					}
+					tooltip = AUS_chief_of_army_tt
+				}
+			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_modify_army.tt
@@ -7168,7 +7185,7 @@ focus_tree = {
 	focus = {
 		id = AUS_implement_conrads_army_structure
 		icon = GFX_focus_AUH_conrad
-		cost = 4
+		cost = 0
 		x = 2
 		y = 4
 		prerequisite = {
@@ -7426,7 +7443,7 @@ focus_tree = {
 	focus = {
 		id = AUS_eugen_goat
 		icon = GFX_focus_ITA_army_officer
-		cost = 4
+		cost = 0
 		x = -2
 		y = 4
 		relative_position_id = AUS_continue_the_army_reforms
@@ -7511,7 +7528,7 @@ focus_tree = {
 	focus = {
 		id = AUS_schemua_prevails
 		icon = GFX_focus_AUH_common_army
-		cost = 4
+		cost = 0
 		x = -6
 		y = 4
 		prerequisite = {
@@ -7649,7 +7666,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_artilleryburger
-		icon = GFX_none
+		icon = GFX_goal_generic_army_artillery2
 		cost = 4
 		x = -1
 		y = 1
@@ -7660,6 +7677,13 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			add_ideas = AUS_artillery_improvements
+			add_tech_bonus = {
+				name = AUS_artilleryburger
+				category = cat_artillery
+				uses = 1
+				bonus = 1
+			}
 		}
 		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
@@ -7724,8 +7748,8 @@ focus_tree = {
 
 	focus = {
 		id = AUS_potiorek_prevails
-		icon = GFX_none
-		cost = 4
+		icon = GFX_focus_generic_army_doctrines_2
+		cost = 0
 		x = 6
 		y = 4
 		prerequisite = {
@@ -7992,6 +8016,21 @@ focus_tree = {
 		}
 		relative_position_id = AUS_revise_the_army_law_1889
 		available = {
+			custom_trigger_tooltip = {
+				AUH_blasius_schemua = {
+					has_character_flag = AUS_chief_of_army
+				}
+				AUH_oskar_potiorek = {
+					has_character_flag = AUS_chief_of_army
+				}
+				AUH_conrad_von_hotzendorf = {
+					has_character_flag = AUS_chief_of_army
+				}
+				AUH_eugen_von_osterreich_teschen = {
+					has_character_flag = AUS_chief_of_army
+				}
+				tooltip = AUS_chief_of_army_tt
+			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_modify_army.tt

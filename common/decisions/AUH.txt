@@ -5387,6 +5387,9 @@ AUS_question_of_army_chief = {
 					}
 				}
 				set_country_flag = AUS_schemua_secured
+				AUH_blasius_schemua = {
+					set_character_flag = AUS_chief_of_army
+				}
 			}
 			else_if = { #potiorek
 				limit = { 
@@ -5394,6 +5397,9 @@ AUS_question_of_army_chief = {
 				}
 				activate_advisor = AUH_oskar_potiorek
 				clr_country_flag = AUS_potiorek_will_become_chief
+				AUH_oskar_potiorek = {
+					set_character_flag = AUS_chief_of_army
+				}
 			}
 			else_if = { #eugen
 				limit = { 
@@ -5401,10 +5407,16 @@ AUS_question_of_army_chief = {
 				}
 				activate_advisor = AUH_eugen_von_osterreich_teschen
 				clr_country_flag = AUS_eugen_will_become_chief
+				AUH_eugen_von_osterreich_teschen = {
+					set_character_flag = AUS_chief_of_army
+				}
 			}
 			else = { #conrad
 				activate_advisor = AUH_franz_conrad_von_hotzendorf
 				set_country_flag = AUS_conrad_secured
+				AUH_conrad_von_hotzendorf = {
+					set_character_flag = AUS_chief_of_army
+				}
 			}
 			clr_country_flag = AUS_schemua_success
 		}
