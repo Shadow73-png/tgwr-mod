@@ -5097,10 +5097,6 @@ focus_tree = {
 				AUS_ep_local_resource = -0.1
 				tooltip = local_resources_factor_tt
 			}
-			add_to_variable = {
-				AUS_EP_prod_eff_cap = -0.05
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
 		}
 		ai_will_do = {
 			base = 1
@@ -5576,6 +5572,11 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_stab = 0.05
+				tooltip = stability_factor_tt
+			}
 			random_owned_controlled_state = {
 				limit = {
 					state_strategic_value > 50
