@@ -7264,14 +7264,7 @@ focus_tree = {
 			focus = AUS_potiorek_prevails
 		}
 		available = {
-			OR = {
-				AUH_conrad_von_hotzendorf = {
-					is_hired_as_advisor = yes
-				}
-				has_country_leader = {
-					character = AUH_conrad_von_hotzendorf
-				}
-			}
+			has_country_flag = AUS_conrad_secured
 		}
 		completion_reward = {
 			custom_effect_tooltip = AUS_modify_army.tt
@@ -7320,10 +7313,6 @@ focus_tree = {
 				}
 			}
 			hidden_effect = {
-				country_event = {
-					id = ww1_austriahungary.154
-					days = 40
-				}
 				country_event = {
 					id = ww1_austriahungary.155
 					days = 120
@@ -7456,15 +7445,8 @@ focus_tree = {
 			focus = AUS_potiorek_prevails
 		}
 		available = {
-			NOT = {
-				OR = {
-					AUH_conrad_von_hotzendorf = {
-						is_hired_as_advisor = yes
-					}
-					has_country_leader = {
-						character = AUH_conrad_von_hotzendorf
-					}
-				}
+			AUH_eugen_von_osterreich_teschen = {
+				is_hired_as_advisor = yes
 			}
 		}
 		completion_reward = {
@@ -7669,7 +7651,7 @@ focus_tree = {
 		}
 		relative_position_id = AUS_continue_the_army_reforms
 		available = {
-			always = no
+			has_country_flag = AUS_schemua_secured
 		}
 		completion_reward = {
 		}
@@ -7767,7 +7749,9 @@ focus_tree = {
 		}
 		relative_position_id = AUS_continue_the_army_reforms
 		available = {
-			always = no
+			AUH_oskar_potiorek = {
+				is_hired_as_advisor = yes
+			}
 		}
 		completion_reward = {
 		}
@@ -8475,6 +8459,10 @@ focus_tree = {
 			focus = AUS_suspend_civil_liberties
 		}
 		completion_reward = {
+			add_to_variable = {
+				AUS_worsening_food_shortages_timer = 10
+			}
+			custom_effect_tooltip = AUS_mission_10_days_food
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
 				AUS_aps_pp_gain = 0.1
@@ -8504,6 +8492,15 @@ focus_tree = {
 			focus = AUS_uphold_civilian_rights
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_off_war_stab = 0.1
+				tooltip = offensive_war_stability_factor_tt
+			}
+			add_to_variable = {
+				AUS_aps_def_war_stab = 0.1
+				tooltip = defensive_war_stability_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -8577,6 +8574,14 @@ focus_tree = {
 			focus = AUS_uphold_civilian_rights
 		}
 		completion_reward = {
+			unlock_decision_tooltip = {
+				decision = AUS_seize_army_equipment
+				show_effect_tooltip = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_involve_military_policing
+				show_effect_tooltip = yes
+			}
 		}
 		ai_will_do = {
 			base = 1
