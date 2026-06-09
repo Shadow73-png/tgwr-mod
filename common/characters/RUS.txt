@@ -276,7 +276,7 @@ characters = {
 		}
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/RUS/RUS_nikolai_maklakov.png"
+				large = GFX_Portrait_RUS_nikolay_maklakov
 				small = "gfx/interface/ideas/RUS/RUS_nikolay_maklakov.png"
 			}
 		}
@@ -444,7 +444,7 @@ characters = {
 		}
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/RUS/RUS_georgy_lvov.png"
+				large = GFX_Portrait_RUS_alexander_krivoshein
 				small = "gfx/interface/ideas/RUS/idea_RUS_georgy_lvov.png"
 			}
 		}
@@ -646,7 +646,8 @@ characters = {
 		}
 		name = "RUS_boris_sturmer"
 		portraits = {
-			army = {
+			civilian = {
+				large = GFX_Portrait_RUS_boris_sturmer
 				small = "GFX_idea_RUS_boris_sturmer"
 			}
 		}
@@ -672,8 +673,9 @@ characters = {
 		}
 		name = "RUS_alexander_trepov"
 		portraits = {
-			army = {
-				small = "GFX_idea_RUS_boris_sturmer"
+			civilian = {
+				large = GFX_Portrait_RUS_alexander_trepov
+				small = "gfx/interface/ideas/RUS/idea_RUS_georgy_lvov.png"
 			}
 		}
 	}
@@ -698,8 +700,9 @@ characters = {
 		}
 		name = "RUS_nikolai_golitsyn"
 		portraits = {
-			army = {
-				small = "GFX_idea_RUS_boris_sturmer"
+			civilian = {
+				large = GFX_Portrait_RUS_nikolai_golitsyn
+				small = "gfx/interface/ideas/RUS/idea_RUS_georgy_lvov.png"
 			}
 		}
 	}
@@ -1975,27 +1978,6 @@ characters = {
 			}
 		}
 		advisor = {
-			slot = political_advisor
-			idea_token = RUS_yuri_danilov
-			allowed = {
-				original_tag = RUS
-				NOT = {
-					has_country_flag = RUS_soviet_tag
-				}
-			}	
-			visible = {
-				NOT = {
-					has_country_flag = RUS_soviet_tag
-				}	
-			}
-			traits = {
-				quartermaster_general 
-			}
-			ai_will_do = {
-				factor = 0
-			}
-		}
-		advisor = {
 			slot = high_command
 			idea_token = RUS_yuri_danilov_high_command
 			allowed = {
@@ -2241,45 +2223,6 @@ characters = {
 					has_subject =  TRK
 				}
 			}	
-		}
-		advisor = {
-			slot = political_advisor
-			idea_token = RUS_aleksandr_samsonov
-			traits = { colonial_governor  }
-			available = {
-				NOT = {
-					has_government = communism
-				}
-				num_subjects > 0
-				if = {
-					limit = {
-						TRK = {
-							exists = yes
-							has_country_leader = {
-								character = TRK_aleksandr_samsonov
-							}
-						}
-					}
-					has_subject =  TRK
-				}	
-			}
-			visible = { 
-				num_subjects > 0
-				if = {
-					limit = {
-						TRK = {
-							exists = yes
-							has_country_leader = {
-								character = TRK_aleksandr_samsonov
-							}
-						}
-					}
-					has_subject =  TRK
-				}	
-			}
-			ai_will_do = {
-				factor = 0
-			}
 		}
 	}
 	RUS_pavel_mischenko = {
@@ -3606,19 +3549,6 @@ characters = {
 		}
 	}
 	RUS_sergey_sazanov={
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_sergey_sazanov
-			allowed  = {
-					original_tag = RUS
-				}
-				traits  = {
-					compassionate_gentleman 
-				}
-				ai_will_do  = {
-					factor  = 1.000
-				}
-		}
 		name="RUS_sergey_sazanov"
 		portraits={
 			army={
@@ -3627,19 +3557,6 @@ characters = {
 		}
 	}
 	RUS_pyotr_struve={
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_pyotr_struve
-			allowed  = {
-					original_tag = RUS
-				}
-				traits  = {
-					editor 
-				}
-				ai_will_do  = {
-					factor  = 1.000
-				}
-		}
 		name="RUS_pyotr_struve"
 		portraits={
 			army={
@@ -3664,6 +3581,16 @@ characters = {
 					}
 				}	
 			}
+			visible = {
+				OR = {
+					has_country_leader = {
+						character = RUS_pavel_milyukov
+					}
+					has_country_leader = {
+						character = RUS_alexander_kolchak
+					}
+				}	
+			}
 			traits  = {
 				political_publicist 
 			}
@@ -3679,23 +3606,6 @@ characters = {
 		}
 	}
 	RUS_georgi_plekhanov={
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_georgi_plekhanov
-			allowed  = {
-				original_tag = RUS
-			}
-			available  = {
-				has_government  = communism 
-			}
-			cost  = 250.000
-			traits  = {
-				socialist_novelist 
-			}
-			ai_will_do  = {
-				factor  = 50.000
-			}
-		}
 		name="RUS_georgi_plekhanov"
 		portraits={
 			army={
@@ -3704,26 +3614,6 @@ characters = {
 		}
 	}
 	RUS_pyotr_kropotkin={
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_pyotr_kropotkin
-			allowed  = {
-				original_tag = RUS
-			}
-			available  = {
-				has_government  = communism 
-				is_country_leader = no
-			}
-			visible  = {
-				is_country_leader = no
-			}
-			traits  = {
-				communist_theorist 
-			}
-			ai_will_do  = {
-				factor  = 10.000
-			}
-		}
 		name="RUS_pyotr_kropotkin"
 		portraits={
 			civilian={
