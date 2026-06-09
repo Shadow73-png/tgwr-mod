@@ -162,14 +162,21 @@ PER_guarded_domains = {
 
 		target_trigger = {
 			FROM = {
-				is_owned_and_controlled_by = ROOT	
+				OR = {
+					is_owned_and_controlled_by = ROOT
+					AND = {
+						is_owned_and_controlled_by = RUS
+						has_contested_owner = PER
+					}
+				
+				}
 				has_state_flag = PER_cossack_regiment_station
 			}
 		}
 
 		visible = {
 			check_variable = {
-				PER_cossack_cap > 0
+				PER.PER_cossack_cap > 0
 			}
 		}
 
@@ -177,7 +184,7 @@ PER_guarded_domains = {
 			custom_trigger_tooltip = {
 				tooltip = PER_can_recruit_cossacks_tt
 				check_variable = {
-					PER_recruited_cossacks < PER_cossack_cap
+					PER.PER_recruited_cossacks < PER.PER_cossack_cap
 				}
 			}
 			NOT = {
@@ -195,14 +202,14 @@ PER_guarded_domains = {
 			}
 			PER_calculate_foreign_influnce = yes
 			add_to_variable = {
-				PER_recruited_cossacks = 1
+				PER.PER_recruited_cossacks = 1
 				tooltip = PER_raise_cossack_regiment_tt
 			}
 			set_variable = {
-				PER_recruited_cossacks_decimal_var = PER_recruited_cossacks
+				PER.PER_recruited_cossacks_decimal_var = PER.PER_recruited_cossacks
 			}
 			divide_variable = {
-				PER_recruited_cossacks_decimal_var = 100
+				PER.PER_recruited_cossacks_decimal_var = 100
 			}
 			FROM = {
 				create_unit = {
@@ -213,7 +220,7 @@ PER_guarded_domains = {
 			}
 			if = {
 				limit = {
-					PER_recruited_cossacks = 0
+					check_variable = { PER_recruited_cossacks = 0 }
 				}
 				if = {
 					limit = {
@@ -245,7 +252,7 @@ PER_guarded_domains = {
 
 		complete_effect = {
 			add_to_variable = {
-				RUS.PER_foreign_influence = PER_recruited_cossacks_decimal_var
+				RUS.PER_foreign_influence = PER.PER_recruited_cossacks_decimal_var
 				tooltip = PER_modify_RUS_influence_tt
 			}
 			PER_calculate_foreign_influnce = yes
@@ -267,7 +274,7 @@ PER_guarded_domains = {
 		
 		activation = {
 			check_variable = {
-				PER_recruited_cossacks > 0
+				PER.PER_recruited_cossacks > 0
 			}	
 		}
 
@@ -283,10 +290,10 @@ PER_guarded_domains = {
 					has_war_with = RUS
 					has_capitulated = yes
 					check_variable = {
-						PER_cossack_cap = 0
+						PER.PER_cossack_cap = 0
 					}
 					check_variable = {
-						PER_recruited_cossacks = 0
+						PER.PER_recruited_cossacks = 0
 					}
 				}
 			}
@@ -304,7 +311,7 @@ PER_guarded_domains = {
 					division_template = "Ataryād-e Qazāqkhāneh"
 				}
 				set_variable = {
-					PER_recruited_cossacks = 0
+					PER.PER_recruited_cossacks = 0
 				}
 			}
 		}
@@ -315,7 +322,7 @@ PER_guarded_domains = {
 					division_template = "Ataryād-e Qazāqkhāneh"
 				}
 				set_variable = {
-					PER_recruited_cossacks = 0
+					PER.PER_recruited_cossacks = 0
 				}
 			}
 		}

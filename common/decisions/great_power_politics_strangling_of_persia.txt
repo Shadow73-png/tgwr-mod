@@ -170,6 +170,122 @@ TGWR_great_power_politics = {
 			}
 		}
 	}
+	RUS_expand_PER_cossack_brigade = {
+		icon = generic_prepare_civil_war
+		allowed = {
+			tag = RUS
+		}
+		
+		targets = {
+			PER
+		}
+
+		target_root_trigger = {
+			has_dynamic_modifier = PER_influence_in_persia_modifier
+			has_capitulated = no
+		}
+
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = PER_foreign_influence_modifier
+			}
+		}
+
+		visible = {
+			check_variable = {
+				PER.PER_cossack_cap < 8
+			}
+			any_state = {
+				NOT = {
+					has_state_flag = PER_cossack_regiment_station
+				}
+				OR = {
+					state = 266 #Tehran 10837
+					state = 1117 #Hamadan 10523, Qazvin 4553
+					state = 877 #Tabriz 1896, Ardabil 4901
+					state = 411 #Isfahan 2026
+					state = 416 #Mashhad 5029
+					state = 1247 #Mazandaran Sari 10385
+					state = 419 #Urmia 7604
+					state = 420 #Gilan Rasht 4609
+				}
+				OR = {
+					is_owned_and_controlled_by = FROM
+					AND = {
+						is_owned_and_controlled_by = ROOT
+						has_contested_owner = PER
+					}
+				}
+			}
+		}
+
+		available = {
+			NOT = {
+				has_war_with = PER
+			}
+		}
+
+		fire_only_once = no
+
+		days_remove = 60
+		days_re_enable = 0
+
+		modifier = {
+			consumer_goods_factor = 0.05
+			political_power_cost = 0.1
+		}
+
+		remove_effect = {
+			random_state = {
+				limit = {
+					NOT = {
+						has_state_flag = PER_cossack_regiment_station
+					}
+					OR = {
+						state = 266 #Tehran 10837
+						state = 1117 #Hamadan 10523, Qazvin 4553
+						state = 877 #Tabriz 1896, Ardabil 4901
+						state = 411 #Isfahan 2026
+						state = 416 #Mashhad 5029
+						state = 1247 #Mazandaran Sari 10385
+						state = 419 #Urmia 7604
+						state = 420 #Gilan Rasht 4609
+					}
+					OR = {
+						is_owned_and_controlled_by = FROM
+						AND = {
+							is_owned_and_controlled_by = ROOT
+							has_contested_owner = PER
+						}
+					}	
+				}
+				save_event_target_as = PER_cossack_regiment_station
+				custom_effect_tooltip = PER_cossack_regiment_station_tt
+			}
+			FROM = {
+				effect_tooltip = {
+					add_to_variable = {
+						RUS.PER_foreign_influence = 0.01
+						tooltip = PER_modify_RUS_influence_tt
+					}
+					add_to_variable = { 
+						PER.PER_cossack_cap = 1
+						tooltip = PER_increase_cossack_cap_tt
+					}
+				}
+				hidden_effect = {
+					country_event = ww1_per_generic.4
+				}			
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0
+				has_political_power < 20
+			}
+		}
+	}
 }
 #PERSIA
 TGWR_great_power_politics = {
