@@ -1,6 +1,7 @@
 ﻿add_namespace = ww1_persia
 add_namespace = ww1_persia_rework
 add_namespace = ww1_per_rus_strangling
+add_namespace = ww1_per_tur_strangling
 add_namespace = ww1_per_generic
 
 country_event = {
@@ -1718,6 +1719,102 @@ country_event = {
 	}
 
 }
+
+#Ottoman Occupied FROM
+country_event = {
+	id = ww1_per_tur_strangling.1
+	title = ww1_per_tur_strangling.1.t
+	desc = ww1_per_tur_strangling.1.d
+	
+	picture = GFX_report_event_PER_ottoman_troops
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_tur_strangling.1.a
+		effect_tooltip = {
+			event_target:TUR_occupied_PER_state = {
+				transfer_state_to = TUR
+				add_contested_owner = PER
+			}
+		}	
+	}
+}
+
+#Failure to Secure Western Persia
+country_event = {
+	id = ww1_per_tur_strangling.2
+	title = ww1_per_tur_strangling.2.t
+	desc = ww1_per_tur_strangling.2.d
+	
+	picture = GFX_report_event_PER_ottoman_troops
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_tur_strangling.2.a
+		effect_tooltip = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 419
+						state = 1212
+						state = 1250
+						state = 1252
+					}
+					has_contested_owner = PER
+				}
+				transfer_state_to = PER
+			}
+		}
+		hidden_effect = {
+			news_event = ww1_per_tur_strangling.3
+		}
+	}
+}
+
+#Ottoman Withdrawal from Western Persia
+news_event = {
+	id = ww1_per_tur_strangling.3
+	title = ww1_per_tur_strangling.3.t
+	desc = ww1_per_tur_strangling.3.desc
+	
+	picture = GFX_news_event_PER_ottoman_troops
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ww1_per_tur_strangling.3.a
+		trigger = { tag = TUR }	
+	}
+	option = {
+		name = ww1_per_tur_strangling.3.b
+		trigger = { original_tag = PER }	
+	}
+	option = {
+		name = ww1_per_tur_strangling.3.c
+		trigger = { tag = RUS }	
+	}
+	option = {
+		name = ww1_per_tur_strangling.3.d
+		trigger = { tag = ENG }	
+	}
+	option = {
+		name = ww1_per_tur_strangling.3.e
+		trigger = {
+			NOT = {
+				tag = TUR
+				original_tag = PER
+				tag = RUS
+				tag = ENG
+			}
+		}
+	}
+}
+
 
 ### Generic Persian events ###
 #Persia asks for a loan

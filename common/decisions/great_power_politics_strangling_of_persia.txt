@@ -491,6 +491,9 @@ TGWR_great_power_politics = {
 		days_mission_timeout = 720
 
 		timeout_effect = {
+			hidden_effect = {
+				country_event = ww1_per_tur_strangling.2
+			}
 			every_owned_state = {
 				limit = {
 					OR = {
@@ -581,7 +584,7 @@ TGWR_great_power_politics = {
 			custom_effect_tooltip = TUR_expanded_power_base
 		}
 		ai_will_do = {
-			base = 100
+			base = 10
 		}
 	}
 	TUR_occupy_FROM = {
@@ -653,12 +656,17 @@ TGWR_great_power_politics = {
 			PER_calculate_foreign_influnce = yes
 		}
 		remove_effect = {
+			FROM = { save_event_target_as = TUR_occupied_PER_state } #To keep the Persian state name in locs
+			hidden_effect = {
+				PER = { country_event = ww1_per_tur_strangling.1 }
+			}
 			FROM = {
 				transfer_state_to = ROOT
+				add_contested_owner = PER
 			}
 		}
 		ai_will_do = {
-			base = 100
+			base = 10
 		}
 	}
 	TUR_gather_favours_in_tehran = {
@@ -666,9 +674,15 @@ TGWR_great_power_politics = {
 		allowed = {
 			original_tag = TUR
 		}
-		state_target = yes
+		
 		targets = {
-			266
+			PER
+		}
+
+		highlight_states = {
+			highlight_state_targets = { state = 266 }
+   			highlight_provinces = { 10837 }
+			highlight_only_provinces = yes
 		}
 
 		available = {
@@ -693,7 +707,7 @@ TGWR_great_power_politics = {
 			}
 		}
 
-		fire_only_once = yes
+		fire_only_once = no
 		on_map_mode = map_and_decisions_view
 		days_remove = 60
 		cost = 50
@@ -705,7 +719,7 @@ TGWR_great_power_politics = {
 			PER_calculate_foreign_influnce = yes
 		}
 		ai_will_do = {
-			base = 100
+			base = 10
 		}
 	}
 }
