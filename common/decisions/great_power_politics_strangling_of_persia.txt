@@ -438,6 +438,9 @@ TGWR_great_power_politics = {
 				state = 1250
 				state = 1252
 			}
+			highlight_states_trigger = {
+				has_contested_owner = PER
+			}
 		}
 
 		available = {
@@ -496,6 +499,7 @@ TGWR_great_power_politics = {
 						state = 1250
 						state = 1252
 					}
+					has_contested_owner = PER
 				}
 				transfer_state_to = PER
 			}
@@ -523,20 +527,12 @@ TGWR_great_power_politics = {
 		}
 
 		available = {
-			set_temp_variable = {
-				PER_TUR_influence_trigger_var = 0.05
-			}
-			custom_trigger_tooltip = {
+			check_variable = {
+				var = TUR.PER_foreign_influence
+				value = 0.05
+				compare = greater_than_or_equals
 				tooltip = TUR_has_influence_tt
-				OR = {
-					check_variable = {
-						TUR.PER_foreign_influence = PER_TUR_influence_trigger_var
-					}
-					check_variable = {
-						TUR.PER_foreign_influence > PER_TUR_influence_trigger_var
-					}
-				}
-			}
+			}	
 		}
 		visible = {
 			has_active_mission = TUR_occupation_of_western_persia_timeout
@@ -562,12 +558,8 @@ TGWR_great_power_politics = {
 		on_map_mode = map_and_decisions_view
 		days_remove = 60
 		complete_effect = {
-			set_temp_variable = {
-				PER_modify_TUR_influence_var = -0.05
-			}
 			add_to_variable = {
-				var = TUR.PER_foreign_influence
-				value = PER_modify_TUR_influence_var
+				TUR.PER_foreign_influence = -0.05
 				tooltip = PER_modify_TUR_influence_tt
 			}
 			PER_calculate_foreign_influnce = yes
@@ -602,19 +594,11 @@ TGWR_great_power_politics = {
 		}
 
 		available = {
-			set_temp_variable = {
-				PER_TUR_influence_trigger_var = 0.05
-			}
-			custom_trigger_tooltip = {
+			check_variable = {
+				var = TUR.PER_foreign_influence
+				value = 0.05
+				compare = greater_than_or_equals
 				tooltip = TUR_has_influence_tt
-				OR = {
-					check_variable = {
-						TUR.PER_foreign_influence = PER_TUR_influence_trigger_var
-					}
-					check_variable = {
-						TUR.PER_foreign_influence > PER_TUR_influence_trigger_var
-					}
-				}
 			}
 		}
 
@@ -642,12 +626,8 @@ TGWR_great_power_politics = {
 		on_map_mode = map_and_decisions_view
 		days_remove = 60
 		complete_effect = {
-			set_temp_variable = {
-				PER_modify_TUR_influence_var = -0.05
-			}
 			add_to_variable = {
-				var = TUR.PER_foreign_influence
-				value = PER_modify_TUR_influence_var
+				TUR.PER_foreign_influence = -0.05
 				tooltip = PER_modify_TUR_influence_tt
 			}
 			PER_calculate_foreign_influnce = yes
@@ -672,16 +652,11 @@ TGWR_great_power_politics = {
 		}
 
 		available = {
-			set_temp_variable = {
-				PER_TUR_influence_trigger_var = 0.1
-			}
-			custom_trigger_tooltip = {
+			check_variable = {
+				var = TUR.PER_foreign_influence
+				value = 0.1
+				compare = less_than
 				tooltip = TUR_has_influence_tt_NOT
-				OR = {
-					check_variable = {
-						TUR.PER_foreign_influence < PER_TUR_influence_trigger_var
-					}
-				}
 			}
 		}
 
@@ -703,12 +678,8 @@ TGWR_great_power_politics = {
 		days_remove = 60
 		cost = 50
 		remove_effect = {
-			set_temp_variable = {
-				PER_modify_TUR_influence_var = 0.02
-			}
 			add_to_variable = {
-				var = TUR.PER_foreign_influence
-				value = PER_modify_TUR_influence_var
+				TUR.PER_foreign_influence = 0.02
 				tooltip = PER_modify_TUR_influence_tt
 			}
 			PER_calculate_foreign_influnce = yes
