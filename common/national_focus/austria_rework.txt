@@ -195,7 +195,7 @@ focus_tree = {
 		}
 		relative_position_id = AUS_bolster_size_of_army
 		available = {
-			#threat > 0.1 # this was passed in 1912, and 10% tension in 1912 is impossible...
+			threat > 0.1
 			has_war_support > 0.35
 		}
 		completion_reward = {
@@ -249,12 +249,8 @@ focus_tree = {
 		}
 		relative_position_id = AUS_technical_military_committee
 		available = {
-			#OR = {
-			#	threat > 0.2
-			#	has_war_support > 0.4
-			#}
-			#impossible to get without war, then conrad path locks up
-			has_war_support > 0.2
+			threat > 0.1
+			has_war_support > 0.3
 			NOT = {
 				has_global_flag = great_war
 			}
