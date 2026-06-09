@@ -358,7 +358,7 @@ focus_tree = {
 		id = AUS_expand_the_army_budget
 		icon = GFX_focus_FRA_expand_army_budget
 		cost = 4
-		x = 3
+		x = 4
 		y = 2
 		prerequisite = {
 			focus = AUS_approve_extraordinary_army_expenditure
@@ -7327,17 +7327,28 @@ focus_tree = {
 		}
 		completion_reward = {
 			#make georgi a general (he shouldnt be before this focus completion)
-			#give boroevic mountaineer trait
+			AUH_friedrich_von_georgi = {
+				add_corps_commander_role = {
+					skill = 1
+					attack_skill = 1
+					defense_skill = 2
+					planning_skill = 2
+					logistics_skill = 2
+				}
+			}
 			add_tech_bonus = {
 				name = AUS_mountain_training
-				bonus = 1
+				bonus = 0.75
 				ahead_reduction = 1
 				category = mountaineers_tech
 				uses = 1
 			}
+
+			custom_effect_tooltip = empty_space_tt
+
 			custom_effect_tooltip = AUS_modify_army.tt
 			add_to_variable = {
-				AUS_mea_cold_climate = 0.2
+				AUS_mea_cold_climate = 0.1
 				tooltip = acclimatization_cold_climate_gain_factor_tt
 			}
 			add_to_variable = {
@@ -7347,6 +7358,13 @@ focus_tree = {
 			add_to_variable = {
 				AUS_mea_special_forces_defence_factor = 0.1
 				tooltip = special_forces_defence_factor_tt
+			}
+
+			hidden_effect = {
+				country_event = {
+					id = ww1_austriahungary.239
+					days = 180
+				}
 			}
 		}
 		ai_will_do = {
@@ -7379,7 +7397,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_mobilization_conrad
-		icon = GFX_none
+		icon = GFX_focus_tur_balkan_war
 		cost = 4
 		x = 0
 		y = 2
@@ -7390,6 +7408,12 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			upgrade_conscription_law = yes
+			custom_effect_tooltip = AUS_modify_army.tt
+			add_to_variable = {
+				AUS_mea_org_regain = -0.05
+				tooltip = army_org_regain_tt
+			}
 		}
 		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
@@ -7706,21 +7730,24 @@ focus_tree = {
 				name = AUS_modernize_army_equipment
 				uses = 1
 				bonus = 1
-				category = infantry_weapons
+				category = support_tech
 			}
-			custom_effect_tooltip = AUS_modify_army.tt
-			add_to_variable = {
-				AUS_mea_infantry_attack = 0.05
-				tooltip = army_infantry_attack_factor_tt
+			add_tech_bonus = {
+				name = AUS_modernize_army_equipment
+				uses = 1
+				bonus = 1
+				category = infantry_tech
 			}
-			add_to_variable = {
-				AUS_mea_infantry_defense = 0.05
-				tooltip = army_infantry_defence_factor_tt
-			}
-			add_to_variable = {
-				AUS_mea_arty_attack = 0.05
-				tooltip = army_artillery_attack_factor_tt
-			}
+			#custom_effect_tooltip = AUS_modify_army.tt
+			#add_to_variable = {
+			#	AUS_mea_infantry_attack = 0.05
+			#	tooltip = army_infantry_attack_factor_tt
+			#}
+			#add_to_variable = {
+			#	AUS_mea_infantry_defense = 0.05
+			#	tooltip = army_infantry_defence_factor_tt
+			#}
+			
 		}
 		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
@@ -7840,6 +7867,7 @@ focus_tree = {
 				popup = no
 			}
 			#decision about demanding more research on cavalry and such
+			#^fucking dumb
 		}
 		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
@@ -7933,6 +7961,8 @@ focus_tree = {
 		y = 2
 		prerequisite = {
 			focus = AUS_modernize_army_equipment
+			focus = AUS_liked_by_emperors_right_hand
+			focus = AUS_mobilization_conrad
 		}
 		relative_position_id = AUS_ambitious_planning
 		available = {
