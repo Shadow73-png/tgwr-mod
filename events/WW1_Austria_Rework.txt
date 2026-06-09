@@ -6328,6 +6328,30 @@ country_event = {
 		}
 	}
 }
+country_event = {
+	id = ww1_austriahungary.239
+	title = ww1_austriahungary.239.t
+	desc = ww1_austriahungary.239.d
+	picture = GFX_report_event_worker_protests
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.239.a
+		add_trait = {
+			character = AUH_svetozar_von_bojna
+			trait = trait_mountaineer
+			slot = corps_commander
+		}
+		custom_effect_tooltip = empty_space_tt
+		custom_effect_tooltip = AUS_modify_army.tt
+		add_to_variable = {
+			AUS_mea_cold_climate = 0.1
+			tooltip = acclimatization_cold_climate_gain_factor_tt
+		}
+	}
+}
+
+#end of ww1_austriahungary
 
 add_namespace = ww1_austria_quests
 # forts dispatch event
