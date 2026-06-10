@@ -907,6 +907,12 @@
 				}
 				drop_cosmetic_tag = yes
 			}
+			if = {
+				limit = {
+					has_dynamic_modifier = PER_foreign_influence_modifier
+				}
+				PER_calculate_foreign_influnce = yes
+			}
 		}
 	}
 	
@@ -1146,15 +1152,7 @@
 					country_event = ww1_auh.158
 				}
 			}
-			### Russia ###
-			if = {
-				limit = {
-					original_tag = RUS
-				}
-				country_event = ww1_russia_common.21
-			}
-			### Hungary ###
-			if = {
+			else_if = { ### Hungary ###
 				limit = {
 					tag = HUN
 				}
@@ -4444,6 +4442,21 @@
 		}
 	}
 	on_startup = {
+		#Persia
+		effect = {
+			PER = {
+				#Cossack Brigade cap
+				set_division_template_cap = { 
+					division_template = "Ataryād-e Qazāqkhāneh" 
+					division_cap = PER.PER_cossack_cap
+				}
+				#Bakhtiari cap
+				set_division_template_cap = { 
+					division_template = "Nīrū-ye Eshāyer" 
+					division_cap = PER_bakhtiari_cap
+				}	
+			}
+		}
 		effect = {
 			295 = {
 				add_dynamic_modifier = { modifier = BEL_belgian_colonial_policy }
@@ -5497,86 +5510,6 @@
 	}
 	on_capitulation = {
 		effect = {
-			if = {
-				limit = {
-					tag = FIN
-					FIN = { has_war_with = RUS }
-					RUS = { has_country_flag = RUS_war_of_independence_finland }
-				}
-				FIN = { set_country_flag = monarchist_puppet }
-				RUS = {
-					white_peace = FIN
-					clr_country_flag = RUS_war_of_independence_finland
-					set_autonomy = {
-						target = FIN
-						autonomous_state = autonomy_tgwr_governorate_general
-					}			
-				}
-				FIN = {
-					delete_unit_template_and_units = { division_template = "Kotivartioston Prikaati" }
-					add_stability = -0.05
-					add_war_support = -0.05
-					add_political_power = -100
-					RUS = {
-						FIN_carl_gustaf_mannerheim = {
-							set_nationality = FIN
-							if = {
-								limit = {
-									has_ideology = personalistic_dictatorship
-								}
-								promote_character = personalistic_dictatorship
-				
-							}
-							else = {
-								add_country_leader_role = {
-									promote_leader = yes
-									country_leader = {
-										ideology = personalistic_dictatorship
-										traits = { sotamarsalkka }
-									}
-								}
-							}
-							if = {
-								limit = {
-									has_ideology = stratocracy
-								}
-								promote_character = stratocracy	
-							}
-							else = {
-								add_country_leader_role = {
-									promote_leader = yes
-									country_leader = {
-										ideology = stratocracy
-										traits = { sotamarsalkka }
-									}
-								}
-							}
-						}
-					}
-					set_popularities = {
-						fascism = 50
-						communism = 5
-						democratic = 25
-						neutrality = 25
-					}
-					set_politics = {
-						ruling_party = fascism
-						elections_allowed = no
-						long_name = FIN_militaru_hunta
-						name = FIN_militaru_hunta
-					}
-					FIN_remove_uprising_stuff = yes
-					set_cosmetic_tag = FIN_RUS
-					every_owned_state = {
-						limit = {
-							state = 957
-							state = 146
-						}
-						transfer_state_to = RUS
-					}
-					FIN_set_russian_state_names = yes
-				}
-			}
 			if = {
 				limit = {
 					GRE = {
@@ -8754,6 +8687,19 @@
 						}
 						set_nationality = ROOT
 					}
+					every_core_state = {
+						remove_core_of = PREV
+					}
+					every_state = {
+						limit = {
+							is_claimed_by = PREV
+						}
+						remove_claim_by = PREV
+					}
+					# if = {
+					# 	limit = { is_dynamic_country = yes }
+					# 	reserve_dynamic_country = no
+					# }
 				}
 				if = {
 					limit = {
@@ -8776,52 +8722,40 @@
 				}
 				if = {
 					limit = {
-						NOT = { 
+						NOT = {
 							has_government = fascism
 							has_country_leader = {
 								character = PER_mohammad_ali_shah
 							}
-						}
-					}
-					PER_nezam_us_saltaneh = {
-						promote_character = stratocracy
-					}				
-				}
-				else_if = {
-					limit = {
-						has_country_leader = {
-							character = PER_nezam_us_saltaneh
-						}
-					}
-					remove_ideas = standing_alone
-					set_politics = {
-						ruling_party = neutrality
-						name = PER_fascism_party
-						long_name = PER_fascism_party
-						elections_allowed = yes
-					}
-					add_popularity = {
-						ideology = fascism
-						popularity = -0.2
-					}
-					PER_nezam_us_saltaneh = {
-						if = {
-							limit = { has_ideology = authoritarian_democracy }
-							promote_character = authoritarian_democracy
-						}
-						else = {
-							add_country_leader_role = {
-								promote_leader = yes
-								country_leader = {
-									ideology = authoritarian_democracy
-								}
+							has_country_leader = {
+								character = PER_abulfath_mirza
 							}
 						}
 					}
+					PER_reza_khan = {
+						promote_character = stratocracy
+					}
+					if = {
+						limit = {
+							has_character = PER_iskandar_khan_setkhanian
+						}
+						PER_iskandar_khan_setkhanian = {
+							promote_character = stratocracy
+						}
+					}		
 				}
 				if = {
 					limit = {
-						has_cosmetic_tag = PER_exiles
+						NOT = {
+							any_other_country = {
+								original_tag = PER
+							}
+						}
+						OR = {
+							has_cosmetic_tag = PER_exiles
+							has_cosmetic_tag = PER_mohammad_ali_shah_revolt
+							has_cosmetic_tag = PER_salar_al_daula_revolt
+						}				
 					}
 					set_cosmetic_tag = PER
 				}
@@ -8834,7 +8768,7 @@
 							}
 							OR = {
 								is_in_faction = no
-								is_in_faction_with = PER
+								is_in_faction_with = FROM
 								is_in_faction_with = ROOT
 							}
 							NOT = {
@@ -8855,6 +8789,72 @@
 						}
 					}
 					ARB = {
+						restore_previous_government_type = yes
+					}
+				}
+				if = {
+					limit = {
+						MAK = {
+							OR = {
+								is_subject = no
+								is_subject_of = FROM
+							}
+							OR = {
+								is_in_faction = no
+								is_in_faction_with = FROM
+								is_in_faction_with = ROOT
+							}
+							NOT = {
+								is_subject_of = ROOT
+								has_war_with = ROOT
+								has_war_together_with = RUS
+							}
+						}
+					}
+					MAK = {
+						get_current_government_type = yes
+					}
+					PER = {
+						set_autonomy = {
+							target = MAK
+							autonomous_state = autonomy_integrated_puppet
+							freedom_level = 0.9
+						}
+					}
+					MAK = {
+						restore_previous_government_type = yes
+					}
+				}
+				if = {
+					limit = {
+						MRG = {
+							OR = {
+								is_subject = no
+								is_subject_of = FROM
+							}
+							OR = {
+								is_in_faction = no
+								is_in_faction_with = FROM
+								is_in_faction_with = ROOT
+							}
+							NOT = {
+								is_subject_of = ROOT
+								has_war_with = ROOT
+								has_war_together_with = RUS
+							}
+						}
+					}
+					MRG = {
+						get_current_government_type = yes
+					}
+					PER = {
+						set_autonomy = {
+							target = MRG
+							autonomous_state = autonomy_integrated_puppet
+							freedom_level = 0.9
+						}
+					}
+					MRG = {
 						restore_previous_government_type = yes
 					}
 				}
@@ -11621,6 +11621,34 @@
 			if = {
 				limit = {
 					tag = RUS
+					has_country_leader = {
+						character = RUS_nikolai_ii
+						ruling_only = yes
+					}
+					any_enemy_country = {
+						OR = {
+							is_major = yes
+							original_tag = RUS
+						}
+					}
+					RUS_nikolai_ii = {
+						NOT = {
+							has_character_flag = RUS_nicholas_romanov_dictator
+							has_character_flag = RUS_nicholas_romanov_democratic
+						}
+					}
+				}
+				RUS_nikolai_ii = {
+					set_portraits = {
+						civilian = {
+							large="gfx/leaders/RUS/RUS_nicholas_romanov_war.png"
+						}
+					}
+				}				
+			}
+			if = {
+				limit = {
+					tag = RUS
 					has_war_with = FRA
 					has_idea = free_trade
 					FRA = {
@@ -11885,13 +11913,19 @@
 			}
 			if = {
 				limit = {
+					has_dynamic_modifier = PER_foreign_influence_modifier
+				}
+				PER_calculate_foreign_influnce = yes
+			}
+			if = {
+				limit = {
 					is_great_war_ongoing = yes
 					NOT = {
 						has_country_flag = joined_great_war
 					}
 					FROM = {
 						OR = {
-							original_tag = GER
+							tag = GER
 							tag = ENT
 						}
 					}
@@ -12448,6 +12482,17 @@
 		effect = {
 			# unit limit calculations
 			country_event = ww1_political.4
+		}
+	}
+
+	on_weekly_PER = {
+		effect = {
+			every_country = {
+				limit = {
+					has_dynamic_modifier = PER_foreign_influence_modifier
+				}
+				PER_calculate_foreign_influnce = yes
+			}
 		}
 	}
 
