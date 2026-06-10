@@ -7906,7 +7906,9 @@ country_event = {
 	desc = ww1_austriahungary_war.44.d
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
-		has_idea = AUS_noticeable_food_shortages_idea
+		check_variable = {
+				AUS_intensity_of_food_shortages > 4
+			}
 	}
 	mean_time_to_happen = {
 		days = 30
