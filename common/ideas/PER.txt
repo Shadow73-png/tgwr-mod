@@ -711,6 +711,64 @@ ideas = {
 				trade_opinion_factor = 0.1
 			}
 		}
+		PER_idea_government_gendarmerie = {
+			allowed = { always = no }
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				NOT = {
+					any_enemy_country = {
+						has_country_flag = PER_defense_committee_flag
+					}
+				}
+			}
+			removal_cost = -1
+			picture = swedish_advisors
+			modifier = {
+				command_power_gain = 0.10
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+			}
+		}
+	}
+	industrial_concern = {
+		PER_anglo_persian_oil_company = {
+			allowed_civil_war = { always = yes }
+			allowed = {
+				original_tag = PER
+			}
+			removal_cost = -1
+			available = {
+				
+			}
+			research_bonus = {
+				industry = 0.1
+				synth_resources = 0.05
+			}
+			traits = { refinery_concern }
+			modifier = {
+				industrial_capacity_factory = -0.05
+				min_export = 0.1
+				local_resources_factor = -0.2
+			}
+		}
+	}
+	hidden_ideas = {
+		PER_idea_civil_war = {
+			allowed = { always = no }
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			available = {
+				has_civil_war = yes
+			}
+			modifier = {
+				surrender_limit = 1
+				max_surrender_limit_offset = 0.05
+			}
+		}
 		PER_anglo_persian_oil = {
 			picture = PER_anglo_iranian_oil_ns
 			allowed = { always = no }
@@ -793,70 +851,6 @@ ideas = {
 						remove_resource_rights = 1246
 					}
 				}
-			}
-			
-			modifier = {
-				local_resources_factor = -0.15
-				industrial_capacity_factory = -0.1
-				min_export = 0.2			
-			}
-		}
-		PER_idea_government_gendarmerie = {
-			allowed = { always = no }
-			allowed_civil_war = {
-				always = yes
-			}
-			available = {
-				NOT = {
-					any_enemy_country = {
-						has_country_flag = PER_defense_committee_flag
-					}
-				}
-			}
-			removal_cost = -1
-			picture = swedish_advisors
-			modifier = {
-				command_power_gain = 0.10
-				army_core_attack_factor = 0.05
-				army_core_defence_factor = 0.05
-			}
-		}
-	}
-	industrial_concern = {
-		PER_anglo_persian_oil_company = {
-			allowed_civil_war = { always = yes }
-			allowed = {
-				original_tag = PER
-			}
-			removal_cost = -1
-			available = {
-				
-			}
-			research_bonus = {
-				industry = 0.1
-				synth_resources = 0.05
-			}
-			traits = { refinery_concern }
-			modifier = {
-				industrial_capacity_factory = -0.05
-				min_export = 0.1
-				local_resources_factor = -0.2
-			}
-		}
-	}
-	hidden_ideas = {
-		PER_idea_civil_war = {
-			allowed = { always = no }
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
-			available = {
-				has_civil_war = yes
-			}
-			modifier = {
-				surrender_limit = 1
-				max_surrender_limit_offset = 0.05
 			}
 		}
 	}

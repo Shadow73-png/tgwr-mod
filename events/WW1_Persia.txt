@@ -951,6 +951,19 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_persia.13.a
+		hidden_effect = {
+			add_ideas = PER_anglo_persian_oil
+			every_subject_country = {
+				limit = {
+					OR = {
+						owns_state = 413
+						owns_state = 1246
+						owns_state = 412
+					}
+				}
+				add_ideas = PER_anglo_persian_oil
+			}
+		}
 		if = {
 			limit = {
 				OR = {
