@@ -13481,6 +13481,10 @@ ITA_communist_civil_war_decisions = {
 		visible = {
 			has_completed_focus = ITA_the_enemy_from_within
 			has_country_flag = ITA_socialist_italy_flag
+			has_country_flag = ITA_anti_socialist_resistance_flag
+			NOT = {
+				has_idea = ITA_anti_socialist_resistance
+			}
 		}
 		modifier = {
 			political_power_cost = 0.1
@@ -13488,17 +13492,6 @@ ITA_communist_civil_war_decisions = {
 		}
 		remove_effect = {
 			if = {
-				limit = {
-					has_idea = ITA_anti_socialist_resistance
-				}
-				effect_tooltip = {
-					swap_ideas = {
-						remove_idea = ITA_anti_socialist_resistance2
-						add_idea = ITA_anti_socialist_resistance
-					}
-				}
-			}
-			else_if = {
 				limit = {
 					has_idea = ITA_anti_socialist_resistance2
 				}
@@ -13555,6 +13548,7 @@ ITA_communist_civil_war_decisions = {
 		visible = {
 			has_completed_focus = ITA_the_enemy_from_within
 			has_country_flag = ITA_socialist_italy_flag
+			has_country_flag = ITA_anti_socialist_resistance_flag
 		}
 		modifier = {
 			political_power_cost = 0.1
