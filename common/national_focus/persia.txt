@@ -139,7 +139,7 @@
 		}
 	
 		completion_reward = {
-			add_ideas = PER_idea_government_gendarmerie
+			#add_ideas = PER_idea_government_gendarmerie
 			division_template = {
 				name = "Žāndārmirī-ye Daulatī"
 				is_locked = yes
@@ -321,9 +321,15 @@
 		y = 1
 		available = {
 			has_government = democratic
-			PER_william_morgan_shuster = {
-				is_hired_as_advisor = yes
+			if = {
+				limit = { has_character = PER_william_morgan_shuster }
+				PER_william_morgan_shuster = {
+					is_hired_as_advisor = yes
+				}
 			}
+			else = {
+				has_character = PER_william_morgan_shuster
+			}		
 		}
 	
 		completion_reward = {

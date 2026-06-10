@@ -166,19 +166,27 @@ country_lock_all_division_template = yes
 	add_political_power = 1198
 	add_command_power = 100
 
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = yes
+	}
+
 	PER_iskandar_khan_setkhanian = { unit_leader_event = { id = ww1_generic.39 days = 566 random_days = 150 }} #retired in 1916
 
 	#generic focuses
-	complete_national_focus = state_of_the_country_army
-	complete_national_focus = modernize_equipment
-	complete_national_focus = capital_manoeuvers
-	complete_national_focus = naval_experience
-	complete_national_focus = naval_expansion
-	complete_national_focus = early_industrialization
-	complete_national_focus = new_roads
-	complete_national_focus = develop_capital
-	complete_national_focus = capital_country_arsenal
-	complete_national_focus = open_the_political_sphere
+	unlock_national_focus = PER_young_peoples_cabinet #1910.6.26 (irl 1910.6.25)
+	unlock_national_focus = PER_disarm_revolutionaries #1910.8.7 (irl 1910.8.7)
+	complete_national_focus = PER_ask_for_loans #1910.10.16
+	complete_national_focus = PER_create_the_government_gendarmerie #1910.12.25 (irl 1910.12)
+	unlock_national_focus = PER_elect_new_regent #1911.3.5 (irl 1911.3.12)
+	complete_national_focus = PER_subdue_the_press #1911.4.9
+	unlock_national_focus = PER_invite_american_advisors #1911.5.21 (irl 1910.5)
+	complete_national_focus = PER_stronger_cabinet #1911.6.25 (irl 1911.6.26)
+	complete_national_focus = PER_invite_swedish_officers #1911.8.20 (irl 1910.8)
+	unlock_national_focus = PER_empower_the_treasurer_general
+	unlock_national_focus = PER_treasury_gendarmerie
+	unlock_national_focus = PER_regency_dictatorship
+	complete_national_focus = PER_restore_maku_maliat_payments #(irl 1912)complete_national_focus = modernize_equipment
 
 	set_country_flag = PER_ahmad_shah_qajar_mature
 	#set_country_flag = persian_gendarmerie_formed
@@ -192,6 +200,15 @@ country_lock_all_division_template = yes
 		}
 	}
 
+	PER_mirza_hasan_ashtiani = {
+		promote_character = social_democracy
+	}
+	set_party_name = {
+		ideology = democratic
+		long_name = PER_communism_party
+		name = PER_communism_party
+	}
+
 	add_opinion_modifier = {
 		target = RUS
 		modifier = small_decrease
@@ -201,9 +218,9 @@ country_lock_all_division_template = yes
 		PER_ali_reza_khan_regent
 	}
 
-	add_ideas = {
-		PER_idea_government_gendarmerie
-	}
+	# add_ideas = {
+	# 	PER_idea_government_gendarmerie
+	# }
 	
 	give_resource_rights = {
 		receiver = ENG
