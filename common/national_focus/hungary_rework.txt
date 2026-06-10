@@ -7360,6 +7360,7 @@ focus_tree = {
 		available = {
 			has_completed_focus = HUN_hazai_army_reform
 			has_war_with_major = yes
+			has_character = HUN_samu_hazai
 		}
 		prerequisite = {
 			focus = HUN_treuga_dei
@@ -8002,7 +8003,16 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_restrict_meat_consumption
 		}
-		completion_reward = { }
+		completion_reward = { 
+			if = {
+				limit = { 
+					has_country_leader = {
+						character = HUN_istvan_tisza
+					}
+				}
+				country_event = ww1_hungary.111
+			}
+		}
 	 }
 	 #Secure the East
 	 focus = {
