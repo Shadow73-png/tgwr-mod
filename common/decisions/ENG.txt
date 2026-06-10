@@ -1077,8 +1077,10 @@ operations = {
 		activation = {
 			has_capitulated = no
 			is_subject = no
+			has_dynamic_modifier = PER_influence_in_persia_modifier
 			RUS = {
 				is_in_faction_with = ROOT
+				has_dynamic_modifier = PER_influence_in_persia_modifier
 				NOT = {
 					has_war_with = PER
 					tag = SOV
@@ -1098,11 +1100,9 @@ operations = {
 					is_in_faction_with = ROOT
 					is_in_faction = no
 				}
-				has_idea = PER_idea_foreign_reliance
+				has_dynamic_modifier = PER_foreign_influence_modifier
 			}
-			any_state = {
-				has_dynamic_modifier = { modifier = per_british_sphere }
-			}
+			check_variable = { ENG.PER_foreign_influence > 0.1 }
 			OR = {
 				has_war_with = TUR
 				PER = { has_war_with = TUR }
@@ -1117,7 +1117,7 @@ operations = {
 				has_global_flag = great_war_ends
 				PER = {
 					NOT = {
-						has_idea = PER_idea_foreign_reliance
+						has_dynamic_modifier = PER_foreign_influence_modifier
 					}
 				}
 				NOT = {
