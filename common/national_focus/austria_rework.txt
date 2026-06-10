@@ -8514,9 +8514,7 @@ focus_tree = {
 		relative_position_id = AUS_der_grobe_kriegsredux
 		available = {
 			has_war_with_major = yes
-			OR = {
-				has_completed_focus = AUS_emperors_right_hand_man
-			}
+		
 		}
 		prerequisite = {
 			focus = AUS_der_grobe_kriegsredux
@@ -8545,8 +8543,8 @@ focus_tree = {
 		relative_position_id = AUS_thousand_year_reich
 		available = {
 			has_war_with_major = yes
-			OR = {
-				has_completed_focus = AUS_emperors_right_hand_man
+			NOT = {
+				has_dynamic_modifier = AUS_imperial_council
 			}
 		}
 		prerequisite = {
@@ -8593,6 +8591,7 @@ focus_tree = {
 		relative_position_id = AUS_suspend_civil_liberties
 		available = {
 			has_war_with_major = yes
+			has_dynamic_modifier = AUS_imperial_council
 		}
 		prerequisite = {
 			focus = AUS_thousand_year_reich
@@ -8635,13 +8634,17 @@ focus_tree = {
 			focus = AUS_uphold_civilian_rights
 		}
 		completion_reward = {
+			country_event = ww1_austriahungary_war.77
+			remove_dynamic_modifier = {
+				modifier = AUS_imperial_council
+			}
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
-				AUS_aps_off_war_stab = 0.1
+				AUS_aps_off_war_stab = 0.05
 				tooltip = offensive_war_stability_factor_tt
 			}
 			add_to_variable = {
-				AUS_aps_def_war_stab = 0.1
+				AUS_aps_def_war_stab = 0.05
 				tooltip = defensive_war_stability_factor_tt
 			}
 		}
