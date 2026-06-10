@@ -3172,12 +3172,82 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = ITA_arise_workers_of_italy
+		icon = GFX_focus_CHL_union_of_hispanic_republics
+		cost = 0
+		x = 52
+		y = 0
+		relative_position_id = ITA_seek_emergency_powers
+		offset = {
+			x = -97
+			y = 0
+			trigger = {
+				has_country_flag = ITA_socialist_italy_flag
+			}
+		}
+		allow_branch = {
+			NOT = {
+				has_completed_focus = ITA_fight_the_revolution
+			}
+		}
+		mutually_exclusive = {
+			focus = ITA_fight_the_revolution
+		}
+		available = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = ITA_above_50_support_at_war
+					has_war = yes
+					communism > 50
+				}
+				custom_trigger_tooltip = {
+					tooltip = ITA_red_week_require
+					has_global_flag = ITA_red_week
+				}
+				custom_trigger_tooltip = {
+					tooltip = ITA_attempted_to_ban_psi
+					has_global_flag = ITA_criminalized_psi
+				}
+			}
+			hidden_trigger = {
+				always = no
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = ITA_only_lose_chains
+			set_variable = {
+				ITA_autonomists_strength = 0
+			}
+			set_variable = {
+				ITA_centralists_strength = 0
+			}
+			hidden_effect = {
+				country_event = {
+					id = ww1_red_italy.6
+					days = 20
+				}
+				country_event = {
+					id = ww1_red_italy.7
+					days = 40
+				}
+			}
+			mark_focus_tree_layout_dirty = yes
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	focus = {
 		id = ITA_fight_the_revolution
 		icon = GFX_focus_communist_purges
 		cost = 0
-		x = 31
+		x = -21
 		y = 0
-		relative_position_id = ITA_seek_emergency_powers
+		relative_position_id = ITA_arise_workers_of_italy
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = how_to_fight_rev
@@ -3985,76 +4055,6 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-	focus = {
-		id = ITA_arise_workers_of_italy
-		icon = GFX_focus_CHL_union_of_hispanic_republics
-		cost = 0
-		x = 52
-		y = 0
-		relative_position_id = ITA_seek_emergency_powers
-		offset = {
-			x = -108
-			y = 0
-			trigger = {
-				has_country_flag = ITA_socialist_italy_flag
-			}
-		}
-		allow_branch = {
-			NOT = {
-				has_completed_focus = ITA_fight_the_revolution
-			}
-		}
-		mutually_exclusive = {
-			focus = ITA_fight_the_revolution
-		}
-		available = {
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = ITA_above_50_support_at_war
-					has_war = yes
-					communism > 50
-				}
-				custom_trigger_tooltip = {
-					tooltip = ITA_red_week_require
-					has_global_flag = ITA_red_week
-				}
-				custom_trigger_tooltip = {
-					tooltip = ITA_attempted_to_ban_psi
-					has_global_flag = ITA_criminalized_psi
-				}
-			}
-			hidden_trigger = {
-				always = no
-			}
-		}
-		completion_reward = {
-			custom_effect_tooltip = ITA_only_lose_chains
-			set_variable = {
-				ITA_autonomists_strength = 0
-			}
-			set_variable = {
-				ITA_centralists_strength = 0
-			}
-			hidden_effect = {
-				country_event = {
-					id = ww1_red_italy.6
-					days = 20
-				}
-				country_event = {
-					id = ww1_red_italy.7
-					days = 40
-				}
-			}
-			mark_focus_tree_layout_dirty = yes
-		}
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
