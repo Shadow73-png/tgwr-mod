@@ -8540,10 +8540,101 @@ country_event = {
 			ideology = communism
 			popularity = 0.02
 		}
+		add_stability = -0.05
 		add_war_support = -0.05
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary_war.73
+				days = 10
+			}
+		}
 	}
 }
-
+country_event = {
+	id = ww1_austriahungary_war.73
+	title = ww1_austriahungary_war.73.t
+	desc = ww1_austriahungary_war.73.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		tag = AUS
+		has_war_with_major = yes
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.73.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.02
+		}
+		custom_effect_tooltip = AUS_spado_help_strikes
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary_war.74
+				days = 7
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_austriahungary_war.74
+	title = ww1_austriahungary_war.74.t
+	desc = ww1_austriahungary_war.73.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		tag = AUS
+		has_war_with_major = yes
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.74.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+		add_ideas = strikes_1
+		add_stability = -0.05
+			hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary_war.75
+				days = 7
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_austriahungary_war.74
+	title = ww1_austriahungary_war.74.t
+	desc = ww1_austriahungary_war.73.d
+	#picture = GFX_report_event_generic_read_write
+	trigger = {
+		tag = AUS
+		has_war_with_major = yes
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_war.74.a
+			custom_effect_tooltip = AUS_modify_eco.tt
+		add_to_variable = {
+			AUS_EP_factory_output = -0.05
+			tooltip = industrial_capacity_factory_tt
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+		remove_ideas = strikes_1
+		add_stability = 0.04
+			hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary_war.75
+				days = 7
+			}
+		}
+	}
+}
 #war time search end
 #collapse events
 add_namespace = ww1_austriahungary_collapse
