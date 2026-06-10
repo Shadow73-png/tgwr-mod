@@ -566,6 +566,10 @@ PER_guarded_domains = {
 			has_PER_constitutionalism = yes
 			has_completed_focus = PER_create_the_government_gendarmerie
 			has_template = "Žāndārmirī-ye Daulatī"
+			any_owned_state = {
+				is_controlled_by = ROOT
+				is_core_of = ROOT
+			}
 		}
 
 		fire_only_once = no
@@ -592,9 +596,10 @@ PER_guarded_domains = {
 					division_cap = PER_gendarmerie_cap
 				}
 			}
-			random_owned_state = {
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
 				create_unit = {
-					division = "name = \"Žāndārmirī-ye Daulatī\" division_template = \"Žāndārmirī-ye Daulatī\" start_experience_factor = 0.2 start_equipment_factor = 1 force_equipment_variants = { infantry_equipment_n1 = { owner = \"PER\" }}" 
+					division = "name = \"Žāndārmirī-ye Daulatī\" division_template = \"Žāndārmirī-ye Daulatī\" start_experience_factor = 0.2 start_equipment_factor = 1 force_equipment_variants = { infantry_equipment_1 = { owner = \"ENG\" }}" 
 					owner = ROOT
 					count = 1
 				}
