@@ -352,10 +352,20 @@
 		available = {
 			OR = {
 				has_idea = PER_ahmad_shah_qajar_young
-				PER_ahmad_shah_qajar = {
-					is_country_leader = yes
-					has_trait = underage_monarch
+				if = {
+					limit = {
+						has_character = PER_ahmad_shah_qajar
+					}
+					PER_ahmad_shah_qajar = {
+						is_country_leader = yes
+						has_trait = underage_monarch
+					}
 				}
+				else = {
+					has_country_leader = {
+						character = PER_ahmad_shah_qajar
+					}
+				}			
 			}		
 		}
 		bypass = {
