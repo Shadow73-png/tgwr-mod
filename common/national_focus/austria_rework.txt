@@ -7280,14 +7280,6 @@ focus_tree = {
 				decision = AUS_foritfy_bozen
 				show_effect_tooltip = yes
 			}
-			if = {
-				limit = {
-					has_country_flag = AUS_schemua_chief
-				}
-				add_to_variable = {
-					AUS_army_focuses_taken = 1
-				}
-			}
 			hidden_effect = {
 				if = {
 					limit = {
@@ -7535,7 +7527,7 @@ focus_tree = {
 		x = -1
 		y = 3
 		prerequisite = {
-			focus = AUS_fix_supply_fr
+			focus = AUS_kill_conrad
 		}
 		prerequisite = {
 			focus = AUS_debloat_the_military_apparatus
@@ -7597,7 +7589,7 @@ focus_tree = {
 		id = AUS_kill_conrad
 		icon = GFX_focus_ban_footbinding
 		cost = 4
-		x = 1
+		x = 3
 		y = 1
 		prerequisite = {
 			focus = AUS_schemua_prevails
@@ -7628,7 +7620,8 @@ focus_tree = {
 			focus = AUS_debloat_the_military_apparatus
 		}
 		prerequisite = {
-			focus = AUS_kill_conrad
+			focus = AUS_fix_supply_fr
+			focus = AUS_upgrade_equipment
 		}
 		relative_position_id = AUS_debloat_the_military_apparatus
 		available = {
@@ -7643,7 +7636,7 @@ focus_tree = {
 		id = AUS_fix_supply_fr
 		icon = GFX_focus_SWE_varnplikt
 		cost = 4
-		x = 3
+		x = 1
 		y = 1
 		prerequisite = {
 			focus = AUS_schemua_prevails
@@ -7889,6 +7882,7 @@ focus_tree = {
 			}
 			#decision about demanding more research on cavalry and such
 			#^fucking dumb
+			#^^event how potiorek kills daggie with a horse
 		}
 		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
@@ -8297,7 +8291,7 @@ focus_tree = {
 	focus = {
 		id = AUS_fund_burstyns_motorgeschutz
 		icon = GFX_focus_AUH_Burstyn_Motorgeschutz
-		cost = 4
+		cost = 3
 		x = -2
 		y = 2
 		prerequisite = {
