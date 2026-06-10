@@ -4638,7 +4638,7 @@ focus_tree = {
 			focus = RUS_support_mohammed_ali_shah
 		}
 		mutually_exclusive = {
-			focus = RUS_invasion_of_persia
+			focus = RUS_special_combat_operation
 		}
 		available = {
 			PER = {
@@ -4663,7 +4663,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = RUS_invasion_of_persia
+		id = RUS_special_combat_operation
 		icon = GFX_focus_generic_attack_iran
 		cost = 5
 		prerequisite = {
@@ -4680,14 +4680,30 @@ focus_tree = {
 					}
 				}
 			}
+			NOT = {
+				has_war_with = PER
+			}
+			has_active_mission = RUS_occupation_of_nothern_persia_timeout
 		}
 		x = 1
 		y = 2
 		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
-		completion_reward = {
+		select_effect = {
+			add_days_mission_timeout = { mission = RUS_occupation_of_nothern_persia_timeout days = 71 }
 			PER = {
-				country_event = ww1_persia_rus_intervention.2	
+				country_event = ww1_per_rus_strangling.1
+			}
+		}
+		completion_reward = {
+			add_named_threat = {
+				threat = 2
+				name = RUS_ultimatum_to_persia
+			}
+			PER = {
+				country_event = ww1_per_rus_strangling.7
+				custom_effect_tooltip = which_provide_tt
+				event_option_tooltip = ww1_per_rus_strangling.7.a
 			}
 		}
 		ai_will_do = {
