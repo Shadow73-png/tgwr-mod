@@ -708,12 +708,11 @@ characters={
 			logistics_skill = 3
 			visible = {
 				OR = {
-					has_global_flag = great_war
-					has_war_with = RUS
-					date > 1920.9.1
 					has_country_flag = PER_defense_committee_flag
 					has_country_flag = PER_khorasan_flag
-					has_civil_war = yes
+					any_country_division = {
+						division_has_majority_template = militia
+					}
 				}
 			}
 		}
