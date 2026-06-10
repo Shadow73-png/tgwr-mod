@@ -4564,23 +4564,21 @@ RUS_state_council_gui_decision_category = {
 						set_country_flag = monarchist_puppet
 					}				
 					ROOT = {
-						11 = {
-							remove_dynamic_modifier = {
-								modifier = RUS_tsardom_of_poland
-							}
-						}
-						97 = {
-							add_dynamic_modifier = {
-								modifier = RUS_tsardom_of_poland
-							}
-						}
 						every_owned_state = {
 							limit = {
 								has_dynamic_modifier = {
 									modifier = RUS_tsardom_of_poland
 								}
 							}
-							set_state_owner_to = POL
+							if = {
+								limit = {
+									is_controlled_by = ROOT
+								}
+								transfer_state_to = POL
+							}
+							else = {
+								set_state_owner_to = POL
+							}
 							remove_core_of = RUS
 							remove_dynamic_modifier = {
 								modifier = RUS_tsardom_of_poland
