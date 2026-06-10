@@ -149,6 +149,251 @@ AUH_great_war_bullshit = {
 			base = 10
 		}
 	}
+	AUS_tyr_mission = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 10
+		days_mission_timeout = 60
+		available = {
+			has_war = no
+		}
+		activation = {
+			has_completed_focus = AUS_thousand_year_reich
+		}
+		cancel_trigger = {
+			has_war = no
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					has_country_flag = AUS_tyr_czech
+				}
+				add_to_variable = {
+					AUS_czechoslovak_loyalty = 5
+					tooltip = AUS_loyalty_czechoslovakia_tt
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = AUS_tyr_pole
+				}
+				add_to_variable = {
+					AUS_pole_loyalty = 5
+					tooltip = AUS_loyalty_pole_tt
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = AUS_tyr_croat
+				}
+				add_to_variable = {
+					AUS_croat_loyalty = 5
+					tooltip = AUS_loyalty_croatian_tt
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = AUS_tyr_serb
+				}
+				add_to_variable = {
+					AUS_serb_loyalty = 5
+					tooltip = AUS_loyalty_serb_tt
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = AUS_tyr_ruthenian
+				}
+				add_to_variable = {
+					AUS_ruthenian_loyalty = 5
+					tooltip = AUS_loyalty_ruthenians_tt
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = AUS_tyr_romanian
+				}
+				add_to_variable = {
+					AUS_romanian_loyalty = 5
+					tooltip = AUS_loyalty_romanians_tt
+				}
+			}
+		}
+		complete_effect = {
+		}
+		fire_only_once = yes
+		is_good = no
+	}
+	AUS_tyr_mission_czech = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = 0
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_thousand_year_reich
+			NOT = {
+				has_country_flag = AUS_tyr_czech
+			}
+		}
+		available = {
+			has_war = yes
+		}
+		ai_will_do = {
+			base = 1
+		}
+		remove_effect = {
+			clr_country_flag = AUS_tyr_pole
+			clr_country_flag = AUS_tyr_ruthenian
+			clr_country_flag = AUS_tyr_serb
+			clr_country_flag = AUS_tyr_croat
+			clr_country_flag = AUS_tyr_romanian
+			set_country_flag = AUS_tyr_czech
+		}
+	}
+	AUS_tyr_mission_pole = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = 0
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_thousand_year_reich
+			NOT = {
+				has_country_flag = AUS_tyr_pole
+			}
+		}
+		available = {
+			has_war = yes
+		}
+		ai_will_do = {
+			base = 1
+		}
+		remove_effect = {
+			clr_country_flag = AUS_tyr_czech
+			clr_country_flag = AUS_tyr_ruthenian
+			clr_country_flag = AUS_tyr_serb
+			clr_country_flag = AUS_tyr_croat
+			clr_country_flag = AUS_tyr_romanian
+			set_country_flag = AUS_tyr_pole
+		}
+	}
+	AUS_tyr_mission_ruthenian = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = 0
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_thousand_year_reich
+			NOT = {
+				has_country_flag = AUS_tyr_ruthenian
+			}
+		}
+		available = {
+			has_war = yes
+		}
+		ai_will_do = {
+			base = 1
+		}
+		remove_effect = {
+			clr_country_flag = AUS_tyr_czech
+			clr_country_flag = AUS_tyr_pole
+			clr_country_flag = AUS_tyr_serb
+			clr_country_flag = AUS_tyr_croat
+			clr_country_flag = AUS_tyr_romanian
+			set_country_flag = AUS_tyr_ruthenian
+		}
+	}
+	AUS_tyr_mission_romanian = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = 0
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_thousand_year_reich
+			NOT = {
+				has_country_flag = AUS_tyr_romanian
+			}
+		}
+		available = {
+			has_war = yes
+		}
+		ai_will_do = {
+			base = 1
+		}
+		remove_effect = {
+			clr_country_flag = AUS_tyr_czech
+			clr_country_flag = AUS_tyr_pole
+			clr_country_flag = AUS_tyr_ruthenian
+			clr_country_flag = AUS_tyr_serb
+			clr_country_flag = AUS_tyr_croat
+			set_country_flag = AUS_tyr_romanian
+		}
+	}
+	AUS_tyr_mission_serb = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = 0
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_thousand_year_reich
+			NOT = {
+				has_country_flag = AUS_tyr_serb
+			}
+		}
+		available = {
+			has_war = yes
+		}
+		ai_will_do = {
+			base = 1
+		}
+		remove_effect = {
+			clr_country_flag = AUS_tyr_czech
+			clr_country_flag = AUS_tyr_pole
+			clr_country_flag = AUS_tyr_ruthenian
+			clr_country_flag = AUS_tyr_croat
+			clr_country_flag = AUS_tyr_romanian
+			set_country_flag = AUS_tyr_serb
+		}
+	}
+	AUS_tyr_mission_croat = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = 0
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_thousand_year_reich
+			NOT = {
+				has_country_flag = AUS_tyr_croat
+			}
+		}
+		available = {
+			has_war = yes
+		}
+		ai_will_do = {
+			base = 1
+		}
+		remove_effect = {
+			clr_country_flag = AUS_tyr_czech
+			clr_country_flag = AUS_tyr_pole
+			clr_country_flag = AUS_tyr_ruthenian
+			clr_country_flag = AUS_tyr_serb
+			clr_country_flag = AUS_tyr_romanian
+			set_country_flag = AUS_tyr_croat
+		}
+	}
 	AUS_involve_military_policing = {
 		icon = GFX_decision_generic_motorized
 		cost = 25
@@ -249,192 +494,6 @@ AUH_great_war_bullshit = {
 				AUS_romanian_loyalty = -5
 				tooltip = AUS_loyalty_romanians_tt
 			}
-		}
-	}
-	AUS_crackdown_on_bohemian_groups = {
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-		}
-		available = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-			NOT = {
-				has_country_flag = AUS_crackdown_in_progress
-			}
-		}
-		days_remove = 30
-		cost = 20
-		complete_effect = {
-			set_country_flag = AUS_crackdown_in_progress
-			add_to_variable = {
-				AUS_czechoslovak_loyalty = 5
-				tooltip = AUS_loyalty_czechoslovakia_tt
-			}
-			AUS_update_state_of_realm = yes
-		}
-		remove_effect = {
-			clr_country_flag = AUS_crackdown_in_progress
-		}
-		ai_will_do = {
-			base = 10
-		}
-	}
-	AUS_crackdown_on_polish_groups = {
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-		}
-		available = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-			NOT = {
-				has_country_flag = AUS_crackdown_in_progress
-			}
-		}
-		days_remove = 30
-		cost = 20
-		complete_effect = {
-			set_country_flag = AUS_crackdown_in_progress
-			add_to_variable = {
-				AUS_pole_loyalty = 5
-				tooltip = AUS_loyalty_pole_tt
-			}
-			AUS_update_state_of_realm = yes
-		}
-		remove_effect = {
-			clr_country_flag = AUS_crackdown_in_progress
-		}
-		ai_will_do = {
-			base = 10
-		}
-	}
-	AUS_crackdown_on_ruthenian_groups = {
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-		}
-		available = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-			NOT = {
-				has_country_flag = AUS_crackdown_in_progress
-			}
-		}
-		days_remove = 30
-		cost = 20
-		complete_effect = {
-			set_country_flag = AUS_crackdown_in_progress
-			add_to_variable = {
-				AUS_ruthenian_loyalty = 5
-				tooltip = AUS_loyalty_ruthenians_tt
-			}
-			AUS_update_state_of_realm = yes
-		}
-		remove_effect = {
-			clr_country_flag = AUS_crackdown_in_progress
-		}
-		ai_will_do = {
-			base = 10
-		}
-	}
-	AUS_crackdown_on_serbian_groups = {
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-		}
-		available = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-			NOT = {
-				has_country_flag = AUS_crackdown_in_progress
-			}
-		}
-		days_remove = 30
-		cost = 20
-		complete_effect = {
-			set_country_flag = AUS_crackdown_in_progress
-			add_to_variable = {
-				AUS_serb_loyalty = 5
-				tooltip = AUS_loyalty_serb_tt
-			}
-			AUS_update_state_of_realm = yes
-		}
-		remove_effect = {
-			clr_country_flag = AUS_crackdown_in_progress
-		}
-		ai_will_do = {
-			base = 10
-		}
-	}
-	AUS_crackdown_on_croatian_groups = {
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-		}
-		available = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-			NOT = {
-				has_country_flag = AUS_crackdown_in_progress
-			}
-		}
-		days_remove = 30
-		cost = 20
-		complete_effect = {
-			set_country_flag = AUS_crackdown_in_progress
-			add_to_variable = {
-				AUS_croat_loyalty = 5
-				tooltip = AUS_loyalty_croatian_tt
-			}
-			AUS_update_state_of_realm = yes
-		}
-		remove_effect = {
-			clr_country_flag = AUS_crackdown_in_progress
-		}
-		ai_will_do = {
-			base = 10
-		}
-	}
-	AUS_crackdown_on_romanian_groups = {
-		icon = GFX_decision_generic_ignite_civil_war
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-		}
-		available = {
-			has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-			NOT = {
-				has_country_flag = AUS_crackdown_in_progress
-			}
-		}
-		days_remove = 30
-		cost = 20
-		complete_effect = {
-			set_country_flag = AUS_crackdown_in_progress
-			add_to_variable = {
-				AUS_romanian_loyalty = 5
-				tooltip = AUS_loyalty_romanians_tt
-			}
-			AUS_update_state_of_realm = yes
-		}
-		remove_effect = {
-			clr_country_flag = AUS_crackdown_in_progress
-		}
-		ai_will_do = {
-			base = 10
 		}
 	}
 	AUS_aggressive_war_plan_conrad = {
