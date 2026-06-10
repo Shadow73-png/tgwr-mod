@@ -7486,16 +7486,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			custom_effect_tooltip = AUS_conrad_will_not_return.tt
-			custom_effect_tooltip = AUS_modify_army.tt
-			add_to_variable = {
-				AUS_mea_planning = 0.1
-				tooltip = planning_speed_factor_tt
-			}
-			add_to_variable = {
-				AUS_mea_org_regain = 0.05
-				tooltip = army_org_regain_tt
-			}
 		}
 		ai_will_do = {
 			base = 1
@@ -7670,18 +7660,19 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				name = AUS_eugen_tactics
+				category = land_doctrine
+			}
 			custom_effect_tooltip = AUS_modify_army.tt
 			add_to_variable = {
-				AUS_mea_infantry_attack = 0.05
-				tooltip = army_infantry_attack_factor_tt
-			}
-			add_to_variable = {
-				AUS_mea_infantry_defense = 0.05
-				tooltip = army_infantry_defence_factor_tt
+				AUS_mea_army_xp = 0.05
+				tooltip = experience_gain_army_factor_tt
 			}
 			custom_effect_tooltip = empty_space_tt
 			unlock_decision_tooltip = {
-				decision = AUS_expand_army_recruitment
+				decision = AUS_optimize_army_finances
 				show_effect_tooltip = yes
 			}
 			custom_effect_tooltip = empty_space_tt
@@ -8024,10 +8015,9 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			custom_effect_tooltip = AUS_modify_army.tt
-			add_to_variable = {
-				AUS_mea_planning = 0.1
-				tooltip = planning_speed_factor_tt
+			add_timed_idea = {
+				idea = AUS_debolating_the_military_apparatus
+				days = 270
 			}
 		}
 		ai_will_do = {
