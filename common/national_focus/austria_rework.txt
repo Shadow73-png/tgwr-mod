@@ -7441,6 +7441,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			add_war_support = 0.15
 		}
 		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
@@ -8514,9 +8515,7 @@ focus_tree = {
 		relative_position_id = AUS_der_grobe_kriegsredux
 		available = {
 			has_war_with_major = yes
-			OR = {
-				has_completed_focus = AUS_emperors_right_hand_man
-			}
+		
 		}
 		prerequisite = {
 			focus = AUS_der_grobe_kriegsredux
@@ -8545,8 +8544,8 @@ focus_tree = {
 		relative_position_id = AUS_thousand_year_reich
 		available = {
 			has_war_with_major = yes
-			OR = {
-				has_completed_focus = AUS_emperors_right_hand_man
+			NOT = {
+				has_dynamic_modifier = AUS_imperial_council
 			}
 		}
 		prerequisite = {
@@ -8593,6 +8592,7 @@ focus_tree = {
 		relative_position_id = AUS_suspend_civil_liberties
 		available = {
 			has_war_with_major = yes
+			has_dynamic_modifier = AUS_imperial_council
 		}
 		prerequisite = {
 			focus = AUS_thousand_year_reich
@@ -8635,13 +8635,17 @@ focus_tree = {
 			focus = AUS_uphold_civilian_rights
 		}
 		completion_reward = {
+			country_event = ww1_austriahungary_war.77
+			remove_dynamic_modifier = {
+				modifier = AUS_imperial_council
+			}
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
-				AUS_aps_off_war_stab = 0.1
+				AUS_aps_off_war_stab = 0.05
 				tooltip = offensive_war_stability_factor_tt
 			}
 			add_to_variable = {
-				AUS_aps_def_war_stab = 0.1
+				AUS_aps_def_war_stab = 0.05
 				tooltip = defensive_war_stability_factor_tt
 			}
 		}
@@ -8653,7 +8657,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_war_administration_committe
-		icon = GFX_generic_media_controls
+		icon = GFX_focus_ARG_march_to_la_casa_rosada
 		cost = 4
 		x = 0
 		y = 2
@@ -8666,6 +8670,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = AUS_auth_press_censorship
+				custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_ep_mob_speed = 0.05
+				tooltip = mobilization_speed_tt
+			}
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -8716,6 +8729,7 @@ focus_tree = {
 			focus = AUS_soft_authoritarianism
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_realm_ws_less_minorities2
 			unlock_decision_tooltip = {
 				decision = AUS_seize_army_equipment
 				show_effect_tooltip = yes
@@ -8778,6 +8792,42 @@ focus_tree = {
 			focus = AUS_constrain_the_military
 		}
 		completion_reward = {
+			country_event = ww1_austriahungary_war.78
+			add_war_support = 0.05
+				custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_pp_gain = 0.05
+				tooltip = political_power_factor_tt
+			}
+			add_to_variable = {
+				AUS_aps_off_war_stab = 0.025
+				tooltip = offensive_war_stability_factor_tt
+			}
+			add_to_variable = {
+				AUS_aps_def_war_stab = 0.025
+				tooltip = defensive_war_stability_factor_tt
+			}
+				custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_ep_mob_speed = 0.05
+				tooltip = mobilization_speed_tt
+			}
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+				add_to_variable = {
+				AUS_EP_factory_output = 0.03
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				AUS_EP_prod_eff_cap = 0.03
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_prod_eff_growth = 0.03
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -8863,7 +8913,7 @@ focus_tree = {
 			focus = AUS_suspend_civil_liberties
 		}
 		completion_reward = {
-			custom_effect_tooltip = AUS_the_military_own_agenda
+			custom_effect_tooltip = AUS_realm_ws_less_minorities
 			add_to_variable = {
 				AUS_ruthenian_loyalty = -5
 				tooltip = AUS_loyalty_ruthenians_tt
@@ -8903,7 +8953,7 @@ focus_tree = {
 				tooltip = mobilization_speed_tt
 			}
 			add_to_variable = {
-				AUS_tyr_loyalty_amount = -1
+				AUS_tyr_loyalty_amount = -2
 			}
 			custom_effect_tooltip = AUS_the_military_own_agend2
 		}
