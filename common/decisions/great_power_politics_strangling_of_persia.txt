@@ -224,6 +224,14 @@ TGWR_great_power_politics = {
 			NOT = {
 				has_war_with = PER
 			}
+			PER = {	
+				check_variable = {
+					var = PER.PER_total_independence
+					value = 0.01
+					compare = greater_than_or_equals
+					tooltip = has_domestic_independence_tt
+				}
+			}
 		}
 
 		fire_only_once = no
@@ -692,6 +700,14 @@ TGWR_great_power_politics = {
 				value = 0.1
 				compare = less_than
 				tooltip = TUR_has_influence_tt_NOT
+			}
+			PER = {	
+				check_variable = {
+					var = PER.PER_total_independence
+					value = 0.02
+					compare = greater_than_or_equals
+					tooltip = has_domestic_independence_tt
+				}
 			}
 		}
 
