@@ -2754,7 +2754,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_new_tariffs
-		icon = GFX_focus_PER_stage_mass_protests
+		icon = GFX_goal_generic_defence
 		cost = 4
 		x = 2
 		y = 0
@@ -2767,9 +2767,32 @@ focus_tree = {
 			has_idea = AUH_blocked_budgets
 		}
 		completion_reward = {
-			add_stability = -0.1
-			add_political_power = -50
-			remove_ideas = AUH_blocked_budgets
+				add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			add_to_variable = {
+				AUS_ruthenian_loyalty = 3
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_pole_loyalty = 3
+				tooltip = AUS_loyalty_pole_tt
+			}
+			add_to_variable = {
+				AUS_romanian_loyalty = 3
+				tooltip = AUS_loyalty_romanians_tt
+			}
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_stab = 0.075
+				tooltip = stability_factor_tt
+			}
+			AUS_update_state_of_realm = yes
 		}
 		ai_will_do = {
 			base = 1
