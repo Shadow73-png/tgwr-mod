@@ -187,6 +187,12 @@ PER_guarded_domains = {
 					PER.PER_recruited_cossacks < PER.PER_cossack_cap
 				}
 			}
+			check_variable = {
+				var = PER.PER_total_independence
+				value = 0.01
+				compare = greater_than_or_equals
+				tooltip = has_domestic_independence_tt
+			}
 			NOT = {
 				has_war_with = RUS
 			}
@@ -247,6 +253,14 @@ PER_guarded_domains = {
 			has_active_mission = PER_cossacks_leaving_mission
 		}
 
+		available = {
+			check_variable = {
+				var = PER.PER_total_independence
+				value = PER.PER_recruited_cossacks_decimal_var
+				compare = greater_than_or_equals
+				tooltip = has_domestic_independence_tt
+			}
+		}
 		fire_only_once = no
 		on_map_mode = map_and_decisions_view
 		days_re_enable = 30
@@ -461,6 +475,11 @@ PER_guarded_domains = {
 				var = PER_centralization_level
 				value = PER_modify_centralization_level_var
 				tooltip = PER_add_centralization_tt
+			}
+			clamp_variable = {
+				var = PER_centralization_level
+				min = 0
+				max = 100
 			}
 		}
 
