@@ -2585,6 +2585,29 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_pp_gain = 0.05
+				tooltip = political_power_factor_tt
+			}
+			add_to_variable = {
+				AUS_aps_neutral_gain = 0.02
+				tooltip = neutrality_drift_tt
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.05
+				tooltip = consumer_goods_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -2650,6 +2673,19 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_ruling_stab = 0.05
+			}
+			AUS_update_imperial_council_effects = yes
+			add_to_variable = {
+				AUS_parliament_relations = 0.15
+				tooltip = AUS_p_loyalty_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -2671,6 +2707,30 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			add_to_variable = {
+				AUS_ruthenian_loyalty = 5
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_pole_loyalty = 5
+				tooltip = AUS_loyalty_pole_tt
+			}
+			add_to_variable = {
+				AUS_czechoslovak_loyalty = 5
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			add_to_variable = {
+				AUS_serb_loyalty = 5
+				tooltip = AUS_loyalty_serb_tt
+			}
+			add_to_variable = {
+				AUS_croat_loyalty = 5
+				tooltip = AUS_loyalty_croatian_tt
+			}
+			add_to_variable = {
+				AUS_romanian_loyalty = 5
+				tooltip = AUS_loyalty_romanians_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -2706,7 +2766,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_consensual_dictatorship
-		icon = GFX_focus_generic_court
+		icon = GFX_focus_PRC_petition_for_freedom
 		cost = 4
 		mutually_exclusive = {
 			focus = AUS_new_era_of_parliamentary_harmony
@@ -2721,6 +2781,10 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			add_ideas = AUS_consensual_dictatorship
+			remove_dynamic_modifier = {
+				modifier = AUS_imperial_council
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -2730,7 +2794,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_new_era_of_parliamentary_harmony
-		icon = GFX_focus_generic_court
+		icon = GFX_focus_generic_improve_the_administration_2
 		mutually_exclusive = {
 			focus = AUS_consensual_dictatorship
 		}
@@ -2745,6 +2809,11 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+				add_to_variable = {
+				AUS_parliament_influence = 0.25
+				tooltip = AUS_gain_influence_tt
+			}
+			AUS_update_imperial_council_effects = yes
 		}
 		ai_will_do = {
 			base = 1
@@ -2814,6 +2883,18 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			unlock_decision_tooltip = AUS_connect_czech_railways
+			unlock_decision_tooltip = AUS_connect_german_railways
+			unlock_decision_tooltip = AUS_connect_south_slavic_railways
+			unlock_decision_tooltip = AUS_connect_eastern_railways
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				custom_effect_tooltip = AUS_modify_eco.tt
+				add_to_variable = {
+					AUS_ep_construction_speed = 0.025
+					tooltip = production_speed_buildings_factor_tt
+				}
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -2875,23 +2956,19 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_stability = -0.05
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_consumer_goods = -0.05
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
-				AUS_ep_civ_speed = 0.05
-				tooltip = production_speed_industrial_complex_factor_tt
-			}
-			custom_effect_tooltip = empty_space_tt
-			custom_effect_tooltip = AUS_ptm_combos_mce
-			effect_tooltip = {
-				country_event = ww1_austriahungary.161
-				add_timed_idea = {
-					idea = AUS_middle_class_reformation
-					days = 180
-				}
+				AUS_ep_construction_speed = 0.05
+				tooltip = production_speed_buildings_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -2916,22 +2993,20 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_consumer_goods = -0.05
-				tooltip = consumer_goods_factor_tt
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
 			}
-			add_to_variable = {
-				AUS_ep_civ_speed = 0.05
-				tooltip = production_speed_industrial_complex_factor_tt
-			}
-			custom_effect_tooltip = empty_space_tt
-			custom_effect_tooltip = AUS_ptm_combos_mce
-			effect_tooltip = {
-				country_event = ww1_austriahungary.161
-				add_timed_idea = {
-					idea = AUS_middle_class_reformation
-					days = 180
+			every_state = {
+				limit = {
+					has_state_category = rural
+					owner = {
+						tag = AUS
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = generic_local_investments
+					days = 720
 				}
 			}
 		}
@@ -3072,20 +3147,14 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
-				AUS_EP_consumer_goods = -0.05
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
 				AUS_ep_civ_speed = 0.05
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
-			custom_effect_tooltip = empty_space_tt
-			custom_effect_tooltip = AUS_ptm_combos_mce
-			effect_tooltip = {
-				country_event = ww1_austriahungary.161
-				add_timed_idea = {
-					idea = AUS_middle_class_reformation
-					days = 180
+			random_core_state = {
+				add_building_construction = {
+    				type = industrial_complex
+    				level = 1
+    				instant_build = yes
 				}
 			}
 		}
