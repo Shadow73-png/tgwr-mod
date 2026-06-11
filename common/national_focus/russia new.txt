@@ -4688,22 +4688,22 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = RUS_persian_campaign
-		available_if_capitulated = yes
+		available_if_capitulated = no
 		select_effect = {
 			add_days_mission_timeout = { mission = RUS_occupation_of_nothern_persia_timeout days = 71 }
 			PER = {
 				country_event = ww1_per_rus_strangling.1
 			}
 		}
+		cancelable = no
+		will_lead_to_war_with = PER
 		completion_reward = {
 			add_named_threat = {
-				threat = 2
+				threat = 5
 				name = RUS_ultimatum_to_persia
 			}
 			PER = {
 				country_event = ww1_per_rus_strangling.7
-				custom_effect_tooltip = which_provide_tt
-				event_option_tooltip = ww1_per_rus_strangling.7.a
 			}
 		}
 		ai_will_do = {
