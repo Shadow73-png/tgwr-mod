@@ -224,6 +224,7 @@ PER_guarded_domains = {
 				create_unit = {
 					division = "division_template = \"Ataryād-e Qazāqkhāneh\" start_experience_factor = 0.8 start_equipment_factor = 0.75 force_equipment_variants = { infantry_equipment_1 = { owner = \"RUS\" }} force_equipment_variants = { field_gun_equipment_1 = { owner = \"RUS\" }}"
 					owner = ROOT
+					allow_spawning_on_enemy_provs = yes
 					count = 1
 				}
 			}
@@ -243,7 +244,11 @@ PER_guarded_domains = {
 			}
 		}
 		ai_will_do = {
-			base = 10
+			base = 0
+			modifier = {
+				add = 10
+				has_war = yes
+			}
 		}
 	}
 	PER_extend_the_cossack_contract = {
