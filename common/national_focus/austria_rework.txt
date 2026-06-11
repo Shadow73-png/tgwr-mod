@@ -2766,7 +2766,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_consensual_dictatorship
-		icon = GFX_focus_generic_court
+		icon = GFX_focus_PRC_petition_for_freedom
 		cost = 4
 		mutually_exclusive = {
 			focus = AUS_new_era_of_parliamentary_harmony
@@ -2781,6 +2781,10 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			add_ideas = AUS_consensual_dictatorship
+			remove_dynamic_modifier = {
+				modifier = AUS_imperial_council
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -2790,7 +2794,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_new_era_of_parliamentary_harmony
-		icon = GFX_focus_generic_court
+		icon = GFX_focus_generic_improve_the_administration_2
 		mutually_exclusive = {
 			focus = AUS_consensual_dictatorship
 		}
@@ -2805,6 +2809,11 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+				add_to_variable = {
+				AUS_parliament_influence = 0.25
+				tooltip = AUS_gain_influence_tt
+			}
+			AUS_update_imperial_council_effects = yes
 		}
 		ai_will_do = {
 			base = 1
