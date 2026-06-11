@@ -202,6 +202,44 @@ RUS_fight_TUR = {
 	}
 }
 
+RUS_special_military_operation_in_PER = {
+	allowed = {
+		tag = RUS
+	}
+	enable = {
+		OR = {
+			AND = {
+				focus_progress = {
+					focus = RUS_ultimatum_to_persia
+					progress > 0
+				}
+				NOT = {
+					has_completed_focus = RUS_ultimatum_to_persia
+				}
+			}
+			has_active_mission = RUS_secure_tehran
+			has_active_mission = RUS_invasion_of_persia
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = prepare_for_war
+		id = PER
+		value = 1
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = PER
+		value = 50
+	}
+	ai_strategy = {
+		type = front_control
+		tag = PER
+		execution_type = rush
+		execute_order = yes
+	}
+}
+
 RUS_kerensky_offensive = {
 	allowed = {
 		tag = RUS
