@@ -377,8 +377,16 @@ focus_tree = {
 		}
 		relative_position_id = AUS_technical_military_committee
 		available = {
-			threat > 0.25
-			has_war_support > 0.6
+			OR = {
+				threat > 0.15
+				has_war_support > 0.5
+				AND = {
+					date > 1914.1.1
+					NOT = {
+						has_global_flag = great_war
+					}
+				}
+			}
 			NOT = {
 				has_global_flag = great_war
 			}
@@ -8101,7 +8109,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_kill_the_press
-		icon = GFX_none
+		icon = GFX_focus_generic_censorship_tgwr
 		cost = 4
 		x = 1
 		y = 1
@@ -8470,7 +8478,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_rail_org_n_supply
-		icon = GFX_none
+		icon = GFX_focus_generic_railroad
 		cost = 4
 		x = -1
 		y = 3
@@ -8517,7 +8525,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_optimize_rail
-		icon = GFX_none
+		icon = GFX_focus_generic_railroad
 		cost = 4
 		x = 1
 		y = 1
