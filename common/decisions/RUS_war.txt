@@ -1,28 +1,36 @@
-
+#FOOD SHORTAGES
 TGWR_great_power_politics = {
+	#Food Supply Status
+	RUS_food_supply_status = {
+		icon = GFX_decision_generic_consumer_goods
+		allowed = { tag = RUS }
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		visible = {
+			great_power_politics_great_war_visible = yes
+		}
+	}
 	#Food shortages
 	RUS_food_supply_deteriorates_mission = {
 		icon = GFX_decision_generic_consumer_goods
 		allowed = { tag = RUS }
 		activation = {
-			has_country_flag = RUS_food_shortages_mechanic
-			has_war_with_major = yes
+			has_idea = RUS_food_shortages
 			has_idea = RUS_inadequate_railway_system
 			check_variable = {
 				RUS_food_supply > RUS_railway_modernization_progress
 			}
 		}
 		available = {
-			OR =  {
-				has_war_with_major = no
+			OR = {
+				NOT = {
+					has_idea = RUS_food_shortages
+				}
 				NOT = {
 					has_idea = RUS_inadequate_railway_system
-				}
-				check_variable = {
-					var = RUS_railway_modernization_progress
-					value = RUS_food_supply
-					compare = greater_than_or_equals
-					tooltip = RUS_food_supply_check
 				}
 			}
 		}
@@ -30,18 +38,11 @@ TGWR_great_power_politics = {
 		days_mission_timeout = 30
 		selectable_mission = no
 		timeout_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_idea = RUS_food_shortages
-					}
-				}
-				add_ideas = RUS_food_shortages
-			}
 			set_temp_variable = {
 				RUS_add_food_supply_var = -5
 			}
 			RUS_add_food_supply = yes
+			custom_effect_tooltip = famine_in_cities_tt
 		}
 	}
 	RUS_commandeer_military_trains = {
@@ -57,9 +58,7 @@ TGWR_great_power_politics = {
 			}
 		}
 		visible = {
-			has_country_flag = RUS_food_shortages_mechanic
-			has_war_with_major = yes
-			has_idea = RUS_inadequate_railway_system
+			has_idea = RUS_food_shortages
 		}
 		complete_effect = {
 			add_equipment_to_stockpile = {
@@ -90,9 +89,7 @@ TGWR_great_power_politics = {
 		available = {
 		}
 		visible = {
-			has_country_flag = RUS_food_shortages_mechanic
-			has_war_with_major = yes
-			has_idea = RUS_inadequate_railway_system
+			has_idea = RUS_food_shortages
 			has_completed_focus = RUS_prodrazverstka
 		}
 		modifier = {

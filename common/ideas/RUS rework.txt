@@ -1284,7 +1284,6 @@ ideas = {
 				production_factory_efficiency_gain_factor = 0.15
 				consumer_goods_factor = 0.15
 				production_speed_arms_factory_factor = 0.15
-				stability_factor = -0.05
 				political_power_cost = 0.2
 				custom_modifier_tooltip = RUS_army_rearmament_tt
 			}
@@ -1513,6 +1512,7 @@ ideas = {
 			allowed_civil_war = { original_tag = RUS }
 			
 			available = {
+				check_variable = { RUS_food_supply > 0 }
 				check_variable = { RUS_food_supply < 100 }
 			}
 
@@ -1523,7 +1523,31 @@ ideas = {
 				political_power_factor = -0.1
 				monthly_population = -0.05
 			}
+			on_remove = {
+				if = {
+					limit = {
+						check_variable = { RUS_food_supply = 0 }
+					}
+					country_event = ww1_russia_war.8
+				}
+			}
+		}
+		RUS_famine_in_cities = {
+			picture = raj_risk_of_famine
+			
+			allowed = { always = no }
+			
+			allowed_civil_war = { original_tag = RUS }
 
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.5
+				war_support_factor = -1
+				industrial_capacity_factory = -0.25
+				industrial_capacity_dockyard = -0.25
+				monthly_population = -0.5
+			}
 		}
 		RUS_slight_army_disintegration = {
 			picture = RUS_army_disintegration
