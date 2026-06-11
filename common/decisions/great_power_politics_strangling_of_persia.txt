@@ -70,12 +70,15 @@ TGWR_great_power_politics = {
 		}
 
 		available = {
-			OR = {
-				controls_province = 10837
-				266 = {
-					any_neighbor_state = {
-						is_controlled_by = ROOT
-					}
+			custom_trigger_tooltip = {
+				tooltip = controls_tehran_tt
+				OR = {
+					controls_province = 7969
+					controls_province = 8125
+					controls_province = 10768
+					controls_province = 10837
+					controls_province = 10922
+					controls_province = 12756
 				}
 			}
 		}
@@ -86,31 +89,14 @@ TGWR_great_power_politics = {
 		days_mission_timeout = 30
 
 		complete_effect = {
-			if = {
-				limit = {
-					NOT = {
-						controls_province = 10837
-					}
-				}
-				PER = {
-					country_event = ww1_per_rus_strangling.8
-				}
-			}
-			else = {
-				activate_targeted_decision = {
-					target = PER
-					decision = RUS_secure_tehran
-				}
-				PER = {
-					activate_targeted_decision = {
-						target = RUS
-						decision = PER_hold_tehran
-					}
-				}
+			PER = {
+				country_event = ww1_per_rus_strangling.10
 			}
 		}
 
 		timeout_effect = {
+			add_war_support = -0.05
+			add_political_power = -50
 			white_peace = PER
 			every_owned_state = {
 				limit = {
@@ -118,6 +104,7 @@ TGWR_great_power_politics = {
 				}
 				transfer_state_to = PER
 			}
+			country_event = ww1_per_rus_strangling.14
 		}
 	}
 	RUS_secure_tehran = {
@@ -142,7 +129,6 @@ TGWR_great_power_politics = {
 			hidden_trigger = {
 				always = no
 			}
-			controls_province = 10837
 		}
 
 		fire_only_once = yes
@@ -151,21 +137,92 @@ TGWR_great_power_politics = {
 		days_mission_timeout = 14
 
 		timeout_effect = {
-			if = {
-				limit = { 
-					controls_province = 10837
-				}
+			custom_effect_tooltip = if_controls_tehran_tt
+			effect_tooltip = {
 				PER = {
-					country_event = ww1_per_rus_strangling.11
+					white_peace = ROOT
+					every_owned_state = {
+						limit = {
+							OR = {
+								state = 419
+								state = 877
+								state = 1212
+								state = 1245
+								state = 1250
+								state = 1251
+							}
+						}
+						transfer_state_to = ROOT
+					}
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = no
+					}
+					PER_mohammad_ali_shah = {
+						set_nationality = PREV
+						promote_character = absolute_monarchy	
+					}
+					retire_character = PER_william_morgan_shuster
+					add_to_variable = {
+						RUS.PER_foreign_influence = 0.1
+						tooltip = PER_modify_RUS_influence_tt
+					}
+					PER_calculate_foreign_influnce = yes
+					PER_calculate_influnce_in_persia_modifiers = yes
 				}
 			}
-			else = {
-				white_peace = PER
-				every_owned_state = {
-					limit = {
-						has_contested_owner = PER
+			hidden_effect = {
+				if = {
+					limit = { 
+						controls_province = 10837
 					}
-					transfer_state_to = PER
+					PER = {
+						white_peace = ROOT
+						every_owned_state = {
+							limit = {
+								OR = {
+									state = 419
+									state = 877
+									state = 1212
+									state = 1245
+									state = 1250
+									state = 1251
+								}
+							}
+							transfer_state_to = ROOT
+						}
+						set_politics = {
+							ruling_party = neutrality
+							elections_allowed = no
+						}
+						PER_mohammad_ali_shah = {
+							set_nationality = PREV
+							promote_character = absolute_monarchy
+							promote_character = reactionism
+						}
+						retire_character = PER_william_morgan_shuster
+						PER_double_worsen_foreign_advisors = yes
+						add_to_variable = {
+							RUS.PER_foreign_influence = 0.1
+							tooltip = PER_modify_RUS_influence_tt
+						}
+						PER_calculate_foreign_influnce = yes
+						PER_calculate_influnce_in_persia_modifiers = yes
+						country_event = ww1_per_rus_strangling.12
+					}
+					country_event = ww1_per_rus_strangling.13
+				}
+				else = {
+					add_war_support = -0.05
+					add_political_power = -50
+					white_peace = PER
+					every_owned_state = {
+						limit = {
+							has_contested_owner = PER
+						}
+						transfer_state_to = PER
+					}
+					country_event = ww1_per_rus_strangling.14
 				}
 			}
 		}
@@ -317,59 +374,27 @@ TGWR_great_power_politics = {
 		}
 
 		available = {
-			RUS = {
-				OR = {
-					controls_province = 10837
-					266 = {
-						any_neighbor_state = {
-							is_controlled_by = RUS
+			hidden_trigger = {
+				NOT = {
+					RUS = {
+						OR = {
+							controls_province = 7969
+							controls_province = 8125
+							controls_province = 10768
+							controls_province = 10837
+							controls_province = 10922
+							controls_province = 12756
 						}
 					}
 				}
 			}			
 		}
 
+		is_sele
 		fire_only_once = yes
 
-		is_good = yes
+		is_good = no
 		days_mission_timeout = 30
-
-		complete_effect = {
-			effect_tooltip = {
-				RUS = {
-					if = {
-						limit = {
-							NOT = {
-								controls_province = 10837
-							}
-						}
-						PER = {
-							country_event = ww1_per_rus_strangling.8
-						}
-					}
-					else = {
-						activate_targeted_decision = {
-							target = PER
-							decision = RUS_secure_tehran
-						}
-					}
-				}			
-			}			
-		}
-
-		timeout_effect = {
-			effect_tooltip = {
-				RUS = {
-					white_peace = PER
-					every_owned_state = {
-						limit = {
-							has_contested_owner = PER
-						}
-						transfer_state_to = PER
-					}
-				}
-			}		
-		}
 	}
 	PER_hold_tehran = {
 		icon = generic_planted_spear
@@ -392,40 +417,13 @@ TGWR_great_power_politics = {
 		available = {		
 			hidden_trigger = {
 				always = no
-			}
-			RUS = {
-				controls_province = 10837
-			}			
+			}		
 		}
 
 		fire_only_once = yes
 
-		is_good = yes
+		is_good = no
 		days_mission_timeout = 14
-
-		timeout_effect = {
-			effect_tooltip = {
-				RUS = {
-					if = {
-						limit = { 
-							controls_province = 10837
-						}
-						PER = {
-							country_event = ww1_per_rus_strangling.11
-						}
-					}
-					else = {
-						white_peace = PER
-						every_owned_state = {
-							limit = {
-								has_contested_owner = PER
-							}
-							transfer_state_to = PER
-						}
-					}
-				}				
-			}			
-		}
 	}
 }
 #OTTOMANS
@@ -470,7 +468,7 @@ TGWR_great_power_politics = {
 			}
 		}
 		ai_will_do = {
-			base = 10
+			base = 0
 		}
 	}
 	TUR_occupation_of_western_persia_timeout = {
