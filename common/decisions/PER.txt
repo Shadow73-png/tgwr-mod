@@ -48,7 +48,7 @@ PER_guarded_domains = {
 		timeout_effect = {
 			hidden_effect = {
 				421 = {
-					transfer_state_to = PEX
+					transfer_state_to = PRS
 				}
 				set_province_controller = 4943
 				every_core_state = {
@@ -200,7 +200,6 @@ PER_guarded_domains = {
 
 		fire_only_once = no
 		on_map_mode = map_and_decisions_view
-		days_re_enable = 30
 		complete_effect = {
 			add_to_variable = {
 				RUS.PER_foreign_influence = 0.01
@@ -224,6 +223,7 @@ PER_guarded_domains = {
 				create_unit = {
 					division = "division_template = \"Ataryād-e Qazāqkhāneh\" start_experience_factor = 0.8 start_equipment_factor = 0.75 force_equipment_variants = { infantry_equipment_1 = { owner = \"RUS\" }} force_equipment_variants = { field_gun_equipment_1 = { owner = \"RUS\" }}"
 					owner = ROOT
+					allow_spawning_on_enemy_provs = yes
 					count = 1
 				}
 			}
@@ -243,7 +243,11 @@ PER_guarded_domains = {
 			}
 		}
 		ai_will_do = {
-			base = 10
+			base = 0
+			modifier = {
+				add = 10
+				has_war = yes
+			}
 		}
 	}
 	PER_extend_the_cossack_contract = {
