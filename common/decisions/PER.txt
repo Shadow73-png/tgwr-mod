@@ -48,7 +48,7 @@ PER_guarded_domains = {
 		timeout_effect = {
 			hidden_effect = {
 				421 = {
-					transfer_state_to = PEX
+					transfer_state_to = PRS
 				}
 				set_province_controller = 4943
 				every_core_state = {
@@ -187,6 +187,12 @@ PER_guarded_domains = {
 					PER.PER_recruited_cossacks < PER.PER_cossack_cap
 				}
 			}
+			check_variable = {
+				var = PER.PER_total_independence
+				value = 0.01
+				compare = greater_than_or_equals
+				tooltip = has_domestic_independence_tt
+			}
 			NOT = {
 				has_war_with = RUS
 			}
@@ -194,13 +200,15 @@ PER_guarded_domains = {
 
 		fire_only_once = no
 		on_map_mode = map_and_decisions_view
-
 		complete_effect = {
 			add_to_variable = {
 				RUS.PER_foreign_influence = 0.01
 				tooltip = PER_modify_RUS_influence_tt
 			}
 			PER_calculate_foreign_influnce = yes
+			RUS = {
+				PER_calculate_influnce_in_persia_modifiers = yes
+			}
 			add_to_variable = {
 				PER.PER_recruited_cossacks = 1
 				tooltip = PER_raise_cossack_regiment_tt
@@ -215,6 +223,7 @@ PER_guarded_domains = {
 				create_unit = {
 					division = "division_template = \"Ataryād-e Qazāqkhāneh\" start_experience_factor = 0.8 start_equipment_factor = 0.75 force_equipment_variants = { infantry_equipment_1 = { owner = \"RUS\" }} force_equipment_variants = { field_gun_equipment_1 = { owner = \"RUS\" }}"
 					owner = ROOT
+					allow_spawning_on_enemy_provs = yes
 					count = 1
 				}
 			}
@@ -234,7 +243,11 @@ PER_guarded_domains = {
 			}
 		}
 		ai_will_do = {
-			base = 100
+			base = 0
+			modifier = {
+				add = 10
+				has_war = yes
+			}
 		}
 	}
 	PER_extend_the_cossack_contract = {
@@ -247,22 +260,37 @@ PER_guarded_domains = {
 			has_active_mission = PER_cossacks_leaving_mission
 		}
 
+		available = {
+			check_variable = {
+				var = PER.PER_total_independence
+				value = PER.PER_recruited_cossacks_decimal_var
+				compare = greater_than_or_equals
+				tooltip = has_domestic_independence_tt
+			}
+		}
 		fire_only_once = no
 		on_map_mode = map_and_decisions_view
-
+		days_re_enable = 30
 		complete_effect = {
 			add_to_variable = {
 				RUS.PER_foreign_influence = PER.PER_recruited_cossacks_decimal_var
 				tooltip = PER_modify_RUS_influence_tt
 			}
 			PER_calculate_foreign_influnce = yes
+			RUS = {
+				PER_calculate_influnce_in_persia_modifiers = yes
+			}
 			add_days_mission_timeout = {
 				mission = PER_cossacks_leaving_mission
 				days = 30
 			}
 		}
 		ai_will_do = {
-			base = 100
+			base = 0
+			modifier = {
+				add = 10
+				has_war = yes
+			}
 		}
 	}
 	PER_cossacks_leaving_mission = {
@@ -384,7 +412,7 @@ PER_guarded_domains = {
 			}
 		}
 		ai_will_do = {
-			base = 100
+			base = 10
 		}
 	}
 	PER_disband_tribal_troops = {
@@ -457,6 +485,11 @@ PER_guarded_domains = {
 				var = PER_centralization_level
 				value = PER_modify_centralization_level_var
 				tooltip = PER_add_centralization_tt
+			}
+			clamp_variable = {
+				var = PER_centralization_level
+				min = 0
+				max = 100
 			}
 		}
 
@@ -546,7 +579,7 @@ PER_guarded_domains = {
 			}
 		}
 		ai_will_do = {
-			base = 100
+			base = 10
 		}
 	}
 	#Expansion of Gendarmerie
@@ -607,7 +640,7 @@ PER_guarded_domains = {
 			}
 		}
 		ai_will_do = {
-			base = 100
+			base = 10
 		}
 	}
 	#Taking Loans
