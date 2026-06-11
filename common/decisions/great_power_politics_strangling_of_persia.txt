@@ -236,8 +236,8 @@ TGWR_great_power_politics = {
 
 		fire_only_once = no
 
+		cost = 50
 		days_remove = 60
-		days_re_enable = 0
 
 		modifier = {
 			consumer_goods_factor = 0.05
@@ -430,6 +430,49 @@ TGWR_great_power_politics = {
 }
 #OTTOMANS
 TGWR_great_power_politics = {
+	TUR_debug_transfer_western_persia = {
+		icon = generic_prepare_civil_war
+		allowed = {
+			original_tag = TUR
+		}
+		visible = {
+			is_debug = yes
+		}
+		complete_effect = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 419
+						state = 1212
+						state = 1250
+						state = 1252
+					}
+				}
+				if = {
+					limit = {
+						877 =  {
+							is_owned_by = RUS
+						}
+					}
+					if = {
+						limit = {
+							state = 1252
+						}
+						transfer_state_to = PER
+					}
+					else = {
+						transfer_state_to = RUS
+					}
+				}
+				else = {
+					transfer_state_to = PER
+				}
+			}
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
 	TUR_occupation_of_western_persia_timeout = {
 		icon = generic_planted_spear
 		allowed = {
@@ -511,9 +554,26 @@ TGWR_great_power_politics = {
 						state = 1250
 						state = 1252
 					}
-					has_contested_owner = PER
 				}
-				transfer_state_to = PER
+				if = {
+					limit = {
+						877 =  {
+							is_owned_by = RUS
+						}
+					}
+					if = {
+						limit = {
+							state = 1252
+						}
+						transfer_state_to = PER
+					}
+					else = {
+						transfer_state_to = RUS
+					}
+				}
+				else = {
+					transfer_state_to = PER
+				}
 			}
 		}
 	}
