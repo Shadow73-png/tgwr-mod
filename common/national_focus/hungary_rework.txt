@@ -1646,33 +1646,6 @@ focus_tree = {
 			show_ideas_tooltip = HUN_ivan_rakovszky
 		}
 	} 
-	#Protect Voters Rights
-	focus = {
-		id = HUN_protect_voters_rights
-		icon = GFX_focus_generic_support_the_left_right
-		cost = 1
-		relative_position_id = HUN_consolidate_nmp_party
-		x = 4
-		y = 1
-		search_filters = {
-			FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_POLITICAL
-		}
-		available = {
-			has_country_flag = HUN_national_work_party_yes
-		}
-		prerequisite = {
-			focus = HUN_consolidate_nmp_party
-		}
-		completion_reward = { 
-			add_stability = 0.035
-			add_popularity = {
-				ideology = democratic
-				popularity = 0.01
-			}
-		}
-	 }
 	#Ban Obstructionism
 	focus = {
 		id = HUN_ban_obstructionism
@@ -2302,6 +2275,12 @@ focus_tree = {
 		relative_position_id = HUN_break_up_labour_movements
 		x = -1
 		y = 1
+		offset = {
+			x = -1
+			trigger = {
+				has_completed_focus = HUN_consolidate_nmp_party
+			}
+		}
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -6087,6 +6066,75 @@ focus_tree = {
 		}
 		completion_reward = { }
 	 }
+	 #Franz Ferdinand Kaiser
+	 focus = {
+		id = HUN_franz_ferdinand_focus
+		icon = GFX_focus_AUH_Franz_Ferdinand
+		cost = 0
+		relative_position_id = HUN_ausgliech_politics
+		x = 2
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		prerequisite = {
+			focus = HUN_ausgliech_politics
+		}
+		completion_reward = { }
+	 }
+	 #Unite the Aristocracy - INDEPENDENCE
+	 focus = {
+		id = HUN_unite_the_aristocracy
+		icon = GFX_goal_unkown
+		cost = 1
+		relative_position_id = HUN_franz_ferdinand_focus
+		x = -2
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			
+		}
+		prerequisite = {
+			focus = HUN_franz_ferdinand_focus
+		}
+		mutually_exclusive = {
+			focus = HUN_ally_the_red_count
+		}
+		completion_reward = { }
+	 }
+	 #Ally the Red Count - FREEDOM OF 48'
+	 focus = {
+		id = HUN_ally_the_red_count
+		icon = GFX_goal_unkown
+		cost = 1
+		relative_position_id = HUN_franz_ferdinand_focus
+		x = 2
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			
+		}
+		prerequisite = {
+			focus = HUN_franz_ferdinand_focus
+		}
+		mutually_exclusive = {
+			focus = HUN_unite_the_aristocracy
+		}
+		completion_reward = { }
+	 }
 	 ## The Beginning of the Great War Branch ##
 	 focus = {
 		id = HUN_great_war_focus
@@ -6320,7 +6368,20 @@ focus_tree = {
 			focus = HUN_failure_of_treuga_dei
 			focus = HUN_hazai_leadership
 		}
-		completion_reward = { }
+		completion_reward = { 
+			add_tech_bonus = {
+				name = HUN_prepare_trans_for_war
+				category = mountaineers_tech
+				bonus = 0.75
+				uses = 1
+			}
+			add_tech_bonus = {
+				name = HUN_prepare_trans_for_war
+				category = logistics_tech
+				bonus = 0.75
+				uses = 1
+			}
+		}
 	 }
 	 #Secure Party Loyalty
 	 focus = {
@@ -6585,7 +6646,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_diosgyor_steel_works
-			focus = HUN_ally_abdicated
 			focus = HUN_form_a_hybrid_coalition
 			focus = HUN_dissolve_parliament
 		}
@@ -6734,7 +6794,7 @@ focus_tree = {
 	#1917 Agricultural Labor Decree
 	 focus = {
 		id = HUN_1917_agricultural_labor_decree
-		icon = GFX_goal_unkown
+		icon = GFX_focus_PER_stage_mass_protests
 		cost = 5
 		relative_position_id = HUN_national_coal_committee
 		x = 1
@@ -6770,12 +6830,29 @@ focus_tree = {
 				HUN_eco_lack_of_resources_penalty = -0.05
 				tooltip = production_lack_of_resource_penalty_factor_tt
 			}
+			custom_effect_tooltip = empty_space_tt
+			unlock_decision_tooltip = HUN_regulation_of_milk_and_dairy
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				add_stability = -0.01
+				add_war_support = -0.02
+				custom_effect_tooltip = HUN_modify_eco_tt
+				add_to_variable = {
+					HUN_eco_consumer_good = -0.05
+					tooltip = consumer_goods_factor_tt
+				}
+				custom_effect_tooltip = HUN_modify_army_tt
+				add_to_variable = {
+					HUN_supply_consumption = -0.05
+					tooltip = supply_consumption_factor_tt
+				}
+			}
 		 }
 	 }
 	 #Anti-Proffiteering and Essential Goods Regulation
 	 focus = {
 		id = HUN_anti_profiteering_essential_good_regulations
-		icon = GFX_goal_unkown
+		icon = GFX_focus_PRC_urbanization
 		cost = 5
 		relative_position_id = HUN_1917_agricultural_labor_decree
 		x = 1
@@ -6792,12 +6869,24 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_1917_agricultural_labor_decree
 		}
-		completion_reward = { }
+		completion_reward = { 
+			custom_effect_tooltip = HUN_modify_eco_tt
+			add_to_variable = {
+				HUN_eco_lack_of_resources_penalty = -0.05
+				tooltip = production_lack_of_resource_penalty_factor_tt
+			}
+			add_to_variable = {
+				HUN_eco_consumer_good = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			custom_effect_tooltip = empty_space_tt
+			custom_effect_tooltip = HUN_anti_profiteering_essential_good_regulations.tt
+		}
 	 }
 	 #Digep Factory Opening
 	 focus = {
 		id = HUN_digep_factory_1917
-		icon = GFX_goal_unkown
+		icon = GFX_focus_HUN_expand_the_diosgyor_machinery_factory
 		cost = 5
 		relative_position_id = HUN_1917_agricultural_labor_decree
 		x = -1
@@ -6923,42 +7012,6 @@ focus_tree = {
 			mark_focus_tree_layout_dirty = yes
 		}
 	 }
-	 #Ally the Abdicated
-	 focus = {
-		allow_branch = {
-			OR = {
-				has_completed_focus = HUN_a_blank_page
-				is_debug = yes
-			}
-		}
-		id = HUN_ally_abdicated
-		icon = GFX_focus_NOR_empower_sivorg
-		cost = 2
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_POLITICAL_CHARACTER
-		}
-		relative_position_id = HUN_a_blank_page
-		x = 0
-		y = 1
-		available = {
-			has_country_leader = {
-				character = HUN_moric_esterhazy
-			}
-			has_idea = HUN_istvan_tisza_evil
-			has_completed_focus = HUN_secure_party_loyalty
-			neutrality > 0.7
-		}
-		prerequisite = {
-			focus = HUN_a_blank_page
-		}
-		mutually_exclusive = {
-			focus = HUN_form_a_hybrid_coalition
-			focus = HUN_dissolve_parliament
-		}
-		completion_reward = { }
-	 }
 	 #Form a Hybrid Coalition
 	 focus = {
 		allow_branch = {
@@ -6970,9 +7023,9 @@ focus_tree = {
 		id = HUN_form_a_hybrid_coalition
 		icon = GFX_focus_NOR_the_stumbling_storting
 		cost = 1
-		relative_position_id = HUN_ally_abdicated
-		x = 4
-		y = 0
+		relative_position_id = HUN_a_blank_page
+		x = -2
+		y = 1
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
@@ -6989,7 +7042,6 @@ focus_tree = {
 			focus = HUN_a_blank_page
 		}
 		mutually_exclusive = {
-			focus = HUN_ally_abdicated
 			focus = HUN_dissolve_parliament
 		}
 		completion_reward = { 
@@ -7102,7 +7154,6 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = HUN_form_a_hybrid_coalition
-			focus = HUN_ally_abdicated
 		}
 		completion_reward = { }
 	 }
@@ -7366,9 +7417,9 @@ focus_tree = {
 			focus = HUN_treuga_dei
 		}
 		completion_reward = { 
+			complete_national_focus = HUN_hazai_army_reform
 			army_experience = 50
 			add_command_power = 25
-			complete_national_focus = HUN_hazai_army_reform
 			custom_effect_tooltip = HUN_modify_army_tt
 			add_to_variable = {
 				HUN_slow_army = 0.1
