@@ -16,7 +16,8 @@ characters = {
 		}
 	}
 	AUH_franz_ferdinand = {
-		portraits = {
+		can_be_captured = no
+		portraits={
 			civilian = {
 				large = "gfx/leaders/AUH/AUH_franz_ferdinand.png"
 			}
@@ -52,7 +53,8 @@ characters = {
 	}
 	AUH_karl_i = {
 		name = "AUH_karl_von_habsburg"
-		portraits = {
+		can_be_captured = no
+		portraits={
 			civilian = {
 				large = "gfx/leaders/AUH/AUH_karl_i.png"
 			}
@@ -162,9 +164,10 @@ characters = {
 		}
 	}
 	#Starting Field Marshals
-	AUH_friedrich_von_teschen = {
-		name = "AUH_friedrich_von_teschen"
-		advisor = {
+	AUH_friedrich_von_teschen={
+		name="AUH_friedrich_von_teschen"
+		can_be_captured = no
+		advisor={
 			slot = army_chief
 			idea_token = AUH_friedrich_von_teschen
 			ledger = army
@@ -201,9 +204,10 @@ characters = {
 			}
 		}
 	}
-	AUH_conrad_von_hotzendorf = {
-		name = "AUH_conrad_von_hotzendorf"
-		advisor = {
+	AUH_conrad_von_hotzendorf={
+		name="AUH_conrad_von_hotzendorf"
+		can_be_captured = no
+		advisor={
 			slot = army_chief
 			idea_token = AUH_franz_conrad_von_hotzendorf
 			ledger = army
@@ -393,16 +397,62 @@ characters = {
 					NOT = {
 						has_war_with = AUS
 					}
+				}	
+			}
+		}
+	}
+	AUH_franz_rohr_von_denta={
+		name="AUH_franz_rohr_von_denta"
+		portraits={
+			army={
+				large="gfx/leaders/AUH/AUH_Franz_Rorh_von_Denta.png"
+				small="GFX_Portrait_AUH_generic_land_3_small"
+			}
+		}
+		corps_commander={
+			traits={ old_guard engineer_officer trait_mountaineer inflexible_strategist }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=1
+		}
+	}
+	AUH_joseph_august_von_osterreich={
+		name="AUH_joseph_august_von_osterreich"
+		can_be_captured = no
+		portraits={
+			army={
+				large="gfx/leaders/AUH/AUH_joseph_august_von_osterreich.png"
+				small="gfx/interface/ideas/AUH/idea_AUH_joseph_august_von_osterreich.png"
+			}
+		}
+		country_leader={
+			ideology=semi_constitutional_monarchy
+		}
+		corps_commander={
+			traits={ politically_connected trait_royal infantry_officer }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+			visible = {
+				NOT = {
+					has_cosmetic_tag = HUN_republic
+					has_government = communism 
+					has_country_flag = AUS_republic_flag	
 				}
 			}
 		}
 	}
-	AUH_franz_rohr_von_denta = {
-		name = "AUH_franz_rohr_von_denta"
-		portraits = {
-			army = {
-				large = "gfx/leaders/AUH/AUH_Franz_Rorh_von_Denta.png"
-				small="GFX_Portrait_AUH_generic_land_3_small"
+	AUH_eugen_von_osterreich_teschen={
+		name="AUH_eugen_von_osterreich_teschen"
+		can_be_captured = no
+		portraits={
+			army={
+				large="gfx/leaders/AUH/AUH_Eugen_von_Osterreich_Teschen.png"
+				small="gfx/interface/ideas/AUH/idea_AUH_Eugen_von_Osterreich_Teschen.png"
 			}
 		}
 		corps_commander = {
@@ -912,11 +962,12 @@ characters = {
 			}
 		}
 	}
-	AUH_peter_ferdinand_von_osterreich = {
-		name = "AUH_peter_ferdinand_von_osterreich"
-		portraits = {
-			army = {
-				large = "gfx/leaders/AUH/AUH_Peter_Ferdinand.png"
+	AUH_peter_ferdinand_von_osterreich={
+		name="AUH_peter_ferdinand_von_osterreich"
+		can_be_captured = no
+		portraits={
+			army={
+				large="gfx/leaders/AUH/AUH_Peter_Ferdinand.png"
 			}
 		}
 		corps_commander = {
@@ -1255,11 +1306,12 @@ characters = {
 			logistics_skill = 2
 		}
 	}
-	AUH_rudolp_ritter_von_brudermann = {
-		name = "AUH_rudolp_ritter_von_brudermann"
-		portraits = {
-			army = {
-				large = "gfx/leaders/AUH/AUH_Rudolp_Ritter_von_Brudermann.png"
+	AUH_rudolp_ritter_von_brudermann={
+		name="AUH_rudolp_ritter_von_brudermann"
+		can_be_captured = no #should die instead
+		portraits={
+			army={
+				large="gfx/leaders/AUH/AUH_Rudolp_Ritter_von_Brudermann.png"
 				#small="gfx/interface/ideas/AUH/idea_AUH_Rudolp_Ritter_von_Brudermann.png"
 			}
 		}

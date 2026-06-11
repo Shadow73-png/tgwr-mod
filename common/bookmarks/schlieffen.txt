@@ -4,7 +4,12 @@ bookmarks = {
 		desc = "SCHLIEFFEN_DESC"
 		date = 1914.6.14.12
 		picture = "GFX_select_date_1914"
-		default_country = "AUS"
+		default_country = "GER"
+		
+		filters = { new_content continent }
+		# filters can also contain 'label'
+		# in that case the countries below can have 'label = { label_1 }' or 'label = { label_1 label_2 }'
+		# all these labels will be gathered and displayed as filter buttons
 
 		"FRA"={
 			history = "FRA_SCHLIEFFEN_DESC"
@@ -67,7 +72,6 @@ bookmarks = {
 				ITA_military_dictatorship
 				ITA_our_traditional_allies
 			}
-			new_content = yes
 		}
 
 		"GER"={
@@ -89,13 +93,15 @@ bookmarks = {
 			history = "AUH_SCHLIEFFEN_DESC"
 			ideology = neutrality
 			ideas = {
-
+				AUH_ww1_House_Habsburg_Lorraine2
+				AUH_czech_separatism_3
+				AUH_multi_ethnic_army4
 			}
 			focuses = {
-				AUS_der_grobe_kriegsredux
-				AUS_new_kaiser
+				AUH_dissolve_austrian_parliament
+				AUH_determined_ausgleich
+				AUH_purification_of_the_empire
 			}
-			new_content = yes
 		}
 
 		"RUS"={
@@ -111,10 +117,6 @@ bookmarks = {
 				RUS_Constantinople_Agreement
 				RUS_constituent_assembly
 			}
-		}
-
-		"---"={
-			history = "OTHER_POWDERKEG_DESC"
 		}
 
 		"JAP"={
@@ -133,6 +135,7 @@ bookmarks = {
 		}
 
 		"TUR"={
+			minor = yes
 			history = "TUR_SCHLIEFFEN_DESC"
 			ideology = fascism
 			override_leader_portrait = TUR_mehmed_v
@@ -148,11 +151,9 @@ bookmarks = {
 			}
 		}
 
-		"---"={
-			history = "OTHER_SCHLIEFFEN_DESC"
-		}
 
 		"HUN"={
+			minor = yes
 			history = "HUN_SCHLIEFFEN_DESC"
 			ideology = neutrality
 			override_leader_portrait = HUN_franz_joseph_i
@@ -162,9 +163,10 @@ bookmarks = {
 				HUN_franz_joseph_i
 			}
 			focuses = {
-				
+				AUH_Tiszas_Silent_Coup
+				AUH_subvert_hungarian_parliament
+				AUH_mavag_gyarak
 			}
-			new_content = yes
 		}	
 
 		# Minors ####	
@@ -173,7 +175,7 @@ bookmarks = {
 			history = "SER_SCHLIEFFEN_DESC"
 			ideology = democratic
 			ideas = {
-				SER_aleksandar_karadjordjevic
+				SER_idea_petar_i2
 				SER_idea_interim_government
 				SER_idea_black_hand
 			}
@@ -182,23 +184,6 @@ bookmarks = {
 				SER_war_loan
 				SER_aviation_bills
 			}
-		}
-
-		"BOS"={
-			minor = yes
-			history = "BOS_POWDERKEG_DESC"
-			ideology = democratic
-			ideas = {
-			#	
-			#	
-			}
-			focuses = {
-				BOS_chaos_in_sarajevo
-				#BOS_the_show_goes_on
-				BOS_martial_law
-				AUS_enforce_war_requirement_act_on_bosnia
-			}
-			new_content = yes
 		}
 
 		"BUL"={
@@ -224,7 +209,7 @@ bookmarks = {
 			ideology = democratic
 			ideas = {
                 gre_the_megali_idea
-				GRE_constantine_i 
+				GRE_idea_constantine 
 				gre_victors_of_the_macedonian_struggle
 			}
 			focuses = {
@@ -275,7 +260,6 @@ bookmarks = {
 				BEL_division_restructuration
 				BEL_the_soldier_king
 			}
-			new_content = yes
 		}
 
 		"HOL"={
