@@ -1191,6 +1191,44 @@ RUS_add_zemstvo_reform_progress = {
 		max = 100
 	}
 }
+RUS_worsen_inflation = {
+	if = {
+		limit = {
+			has_idea = RUS_inflation
+		}
+		swap_ideas = {
+			remove_idea = RUS_inflation
+			add_idea = RUS_inflation_1
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = RUS_inflation_1
+		}
+		swap_ideas = {
+			remove_idea = RUS_inflation_1
+			add_idea = RUS_inflation_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = RUS_inflation_2
+		}
+		swap_ideas = {
+			remove_idea = RUS_inflation_2
+			add_idea = RUS_inflation_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = RUS_inflation_3
+		}
+		swap_ideas = {
+			remove_idea = RUS_inflation_3
+			add_idea = RUS_hyperinflation
+		}
+	}
+}
 RUS_improve_zemstvo = {
 	if = {
 		limit = {

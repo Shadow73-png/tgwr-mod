@@ -2556,7 +2556,6 @@ country_event = {
 				months = 12
 			}
 		}
-		check_variable = { RUS_railway_modernization_progress < 100 }
 	}
 	fire_only_once = yes
 	immediate = {
@@ -2567,14 +2566,42 @@ country_event = {
 			}
 		}
 	}
-	#Fire him!
+	#Catastrophy...
 	option = {
-		name = ww1_russia_war.7.a
+		name = ww1_russia_war.8.a
 		effect_tooltip = {
 			add_timed_idea = {
 				idea = RUS_famine_in_cities
 				days = 365
 			}
+		}
+	}
+}
+
+#Inflation!
+country_event = {
+	id = ww1_russia_war.9
+	title = ww1_russia_war.9.t
+	desc = ww1_russia_war.9.d
+	picture = ww1_russia_food_shortages
+	trigger = {
+		tag = RUS
+		war_length_with = {
+			tag = RUS
+			months = 1
+		}
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			add_ideas = RUS_inflation
+		}
+	}
+	#Fire him!
+	option = {
+		name = ww1_russia_war.9.a
+		effect_tooltip = {
+			add_ideas = RUS_inflation
 		}
 	}
 }

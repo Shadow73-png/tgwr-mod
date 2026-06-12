@@ -111,6 +111,59 @@ TGWR_great_power_politics = {
 		}
 	}
 }
+#WARTIME FINANCE
+TGWR_great_power_politics = {
+	RUS_inflation_worsens_mission = {
+		icon = GFX_decision_generic_consumer_goods
+		allowed = { tag = RUS }
+		activation = {
+			RUS_has_inflation = yes
+			has_war_with_major = yes
+		}
+		available = {
+			has_war_with_major = no
+		}
+		is_good = no
+		days_mission_timeout = 180
+		selectable_mission = no
+		timeout_effect = {
+			RUS_worsen_inflation = yes
+		}
+	}
+	RUS_issue_war_bonds = {
+		icon = GFX_decision_generic_military
+		allowed = {
+			original_tag = RUS
+		}
+		available = {
+		}
+		visible = {
+			has_completed_focus = RUS_money_printer
+			has_war_with_major = yes
+			great_power_politics_great_war_visible = yes
+		}
+
+		cancel_trigger = {
+			hidden_trigger = {
+				has_war_with_major = no
+			}
+		}
+
+		cost = 50
+		days_remove = 180
+		modifier = {
+			consumer_goods_factor = -0.25
+		}
+		remove_effect = {
+			set_temp_variable = { RUS_modify_internal_debt_var = 0.01 }
+			RUS_modify_internal_debt = yes
+			add_days_mission_timeout = {
+				mission = RUS_inflation_worsens_mission
+				days = 60
+			}
+		}
+	}
+}
 #SPECIAL COUNCILS
 TGWR_great_power_politics = {
 	RUS_relax_child_labour_restrictions = {
