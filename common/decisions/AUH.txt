@@ -1633,18 +1633,30 @@ AUS_minorities_mechanic = {
 		}
 		timeout_effect = {
 			activate_mission = AUH_bohemian_parliament_shenanigans
-			add_political_power = -20
+				if = {
+				limit = {
+					NOT = {
+					has_global_flag = AUS_cze_overperform
+
+					}
+				}
+				add_political_power = -20
+			}
 			if = {
 				limit = {
 					has_global_flag = AUS_cze_overperform
+					NOT = {
+										has_completed_focus = AUS_reject_bohemian_autonomy
+
+					}
 				}
-				add_political_power = -10
+				add_political_power = -30
 			}
 			if = {
 				limit = {
 					has_completed_focus = AUS_reject_bohemian_autonomy
 				}
-				add_political_power = 10
+				add_political_power = -20
 			}
 		}
 		complete_effect = {
