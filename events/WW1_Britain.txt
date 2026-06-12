@@ -2232,7 +2232,7 @@ country_event = {
 				}
 				set_popularities = {
 					communism = 48
-					fascism = 26
+					fascism = 24
 					democratic = 22
 					neutrality = 6
 				}
@@ -6844,24 +6844,15 @@ country_event = {
 		ENG = {
 			has_country_flag = great_war_loser
 			OR = {
-				owns_state = 410
-				owns_state = 412
-				owns_state = 1248
-				owns_state = 1249
-				owns_state = 413
-				owns_state = 1246
-				owns_state = 421
-				owns_state = 1211
-				owns_state = 416
-				owns_state = 1242
-				owns_state = 1243
-				owns_state = 266
-				owns_state = 418
-				owns_state = 1241
-				owns_state = 414
-				owns_state = 1244
-				owns_state = 411
+				any_owned_state = {
+					region = 116
+				}
+				has_subject = PER
 				has_subject = ARB
+				has_subject = MAK
+				has_subject = MRG
+				has_subject = BLC
+				check_variable = { ENG.PER_foreign_influence > 0 }
 			}
 		}
 	}
@@ -6870,24 +6861,89 @@ country_event = {
 	}
 	hidden = yes
 	immediate = {
+		every_owned_state = {
+			limit = {
+				region = 116
+			}
+			transfer_state_to = PER
+		}
 		ENG = {
-			end_puppet = PER
+			if = {
+				limit = {
+					has_subject = PER
+				}
+				end_puppet = PER
+			}		
 			if = {
 				limit = {
 					has_subject = ARB
-					country_exists = PER
 				}
-				ARB = {
-					clr_country_flag = protectorate
-					get_current_government_type = yes
-					PER = {
-						set_autonomy = {
-							target = ARB
-							autonomous_state = autonomy_integrated_puppet
-							freedom_level = 0.9
-						}
-					}	
-					restore_previous_government_type = yes
+				end_puppet = ARB
+				if = {
+					limit = {
+						country_exists = PER
+						PER = { is_subject = no }
+					}
+					ARB = {
+						clr_country_flag = protectorate
+						get_current_government_type = yes
+						PER = {
+							set_autonomy = {
+								target = ARB
+								autonomous_state = autonomy_integrated_puppet
+								freedom_level = 0.9
+							}
+						}	
+						restore_previous_government_type = yes
+					}			
+				}			
+			}
+			if = {
+				limit = {
+					has_subject = MAK
+				}
+				end_puppet = MAK
+				if = {
+					limit = {
+						country_exists = PER
+						PER = { is_subject = no }
+					}
+					MAK = {
+						clr_country_flag = protectorate
+						get_current_government_type = yes
+						PER = {
+							set_autonomy = {
+								target = MAK
+								autonomous_state = autonomy_integrated_puppet
+								freedom_level = 0.9
+							}
+						}	
+						restore_previous_government_type = yes
+					}			
+				}			
+			}
+			if = {
+				limit = {
+					has_subject = MRG
+				}
+				end_puppet = MRG
+				if = {
+					limit = {
+						country_exists = PER
+						PER = { is_subject = no }
+					}
+					MRG = {
+						clr_country_flag = protectorate
+						get_current_government_type = yes
+						PER = {
+							set_autonomy = {
+								target = MRG
+								autonomous_state = autonomy_integrated_puppet
+								freedom_level = 0.9
+							}
+						}	
+						restore_previous_government_type = yes
+					}			
 				}			
 			}
 		}
@@ -6919,15 +6975,7 @@ country_event = {
 				active = no
 			}
 		}
-		every_state = {
-			limit = {
-				region = 116
-				is_owned_by = ENG
-			}
-			PER = {
-				transfer_state = PREV
-			}
-		}
+		set_variable = { var = ENG.PER_foreign_influence value = 0 }
 	}
 }
 
@@ -14041,8 +14089,9 @@ country_event = {
 		has_war_with = TUR
 		controls_province = 2089
 		controls_state = 874
+		has_dynamic_modifier = PER_influence_in_persia_modifier
 		PER = {
-			has_idea = PER_idea_foreign_reliance
+			has_dynamic_modifier = PER_foreign_influence_modifier
 			1246 = {
 				is_owned_or_subject_PREV_trigger = yes
 			}

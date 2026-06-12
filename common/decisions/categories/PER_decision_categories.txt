@@ -1,88 +1,20 @@
-PER_persian_british_sphere_states = {
-	icon = eng_appeal_to_imperial_loyalists
+PER_constitutional_revolution_category = {
+	icon = generic_democracy
 
 	allowed = {
-		OR = {
-			tag = ENG
-			tag = PER
-		}
+		original_tag = PER
 	}
-	
-	visible_when_empty = yes
-	
-	on_map_area = {
-		targets = {
-			410
-			414
-			1244
-		}	
-		target_trigger = {
-			FROM = {
-				has_dynamic_modifier = { modifier = per_british_sphere }
-			}
-		}
-		name = PER_persian_british_sphere_states
-		zoom = 150
-	}
-	
-	visible = {
-		any_state = { 
-			has_dynamic_modifier = { modifier = per_british_sphere }
-		}
-		ENG = {
-			is_subject = no
-			NOT = {
-				has_war_with = PER
-			}
-		}	
-	}
+	priority = 100
 }
-PER_persian_russian_sphere_states = {
-	icon = GFX_modifiers_PER_foreign_sphere
+
+PER_guarded_domains = {
+	icon = ETH_disband_chitet
 
 	allowed = {
-		OR = {
-			tag = RUS
-			tag = PER
-		}
+		original_tag = PER
 	}
 	
 	visible_when_empty = yes
-	
-	on_map_area = {
-		targets = {
-			420
-			419
-			266
-			416
-			1242
-			1243
-			418
-			1241
-			877
-			1212
-			1245
-		}	
-		target_trigger = {
-			FROM = {
-				has_dynamic_modifier = { modifier = per_russian_sphere }
-			}
-		}
-		name = PER_persian_russian_sphere_states
-		zoom = 150
-	}
-	
-	visible = {
-		any_state = { 
-			has_dynamic_modifier = { modifier = per_russian_sphere }
-		}
-		RUS = {
-			is_subject = no
-			NOT = {
-				has_war_with = PER
-				has_war_with = SOV
-				tag = SOV
-			}
-		}	
-	}
+	priority = 51
+
 }
