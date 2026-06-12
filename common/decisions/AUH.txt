@@ -149,6 +149,96 @@ AUH_great_war_bullshit = {
 			base = 10
 		}
 	}
+	AUS_take_down_socialist_propoganda = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_country_flag = AUS_anti_socialist_measures_passed
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 75
+		cost = 50
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			communism_drift = -0.005
+			political_power_cost = -0.05
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			
+		}	
+	}
+	AUS_intensify_labor_punishment = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_country_flag = AUS_anti_socialist_measures_passed
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 30
+		cost = 25
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			political_power_cost = -0.05
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_stability = -0.01
+		}	
+	}
+	AUS_investigate_labor_movements = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_country_flag = AUS_anti_socialist_measures_passed
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 75
+		cost = 25
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			political_power_cost = -0.05
+			weekly_stability_factor = -0.001
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}	
+	}
 	AUS_tyr_mission = {
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
@@ -3281,6 +3371,126 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		fire_only_once = no
 		is_good = yes
+	}
+	AUS_discredit_liberalism = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_oppose_modernity
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 25
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			political_power_cost = 0.05
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+		}	
+	}
+	AUS_highlight_progressive_failures = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_oppose_modernity
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 100
+		cost = 25
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			democratic_drift = -0.005
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_political_power = 10
+		}	
+	}
+	AUS_promote_our_narrative = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_oppose_modernity
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 30
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			consumer_goods_factor = 0.025
+			political_power_cost = 0.05
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.075
+			}
+		}	
+	}
+	AUS_pass_anti_socialist_legistlation = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_oppose_liberal_rot
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 40
+		cost = 50
+		ai_will_do = {
+			base = 1
+		}
+		modifier = {
+			political_power_cost = 0.1
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			set_country_flag = AUS_anti_socialist_measures_passed
+			custom_effect_tooltip = AUS_anti_socialist_measures_passed_tt
+		}	
 	}
 	AUS_state_control_critical_industries = {
 		icon = GFX_decision_hol_attract_foreign_investors
