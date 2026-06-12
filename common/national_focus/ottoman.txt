@@ -7713,7 +7713,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = TUR_absolute_sultan_power
-			unlock_decision_tooltip = TUR_veto_the_parliament
 		}
 		ai_will_do = {
 			base = 35
@@ -7739,7 +7738,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = TUR_limited_sultan_power
-			unlock_decision_tooltip = TUR_cave_into_the_parliament
 		}
 		ai_will_do = {
 			base = 35
@@ -11029,9 +11027,23 @@ focus_tree = {
 		# }
 		completion_reward = {
 			add_political_power = 50
-			swap_ideas = {
-				remove_idea = TUR_diplomatic_isolation
-				add_idea = TUR_diplomatic_isolation_1
+			if = {
+				limit = {
+					power_balance_value = {
+						id = TUR_foreign_alignment
+						value < 0
+					}
+				}
+				add_power_balance_value = {
+					id = TUR_foreign_alignment
+					value = -0.05
+				}
+			}
+			else = {
+				add_power_balance_value = {
+					id = TUR_foreign_alignment
+					value = 0.05
+				}
 			}
 			# custom_effect_tooltip = TUR_our_place_in_the_world_focus_lock_tt
 		}
@@ -11088,6 +11100,10 @@ focus_tree = {
 					target = ROOT
 					modifier = TUR_diplomatic_relations
 				}
+			}
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = 0.05
 			}
 		}
 		ai_will_do = {
@@ -11184,6 +11200,10 @@ focus_tree = {
 				}
 			}
 			ottoman_minority_variable_check = yes
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = 0.15
+			}
 		}
 		ai_will_do = {
 			base = 30
@@ -11227,8 +11247,9 @@ focus_tree = {
 			has_war = no #you already fighting somewhere
 			OR = {
 				has_war_with = GER
-				NOT = {
-					has_idea = TUR_sick_man
+				is_power_balance_in_range = {
+					id = TUR_foreign_alignment
+					range = TUR_entente_alignment
 				}
 			}
 		}
@@ -11326,6 +11347,10 @@ focus_tree = {
 			show_ideas_tooltip = TUR_arthur_limpus
 			show_unit_leaders_tooltip = TUR_arthur_limpus
 			add_ideas = TUR_british_naval_advisors
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = 0.1
+			}
 		}
 		ai_will_do = {
 			base = 30
@@ -11451,6 +11476,10 @@ focus_tree = {
 					hours = 3
 				}
 			}
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = 0.1
+			}
 		}
 		ai_will_do = {
 			base = 30
@@ -11546,6 +11575,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = TUR_french_investments_in_syria_tt
 			set_country_flag = TUR_french_syrian_investment
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = 0.1
+			}
 		}
 		ai_will_do = {
 			base = 30
@@ -11580,6 +11613,10 @@ focus_tree = {
 				amount = 100
 				producer = FRA
 			}
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = 0.05
+			}
 		}
 		ai_will_do = {
 			base = 30
@@ -11604,6 +11641,10 @@ focus_tree = {
 		relative_position_id = TUR_french_aviation_mission
 		completion_reward = {
 			add_ideas = TUR_french_gendarme_mission
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = 0.1
+			}
 		}
 		ai_will_do = {
 			base = 30
@@ -11637,6 +11678,10 @@ focus_tree = {
 					target = TUR
 					modifier = TUR_diplomatic_relations
 				}
+			}
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = -0.05
 			}
 		}
 		ai_will_do = {
@@ -11773,6 +11818,10 @@ focus_tree = {
 				producer = TUR
 			}
 			custom_effect_tooltip = TUR_german_ottoman_arms_deal_tt
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = -0.1
+			}
 		}
 		ai_will_do = {
 			base = 30
@@ -11812,6 +11861,10 @@ focus_tree = {
 		relative_position_id = TUR_german_ottoman_arms_deal
 		completion_reward = {
 			TUR_remove_debt_2950 = yes
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = -0.1
+			}
 		}
 		ai_will_do = {
 			base = 30
@@ -11856,6 +11909,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = if_they_accept_tt
 			event_option_tooltip = ww1_ottoman.53.a
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = -0.1
+			}
 		}
 		ai_will_do = {
 			base = 30
@@ -11939,6 +11996,10 @@ focus_tree = {
 						remove_claim_by = BUL
 					}
 				}
+			}
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = -0.1
 			}
 		}
 		ai_will_do = {
@@ -12787,7 +12848,10 @@ focus_tree = {
 			has_war = no #you already fighting somewhere
 			OR = {
 				has_war_with = ENT
-				NOT = { has_idea = TUR_sick_man }
+				is_power_balance_in_range = {
+					id = TUR_foreign_alignment
+					range = TUR_central_powers_alignment
+				}
 			}
 		}
 		completion_reward = {
@@ -37425,6 +37489,12 @@ joint_focus = {
 		custom_effect_tooltip = escape_line
 		effect_tooltip = {
 			GER_TUR_military_mission_effect = yes
+		}
+		TUR = {
+			add_power_balance_value = {
+				id = TUR_foreign_alignment
+				value = -0.2
+			}
 		}
 	}
 	ai_will_do = {
