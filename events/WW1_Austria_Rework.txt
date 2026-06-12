@@ -6308,7 +6308,7 @@ country_event = {
 	id = ww1_austriahungary.239
 	title = ww1_austriahungary.239.t
 	desc = ww1_austriahungary.239.d
-	picture = GFX_report_event_worker_protests
+	#picture = GFX_report_event_worker_protests
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
@@ -6323,6 +6323,35 @@ country_event = {
 		add_to_variable = {
 			AUS_mea_cold_climate = 0.1
 			tooltip = acclimatization_cold_climate_gain_factor_tt
+		}
+	}
+}
+#debloating military apparatus done
+country_event = {
+	id = ww1_austriahungary.240
+	title = ww1_austriahungary.240.t
+	desc = ww1_austriahungary.240.d
+	#picture = GFX_report_event_worker_protests
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.240.a
+		custom_effect_tooltip = AUS_modify_army.tt
+		add_to_variable = {
+			AUS_mea_infantry_defense = 0.05
+			tooltip = army_infantry_defence_factor_tt
+		}
+		add_to_variable = {
+			AUS_mea_org = 0.05
+			tooltip = army_org_factor_tt
+		}
+		add_to_variable = {
+			AUS_mea_org_regain = 0.05
+			tooltip = army_org_regain_tt
+		}
+		add_to_variable = {
+			AUS_mea_army_supply_consumption = -0.05
+			tooltip = supply_consumption_factor_tt
 		}
 	}
 }
@@ -7051,7 +7080,7 @@ country_event = {
 		has_war_with_major = yes
 	}
 	option = {
-				add_stability = -0.05
+		add_stability = -0.05
 		name = ww1_austriahungary_war.22.a
 		custom_effect_tooltip = AUS_modify_eco.tt
 		add_to_variable = {
@@ -7115,8 +7144,8 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.24.a
-				add_stability = -0.05
-
+		add_stability = -0.05
+		
 		custom_effect_tooltip = AUS_modify_eco.tt
 		add_to_variable = {
 			AUS_EP_consumer_goods = 0.1
@@ -7883,8 +7912,8 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		check_variable = {
-				AUS_intensity_of_food_shortages > 4
-			}
+			AUS_intensity_of_food_shortages > 4
+		}
 	}
 	mean_time_to_happen = {
 		days = 30
@@ -8294,7 +8323,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
-
+		
 		name = ww1_austriahungary_war.61.a
 		activate_mission = AUS_karls_democratization
 		custom_effect_tooltip = AUS_karls_decisions
@@ -8598,7 +8627,7 @@ country_event = {
 		}
 		add_ideas = strikes_1
 		add_stability = -0.05
-			hidden_effect = {
+		hidden_effect = {
 			country_event = {
 				id = ww1_austriahungary_war.75
 				days = 7
@@ -8619,7 +8648,7 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.75.a
-			custom_effect_tooltip = AUS_modify_eco.tt
+		custom_effect_tooltip = AUS_modify_eco.tt
 		add_to_variable = {
 			AUS_EP_factory_output = -0.05
 			tooltip = industrial_capacity_factory_tt
@@ -8630,7 +8659,7 @@ country_event = {
 		}
 		remove_ideas = strikes_1
 		add_stability = 0.04
-			hidden_effect = {
+		hidden_effect = {
 			country_event = {
 				id = ww1_austriahungary_war.76
 				days = 7
@@ -8651,7 +8680,7 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.76.a
-			
+		
 		add_stability = -0.02
 		
 	}
@@ -8669,7 +8698,7 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.77.a
-			
+		
 		add_political_power = 100
 		
 	}
@@ -8687,7 +8716,7 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.78.a
-			
+		
 		add_political_power = 15
 		
 	}

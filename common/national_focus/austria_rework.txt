@@ -8118,25 +8118,25 @@ focus_tree = {
 			has_country_flag = AUS_conrad_secured
 		}
 		completion_reward = {
-			custom_effect_tooltip = AUS_modify_army.tt
-			add_to_variable = {
-				AUS_mea_max_planning = 0.1
-				tooltip = max_planning_factor_tt
-			}
-			add_to_variable = {
-				AUS_mea_org_regain = 0.1
-				tooltip = army_org_regain_tt
-			}
-			add_to_variable = {
-				AUS_mea_org = -0.05
-				tooltip = army_org_factor_tt
-			}
-			add_to_variable = {
-				AUS_mea_train_time = -0.05
-				tooltip = training_time_factor_tt
-			}
-			custom_effect_tooltip = empty_space_tt
-			activate_mission = AUS_expand_army_reserve
+			# custom_effect_tooltip = AUS_modify_army.tt
+			# add_to_variable = {
+			# 	AUS_mea_max_planning = 0.1
+			# 	tooltip = max_planning_factor_tt
+			# }
+			# add_to_variable = {
+			# 	AUS_mea_org_regain = 0.1
+			# 	tooltip = army_org_regain_tt
+			# }
+			# add_to_variable = {
+			# 	AUS_mea_org = -0.05
+			# 	tooltip = army_org_factor_tt
+			# }
+			# add_to_variable = {
+			# 	AUS_mea_train_time = -0.05
+			# 	tooltip = training_time_factor_tt
+			# }
+			# custom_effect_tooltip = empty_space_tt
+			# activate_mission = AUS_expand_army_reserve
 		}
 		ai_will_do = {
 			base = 1
@@ -8491,7 +8491,11 @@ focus_tree = {
 				AUS_mea_infantry_defense = 0.1
 				tooltip = army_infantry_defence_factor_tt
 			}
-			add_ideas = AUS_focus_on_defense_idea
+			add_to_variable = {
+				AUS_mea_infantry_attack = -0.05
+				tooltip = army_infantry_attack_factor_tt
+			}
+			custom_effect_tooltip = AUS_dont_lose_land.tt
 		}
 		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
@@ -8925,9 +8929,33 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			hidden_effect = {
+				country_event = ww1_austriahungary.240
+			}
 			add_timed_idea = {
 				idea = AUS_debolating_the_military_apparatus
 				days = 270
+			}
+			custom_effect_tooltip = empty_space_tt
+			custom_effect_tooltip = AUS_in_270_days.tt
+			custom_effect_tooltip = AUS_modify_army.tt
+			effect_tooltip = {
+				add_to_variable = {
+					AUS_mea_infantry_defense = 0.05
+					tooltip = army_infantry_defence_factor_tt
+				}
+				add_to_variable = {
+					AUS_mea_org = 0.05
+					tooltip = army_org_factor_tt
+				}
+				add_to_variable = {
+					AUS_mea_org_regain = 0.05
+					tooltip = army_org_regain_tt
+				}
+				add_to_variable = {
+					AUS_mea_army_supply_consumption = -0.05
+					tooltip = supply_consumption_factor_tt
+				}
 			}
 		}
 		ai_will_do = {
