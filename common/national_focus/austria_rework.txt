@@ -2603,9 +2603,18 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			unlock_decision_tooltip = AUS_promote_trad_family_associations
-			unlock_decision_tooltip = AUS_trad_families_curiculum
-			unlock_decision_tooltip = AUS_allowances_for_trad_families
+			unlock_decision_tooltip = {
+				decision = AUS_promote_trad_family_associations
+				show_modifiers = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_trad_families_curiculum
+				show_modifiers = yes
+			}
+			unlock_decision_tooltip = {
+				decision = AUS_allowances_for_trad_families
+				show_modifiers = yes
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -2947,6 +2956,9 @@ focus_tree = {
 				AUS_ep_construction_speed = 0.05
 				tooltip = production_speed_buildings_factor_tt
 			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -2961,10 +2973,7 @@ focus_tree = {
 		x = 1
 		y = 3
 		prerequisite = {
-			focus = AUS_oppose_modernity
-		}
-		prerequisite = {
-			focus = AUS_protect_landlords
+			focus = AUS_oppose_modernity focus = AUS_protect_landlords
 		}
 		relative_position_id = AUS_mantain_principles_vogelsang
 		available = {
@@ -3062,9 +3071,9 @@ focus_tree = {
 			democratic < 0.15
 		}
 		completion_reward = {
-			add_timed_idea = {
-				idea = AUS_unions_defeated
-				days = 360
+			custom_effect_tooltip = AUS_abolish_class_conflict_tt
+			hidden_effect = {
+				country_event = ww1_austriahungary.242
 			}
 		}
 		ai_will_do = {
@@ -3155,6 +3164,12 @@ focus_tree = {
 			unlock_decision_tooltip = AUS_highlight_progressive_failures
 			unlock_decision_tooltip = AUS_discredit_liberalism
 			custom_effect_tooltip = AUS_oppose_modernity_dec_tt
+			hidden_effect = {
+				country_event = {
+					id = ww1_austriahungary.241
+					days = 25
+				}
+			}
 		}
 		ai_will_do = {
 			base = 1
