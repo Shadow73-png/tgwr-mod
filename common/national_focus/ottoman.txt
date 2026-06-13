@@ -4272,8 +4272,6 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = TUR_unlock_new_minority_focuses
-			TUR_remove_minority_focuses = yes
-			set_country_flag = TUR_hurriyet_ve_itilaf_victory
 		}
 		ai_will_do = {
 			base = 30
@@ -4559,328 +4557,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = TUR_modern_islamism
-		icon = GFX_focus_generic_islam
-		cost = 5
-		prerequisite = {
-			focus = TUR_pardon_conservatives
-		}
-		x = -2
-		y = 1
-		allow_branch = {
-			has_country_flag = TUR_said_i_nursi_path
-		}
-		available = {
-			if = {
-				limit = {
-					has_country_flag = TUR_said_i_nursi_path
-				}
-				custom_trigger_tooltip = {
-					tooltip = TUR_conservatives_in_charge
-					has_country_flag = TUR_conservatives_in_charge
-				}
-			}
-		}
-		bypass = {
-			hidden_trigger = {
-				has_country_flag = TUR_modern_islamism_done
-			}
-		}
-		relative_position_id = TUR_pardon_conservatives
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_BALANCE_OF_POWER
-		}
-		completion_reward = {
-			set_country_flag = TUR_modern_islamism_done
-			add_ideas = TUR_synthesis_of_the_old_and_the_new
-			hidden_effect = {
-				uncomplete_national_focus = {
-					focus = TUR_adem_i_merkeziyetcilik
-					uncomplete_children = no
-					refund_political_power = no
-				}
-			}
-			add_popularity = {
-				ideology = democratic
-				popularity = 0.1
-			}
-			add_popularity = {
-				ideology = neutrality
-				popularity = -0.05
-			}
-			custom_effect_tooltip = TUR_unlock_new_minority_focuses
-			set_country_flag = TUR_modern_islamism
-			hidden_effect = {
-				mark_focus_tree_layout_dirty = yes
-			}
-		}
-		ai_will_do = {
-			base = 30
-		}
-	}
-	focus = {
-		id = TUR_increase_medrese_education
-		icon = GFX_focus_sharia
-		cost = 5
-		prerequisite = {
-			focus = TUR_modern_islamism
-		}
-		x = 2
-		y = 1
-		available = {
-			if = {
-				limit = {
-					has_country_flag = TUR_said_i_nursi_path
-				}
-				custom_trigger_tooltip = {
-					tooltip = TUR_conservatives_in_charge
-					has_country_flag = TUR_conservatives_in_charge
-				}
-			}
-		}
-		bypass = {
-			hidden_trigger = {
-				has_country_flag = TUR_increase_medrese_education_done
-			}
-		}
-		relative_position_id = TUR_modern_islamism
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
-		completion_reward = {
-			set_country_flag = TUR_increase_medrese_education_done
-			add_ideas = TUR_increase_medrese_education_idea
-			if = {
-				limit = {
-					amount_research_slots < 4
-				}
-				add_research_slot = 1
-			}
-		}
-		ai_will_do = {
-			base = 30
-		}
-	}
-	focus = {
-		id = TUR_form_volunteers_from_conservatives
-		icon = GFX_focus_generic_manpower
-		cost = 5
-		prerequisite = {
-			focus = TUR_modern_islamism
-		}
-		x = 0
-		y = 1
-		available = {
-			if = {
-				limit = {
-					has_country_flag = TUR_said_i_nursi_path
-				}
-				custom_trigger_tooltip = {
-					tooltip = TUR_conservatives_in_charge
-					has_country_flag = TUR_conservatives_in_charge
-				}
-			}
-		}
-		bypass = {
-			hidden_trigger = {
-				has_country_flag = TUR_form_volunteers_from_conservatives_done
-			}
-		}
-		relative_position_id = TUR_modern_islamism
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		completion_reward = {
-			set_country_flag = TUR_form_volunteers_from_conservatives_done
-			add_ideas = TUR_conservative_volunteers1
-			custom_effect_tooltip = TUR_once_has_war
-			effect_tooltip = {
-				swap_ideas = {
-					remove_idea = TUR_conservative_volunteers1
-					add_idea = TUR_conservative_volunteers2
-				}
-			}
-		}
-		ai_will_do = {
-			base = 30
-		}
-	}
-	focus = {
-		id = TUR_increase_sect_membership
-		icon = GFX_focus_TUR_religious_law
-		cost = 5
-		prerequisite = {
-			focus = TUR_modern_islamism
-		}
-		x = -2
-		y = 1
-		available = {
-			if = {
-				limit = {
-					has_country_flag = TUR_said_i_nursi_path
-				}
-				custom_trigger_tooltip = {
-					tooltip = TUR_conservatives_in_charge
-					has_country_flag = TUR_conservatives_in_charge
-				}
-			}
-		}
-		bypass = {
-			hidden_trigger = {
-				has_country_flag = TUR_increase_sect_membership_done
-			}
-		}
-		relative_position_id = TUR_modern_islamism
-		search_filters = {
-			FOCUS_FILTER_STABILITY
-		}
-		completion_reward = {
-			set_country_flag = TUR_increase_sect_membership_done
-			add_ideas = TUR_empowered_sects
-			add_stability = 0.05
-		}
-		ai_will_do = {
-			base = 30
-		}
-	}
-	focus = {
-		id = TUR_reform_mecelle
-		icon = GFX_focus_hol_the_foundations_of_defense
-		cost = 5
-		prerequisite = {
-			focus = TUR_increase_sect_membership
-		}
-		x = 0
-		y = 1
-		available = {
-			if = {
-				limit = {
-					has_country_flag = TUR_said_i_nursi_path
-				}
-				custom_trigger_tooltip = {
-					tooltip = TUR_conservatives_in_charge
-					has_country_flag = TUR_conservatives_in_charge
-				}
-			}
-		}
-		bypass = {
-			hidden_trigger = {
-				has_country_flag = TUR_reform_mecelle_done
-			}
-		}
-		relative_position_id = TUR_increase_sect_membership
-		search_filters = {
-			FOCUS_FILTER_STABILITY
-		}
-		completion_reward = {
-			set_country_flag = TUR_reform_mecelle_done
-			add_ideas = reformed_mecelle2
-		}
-		ai_will_do = {
-			base = 30
-		}
-	}
-	focus = {
-		id = TUR_sacrifice_democracy
-		icon = GFX_focus_generic_strike_at_democracy2
-		cost = 5
-		prerequisite = {
-			focus = TUR_increase_sect_membership
-			focus = TUR_form_volunteers_from_conservatives
-			focus = TUR_increase_medrese_education
-		}
-		x = 1
-		y = 1
-		mutually_exclusive = {
-			focus = TUR_shining_democracy_of_middle_east
-		}
-		available = {
-			if = {
-				limit = {
-					has_country_flag = TUR_said_i_nursi_path
-				}
-				custom_trigger_tooltip = {
-					tooltip = TUR_conservatives_in_charge
-					has_country_flag = TUR_conservatives_in_charge
-				}
-			}
-		}
-		relative_position_id = TUR_form_volunteers_from_conservatives
-		search_filters = {
-			FOCUS_FILTER_BALANCE_OF_POWER
-		}
-		completion_reward = {
-			set_politics = {
-				ruling_party = neutrality
-				elections_allowed = no
-			}
-			set_party_name = {
-				ideology = neutrality
-				long_name = TUR_islamist_party_long
-				name = TUR_islamist_party
-			}
-			add_country_leader_role = {
-				character = TUR_said_i_nursi
-				promote_leader = yes
-				country_leader = {
-					ideology = theocracy_ideology
-					traits = {
-						islamist_modern_leader
-						grand_vizier
-					}
-				}
-			}
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.3
-			}
-			add_popularity = {
-				ideology = democratic
-				popularity = -0.1
-			}
-			remove_ideas = TUR_guaranteed_freedom_of_speech
-			hidden_effect = {
-				set_party_name = {
-					ideology = democratic
-					long_name = TUR_democratic_party_long
-					name = TUR_democratic_party
-				}
-				if = {
-					limit = {
-						has_country_flag = TUR_mehmed_kamil_party_leader
-					}
-					promote_character = TUR_mehmed_kamil
-				}
-				if = {
-					limit = {
-						has_country_flag = TUR_damad_ferid_pasha_party_leader
-					}
-					promote_character = TUR_damad_ferid
-				}
-				if = {
-					limit = {
-						has_country_flag = TUR_prens_sabahattin_party_leader
-					}
-					promote_character = TUR_prens_sabahattin
-				}
-				if = {
-					limit = {
-						NOT = {
-							has_country_flag = TUR_mehmed_kamil_party_leader
-							has_country_flag = TUR_damad_ferid_pasha_party_leader
-							has_country_flag = TUR_prens_sabahattin_party_leader
-						}
-					}
-					promote_character = TUR_mehmed_kamil
-				}
-			}
-		}
-		ai_will_do = {
-			base = 30
-		}
-	}
-	focus = {
 		id = TUR_privatize_universities
 		icon = GFX_focus_research2
 		cost = 5
@@ -5156,7 +4832,6 @@ focus_tree = {
 			}
 			add_stability = 0.1
 			remove_ideas = TUR_idea_liberal_revenge
-			TUR_remove_minority_focuses = yes
 			custom_effect_tooltip = TUR_unlock_new_minority_focuses
 		}
 		ai_will_do = {
@@ -5679,6 +5354,10 @@ focus_tree = {
 			TUR_remove_party_factionalism = yes
 			add_stability = -0.05
 			TUR_harbiyeli_officers_wont_revolt = yes
+			custom_effect_tooltip = TUR_unlock_new_minority_focuses
+			hidden_effect = {
+				mark_focus_tree_layout_dirty = yes
+			}
 		}
 		ai_will_do = {
 			base = 30
@@ -5704,7 +5383,6 @@ focus_tree = {
 		}
 		relative_position_id = TUR_undermine_democracy
 		completion_reward = {
-			set_country_flag = TUR_three_pasha_government
 			set_politics = {
 				ruling_party = fascism
 				elections_allowed = no
@@ -5736,11 +5414,7 @@ focus_tree = {
 				slot = political_advisor
 				trait = tur_savior_of_the_nation
 			}
-			custom_effect_tooltip = TUR_unlock_new_minority_focuses
-			TUR_remove_minority_focuses = yes
-			set_country_flag = TUR_three_pasha_government
 			hidden_effect = {
-				mark_focus_tree_layout_dirty = yes
 				country_event = {
 					id = ottoman.179
 					days = 1332
@@ -8497,7 +8171,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TUR_aftermath_of_31_march_incident
 		}
-		x = -7
+		x = -6
 		y = 1
 		allow_branch = {
 			NOT = {
