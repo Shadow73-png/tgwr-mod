@@ -11320,7 +11320,12 @@ focus_tree = {
 				has_war_with = ITA
 				is_in_faction_with = ITA
 			}
+<<<<<<< Updated upstream
 			#also kuk luftfahrttruppen expansion focus completed
+=======
+			#possible prerequisite: at least x number of y type of plains produced?
+			has_completed_focus = AUS_kuk_luftfahrtruppen_expansion
+>>>>>>> Stashed changes
 			736 = {
 				is_controlled_by_ROOT_or_subject = yes
 			}
@@ -11420,6 +11425,12 @@ focus_tree = {
 				decision = AUS_new_course_in_aviation
 				show_effect_tooltip = yes
 			}
+			hidden_effect = {
+				country_event = {
+					id = ww1_austriahungary.247
+					days = 270
+				}
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -11433,6 +11444,12 @@ focus_tree = {
 		y = 3
 		mutually_exclusive = {
 			focus = AUS_our_own_fighters
+		}
+		available = {
+			has_country_flag = AUS_unlocked_airship_studies
+			custom_trigger_tooltip = {
+				tooltip = AUS_wait_nine_months_tt
+			}
 		}
 		search_filters = {
 			FOCUS_FILTER_RESEARCH
