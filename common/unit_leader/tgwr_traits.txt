@@ -112,9 +112,10 @@ leader_traits = {
 	artillery_specialist = {
 		type = corps_commander
 		gain_xp = {
-			set_temp_variable = { temp = num_units }
-			multiply_temp_variable = { temp = 0.3 }
-			check_variable = { num_artillery > temp }
+			check_expr = {
+				value = num_artillery
+				greater_than = { value = num_units  multiply = 0.3 }
+			}
 		}
 		custom_gain_xp_trigger_tooltip = artillery_ratio_over_30
 		
@@ -383,27 +384,19 @@ leader_traits = {
 		gui_row = 14
 	}
 
-	politically_exiled = {
+	trait_PER_cossack = {
+
 		type = all
 		trait_type = personality_trait
 		gain_xp = {
 			always = no # not gainable
 		}
-		
-		modifier = {
-			max_commander_army_size = -24
-			cannot_use_abilities = 1
-			experience_gain_factor = -0.5
-			reassignment_duration_factor = 1
-			promote_cost_factor = 1
+		allowed = {
+			FROM = {
+				original_tag = PER
+			}
 		}
-		field_marshal_modifier = {
-			max_army_group_size = -5
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
+
 		new_commander_weight = {
 			factor = 0
 		}
@@ -453,6 +446,41 @@ leader_traits = {
 		ai_will_do = {
 			factor = 0
 		}
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+	trait_PER_cossack = {
+
+		type = all
+		trait_type = personality_trait
+		gain_xp = {
+			always = no # not gainable
+		}
+		allowed = {
+			FROM = {
+				original_tag = PER
+			}
+		}
+
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+	trait_PER_gendarmerie = {
+
+		type = all
+		trait_type = personality_trait
+		gain_xp = {
+			always = no # not gainable
+		}
+		allowed = {
+			FROM = {
+				original_tag = PER
+			}
+		}
+
 		new_commander_weight = {
 			factor = 0
 		}

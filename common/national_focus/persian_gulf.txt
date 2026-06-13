@@ -53,35 +53,13 @@ shared_focus = {
 shared_focus = {
 	id =  GULF_army_focus
 	icon = {
-		trigger = { original_tag = BHR }
-		value = GFX_focus_army_focus_bahrain
-	}
-	icon = {
-		trigger = { original_tag = QAT }
-		value = GFX_army_focus_qatar
-	}
-	icon = {
-		trigger = { original_tag = MSC }
-		value = GFX_focus_OMA_Army
-	}
-	icon = {
-		trigger = { original_tag = KUW }
-		value = GFX_army_focus_kuwait
-	}
-	icon = {
-		trigger = { original_tag = OMA }
-		value = GFX_army_focus_oman
-	}
-	icon = {
-		trigger = { original_tag = UAE }
-		value = GFX_army_focus_uae
-	}
-	icon = {
-		trigger = { original_tag = ARM }
-		value = GFX_army_focus_muhammara
-	}
-	icon = {
-		value = GFX_goal_generic_small_arms
+		GFX_focus_army_focus_bahrain = { original_tag = BHR }
+		GFX_army_focus_qatar = { original_tag = QAT }
+		GFX_focus_OMA_Army = { original_tag = MSC }
+		GFX_army_focus_kuwait = { original_tag = KUW }
+		GFX_army_focus_oman = { original_tag = OMA }
+		GFX_army_focus_uae = { original_tag = UAE }
+		GFX_goal_generic_small_arms = yes
 	}
 	search_filters = {
 		FOCUS_FILTER_HISTORICAL
@@ -145,13 +123,10 @@ shared_focus = {
 shared_focus = {
 	id =  GULF_our_ships
 	icon = {
-		trigger = {
+		GFX_focus_OMA_Navy = {
 			original_tag = MSC  
 		}
-		value = GFX_focus_OMA_Navy
-	}
-	icon = {
-		value = GFX_goal_generic_navy_battleship
+		GFX_goal_generic_navy_battleship = yes
 	}
 	cost = 10
 	relative_position_id =  GULF_establish_control_over_the_economy
@@ -374,10 +349,8 @@ shared_focus = {
 	}
 	available = {
 		TUR = {
-			custom_trigger_tooltip = {
-				tooltip = TUR_jihad_declared_tt
-				has_country_flag = TUR_jihad_declared
-			}
+			has_country_flag = TUR_jihad_declared
+			has_war_with = ENG
 		}
 		has_war_support > 0.6
 		OR = {
@@ -395,13 +368,9 @@ shared_focus = {
 	bypass = {
 		has_war_with = ENG
 	}
-	complete_tooltip = {
-		var:ROOT.GULF_join_jihad = { end_puppet = ROOT }
-		custom_effect_tooltip = GULF_join_jihad_tt
-	}
 	completion_reward = {
 		if = {
-			limit = {
+			limit = { 
 				OR = {
 					is_subject = no
 					is_subject_of = ENG
@@ -419,26 +388,24 @@ shared_focus = {
 		}
 		if = {
 			limit = {
-				NOT = { tag = TUR }
-				has_subject = PREV
+				TUR = {
+					has_war_with = ENG
+				}
+			 }
+			 add_to_war = {
+				targeted_alliance = TUR
+				enemy = ENG
 			}
-			end_puppet = ROOT
-			set_variable = { ROOT.GULF_join_jihad = THIS }
-			set_temp_variable = { ROOT.GULF_join_jihad = THIS }
 		}
-		custom_effect_tooltip = GULF_join_jihad_tt
-		hidden_effect = {
-			every_other_country = {
-				limit = {
-					has_war_with = TUR
-					is_major = yes
+		if = {
+			limit = {
+				TUR = {
+					has_war_with = GER
 				}
-				ROOT = {
-					add_to_war = {
-						targeted_alliance = TUR
-						enemy = PREV
-					}
-				}
+			 }
+			 add_to_war = {
+				targeted_alliance = TUR
+				enemy = GER
 			}
 		}
 	}
@@ -703,12 +670,8 @@ shared_focus = {
 		FOCUS_FILTER_INTERNAL_AFFAIRS
 	}
 	icon = {
-		trigger = { NOT = { any_owned_state = { is_coastal = yes } } }
-		value = GFX_focus_generic_farmland
-	}
-	icon = {
-		trigger = { any_owned_state = { is_coastal = yes } }
-		value = GFX_focus_SWE_state_paid_vacation
+		GFX_focus_generic_farmland = yes
+		GFX_focus_SWE_state_paid_vacation = { any_owned_state = { is_coastal = yes } }
 	}
 	cost = 10
 	prerequisite = {
@@ -851,7 +814,7 @@ shared_focus = {
 }
 shared_focus = {
 	id =  GULF_modernize_islamic_school
-	icon = GFX_focus_generic_islamic_education
+	icon = GFX_TUR_Islamic_Education
 	cost = 10
 	search_filters = {
 		FOCUS_FILTER_RESEARCH

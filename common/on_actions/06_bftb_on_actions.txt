@@ -1,37 +1,6 @@
 on_actions = {
 	on_state_control_changed = {
 		effect = {
-			if = {
-				limit = {
-					FROM.FROM = {
-						is_core_of = SMS
-						NOT = { is_owned_by = SMS }
-					}
-				}
-				FROM.FROM = { remove_core_of = SMS }
-			}
-		}
-		effect = {
-		    if = {
-				limit = {
-					ROOT = { NOT = { original_tag = PER } }
-					FROM.FROM = { has_dynamic_modifier = { modifier = per_british_sphere } }
-				}
-				FROM.FROM = {
-					remove_dynamic_modifier = { modifier = per_british_sphere }
-					set_state_flag = per_british_sphere_no_control
-				}
-			}
-			else_if = { #persia add
-				limit = {
-					ROOT = { original_tag = PER }
-					FROM.FROM = { has_state_flag = per_british_sphere_no_control }
-				}
-				FROM.FROM = {
-					add_dynamic_modifier = { modifier = per_british_sphere }
-                    clr_state_flag = per_british_sphere_no_control
-				}
-			}
 			#Greece
 		    if = {
 				limit = { FROM.FROM = { controller = { NOT = { original_tag = GRE } } } }
