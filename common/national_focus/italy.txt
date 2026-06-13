@@ -1490,7 +1490,7 @@ focus_tree = {
 	focus = {
 		id = ITA_new_naval_guns
 		icon = GFX_goal_generic_construct_naval_dockyard
-		cost = 4
+		cost = 3
 		x = 2
 		y = 2
 		prerequisite = {
@@ -1511,12 +1511,6 @@ focus_tree = {
 				uses = 1
 				name = ITA_new_naval_guns
 			}
-			custom_effect_tooltip = empty_space_tt
-			unlock_decision_tooltip = {
-				decision = ITA_bombard_the_libyan_coast
-				show_effect_tooltip = yes
-			}
-			custom_effect_tooltip = ITA_bombard_the_libyan_coast.tt
 		}
 		search_filters = {
 			FOCUS_FILTER_RESEARCH
@@ -1793,7 +1787,7 @@ focus_tree = {
 	focus = {
 		id = ITA_2_enemies_2_navies
 		icon = GFX_focus_generic_mediterranean_sea_focus
-		cost = 4
+		cost = 3
 		x = -2
 		y = 1
 		prerequisite = {
@@ -1814,12 +1808,6 @@ focus_tree = {
 				ITA_navy_org = 0.1
 				tooltip = navy_org_factor_tt
 			}
-			custom_effect_tooltip = empty_space_tt
-			unlock_decision_tooltip = {
-				decision = ITA_raid_beirut_port
-				show_effect_tooltip = yes
-			}
-			custom_effect_tooltip = ITA_bombard_the_libyan_coast.tt
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -2680,37 +2668,43 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			custom_effect_tooltip = ITA_pairs_well_with_tariff_loan.tt
-			custom_effect_tooltip = ITA_modify_industry_tt
-			effect_tooltip = {
-				add_to_variable = {
-					ITA_ind_infra_speed = 0.05
-					tooltip = production_speed_infrastructure_factor_tt
-				}
-				add_to_variable = {
-					ITA_ind_stab = 0.05
-					tooltip = stability_factor_tt
-				}
-			}
-			custom_effect_tooltip = empty_space_tt
-			custom_effect_tooltip = ITA_modify_industry_tt
-			add_to_variable = {
-				ITA_ind_civs = 0.04
-				tooltip = production_speed_industrial_complex_factor_tt
-			}
-			IF = {
-				limit = {
-					has_completed_focus = ITA_moderate_protectionism
-				}
+			if = {
+				limit = { has_completed_focus = ITA_moderate_protectionism }
 				custom_effect_tooltip = ITA_modify_industry_tt
 				add_to_variable = {
+					ITA_ind_stab = 0.05
+					tooltip = stability_factor_tt
+				}
+				add_to_variable = {
 					ITA_ind_infra_speed = 0.05
 					tooltip = production_speed_infrastructure_factor_tt
 				}
 				add_to_variable = {
-					ITA_ind_stab = 0.05
-					tooltip = stability_factor_tt
+					ITA_ind_civs = 0.04
+					tooltip = production_speed_industrial_complex_factor_tt
 				}
+				custom_effect_tooltip = empty_space_tt
+			}
+			else = {
+				custom_effect_tooltip = ITA_modify_industry_tt
+				add_to_variable = {
+					ITA_ind_civs = 0.04
+					tooltip = production_speed_industrial_complex_factor_tt
+				}
+				custom_effect_tooltip = empty_space_tt
+				custom_effect_tooltip = ITA_pairs_well_with_tariff_loan.tt
+				custom_effect_tooltip = ITA_modify_industry_tt
+				effect_tooltip = {
+					add_to_variable = {
+						ITA_ind_infra_speed = 0.05
+						tooltip = production_speed_infrastructure_factor_tt
+					}
+					add_to_variable = {
+						ITA_ind_stab = 0.05
+						tooltip = stability_factor_tt
+					}
+				}
+				custom_effect_tooltip = empty_space_tt
 			}
 		}
 		search_filters = {
@@ -3178,12 +3172,82 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = ITA_arise_workers_of_italy
+		icon = GFX_focus_CHL_union_of_hispanic_republics
+		cost = 0
+		x = 52
+		y = 0
+		relative_position_id = ITA_seek_emergency_powers
+		offset = {
+			x = -97
+			y = 0
+			trigger = {
+				has_country_flag = ITA_socialist_italy_flag
+			}
+		}
+		allow_branch = {
+			NOT = {
+				has_completed_focus = ITA_fight_the_revolution
+			}
+		}
+		mutually_exclusive = {
+			focus = ITA_fight_the_revolution
+		}
+		available = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = ITA_above_50_support_at_war
+					has_war = yes
+					communism > 50
+				}
+				custom_trigger_tooltip = {
+					tooltip = ITA_red_week_require
+					has_global_flag = ITA_red_week
+				}
+				custom_trigger_tooltip = {
+					tooltip = ITA_attempted_to_ban_psi
+					has_global_flag = ITA_criminalized_psi
+				}
+			}
+			hidden_trigger = {
+				always = no
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = ITA_only_lose_chains
+			set_variable = {
+				ITA_autonomists_strength = 0
+			}
+			set_variable = {
+				ITA_centralists_strength = 0
+			}
+			hidden_effect = {
+				country_event = {
+					id = ww1_red_italy.6
+					days = 20
+				}
+				country_event = {
+					id = ww1_red_italy.7
+					days = 40
+				}
+			}
+			mark_focus_tree_layout_dirty = yes
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	focus = {
 		id = ITA_fight_the_revolution
 		icon = GFX_focus_communist_purges
 		cost = 0
-		x = 31
+		x = -21
 		y = 0
-		relative_position_id = ITA_seek_emergency_powers
+		relative_position_id = ITA_arise_workers_of_italy
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = how_to_fight_rev
@@ -3991,76 +4055,6 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-	focus = {
-		id = ITA_arise_workers_of_italy
-		icon = GFX_focus_CHL_union_of_hispanic_republics
-		cost = 0
-		x = 52
-		y = 0
-		relative_position_id = ITA_seek_emergency_powers
-		offset = {
-			x = -108
-			y = 0
-			trigger = {
-				has_country_flag = ITA_socialist_italy_flag
-			}
-		}
-		allow_branch = {
-			NOT = {
-				has_completed_focus = ITA_fight_the_revolution
-			}
-		}
-		mutually_exclusive = {
-			focus = ITA_fight_the_revolution
-		}
-		available = {
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = ITA_above_50_support_at_war
-					has_war = yes
-					communism > 50
-				}
-				custom_trigger_tooltip = {
-					tooltip = ITA_red_week_require
-					has_global_flag = ITA_red_week
-				}
-				custom_trigger_tooltip = {
-					tooltip = ITA_attempted_to_ban_psi
-					has_global_flag = ITA_criminalized_psi
-				}
-			}
-			hidden_trigger = {
-				always = no
-			}
-		}
-		completion_reward = {
-			custom_effect_tooltip = ITA_only_lose_chains
-			set_variable = {
-				ITA_autonomists_strength = 0
-			}
-			set_variable = {
-				ITA_centralists_strength = 0
-			}
-			hidden_effect = {
-				country_event = {
-					id = ww1_red_italy.6
-					days = 20
-				}
-				country_event = {
-					id = ww1_red_italy.7
-					days = 40
-				}
-			}
-			mark_focus_tree_layout_dirty = yes
-		}
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_COMPLETED_BY_EVENT
 		}
 		ai_will_do = {
 			base = 1
@@ -9351,7 +9345,7 @@ focus_tree = {
 				limit = {
 					controls_province = 628
 				}
-				160 = {
+				1259 = {
 					create_unit = {
 						division = "name = \"Guardie Rosse\" division_template = \"Guardie Rosse\" start_equipment_factor = 0.75 start_experience_factor = 0.2"
 						prioritize_location = 628
@@ -11720,23 +11714,17 @@ focus_tree = {
 	focus = {
 		id = ITA_negotiations_with_entente
 		icon = {
-			trigger = {
+			GFX_focus_chi_british_cooperation = {
 				ENG = {
 					is_in_faction_with = ENT
 				}
 			}
-			value = GFX_focus_chi_british_cooperation
-		}
-		icon = {
-			trigger = {
+			GFX_focus_deal_with_russia = {
 				RUS = {
 					tag = ENT
 				}
 			}
-			value = GFX_focus_deal_with_russia
-		}
-		icon = {
-			value = GFX_focus_chi_reach_out_to_france
+			GFX_focus_chi_reach_out_to_france = yes
 		}
 		cost = 4.4
 		x = -1
@@ -13865,6 +13853,10 @@ focus_tree = {
 				ITA_army_xp_factor = 0.05
 				tooltip = experience_gain_army_factor_tt
 			}
+			add_to_variable = {
+				ITA_army_land_mastery_gain_factor = 0.02
+				tooltip = land_mastery_gain_factor_tt
+			}
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -13903,6 +13895,10 @@ focus_tree = {
 				ITA_army_defense = 0.05
 				tooltip = army_defence_factor_tt
 			}
+			add_to_variable = {
+				ITA_army_land_mastery_gain_factor = 0.02
+				tooltip = land_mastery_gain_factor_tt
+			}
 			#add_to_variable = {
 			#	ITA_army_attrition = -0.05
 			#}
@@ -13930,9 +13926,14 @@ focus_tree = {
 			has_italian_civil_war = no
 		}
 		completion_reward = {
-			set_division_template_lock = {
-				division_template = "Reggimento Alpini"
-				is_locked = no
+			if = {
+				limit = { 
+					has_start_date < 1914.1.1
+				}
+				set_division_template_lock = {
+					division_template = "Reggimento Alpini"
+					is_locked = no
+				}
 			}
 			custom_effect_tooltip = ITA_modify_army_tt
 			add_to_variable = {
@@ -14086,6 +14087,10 @@ focus_tree = {
 				ITA_army_breakthrough = 0.05
 				tooltip = breakthrough_factor_tt
 			}
+			add_to_variable = {
+				ITA_army_land_mastery_gain_factor = 0.04
+				tooltip = land_mastery_gain_factor_tt
+			}
 		}
 		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
@@ -14115,6 +14120,11 @@ focus_tree = {
 			has_italian_civil_war = no
 		}
 		completion_reward = {
+			custom_effect_tooltip = ITA_modify_army_tt
+			add_to_variable = {
+				ITA_army_land_mastery_gain_factor = 0.04
+				tooltip = land_mastery_gain_factor_tt
+			}
 			random_owned_controlled_state = {
 				prioritize = {
 					158
@@ -14367,6 +14377,10 @@ focus_tree = {
 			add_to_variable = {
 				ITA_army_xp_factor = 0.05
 				tooltip = experience_gain_army_factor_tt
+			}
+			add_to_variable = {
+				ITA_army_land_mastery_gain_factor = 0.02
+				tooltip = land_mastery_gain_factor_tt
 			}
 			add_to_variable = {
 				ITA_army_supply = -0.05
@@ -14767,7 +14781,7 @@ focus_tree = {
 				}
 			}
 			OR = {
-				casualties_k > 300
+				casualties_k > 250
 				longest_war_length > 30
 				check_variable = {
 					ITA_percieved_usefulness < -29
@@ -14810,6 +14824,10 @@ focus_tree = {
 			add_to_variable = {
 				ITA_army_org_regain = 0.1
 				tooltip = army_org_regain_tt
+			}
+			add_to_variable = {
+				ITA_army_land_mastery_gain_factor = 0.02
+				tooltip = land_mastery_gain_factor_tt
 			}
 			set_country_flag = ITA_unlock_other_army_chiefs
 		}
@@ -14886,6 +14904,11 @@ focus_tree = {
 			unlock_decision_tooltip = {
 				decision = ITA_accept_our_limitations
 				show_effect_tooltip = yes
+			}
+			custom_effect_tooltip = ITA_modify_army_tt
+			add_to_variable = {
+				ITA_army_land_mastery_gain_factor = 0.04
+				tooltip = land_mastery_gain_factor_tt
 			}
 		}
 		search_filters = {
@@ -19595,13 +19618,18 @@ focus_tree = {
 			}
 			country_event = ww1_italy.29
 			hidden_effect = {
-				country_event = {
-					id = ww1_italy.31
-					days = 10
-				}
-				country_event = {
-					id = ww1_italy.34
-					days = 20
+				if = {
+					limit = { 
+						has_start_date < 1914.1.1
+					}
+					country_event = {
+						id = ww1_italy.31
+						days = 10
+					}
+					country_event = {
+						id = ww1_italy.34
+						days = 20
+					}
 				}
 			}
 		}
@@ -19917,9 +19945,14 @@ focus_tree = {
 			}
 			custom_effect_tooltip = ITA_maxim_increase
 			hidden_effect = {
-				country_event = {
-					id = ww1_italy.48
-					days = 10
+				if = {
+					limit = { 
+						has_start_date < 1914.1.1
+					}
+					country_event = {
+						id = ww1_italy.48
+						days = 10
+					}
 				}
 			}
 		}
@@ -20341,9 +20374,14 @@ focus_tree = {
 			custom_effect_tooltip = when_conquer
 			set_global_flag = libyan_compliance
 			hidden_effect = {
-				country_event = {
-					id = ww1_italy.39
-					days = 30
+				if = {
+					limit = { 
+						has_start_date < 1914.1.1
+					}
+					country_event = {
+						id = ww1_italy.39
+						days = 30
+					}
 				}
 			}
 		}
@@ -20834,6 +20872,10 @@ focus_tree = {
 				ITA_army_org_regain = 0.05
 				tooltip = army_org_regain_tt
 			}
+			add_to_variable = {
+				ITA_army_land_mastery_gain_factor = 0.02
+				tooltip = land_mastery_gain_factor_tt
+			}
 			custom_effect_tooltip = empty_space_tt
 			unlock_decision_tooltip = {
 				decision = ITA_establish_mobile_command_centers
@@ -20907,6 +20949,11 @@ focus_tree = {
 				ITA_ind_line_change = 0.05
 				tooltip = line_change_production_efficiency_factor_tt
 			}
+			custom_effect_tooltip = ITA_modify_army_tt
+			add_to_variable = {
+				ITA_army_land_mastery_gain_factor = 0.02
+				tooltip = land_mastery_gain_factor_tt
+			}			
 			custom_effect_tooltip = empty_space_tt
 			unlock_decision_tooltip = {
 				decision = ITA_modernize_infantry_dec
@@ -21163,6 +21210,10 @@ focus_tree = {
 			add_to_variable = {
 				ITA_army_org_factor = 0.05
 				tooltip = army_org_factor_tt
+			}
+			add_to_variable = {
+				ITA_army_land_mastery_gain_factor = 0.04
+				tooltip = land_mastery_gain_factor_tt
 			}
 		}
 		search_filters = {

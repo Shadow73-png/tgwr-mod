@@ -608,16 +608,16 @@ RUS_civil_war = {
 		}
 
 		available = {
-			OR = {
-				controls_province = 6380 #moscow
-				if = {
-					limit = { 
-						is_subject = yes
-					}
-					OVERLORD = {
-						controls_province = 6380 #moscow
-					}
+			if = {
+				limit = { 
+					is_subject = yes
 				}
+				OVERLORD = {
+					controls_province = 6380 #moscow
+				}
+			}
+			else = {
+				controls_province = 6380 
 			}
 		}
 
