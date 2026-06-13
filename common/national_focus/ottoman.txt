@@ -10991,23 +10991,9 @@ focus_tree = {
 		# }
 		completion_reward = {
 			add_political_power = 50
-			if = {
-				limit = {
-					power_balance_value = {
-						id = TUR_foreign_alignment
-						value < 0
-					}
-				}
-				add_power_balance_value = {
-					id = TUR_foreign_alignment
-					value = -0.05
-				}
-			}
-			else = {
-				add_power_balance_value = {
-					id = TUR_foreign_alignment
-					value = 0.05
-				}
+			swap_ideas = {
+				remove_idea = TUR_diplomatic_isolation
+				add_idea = TUR_diplomatic_isolation_1
 			}
 			# custom_effect_tooltip = TUR_our_place_in_the_world_focus_lock_tt
 		}
