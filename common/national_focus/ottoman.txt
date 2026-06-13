@@ -2311,10 +2311,6 @@ focus_tree = {
 		}
 		available = {
 			owns_state = 356
-			NOT = {
-				has_completed_focus = TUR_socialist_economics
-				has_completed_focus = TUR_islamic_economics
-			}
 		}
 		completion_reward = {
 			add_resource = {
@@ -2351,10 +2347,6 @@ focus_tree = {
 		}
 		available = {
 			owns_state = 291
-			NOT = {
-				has_completed_focus = TUR_socialist_economics
-				has_completed_focus = TUR_islamic_economics
-			}
 		}
 		completion_reward = {
 			add_tech_bonus = {
@@ -2449,10 +2441,6 @@ focus_tree = {
 			controls_state = 825
 			controls_state = 1019
 			controls_state = 854
-			NOT = {
-				has_completed_focus = TUR_socialist_economics
-				has_completed_focus = TUR_islamic_economics
-			}
 		}
 		completion_reward = {
 			build_railway = {
@@ -2860,10 +2848,6 @@ focus_tree = {
 				tooltip = debt_less_than_4425
 				check_variable = { opda_consumer_goods < 0.45 }
 			}
-			NOT = {
-				has_completed_focus = TUR_socialist_economics
-				has_completed_focus = TUR_islamic_economics
-			}
 		}
 		complete_tooltip = {
 			every_state = {
@@ -3024,10 +3008,6 @@ focus_tree = {
 			custom_trigger_tooltip = {
 				tooltip = debt_less_than_4425
 				check_variable = { opda_consumer_goods < 0.45 }
-			}
-			NOT = {
-				has_completed_focus = TUR_socialist_economics
-				has_completed_focus = TUR_islamic_economics
 			}
 		}
 		complete_tooltip = {
@@ -3682,8 +3662,6 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				has_completed_focus = TUR_socialist_economics
-				has_completed_focus = TUR_islamic_economics
 				custom_trigger_tooltip = {
 					tooltip = TUR_OPDA_trigger_tooltip
 					NOT = {
@@ -4047,17 +4025,6 @@ focus_tree = {
 		cost = 5
 		prerequisite = {
 			focus = TUR_aftermath_of_31_march_incident
-		}
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = TUR_legacy_of_the_4th_lancers }
-			}
 		}
 		x = 3
 		y = 2
@@ -4727,9 +4694,6 @@ focus_tree = {
 				ideology = democratic
 				popularity = 0.15
 			}
-			unlock_decision_tooltip = TUR_resource_excavation_rights_in_autonomous_regions
-			unlock_decision_tooltip = TUR_state_ownership_for_autonomous_region_factories
-			unlock_decision_tooltip = TUR_increase_conscription_for_autonomous_regions
 		}
 		ai_will_do = {
 			base = 30
@@ -5131,7 +5095,6 @@ focus_tree = {
 			focus = TUR_encourage_privatization
 			focus = TUR_secular_education
 			focus = TUR_develop_the_east
-			focus = TUR_increase_medrese_education
 		}
 		x = 2
 		y = 1
@@ -5711,8 +5674,6 @@ focus_tree = {
 		prerequisite = {
 			focus = TUR_shining_democracy_of_middle_east
 			focus = TUR_unity_of_the_party_and_the_state
-			focus = TUR_sacrifice_democracy
-			focus = TUR_socialist_education
 		}
 		x = 5
 		y = 1
@@ -11451,21 +11412,6 @@ focus_tree = {
 					modifier = TUR_extermination_of_our_people2
 				}
 			}
-			if = {
-				limit = {
-					has_completed_focus = TUR_a_deal_with_the_kurds
-				}
-				random_controlled_state = {
-					limit = { has_state_flag = TUR_expanding_the_kurdish_policy1 }
-					custom_effect_tooltip = TUR_sedentarization_of_kurdish_tribes_tt
-				}
-				add_stability = -0.005
-				custom_effect_tooltip = TUR_expanding_the_kurdish_policy_tt4
-				add_opinion_modifier = {
-					target = KUR
-					modifier = TUR_extermination_of_our_people2
-				}
-			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_expanding_the_kurdish_policy_tt
@@ -11587,37 +11533,6 @@ focus_tree = {
 						modifier = TUR_extermination_of_our_people2
 					}
 				}
-				if = {
-					limit = {
-						has_completed_focus = TUR_a_deal_with_the_kurds
-					}
-					random_controlled_state = {
-						prioritize = {
-							883
-						}
-						limit = {
-							OR = {
-								state = 879
-								state = 419
-								state = 421
-							}
-							has_dynamic_modifier = {
-								modifier = TUR_kurd_minority
-							}
-							has_variable = TUR_ottoman_local_resources_factor
-							has_variable = TUR_ottoman_recruitable_population_factor
-						}
-						custom_effect_tooltip = TUR_sedentarization_of_kurdish_tribes_tt
-						clear_variable = TUR_ottoman_local_resources_factor
-						clear_variable = TUR_ottoman_recruitable_population_factor
-						set_state_flag = TUR_expanding_the_kurdish_policy2
-					}
-					add_stability = -0.005
-					add_opinion_modifier = {
-						target = KUR
-						modifier = TUR_extermination_of_our_people2
-					}
-				}
 			}
 			ottoman_minority_variable_check = yes
 		}
@@ -11640,24 +11555,12 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		available = {
-			if = {
-				limit = {
-					has_completed_focus = TUR_a_deal_with_the_kurds
-				}
-				OR = {
-					controls_state = 348
-					controls_state = 349
-					controls_state = 353
-				}
-			}
-			else = {
-				OR = {
-					controls_state = 348
-					controls_state = 349
-					controls_state = 353
-					controls_state = 352
-					controls_state = 828
-				}
+			OR = {
+				controls_state = 348
+				controls_state = 349
+				controls_state = 353
+				controls_state = 352
+				controls_state = 828
 			}
 		}
 		relative_position_id = TUR_expanding_the_kurdish_policy
