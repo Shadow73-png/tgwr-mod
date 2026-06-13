@@ -3,7 +3,7 @@
 every_possible_country = {
 	limit = { has_dlc = "Thunder at Our Gates" }
 
-	# USA
+	## USA
 	if = {
 		limit = { is_usa_tag = yes }
 		division_template = {
@@ -78,7 +78,7 @@ every_possible_country = {
 			}
 		}
 	}
-	# FRA
+	## FRA
 	else_if = {
 		limit = { tag = FRA }
 		division_template = {
@@ -102,6 +102,24 @@ every_possible_country = {
 		limit = { tag = JAP }
 		division_template = {
 			localization_key = JAP_ARMY_HQ_TEMPLATE_NAME
+			template_counter = 121
+			is_army_hq = yes
+
+			regiments = {
+				hq_infantry = { x = 0 y = 0 }
+				hq_infantry = { x = 0 y = 1 }
+			}
+
+			support = {
+				hq_support_company = { x = 0 y = 0 }
+			}
+		}
+	}
+	## ITA
+	else_if = {
+		limit = { is_italian_nation = yes }
+		division_template = {
+			localization_key = ITA_ARMY_HQ_TEMPLATE_NAME
 			template_counter = 121
 			is_army_hq = yes
 
