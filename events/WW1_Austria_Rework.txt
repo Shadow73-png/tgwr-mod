@@ -4068,6 +4068,26 @@ country_event = {
 		}
 		activate_advisor = AUS_ernest_von_koerber
 	}
+	#conrad 
+	option = {
+		name = ww1_austriahungary.137.e
+		trigger = {
+			NOT = {
+				has_global_flag = AUS_conrad_minister
+			}
+			#has_global_flag = AUS_mp_assassinated_1916
+			#AUH_conrad_von_hotzendorf = {
+			#	has_character_flag = AUS_chief_of_army
+			#}
+			#has_war = yes
+		}
+		AUS_fire_minister_advisor = yes
+		set_global_flag = AUS_conrad_minister
+		AUH_conrad_von_hotzendorf = {
+			set_character_flag = minister_AUS
+		}
+		activate_advisor = AUH_conrad_von_hotzendorf
+	}
 }
 
 #Investigation of Suspicious Mail
