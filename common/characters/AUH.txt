@@ -14,6 +14,7 @@ characters={
 		}
 	}
 	AUH_franz_ferdinand = {
+		can_be_captured = no
 		portraits={
 			civilian = {
 				large = "gfx/leaders/AUH/AUH_franz_ferdinand.png"
@@ -45,6 +46,7 @@ characters={
 	}
 	AUH_karl_i={
 		name = "AUH_karl_von_habsburg"
+		can_be_captured = no
 		portraits={
 			civilian = {
 				large = "gfx/leaders/AUH/AUH_karl_i.png"
@@ -137,6 +139,7 @@ characters={
 	#Starting Field Marshals
 	AUH_friedrich_von_teschen={
 		name="AUH_friedrich_von_teschen"
+		can_be_captured = no
 		advisor={
 			slot = army_chief
 			idea_token = AUH_friedrich_von_teschen
@@ -171,6 +174,7 @@ characters={
 	}
 	AUH_conrad_von_hotzendorf={
 		name="AUH_conrad_von_hotzendorf"
+		can_be_captured = no
 		advisor={
 			slot = army_chief
 			idea_token = AUH_franz_conrad_von_hotzendorf
@@ -326,10 +330,8 @@ characters={
 		name="AUH_franz_rohr_von_denta"
 		portraits={
 			army={
-				small="GFX_Portrait_AUH_generic_land_3"
-			}
-			army={
 				large="gfx/leaders/AUH/AUH_Franz_Rorh_von_Denta.png"
+				small="GFX_Portrait_AUH_generic_land_3_small"
 			}
 		}
 		corps_commander={
@@ -343,6 +345,7 @@ characters={
 	}
 	AUH_joseph_august_von_osterreich={
 		name="AUH_joseph_august_von_osterreich"
+		can_be_captured = no
 		portraits={
 			army={
 				large="gfx/leaders/AUH/AUH_joseph_august_von_osterreich.png"
@@ -370,6 +373,7 @@ characters={
 	}
 	AUH_eugen_von_osterreich_teschen={
 		name="AUH_eugen_von_osterreich_teschen"
+		can_be_captured = no
 		portraits={
 			army={
 				large="gfx/leaders/AUH/AUH_Eugen_von_Osterreich_Teschen.png"
@@ -488,12 +492,28 @@ characters={
 			logistics_skill=3
 		}
 	}
+	AUH_karl_von_kirchbach_auf_lauterbach = {
+		portraits={
+			army={
+				large="gfx/leaders/AUH/AUH_karl_von_kirchbach_auf_lauterbach.png"
+				small="gfx/interface/ideas/AUH/idea_AUH_karl_von_kirchbach_auf_lauterbach.png"
+			}
+		}
+		corps_commander={
+			traits={ old_guard war_hero brilliant_strategist cavalry_leader }
+			skill=4
+			attack_skill=3
+			defense_skill=4
+			planning_skill=2
+			logistics_skill=2
+		}
+	}
 	AUH_josef_roth={
 		name="AUH_josef_roth"
 		portraits={
 			army={
 				large="gfx/leaders/AUH/AUH_Josef_Roth.png"
-				small="GFX_Portrait_AUH_generic_land_1"
+				small="GFX_Portrait_AUH_generic_land_1_small"
 			}
 		}
 		corps_commander={
@@ -509,10 +529,8 @@ characters={
 		name="AUH_karl_von_pflanzerbaltin"
 		portraits={
 			army={
-				small="GFX_Portrait_AUH_generic_land_2"
-			}
-			army={
 				large="gfx/leaders/AUH/AUH_von_Pflanzer_Baltin.png"
+				small="GFX_Portrait_AUH_generic_land_2_small"
 			}
 		}
 		corps_commander={
@@ -574,6 +592,7 @@ characters={
 	}
 	AUH_joseph_ferdinand_von_osterreich={
 		name="AUH_joseph_ferdinand_von_osterreich"
+		can_be_captured = no
 		portraits={
 			army={
 				large="gfx/leaders/AUH/AUH_Joseph_Ferdinand.png"
@@ -606,6 +625,7 @@ characters={
 	}
 	AUH_peter_ferdinand_von_osterreich={
 		name="AUH_peter_ferdinand_von_osterreich"
+		can_be_captured = no
 		portraits={
 			army={
 				large="gfx/leaders/AUH/AUH_Peter_Ferdinand.png"
@@ -896,6 +916,7 @@ characters={
 	}
 	AUH_rudolp_ritter_von_brudermann={
 		name="AUH_rudolp_ritter_von_brudermann"
+		can_be_captured = no #should die instead
 		portraits={
 			army={
 				large="gfx/leaders/AUH/AUH_Rudolp_Ritter_von_Brudermann.png"
@@ -927,17 +948,16 @@ characters={
 				army_infantry_1 
 			}
 			available = {
-				NOT = {
-					has_global_flag = AUH_franz_ferdinand_killed
-				}	
+				custom_trigger_tooltip = {
+					tooltip = character_not_dead
+					NOT = { has_character_flag = character_died }
+				}
 			}
 			visible = {
-				NOT = {
-					has_global_flag = AUH_franz_ferdinand_killed
-				}	
+				NOT = { has_character_flag = character_died }
 			}
 			ai_will_do  = {
-				factor  = 1.000
+				factor  = 1
 			}
 		}
 		corps_commander={
@@ -948,9 +968,7 @@ characters={
 			planning_skill=2
 			logistics_skill=1
 			visible = {
-				NOT = {
-					has_global_flag = AUH_franz_ferdinand_killed
-				}	
+				NOT = { has_character_flag = character_died }	
 			}
 		}
 	}

@@ -577,14 +577,13 @@ ROM_kings_country_category = {
 		icon = GFX_decision_generic_monarchy
 		activation = {
 			original_tag = ROM
+			is_ai = no
 		}
 		available = {
-			hidden_trigger = {
-				is_ai = yes
-			}
-		}
-		cancel_trigger = {
 			OR = {
+				hidden_trigger = {
+					is_ai = yes
+				}
 				has_completed_focus = ROM_deal_with_the_liberal_king
 				has_completed_focus = ROM_the_house_always_wins
 				has_completed_focus = ROM_in_the_hall_of_the_mountain_king
@@ -619,6 +618,10 @@ ROM_kings_country_category = {
 			ROM_king_effect = yes
 		}
 		complete_effect = {
+			set_variable = {
+				kings_approval_of_government = 0
+			}
+			ROM_king_effect = yes
 		}
 	}
 	ROM_adopt_a_workers_right_plank = {
