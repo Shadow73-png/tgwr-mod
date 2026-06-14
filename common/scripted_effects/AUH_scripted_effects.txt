@@ -3866,9 +3866,30 @@ AUS_spawn_MGS = {
 				target = MGS
 				autonomy_state = autonomy_tgwr_governorate_general
 			}
-			AUS_johann_von_saliss_seewis = {
-				set_nationality = MGS
-				promote_character = yes
+			AUH_johann_ulrich_von_salis_seewis = {
+				set_nationality = MGS			
+				if = {
+					limit = { has_ideology = colonial_government }
+					promote_character = colonial_government
+				}
+				else = {
+					add_country_leader_role = {
+						country_leader = {
+							ideology = colonial_government
+						}
+					}
+				}
+				if = {
+					limit = { has_ideology = stratocracy }
+					promote_character = stratocatcy
+				}
+				else = {
+					add_country_leader_role = {
+						country_leader = {
+							ideology = stratocracy
+						}
+					}
+				}
 			}
 		}
 		load_focus_tree = mgs_focus
