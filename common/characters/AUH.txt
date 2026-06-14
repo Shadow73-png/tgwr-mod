@@ -688,28 +688,6 @@ characters = {
 			logistics_skill = 3
 		}
 	}
-	AUS_johann_von_saliss_seewis = {
-		name = "AUS_johann_von_saliss_seewis"
-		country_leader = {
-			ideology = colonial_government
-		}
-		portraits = {
-			army = {
-				large = "gfx/leaders/AUH/AUS_johann_von_saliss_seewis.png"
-				small = "GFX_idea_AUS_johann_von_saliss_seewis"
-			}
-		}
-		corps_commander = {
-			traits = {
-				career_officer
-			}
-			skill = 2
-			attack_skill = 2
-			defense_skill = 2
-			planning_skill = 2
-			logistics_skill = 2
-		}
-	}
 	AUH_karl_von_kirchbach_auf_lauterbach = {
 		portraits={
 			army={
@@ -932,9 +910,8 @@ characters = {
 			}
 		}
 	}
-	AUH_stjepan_sarkotic = {
-		#Croatian
-		name = "AUH_stjepan_sarkotic"
+	AUH_stjepan_sarkotic = { #Croatian
+		can_be_captured = no
 		portraits = {
 			army = {
 				large = "gfx/leaders/AUH/AUH_stjepan_sarkotic.png"
@@ -1172,7 +1149,7 @@ characters = {
 		}
 	}
 	AUH_adolf_von_rhemen = {
-		name = "AUH_adolf_von_rhemen"
+		can_be_captured = no
 		portraits = {
 			army = {
 				large = "gfx/leaders/AUH/AUH_Adolf_von_Rhemen.png"
@@ -1191,19 +1168,15 @@ characters = {
 			logistics_skill = 1
 			visible = {
 				if = {
-					limit = {
-						original_tag = SER
-					}
-					has_country_leader = {
-						character = AUH_adolf_von_rhemen
-					}
+					limit = { original_tag = SER }
+					is_country_leader = yes
 				}
 			}
 		}
 	}
-	AUH_oskar_potiorek = {
-		#Czech
-		name = "AUH_oskar_potiorek"
+	AUH_oskar_potiorek = { #Czech
+		
+		can_be_captured = no
 		portraits = {
 			army = {
 				large = "gfx/leaders/AUH/AUH_Oskar_Potiorek.png"
@@ -1232,7 +1205,7 @@ characters = {
 				skilled_staffer
 			}
 			skill = 1
-			attack_skill = 2
+			attack_skill = 3
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 1
@@ -1250,6 +1223,29 @@ characters = {
 						}
 					}
 					has_subject = BOS
+				}
+			}
+		}
+	}
+	AUH_johann_ulrich_von_salis_seewis = {
+		can_be_captured = no
+		portraits={
+			army={
+				large="gfx/leaders/AUH/AUH_johann_ulrich_von_salis_seewis.png"
+				small="gfx/interface/ideas/AUH/idea_AUH_johann_ulrich_von_salis_seewis.png"
+			}
+		}
+		corps_commander={
+			traits={ career_officer }
+			skill=1
+			attack_skill=1
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			visible = {
+				if = {
+					limit = { original_tag = SER }
+					is_country_leader = yes
 				}
 			}
 		}
@@ -1454,9 +1450,8 @@ characters = {
 			}
 		}
 	}
-	AUH_marijan_varesanin = {
-		#Croatian
-		name = "AUH_marijan_varesanin"
+	AUH_marijan_varesanin = { #Croatian
+		can_be_captured = no
 		portraits = {
 			army = {
 				large = "gfx/leaders/BOS/BOS_marijan_varesanin.png"
