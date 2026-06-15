@@ -188,7 +188,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = AUS_temp_focus_after_it_is_moved
+		id = AUS_war_requirements_act
 		icon = GFX_focus_socialist_worker
 		cost = 4
 		x = -1
@@ -198,18 +198,42 @@ focus_tree = {
 		}
 		relative_position_id = AUS_bolster_size_of_army
 		available = {
-			threat > 0.1
-			has_war_support > 0.35
-		}
-		completion_reward = {
-			unlock_decision_tooltip = {
-				decision = AUS_provide_trucks_dec
-				show_effect_tooltip = yes
+			OR = {
+				AND = {
+					threat > 0.1
+					has_war_support > 0.35
+				}
+				AND = {
+					has_global_flag = great_war
+					has_war_support > 0.1
+				}
 			}
-			custom_effect_tooltip = empty_space_tt
-			unlock_decision_tooltip = {
-				decision = AUS_put_factory_workers_under_military_control
-				show_modifiers = yes
+		}
+		completion_reward ={
+			if = {
+				limit = {
+					has_global_flag = great_war
+				}
+				add_ideas = AUS_factories_under_state_control
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 500
+				}
+			}
+			else = {
+				custom_effect_tooltip = AUS_when_war
+				effect_tooltip = {
+					country_event = ww1_austriahungary.247
+					custom_effect_tooltip = select_effect
+					add_timed_idea = {
+						idea = AUS_factories_under_state_control
+						days = 180
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = 500
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -373,7 +397,7 @@ focus_tree = {
 			focus = AUS_approve_extraordinary_army_expenditure
 		}
 		prerequisite = {
-			focus = AUS_temp_focus_after_it_is_moved
+			focus = AUS_war_requirements_act
 		}
 		relative_position_id = AUS_technical_military_committee
 		available = {
@@ -5382,6 +5406,7 @@ focus_tree = {
 		y = 2
 		prerequisite = {
 			focus = AUS_crown_jewels_of_the_empire
+			focus = AUS_adress_inequality
 		}
 		mutually_exclusive = {
 			focus = AUS_invest_in_the_east
@@ -5425,12 +5450,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = AUS_strengthen_the_heartland_of_the_empire
 		}
-		#mutually_exclusive = {
-		#	focus = AUS_support_defense_companies
-		#}
 		prerequisite = {
+			focus = AUS_uplift_developing_areas
 			focus = AUS_adress_inequality
-			focus = AUS_crown_jewels_of_the_empire
 		}
 		relative_position_id = AUS_tackle_galician_poverty
 		available = {
@@ -6075,34 +6097,6 @@ focus_tree = {
 		relative_position_id = AUS_stack_the_military
 		prerequisite = {
 			focus = AUS_stack_the_military
-		}
-
-		available = {
-			OR = {
-				is_overlord = yes
-				AUS_has_minority_states = yes
-			}
-		}
-		completion_reward = {
-			
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-			FOCUS_FILTER_INDUSTRY
-		}
-	}
-	focus = {
-		id = AUS_negotiate_with_hungary
-		icon = GFX_focus_AUH_monarchy
-		cost = 4
-		x = 1
-		y = 3
-		relative_position_id = AUS_stack_the_military
-		prerequisite = {
-				focus = AUS_ambitious_budget
-		
 		}
 
 		available = {
@@ -8805,7 +8799,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = AUS_horseburger
+		id = AUS_masters_of_cavalry
 		icon = GFX_generic_cavalry
 		cost = 4
 		x = 1
@@ -8831,9 +8825,6 @@ focus_tree = {
 				ITA_modernized_cavalry_tech = 1
 				popup = no
 			}
-			#decision about demanding more research on cavalry and such
-			#^fucking dumb
-			#^^event how potiorek kills daggie with a horse
 		}
 		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
@@ -9333,6 +9324,7 @@ focus_tree = {
 					}
 				}
 			}
+			unlock_decision_tooltip = AUS_purchase_modernised_skoda_artillery
 		}
 		ai_will_do = {
 			base = 1
@@ -9459,8 +9451,8 @@ focus_tree = {
 		id = AUS_der_grobe_kriegsredux
 		icon = GFX_focus_AUH_country
 		cost = 0
-		x = 95
-		y = 0
+		x = 9
+		y = 10
 		available = {
 			custom_trigger_tooltip = {
 				has_completed_focus = AUS_der_grobe_kriegsredux
@@ -9477,6 +9469,12 @@ focus_tree = {
 				days = 140
 			}
 			add_ideas = war_economy
+			if = {
+				limit = {
+					has_completed_focus = AUS_war_requirements_act
+				}
+				country_event = ww1_austriahungary.247
+			}
 			hidden_effect = {
 				country_event = {
 					days = 10
@@ -13299,7 +13297,7 @@ joint_focus = {
 	available = {
 		bosnia_is_AUS_subject = yes
 		AUS = {
-			has_completed_focus = AUS_temp_focus_after_it_is_moved
+			has_completed_focus = AUS_war_requirements_act
 		}
 	}
 	completion_reward_joint_originator = {

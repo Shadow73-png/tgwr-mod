@@ -5973,8 +5973,7 @@ AUS_question_of_army_chief = {
 			has_country_flag = AUS_schemua_chief
 		}
 		available = {
-		#	has_completed_focus = AUS_war_requirements_act
-			always = no
+			has_completed_focus = AUS_war_requirements_act
 		}
 		fire_only_once = yes
 		ai_will_do = {
@@ -6056,56 +6055,6 @@ AUH_austrian_military = {
 		fire_only_once = yes
 		is_good = no
 	}
-	AUS_provide_trucks_dec = {
-		icon = GFX_decision_generic_motorized
-		cost = 25
-		days_remove = 15
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			#	has_completed_focus = AUS_war_requirements_act
-			always = no
-		}
-		available = {
-			has_war = yes
-			has_tech = tech_trucks
-		}
-		fire_only_once = yes
-		ai_will_do = {
-			base = 1
-		}
-		remove_effect = {
-			add_equipment_to_stockpile = {
-				type = motorized_equipment
-				amount = 500
-			}
-		}
-	}
-	
-	AUS_put_factory_workers_under_military_control = {
-		icon = GFX_decision_generic_industry
-		cost = 20
-		days_remove = 120
-		fire_only_once = yes
-		allowed = {
-			original_tag = AUS
-		}
-		visible = {
-			#	has_completed_focus = AUS_war_requirements_act
-			always = no
-		}
-		available = {
-			has_war = yes
-		}
-		fire_only_once = yes
-		ai_will_do = {
-			base = 1
-		}
-		modifier = {
-			industrial_capacity_factory = 0.1
-		}
-	}
 	AUS_design_modern_artillery_skoda = {
 		icon = GFX_decision_generic_artillery_icon
 		cost = 15
@@ -6141,8 +6090,7 @@ AUH_austrian_military = {
 			original_tag = AUS
 		}
 		visible = {
-			#	has_completed_focus = AUS_war_requirements_act
-			always = no
+			has_completed_focus = AUS_work_with_skoda
 		}
 		available = {
 			has_war = yes
