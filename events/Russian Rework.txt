@@ -2549,6 +2549,7 @@ country_event = {
 	picture = ww1_russia_food_shortages
 	trigger = {
 		tag = RUS
+		RUS_has_inflation = no
 		any_country = {
 			is_major = yes
 			war_length_with = {
@@ -2583,13 +2584,10 @@ country_event = {
 	id = ww1_russia_war.9
 	title = ww1_russia_war.9.t
 	desc = ww1_russia_war.9.d
-	picture = ww1_russia_food_shortages
+	picture = ww1_russia_inflation
 	trigger = {
 		tag = RUS
-		war_length_with = {
-			tag = RUS
-			months = 1
-		}
+		has
 	}
 	fire_only_once = yes
 	immediate = {
@@ -2606,9 +2604,102 @@ country_event = {
 	}
 }
 
+#Problems in the army
+country_event = {
+	id = ww1_russia_war.10
+	title = ww1_russia_war.10.t
+	desc = ww1_russia_war.10.d
+	picture = ww1_russia_desertion
+	trigger = {
+		tag = RUS
+		RUS_has_army_disintegration = no
+		has_war_with_major = yes
+		casualties_k > 500
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			add_ideas = RUS_slight_army_disintegration
+		}
+	}
+	#Fire him!
+	option = {
+		name = ww1_russia_war.10.a
+		effect_tooltip = {
+			add_ideas = RUS_slight_army_disintegration
+		}
+	}
+}
+
+#Situation in the army worsens!
+country_event = {
+	id = ww1_russia_war.11
+	title = ww1_russia_war.11.t
+	desc = ww1_russia_war.11.d
+	picture = ww1_russia_desertion
+	trigger = {
+		tag = RUS
+		has_idea = RUS_slight_army_disintegration
+		has_war_with_major = yes
+		casualties_k > 1000
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			swap_ideas = {
+				remove_idea = RUS_slight_army_disintegration
+				add_idea = RUS_moderate_army_disintegration
+			}
+		}
+	}
+	#Fire him!
+	option = {
+		name = ww1_russia_war.11.a
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = RUS_slight_army_disintegration
+				add_idea = RUS_moderate_army_disintegration
+			}
+		}
+	}
+}
+
+#Army is on the brink!
+country_event = {
+	id = ww1_russia_war.12
+	title = ww1_russia_war.12.t
+	desc = ww1_russia_war.12.d
+	picture = ww1_russia_desertion
+	trigger = {
+		tag = RUS
+		has_idea = RUS_moderate_army_disintegration
+		has_war_with_major = yes
+		casualties_k > 1500
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			swap_ideas = {
+				remove_idea = RUS_moderate_army_disintegration
+				add_idea = RUS_looming_army_collapse
+			}
+		}
+	}
+	#Fire him!
+	option = {
+		name = ww1_russia_war.11.a
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = RUS_moderate_army_disintegration
+				add_idea = RUS_looming_army_collapse
+			}
+		}
+	}
+}
 
 #REVOLUTION
 ###########
+#Uprising in Petrograd
 country_event = {
 	id = ww1_russia_revolution.1
 	title = ww1_russia_revolution.1.t
@@ -2629,6 +2720,7 @@ country_event = {
 		name = ww1_russia_revolution.1.a
 	}
 }
+#Nicholas Abdication
 country_event = {
 	id = ww1_russia_revolution.2
 	title = ww1_russia_revolution.2.t
@@ -2665,6 +2757,7 @@ country_event = {
 		}
 	}
 }
+#Provisional Government is formed
 country_event = {
 	id = ww1_russia_revolution.3
 	title = ww1_russia_revolution.3.t
@@ -2676,6 +2769,10 @@ country_event = {
 		hidden_effect = {
 			RUS_february_revolution = yes
 		}
+		country_event = {
+			id = ww1_russia_revolution.4
+			days = 1
+		}
 	}
 	option = {
 		name = ww1_russia_revolution.3.a
@@ -2684,19 +2781,93 @@ country_event = {
 				RUS_appoint_chairman = yes
 				RUS_appoint_interior_minister = yes
 			}
-			show_ideas_tooltip = RUS_georgiy_lvov
 			RUS_aleksandr_guchkov = {
 				RUS_appoint_war_minister = yes
 			}
-			show_ideas_tooltip = RUS_aleksandr_guchkov
 			RUS_pavel_milyukov = {
 				RUS_appoint_foreign_minister = yes
 			}
-			show_ideas_tooltip = RUS_pavel_milyukov
 			RUS_alexander_kerensky = {
 				RUS_appoint_justice_minister = yes
 			}
-			show_ideas_tooltip = RUS_alexander_kerensky
+		}
+	}
+}
+#Order No1
+country_event = {
+	id = ww1_russia_revolution.4
+	title = ww1_russia_revolution.4.t
+	desc = ww1_russia_revolution.4.d
+	picture = ww1_russia_mikhail
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					has_idea = RUS_slight_army_disintegration
+				}
+				swap_ideas = {
+					remove_idea = RUS_slight_army_disintegration
+					add_idea = RUS_order_no1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = RUS_moderate_army_disintegration
+				}
+				swap_ideas = {
+					remove_idea = RUS_moderate_army_disintegration
+					add_idea = RUS_order_no1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = RUS_looming_army_collapse
+				}
+				swap_ideas = {
+					remove_idea = RUS_looming_army_collapse
+					add_idea = RUS_order_no1
+				}
+			}
+			else = {
+				add_ideas = RUS_order_no1
+			}
+		}
+	}
+	option = {
+		name = ww1_russia_revolution.4.a
+		effect_tooltip = {
+			if = {
+				limit = {
+					has_idea = RUS_slight_army_disintegration
+				}
+				swap_ideas = {
+					remove_idea = RUS_slight_army_disintegration
+					add_idea = RUS_order_no1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = RUS_moderate_army_disintegration
+				}
+				swap_ideas = {
+					remove_idea = RUS_moderate_army_disintegration
+					add_idea = RUS_order_no1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = RUS_looming_army_collapse
+				}
+				swap_ideas = {
+					remove_idea = RUS_looming_army_collapse
+					add_idea = RUS_order_no1
+				}
+			}
+			else = {
+				add_ideas = RUS_order_no1
+			}
 		}
 	}
 }

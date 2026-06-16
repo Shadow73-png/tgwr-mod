@@ -1630,13 +1630,6 @@ ideas = {
 			allowed_civil_war = { original_tag = RUS }
 			
 			available = {
-				NOT = {
-					has_idea = RUS_moderate_army_disintegration
-					has_idea = RUS_looming_army_collapse
-					has_idea = RUS_order_no1
-					has_idea = RUS_mass_mutinies
-					casualties > 1000000
-				}
 			}
 
 			removal_cost = -1
@@ -1648,18 +1641,6 @@ ideas = {
 				conscription_factor = -0.05
 				training_time_army_factor = 0.1
 			}
-
-			on_remove = {
-				if = {
-					limit = {
-						NOT = {
-							has_idea = RUS_order_no1
-							has_idea = RUS_mass_mutinies
-						}
-					}
-					add_ideas = RUS_moderate_army_disintegration
-				}
-			}
 		}
 		RUS_moderate_army_disintegration = {
 			picture = RUS_army_disintegration
@@ -1669,12 +1650,6 @@ ideas = {
 			allowed_civil_war = { original_tag = RUS }
 			
 			available = {
-				NOT = {
-					has_idea = RUS_looming_army_collapse
-					has_idea = RUS_order_no1
-					has_idea = RUS_mass_mutinies
-					casualties > 1500000
-				}
 			}
 
 			removal_cost = -1
@@ -1687,18 +1662,6 @@ ideas = {
 				conscription_factor = -0.1
 				training_time_army_factor = 0.2
 			}
-
-			on_remove = {
-				if = {
-					limit = {
-						NOT = {
-							has_idea = RUS_order_no1
-							has_idea = RUS_mass_mutinies
-						}
-					}
-					add_ideas = RUS_looming_army_collapse
-				}
-			}
 		}
 		RUS_looming_army_collapse = {
 			picture = RUS_army_disintegration
@@ -1708,10 +1671,6 @@ ideas = {
 			allowed_civil_war = { original_tag = RUS }
 			
 			available = {
-				NOT = {
-					has_idea = RUS_order_no1
-					has_idea = RUS_mass_mutinies
-				}
 			}
 
 			removal_cost = -1
@@ -1726,6 +1685,7 @@ ideas = {
 			}
 		}
 		RUS_order_no1 = {
+			picture = GFX_idea_RUS_order_no_1
 			
 			allowed = { always = no }
 			
