@@ -999,6 +999,13 @@ if = {
 	set_variable = { TUR_government_stability_var = 67 }
 	set_variable = { TUR_government_stability_max = 80 }
 
+	set_power_balance = {
+		id = TUR_foreign_alignment
+		left_side = TUR_pro_central_powers_outlook
+		right_side = TUR_pro_entente_outlook
+		set_value = 0.15
+	}
+
 	if = {
 		limit = { has_start_date < 1914.1.1 }
 		set_country_flag = has_active_ship_commission
@@ -1568,11 +1575,6 @@ every_state = {
 	complete_national_focus = TUR_one_language_one_religion_one_nation
 	complete_national_focus = TUR_greek_deportations
 
-	add_power_balance_value = {
-		id = TUR_unionist_struggle
-		value = -0.60
-	}
-
 	build_railway = {
 		level = 1
 		path = { 10106 1600 13273 3795 2097 }
@@ -1660,10 +1662,6 @@ every_state = {
 	set_country_flag = TUR_treaty_of_daan_ratified
 	set_country_flag = TUR_three_pasha_government
 
-	remove_ideas = {
-		TUR_sublime_realm_idea
-	}
-	
 	add_ideas = {
 		TUR_sublime_realm_idea_2
 		low_economic_mobilisation
