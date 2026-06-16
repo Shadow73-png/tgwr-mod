@@ -9262,6 +9262,9 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_collapse.8.a
 		AUH_release_CZE = yes
+		CZE = {
+			complete_national_focus = CZE_birth
+		}
 		hidden_effect = {
 			every_state = {
 				limit = {
@@ -9272,6 +9275,26 @@ country_event = {
 			}
 		}
 	}
+	option = {
+		name = ww1_austriahungary_collapse.8.b
+		AUH_release_CZE = yes
+		hidden_effect = {
+			every_state = {
+				limit = {
+					state = 9
+					is_owned_by = AUS
+				}
+				transfer_state_to = CZE
+			}
+		}
+		CZE = {
+			change_tag_from = AUS
+		}
+		CZE = {
+			complete_national_focus = CZE_birth
+		}
+	}
+		
 }
 #sudetenland and german bohemia
 country_event = {

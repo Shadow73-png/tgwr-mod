@@ -1,0 +1,101 @@
+#!gfx:interface/ww1_goals.gfx
+focus_tree = {
+	id = austria_tree
+	default = no
+	country = {
+		factor = 0
+		modifier = {
+			add = 1000
+			tag = CZE
+		}
+	}
+	
+	continuous_focus_position = {
+		x = 50
+		y = 1866
+	}
+	initial_show_position = {
+		x = 0
+		y = 0
+	}
+	
+	
+	focus = {
+		id = CZE_birth
+		icon = GFX_focus_AUS_strengthen_legitimistische_corps
+		cost = 5
+		x = 9
+		y = 0
+		prerequisite = {
+		}
+		available = {
+		}
+		completion_reward = {
+		hidden_effect = {
+			country_event = {
+				id = ww1_czechoslovakia.1
+				days = 2
+			}
+		}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_the_national_assembly
+		icon = GFX_focus_AUS_strengthen_legitimistische_corps
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = CZE_birth
+		}
+		available = {
+		}
+		relative_position_id = CZE_birth
+		completion_reward = {
+		custom_effect_tooltip = AUS_modify_fledge_republic_tt
+			add_to_variable = {
+				CZE_fle_pp = 0.05
+				tooltip = political_power_factor_tt
+			}
+			add_to_variable = {
+				CZE_fle_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+		focus = {
+		id = CZE_long_awaited_autonomy
+		icon = GFX_focus_AUS_strengthen_legitimistische_corps
+		cost = 5
+		x = 20
+		y = 0
+		prerequisite = {
+		}
+		available = {
+		}
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+}
