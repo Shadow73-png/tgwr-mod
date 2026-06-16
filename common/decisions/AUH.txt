@@ -335,6 +335,7 @@ AUH_great_war_bullshit = {
 				}
 				add_political_power = 10
 			}
+			activate_mission = AUS_tyr_mission
 		}
 		complete_effect = {
 		}
@@ -5207,6 +5208,82 @@ AUH_stitching_the_quilt = {
 			}
 			AUS_update_state_of_realm = yes
 		}
+	}
+	AUS_tca_mission = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 10
+		days_mission_timeout = 90
+		available = {
+			check_variable = {
+				tca_mission_times > 4
+			}
+		}
+		activation = {
+			has_completed_focus = AUS_taking_care_of_all
+		}
+		cancel_trigger = {
+			check_variable = {
+				tca_mission_times > 4
+			}
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					has_country_flag = AUS_tca_czech
+				}
+				add_to_variable = {
+					AUS_czechoslovak_loyalty = 3
+					tooltip = AUS_loyalty_czechoslovakia_tt
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = AUS_tca_east
+				}
+				add_to_variable = {
+					AUS_pole_loyalty = 3
+					tooltip = AUS_loyalty_pole_tt
+				}
+				add_to_variable = {
+					AUS_ruthenian_loyalty = 3
+					tooltip = AUS_loyalty_ruthenians_tt
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = AUS_tca_south
+				}
+				add_to_variable = {
+					AUS_croat_loyalty = 3
+					tooltip = AUS_loyalty_croatian_tt
+				}
+				add_to_variable = {
+					AUS_serb_loyalty = 3
+					tooltip = AUS_loyalty_serb_tt
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = AUS_tca_romanian
+				}
+				add_to_variable = {
+					AUS_romanian_loyalty = 3
+					tooltip = AUS_loyalty_romanians_tt
+				}
+			}
+			country_event = ww1_austriahungary.248
+			add_to_variable = {
+				tca_mission_times = 1
+			}
+			activate_mission = AUS_tca_mission
+		}
+		complete_effect = {
+		}
+		fire_only_once = yes
+		is_good = no
 	}
 	AUS_strengthen_prague_industry = {
 		icon = GFX_decision_generic_electricity
