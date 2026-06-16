@@ -1985,7 +1985,7 @@ focus_tree = {
 	focus = {
 		id = TUR_uneasy_alliance
 		icon = {
-			trigger = {
+			GFX_TUR_uneasy_alliance_entente = {
 				OR = {
 					FRA = {
 						is_major = yes
@@ -2001,10 +2001,7 @@ focus_tree = {
 					check_variable = { global.TRS_country_cemal_negotiating = ENG }
 				}
 			}
-			value = GFX_TUR_uneasy_alliance_entente
-		}
-		icon = {
-			trigger = {
+			GFX_TUR_uneasy_alliance_central_powers = {
 				OR = {
 					GER = {
 						is_major = yes
@@ -2020,34 +2017,7 @@ focus_tree = {
 					check_variable = { global.TRS_country_cemal_negotiating = AUS }
 				}
 			}
-			value = GFX_TUR_uneasy_alliance_central_powers
-		}
-		icon = {
-			trigger = {
-				NOT = {
-					FRA = {
-						is_major = yes
-						is_faction_leader = yes
-						has_war_with = ROOT
-					}
-					ENG = {
-						is_major = yes
-						is_faction_leader = yes
-						has_war_with = ROOT
-					}
-					GER = {
-						is_major = yes
-						is_faction_leader = yes
-						has_war_with = ROOT
-					}
-					AUS = {
-						is_major = yes
-						is_faction_leader = yes
-						has_war_with = ROOT
-					}
-				}
-			}
-			value = GFX_TUR_uneasy_alliance_empty
+			GFX_TUR_uneasy_alliance_empty = yes
 		}
 		cost = 5
 		prerequisite = { focus = TUR_enforce_turkish_in_administration }
