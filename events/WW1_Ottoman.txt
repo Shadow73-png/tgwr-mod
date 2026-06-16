@@ -607,7 +607,7 @@ country_event = {
 							}
 							set_popularities = {
 								democratic = 34
-								neutrality = 65
+								neutrality = 66
 							}
 						}
 					}
@@ -4072,7 +4072,7 @@ country_event = {
 					}
 					set_popularities = {
 						democratic = 34
-						neutrality = 65
+						neutrality = 66
 					}
 				}	
 			}
@@ -4151,7 +4151,7 @@ country_event = {
 				}
 				set_popularities = {
 					democratic = 34
-					neutrality = 65
+					neutrality = 66
 				}
 			}
 		}
@@ -7054,6 +7054,10 @@ country_event = {
 				}
 			}
 		}
+		add_power_balance_value = {
+			id = TUR_foreign_alignment
+			value = -0.2
+		}
 		set_country_flag = TUR_goeben_und_breslau
 		hidden_effect = {
 			GER = {
@@ -9010,17 +9014,6 @@ country_event = { #liberal party elections
 	picture = GFX_report_event_liberal_party_elections
 	trigger = {
 		has_completed_focus = TUR_hurriyet_ve_itilaf_victory
-		if = {
-			limit = {
-				has_power_balance = {
-					id = TUR_conservative_liberal
-				}
-			}
-			is_power_balance_in_range = {
-				id = TUR_conservative_liberal
-				range > TUR_conservative_liberal_conservative_balanced
-			}
-		}
 		NOT = {
 			has_country_flag = TUR_conservatives_in_charge
 			has_country_flag = TUR_al_qahtaniya_empowered
@@ -9127,13 +9120,6 @@ country_event = { #socialist party elections
 		add_country_leader_trait = TUR_ittihadist_socialist
 		ai_chance = {
 			base = 15
-			modifier = {
-				factor = 0
-				is_power_balance_side_active = {
-					id = TUR_leftist_coalition
-					side = TUR_leftist_coalition_internationalist
-				}
-			}
 		}
 	}
 	option = {
@@ -9156,13 +9142,6 @@ country_event = { #socialist party elections
 		}
 		ai_chance = {
 			base = 15
-			modifier = {
-				factor = 0
-				is_power_balance_side_active = {
-					id = TUR_leftist_coalition
-					side = TUR_leftist_coalition_ittihadist
-				}
-			}
 		}
 	}
 	option = {
@@ -9180,13 +9159,6 @@ country_event = { #socialist party elections
 		add_country_leader_trait = TUR_ittihadist_socialist
 		ai_chance = {
 			base = 15
-			modifier = {
-				factor = 0
-				is_power_balance_side_active = {
-					id = TUR_leftist_coalition
-					side = TUR_leftist_coalition_ittihadist
-				}
-			}
 		}
 	}
 	option = {
@@ -9215,13 +9187,6 @@ country_event = { #socialist party elections
 		}
 		ai_chance = {
 			base = 15
-			modifier = {
-				factor = 0
-				is_power_balance_side_active = {
-					id = TUR_leftist_coalition
-					side = TUR_leftist_coalition_ittihadist
-				}
-			}
 		}
 	}
 }
@@ -9999,10 +9964,6 @@ country_event = { #islamist victory in elections
 	is_triggered_only = yes
 	trigger = {
 		has_completed_focus = TUR_pardon_conservatives
-		is_power_balance_in_range = {
-			id = TUR_conservative_liberal
-			range < TUR_conservative_liberal_conservative_balanced
-		}
 		NOT = {
 			has_country_flag = TUR_conservatives_in_charge
 			has_country_flag = TUR_al_qahtaniya_empowered
@@ -10131,10 +10092,6 @@ country_event = { #liberal victory in elections
 	is_triggered_only = yes
 	trigger = {
 		has_completed_focus = TUR_pardon_conservatives
-		is_power_balance_in_range = {
-			id = TUR_conservative_liberal
-			range > TUR_conservative_liberal_conservative_balanced
-		}
 		has_country_flag = TUR_said_i_nursi_path
 		NOT = {
 			has_country_flag = TUR_liberals_in_charge
@@ -10278,10 +10235,6 @@ country_event = { #sects mobilize
 	is_triggered_only = yes
 	trigger = {
 		has_completed_focus = TUR_pardon_conservatives
-		is_power_balance_in_range = {
-			id = TUR_conservative_liberal
-			range > TUR_conservative_liberal_conservative_balanced
-		}
 		has_country_flag = TUR_said_i_nursi_path
 	}
 	option = {
@@ -10304,10 +10257,6 @@ country_event = { #sects mobilize
 	is_triggered_only = yes
 	trigger = {
 		has_completed_focus = TUR_pardon_conservatives
-		is_power_balance_in_range = {
-			id = TUR_conservative_liberal
-			range > TUR_conservative_liberal_conservative_balanced
-		}
 		has_country_flag = TUR_said_i_nursi_path
 	}
 	option = {
@@ -12563,16 +12512,6 @@ country_event = { #elections non-partisan
 	picture = GFX_report_event_iww_demonstration
 	trigger = {
 		has_completed_focus = TUR_handling_inner_party_factionalism
-		NOT = {
-			is_power_balance_in_range = {
-				id = TUR_inner_party_factionalism
-				range = TUR_inner_party_factionalism_hizb_i_terakki_absolute_control
-			}
-			is_power_balance_in_range = {
-				id = TUR_inner_party_factionalism
-				range = TUR_inner_party_factionalism_hizb_i_cedid_absolute_control
-			}
-		}
 	}
 	option = {
 		name = ottoman.151.a
@@ -12644,10 +12583,6 @@ country_event = { #elections hizb-i cedid
 	picture = GFX_report_event_iww_demonstration
 	trigger = {
 		has_completed_focus = TUR_handling_inner_party_factionalism
-		is_power_balance_in_range = {
-			id = TUR_inner_party_factionalism
-			range = TUR_inner_party_factionalism_hizb_i_cedid_absolute_control
-		}
 	}
 	option = {
 		name = ottoman.152.a
@@ -12673,10 +12608,6 @@ country_event = { #elections hizb-i terakki
 	picture = GFX_report_event_iww_demonstration
 	trigger = {
 		has_completed_focus = TUR_handling_inner_party_factionalism
-		is_power_balance_in_range = {
-			id = TUR_inner_party_factionalism
-			range = TUR_inner_party_factionalism_hizb_i_terakki_absolute_control
-		}
 	}
 	option = {
 		name = ottoman.153.a
@@ -13437,10 +13368,6 @@ country_event = { #conservative party elections
 	is_triggered_only = yes
 	picture = GFX_report_event_conservative_party_elections
 	trigger = {
-		is_power_balance_in_range = {
-			id = TUR_conservative_liberal
-			range < TUR_conservative_liberal_conservative_balanced
-		}
 		has_country_flag = TUR_conservatives_in_charge
 		NOT = {
 			has_country_flag = TUR_al_qahtaniya_empowered
@@ -14304,17 +14231,6 @@ country_event = { #death of Mehmed said
 			remove_ideas = TUR_mehmed_said
 			add_ideas = TUR_said_halim
 		}
-		if = {
-			limit = {
-				has_power_balance = {
-					id = TUR_parliament_sultan
-				}
-			}
-			set_power_balance = {
-				id = TUR_parliament_sultan
-				left_side = TUR_parliament_sultan_said_halim
-			}
-		}
 		hidden_effect = {
 			retire_character = TUR_mehmed_said
 		}
@@ -14347,28 +14263,6 @@ country_event = { #said halim retires
 					large="gfx/leaders/TUR/TUR_mehmed_talat_pasa_empowered.png"
 				}
 			}				
-		}
-		if = {
-			limit = {
-				has_power_balance = {
-					id = TUR_army_civilian_struggle
-				}
-			}
-			add_power_balance_value = {
-				id = TUR_army_civilian_struggle
-				value = 0.5
-			}
-		}
-		if = {
-			limit = {
-				has_power_balance = {
-					id = TUR_anti_imperialist_revanchist_struggle
-				}
-			}
-			add_power_balance_value = {
-				id = TUR_anti_imperialist_revanchist_struggle
-				value = 0.2
-			}
 		}
 		ai_chance = {
 			base = 5

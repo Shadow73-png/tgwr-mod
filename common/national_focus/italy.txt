@@ -11714,23 +11714,17 @@ focus_tree = {
 	focus = {
 		id = ITA_negotiations_with_entente
 		icon = {
-			trigger = {
+			GFX_focus_chi_british_cooperation = {
 				ENG = {
 					is_in_faction_with = ENT
 				}
 			}
-			value = GFX_focus_chi_british_cooperation
-		}
-		icon = {
-			trigger = {
+			GFX_focus_deal_with_russia = {
 				RUS = {
 					tag = ENT
 				}
 			}
-			value = GFX_focus_deal_with_russia
-		}
-		icon = {
-			value = GFX_focus_chi_reach_out_to_france
+			GFX_focus_chi_reach_out_to_france = yes
 		}
 		cost = 4.4
 		x = -1
@@ -13932,9 +13926,14 @@ focus_tree = {
 			has_italian_civil_war = no
 		}
 		completion_reward = {
-			set_division_template_lock = {
-				division_template = "Reggimento Alpini"
-				is_locked = no
+			if = {
+				limit = { 
+					has_start_date < 1914.1.1
+				}
+				set_division_template_lock = {
+					division_template = "Reggimento Alpini"
+					is_locked = no
+				}
 			}
 			custom_effect_tooltip = ITA_modify_army_tt
 			add_to_variable = {
@@ -19619,13 +19618,18 @@ focus_tree = {
 			}
 			country_event = ww1_italy.29
 			hidden_effect = {
-				country_event = {
-					id = ww1_italy.31
-					days = 10
-				}
-				country_event = {
-					id = ww1_italy.34
-					days = 20
+				if = {
+					limit = { 
+						has_start_date < 1914.1.1
+					}
+					country_event = {
+						id = ww1_italy.31
+						days = 10
+					}
+					country_event = {
+						id = ww1_italy.34
+						days = 20
+					}
 				}
 			}
 		}
@@ -19941,9 +19945,14 @@ focus_tree = {
 			}
 			custom_effect_tooltip = ITA_maxim_increase
 			hidden_effect = {
-				country_event = {
-					id = ww1_italy.48
-					days = 10
+				if = {
+					limit = { 
+						has_start_date < 1914.1.1
+					}
+					country_event = {
+						id = ww1_italy.48
+						days = 10
+					}
 				}
 			}
 		}
@@ -20365,9 +20374,14 @@ focus_tree = {
 			custom_effect_tooltip = when_conquer
 			set_global_flag = libyan_compliance
 			hidden_effect = {
-				country_event = {
-					id = ww1_italy.39
-					days = 30
+				if = {
+					limit = { 
+						has_start_date < 1914.1.1
+					}
+					country_event = {
+						id = ww1_italy.39
+						days = 30
+					}
 				}
 			}
 		}
