@@ -3889,8 +3889,27 @@ country_event = {
 		add_ideas = HUN_raging_suffrage_and_labor_movements
 		effect_tooltip = {
 			complete_national_focus = HUN_a_blank_page
+			HUN_istvan_tisza = {
+				swap_country_leader_traits = {
+					remove = HUN_iron_earl
+					add = HUN_evil_tisza
+					ideology = authoritarian_democracy
+				}
+			}		
 		}
-		activate_advisor = HUN_istvan_tisza_evil
+		hidden_effect = {
+			remove_trait = {
+				character = HUN_istvan_tisza
+				slot = political_advisor
+				trait = HUN_iron_earl
+			}
+			add_trait = {
+				character = HUN_istvan_tisza
+				slot = political_advisor
+				trait = HUN_evil_tisza
+			}
+		}
+		activate_advisor = HUN_istvan_tisza
 		promote_character = HUN_moric_esterhazy
 		set_party_name = { #Silent code, not a compromise path
 			ideology = neutrality
