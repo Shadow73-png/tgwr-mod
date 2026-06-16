@@ -648,16 +648,31 @@ focus_tree = {
 		y = 1
 		relative_position_id = TUR_uncrowned_king_of_syria
 		completion_reward = {
-			custom_effect_tooltip = TUR_increase_aleppo_centralization_5
-			add_to_variable = { global.TUR_aleppo_centralization = 5 }
-			custom_effect_tooltip = TUR_increase_deir_ez_zor_centralization_5
-			add_to_variable = { global.TUR_deir_ez_zor_centralization = 5 }
-			custom_effect_tooltip = TUR_increase_damascus_centralization_5
-			add_to_variable = { global.TUR_damascus_centralization = 5 }
-			custom_effect_tooltip = TUR_increase_beirut_centralization_5
-			add_to_variable = { global.TUR_beirut_centralization = 5 }
-			custom_effect_tooltip = TUR_increase_jerusalem_centralization_5
-			add_to_variable = { global.TUR_jerusalem_centralization = 5 }
+			add_to_variable = {
+				var = global.TUR_aleppo_centralization
+				value = 5
+				tooltip = TUR_change_aleppo_centralization
+			}
+			add_to_variable = {
+				var = global.TUR_deir_ez_zor_centralization
+				value = 5
+				tooltip = TUR_change_deir_ez_zor_centralization
+			}
+			add_to_variable = {
+				var = global.TUR_damascus_centralization
+				value = 5
+				tooltip = TUR_change_damascus_centralization
+			}
+			add_to_variable = {
+				var = global.TUR_beirut_centralization
+				value = 5
+				tooltip = TUR_change_beirut_centralization
+			}
+			add_to_variable = {
+				var = global.TUR_jerusalem_centralization
+				value = 5
+				tooltip = TUR_change_jerusalem_centralization
+			}
 			add_political_power = 25
 			set_global_flag = TUR_syrian_reforms
 			hidden_effect = {
@@ -1255,8 +1270,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = TUR_syrian_reforms
 		completion_reward = {
-			custom_effect_tooltip = TUR_increase_jerusalem_centralization_10
-			add_to_variable = { global.TUR_jerusalem_centralization = 10 }
+			add_to_variable = {
+				var = global.TUR_jerusalem_centralization
+				value = 10
+				tooltip = TUR_change_jerusalem_centralization
+			}
 			custom_effect_tooltip = TUR_deport_jewish_settlements_tt2
 			hidden_effect = {
 				#for tooltip
@@ -1687,8 +1705,11 @@ focus_tree = {
 				set_demilitarized_zone = no
 			}
 			activate_mission = TRS_integrating_mount_lebanon
-			custom_effect_tooltip = TUR_increase_beirut_centralization_15
-			add_to_variable = { global.TUR_beirut_centralization = 15 }
+			add_to_variable = {
+				var = global.TUR_beirut_centralization
+				value = 15
+				tooltip = TUR_change_beirut_centralization
+			}
 			ottoman_centralization_variable_check = yes
 			every_country = {
 				limit = {
@@ -1842,8 +1863,11 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = TUR_settle_unruly_tribes_tt
 			custom_effect_tooltip = TUR_suppress_arab_dissent_tt
-			custom_effect_tooltip = TUR_increase_deir_ez_zor_centralization_10
-			add_to_variable = { global.TUR_deir_ez_zor_centralization = 10 }
+			add_to_variable = {
+				var = global.TUR_deir_ez_zor_centralization
+				value = 10
+				tooltip = TUR_change_deir_ez_zor_centralization
+			}
 		}
 		ai_will_do = {
 			base = 50
@@ -3681,8 +3705,11 @@ focus_tree = {
 					set_state_flag = TUR_bedouins_raised
 					hidden_effect = { add_to_variable = { TUR_arab_temp_variable = 0.001 } }
 				}
-				custom_effect_tooltip = TUR_decrease_jerusalem_centralization_5
-				add_to_variable = { global.TUR_jerusalem_centralization = -5 }
+				add_to_variable = {
+					var = global.TUR_jerusalem_centralization
+					value = -5
+					tooltip = TUR_change_jerusalem_centralization
+				}
 				set_country_flag = TUR_allign_with_bedouin_tribes1
 			}
 			else_if = {
@@ -3694,8 +3721,11 @@ focus_tree = {
 					set_state_flag = TUR_bedouins_raised
 					hidden_effect = { add_to_variable = { TUR_arab_temp_variable = 0.001 } }
 				}
-				custom_effect_tooltip = TUR_decrease_damascus_centralization_5
-				add_to_variable = { global.TUR_damascus_centralization = -5 }
+				add_to_variable = {
+					var = global.TUR_damascus_centralization
+					value = -5
+					tooltip = TUR_change_damascus_centralization
+				}
 				set_country_flag = TUR_allign_with_bedouin_tribes2
 			}
 			else_if = {
@@ -3707,8 +3737,11 @@ focus_tree = {
 					set_state_flag = TUR_bedouins_raised
 					hidden_effect = { add_to_variable = { TUR_arab_temp_variable = 0.001 } }
 				}
-				custom_effect_tooltip = TUR_decrease_jerusalem_centralization_5
-				add_to_variable = { global.TUR_jerusalem_centralization = -5 }
+				add_to_variable = {
+					var = global.TUR_jerusalem_centralization
+					value = -5
+					tooltip = TUR_change_jerusalem_centralization
+				}
 				set_country_flag = TUR_allign_with_bedouin_tribes3
 			}
 			custom_effect_tooltip = TUR_allign_with_bedouin_tribes_tt3
