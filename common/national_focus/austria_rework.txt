@@ -3351,6 +3351,10 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			set_variable = {
+				AUS_kunschak_reform = 0
+			}
+
 		}
 		ai_will_do = {
 			base = 1
@@ -3400,8 +3404,15 @@ focus_tree = {
 		}
 		relative_position_id = AUS_buyout_public_services
 		available = {
+			check_variable = {
+				AUS_kunschak_reform > 4
+			}
 		}
 		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -3437,7 +3448,6 @@ focus_tree = {
 		y = 4
 		prerequisite = {
 			focus = AUS_combat_appeal_of_sdapo
-			focus = AUS_promote_charities
 		}
 		relative_position_id = AUS_buyout_public_services
 		available = {
@@ -3459,26 +3469,6 @@ focus_tree = {
 		prerequisite = {
 			focus = AUS_christian_unions
 			focus = AUS_sick_leave_accident_insurance
-		}
-		relative_position_id = AUS_buyout_public_services
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_promote_charities
-		icon = GFX_focus_draft_reform
-		cost = 4
-		x = -3
-		y = 3
-		prerequisite = {
-			focus = AUS_taking_care_of_all
 		}
 		relative_position_id = AUS_buyout_public_services
 		available = {
