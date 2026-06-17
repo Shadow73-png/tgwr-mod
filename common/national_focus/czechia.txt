@@ -243,6 +243,9 @@ focus_tree = {
 		prerequisite = {
 			focus = CZE_friendly_relations_with_vienna
 		}
+		prerequisite = {
+			focus = CZE_oversight_of_industry
+		}
 		available = {
 			OR = {
 				is_subject = yes
@@ -278,7 +281,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			
+			add_ideas = CZE_youth_program_idea
 		}
 		ai_will_do = {
 			base = 1
@@ -340,6 +343,35 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 75
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_oversight_of_industry
+		icon = GFX_focus_PRC_petition_for_freedom
+		cost = 5
+		x = -3
+		y = 1
+		relative_position_id = CZE_young_czech_victory
+		prerequisite = {
+			focus = CZE_young_czech_victory
+			focus = CZE_left_wing_front
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = CZE_austria_is_more_friendly
+			add_stability = 0.05
 		}
 		ai_will_do = {
 			base = 1
