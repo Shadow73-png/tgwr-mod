@@ -74,9 +74,13 @@ TGWR_great_power_politics = {
 
 		cancel_trigger = {
 			hidden_trigger = {
-				NOT = {
-					controls_state = FROM
-					has_active_mission = RUS_central_asian_revolt_mission
+				OR = {
+					NOT = {
+						controls_state = FROM
+					}
+					NOT = {
+						has_active_mission = RUS_central_asian_revolt_mission
+					}
 				}
 			}
 		}
