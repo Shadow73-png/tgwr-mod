@@ -683,160 +683,7 @@ unit_medals = {
 			navy_org_factor = 0.1
 		}
 		
-		officer_xp = ETH.ETH_medal_xp_gain
-		
-	}
-	# Order of the Grand Star of Honour of Socialist Ethiopia
-	ETH_order_of_the_grand_star = {
-		
-		available = { 
-			should_have_ethiopian_medals_trigger = yes 
-			has_government = communism
-		}
-		frame = 2
-		icon = "GFX_medal_icon_eth" 
-	
-		cost = @cost
-		
-		unit_modifiers = {
-			army_attack_factor = 0.05
-		}
-		
-
-		ship_modifiers = {
-			naval_damage_factor = 0.05
-		}
-		officer_xp = ETH.ETH_medal_xp_gain
-		
-	}
-
-	# Distinguished Military Medal of Haile Selassie the First
-	ETH_military_medal_haile_selassie = {
-		
-		available = { 
-			should_have_ethiopian_medals_trigger = yes 
-			has_government = neutrality
-		}
-		frame = 3
-		icon = "GFX_medal_icon_eth"  
-	
-		cost = @cost
-		
-		unit_modifiers = {
-			army_morale_factor = 0.15
-		}
-
-		ship_modifiers = {
-			naval_morale_factor = 0.15
-		}
-		
-		officer_xp = ETH.ETH_medal_xp_gain
-		
-	}
-	# Military Medal of Gugsa
-	ETH_military_medal_gugsa = {
-		
-		available = { 
-			should_have_ethiopian_medals_trigger = yes 
-			has_government = fascism
-			has_country_leader = {
-				ruling_only = yes 
-				character = ETH_haile_selassie_gugsa
-			}
-		}
-		frame = 4
-		icon = "GFX_medal_icon_eth"  
-	
-		cost = @cost
-		
-		unit_modifiers = {
-			supply_consumption_factor = -0.15
-		}
-
-		ship_modifiers = {
-			naval_supply_consumption_factor = -0.15
-		}
-		
-		officer_xp = ETH.ETH_medal_xp_gain
-		
-	}
-	ETH_military_medal_haymanot = {
-		
-		available = { 
-			should_have_ethiopian_medals_trigger = yes 
-			has_government = fascism
-			has_country_leader = {
-				ruling_only = yes 
-				character = ETH_hailu_tekle_haymanot
-			}
-		}
-		frame = 5
-		icon = "GFX_medal_icon_eth"  
-	
-		cost = @cost
-		
-		unit_modifiers = {
-			breakthrough_factor = 0.1
-		}
-
-		ship_modifiers = {
-			naval_critical_score_chance_factor = 0.1
-		}
-		
-		officer_xp = ETH.ETH_medal_xp_gain
-		
-	}
-	ETH_military_medal_jofir = {
-		
-		available = { 
-			should_have_ethiopian_medals_trigger = yes 
-			has_government = fascism
-			has_country_leader = {
-				ruling_only = yes 
-				character = ETH_abba_jofir
-			}
-		}
-		frame = 6
-		icon = "GFX_medal_icon_eth" 
-	
-		cost = @cost
-		
-		unit_modifiers = {
-			recon_factor = 0.1
-		}
-
-		ship_modifiers = {
-			naval_detection = 0.1
-		}
-		
-		officer_xp = ETH.ETH_medal_xp_gain
-		
-	}
-
-	ETH_military_medal_democratic_communist = {
-		
-		available = { 
-			should_have_ethiopian_medals_trigger = yes 
-			OR = {
-				has_government = democratic
-				has_government = communism
-			}			
-		}
-		frame = 2
-		icon = "GFX_medal_icon_democratic" 
-	
-		cost = @cost
-		
-		unit_modifiers = {
-			supply_consumption_factor = -0.15
-		}
-		
-		ship_modifiers = {
-			naval_supply_consumption_factor = -0.15
-			
-		}
-
-		officer_xp = ETH.ETH_medal_xp_gain
+		officer_xp = 100
 		
 	}
 
@@ -858,7 +705,7 @@ unit_medals = {
 			naval_ship_recovery_chance = 0.15
 		}
 		
-		officer_xp = ETH.ETH_medal_xp_gain
+		officer_xp = 100
 		
 	}
 	
@@ -880,10 +727,351 @@ unit_medals = {
 			experience_gain_navy_unit_factor = 0.25
 		}
 		
-		officer_xp = ETH.ETH_medal_xp_gain
+		officer_xp = 100
 		
 	}
-	
+
+	### NOR
+	st_olavsmedaljen = { #Historical
+		
+		available = {
+			should_have_norwegian_medals_trigger = yes
+		}
+
+		frame = 7
+		icon = "GFX_medal_icon_nor"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			equipment_capture_factor = 0.1
+			breakthrough_factor = 0.05
+		}
+
+		ship_modifiers = {
+			naval_ship_recovery_chance = 0.1
+			naval_critical_score_chance_factor = 0.05
+		}
+
+		officer_xp = 100
+	}
+
+	### FIN 
+	cross_of_liberty = {
+		
+		available = {
+			should_have_finnish_medals_trigger = yes
+		}
+		frame = 3
+		icon = "GFX_medal_icon_fin"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			army_morale_factor = 0.1
+			experience_loss_factor = -0.2
+		}
+
+		ship_modifiers = {
+			naval_morale_factor = 0.1
+			experience_gain_navy_unit_factor = 0.05
+		}
+		
+		officer_xp = 100
+	}
+
+	order_of_the_white_rose = { #Historical
+		
+		available = {
+			should_have_finnish_medals_trigger = yes
+		}
+		frame = 4
+		icon = "GFX_medal_icon_fin"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			army_attack_factor = 0.05
+			breakthrough_factor = 0.05
+		}
+
+		ship_modifiers = {
+			naval_damage_factor = 0.05
+			naval_critical_score_chance_factor = 0.05
+		}
+		
+		officer_xp = 100
+	}
+
+	order_of_the_red_star_finland = { #Alt-Communist (Made-up)
+		
+		available = {
+			should_have_finnish_medals_trigger = yes
+			has_government = communism
+		}
+		frame = 2
+		icon = "GFX_medal_icon_fin"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			army_org_factor = 0.1
+			army_defence_factor = 0.05
+		}
+
+		ship_modifiers = {
+			navy_org_factor = 0.1
+			naval_defense_factor = 0.05
+		}
+				
+		officer_xp = 100
+	}
+
+	### DEN
+	order_of_the_dannebrog = { #Historical
+		
+		available = {
+			should_have_danish_medals_trigger = yes
+			NOT = { has_government = communism }
+		}
+		frame = 1
+		icon = "GFX_medal_icon_den"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			army_org_factor = 0.1
+			army_defence_factor = 0.05
+		}
+
+		ship_modifiers = {
+			navy_org_factor = 0.1
+			naval_defense_factor = 0.05
+		}
+
+		officer_xp = 100
+	}
+
+	order_of_the_civil_union = { #Alt-Communist (Made-up)
+		
+		available = {
+			should_have_danish_medals_trigger = yes
+			has_government = communism
+		}
+		frame = 2
+		icon = "GFX_medal_icon_den"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			army_org_factor = 0.1
+			army_defence_factor = 0.05
+		}
+
+		ship_modifiers = {
+			navy_org_factor = 0.1
+			naval_defense_factor = 0.05
+		}
+				
+		officer_xp = 100
+	}
+
+	### AUSTRIA - HUNGARY ###
+
+	HUN_medal_1 = { #Medal of Bravery
+		
+		available = {
+			should_have_hungarian_medals_trigger = yes
+			NOT = { is_puppet_of = AUS }
+		}
+		frame = 1
+		icon = "GFX_medal_icon_hun"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			army_org_factor = 0.05
+			army_morale_factor = 0.05
+		}
+
+
+		ship_modifiers = {
+			navy_org_factor = 0.05
+			naval_morale_factor = 0.05
+		}
+
+		officer_xp = 100
+	}
+
+	HUN_medal_2 = { #Magyar Szent István Rend
+		
+		available = {
+			OR = {
+				should_have_hungarian_medals_trigger = yes
+				AND = {
+					original_tag = AUS
+					any_subject_country = {
+						should_have_hungarian_medals_trigger = yes
+					}
+				}
+			}
+		}
+		frame = 2
+		icon = "GFX_medal_icon_hun"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			army_defence_factor = 0.05
+		}
+
+		ship_modifiers = {
+			naval_defense_factor = 0.05
+		}
+
+		officer_xp = 100
+	}
+
+	HUN_medal_3 = { #Order of Saint Stephen
+		
+		available = {
+			OR = {
+				should_have_hungarian_medals_trigger = yes
+				AND = {
+					should_have_austrian_medals_trigger  = yes
+					any_subject_country = {
+						should_have_hungarian_medals_trigger = yes
+					}
+				}
+			}
+		}
+		frame = 3
+		icon = "GFX_medal_icon_hun"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			army_attack_factor = 0.025
+			breakthrough_factor = 0.025
+		}
+
+		ship_modifiers = {
+			naval_damage_factor = 0.025
+			naval_critical_score_chance_factor = 0.025
+		}
+
+		officer_xp = 100
+	}
+
+	HUN_medal_4 = { #Order of Merit of Hungary
+		
+		available = {
+			should_have_hungarian_medals_trigger = yes
+			NOT = { is_puppet_of = AUS }
+		}
+		frame = 4
+		icon = "GFX_medal_icon_hun"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			army_defence_factor = 0.025
+			army_org_factor = 0.025
+		}
+
+		ship_modifiers = {
+			navy_org_factor = 0.025
+			naval_defense_factor = 0.025
+		}
+
+		officer_xp = 100
+	}
+
+	HUN_medal_5 = { #Military Order of Maria Theresa
+		
+		available = {
+			OR = {
+				should_have_austrian_medals_trigger  = yes
+				AND = {
+					should_have_hungarian_medals_trigger = yes
+					is_subject = yes
+					OVERLORD = {
+						should_have_austrian_medals_trigger  = yes
+					}
+				}
+			}		
+		}
+		frame = 5
+		icon = "GFX_medal_icon_hun"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			experience_loss_factor = -0.1
+			army_morale_factor = 0.025
+		}
+
+		ship_modifiers = {
+			experience_gain_navy_unit_factor = 0.1
+			naval_morale_factor = 0.025
+			
+		}
+
+		officer_xp = 100
+	}
+
+	HUN_medal_6 = { #Knight of the Golden Spur
+		
+		available = {
+			OR = {
+				should_have_hungarian_medals_trigger = yes
+				AND = {
+					should_have_austrian_medals_trigger  = yes
+					any_subject_country = {
+						should_have_hungarian_medals_trigger = yes
+					}
+				}
+			}
+		}
+		frame = 6
+		icon = "GFX_medal_icon_hun"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			experience_loss_factor = -0.1
+			army_org_factor = 0.03
+		}
+
+		ship_modifiers = {
+			navy_org_factor = 0.05
+			experience_gain_navy_unit_factor = 0.1
+		}
+
+		officer_xp = 100
+	}
+
+	# SWE
+
+	SWE_medal_1 = {
+		
+		available = { 
+			original_tag = SWE
+		}
+		frame = 1
+		icon = "GFX_medal_icon_swe"
+		
+		cost = @cost
+		
+		unit_modifiers = {
+			supply_consumption_factor = -0.15
+			max_dig_in_factor = 0.05
+		}
+		
+		officer_xp = 100
+		
+	}
+
 	### Generic Democratic
 	
 	democratic_gallantry = {
