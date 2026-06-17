@@ -48,7 +48,7 @@ focus_tree = {
 		id = CZE_formalize_the_czech_language
 		icon = GFX_focus_PRC_petition_for_freedom
 		cost = 5
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = CZE_long_awaited_autonomy
 		prerequisite = {
@@ -75,8 +75,11 @@ focus_tree = {
 		id = CZE_sudetenland_in_flames
 		icon = GFX_focus_PRC_petition_for_freedom
 		cost = 5
-		x = -1
+		x = 0
 		y = 1
+		mutually_exclusive = {
+			focus = CZE_federalist_project
+		}
 		relative_position_id = CZE_long_awaited_autonomy
 		prerequisite = {
 			focus = CZE_long_awaited_autonomy
@@ -86,6 +89,73 @@ focus_tree = {
 			is_subject = yes
 			is_puppet = yes
 		}
+		has_idea = CZE_sudetenland_protests
+		}
+		completion_reward = {
+		add_political_power = 75
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_federalist_project
+		icon = GFX_focus_PRC_petition_for_freedom
+		cost = 5
+		x = -2
+		y = 1
+			mutually_exclusive = {
+			focus = CZE_sudetenland_in_flames
+		}
+		relative_position_id = CZE_long_awaited_autonomy
+		prerequisite = {
+			focus = CZE_long_awaited_autonomy
+		}
+		available = {
+		OR = {
+			is_subject = yes
+			is_puppet = yes
+		}
+				has_idea = CZE_sudetenland_protests
+
+		}
+		completion_reward = {
+		add_political_power = 75
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+		focus = {
+		id = CZE_the_czech_elections
+		icon = GFX_focus_PRC_petition_for_freedom
+		cost = 5
+		x = 0
+		y = 2
+			
+		relative_position_id = CZE_long_awaited_autonomy
+		prerequisite = {
+			focus = CZE_formalize_the_czech_language
+		}
+		prerequisite = {
+			focus = CZE_sudetenland_in_flames
+			focus = CZE_federalist_project
+		}
+		available = {
+		OR = {
+			is_subject = yes
+			is_puppet = yes
+		}
+				has_idea = CZE_sudetenland_protests
+
 		}
 		completion_reward = {
 		add_political_power = 75
