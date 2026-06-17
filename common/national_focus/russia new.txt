@@ -4601,8 +4601,23 @@ focus_tree = {
 		}
 		bypass = {
 			PER = {
-				has_country_leader = {
-					character = PER_mohammad_ali_shah
+				OR = {
+					custom_trigger_tooltip = {
+						tooltip = mohammed_ali_shah_won_tt
+						has_country_leader = {
+							character = PER_mohammad_ali_shah
+						}
+					}
+					custom_trigger_tooltip = {
+						tooltip = mohammed_ali_shah_won_tt_NOT
+						NOT = {
+							has_country_leader = {
+								character = PER_mohammad_ali_shah
+							}
+							has_active_mission = PER_looming_absolutist_revolt_in_astrabad
+							has_war_with = PEX
+						}
+					}
 				}
 			}
 		}
@@ -4612,15 +4627,36 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			PER = {
-				country_event = ww1_persia_rus_intervention.1
+				if = {
+					limit = {
+						has_active_mission = PER_looming_absolutist_revolt_in_astrabad
+					}
+					add_days_mission_timeout = {
+						mission = PER_looming_absolutist_revolt_in_astrabad
+						days = -60
+					}
+				}
 			}
-			# ENG = {
-			# 	diplomatic_relation = {
-			# 		country = PER
-			# 		relation = guarantee
-			# 		active = no
-			# 	}
-			# }
+			if = {
+				limit = {
+					PEX = {
+						exists = no
+					}
+				}
+				custom_effect_tooltip = when_mohammed_ali_rebels_tt
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = ROOT
+			}
+			PEX = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+					producer = RUS
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 3
@@ -4642,8 +4678,11 @@ focus_tree = {
 		}
 		available = {
 			PER = {
-				has_country_leader = {
-					character = PER_mohammad_ali_shah
+				custom_trigger_tooltip = {
+					tooltip = mohammed_ali_shah_won_tt
+					has_country_leader = {
+						character = PER_mohammad_ali_shah
+					}
 				}
 			}
 		}
@@ -4651,6 +4690,9 @@ focus_tree = {
 		y = 2
 		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
+		select_effect = {
+			add_days_mission_timeout = { mission = RUS_occupation_of_nothern_persia_timeout days = 71 }
+		}
 		completion_reward = {
 			PER = {
 				add_to_variable = {
@@ -4661,6 +4703,7 @@ focus_tree = {
 			}
 			PER_calculate_influnce_in_persia_modifiers = yes
 			add_political_power = 50
+			remove_mission = RUS_occupation_of_nothern_persia_timeout
 		}
 		ai_will_do = {
 			factor = 3
@@ -4682,9 +4725,14 @@ focus_tree = {
 		}
 		available = {
 			PER = {
-				NOT = {
-					has_country_leader = {
-						character = PER_mohammad_ali_shah
+				custom_trigger_tooltip = {
+					tooltip = mohammed_ali_shah_won_tt_NOT
+					NOT = {
+						has_country_leader = {
+							character = PER_mohammad_ali_shah
+						}
+						has_active_mission = PER_looming_absolutist_revolt_in_astrabad
+						has_war_with = PEX
 					}
 				}
 			}
