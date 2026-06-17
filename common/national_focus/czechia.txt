@@ -9,7 +9,6 @@ focus_tree = {
 			tag = CZE
 		}
 	}
-	
 	continuous_focus_position = {
 		x = 50
 		y = 1866
@@ -18,7 +17,6 @@ focus_tree = {
 		x = 0
 		y = 0
 	}
-	
 	focus = {
 		id = CZE_long_awaited_autonomy
 		icon = GFX_focus_PRC_petition_for_freedom
@@ -28,13 +26,13 @@ focus_tree = {
 		prerequisite = {
 		}
 		available = {
-		OR = {
-			is_subject = yes
-			is_puppet = yes
-		}
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
 		}
 		completion_reward = {
-		add_political_power = 75
+			add_political_power = 75
 		}
 		ai_will_do = {
 			base = 1
@@ -55,13 +53,13 @@ focus_tree = {
 			focus = CZE_long_awaited_autonomy
 		}
 		available = {
-		OR = {
-			is_subject = yes
-			is_puppet = yes
-		}
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
 		}
 		completion_reward = {
-	remove_ideas = CZE_divided_administration
+			remove_ideas = CZE_divided_administration
 		}
 		ai_will_do = {
 			base = 1
@@ -85,19 +83,19 @@ focus_tree = {
 			focus = CZE_long_awaited_autonomy
 		}
 		available = {
-		OR = {
-			is_subject = yes
-			is_puppet = yes
-		}
-		has_idea = CZE_sudetenland_protests
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			has_idea = CZE_sudetenland_protests
 		}
 		completion_reward = {
-		add_stability = -0.025
-		add_war_support = -0.05
-		swap_ideas = {
-			remove_idea = CZE_sudetenland_protests
-			add_idea = CZE_sudetenland_protests_2
-		}
+			add_stability = -0.025
+			add_war_support = -0.05
+			swap_ideas = {
+				remove_idea = CZE_sudetenland_protests
+				add_idea = CZE_sudetenland_protests_2
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -113,7 +111,7 @@ focus_tree = {
 		cost = 5
 		x = -2
 		y = 1
-			mutually_exclusive = {
+		mutually_exclusive = {
 			focus = CZE_sudetenland_in_flames
 		}
 		relative_position_id = CZE_long_awaited_autonomy
@@ -121,19 +119,18 @@ focus_tree = {
 			focus = CZE_long_awaited_autonomy
 		}
 		available = {
-		OR = {
-			is_subject = yes
-			is_puppet = yes
-		}
-				has_idea = CZE_sudetenland_protests
-
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			has_idea = CZE_sudetenland_protests
 		}
 		completion_reward = {
 			add_political_power = -75
-		swap_ideas = {
-			remove_idea = CZE_sudetenland_protests
-			add_idea = CZE_sudetenland_protests_2
-		}
+			swap_ideas = {
+				remove_idea = CZE_sudetenland_protests
+				add_idea = CZE_sudetenland_protests_2
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -143,13 +140,12 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
-		focus = {
+	focus = {
 		id = CZE_the_czech_elections
 		icon = GFX_focus_PRC_petition_for_freedom
 		cost = 5
 		x = 0
 		y = 2
-			
 		relative_position_id = CZE_long_awaited_autonomy
 		prerequisite = {
 			focus = CZE_formalize_the_czech_language
@@ -159,15 +155,14 @@ focus_tree = {
 			focus = CZE_federalist_project
 		}
 		available = {
-		OR = {
-			is_subject = yes
-			is_puppet = yes
-		}
-				has_idea = CZE_sudetenland_protests
-
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			has_idea = CZE_sudetenland_protests
 		}
 		completion_reward = {
-		add_political_power = 75
+			country_event = ww1_czechoslovakia.5
 		}
 		ai_will_do = {
 			base = 1
@@ -183,27 +178,25 @@ focus_tree = {
 		cost = 5
 		x = -1
 		y = 1
-			
 		relative_position_id = CZE_the_czech_elections
 		mutually_exclusive = {
-				focus = CZE_czech_statehood_party
-			}
-			mutually_exclusive = {
-				focus = CZE_left_wing_front
-			}
+			focus = CZE_czech_statehood_party
+		}
+		mutually_exclusive = {
+			focus = CZE_left_wing_front
+		}
 		prerequisite = {
 			focus = CZE_the_czech_elections
 		}
 		available = {
-		OR = {
-			is_subject = yes
-			is_puppet = yes
-		}
-				has_idea = CZE_sudetenland_protests
-
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
 		}
 		completion_reward = {
-		add_political_power = 75
+			add_political_power = 75
 		}
 		ai_will_do = {
 			base = 1
@@ -219,27 +212,25 @@ focus_tree = {
 		cost = 5
 		x = -5
 		y = 1
-			
 		relative_position_id = CZE_the_czech_elections
 		prerequisite = {
 			focus = CZE_the_czech_elections
 		}
 		mutually_exclusive = {
-				focus = CZE_young_czech_victory
-			}
-			mutually_exclusive = {
-				focus = CZE_czech_statehood_party
-			}
-		available = {
-		OR = {
-			is_subject = yes
-			is_puppet = yes
+			focus = CZE_young_czech_victory
 		}
-				has_idea = CZE_sudetenland_protests
-
+		mutually_exclusive = {
+			focus = CZE_czech_statehood_party
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
 		}
 		completion_reward = {
-		add_political_power = 75
+			add_political_power = 75
 		}
 		ai_will_do = {
 			base = 1
@@ -249,32 +240,31 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
-		focus = {
+	focus = {
 		id = CZE_czech_statehood_party
 		icon = GFX_focus_PRC_petition_for_freedom
 		cost = 5
 		x = 3
 		y = 1
-			mutually_exclusive = {
-				focus = CZE_young_czech_victory
-			}
-			mutually_exclusive = {
-				focus = CZE_left_wing_front
-			}
+		mutually_exclusive = {
+			focus = CZE_young_czech_victory
+		}
+		mutually_exclusive = {
+			focus = CZE_left_wing_front
+		}
 		relative_position_id = CZE_the_czech_elections
 		prerequisite = {
 			focus = CZE_the_czech_elections
 		}
 		available = {
-		OR = {
-			is_subject = yes
-			is_puppet = yes
-		}
-				has_idea = CZE_sudetenland_protests
-
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
 		}
 		completion_reward = {
-		add_political_power = 75
+			add_political_power = 75
 		}
 		ai_will_do = {
 			base = 1
@@ -295,12 +285,12 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-		hidden_effect = {
-			country_event = {
-				id = ww1_czechoslovakia.1
-				days = 2
+			hidden_effect = {
+				country_event = {
+					id = ww1_czechoslovakia.1
+					days = 2
+				}
 			}
-		}
 		}
 		ai_will_do = {
 			base = 1
@@ -324,7 +314,7 @@ focus_tree = {
 		relative_position_id = CZE_birth
 		completion_reward = {
 			country_event = ww1_czechoslovakia.2
-		custom_effect_tooltip = AUS_modify_fledge_republic_tt
+			custom_effect_tooltip = AUS_modify_fledge_republic_tt
 			add_to_variable = {
 				CZE_fle_pp = 0.05
 				tooltip = political_power_factor_tt
@@ -342,5 +332,4 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
-		
 }
