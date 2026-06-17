@@ -196,7 +196,60 @@ focus_tree = {
 			always = no
 		}
 		completion_reward = {
-			add_political_power = 75
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_friendly_relations_with_vienna
+		icon = GFX_focus_PRC_petition_for_freedom
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = CZE_young_czech_victory
+		prerequisite = {
+			focus = CZE_young_czech_victory
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_subsidies_to_the_banks
+		icon = GFX_focus_PRC_petition_for_freedom
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = CZE_young_czech_victory
+		prerequisite = {
+			focus = CZE_young_czech_victory
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			add_ideas = CZE_supporting_banks
 		}
 		ai_will_do = {
 			base = 1
@@ -244,7 +297,7 @@ focus_tree = {
 		id = CZE_czech_statehood_party
 		icon = GFX_focus_PRC_petition_for_freedom
 		cost = 5
-		x = 3
+		x = 2
 		y = 1
 		mutually_exclusive = {
 			focus = CZE_young_czech_victory
