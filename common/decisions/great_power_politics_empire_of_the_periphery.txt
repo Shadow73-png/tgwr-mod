@@ -1,0 +1,184 @@
+#RUSSIA
+TGWR_great_power_politics = {
+	#CENTRAL ASIAN REVOLT
+	RUS_central_asian_revolt_mission = {
+		icon = GFX_decision_SWI_consolidate_council_power
+		allowed = { tag = RUS }
+		activation = {
+			always = no
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		is_good = no
+		days_mission_timeout = 400
+		selectable_mission = no
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						RUS_suppression_cruelty > 1
+					}
+				}
+				country_event = ww1_russia_common.35
+			}
+			else = {
+				country_event = ww1_russia_common.36
+			}
+		}
+	}
+	RUS_suppress_revolt_in_FROM = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+
+		state_target = yes
+		targets = {
+			402
+			407
+			583
+			584
+			585
+			586
+			587
+			588
+			589
+			732
+			1219
+		}
+
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+
+		available = {
+			divisions_in_state = {
+				size > 0
+				state = FROM
+			}
+		}
+
+		visible = {
+			has_active_mission = RUS_central_asian_revolt_mission
+			great_power_politics_empire_of_the_periphery_visible = yes
+		}
+
+		days_remove = 30
+		fire_only_once = yes
+
+		cancel_trigger = {
+			hidden_trigger = {
+				NOT = {
+					controls_state = FROM
+					has_active_mission = RUS_central_asian_revolt_mission
+				}
+			}
+		}
+
+		remove_effect = {
+			add_stability = -0.001
+			FROM = {
+				add_manpower = -20000
+			}
+			add_days_mission_timeout = {
+				mission = RUS_central_asian_revolt_mission
+				days = -50
+			}
+			add_to_variable = {
+				RUS_suppression_cruelty = 1
+			}
+		}
+	}
+	RUS_repeal_muslim_conscription = {
+		icon = GFX_decision_oppression
+		allowed = {
+			original_tag = RUS
+		}
+
+		available = {
+		}
+
+		visible = {
+			has_idea = RUS_muslim_conscription
+			has_active_mission = RUS_central_asian_revolt_mission
+			great_power_politics_empire_of_the_periphery_visible = yes
+		}
+
+		days_remove = 60
+		fire_only_once = yes
+
+		cancel_trigger = {
+			hidden_trigger = {
+				NOT = {
+					has_active_mission = RUS_central_asian_revolt_mission
+				}
+			}
+		}
+
+		remove_effect = {
+			remove_ideas = RUS_muslim_conscription
+			add_days_mission_timeout = {
+				mission = RUS_central_asian_revolt_mission
+				days = -100
+			}
+		}
+	}
+}
+#OTTOMANS
+TGWR_great_power_politics = {
+	#CENTRAL ASIAN REVOLT
+	TUR_support_central_asian_rebels = {
+		icon = GFX_decision_oppression
+		allowed = {
+			OR = {
+				tag = GER
+				tag = TUR
+			}
+		}
+
+		available = {
+		}
+
+		visible = {
+			has_war_with = RUS
+			RUS = {
+				has_active_mission = RUS_central_asian_revolt_mission
+			}
+			great_power_politics_empire_of_the_periphery_visible = yes
+		}
+
+		days_remove = 60
+		fire_only_once = yes
+
+		cancel_trigger = {
+			hidden_trigger = {
+				RUS = {
+					NOT = {
+						has_active_mission = RUS_central_asian_revolt_mission
+					}
+				}
+			}
+		}
+
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = ROOT
+			}
+			RUS = {
+				add_days_mission_timeout = {
+					mission = RUS_central_asian_revolt_mission
+					days = 50
+				}
+				country_event = ww1_russia_common.34
+			}
+		}
+	}
+}
+#GERMANY

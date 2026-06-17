@@ -836,6 +836,123 @@ country_event = {
 		}
 	}
 }
+#CENTRAL ASIAN REVOLT
+country_event = {
+	id = ww1_russia_common.32
+	title = ww1_russia_common.32.t
+	desc = ww1_russia_common.32.d
+	picture = ww1_russia_central_asian_revolt
+	trigger = {
+		tag = RUS
+		check_variable = {
+			RUS_central_asian_discontent > 9
+		}
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			add_ideas = RUS_central_asian_revolt
+			activate_mission = RUS_central_asian_revolt_mission
+		}
+	}
+	option = {
+		name = ww1_russia_common.32.a
+		effect_tooltip = {
+			add_ideas = RUS_central_asian_revolt
+			activate_mission = RUS_central_asian_revolt_mission
+			unlock_decision_tooltip = RUS_suppress_revolt_in_FROM
+			if = {
+				limit = {
+					has_idea = RUS_muslim_conscription
+				}
+				unlock_decision_tooltip = RUS_repeal_muslim_conscription
+			}
+		}
+	}
+}
+#TURGAY REBELLION
+country_event = {
+	id = ww1_russia_common.33
+	title = ww1_russia_common.33.t
+	desc = ww1_russia_common.33.d
+	picture = ww1_russia_central_asian_revolt
+	trigger = {
+		tag = RUS
+		has_active_mission = RUS_central_asian_revolt_mission
+	}
+	fire_only_once = yes
+	immediate = {
+	}
+	option = {
+		name = ww1_russia_common.33.a
+	}
+}
+#FROM SUPPORTS TURKESTAN REBELS
+country_event = {
+	id = ww1_russia_common.34
+	title = ww1_russia_common.34.t
+	desc = ww1_russia_common.34.d
+	picture = ww1_russia_central_asian_revolt
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_russia_common.34.a
+		effect_tooltip = {
+			add_days_mission_timeout = {
+				mission = RUS_central_asian_revolt_mission
+				days = 50
+			}
+		}
+	}
+}
+#CENTRAL ASIAN EXODUS
+country_event = {
+	id = ww1_russia_common.35
+	title = ww1_russia_common.35.t
+	desc = ww1_russia_common.35.d
+	picture = ww1_russia_central_asian_exodus
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 589
+						state = 1219
+					}
+				}
+				add_manpower = -250000
+			}
+		}
+	}
+	option = {
+		name = ww1_russia_common.35.a
+		effect_tooltip = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 589
+						state = 1219
+					}
+				}
+				add_manpower = -250000
+			}
+		}
+	}
+}
+#CENTRAL ASIAN REVOLT CALMS DOWN
+country_event = {
+	id = ww1_russia_common.36
+	title = ww1_russia_common.36.t
+	desc = ww1_russia_common.36.d
+	picture = ww1_russia_central_asia
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_russia_common.36.a
+	}
+}
 #STOLYPIN EVENTS
 ################
 #Law on Western Zemstvo passed in the State Duma
