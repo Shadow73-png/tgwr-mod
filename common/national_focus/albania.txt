@@ -1419,7 +1419,7 @@ focus_tree = {
 	focus = {
 		id = ALB_open_up_schools
 		icon = GFX_focus_generic_university_1
-		cost = 10
+		cost = 5
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 			FOCUS_FILTER_MANPOWER
@@ -1431,12 +1431,17 @@ focus_tree = {
 		relative_position_id = ALB_national_bank_of_albania
 		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
 		completion_reward = {
-			custom_effect_tooltip = modify_ALB_illiterate_society_tt
-			add_to_variable = {
-				tooltip = research_speed_factor_5
-				ALB_is_research_speed = 0.05
+			activate_mission = ALB_progression_of_literacy
+			custom_effect_tooltip = ALB_open_up_schools_tt
+			effect_tooltip = {
+				custom_effect_tooltip = modify_ALB_illiterate_society_tt
+				add_to_variable = {
+					tooltip = research_speed_factor_1
+					ALB_is_research_speed = 0.01
+				}
+				custom_effect_tooltip = empty_space
+				activate_mission = ALB_improving_the_customs_duty
 			}
-			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -2711,7 +2716,7 @@ focus_tree = {
 			FOCUS_FILTER_WAR_SUPPORT
 			FOCUS_FILTER_HISTORICAL
 		}
-		x = 45
+		x = 46
 		y = 0
 		offset = {
 			x = -5
@@ -5718,18 +5723,18 @@ focus_tree = {
 			}
 			set_party_name = {
 				ideology = democratic
-				name = ALB_national_party
-				long_name = ALB_national_party_long
+				name = ALB_albanian_nationalist_party
+				long_name = ALB_albanian_nationalist_party_long
 			}
 			set_party_name = {
 				ideology = fascism
-				name = ALB_national_party
-				long_name = ALB_national_party_long
+				name = ALB_albanian_nationalist_party
+				long_name = ALB_albanian_nationalist_party_long
 			}
 			set_party_name = {
 				ideology = communism
-				name = ALB_national_party
-				long_name = ALB_national_party_long
+				name = ALB_albanian_nationalist_party
+				long_name = ALB_albanian_nationalist_party_long
 			}
 			custom_effect_tooltip = modify_ALB_country_in_disarray
 			add_to_variable = {
@@ -5752,7 +5757,7 @@ focus_tree = {
 		prerequisite = { focus = ALB_establish_the_ottoman_regency }
 		prerequisite = { focus = ALB_albanian_independence }
 		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_ideals_of_romantic_independence focus = ALB_foreign_policy_priority }
-		x = -8
+		x = -9
 		y = 2
 		relative_position_id = ALB_establish_the_ottoman_regency
 		available = {
@@ -5796,7 +5801,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = ALB_albanian_independence }
 		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_foreign_policy_priority }
-		x = -6
+		x = -7
 		y = 1
 		relative_position_id = ALB_albanian_independence
 		completion_reward = {
@@ -5820,7 +5825,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = ALB_albanian_independence }
 		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_ideals_of_romantic_independence }
-		x = 6
+		x = 7
 		y = 1
 		relative_position_id = ALB_albanian_independence
 		completion_reward = {
@@ -5855,6 +5860,13 @@ focus_tree = {
 		completion_reward = {
 			set_cosmetic_tag = ALB_republic
 			add_country_leader_trait = ALB_prime_minister
+			set_capital = { state = 44 remember_old_capital = no }
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = stability_factor_5
+				ALB_sos_stability = 0.05
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5870,7 +5882,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_republican_ideals
 		completion_reward = {
-			
+			add_ideas = ALB_returning_diaspora
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5886,7 +5898,16 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_recall_the_diaspora
 		completion_reward = {
-			
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = political_power_factor_10
+				ALB_sos_political_power_factor = 0.1
+			}
+			add_to_variable = {
+				tooltip = stability_factor_minus_10
+				ALB_sos_stability_factor = -0.1
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5902,7 +5923,16 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_centralize_the_culture
 		completion_reward = {
-			
+			custom_effect_tooltip = modify_ALB_illiterate_society_tt
+			add_to_variable = {
+				tooltip = war_support_weekly_01
+				ALB_is_war_support_weekly = 0.001
+			}
+			add_to_variable = {
+				tooltip = research_speed_factor_5
+				ALB_is_research_speed = 0.05
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5919,7 +5949,24 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_republican_ideals
 		completion_reward = {
-			
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = mobilization_laws_cost_factor_minus_10
+				ALB_sos_mobilization_laws_cost_factor = -0.1
+			}
+			add_to_variable = {
+				tooltip = trade_laws_cost_factor_minus_10
+				ALB_sos_trade_laws_cost_factor = -0.1
+			}
+			add_to_variable = {
+				tooltip = economy_cost_factor_minus_10
+				ALB_sos_economy_cost_factor = -0.1
+			}
+			add_to_variable = {
+				tooltip = political_advisor_cost_factor_minus_15
+				ALB_sos_political_advisor_cost_factor = -0.15
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5938,6 +5985,12 @@ focus_tree = {
 		completion_reward = {
 			remove_country_leader_trait = ALB_prime_minister
 			add_country_leader_trait = ALB_president
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = high_command_cost_factor_minus_15
+				ALB_sos_high_command_cost_factor = -0.15
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5954,7 +6007,15 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_parliamentary_model
 		completion_reward = {
-			
+			effect_tooltip = { add_ideas = ALB_paternal_mandate }
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = ALB_paternal_mandate }
+				set_variable = { ALB_pr_political_power_gain = 0.05 }
+				set_variable = { ALB_pr_party_popularity_stability_factor = 0.15 }
+				set_variable = { ALB_pr_drift_defence_factor = 0.5 }
+			}
+			activate_mission = ALB_waning_public_patience
+			custom_effect_tooltip = ALB_paternal_republic_tt
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5971,7 +6032,64 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_parliamentary_model
 		completion_reward = {
-			
+			add_country_leader_role = {
+				character = ALB_kostandin_boshnjaku
+				promote_leader = yes
+				country_leader = {
+					ideology = market_socialism
+					traits = { ALB_left_leaning_banker }
+				}
+			}
+			add_country_leader_role = {
+				character = ALB_hile_mosi
+				promote_leader = yes
+				country_leader = {
+					ideology = social_liberalism
+					traits = { ALB_secular_nationalist }
+				}
+			}
+			add_country_leader_role = {
+				character = ALB_sabri_qyteza
+				promote_leader = yes
+				country_leader = {
+					ideology = authoritarian_democracy
+					traits = { ALB_nationalist_jurist }
+				}
+			}
+			add_country_leader_role = {
+				character = ALB_sabri_qyteza
+				promote_leader = yes
+				country_leader = {
+					ideology = revolutionary_nationalism
+					traits = { ALB_nationalist_jurist }
+				}
+			}
+			set_party_name = {
+				ideology = communism
+				name = ALB_albanian_nationalist_party
+				long_name = ALB_albanian_nationalist_party_long
+			}
+			set_party_name = {
+				ideology = democratic
+				name = ALB_albanian_nationalist_party
+				long_name = ALB_albanian_nationalist_party_long
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = ALB_albanian_nationalist_party
+				long_name = ALB_albanian_nationalist_party_long
+			}
+			set_party_name = {
+				ideology = fascism
+				name = ALB_albanian_nationalist_party
+				long_name = ALB_albanian_nationalist_party_long
+			}
+			add_ideas = ALB_nationalist_mandate
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = democratic_party_popularity }
+				add_dynamic_modifier = { modifier = communism_party_popularity }
+				add_dynamic_modifier = { modifier = fascism_party_popularity }
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5988,13 +6106,29 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_ideals_of_romantic_independence
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ALB_has_toptani_government
-				has_country_flag = ALB_toptani_government
-			}
-		}
 		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+				long_name = ALB_ghica_party
+				name = ALB_ghica_party
+			}
+			every_country = {
+				limit = { has_character = ROM_albert_ghica }
+				ROM_albert_ghica = {
+					set_nationality = ROOT
+					set_character_name = ALB_prince_ferdinand_duke_of_montpensier
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							ideology = semi_constitutional_monarchy
+							traits = { ALB_foreign_monarch ALB_president_of_bucharest_immigrants }
+						}
+					}
+				}
+			}
+			set_cosmetic_tag = ALB_principality
+			set_capital = { state = 44 remember_old_capital = no }
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6009,7 +6143,22 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ALB_favor_the_ghica_pretender
+		available = { has_country_leader = { character = ROM_albert_ghica } }
 		completion_reward = {
+			add_ideas = ALB_aromanian_autonomy
+			if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch }
+				swap_ruler_traits = { remove = ALB_foreign_monarch add = ALB_foreign_monarch2 }
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch2 }
+				swap_ruler_traits = { remove = ALB_foreign_monarch2 add = ALB_foreign_monarch3 }
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch3 }
+				swap_ruler_traits = { remove = ALB_foreign_monarch3 add = ALB_foreign_monarch4 }
+			}
+			else = { swap_ruler_traits = { remove = ALB_foreign_monarch add = ALB_foreign_monarch2 } }
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6024,7 +6173,22 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ALB_favor_the_ghica_pretender
+		available = { has_country_leader = { character = ROM_albert_ghica } }
 		completion_reward = {
+			add_ideas = ALB_romanian_ties
+			if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch }
+				swap_ruler_traits = { remove = ALB_foreign_monarch add = ALB_foreign_monarch2 }
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch2 }
+				swap_ruler_traits = { remove = ALB_foreign_monarch2 add = ALB_foreign_monarch3 }
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch3 }
+				swap_ruler_traits = { remove = ALB_foreign_monarch3 add = ALB_foreign_monarch4 }
+			}
+			else = { swap_ruler_traits = { remove = ALB_foreign_monarch add = ALB_foreign_monarch2 } }
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6041,14 +6205,29 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = ALB_ideals_of_romantic_independence
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ALB_has_toptani_government
-				has_country_flag = ALB_toptani_government
-			}
-		}
 		completion_reward = {
-			mark_focus_tree_layout_dirty = yes
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+				long_name = ALB_kastrioti_party
+				name = ALB_kastrioti_party
+			}
+			every_country = {
+				limit = { has_character = SPR_juan_pedro_aladro_kastriota }
+				SPR_juan_pedro_aladro_kastriota = {
+					set_nationality = ROOT
+					set_character_name = ALB_prince_ferdinand_duke_of_montpensier
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							ideology = semi_constitutional_monarchy
+							traits = { ALB_foreign_monarch ALB_kastrioti_lineage }
+						}
+					}
+				}
+			}
+			set_cosmetic_tag = ALB_principality_kastrioti
+			set_capital = { state = 44 remember_old_capital = no }
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6063,7 +6242,22 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ALB_crown_the_kastrioti_prince
+		available = { has_country_leader = { character = SPR_juan_pedro_aladro_kastriota } }
 		completion_reward = {
+			add_country_leader_trait = ALB_skanderbeg_II
+			if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch }
+				swap_ruler_traits = { remove = ALB_foreign_monarch add = ALB_foreign_monarch2 }
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch2 }
+				swap_ruler_traits = { remove = ALB_foreign_monarch2 add = ALB_foreign_monarch3 }
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch3 }
+				swap_ruler_traits = { remove = ALB_foreign_monarch3 add = ALB_foreign_monarch4 }
+			}
+			else = { swap_ruler_traits = { remove = ALB_foreign_monarch add = ALB_foreign_monarch2 } }
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6078,7 +6272,50 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ALB_crown_the_kastrioti_prince
+		available = { has_country_leader = { character = SPR_juan_pedro_aladro_kastriota } }
 		completion_reward = {
+			add_ideas = ALB_christian_characteristics
+			every_other_country = {
+				limit = {
+					OR = {
+						capital_scope = { is_on_continent = europe }
+						capital_scope = { is_on_continent = australia }
+						capital_scope = { is_on_continent = north_america }
+						capital_scope = { is_on_continent = south_america }
+					}
+					OR = {
+						has_country_leader_ideology = theocracy_ideology
+						has_country_leader_ideology = fundamentalism
+						has_country_leader_ideology = religious_communism
+						tag = GRE
+						tag = PAP
+					}
+				}
+				add_opinion_modifier = {
+					target = ALB
+					modifier = ALB_embracing_the_christian_heritage
+				}
+			}
+			every_other_country = {
+				limit = { is_muslim = yes }
+				add_opinion_modifier = {
+					target = ALB
+					modifier = ALB_turning_back_on_the_muslim_heritage
+				}
+			}
+			if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch }
+				swap_ruler_traits = { remove = ALB_foreign_monarch add = ALB_foreign_monarch2 }
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch2 }
+				swap_ruler_traits = { remove = ALB_foreign_monarch2 add = ALB_foreign_monarch3 }
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch3 }
+				swap_ruler_traits = { remove = ALB_foreign_monarch3 add = ALB_foreign_monarch4 }
+			}
+			else = { swap_ruler_traits = { remove = ALB_foreign_monarch add = ALB_foreign_monarch2 } }
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6095,6 +6332,10 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_favor_the_ghica_pretender
 		completion_reward = {
+			add_ideas = ALB_our_reach_abroad
+			unlock_decision_tooltip = ALB_approach_the_budapest_club
+			unlock_decision_tooltip = ALB_approach_the_sofia_club
+			unlock_decision_tooltip = ALB_approach_the_kostantiniyye_club
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6110,6 +6351,29 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_crown_the_kastrioti_prince
 		completion_reward = {
+			custom_effect_tooltip = modify_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = political_power_factor_5
+				ALB_sos_political_power_factor = 0.05
+			}
+			add_to_variable = {
+				tooltip = political_advisor_cost_factor_minus_15
+				ALB_sos_political_advisor_cost_factor = -0.15
+			}
+			custom_effect_tooltip = empty_space
+			if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch }
+				swap_ruler_traits = { remove = ALB_foreign_monarch add = ALB_foreign_monarch2 }
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch2 }
+				swap_ruler_traits = { remove = ALB_foreign_monarch2 add = ALB_foreign_monarch3 }
+			}
+			else_if = {
+				limit = { has_country_leader_with_trait = ALB_foreign_monarch3 }
+				swap_ruler_traits = { remove = ALB_foreign_monarch3 add = ALB_foreign_monarch4 }
+			}
+			else = { swap_ruler_traits = { remove = ALB_foreign_monarch add = ALB_foreign_monarch2 } }
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6125,6 +6389,12 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_utilize_foreign_clubs
 		completion_reward = {
+			custom_effect_tooltip = modify_ALB_illiterate_society_tt
+			add_to_variable = {
+				tooltip = research_speed_factor_7
+				ALB_is_research_speed = 0.07
+			}
+			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -9848,8 +10118,8 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = modify_ALB_illiterate_society_tt
 			add_to_variable = {
-				tooltip = war_support_weekly_01
-				ALB_is_war_support_weekly = 0.001
+				tooltip = war_support_factor_5
+				ALB_is_war_support_factor = 0.05
 			}
 			add_to_variable = {
 				tooltip = research_speed_factor_5
@@ -10810,7 +11080,7 @@ joint_focus = {
 		}
 	}
 	offset = {
-		x = 51
+		x = 53
 		y = 7
 		trigger = { original_tag = ALB }
 	}
@@ -11604,7 +11874,7 @@ joint_focus = {
 	x = 0
 	y = 0
 	offset = {
-		x = 47
+		x = 49
 		y = 7
 		trigger = { original_tag = ALB }
 	}
@@ -11808,7 +12078,7 @@ joint_focus = {
 	x = 0
 	y = 0
 	offset = {
-		x = 55
+		x = 57
 		y = 7
 		trigger = { original_tag = ALB }
 	}

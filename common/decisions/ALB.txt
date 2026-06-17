@@ -2027,6 +2027,34 @@ war_measures = {
 }
 
 ALB_literacy_campaigns = {
+	ALB_progression_of_literacy = {
+		icon = GFX_decision_generic_research
+		allowed = { original_tag = ALB }
+		activation = { has_completed_focus = ALB_open_up_schools }
+		available = { NOT = { has_dynamic_modifier = { modifier = ALB_illiterate_society } } }
+		days_mission_timeout = 180
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						var = ALB_is_research_speed
+						value = -0.01
+						compare = less_than_or_equals
+					}
+				}
+				remove_dynamic_modifier = { modifier = ALB_illiterate_society }
+			}
+			else = {
+				custom_effect_tooltip = modify_ALB_illiterate_society_tt
+				add_to_variable = {
+					tooltip = research_speed_factor_1
+					ALB_is_research_speed = 0.01
+				}
+				custom_effect_tooltip = empty_space
+				activate_mission = ALB_improving_the_customs_duty
+			}
+		}
+	}
 }
 
 economy_decisions = {
@@ -2928,6 +2956,237 @@ foreign_politics = {
 				}
 			}
 		}
+	}
+	ALB_approach_the_budapest_club = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+		allowed = { original_tag = ALB }
+		visible = {
+			has_completed_focus = ALB_utilize_foreign_clubs
+		}
+		available = {
+			FROM = { has_opinion = { target = ROOT value > 69 } }
+		}
+		cost = 25
+		targets = { ROM }
+		days_remove = -1
+		cancel_trigger = { FROM = { has_opinion = { target = ROOT value < 70 } } }
+		complete_effect = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = ALB_our_reach_abroad
+					add_idea = ALB_our_reach_abroad_1
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_idea = ALB_our_reach_abroad }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad
+						add_idea = ALB_our_reach_abroad_1
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_1 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_1
+						add_idea = ALB_our_reach_abroad_2
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_2 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_2
+						add_idea = ALB_our_reach_abroad_3
+					}
+				}
+			}
+		}
+		remove_effect = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = ALB_our_reach_abroad_1
+					add_idea = ALB_our_reach_abroad
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_idea = ALB_our_reach_abroad_3 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_2
+						add_idea = ALB_our_reach_abroad_2
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_2 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_2
+						add_idea = ALB_our_reach_abroad_1
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_1 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_1
+						add_idea = ALB_our_reach_abroad
+					}
+				}
+			}
+		}
+		ai_will_do = { base = 100 }
+	}
+	ALB_approach_the_sofia_club = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+		allowed = { original_tag = ALB }
+		visible = {
+			has_completed_focus = ALB_utilize_foreign_clubs
+		}
+		available = {
+			FROM = { has_opinion = { target = ROOT value > 69 } }
+		}
+		cost = 25
+		targets = { BUL }
+		days_remove = -1
+		cancel_trigger = { FROM = { has_opinion = { target = ROOT value < 70 } } }
+		complete_effect = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = ALB_our_reach_abroad
+					add_idea = ALB_our_reach_abroad_1
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_idea = ALB_our_reach_abroad }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad
+						add_idea = ALB_our_reach_abroad_1
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_1 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_1
+						add_idea = ALB_our_reach_abroad_2
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_2 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_2
+						add_idea = ALB_our_reach_abroad_3
+					}
+				}
+			}
+		}
+		remove_effect = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = ALB_our_reach_abroad_1
+					add_idea = ALB_our_reach_abroad
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_idea = ALB_our_reach_abroad_3 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_2
+						add_idea = ALB_our_reach_abroad_2
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_2 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_2
+						add_idea = ALB_our_reach_abroad_1
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_1 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_1
+						add_idea = ALB_our_reach_abroad
+					}
+				}
+			}
+		}
+		ai_will_do = { base = 100 }
+	}
+	ALB_approach_the_kostantiniyye_club = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+		allowed = { original_tag = ALB }
+		visible = {
+			has_completed_focus = ALB_utilize_foreign_clubs
+		}
+		available = {
+			FROM = { has_opinion = { target = ROOT value > 69 } }
+		}
+		cost = 25
+		targets = { TUR }
+		days_remove = -1
+		cancel_trigger = { FROM = { has_opinion = { target = ROOT value < 70 } } }
+		complete_effect = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = ALB_our_reach_abroad
+					add_idea = ALB_our_reach_abroad_1
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_idea = ALB_our_reach_abroad }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad
+						add_idea = ALB_our_reach_abroad_1
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_1 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_1
+						add_idea = ALB_our_reach_abroad_2
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_2 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_2
+						add_idea = ALB_our_reach_abroad_3
+					}
+				}
+			}
+		}
+		remove_effect = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = ALB_our_reach_abroad_1
+					add_idea = ALB_our_reach_abroad
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_idea = ALB_our_reach_abroad_3 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_2
+						add_idea = ALB_our_reach_abroad_2
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_2 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_2
+						add_idea = ALB_our_reach_abroad_1
+					}
+				}
+				else_if = {
+					limit = { has_idea = ALB_our_reach_abroad_1 }
+					swap_ideas = {
+						remove_idea = ALB_our_reach_abroad_1
+						add_idea = ALB_our_reach_abroad
+					}
+				}
+			}
+		}
+		ai_will_do = { base = 100 }
 	}
 }
 
@@ -4006,3 +4265,23 @@ operations = {
 		}
 	}
 }
+
+political_actions = {
+	ALB_waning_public_patience = {
+		icon = GFX_decision_eng_trade_unions_demand
+		available = { NOT = { has_dynamic_modifier = { modifier = ALB_paternal_mandate } } }
+		is_good = no
+		activation = { always = no }
+		days_mission_timeout = 180
+		timeout_effect = {
+			custom_effect_tooltip = modify_ALB_paternal_republic
+			add_to_variable = {
+				tooltip = political_power_gain_minus_1
+				ALB_pr_political_power_gain = -0.01
+			}
+			custom_effect_tooltip = empty_space
+			activate_mission = ALB_waning_public_patience
+		}
+	}
+}
+
