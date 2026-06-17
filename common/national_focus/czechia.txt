@@ -234,6 +234,62 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = CZE_forment_loyalty_to_czechia
+		icon = GFX_focus_PRC_petition_for_freedom
+		cost = 5
+		x = -1
+		y = 2
+		relative_position_id = CZE_young_czech_victory
+		prerequisite = {
+			focus = CZE_friendly_relations_with_vienna
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = CZE_austria_is_more_friendly
+			add_stability = 0.05
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+		focus = {
+		id = CZE_youth_programs
+		icon = GFX_focus_PRC_petition_for_freedom
+		cost = 5
+		x = -2
+		y = 3
+		relative_position_id = CZE_young_czech_victory
+		prerequisite = {
+			focus = CZE_forment_loyalty_to_czechia
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = CZE_austria_is_more_friendly
+			add_stability = 0.05
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
 		id = CZE_subsidies_to_the_banks
 		icon = GFX_focus_PRC_petition_for_freedom
 		cost = 5
@@ -392,6 +448,7 @@ focus_tree = {
 		prerequisite = {
 		}
 		available = {
+			has_idea = CZE_duties_to_vienna
 	OR = {
 		is_subject = yes
 				is_puppet = yes
