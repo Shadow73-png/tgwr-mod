@@ -882,9 +882,21 @@ country_event = {
 	}
 	fire_only_once = yes
 	immediate = {
+		hidden_effect = {
+			402 = {
+				transfer_state_to = TGY
+				add_core_of = TGY
+			}
+			declare_war_on = { target = TGY type = annex_everything }
+		}
 	}
 	option = {
 		name = ww1_russia_common.33.a
+		effect_tooltip = {
+			TGY = {
+				declare_war_on = { target = ROOT type = annex_everything }
+			}
+		}
 	}
 }
 #FROM SUPPORTS TURKESTAN REBELS
@@ -2579,7 +2591,7 @@ country_event = {
 			is_major = yes
 			war_length_with = {
 				tag = RUS
-				months = 10
+				months > 10
 			}
 		}
 		RUS_vladimir_sukhomlinov = {
@@ -2634,7 +2646,7 @@ country_event = {
 			is_major = yes
 			war_length_with = {
 				tag = RUS
-				months = 12
+				months > 12
 			}
 		}
 		check_variable = { RUS_railway_modernization_progress < 100 }
@@ -2666,13 +2678,8 @@ country_event = {
 	picture = ww1_russia_food_shortages
 	trigger = {
 		tag = RUS
-		RUS_has_inflation = no
-		any_country = {
-			is_major = yes
-			war_length_with = {
-				tag = RUS
-				months = 12
-			}
+		check_variable = {
+			RUS_food_supply = 0
 		}
 	}
 	fire_only_once = yes
@@ -2704,7 +2711,13 @@ country_event = {
 	picture = ww1_russia_inflation
 	trigger = {
 		tag = RUS
-		has
+		any_country = {
+			is_major = yes
+			war_length_with = {
+				tag = RUS
+				months > 1
+			}
+		}
 	}
 	fire_only_once = yes
 	immediate = {
