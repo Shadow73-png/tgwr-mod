@@ -3627,53 +3627,6 @@ characters = {
 			traits={ communist_theorist }		
 		}
 	}
-	RUS_nikolai_markov = {
-		name="RUS_nikolai_markov"
-		portraits={
-			civilian={
-				large="gfx/leaders/RUS/RUS_nikolai_markov.png"
-				small="gfx/interface/ideas/RUS/idea_RUS_nikolai_markov.png"
-			}
-		}
-		advisor={
-			slot = political_advisor
-			idea_token = RUS_nikolai_markov
-			traits  = {
-				monarchist_media_mogul
-			}	
-			visible  = {
-				is_country_leader = no
-				if = {
-					limit = { 
-						NOT = { tag = NWA }
-					}
-					NOT = {
-						has_completed_focus = RUS_convene_iv_state_duma
-					}
-				}	
-			}
-			available = {
-				is_country_leader = no
-				if = {
-					limit = { 
-						NOT = { tag = NWA }
-					}
-					is_hired_as_advisor = yes
-				}	
-				else = {
-					has_completed_focus = NWA_with_german_support
-				}	
-			}
-			can_be_fired = no
-		}
-		country_leader={
-			ideology=reactionism
-			traits  = {
-				monarchist_media_mogul
-				likes_germany
-			}
-		}
-	}
 	RUS_nikolai_astrov={
 		advisor={
 			slot = political_advisor

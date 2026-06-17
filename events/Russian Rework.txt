@@ -853,6 +853,10 @@ country_event = {
 		hidden_effect = {
 			add_ideas = RUS_central_asian_revolt
 			activate_mission = RUS_central_asian_revolt_mission
+			country_event = {
+				id = ww1_russia_common.33
+				days = 90
+			}
 		}
 	}
 	option = {
@@ -878,8 +882,15 @@ country_event = {
 	picture = ww1_russia_central_asian_revolt
 	trigger = {
 		tag = RUS
+		402 = {
+			is_owned_and_controlled_by = RUS
+		}
+		581 = {
+			is_owned_and_controlled_by = RUS
+		}
 		has_active_mission = RUS_central_asian_revolt_mission
 	}
+	is_triggered_only = yes
 	fire_only_once = yes
 	immediate = {
 		hidden_effect = {
@@ -1673,6 +1684,9 @@ country_event = {
 		}
 		has_country_flag = RUS_coalition_with_rightists
 		has_decision = RUS_law_on_balanced_budget_sc
+	}
+	mean_time_to_happen = {
+		days = 10
 	}
 	timeout_days = 5
 	#Lol no
