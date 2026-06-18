@@ -5824,7 +5824,7 @@ AUH_stitching_the_quilt = {
 			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_prod_eff_cap = 0.05
-				tooltip = production_factory_efficiency_gain_factor_tt
+				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_popularity = {
 				ideology = communism
@@ -5833,6 +5833,107 @@ AUH_stitching_the_quilt = {
 			add_popularity = {
 				ideology = democratic
 				popularity = -0.05
+			}
+		}
+	}
+	AUS_create_pensions = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_workers_rights
+		}
+		priority = 210
+		available = {
+			democratic > 0.65
+		}
+		fire_only_once = yes
+		days_remove = 180
+		cost = 50
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_prod_eff_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.025
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+	}
+	AUS_lower_worker_hours = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_workers_rights
+		}
+		priority = 210
+		available = {
+			democratic > 0.65
+		}
+		fire_only_once = yes
+		days_remove = 180
+		cost = 50
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_ep_production_factory_start_efficiency_factor = 0.05
+				tooltip = production_factory_start_efficiency_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.025
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+	}
+	AUS_government_inspections_workers = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_workers_rights
+		}
+		priority = 210
+		available = {
+			democratic > 0.65
+		}
+		fire_only_once = yes
+		days_remove = 180
+		cost = 50
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_pp_gain = 0.05
+				tooltip = stability_factor_tt
+			}
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.05
+				tooltip = consumer_goods_factor_tt
 			}
 		}
 	}
