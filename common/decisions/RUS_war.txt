@@ -1,3 +1,125 @@
+#VOLUNTEER UNITS
+TGWR_great_power_politics = {
+	RUS_form_czechoslovak_rifle_brigade = {
+		icon = generic_prepare_civil_war
+		allowed = {
+			original_tag = RUS
+		}
+		cost = 25
+		days_remove = 30
+		available = {
+		}
+		visible = {
+			has_template = "Chekhoslovatskiy Pekhotnyy Polk"
+			has_completed_focus = RUS_czechoslovak_legion
+			great_power_politics_great_war_visible = yes
+		}
+		remove_effect = {
+			hidden_effect = {
+				delete_unit_template_and_units = {
+					division_template = "Chekhoslovatskiy Pekhotnyy Polk"
+				}
+				division_template = {
+					name = "Chekhoslovatskaya Strelkovaya Brigada"
+					division_cap = 6 
+					division_names_group = RUS_CZE_02
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						field_gun_brigade = { x = 2 y = 0 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+						machine_gun = { x = 0 y = 1 }
+					}
+				}
+			}
+			random_owned_state = {
+				limit = {
+					region = 131
+				}
+				create_unit = {
+					division = "division_template = \"Chekhoslovatskaya Strelkovaya Brigada\" start_experience_factor = 0.8 start_equipment_factor = 0.75 force_equipment_variants = { infantry_equipment_1 = { owner = \"RUS\" }} force_equipment_variants = { field_gun_equipment_1 = { owner = \"RUS\" }}"
+					owner = ROOT
+					allow_spawning_on_enemy_provs = no
+					count = 1
+				}
+			}
+		}
+	}
+	RUS_form_polish_rifle_division = {
+		icon = generic_prepare_civil_war
+		allowed = {
+			original_tag = RUS
+		}
+		cost = 25
+		days_remove = 30
+		available = {
+		}
+		visible = {
+			has_template = "Pol'skaya Strelkovaya Brigada"
+			has_completed_focus = RUS_reunite_the_polish_people
+			great_power_politics_great_war_visible = yes
+		}
+		remove_effect = {
+			hidden_effect = {
+				delete_unit_template_and_units = {
+					division_template = "Pol'skaya Strelkovaya Brigada"
+				}
+				division_template = {
+					name = "Pol'skaya Strelkovaya Diviziya"
+					division_cap = 6 
+					division_names_group = RUS_POL_02
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+						infantry = { x = 2 y = 3 }
+						infantry = { x = 3 y = 0 }
+						infantry = { x = 3 y = 1 }
+						infantry = { x = 3 y = 2 }
+						infantry = { x = 3 y = 3 }
+						field_gun_brigade = { x = 4 y = 0 }
+						field_gun_brigade = { x = 4 y = 1 }
+					}
+					regimental_support = {
+						machine_gun_company = { x = 0 y = 0 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+						howitzer = { x = 0 y = 1 }
+						machine_gun = { x = 0 y = 2 }
+					}
+				}
+			}
+			random_owned_state = {
+				limit = {
+					region = 131
+				}
+				create_unit = {
+					division = "division_template = \"Pol'skaya Strelkovaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 0.75 force_equipment_variants = { infantry_equipment_1 = { owner = \"RUS\" }} force_equipment_variants = { field_gun_equipment_1 = { owner = \"RUS\" }}"
+					owner = ROOT
+					allow_spawning_on_enemy_provs = no
+					count = 1
+				}
+			}
+		}
+	}
+}
 #FOOD SHORTAGES
 TGWR_great_power_politics = {
 	RUS_food_supply_status = {

@@ -5021,7 +5021,38 @@ focus_tree = {
 		relative_position_id = RUS_unity_of_the_entente
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			division_template = {
+				name = "Pol'skaya Strelkovaya Brigada"
+				division_cap = 1 
+				division_names_group = RUS_POL_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					field_gun_brigade = { x = 2 y = 0 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					machine_gun = { x = 0 y = 1 }
+				}
+			}
+			random_owned_state = {
+				limit = {
+					region = 131
+				}
+				create_unit = {
+					division = "division_template = \"Pol'skaya Strelkovaya Brigada\" start_experience_factor = 1 start_equipment_factor = 1 }"
+					owner = ROOT
+					allow_spawning_on_enemy_provs = no
+					count = 1
+				}
+			}
+			unlock_decision_tooltip = RUS_form_polish_rifle_division
 		}
 		ai_will_do = {
 			factor = 3
@@ -5046,7 +5077,34 @@ focus_tree = {
 		relative_position_id = RUS_unity_of_the_entente
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			division_template = {
+				name = "Chekhoslovatskiy Pekhotnyy Polk"
+				division_cap = 2 
+				division_names_group = RUS_CZE_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					field_gun_brigade = { x = 1 y = 0 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					machine_gun = { x = 0 y = 1 }
+				}
+			}
+			random_owned_state = {
+				limit = {
+					region = 131
+				}
+				create_unit = {
+					division = "division_template = \"Chekhoslovatskiy Pekhotnyy Polk\" start_experience_factor = 0.8 start_equipment_factor = 0.75 force_equipment_variants = { infantry_equipment_1 = { owner = \"RUS\" }} force_equipment_variants = { field_gun_equipment_1 = { owner = \"RUS\" }}"
+					owner = ROOT
+					allow_spawning_on_enemy_provs = no
+					count = 1
+				}
+			}
+			unlock_decision_tooltip = RUS_form_czechoslovak_rifle_brigade
 		}
 		ai_will_do = {
 			factor = 3
@@ -5071,7 +5129,29 @@ focus_tree = {
 		relative_position_id = RUS_unity_of_the_entente
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			division_template = {
+				name = "Armyanskaya Druzhina"
+				division_cap = 6 
+				division_names_group = RUS_AME_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+				}
+				support = {
+					military_police = { x = 0 y = 0 }
+				}
+			}
+			random_owned_state = {
+				limit = {
+					region = 134
+				}
+				create_unit = {
+					division = "division_template = \"Armyanskaya Druzhina\" start_experience_factor = 1 start_equipment_factor = 1 }"
+					owner = ROOT
+					allow_spawning_on_enemy_provs = no
+					count = 1
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 3
