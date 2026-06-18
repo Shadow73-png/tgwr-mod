@@ -353,6 +353,42 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = CZE_anti_socialism
+		icon = GFX_focus_generic_banking_legislation
+		cost = 10
+		x = 0
+		y = 3
+		relative_position_id = CZE_young_czech_victory
+		prerequisite = {
+			focus = CZE_support_tbe_burgereese
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 25
+			add_stability = 0.05
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.1
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
 		id = CZE_left_wing_front
 		icon = GFX_focus_generic_workers
 		cost = 10
