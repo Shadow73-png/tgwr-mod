@@ -4146,3 +4146,18 @@ ALB_albanian_resistance = {
 	resistance_growth = 0.2
 	resistance_decay = -0.3
 }
+
+ALB_joint_occupation = {
+	enable = { always = yes }
+	icon = GFX_idea_ALB_albanian_resistance
+	remove_trigger = {
+		OR = {
+			is_core_of = owner
+			controller = { has_war = no }
+			owner = { has_war = no }
+		}
+	}
+
+	compliance_growth = 0.25
+	required_garrison_factor = -0.5
+}

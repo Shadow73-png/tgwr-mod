@@ -4359,3 +4359,43 @@ political_actions = {
 	}
 }
 
+ALB_playing_both_sides_category = {
+	ALB_deal_over_state = {
+		icon = GFX_decision_SWE_set_army_budget
+		allowed = { always = yes }
+		on_map_mode = map_only
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+				NOT = {
+					is_owned_by = ROOT
+					is_controlled_by = ROOT
+				}
+				controller = { NOT = { owns_state = FROM } }
+			}
+		}
+		visible = {
+			FROM = {
+				controller = {
+					NOT = {
+						has_war_with = ROOT
+						check_variable = { ALB_already_asked = FROM }
+					}
+				}
+			}
+		}
+		cost = 50
+		complete_effect = {
+			hidden_effect = { FROM = { controller = { set_variable = { ALB_already_asked = FROM } } } }
+			random_country = {
+				limit = { controls_state = FROM }
+				country_event = { id = albania.138 hours = 8 }
+			}
+		}
+		ai_will_do = { base = 100 }
+	}
+}

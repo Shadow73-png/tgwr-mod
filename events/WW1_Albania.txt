@@ -7200,6 +7200,141 @@ country_event = { #albanian entrance into our faction no
 	}
 }
 
+country_event = { #albania asking for war spoils
+	id = albania.138
+	title = albania.138.t
+	desc = albania.138.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty2
+	option = {
+		name = albania.138.a
+		custom_effect_tooltip = albania.138.tt
+		FROM.FROM = {
+			add_to_array = { ALB_promised_to_give_state = THIS }
+			add_dynamic_modifier = { modifier = ALB_joint_occupation scope = ROOT }
+		}
+		hidden_effect = { FROM = { country_event = { id = albania.139 hours = 8 } } }
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					FROM.FROM = {
+						OR = {
+							is_claimed_by = ROOT
+							is_core_of = ROOT
+						}
+					}
+					any_allied_country = {
+						FROM.FROM = {
+							OR = {
+								is_claimed_by = PREV
+								is_core_of = PREV
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = albania.138.a
+		hidden_effect = { FROM = { country_event = { id = albania.140 hours = 8 } } }
+		ai_chance = {
+			factor = 0
+			modifier = {
+				add = 100
+				OR = {
+					FROM.FROM = {
+						OR = {
+							is_claimed_by = ROOT
+							is_core_of = ROOT
+						}
+					}
+					any_allied_country = {
+						FROM.FROM = {
+							OR = {
+								is_claimed_by = PREV
+								is_core_of = PREV
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #albania asking for war spoils yes
+	id = albania.139
+	title = albania.139.t
+	desc = albania.139.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty2
+	option = {
+		name = albania.139.a
+		custom_effect_tooltip = albania.139.tt
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { #albania asking for war spoils no
+	id = albania.140
+	title = albania.140.t
+	desc = albania.140.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty2
+	option = {
+		name = albania.140.a
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { #albania asking for war spoils send
+	id = albania.141
+	title = albania.141.t
+	desc = albania.141.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	trigger = {
+		has_country_flag = great_war_winner
+		any_of_scopes = {
+			array = ALB_promised_to_give_state
+			owner = { has_country_flag = great_war_loser }
+		}
+	}
+	immediate = { hidden_effect = { ALB = { country_event = albania.142 } } }
+	option = {
+		name = albania.141.a
+		effect_tooltip = {
+			for_each_scope_loop = {
+				array = ALB_promised_to_give_state
+				transfer_state_to = ALB
+			}
+			clear_array = ALB_promised_to_give_state
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { #albania asking for war spoils receive
+	id = albania.142
+	title = albania.142.t
+	desc = albania.142.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = albania.141.a
+		FROM = {
+			for_each_scope_loop = {
+				array = ALB_promised_to_give_state
+				transfer_state_to = ALB
+			}
+			clear_array = ALB_promised_to_give_state
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
 #No More Ottoman Puppet
 country_event = {
 	id = ww1_albania.11
