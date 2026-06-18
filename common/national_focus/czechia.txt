@@ -851,6 +851,7 @@ focus_tree = {
 			always = no
 		}
 		completion_reward = {
+			custom_effect_tooltip = CZE_entente_help_in_the_revolt
 		}
 		ai_will_do = {
 			base = 1
@@ -935,6 +936,7 @@ focus_tree = {
 			always = no
 		}
 		completion_reward = {
+			add_ideas = CZE_youth_program_idea_n
 		}
 		ai_will_do = {
 			base = 1
@@ -1185,6 +1187,12 @@ focus_tree = {
 		}
 		relative_position_id = CZE_ww1_starts
 		available = {
+			OR = {
+				AUS = {
+					surrender_progress > 0.15
+				}
+				has_completed_focus = CZE_healthy_dose_of_skepticism
+			}
 		}
 		completion_reward = {
 		}
