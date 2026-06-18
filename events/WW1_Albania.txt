@@ -7213,7 +7213,13 @@ country_event = { #albania asking for war spoils
 			add_to_array = { ALB_promised_to_give_state = THIS }
 			add_dynamic_modifier = { modifier = ALB_joint_occupation scope = ROOT }
 		}
-		hidden_effect = { FROM = { country_event = { id = albania.139 hours = 8 } } }
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = ALB_promised_to_give_state } }
+				set_country_flag = ALB_promised_to_give_state
+			}
+			FROM = { country_event = { id = albania.139 hours = 8 } }
+		}
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -7301,8 +7307,14 @@ country_event = { #albania asking for war spoils send
 			array = ALB_promised_to_give_state
 			owner = { has_country_flag = great_war_loser }
 		}
+		has_country_flag = ALB_promised_to_give_state
 	}
-	immediate = { hidden_effect = { ALB = { country_event = albania.142 } } }
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = ALB_promised_to_give_state
+			ALB = { country_event = albania.142 }
+		}
+	}
 	option = {
 		name = albania.141.a
 		effect_tooltip = {

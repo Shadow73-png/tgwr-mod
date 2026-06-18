@@ -500,22 +500,28 @@ TGWR_great_power_politics = {
 			OR = {
 				has_war_with = PER
 				has_war_with = RUS
-				custom_trigger_tooltip = {
-					tooltip = TUR_controls_western_persia_tt
-					all_state = {
-						if = {
-							limit = {
-								OR = {
-									state = 419
-									state = 1212
-									state = 1250
-									state = 1252
-								}
-							}
-							is_owned_and_controlled_by = ROOT
-						}
-					}
+				AND = {
+					419 = { is_owned_and_controlled_by = ROOT }
+					1212 = { is_owned_and_controlled_by = ROOT }
+					1250 = { is_owned_and_controlled_by = ROOT }
+					1252 = { is_owned_and_controlled_by = ROOT }
 				}
+				#custom_trigger_tooltip = {
+				#	tooltip = TUR_controls_western_persia_tt
+				#	all_state = {
+				#		if = {
+				#			limit = {
+				#				OR = {
+				#					state = 419
+				#					state = 1212
+				#					state = 1250
+				#					state = 1252
+				#				}
+				#			}
+				#			is_owned_and_controlled_by = ROOT
+				#		}
+				#	}
+				#}
 			}			
 		}
 
@@ -525,14 +531,10 @@ TGWR_great_power_politics = {
 					has_war_with = PER
 					has_war_with = RUS	
 					NOT = {
-						any_owned_state = {
-							OR = {
-								state = 419
-								state = 1212
-								state = 1250
-								state = 1252
-							}
-						}
+						419 = { is_owned_and_controlled_by = ROOT }
+						1212 = { is_owned_and_controlled_by = ROOT }
+						1250 = { is_owned_and_controlled_by = ROOT }
+						1252 = { is_owned_and_controlled_by = ROOT }
 					}
 				}
 			}		
@@ -547,32 +549,33 @@ TGWR_great_power_politics = {
 			hidden_effect = {
 				country_event = ww1_per_tur_strangling.2
 			}
-			every_owned_state = {
-				limit = {
-					OR = {
-						state = 419
-						state = 1212
-						state = 1250
-						state = 1252
-					}
-				}
-				if = {
+			if = {
+				limit = { 877 = { is_owned_by = RUS } }
+				every_owned_state = {
 					limit = {
-						877 =  {
-							is_owned_by = RUS
+						OR = {
+							state = 419
+							state = 1212
+							state = 1250
 						}
 					}
-					if = {
-						limit = {
+					transfer_state_to = RUS
+				}
+				every_owned_state = {
+					limit = { state = 1252 }
+					transfer_state_to = RUS
+				}
+			}
+			else = {
+				every_owned_state = {
+					limit = {
+						OR = {
+							state = 419
+							state = 1212
+							state = 1250
 							state = 1252
 						}
-						transfer_state_to = PER
 					}
-					else = {
-						transfer_state_to = RUS
-					}
-				}
-				else = {
 					transfer_state_to = PER
 				}
 			}
