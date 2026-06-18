@@ -1,5 +1,4 @@
 add_namespace = ww1_czechoslovakia
-
 # Martin Decleration
 country_event = {
 	id = ww1_czechoslovakia.1
@@ -8,7 +7,6 @@ country_event = {
 	picture = GFX_report_event_czech_soldiers_02
 	fire_only_once = yes
 	is_triggered_only = yes
-
 	option = {
 		name = ww1_czechoslovakia.1.a
 		transfer_state = 70
@@ -36,6 +34,7 @@ country_event = {
 		}
 	}
 }
+
 #opening of the assembly 
 country_event = {
 	id = ww1_czechoslovakia.2
@@ -44,12 +43,11 @@ country_event = {
 	picture = GFX_report_event_czech_soldiers_02
 	fire_only_once = yes
 	is_triggered_only = yes
-
 	option = {
 		name = ww1_czechoslovakia.2.a
-		
 	}
 }
+
 #ALT HISTORY - czech partition for autonomy
 country_event = {
 	id = ww1_czechoslovakia.3
@@ -58,7 +56,6 @@ country_event = {
 	picture = GFX_report_event_czech_soldiers_02
 	fire_only_once = yes
 	is_triggered_only = yes
-
 	option = {
 		name = ww1_czechoslovakia.3.a
 		AUS_spawn_bohemian_crown = yes
@@ -69,15 +66,14 @@ country_event = {
 			}
 		}
 	}
-		option = {
+	option = {
 		name = ww1_czechoslovakia.3.b
-		
 	}
 	option = {
 		name = ww1_czechoslovakia.3.c
 		AUS_spawn_bohemian_crown = yes
 		hidden_effect = {
-				country_event = {
+			country_event = {
 				id = ww1_czechoslovakia.4
 				days = 10
 			}
@@ -87,6 +83,7 @@ country_event = {
 		}
 	}
 }
+
 #alt history - sudetenland riots
 country_event = {
 	id = ww1_czechoslovakia.4
@@ -95,12 +92,12 @@ country_event = {
 	picture = GFX_report_event_czech_soldiers_02
 	fire_only_once = yes
 	is_triggered_only = yes
-
 	option = {
 		name = ww1_czechoslovakia.4.a
 		add_ideas = CZE_sudetenland_protests
 	}
 }
+
 #alt history - elections
 country_event = {
 	id = ww1_czechoslovakia.5
@@ -109,7 +106,6 @@ country_event = {
 	picture = GFX_report_event_czech_soldiers_02
 	fire_only_once = yes
 	is_triggered_only = yes
-
 	option = {
 		name = ww1_czechoslovakia.5.a
 		complete_national_focus = CZE_young_czech_victory
@@ -124,5 +120,89 @@ country_event = {
 		}
 		name = ww1_czechoslovakia.5.c
 		complete_national_focus = CZE_czech_statehood_party
+	}
+}
+
+#alt history - czechia asks austria for less taxes
+country_event = {
+	id = ww1_czechoslovakia.6
+	title = ww1_czechoslovakia.6.t
+	desc = ww1_czechoslovakia.6.d
+	picture = GFX_report_event_czech_soldiers_02
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_czechoslovakia.6.a
+		CZE = {
+			country_event = {
+				id = ww1_czechoslovakia.7
+				days = 2
+			}
+		}
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.02
+				tooltip = consumer_goods_factor_tt
+			}
+		effect_tooltip = {
+			CZE = {
+				swap_ideas = {
+					remove_idea = CZE_duties_to_vienna
+					add_idea = CZE_duties_to_vienna_2
+				}
+			}
+		}
+	}
+	option = {
+		name = ww1_czechoslovakia.6.b
+		trigger = {
+			OR = {
+				CZE = {
+					NOT = {
+						has_completed_focus = CZE_friendly_relations_with_vienna
+					}
+				}
+				is_ai = no
+			}
+		}
+		CZE = {
+			country_event = {
+				id = ww1_czechoslovakia.8
+				days = 2
+			}
+		}
+	}
+}
+
+#alt history - czechia accepted
+country_event = {
+	id = ww1_czechoslovakia.7
+	title = ww1_czechoslovakia.7.t
+	desc = ww1_czechoslovakia.7.d
+	picture = GFX_report_event_czech_soldiers_02
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_czechoslovakia.7.a
+		CZE = {
+			swap_ideas = {
+				remove_idea = CZE_duties_to_vienna
+				add_idea = CZE_duties_to_vienna_2
+			}
+		}
+	}
+}
+
+#alt history - czechia REJECTED SAD
+country_event = {
+	id = ww1_czechoslovakia.8
+	title = ww1_czechoslovakia.8.t
+	desc = ww1_czechoslovakia.8.d
+	picture = GFX_report_event_czech_soldiers_02
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_czechoslovakia.8.a
+		add_political_power = -50
 	}
 }
