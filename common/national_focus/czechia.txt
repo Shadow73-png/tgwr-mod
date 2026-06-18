@@ -521,7 +521,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CZE_no_compromise_with_germans
-		icon = GFX_goal_generic_political_pressure
+		icon = GFX_focus_eng_move_to_secure_the_dominions
 		cost = 10
 		x = 0
 		y = 1
@@ -557,7 +557,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CZE_sudetenland_autonomy
-		icon = GFX_goal_generic_political_pressure
+		icon = GFX_focus_generic_self_management
 		cost = 10
 		x = -2
 		y = 1
@@ -633,6 +633,57 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_brno_university
+		icon = GFX_focus_research
+		cost = 10
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = CZE_city_on_a_shining_hill
+		}
+		relative_position_id = CZE_city_on_a_shining_hill
+		available = {
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_technical_universities
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = CZE_city_on_a_shining_hill
+		}
+		relative_position_id = CZE_city_on_a_shining_hill
+		available = {
+		}
+		completion_reward = {
+				add_tech_bonus = {
+				category = industry
+				uses = 1
+				name = AUS_encourage_innovation
+				bonus = 1
 			}
 		}
 		ai_will_do = {
