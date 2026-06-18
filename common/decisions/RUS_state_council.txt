@@ -3888,8 +3888,12 @@ RUS_state_council_gui_decision_category = {
 			
 			duma_exists = yes
 			
-			RUS_alexander_krivoshein = {
+			any_character = {
 				is_prime_minister = yes
+				is_reformist = yes
+				NOT = {
+					is_character = RUS_pyotr_stolypin
+				}
 			}
 			NOT = {
 				has_country_flag = RUS_law_on_freedom_of_assembly_passed_in_sc
@@ -3969,9 +3973,13 @@ RUS_state_council_gui_decision_category = {
 				OR = {
 					duma_is_active = no
 					duma_exists = no
-					
-					RUS_alexander_krivoshein = {
-						is_prime_minister = no
+
+					any_character = {
+						is_prime_minister = yes
+						OR = {
+							is_reformist = no
+							is_character = RUS_pyotr_stolypin
+						}
 					}
 					NOT = {
 						has_labour_question = yes
