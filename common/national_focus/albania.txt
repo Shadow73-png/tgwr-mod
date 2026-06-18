@@ -5101,7 +5101,6 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = ALB_albanian_national_army
-		available = { NOT = { has_country_flag = TUR_revolting_country } }
 		completion_reward = {
 			division_template = {
 				name = "Forcat Fisnore"
@@ -5133,27 +5132,34 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_rely_on_tribal_units
 		completion_reward = {
-			division_template = {
-				name = "Forcat e Milicisë"
-				is_locked = yes
-				force_allow_recruiting = yes
-				division_cap = 21
-				regiments = {
-					militia = { x = 0 y = 0 }
-					militia = { x = 0 y = 1 }
-					militia = { x = 0 y = 2 }
-					militia = { x = 1 y = 0 }
-					militia = { x = 1 y = 1 }
-					militia = { x = 1 y = 2 }
-				}
-				support = { recon = { x = 0 y = 0 } }
+			if = {
+				limit = { has_country_flag = ALB_form_the_citizens_militia }
+				set_division_template_cap = { division_template = "Forcat e Milicisë" division_cap = 28 }
 			}
-			custom_effect_tooltip = ALB_arm_patriotic_civilians_tt
+			else = {
+				division_template = {
+					name = "Forcat e Milicisë"
+					is_locked = yes
+					force_allow_recruiting = yes
+					division_cap = 21
+					regiments = {
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+						militia = { x = 0 y = 2 }
+						militia = { x = 1 y = 0 }
+						militia = { x = 1 y = 1 }
+						militia = { x = 1 y = 2 }
+					}
+					support = { recon = { x = 0 y = 0 } }
+				}
+				custom_effect_tooltip = ALB_arm_patriotic_civilians_tt
+				unlock_decision_tooltip = ALB_disband_the_militias
+				set_country_flag = ALB_arm_patriotic_civilians
+			}
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = 3000
 			}
-			unlock_decision_tooltip = ALB_disband_the_militias
 		}
 	}
 
@@ -6460,6 +6466,31 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_paternal_republic
 		completion_reward = {
+			add_ideas = ALB_militia_formations
+			if = {
+				limit = { has_country_flag = ALB_arm_patriotic_civilians }
+				set_division_template_cap = { division_template = "Forcat e Milicisë" division_cap = 28 }
+			}
+			else = {
+				division_template = {
+					name = "Forcat e Milicisë"
+					is_locked = yes
+					force_allow_recruiting = yes
+					division_cap = 14
+					regiments = {
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+						militia = { x = 0 y = 2 }
+						militia = { x = 1 y = 0 }
+						militia = { x = 1 y = 1 }
+						militia = { x = 1 y = 2 }
+					}
+					support = { recon = { x = 0 y = 0 } }
+				}
+				custom_effect_tooltip = ALB_form_the_citizens_militia_tt
+				unlock_decision_tooltip = ALB_disband_the_militias
+				set_country_flag = ALB_form_the_citizens_militia
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6475,6 +6506,28 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_form_the_citizens_militia
 		completion_reward = {
+			custom_effect_tooltip = ALB_prepare_defensive_postures_tt
+			every_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					any_neighbor_state = { controller = { NOT = { tag = ROOT } } }
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			add_tech_bonus = {
+				name = ALB_prepare_defensive_postures
+				uses = 1
+				bonus = 1
+				category = fortification_tech
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6489,7 +6542,16 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ALB_form_the_citizens_militia
+		available = { has_war = yes }
 		completion_reward = {
+			every_core_state = { add_dynamic_modifier = { modifier = ALB_albanian_resistance scope = ALB } }
+			every_country = {
+				limit = {
+					NOT = { original_tag = ALB }
+					has_war_with = ALB
+				}
+				country_event = albania.134
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6506,6 +6568,14 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_paternal_republic
 		completion_reward = {
+			unlock_decision_tooltip = ALB_public_works_in_kosova
+			unlock_decision_tooltip = ALB_public_works_in_northern_albania
+			unlock_decision_tooltip = ALB_public_works_in_central_albania
+			unlock_decision_tooltip = ALB_public_works_in_southern_albania
+			reduce_focus_completion_cost = {
+				focus = ALB_land_redistribution
+				cost = 35
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6521,6 +6591,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_albanian_public_works
 		completion_reward = {
+			add_ideas = ALB_albanian_transformation
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6536,6 +6607,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_albanian_public_works
 		completion_reward = {
+			add_timed_idea = {
+				idea = ALB_public_donations
+				days = 780
+			}
+			add_stability = -0.05
 		}
 		ai_will_do = { factor = 100 }
 	}

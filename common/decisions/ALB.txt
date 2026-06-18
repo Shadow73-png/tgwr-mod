@@ -2124,6 +2124,66 @@ economy_decisions = {
 			}
 		}
 	}
+	ALB_public_works_in_kosova = {
+		icon = GFX_decision_generic_construction
+		allowed = { original_tag = ALB }
+		visible = { has_completed_focus = ALB_albanian_public_works }
+		available = { any_controlled_state = { ALB_is_kosovar_state = yes } }
+		days_remove = 35
+		highlight_states = { highlight_states_trigger = { ALB_is_kosovar_state = yes } }
+		cost = 35
+		remove_effect = {
+			every_state = {
+				limit = { ALB_is_kosovar_state = yes }
+				add_dynamic_modifier = { modifier = GER_public_works_modifier days = 1095 scope = ALB }
+			}
+		}
+	}
+	ALB_public_works_in_northern_albania = {
+		icon = GFX_decision_generic_construction
+		allowed = { original_tag = ALB }
+		visible = { has_completed_focus = ALB_albanian_public_works }
+		available = { any_controlled_state = { ALB_is_northern_state = yes } }
+		days_remove = 35
+		highlight_states = { highlight_states_trigger = { ALB_is_northern_state = yes } }
+		cost = 35
+		remove_effect = {
+			every_state = {
+				limit = { ALB_is_northern_state = yes }
+				add_dynamic_modifier = { modifier = GER_public_works_modifier days = 1095 scope = ALB }
+			}
+		}
+	}
+	ALB_public_works_in_central_albania = {
+		icon = GFX_decision_generic_construction
+		allowed = { original_tag = ALB }
+		visible = { has_completed_focus = ALB_albanian_public_works }
+		available = { any_controlled_state = { ALB_is_central_state = yes } }
+		days_remove = 35
+		highlight_states = { highlight_states_trigger = { ALB_is_central_state = yes } }
+		cost = 35
+		remove_effect = {
+			every_state = {
+				limit = { ALB_is_central_state = yes }
+				add_dynamic_modifier = { modifier = GER_public_works_modifier days = 1095 scope = ALB }
+			}
+		}
+	}
+	ALB_public_works_in_southern_albania = {
+		icon = GFX_decision_generic_construction
+		allowed = { original_tag = ALB }
+		visible = { has_completed_focus = ALB_albanian_public_works }
+		available = { any_controlled_state = { ALB_is_southern_state = yes } }
+		days_remove = 35
+		highlight_states = { highlight_states_trigger = { ALB_is_southern_state = yes } }
+		cost = 35
+		remove_effect = {
+			every_state = {
+				limit = { ALB_is_southern_state = yes }
+				add_dynamic_modifier = { modifier = GER_public_works_modifier days = 1095 scope = ALB }
+			}
+		}
+	}
 	ALB_purchase_FROM_ships = {
 		icon = GFX_decision_generic_naval
 		allowed = { tag = ALB }
@@ -4203,6 +4263,20 @@ operations = {
 				}
 			}
 		}
+		ai_will_do = { base = 100 }
+	}
+	ALB_suppress_the_albanian_resistance = {
+		icon = GFX_decision_oppression
+		allowed = { always = yes }
+		on_map_mode = map_only
+		state_target = yes
+		target_trigger = { FROM = { has_dynamic_modifier = { modifier = ALB_albanian_resistance scope = ALB } } }
+		custom_cost_text = decision_cost_CP_25
+		custom_cost_trigger = { command_power > 24.9 }
+		days_remove = 70
+		available = { has_war_with = ALB }
+		complete_effect = { hidden_effect = { add_command_power = -25 } }
+		remove_effect = { FROM = { remove_dynamic_modifier = { modifier = ALB_albanian_resistance scope = ALB } } }
 		ai_will_do = { base = 100 }
 	}
 }
