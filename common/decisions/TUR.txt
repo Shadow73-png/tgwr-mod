@@ -22613,10 +22613,20 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 				TUR_cfa_consumer_goods_factor = -0.1
 			}
 			custom_effect_tooltip = empty_space
-			force_update_dynamic_modifier = yes
-			custom_effect_tooltip = TUR_utilize_mehmed_serif_pasa_tt
-			add_to_variable = { TUR_kurdish_population_factor = 0.001 }
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_arab_value = yes
+				set_temp_variable = { TUR_mehmed_serif_pasa2_var = old_arab_value }
+				divide_temp_variable = { TUR_mehmed_serif_pasa2_var = TUR_arab_population_factor_new }
+				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
+				add_to_temp_variable = { TUR_arab_population_factor_focus = -0.05 }
+				multiply_temp_variable = { TUR_mehmed_serif_pasa2_var = TUR_arab_population_factor_focus }
+				subtract_from_temp_variable = { TUR_mehmed_serif_pasa2_var = old_arab_value }
+			}
+			add_to_variable = { TUR_arab_population_factor_new = -0.05 }
+			custom_effect_tooltip = TUR_mehmed_serif_pasa2_tt
 			TUR_reload_minority_values = yes
+			force_update_dynamic_modifier = yes
 #			if = {
 #				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
 #				if = {
@@ -22671,10 +22681,20 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 				TUR_cfa_consumer_goods_factor = 0.1
 			}
 			custom_effect_tooltip = empty_space
-			force_update_dynamic_modifier = yes
-			custom_effect_tooltip = TUR_dismiss_mehmed_serif_pasa_tt
-			add_to_variable = { TUR_kurdish_population_factor = -0.001 }
+			hidden_effect = {
+				#for tooltip
+				TUR_set_old_arab_value = yes
+				set_temp_variable = { TUR_mehmed_serif_pasa2_var2 = old_arab_value }
+				divide_temp_variable = { TUR_mehmed_serif_pasa2_var2 = TUR_arab_population_factor_new }
+				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
+				add_to_temp_variable = { TUR_arab_population_factor_focus = 0.05 }
+				multiply_temp_variable = { TUR_mehmed_serif_pasa2_var2 = TUR_arab_population_factor_focus }
+				subtract_from_temp_variable = { TUR_mehmed_serif_pasa2_var2 = old_arab_value }
+			}
+			add_to_variable = { TUR_arab_population_factor_new = 0.05 }
+			custom_effect_tooltip = TUR_mehmed_serif_pasa2_tt2
 			TUR_reload_minority_values = yes
+			force_update_dynamic_modifier = yes
 			remove_decision = TUR_utilize_mehmed_serif_pasa
 #			if = {
 #				limit = { has_power_balance = { id = TUR_mufrit_struggle } }
