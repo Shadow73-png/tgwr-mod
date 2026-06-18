@@ -1065,7 +1065,7 @@ focus_tree = {
 			
 		}
 		x = 0
-		y = 8
+		y = 9
 		relative_position_id = RUS_stolypins_reforms
 		available_if_capitulated = yes
 		completion_reward = {
@@ -2080,6 +2080,36 @@ focus_tree = {
 			FOCUS_FILTER_FINANCE
 		}
 	}
+	focus = {
+		id = RUS_north_caucasus_oil_basin
+		icon = GFX_focus_generic_resource_extraction
+		cost = 5
+		prerequisite = {
+			focus = RUS_balance_the_budget
+		}
+		available = {
+		}
+		x = 2
+		y = 2
+		relative_position_id = RUS_balance_the_budget
+		available_if_capitulated = yes
+		completion_reward = {
+			set_temp_variable = { RUS_modify_foreign_debt_var = 0.02 }
+			RUS_modify_foreign_debt = yes
+			add_resource = {
+				type = oil
+				amount = 27
+				state = 232
+			}
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_FINANCE
+		}
+	}
 	#####################
 	#ARMY
 	#####################
@@ -2404,8 +2434,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = RUS_reinforce_western_fortresses
-		icon = GFX_focus_SWE_hedgehog_defense
+		id = RUS_reform_military_intelligence
+		icon = GFX_focus_PRC_invite_soviet_general
 		cost = 5
 		prerequisite = {
 			focus = RUS_centralize_army_command
@@ -2418,6 +2448,32 @@ focus_tree = {
 				has_country_flag = RUS_failed_army_reforms
 			}
 		}
+		x = 3
+		y = 1
+		relative_position_id = RUS_centralize_army_command
+		available_if_capitulated = yes
+		completion_reward = {
+			create_intelligence_agency = yes
+			upgrade_intelligence_agency = upgrade_economy_civilian
+			upgrade_intelligence_agency = upgrade_army_department
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_ARMY_REFORM
+		}
+	}
+	focus = {
+		id = RUS_reinforce_western_fortresses
+		icon = GFX_focus_SWE_hedgehog_defense
+		cost = 5
+		prerequisite = {
+			focus = RUS_centralize_army_command
+		}
+		available = {
+		}
 		x = -2
 		y = 2
 		relative_position_id = RUS_centralize_army_command
@@ -2427,6 +2483,34 @@ focus_tree = {
 			unlock_decision_tooltip = RUS_reinforce_ivangorod_fortress
 			unlock_decision_tooltip = RUS_reinforce_kaunas_fortress
 			unlock_decision_tooltip = RUS_reinforce_brest_fortress
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_ARMY_REFORM
+		}
+	}
+	focus = {
+		id = RUS_sponsor_private_military_contractors
+		icon = GFX_focus_generic_arms_trade
+		cost = 5
+		prerequisite = {
+			focus = RUS_balance_the_budget
+			focus = RUS_centralize_army_command
+		}
+		available = {
+		}
+		x = -3
+		y = 1
+		relative_position_id = RUS_centralize_army_command
+		available_if_capitulated = yes
+		completion_reward = {
+			unlock_decision_tooltip = RUS_sponsor_tsatitsyn_gun_factory
+			unlock_decision_tooltip = RUS_sponsor_plane_factories_in_saint_petersburg
+			unlock_decision_tooltip = RUS_sponsor_anatra_factory
+			unlock_decision_tooltip = RUS_sponsor_dux_factory
 		}
 		ai_will_do = {
 			factor = 3
@@ -5013,12 +5097,25 @@ focus_tree = {
 			has_war_with_major = yes
 		}
 		x = 3
-		y = 5
+		y = 4
 		relative_position_id = RUS_persian_campaign
 		available_if_capitulated = yes
 		bypass_effect = {
 			hidden_effect = {
 				country_event = ww1_russia_war.1
+				if = {
+					limit = {
+						NOT = {
+							has_completed_focus = RUS_new_conscription_law
+							has_completed_focus = RUS_grand_fleet_programme
+							has_completed_focus = RUS_lesser_rearmament_programme
+							has_completed_focus = RUS_great_army_programme
+							has_completed_focus = RUS_improve_officer_training
+							has_completed_focus = RUS_reform_military_intelligence
+						}
+					}
+					set_country_flag = RUS_failed_army_reforms
+				}
 			}
 		}
 		completion_reward = {
@@ -5333,7 +5430,7 @@ focus_tree = {
 	}
 	focus = {
 		id = RUS_recognize_zemgor
-		icon = GFX_focus_generic_arms_trade
+		icon = GFX_focus_SOV_organize_wreckers
 		cost = 5
 		prerequisite = {
 			focus = RUS_special_councils

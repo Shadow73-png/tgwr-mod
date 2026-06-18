@@ -57,7 +57,8 @@ RUS_reforms_decision_category = {
 		}
 		days_remove = 180
 		modifier = {
-			consumer_goods_factor = 0.15
+			political_power_cost = 0.1
+			consumer_goods_factor = 0.05
 		}
 		cost = 50
 	}
@@ -109,7 +110,7 @@ RUS_reforms_decision_category = {
 		}
 		days_remove = 180
 		modifier = {
-			consumer_goods_factor = 0.1
+			consumer_goods_factor = 0.05
 			civilian_factory_use = 1
 		}
 		cost = 50
@@ -203,7 +204,8 @@ RUS_reforms_decision_category = {
 		}
 		days_remove = 180
 		modifier = {
-			consumer_goods_factor = 0.2
+			political_power_cost = 0.1
+			consumer_goods_factor = 0.05
 		}
 		cost = 50
 		cancel_trigger = {
@@ -248,7 +250,8 @@ RUS_reforms_decision_category = {
 		}
 		days_remove = 180
 		modifier = {
-			consumer_goods_factor = 0.2
+			political_power_cost = 0.1
+			consumer_goods_factor = 0.05
 		}
 		cost = 50
 		cancel_trigger = {
@@ -726,8 +729,8 @@ RUS_reforms_decision_category = {
 			has_completed_focus = RUS_stolypins_reforms
 		}
 		modifier = {
-			consumer_goods_factor = 0.15
-			civilian_factory_use = 2
+			consumer_goods_factor = 0.05
+			civilian_factory_use = 1
 			monthly_population = -0.02
 		}
 		cancel_trigger = {
@@ -788,8 +791,6 @@ RUS_reforms_decision_category = {
 			has_revolution = no
 		}
 		modifier = {
-			consumer_goods_factor = 0.05
-			civilian_factory_use = 1
 			monthly_population = -0.005
 		}
 		cancel_trigger = {
@@ -867,7 +868,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		modifier = {
-			consumer_goods_factor = 0.1
+			consumer_goods_factor = 0.05
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
@@ -1009,7 +1010,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.05
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
@@ -1166,7 +1167,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.05
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
@@ -1271,7 +1272,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.05
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
@@ -1377,7 +1378,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.05
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
@@ -1508,7 +1509,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.05
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
@@ -1644,7 +1645,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.05
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
@@ -1792,7 +1793,7 @@ RUS_reforms_decision_category = {
 			}
 		}
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.05
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
@@ -2060,13 +2061,14 @@ RUS_reforms_decision_category = {
 			civilian_factory_use = 1
 		}
 		cancel_trigger = {
-			hidden_trigger = {
-				NOT = {
+				OR = {
 					has_revolution = yes
-					controls_province = 3544
-					owns_state = 10
+					NOT = {
+						10 = {
+							is_owned_and_controlled_by = ROOT
+						}
+					}
 				}
-			}
 		}
 		remove_effect = {
 			10 = {
@@ -2115,10 +2117,13 @@ RUS_reforms_decision_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				NOT = {
+				OR = {
 					has_revolution = yes
-					controls_province = 3458
-					owns_state = 1201
+					NOT = {
+						1201 = {
+							is_owned_and_controlled_by = ROOT
+						}
+					}
 				}
 			}
 		}
@@ -2167,10 +2172,13 @@ RUS_reforms_decision_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				NOT = {
+				OR = {
 					has_revolution = yes
-					controls_province = 6296
-					owns_state = 189
+					NOT = {
+						189 = {
+							is_owned_and_controlled_by = ROOT
+						}
+					}
 				}
 			}
 		}
@@ -2219,10 +2227,13 @@ RUS_reforms_decision_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				NOT = {
+				OR = {
 					has_revolution = yes
-					controls_province = 3392
-					owns_state = 808
+					NOT = {
+						808 = {
+							is_owned_and_controlled_by = ROOT
+						}
+					}
 				}
 			}
 		}
@@ -2237,6 +2248,219 @@ RUS_reforms_decision_category = {
 					}
 				}
 			}
+		}
+	}
+	#FACTORY SPONSORING
+	RUS_sponsor_tsatitsyn_gun_factory = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			original_tag = RUS
+		}
+		cost = 45
+		days_remove = 180
+		state_target = yes
+		targets = { 217 }
+		highlight_states = {
+			highlight_state_targets = {
+				state = 217
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		visible = {
+			has_revolution = no
+			has_completed_focus = RUS_sponsor_private_military_contractors
+			217 = {
+				is_owned_and_controlled_by = RUS
+			}
+			NOT = {
+				has_country_flag = RUS_built_tsaritsyn_gun_factory
+			}
+		}
+		modifier = {
+			consumer_goods_factor = 0.15
+			civilian_factory_use = 3
+		}
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					has_revolution = yes
+					NOT = {
+						217 = {
+							is_owned_and_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			195 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			set_country_flag = RUS_built_tsaritsyn_gun_factory
+		}
+	}
+	RUS_sponsor_plane_factories_in_saint_petersburg = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			original_tag = RUS
+		}
+		cost = 30
+		days_remove = 120
+		state_target = yes
+		targets = { 195 }
+		highlight_states = {
+			highlight_state_targets = {
+				state = 195
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		visible = {
+			has_revolution = no
+			has_completed_focus = RUS_sponsor_private_military_contractors
+			195 = {
+				is_owned_and_controlled_by = RUS
+			}
+			NOT = {
+				has_country_flag = RUS_built_plane_factories_in_saint_petersburg
+			}
+		}
+		modifier = {
+			consumer_goods_factor = 0.1
+			civilian_factory_use = 2
+		}
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					has_revolution = yes
+					NOT = {
+						195 = {
+							is_owned_and_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			195 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			set_country_flag = RUS_built_plane_factories_in_saint_petersburg
+		}
+	}
+	RUS_sponsor_anatra_factory = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			original_tag = RUS
+		}
+		cost = 15
+		days_remove = 60
+		state_target = yes
+		targets = { 192 }
+		highlight_states = {
+			highlight_state_targets = {
+				state = 192
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		visible = {
+			has_revolution = no
+			has_completed_focus = RUS_sponsor_private_military_contractors
+			192 = {
+				is_owned_and_controlled_by = RUS
+			}
+			NOT = {
+				has_country_flag = RUS_built_anatra_factory
+			}
+		}
+		modifier = {
+			consumer_goods_factor = 0.05
+			civilian_factory_use = 1
+		}
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					has_revolution = yes
+					NOT = {
+						192 = {
+							is_owned_and_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			192 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			set_country_flag = RUS_built_anatra_factory
+		}
+	}
+	RUS_sponsor_dux_factory = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			original_tag = RUS
+		}
+		cost = 15
+		days_remove = 60
+		state_target = yes
+		targets = { 219 }
+		highlight_states = {
+			highlight_state_targets = {
+				state = 219
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		visible = {
+			has_revolution = no
+			has_completed_focus = RUS_sponsor_private_military_contractors
+			219 = {
+				is_owned_and_controlled_by = RUS
+			}
+			NOT = {
+				has_country_flag = RUS_built_dux_factory
+			}
+		}
+		modifier = {
+			consumer_goods_factor = 0.05
+			civilian_factory_use = 1
+		}
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					has_revolution = yes
+					NOT = {
+						219 = {
+							is_owned_and_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			219 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			set_country_flag = RUS_built_dux_factory
 		}
 	}
 }
