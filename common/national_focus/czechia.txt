@@ -970,6 +970,10 @@ focus_tree = {
 			always = no
 		}
 		completion_reward = {
+			custom_effect_tooltip = CZE_get_self_defense_workers
+			effect_tooltip = {
+				add_ideas = CZE_workers_defense
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -1148,6 +1152,9 @@ focus_tree = {
 		}
 		relative_position_id = CZE_ww1_starts
 		available = {
+			NOT = {
+				has_war_with = AUS
+			}
 		}
 		completion_reward = {
 			add_ideas = CZE_empires_workshop_idea
@@ -1171,9 +1178,15 @@ focus_tree = {
 		}
 		relative_position_id = CZE_ww1_starts
 		available = {
+				NOT = {
+				has_war_with = AUS
+			}
 		}
 		completion_reward = {
-			add_ideas = CZE_empires_workshop_idea
+			swap_ideas = {
+				remove_idea = CZE_empires_workshop_idea
+				add_idea = CZE_empires_workshop_idea_2
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -1225,6 +1238,13 @@ focus_tree = {
 					type = infantry_equipment
 					amount = 2000
 				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = CZE_querfront
+				}
+						add_ideas = CZE_workers_defense
+
 			}
 		}
 		ai_will_do = {
