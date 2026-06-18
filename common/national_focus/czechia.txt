@@ -21,7 +21,7 @@ focus_tree = {
 		id = CZE_long_awaited_autonomy
 		icon = GFX_focus_INS_eventual_autonomy
 		cost = 10
-		x = 7
+		x = 13
 		y = 0
 		prerequisite = {
 		}
@@ -457,7 +457,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CZE_czech_movement
-		icon = GFX_focus_DEN_limited_regulations
+		icon = GFX_focus_generic_provoke_border_clashes
 		cost = 10
 		x = -1
 		y = 1
@@ -478,7 +478,6 @@ focus_tree = {
 			add_stability = -0.1
 			add_war_support = -0.1
 			remove_ideas = CZE_sudetenland_protests_2
-			
 		}
 		ai_will_do = {
 			base = 1
@@ -490,11 +489,11 @@ focus_tree = {
 	}
 	focus = {
 		id = CZE_beyond_nationalism
-		icon = GFX_focus_DEN_limited_regulations
+		icon = GFX_goal_workers_rights
 		cost = 10
 		x = -3
 		y = 1
-			mutually_exclusive = {
+		mutually_exclusive = {
 			focus = CZE_czech_movement
 		}
 		relative_position_id = CZE_left_wing_front
@@ -513,6 +512,215 @@ focus_tree = {
 				add_idea = CZE_sudetenland_solidarity
 			}
 			add_political_power = -100
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_a_fair_working_day
+		icon = GFX_focus_generic_population_growth
+		cost = 10
+		x = -2
+		y = 2
+		relative_position_id = CZE_left_wing_front
+		prerequisite = {
+			focus = CZE_czech_movement
+			focus = CZE_beyond_nationalism
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			add_ideas = CZE_shorter_work_week
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_nationalized_economy
+		icon = GFX_focus_DEN_heavy_regulations
+		cost = 10
+		x = -4
+		y = 2
+		relative_position_id = CZE_left_wing_front
+		prerequisite = {
+			focus = CZE_czech_movement
+			focus = CZE_beyond_nationalism
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			9 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_workers_dignity
+		icon = GFX_focus_FRA_Social_demokrat_kompromiss
+		cost = 10
+		x = 0
+		y = 2
+		relative_position_id = CZE_left_wing_front
+		prerequisite = {
+			focus = CZE_czech_movement
+			focus = CZE_beyond_nationalism
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_stability = 0.1
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_price_setting
+		icon = GFX_TUR_strengthen_the_national_economy
+		cost = 10
+		x = -2
+		y = 3
+		relative_position_id = CZE_left_wing_front
+		prerequisite = {
+			focus = CZE_workers_dignity
+			focus = CZE_a_fair_working_day
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			add_ideas = CZE_price_controls
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_public_utilities
+		icon = GFX_focus_generic_energy
+		cost = 10
+		x = -3
+		y = 4
+		relative_position_id = CZE_left_wing_front
+		prerequisite = {
+			focus = CZE_price_setting
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			9 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_attack_the_leeches
+		icon = GFX_focus_RAJ_union_busting
+		cost = 10
+		x = -1
+		y = 4
+		relative_position_id = CZE_left_wing_front
+		prerequisite = {
+			focus = CZE_price_setting
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			add_ideas = CZE_sieze_assets
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_new_education
+		icon = GFX_focus_generic_education
+		cost = 10
+		x = 0
+		y = 3
+		relative_position_id = CZE_left_wing_front
+		prerequisite = {
+			focus = CZE_workers_dignity
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+			add_ideas = CZE_youth_program_idea_s
 		}
 		ai_will_do = {
 			base = 1
@@ -554,9 +762,9 @@ focus_tree = {
 	}
 	focus = {
 		id = CZE_czech_statehood_party
-		icon = GFX_goal_generic_political_pressure
+		icon = GFX_focus_generic_swooping_falcon
 		cost = 10
-		x = 3
+		x = 5
 		y = 1
 		mutually_exclusive = {
 			focus = CZE_young_czech_victory
@@ -590,17 +798,16 @@ focus_tree = {
 		id = CZE_no_compromise_with_germans
 		icon = GFX_focus_eng_move_to_secure_the_dominions
 		cost = 10
-		x = 1
+		x = -1
 		y = 1
 		mutually_exclusive = {
 			focus = CZE_sudetenland_autonomy
 		}
 		relative_position_id = CZE_czech_statehood_party
 		prerequisite = {
-		focus = CZE_czech_statehood_party
+			focus = CZE_czech_statehood_party
 			focus = CZE_young_czech_victory
 		}
-	
 		available = {
 			OR = {
 				is_subject = yes
@@ -612,7 +819,225 @@ focus_tree = {
 			add_political_power = 50
 			add_stability = -0.1
 			remove_ideas = CZE_sudetenland_protests_2
-			
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_reject_entente_fears
+		icon = GFX_focus_consolidate_entente
+		cost = 10
+		x = 1
+		y = 1
+		relative_position_id = CZE_czech_statehood_party
+		prerequisite = {
+			focus = CZE_czech_statehood_party
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_no_more_pillaging
+		icon = GFX_focus_RAJ_union_busting
+		cost = 10
+		x = 3
+		y = 1
+		relative_position_id = CZE_czech_statehood_party
+		prerequisite = {
+			focus = CZE_czech_statehood_party
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_demand_further_autonomy
+		icon = GFX_focus_PER_subserviant_to_noone
+		cost = 10
+		x = 3
+		y = 2
+		relative_position_id = CZE_czech_statehood_party
+		prerequisite = {
+			focus = CZE_no_more_pillaging
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_bohemian_education_curiculum
+		icon = GFX_focus_generic_befriend_bohemia
+		cost = 10
+		x = 0
+		y = 2
+		relative_position_id = CZE_czech_statehood_party
+		prerequisite = {
+			focus = CZE_no_compromise_with_germans
+		}
+		prerequisite = {
+			focus = CZE_czech_statehood_party
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_querfront
+		icon = GFX_focus_worker_culture
+		cost = 10
+		x = -1
+		y = 1
+		relative_position_id = CZE_bohemian_education_curiculum
+		prerequisite = {
+			focus = CZE_bohemian_education_curiculum
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_healthy_dose_of_skepticism
+		icon = GFX_goal_generic_political_pressure
+		cost = 10
+		x = 1
+		y = 1
+		relative_position_id = CZE_bohemian_education_curiculum
+		prerequisite = {
+			focus = CZE_bohemian_education_curiculum
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_czechification_of_the_unions
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		cost = 10
+		x = -1
+		y = 1
+		relative_position_id = CZE_querfront
+		prerequisite = {
+			focus = CZE_querfront
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_strong_militia
+		icon = GFX_focus_generic_little_entente
+		cost = 10
+		x = 0
+		y = 2
+		relative_position_id = CZE_bohemian_education_curiculum
+		prerequisite = {
+			focus = CZE_querfront
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+			always = no
+		}
+		completion_reward = {
 		}
 		ai_will_do = {
 			base = 1
@@ -626,7 +1051,7 @@ focus_tree = {
 		id = CZE_sudetenland_autonomy
 		icon = GFX_focus_generic_self_management
 		cost = 10
-		x = -1
+		x = -3
 		y = 1
 		mutually_exclusive = {
 			focus = CZE_no_compromise_with_germans
@@ -657,10 +1082,315 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = CZE_ww1_starts
+		icon = GFX_goal_generic_join_faction
+		cost = 5
+		x = 23
+		y = 0
+		prerequisite = {
+		}
+		available = {
+			has_global_flag = great_war
+		}
+		bypass = {
+			has_global_flag = great_war
+			OR = {
+				is_subject = yes
+				is_puppet = yes
+			}
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_empires_workshop
+		icon = GFX_focus_generic_modernize_industry
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = CZE_ww1_starts
+		}
+		relative_position_id = CZE_ww1_starts
+		available = {
+		}
+		completion_reward = {
+			add_ideas = CZE_empires_workshop_idea
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+		focus = {
+		id = CZE_attrack_workers
+		icon = GFX_focus_socialist_worker
+		cost = 5
+		x = 2
+		y = 2
+		prerequisite = {
+			focus = CZE_empires_workshop
+		}
+		relative_position_id = CZE_ww1_starts
+		available = {
+		}
+		completion_reward = {
+			add_ideas = CZE_empires_workshop_idea
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_abandon_the_sinking_ship
+		icon = GFX_generic_abolish_slavery
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = CZE_ww1_starts
+		}
+		relative_position_id = CZE_ww1_starts
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_dismantle_anti_empire_groups
+		icon = GFX_focus_ARG_keep_it_in_the_party
+		cost = 5
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = CZE_ww1_starts
+		}
+		relative_position_id = CZE_ww1_starts
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_bohemia_free_at_last
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10
+		x = 5
+		y = 5
+		relative_position_id = CZE_czech_statehood_party
+		available = {
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_consume_collapsing_empire
+		icon = GFX_focus_generic_annex_country
+		cost = 10
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = CZE_bohemia_free_at_last
+		}
+		relative_position_id = CZE_bohemia_free_at_last
+		available = {
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_new_elections_again
+		icon = GFX_focus_FRA_goverment_reform
+		cost = 10
+		x = -3
+		y = 1
+		prerequisite = {
+			focus = CZE_bohemia_free_at_last
+		}
+		relative_position_id = CZE_bohemia_free_at_last
+		available = {
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_ideological_consitution
+		icon = GFX_new_treaty
+		cost = 10
+		x = -3
+		y = 2
+		prerequisite = {
+			focus = CZE_new_elections_again
+		}
+		relative_position_id = CZE_bohemia_free_at_last
+		available = {
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_combat_red_menace
+		icon = GFX_focus_generic_suppress_socdems
+		cost = 10
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = CZE_bohemia_free_at_last
+		}
+		relative_position_id = CZE_bohemia_free_at_last
+		available = {
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_french_sphere
+		icon = GFX_focus_chi_reach_out_to_france
+		cost = 10
+		x = 2
+		y = 2
+			mutually_exclusive = {
+			focus = CZE_new_powerblock
+		}
+		prerequisite = {
+			focus = CZE_combat_red_menace
+		}
+		relative_position_id = CZE_bohemia_free_at_last
+		available = {
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_anti_red_interventions
+		icon = GFX_focus_generic_full_social_mobilization
+		cost = 10
+		x = 4
+		y = 2
+		prerequisite = {
+			focus = CZE_combat_red_menace
+		}
+		relative_position_id = CZE_bohemia_free_at_last
+		available = {
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_new_powerblock
+		icon = GFX_goal_tripartite_pact
+		cost = 10
+		x = -1
+		y = 2
+		mutually_exclusive = {
+			focus = CZE_french_sphere
+		}
+		prerequisite = {
+			focus = CZE_consume_collapsing_empire
+		}
+		relative_position_id = CZE_bohemia_free_at_last
+		available = {
+			always = no
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
 		id = CZE_birth
 		icon = GFX_generic_abolish_slavery
 		cost = 5
-		x = 19
+		x = 30
 		y = 0
 		prerequisite = {
 		}
@@ -711,6 +1441,136 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = CZE_bohemian_army
+		icon = GFX_focus_generic_military_mission
+		cost = 10
+		x = 4
+		y = 0
+		prerequisite = {
+		}
+		available = {
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = CZE_founding_army
+				days = 180
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_legacy_of_skoda
+		icon = GFX_focus_generic_reorient_production
+		cost = 10
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = CZE_bohemian_army
+			focus = CZE_city_on_a_shining_hill
+		}
+		relative_position_id = CZE_bohemian_army
+		available = {
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = CZE_founding_army
+				days = 180
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_pass_wra
+		icon = GFX_focus_socialist_worker
+		cost = 10
+		x = -2
+		y = 2
+		prerequisite = {
+			focus = CZE_legacy_of_skoda
+		}
+		prerequisite = {
+			focus = CZE_technical_universities
+		}
+		relative_position_id = CZE_bohemian_army
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_upmost_professionalism
+		icon = GFX_focus_chi_army_reform
+		cost = 10
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = CZE_bohemian_army
+		}
+		relative_position_id = CZE_bohemian_army
+		available = {
+		}
+		completion_reward = {
+			add_ideas = CZE_professional_army
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
+		id = CZE_modern_artillery
+		icon = GFX_focus_generic_mountain_artillery
+		cost = 10
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = CZE_legacy_of_skoda
+		}
+		prerequisite = {
+			focus = CZE_bohemian_army
+		}
+		relative_position_id = CZE_bohemian_army
+		available = {
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = AUS_modernize_artillery_equipment
+				uses = 1
+				bonus = 1
+				category = cat_artillery
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
 		id = CZE_brno_university
 		icon = GFX_focus_research
 		cost = 10
@@ -747,7 +1607,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-				add_tech_bonus = {
+			add_tech_bonus = {
 				category = industry
 				uses = 1
 				name = AUS_encourage_innovation
@@ -801,7 +1661,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
-		focus = {
+	focus = {
 		id = CZE_perfect_niche
 		icon = GFX_focus_CHI_planned_economy
 		cost = 10
