@@ -6417,7 +6417,38 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = ALB_paternal_republic
+		available = {
+			GER = {
+				is_faction_leader = yes
+				has_war = yes
+				NOT = { has_war_with = ALB}
+			}
+		}
 		completion_reward = {
+			GER = { country_event = { id = albania.135 hours = 8 } }
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				GER = { add_to_faction = ROOT }
+				add_ideas = ALB_central_powers_economic_aid
+				custom_effect_tooltip = ALB_central_powers_economic_aid_instant_desc
+				GER = {
+					send_equipment = {
+						equipment = infantry_equipment
+						amount = 2500
+						target = ROOT
+					}
+					send_equipment = {
+						equipment = field_gun_equipment
+						amount = 100
+						target = ROOT
+					}
+					send_equipment = {
+						equipment = howitzer_equipment
+						amount = 25
+						target = ROOT
+					}
+				}
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6433,6 +6464,18 @@ focus_tree = {
 		x = 5
 		y = 1
 		relative_position_id = ALB_paternal_republic
+		available = {
+			GER = {
+				is_faction_leader = yes
+				has_war = yes
+				NOT = { has_war_with = ALB}
+			}
+			ENT = {
+				is_faction_leader = yes
+				has_war = yes
+				NOT = { has_war_with = ALB}
+			}
+		}
 		completion_reward = {
 		}
 		ai_will_do = { factor = 100 }
@@ -6449,7 +6492,38 @@ focus_tree = {
 		x = 7
 		y = 1
 		relative_position_id = ALB_paternal_republic
+		available = {
+			ENT = {
+				is_faction_leader = yes
+				has_war = yes
+				NOT = { has_war_with = ALB}
+			}
+		}
 		completion_reward = {
+			ENT = { country_event = { id = albania.135 hours = 8 } }
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				ENT = { add_to_faction = ROOT }
+				add_ideas = ALB_entente_economic_aid
+				custom_effect_tooltip = ALB_entente_economic_aid_instant_desc
+				ENT = {
+					send_equipment = {
+						equipment = infantry_equipment
+						amount = 2500
+						target = ROOT
+					}
+					send_equipment = {
+						equipment = field_gun_equipment
+						amount = 100
+						target = ROOT
+					}
+					send_equipment = {
+						equipment = howitzer_equipment
+						amount = 25
+						target = ROOT
+					}
+				}
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}

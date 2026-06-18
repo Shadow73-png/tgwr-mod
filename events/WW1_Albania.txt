@@ -7098,6 +7098,108 @@ country_event = { #albanian resistance
 	}
 }
 
+country_event = { #albanian entrance into our faction
+	id = albania.135
+	title = albania.135.t
+	desc = albania.135.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty3
+	option = {
+		name = albania.135.a
+		effect_tooltip = {
+			add_to_faction = FROM
+			if = {
+				limit = { tag = GER }
+				FROM = {
+					add_ideas = ALB_central_powers_economic_aid
+					custom_effect_tooltip = ALB_central_powers_economic_aid_instant_desc
+				}
+			}
+			if = {
+				limit = { tag = ENT }
+				FROM = {
+					add_ideas = ALB_entente_economic_aid
+					custom_effect_tooltip = ALB_entente_economic_aid_instant_desc
+				}
+			}
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 2500
+				target = FROM
+			}
+			send_equipment = {
+				equipment = field_gun_equipment
+				amount = 100
+				target = FROM
+			}
+			send_equipment = {
+				equipment = howitzer_equipment
+				amount = 25
+				target = FROM
+			}
+		}
+		hidden_effect = { FROM = { country_event = { id = albania.136 hours = 8 } } }
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = albania.135.b
+		hidden_effect = { FROM = { country_event = { id = albania.137 hours = 8 } } }
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { #albanian entrance into our faction yes
+	id = albania.136
+	title = albania.136.t
+	desc = albania.136.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty3
+	option = {
+		name = albania.136.a
+		FROM = { add_to_faction = ROOT }
+		if = {
+			limit = { FROM = { tag = GER } }
+			add_ideas = ALB_central_powers_economic_aid
+			custom_effect_tooltip = ALB_central_powers_economic_aid_instant_desc
+		}
+		if = {
+			limit = { FROM = { tag = ENT } }
+			add_ideas = ALB_entente_economic_aid
+			custom_effect_tooltip = ALB_entente_economic_aid_instant_desc
+		}
+		FROM = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 2500
+				target = ROOT
+			}
+			send_equipment = {
+				equipment = field_gun_equipment
+				amount = 100
+				target = ROOT
+			}
+			send_equipment = {
+				equipment = howitzer_equipment
+				amount = 25
+				target = ROOT
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { #albanian entrance into our faction no
+	id = albania.137
+	title = albania.137.t
+	desc = albania.137.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty3
+	option = {
+		name = albania.137.a
+		ai_chance = { factor = 100 }
+	}
+}
+
 #No More Ottoman Puppet
 country_event = {
 	id = ww1_albania.11
