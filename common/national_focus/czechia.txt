@@ -818,7 +818,7 @@ focus_tree = {
 				is_subject = yes
 				is_puppet = yes
 			}
-			always = no
+			
 		}
 		completion_reward = {
 			add_political_power = 50
@@ -848,7 +848,7 @@ focus_tree = {
 				is_subject = yes
 				is_puppet = yes
 			}
-			always = no
+			
 		}
 		completion_reward = {
 			custom_effect_tooltip = CZE_entente_help_in_the_revolt
@@ -882,9 +882,35 @@ focus_tree = {
 				is_subject = yes
 				is_puppet = yes
 			}
-			always = no
+			
 		}
 		completion_reward = {
+			AUS = {
+				country_event = ww1_czechoslovakia.9
+			}
+			custom_effect_tooltip = if_they_accept_newline_tt
+			effect_tooltip = {
+			CZE = {
+				if = {
+					limit = {
+						has_idea = CZE_duties_to_vienna
+					}
+					swap_ideas = {
+					remove_idea = CZE_duties_to_vienna
+					add_idea = CZE_duties_to_vienna_minimum
+				}
+				}
+					if = {
+					limit = {
+						has_idea = CZE_duties_to_vienna_2
+					}
+					swap_ideas = {
+					remove_idea = CZE_duties_to_vienna_2
+					add_idea = CZE_duties_to_vienna_minimum
+				}
+				}
+			}
+		}
 		}
 		ai_will_do = {
 			base = 1
@@ -909,7 +935,7 @@ focus_tree = {
 				is_subject = yes
 				is_puppet = yes
 			}
-			always = no
+			
 		}
 		completion_reward = {
 		}
@@ -939,7 +965,7 @@ focus_tree = {
 				is_subject = yes
 				is_puppet = yes
 			}
-			always = no
+			
 		}
 		completion_reward = {
 			add_ideas = CZE_youth_program_idea_n
@@ -967,7 +993,7 @@ focus_tree = {
 				is_subject = yes
 				is_puppet = yes
 			}
-			always = no
+			
 		}
 		completion_reward = {
 			custom_effect_tooltip = CZE_get_self_defense_workers
@@ -998,7 +1024,7 @@ focus_tree = {
 				is_subject = yes
 				is_puppet = yes
 			}
-			always = no
+			
 		}
 		completion_reward = {
 			custom_effect_tooltip = CZE_healthy_we_leave
@@ -1026,7 +1052,7 @@ focus_tree = {
 				is_subject = yes
 				is_puppet = yes
 			}
-			always = no
+			
 		}
 		completion_reward = {
 						custom_effect_tooltip = CZE_healthy_we_leave
@@ -1072,7 +1098,7 @@ focus_tree = {
 				is_subject = yes
 				is_puppet = yes
 			}
-			always = no
+			
 		}
 		completion_reward = {
 			add_manpower = 25000
@@ -1103,7 +1129,7 @@ focus_tree = {
 				is_subject = yes
 				is_puppet = yes
 			}
-			always = no
+			
 		}
 		completion_reward = {
 			swap_ideas = {
@@ -1326,7 +1352,7 @@ focus_tree = {
 		y = 5
 		relative_position_id = CZE_czech_statehood_party
 		available = {
-			always = no
+			
 		}
 		completion_reward = {
 		}
@@ -1349,7 +1375,7 @@ focus_tree = {
 		}
 		relative_position_id = CZE_bohemia_free_at_last
 		available = {
-			always = no
+			
 		}
 		completion_reward = {
 		}
@@ -1372,7 +1398,7 @@ focus_tree = {
 		}
 		relative_position_id = CZE_bohemia_free_at_last
 		available = {
-			always = no
+			
 		}
 		completion_reward = {
 		}
@@ -1395,7 +1421,7 @@ focus_tree = {
 		}
 		relative_position_id = CZE_bohemia_free_at_last
 		available = {
-			always = no
+			
 		}
 		completion_reward = {
 		}
@@ -1418,7 +1444,7 @@ focus_tree = {
 		}
 		relative_position_id = CZE_bohemia_free_at_last
 		available = {
-			always = no
+			
 		}
 		completion_reward = {
 		}
@@ -1444,7 +1470,7 @@ focus_tree = {
 		}
 		relative_position_id = CZE_bohemia_free_at_last
 		available = {
-			always = no
+			
 		}
 		completion_reward = {
 		}
@@ -1467,7 +1493,7 @@ focus_tree = {
 		}
 		relative_position_id = CZE_bohemia_free_at_last
 		available = {
-			always = no
+			
 		}
 		completion_reward = {
 		}
@@ -1493,7 +1519,7 @@ focus_tree = {
 		}
 		relative_position_id = CZE_bohemia_free_at_last
 		available = {
-			always = no
+			
 		}
 		completion_reward = {
 		}
@@ -1514,6 +1540,7 @@ focus_tree = {
 		prerequisite = {
 		}
 		available = {
+			always = no
 		}
 		completion_reward = {
 			hidden_effect = {
