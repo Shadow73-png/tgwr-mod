@@ -1029,6 +1029,25 @@ focus_tree = {
 			always = no
 		}
 		completion_reward = {
+						custom_effect_tooltip = CZE_healthy_we_leave
+
+			effect_tooltip = {
+					9 = {
+				create_unit = {
+					division = "name = \"Guardie Rosse\" division_template = \"Guardie Rosse\" start_equipment_factor = 1 start_experience_factor = 0.3"
+					prioritize_location = 6780
+					count = 1
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"Guardie Rosse\" division_template = \"Guardie Rosse\" start_equipment_factor = 0.75 start_experience_factor = 0.2"
+					prioritize_location = 6780
+					count = 1
+					owner = PREV
+				}
+			
+			}
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -1056,6 +1075,7 @@ focus_tree = {
 			always = no
 		}
 		completion_reward = {
+			add_manpower = 25000
 		}
 		ai_will_do = {
 			base = 1
@@ -1244,6 +1264,27 @@ focus_tree = {
 					has_completed_focus = CZE_querfront
 				}
 						add_ideas = CZE_workers_defense
+
+			}
+		if = {
+				limit = {
+					has_completed_focus = CZE_czechification_of_the_unions
+				}
+					9 = {
+				create_unit = {
+					division = "name = \"Guardie Rosse\" division_template = \"Guardie Rosse\" start_equipment_factor = 1 start_experience_factor = 0.3"
+					prioritize_location = 6780
+					count = 1
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"Guardie Rosse\" division_template = \"Guardie Rosse\" start_equipment_factor = 0.75 start_experience_factor = 0.2"
+					prioritize_location = 6780
+					count = 1
+					owner = PREV
+				}
+			
+			}	
 
 			}
 		}
