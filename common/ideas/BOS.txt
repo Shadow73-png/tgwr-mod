@@ -409,5 +409,29 @@ ideas={
 				true_personality_amidst_the_inanity 
 			}
 		}
+		BOS_compulsory_insurance_idea = {
+			picture = MEX_free_banking_sector
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					
+					has_government = communism
+				}
+			}
+			available = {
+				OR = {
+					is_subject_of = AUS
+					is_subject_of = HUN
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_factor = -0.05
+				line_change_production_efficiency_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
 	}
 }

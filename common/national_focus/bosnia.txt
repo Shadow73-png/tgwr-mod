@@ -321,6 +321,17 @@ focus_tree = {
 				}
 				add_political_power = 50
 			}
+			custom_effect_tooltip = empty_space_tt
+			HUN = {
+				country_event = ww1_bosnia.34
+			}
+			custom_effect_tooltip = BOS_if_bill_passes
+			effect_tooltip = {
+				add_autonomy_score = {
+					value = 200
+				}
+				add_political_power = 50
+			}
 		}
 		#law passage, passed, vienna declined
 	}
@@ -416,7 +427,6 @@ focus_tree = {
 			}
 			OR = {
 				has_completed_focus = BOS_purge_german_in_communication
-				has_completed_focus = BOS_remove_hungarian_lang_from_railways
 				has_completed_focus = BOS_postal_savings_bank
 			}
 		}
@@ -458,8 +468,8 @@ focus_tree = {
 		#law passage, NOT passed #WIP
 	}
 	focus = {
-		id = BOS_remove_hungarian_lang_from_railways
-		icon = GFX_focus_Generic_Develop_Rail_Network
+		id = BOS_compulsory_insurance_act
+		icon = GFX_focus_generic_devaluation
 		cost = 5
 		x = 1
 		y = 1
@@ -478,18 +488,16 @@ focus_tree = {
 			has_country_flag = BOS_first_session_in_progress
 		}
 		completion_reward = {
-			HUN = {
-				country_event = ww1_bosnia.34
+			country_event = {
+				id = ww1_bosnia.89
+				days = 1
 			}
 			custom_effect_tooltip = BOS_if_bill_passes
 			effect_tooltip = {
-				add_autonomy_score = {
-					value = 200
-				}
-				add_political_power = 50
+				add_ideas = BOS_compulsory_insurance_idea
 			}
 		}
-		#law passage, passed, vienna declined
+		
 	}
 	focus = {
 		id = BOS_appease_croats
@@ -787,51 +795,51 @@ focus = {
 			BOS_parliament_update = yes
 		}
 	}
-	focus = {
-		id = BOS_taslica_occupation
-		icon = GFX_goal_generic_demand_territory
-		cost = 3
-		x = 2
-		y = 2
-		prerequisite = {
-			focus = BOS_crackdown_serb_media
-			focus = BOS_crush_serb_media
-		}
-		relative_position_id = BOS_vienna_restrict_lumber
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
-		available = {
-			bosnia_is_AUS_subject = yes
-			custom_trigger_tooltip = {
-				761 = {
-					is_owned_and_controlled_by = BOS
-				}
-				tooltip = BOS_conrad_went_crazy_tt
-			}
-		}
-		completion_reward = {
-			add_to_variable = {
-				BOS_muslim_opinion = 10
-				tooltip = BOS_increase_muslim_tt
-			}
-			BOS_parliament_update = yes
-
-			custom_effect_tooltip = empty_space_tt
-
-			country_event = ww1_bosnia.63
-
-			custom_effect_tooltip = when_taken
-			effect_tooltip = {
-				761 = { 
-					add_claim_by = ROOT 
-					add_dynamic_modifier = {
-						modifier = BOS_taslica_occupation
-					}
-				}
-			}
-		}
-	}#WIP
+	#focus = {
+	#	id = BOS_taslica_occupation
+	#	icon = GFX_goal_generic_demand_territory
+	#	cost = 3
+	#	x = 2
+	#	y = 2
+	#	prerequisite = {
+	#		focus = BOS_crackdown_serb_media
+	#		focus = BOS_crush_serb_media
+	#	}
+	#	relative_position_id = BOS_vienna_restrict_lumber
+	#	search_filters = {
+	#		FOCUS_FILTER_ANNEXATION
+	#	}
+	#	available = {
+	#		bosnia_is_AUS_subject = yes
+	#		custom_trigger_tooltip = {
+	#			761 = {
+	#				is_owned_and_controlled_by = BOS
+	#			}
+	#			tooltip = BOS_conrad_went_crazy_tt
+	#		}
+	#	}
+	#	completion_reward = {
+	#		add_to_variable = {
+	#			BOS_muslim_opinion = 10
+	#			tooltip = BOS_increase_muslim_tt
+	#		}
+	#		BOS_parliament_update = yes
+	#
+	#		custom_effect_tooltip = empty_space_tt
+	#
+	#		country_event = ww1_bosnia.63
+	#
+	#		custom_effect_tooltip = when_taken
+	#		effect_tooltip = {
+	#			761 = { 
+	#				add_claim_by = ROOT 
+	#				add_dynamic_modifier = {
+	#					modifier = BOS_taslica_occupation
+	#				}
+	#			}
+	#		}
+	#	}
+	#}#WIP
 	focus = {
 		id = BOS_ask_for_sanjak
 		icon = GFX_focus_generic_annex_country
@@ -902,12 +910,12 @@ focus = {
 		id = BOS_integrate_sanjak
 		icon = GFX_goal_generic_dangerous_deal
 		cost = 10
-		x = -1
+		x = 1
 		y = 1
 		prerequisite = {
 			focus = BOS_ask_for_sanjak
 		}
-		relative_position_id = BOS_taslica_occupation
+		relative_position_id = BOS_ask_for_sanjak
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 			FOCUS_FILTER_ANNEXATION
@@ -924,17 +932,30 @@ focus = {
 			}
 		}
 		completion_reward = {
+			set_variable = {
+				BOS_core_sanjak_decision = 0
+			}
 			add_to_variable = {
-				BOS_muslim_opinion = 10
+				BOS_muslim_opinion = 5
 				tooltip = BOS_increase_muslim_tt
+			}
+			add_to_variable = {
+				BOS_serb_opinion = 5
+				tooltip = BOS_increase_serb_tt
+			}
+			add_to_variable = {
+				BOS_croat_opinion = 5
+				tooltip = BOS_increase_croat_tt
 			}
 			BOS_parliament_update = yes
 			custom_effect_tooltip = empty_space_tt
-			custom_effect_tooltip = BOS_core_FROM_tt
-			custom_effect_tooltip = when_taken
-			custom_effect_tooltip = BOS_core_FROM_tt_2
+			
+			unlock_decision_tooltip = {
+				decision = BOS_core_sanjak
+				show_effect_tooltip = yes
+			}
+
 		}
-		#WIP
 	}
 
 
@@ -943,8 +964,8 @@ focus = {
 		id = BOS_chaos_in_sarajevo
 		icon = GFX_focus_generic_swooping_falcon
 		cost = 0
-		x = 17
-		y = 6
+		x = 13
+		y = 5
 
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
@@ -1170,13 +1191,13 @@ focus = {
 		id = BOS_begin_second_session
 		icon = GFX_focus_ETH_re-convene_the_parliament
 		cost = 0
-		x = -1
-		y = 3
+		x = 1
+		y = 1
 		prerequisite = {
 			
 		}
 		
-		relative_position_id = BOS_remove_hungarian_lang_from_railways
+		relative_position_id = BOS_cvijet_hrvatske
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_INTERNAL_AFFAIRS
