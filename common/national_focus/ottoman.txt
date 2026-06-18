@@ -10029,7 +10029,12 @@ focus_tree = {
 			PER = {
 				exists = yes
 				is_subject = no
-				NOT = { has_idea = PER_idea_constitutional_revolution }
+			}
+			check_variable = {
+				var = TUR.PER_foreign_influence
+				value = 0.2
+				compare = greater_than_or_equals
+				tooltip = TUR_has_influence_tt
 			}
 			any_controlled_state = {
 				custom_trigger_tooltip = {
@@ -10095,10 +10100,10 @@ focus_tree = {
 		y = 1
 		relative_position_id = TUR_our_place_in_the_world
 		available = {
-			owns_state = 1212
-			owns_state = 419
-			owns_state = 1250
-			owns_state = 1252
+			1212 = { is_owned_and_controlled_by = ROOT }
+			419 = { is_owned_and_controlled_by = ROOT }
+			1250 = { is_owned_and_controlled_by = ROOT }
+			1252 = { is_owned_and_controlled_by = ROOT }
 			custom_trigger_tooltip = {
 				tooltip = TUR_government_stability_at_least_50
 				check_variable = { TUR_government_stability_var > 49 }
