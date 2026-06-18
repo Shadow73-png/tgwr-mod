@@ -852,6 +852,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = CZE_entente_help_in_the_revolt
+			effect_tooltip = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+				}
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -1195,6 +1201,15 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = CZE_reject_entente_fears
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+				}
+			}
 		}
 		ai_will_do = {
 			base = 1
