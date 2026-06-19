@@ -9459,9 +9459,74 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_collapse.16.a
+		set_country_flag = AUS_german_austria
+		remove_dynamic_modifier = {
+			modifier = AUS_economic_patchwork
+		}
+		remove_dynamic_modifier = {
+			modifier = AUS_state_of_the_realm
+		}
+		remove_dynamic_modifier = {
+			modifier = AUS_state_of_the_realm_real
+		}
+		remove_dynamic_modifier = {
+			modifier = AUS_multiethnic_army
+		}
+		set_variable = { AUS_EP_consumer_goods = 0.4 }
+set_variable = { AUS_EP_prod_eff_growth = -0.2 }
+set_variable = { AUS_EP_prod_eff_cap = -0.2 }
+set_variable = { AUS_EP_stab = -0.5 }
+set_variable = { AUS_EP_infra = -0.1}
+set_variable = { AUS_EP_factory_output = 0 }
+set_variable = { AUS_ep_research_speed = 0 }
+set_variable = { AUS_ep_construction_speed = -0.2 }
+set_variable = { AUS_ep_mil_speed = 0 }
+set_variable = { AUS_ep_civ_speed = 0 }
+set_variable = { AUS_ep_bonus_res = 0 }
+set_variable = { AUS_EP_trade_ai_chance = 0 }
+set_variable = { AUS_ep_local_resource = 0 }
+set_variable = { AUS_ep_production_factory_start_efficiency_factor = 0 }
+set_variable = { AUS_ep_line_change_production_efficiency_factor = 0 }
+		add_dynamic_modifier = {
+			modifier = AUS_economic_chaos
+		}
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = AUS_all_good_things_come_to_an_end
 	}
 }
-
+###german austria search
+add_namespace = ww1_german_austria
+country_event = {
+	id = ww1_german_austria.1
+	title = ww1_german_austria.1.t
+	desc = ww1_german_austria.1.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_german_austria.1.a
+		custom_effect_tooltip = AUS_entente_might_have_other_plans
+		GER = {
+			country_event = {
+				id = ww1_german_austria.2
+				days = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_german_austria.2
+	title = ww1_german_austria.2.t
+	desc = ww1_german_austria.2.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_german_austria.2.a
+		
+	}
+}
+##german austria search end
 ##################
 #####  DEBUG #####
 ##################
