@@ -72,7 +72,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_unemployment_benefits
-		icon = GFX_focus_SWE_organize_a_putsch
+		icon = GFX_focus_generic_money
 		cost = 5
 		x = 1
 		y = 1
@@ -83,7 +83,15 @@ focus_tree = {
 			has_country_flag = great_war_loser
 		}
 		completion_reward = {
-			
+			custom_effect_tooltip = AUS_modify_economic_chaos
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_stab = 0.075
+				tooltip = stability_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -95,7 +103,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_employment_exchanges
-		icon = GFX_focus_SWE_organize_a_putsch
+		icon = GFX_focus_social_welfare
 		cost = 5
 		x = 2
 		y = 2
@@ -106,7 +114,11 @@ focus_tree = {
 			has_country_flag = great_war_loser
 		}
 		completion_reward = {
-			
+			custom_effect_tooltip = AUS_modify_economic_chaos
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.25
+				tooltip = consumer_goods_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
