@@ -23,6 +23,97 @@ AUS_socialist_coup_attempt = {
 		fire_only_once = yes
 		is_good = no
 	}
+	AUS_8_hour_decree = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+		has_completed_focus = AUS_starve_off_revolution
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 15
+		cost = 20
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_red_coup_strength = -1
+				tooltip = AUS_var_communist_strength
+			}
+		}	
+	}
+	AUS_empower_workers_councils = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+		has_completed_focus = AUS_starve_off_revolution
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 15
+		cost = 20
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_modify_economic_chaos
+			add_to_variable = {
+				AUS_EP_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+			add_to_variable = {
+				AUS_red_coup_strength = -1
+				tooltip = AUS_var_communist_strength
+			}
+		}	
+	}
+	AUS_unemployment_assistance = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+		has_completed_focus = AUS_starve_off_revolution
+		}
+		priority = 210
+		available = {
+			
+		}
+		fire_only_once = yes
+		days_remove = 15
+		cost = 20
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_modify_economic_chaos
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_red_coup_strength = -1
+				tooltip = AUS_var_communist_strength
+			}
+		}	
+	}
 }
 TGWR_great_power_politics = {
 	AUS_amend_pig_war = {
