@@ -3965,17 +3965,15 @@ AUS_spawn_MGS = {
 AUS_spawn_bohemian_crown = {
 	set_global_flag = AUS_bohemian_crown_created
 		every_owned_state = {
-                limit = {
-                    is_core_of = CZE
-
-                }
-                transfer_state_to = CZE
-            }
-	CZE = {
-add_ideas = CZE_divided_administration
-add_ideas = CZE_duties_to_vienna
+			limit = {
+				is_core_of = CZE
+			}
+			transfer_state_to = CZE
+		}
+		CZE = {
+			add_ideas = CZE_divided_administration
+			add_ideas = CZE_duties_to_vienna
             CZE = { set_country_flag = monarchist_puppet }
-           
             hidden_effect = {
                 CZE = {
                     set_popularities = {
@@ -4000,52 +3998,13 @@ add_ideas = CZE_duties_to_vienna
 }
 AUH_spawn_galicia_effect = {
 	# GALICIA
-		every_state = {
-			limit = {
-				OR = {
-					is_owned_and_controlled_by = AUS
-					is_owned_and_controlled_by = HUN
-				}
-				OR = {
-					AUS_is_GAL_state = yes
-				}
-				NOT = {
-					has_state_flag = AUH_AUS_state
-					has_state_flag = AUH_HUN_state
-				}
-			}
-			transfer_state_to = POL
-		}
-		POL = {
-			set_cosmetic_tag = POL_GAL_AUS
-			#get_current_government_type = yes
-			set_country_flag = monarchist_puppet
-		}
-		80 = {
-			transfer_state_to = HUN
-			add_claim_by = POL
-			add_claim_by = AUS
-		}
-		set_autonomy = {
-			target = POL
-			autonomy_state = autonomy_tgwr_real_union
-			end_civil_wars = yes
-			end_wars = no
-		}
-		POL = {
-			load_focus_tree = empty_focus
-		}
-}
-AUH_spawn_ukr_and_pol = {
 	every_state = {
 		limit = {
 			OR = {
 				is_owned_and_controlled_by = AUS
 				is_owned_and_controlled_by = HUN
 			}
-			OR = {
-				AUS_is_POL_state = yes
-			}
+			AUS_is_GAL_state = yes
 			NOT = {
 				has_state_flag = AUH_AUS_state
 				has_state_flag = AUH_HUN_state
@@ -4053,29 +4012,11 @@ AUH_spawn_ukr_and_pol = {
 		}
 		transfer_state_to = POL
 	}
-	every_state = {
-		limit = {
-			OR = {
-				is_owned_and_controlled_by = AUS
-				is_owned_and_controlled_by = HUN
-			}
-			OR = {
-				AUS_is_UKR_state = yes
-			}
-			NOT = {
-				has_state_flag = AUH_AUS_state
-				has_state_flag = AUH_HUN_state
-			}
-		}
-		transfer_state_to = UKR
+	POL = {
+		load_focus_tree = empty_focus
 	}
 	POL = {
-		#set_cosmetic_tag = POL_AUS_GAL
-		#get_current_government_type = yes
-		set_country_flag = monarchist_puppet
-	}
-	UKR = {
-		set_cosmetic_tag = UKR_AUS
+		set_cosmetic_tag = POL_GAL_AUS
 		#get_current_government_type = yes
 		set_country_flag = monarchist_puppet
 	}
@@ -4084,17 +4025,5 @@ AUH_spawn_ukr_and_pol = {
 		autonomy_state = autonomy_tgwr_real_union
 		end_civil_wars = yes
 		end_wars = no
-	}
-	set_autonomy = {
-		target = UKR
-		autonomy_state = autonomy_tgwr_real_union
-		end_civil_wars = yes
-		end_wars = no
-	}
-	POL = {
-		load_focus_tree = empty_focus
-	}
-	UKR = {
-		load_focus_tree = empty_focus
 	}
 }
