@@ -9749,13 +9749,17 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
+		add_popularity = {
+		ideology = communism
+		popularity = 0.15
+	}
 				name =  ww1_german_austria.8.a
 		add_stability = -0.05
 	custom_effect_tooltip = AUS_they_will_be_back
 	activate_mission = AUS_socialist_coup_mission
 	set_country_flag = AUS_coup_mission
 	set_variable = {
-		AUS_red_coup_strength = 3
+		AUS_red_coup_strength = 5
 	}
 	}
 }
@@ -9781,6 +9785,26 @@ country_event = {
 	option = {
 				name =  ww1_german_austria.10.a
 	add_stability = 0.02
+	}
+}
+country_event = {
+	id = ww1_german_austria.11
+	title = ww1_german_austria.11.t
+	desc = ww1_german_austria.11.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+				name =  ww1_german_austria.11.a
+	add_stability = 0.05
+	add_popularity = {
+		ideology = communism
+		popularity = -0.02
+	}
+	add_to_variable = {
+				AUS_red_coup_strength = -1
+				tooltip = AUS_var_communist_strength
+			}
 	}
 }
 ##german austria search end
