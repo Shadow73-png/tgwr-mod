@@ -12772,15 +12772,12 @@ ITA_army_reforms = {
 
 ITA_navy_decisions = {
 	ITA_build_weather_monitoring_stations = {
-		cost = 15
-		days_remove = 60
+		days_remove = 30
 		modifier = {
 			civilian_factory_use = 1
 		}
 		allowed = {
 			original_tag = ITA
-		}
-		available = {
 		}
 		visible = {
 			has_completed_focus = ITA_utilize_the_radio
@@ -12790,9 +12787,12 @@ ITA_navy_decisions = {
 		remove_effect = {
 			custom_effect_tooltip = ITA_modify_fleet_tt
 			add_to_variable = {
-				ITA_navy_weather = -0.3
+				ITA_navy_weather = -0.15
 				tooltip = navy_weather_penalty_tt
 			}
+		}
+		ai_will_do = {
+			base = 1
 		}
 	}
 	ITA_train_new_naval_officers = {
@@ -12819,14 +12819,13 @@ ITA_navy_decisions = {
 		remove_effect = {
 			custom_effect_tooltip = ITA_modify_fleet_tt
 			add_to_variable = {
-				ITA_navy_org = 0.1
+				ITA_navy_org = 0.07
 				tooltip = navy_org_factor_tt
 			}
 		}
 	}
 	ITA_develop_new_hydrophones = {
-		cost = 15
-		days_remove = 75
+		days_remove = 40
 		icon = GFX_decision_generic_research
 		fire_only_once = yes
 		modifier = {
@@ -12844,7 +12843,7 @@ ITA_navy_decisions = {
 		remove_effect = {
 			custom_effect_tooltip = ITA_modify_fleet_tt
 			add_to_variable = {
-				ITA_navy_see_subs = 0.1
+				ITA_navy_see_subs = 0.075
 				tooltip = naval_detection_tt
 			}
 		}
