@@ -667,6 +667,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_LOYALTY
 		}
 	}
 	focus = {
@@ -1104,6 +1105,7 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
+			FOCUS_FILTER_LOYALTY
 		}
 	}
 	focus = {
@@ -1152,6 +1154,7 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
+			FOCUS_FILTER_LOYALTY
 		}
 	}
 	focus = {
@@ -1397,6 +1400,7 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
+			FOCUS_FILTER_LOYALTY
 		}
 	}
 	focus = {
@@ -2300,6 +2304,7 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
+			FOCUS_FILTER_LOYALTY
 		}
 	}
 	focus = {
@@ -2755,6 +2760,7 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
+			FOCUS_FILTER_LOYALTY
 		}
 	}
 	focus = {
@@ -3345,6 +3351,7 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
+			FOCUS_FILTER_LOYALTY
 		}
 	}
 	focus = {
@@ -3394,6 +3401,7 @@ focus_tree = {
 			custom_effect_tooltip = AUS_modify_aps.tt
 			add_to_variable = {
 				AUS_aps_consumer_goods = 0.05
+				tooltip = consumer_goods_factor_tt
 			}
 		}
 		ai_will_do = {
@@ -4262,7 +4270,6 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
-			FOCUS_FILTER_LOYALTY
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
@@ -4816,6 +4823,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_LOYALTY
 		}
 	}
 	focus = {
@@ -5087,6 +5095,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_LOYALTY
 		}
 	}
 	focus = {
@@ -5108,7 +5117,6 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
-			FOCUS_FILTER_LOYALTY
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
@@ -5140,7 +5148,6 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
-			FOCUS_FILTER_LOYALTY
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
@@ -5164,7 +5171,6 @@ focus_tree = {
 			base = 1
 		}
 		search_filters = {
-			FOCUS_FILTER_LOYALTY
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
@@ -5589,8 +5595,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = AUS_some_other_eco_stuff_do_research
-		icon = GFX_focus_deal_with_austria_hungary
+		id = AUS_motor_industry
+		icon = GFX_focus_generic_truck
 		cost = 4
 		x = -1
 		y = 1
@@ -5600,17 +5606,35 @@ focus_tree = {
 		}
 		relative_position_id = AUS_invest_in_the_east
 		available = {
-			
+			has_tech = coil_ignition
 		}
 		completion_reward = {
-			
+			add_tech_bonus = {
+				name = AUS_motor_industry
+				category = motorized_equipment
+				uses = 1
+				ahead_reduction = 1
+			}
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_industrial_concern
+				show_mio_tooltip = AUH_kuk_kraftfahrersatz_depot_organization
+				mio:AUH_kuk_kraftfahrersatz_depot_organization = {
+					add_mio_funds = 250
+				}
+			}
+			else = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = AUH_kuk_kraftfahrersatz_depot
+			}
 		}
 		ai_will_do = {
 			base = 1
 		}
 		search_filters = {
-			#FOCUS_FILTER_HISTORICAL
-			FOCUS_FILTER_LOYALTY
+			FOCUS_FILTER_HISTORICAL
 			FOCUS_FILTER_RESEARCH
 		}
 	}
@@ -10550,6 +10574,7 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_LOYALTY
 		}
 	}
 	focus = {
@@ -13911,6 +13936,7 @@ joint_focus = {
 	}
 	search_filters = {
 		FOCUS_FILTER_HISTORICAL
+		FOCUS_FILTER_LOYALTY
 	}
 }
 
