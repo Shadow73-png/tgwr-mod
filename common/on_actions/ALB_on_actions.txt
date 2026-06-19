@@ -651,4 +651,34 @@ on_actions = {
 			}
 		}
 	}
+	on_peaceconference_ended = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						has_country_flag = great_war_winner
+						any_of_scopes = {
+							array = ALB_promised_to_give_state
+							owner = { has_country_flag = great_war_loser }
+						}
+						has_country_flag = ALB_promised_to_give_state
+					}
+				}
+				ROOT = { country_event = { id = albania.141 random_days = 7 } }
+			}
+			if = {
+				limit = {
+					FROM = {
+						has_country_flag = great_war_winner
+						any_of_scopes = {
+							array = ALB_promised_to_give_state
+							owner = { has_country_flag = great_war_loser }
+						}
+						has_country_flag = ALB_promised_to_give_state
+					}
+				}
+				FROM = { country_event = { id = albania.141 random_days = 7 } }
+			}
+		}
+	}
 }

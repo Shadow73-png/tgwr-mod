@@ -7301,14 +7301,7 @@ country_event = { #albania asking for war spoils send
 	title = albania.141.t
 	desc = albania.141.desc
 	picture = GFX_report_event_generic_sign_treaty2
-	trigger = {
-		has_country_flag = great_war_winner
-		any_of_scopes = {
-			array = ALB_promised_to_give_state
-			owner = { has_country_flag = great_war_loser }
-		}
-		has_country_flag = ALB_promised_to_give_state
-	}
+	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
 			clr_country_flag = ALB_promised_to_give_state
@@ -7335,7 +7328,7 @@ country_event = { #albania asking for war spoils receive
 	picture = GFX_report_event_generic_sign_treaty2
 	is_triggered_only = yes
 	option = {
-		name = albania.141.a
+		name = albania.142.a
 		FROM = {
 			for_each_scope_loop = {
 				array = ALB_promised_to_give_state
@@ -7343,6 +7336,45 @@ country_event = { #albania asking for war spoils receive
 			}
 			clear_array = ALB_promised_to_give_state
 		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { #albania approach italy
+	id = albania.143
+	title = albania.143.t
+	desc = albania.143.desc
+	picture = GFX_report_event_generic_handshake
+	is_triggered_only = yes
+	option = {
+		name = albania.143.a
+		custom_effect_tooltip = ALB_ITA_unlock_joint_tree_tt
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { #albania approach serbia
+	id = albania.144
+	title = albania.144.t
+	desc = albania.144.desc
+	picture = GFX_report_event_generic_handshake
+	is_triggered_only = yes
+	option = {
+		name = albania.144.a
+		custom_effect_tooltip = ALB_SER_unlock_joint_tree_tt
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { #albania approach turkey
+	id = albania.145
+	title = albania.145.t
+	desc = albania.145.desc
+	picture = GFX_report_event_generic_handshake
+	is_triggered_only = yes
+	option = {
+		name = albania.145.a
+		custom_effect_tooltip = ALB_TUR_unlock_joint_tree_tt
 		ai_chance = { factor = 100 }
 	}
 }
