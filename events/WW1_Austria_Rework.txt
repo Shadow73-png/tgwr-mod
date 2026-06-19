@@ -9489,6 +9489,12 @@ country_event = {
 				days = 2
 			}
 		}
+		hidden_effect = {
+			country_event = {
+				id = ww1_german_austria.8
+				days = 4
+			}
+		}
 	}
 }
 country_event = {
@@ -9611,7 +9617,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		
+		name =  ww1_german_austria.6.a
 	
 	}
 }
@@ -9623,6 +9629,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
+				name =  ww1_german_austria.7.a
 		set_global_flag = saint_germain_treaty
 		if = {
 			limit = {
@@ -9663,6 +9670,24 @@ country_event = {
 			transfer_state_to = ROOT
 		}
 	
+	}
+}
+country_event = {
+	id = ww1_german_austria.8
+	title = ww1_german_austria.8.t
+	desc = ww1_german_austria.8.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+				name =  ww1_german_austria.8.a
+		add_stability = -0.05
+	custom_effect_tooltip = AUS_they_will_be_back
+	activate_mission = AUS_socialist_coup_mission
+	set_country_flag = AUS_coup_mission
+	set_variable = {
+		AUS_red_coup_strength = 3
+	}
 	}
 }
 ##german austria search end
