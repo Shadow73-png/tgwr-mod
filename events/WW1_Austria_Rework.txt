@@ -631,45 +631,7 @@ country_event = {
 		}
 		add_political_power = -50
 		custom_effect_tooltip = AUS_with_the_radicals_tt
-		#ai_chance = {
-		#	base = 1
-		#	modifier = {
-		#		add = 10
-		#		is_historical_focus_on = yes
-		#	}
-		#}
-		#trigger = {
-		#	has_completed_focus = AUS_1911_elections
-		#}
 	}
-	#option = {
-	#	name = ww1_austriahungary.22.b
-	#	add_political_power = -50
-	#
-	#	trigger = {
-	#		NOT = {
-	#			has_global_flag = second_round_of_choosing_MP_AUS
-	#		}
-	#	}
-	#}
-	#option = {
-	#	name = ww1_austriahungary.22.c
-	#	country_event = ww1_austriahungary.137
-	#	add_political_power = -50
-	#	trigger = {
-	#		if = {
-	#			limit = {
-	#				has_completed_focus = AUS_1911_elections
-	#			}
-	#			OR = {
-	#				has_global_flag = AUS_imperial_council_conservative
-	#			}
-	#			NOT = {
-	#				has_completed_focus = AUS_reformist_club
-	#			}
-	#		}
-	#	}
-	#}
 }
 
 country_event = {
@@ -678,6 +640,14 @@ country_event = {
 	desc = ww1_austriahungary.23.d
 	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				has_country_flag = paul_term_finished
+			}
+			set_global_flag = AUS_stop_deactivating_paul
+		}
+	}
 	option = {
 		name = ww1_austriahungary.23.a
 		trigger = {
@@ -701,64 +671,6 @@ country_event = {
 			}
 		}
 	}
-	#becomes MP in other way
-	#option = {
-	#	name = ww1_austriahungary.23.b
-	#	trigger = {
-	#		NOT = {
-	#			has_global_flag = AUS_heinrich_minister
-	#			has_global_flag = AUS_paul_minister
-	#		}
-	#	}
-	#	AUS_fire_minister_advisor = yes
-	#	set_global_flag = AUS_heinrich_minister
-	#	AUS_heinrich_klam_martinic = {
-	#		set_character_flag = minister_AUS
-	#	}
-	#	activate_advisor = AUS_heinrich_klam_martinic
-	#	hidden_effect = {
-	#		IF = {
-	#			limit = {
-	#				date < 1911.8.8
-	#			}
-	#			hidden_effect = {
-	#				country_event = {
-	#					id = ww1_austriahungary.28
-	#					days = 20
-	#				}
-	#			}
-	#		}
-	#	}
-	#}
-	#becomes MP in other way
-	#option = {
-	#	name = ww1_austriahungary.23.c
-	#	trigger = {
-	#		NOT = {
-	#			has_global_flag = AUS_max_minister
-	#			has_global_flag = AUS_paul_minister
-	#		}
-	#	}
-	#	AUS_fire_minister_advisor = yes
-	#	set_global_flag = AUS_max_minister
-	#	AUS_max_von_heinlein = {
-	#		set_character_flag = minister_AUS
-	#	}
-	#	activate_advisor = AUS_max_von_heinlein
-	#	hidden_effect = {
-	#		IF = {
-	#			limit = {
-	#				date < 1911.8.8
-	#			}
-	#			hidden_effect = {
-	#				country_event = {
-	#					id = ww1_austriahungary.28
-	#					days = 20
-	#				}
-	#			}
-	#		}
-	#	}
-	#}
 	option = {
 		name = ww1_austriahungary.23.e
 		trigger = {
@@ -984,6 +896,7 @@ country_event = {
 				character = AUH_paul_gautsch
 				value = yes
 			}
+			set_country_flag = paul_term_finished
 		}
 		custom_effect_tooltip = AUS_modify_aps.tt
 		add_to_variable = {
@@ -4037,21 +3950,22 @@ country_event = {
 		}
 		activate_advisor = AUS_max_wladimir_von_beck
 	}
-	option = {
-		name = ww1_austriahungary.137.b
-		trigger = {
-			NOT = {
-				has_global_flag = AUS_lammasch_minister
-				has_global_flag = AUS_mp_assassinated_1916
-			}
-		}
-		AUS_fire_minister_advisor = yes
-		set_global_flag = AUS_lammasch_minister
-		AUS_heinrich_lammasch = {
-			set_character_flag = minister_AUS
-		}
-		activate_advisor = AUS_heinrich_lammasch
-	}
+	#liquidator: not here!!!!!
+	#option = {
+	#	name = ww1_austriahungary.137.b
+	#	trigger = {
+	#		NOT = {
+	#			has_global_flag = AUS_lammasch_minister
+	#			has_global_flag = AUS_mp_assassinated_1916
+	#		}
+	#	}
+	#	AUS_fire_minister_advisor = yes
+	#	set_global_flag = AUS_lammasch_minister
+	#	AUS_heinrich_lammasch = {
+	#		set_character_flag = minister_AUS
+	#	}
+	#	activate_advisor = AUS_heinrich_lammasch
+	#}
 	#only when karl dies
 	option = {
 		name = ww1_austriahungary.137.c
