@@ -16,7 +16,14 @@ AUS_socialist_coup_attempt = {
 			has_war = no
 		}
 		timeout_effect = {
-			
+			if = {
+				limit = {
+					check_variable = {
+						AUS_red_coup_strength < -1
+					}
+				}
+				country_event = ww1_german_austria.10
+			}
 		}
 		complete_effect = {
 		}
