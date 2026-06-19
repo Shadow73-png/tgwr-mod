@@ -6705,7 +6705,21 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_foreign_policy_priority
 		completion_reward = {
-			ITA = { country_event = albania.143 }
+			add_timed_idea = {
+				idea = ALB_albanian_exodus
+				days = 90
+			}
+			ITA = {
+				add_timed_idea = {
+					idea = ALB_albanian_immigrations
+					days = 90
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = ALB_alligned_with_us
+				}
+				country_event = albania.143 
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6724,7 +6738,18 @@ focus_tree = {
 		relative_position_id = ALB_foreign_policy_priority
 		completion_reward = {
 			unlock_decision_tooltip = ALB_crush_the_kosovo_committee
-			SER = { country_event = albania.144 }
+			SER = {
+				diplomatic_relation = {
+					country = ALB
+					relation = non_aggression_pact
+					active = yes
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = ALB_alligned_with_us
+				}
+				country_event = albania.144
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6742,7 +6767,25 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_foreign_policy_priority
 		completion_reward = {
-			TUR = { country_event = albania.145 }
+			add_ideas = ALB_izzet_I
+			TUR = {
+				custom_effect_tooltip = ALB_crown_the_ottoman_albanian_tt
+				give_guarantee = ALB
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = ALB_alligned_with_us
+				}
+				country_event = albania.145
+			}
+			hidden_effect = {
+				every_country = {
+					limit = { has_character = TUR_ahmet_izzet }
+					TUR_ahmet_izzet = {
+						set_nationality = ALB
+						promote_leader = yes
+					}
+				}
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -11221,17 +11264,9 @@ joint_focus = {
 	x = 0
 	y = 0
 	allow_branch = {
-		if = {
-			limit = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-			}
-			OR = {
-				original_tag = ALB
-				any_country = { has_completed_focus = ALB_cosy_up_to_the_serbs }
-			}
+		OR = {
+			original_tag = ALB
+			any_country = { has_completed_focus = ALB_cosy_up_to_the_serbs }
 		}
 	}
 	offset = {
@@ -12028,6 +12063,12 @@ joint_focus = {
 	prerequisite = { focus = ALB_revive_italian_relations focus = ITA_fall_of_the_great focus = ITA_seek_emergency_powers focus = ITA_destiny_arrives_all_the_same }
 	x = 0
 	y = 0
+	allow_branch = {
+		OR = {
+			original_tag = ALB
+			any_country = { has_completed_focus = ALB_revive_italian_relations }
+		}
+	}
 	offset = {
 		x = 49
 		y = 7
@@ -12232,6 +12273,12 @@ joint_focus = {
 	prerequisite = { focus = ALB_crown_the_ottoman_albanian focus = TUR_our_place_in_the_world }
 	x = 0
 	y = 0
+	allow_branch = {
+		OR = {
+			original_tag = ALB
+			any_country = { has_completed_focus = ALB_crown_the_ottoman_albanian }
+		}
+	}
 	offset = {
 		x = 57
 		y = 7
