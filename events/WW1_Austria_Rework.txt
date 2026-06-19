@@ -6736,6 +6736,67 @@ country_event = {
 	}
 }
 
+#karl asks spitzmuller to form cabinet
+country_event = {
+	id = ww1_austriahungary.250
+	title = ww1_austriahungary.250.t
+	desc = ww1_austriahungary.250.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = ww1_austriahungary.251
+				days = 7
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary.250.a
+		custom_effect_tooltip = AUS_spitzmuller_is_making_cabinet
+	}
+}
+#spitzmuller losing confidence
+country_event = {
+	id = ww1_austriahungary.251
+	title = ww1_austriahungary.251.t
+	desc = ww1_austriahungary.251.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { #appoint clam
+		name = ww1_austriahungary.251.a
+		custom_effect_tooltip = historical_tt
+		country_event = {
+			id = ww1_austriahungary.252
+			days = 2
+		}
+	}
+	option = { #pressure him into forming cabinet
+		name = ww1_austriahungary.251.b
+		AUS_fire_minister_advisor = yes
+		set_global_flag = AUS_spitzmuller_minister
+		AUS_alexander_spitzmuller = {
+			set_character_flag = minister_AUS
+		}
+		activate_advisor = AUS_alexander_spitzmuller
+	}
+}
+country_event = {
+	id = ww1_austriahungary.252
+	title = ww1_austriahungary.252.t
+	desc = ww1_austriahungary.252.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { #appoint clam
+		name = ww1_austriahungary.252.a
+		AUS_fire_minister_advisor = yes
+		set_global_flag = AUS_heinrich_minister
+		AUS_heinrich_clam_martinic = {
+			set_character_flag = minister_AUS
+		}
+		activate_advisor = AUS_heinrich_clam_martinic
+	}
+}
 #end of ww1_austriahungary
 
 add_namespace = ww1_austria_quests
