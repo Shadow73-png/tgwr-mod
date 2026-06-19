@@ -166,121 +166,24 @@ scripted_gui = {
 					has_character_flag = minister_AUS
 				}
 			}
-			##
-			#arrow0_visible = {
-			#	OR = {
-			#		check_variable = {
-			#			AUS_parliament_relations = -2
-			#		}
-			#		check_variable = {
-			#			AUS_parliament_relations > -2
-			#		}
-			#	}
-			#	check_variable = {
-			#		AUS_parliament_relations < -1.5
-			#	}
-			#}
-			#arrow1_visible = {
-			#	OR = {
-			#		check_variable = {
-			#			AUS_parliament_relations = -1.5
-			#		}
-			#		check_variable = {
-			#			AUS_parliament_relations > -1.5
-			#		}
-			#	}
-			#	check_variable = {
-			#		AUS_parliament_relations < -1
-			#	}
-			#}
-			#arrow2_visible = {
-			#	OR = {
-			#		check_variable = {
-			#			AUS_parliament_relations = -1
-			#		}
-			#		check_variable = {
-			#			AUS_parliament_relations > -1
-			#		}
-			#	}
-			#	check_variable = {
-			#		AUS_parliament_relations < -0.5
-			#	}
-			#}
-			#arrow3_visible = {
-			#	OR = {
-			#		check_variable = {
-			#			AUS_parliament_relations = -0.5
-			#		}
-			#		check_variable = {
-			#			AUS_parliament_relations > -0.5
-			#		}
-			#	}
-			#	check_variable = {
-			#		AUS_parliament_relations < 0
-			#	}
-			#}
-			#arrow4_visible = {
-			#	OR = {
-			#		check_variable = {
-			#			AUS_parliament_relations = 0
-			#		}
-			#		check_variable = {
-			#			AUS_parliament_relations > 0
-			#		}
-			#	}
-			#	check_variable = {
-			#		AUS_parliament_relations < 0.5
-			#	}
-			#}
-			#arrow5_visible = {
-			#	OR = {
-			#		check_variable = {
-			#			AUS_parliament_relations = 0.5
-			#		}
-			#		check_variable = {
-			#			AUS_parliament_relations > 0.5
-			#		}
-			#	}
-			#	check_variable = {
-			#		AUS_parliament_relations < 1
-			#	}
-			#}
-			#arrow6_visible = {
-			#	OR = {
-			#		check_variable = {
-			#			AUS_parliament_relations = 1
-			#		}
-			#		check_variable = {
-			#			AUS_parliament_relations > 1
-			#		}
-			#	}
-			#	check_variable = {
-			#		AUS_parliament_relations < 1.5
-			#	}
-			#}
-			#arrow7_visible = {
-			#	OR = {
-			#		check_variable = {
-			#			AUS_parliament_relations = 1.5
-			#		}
-			#		check_variable = {
-			#			AUS_parliament_relations > 1.5
-			#		}
-			#	}
-			#	check_variable = {
-			#		AUS_parliament_relations < 2
-			#	}
-			#}
-			#arrow8_visible = {
-			#	OR = {
-			#		check_variable = {
-			#			AUS_parliament_relations = 2
-			#		}
-			#		check_variable = {
-			#			AUS_parliament_relations > 2
-			#		}
-			#	}
-			#}
+			AUS_big_x_marker_one_visible = {
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = AUS_imperial_council
+					}
+				}
+				OR = {
+					has_completed_focus = AUS_soft_authoritarianism
+					has_completed_focus = AUS_the_constitutionalist_dictatorship
+				}
+			}
+			AUS_big_x_marker_two_visible = {
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = AUS_imperial_council
+					}
+				}
+			}
 		}
 	}
 	der_augsleich_decision_gui = { 
