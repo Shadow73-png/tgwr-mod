@@ -150,6 +150,46 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
+		focus = {
+		id = AUS_treaty_of_lana
+		icon = GFX_focus_generic_banking
+		cost = 8
+		x = -2
+		y = 2
+		prerequisite = {
+			focus = AUS_foreign_food_aid
+		}
+		available = {
+			has_completed_focus = AUS_woo_pan_germans
+		}
+		completion_reward = {
+			CZE = {
+				country_event = {
+					id = ww1_german_austria.23
+					days = 2
+				}
+			}
+			custom_effect_tooltip = if_they_accept_newline_tt
+			effect_tooltip = {
+				custom_effect_tooltip = AUS_modify_economic_chaos
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.08
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_ep_pp_gain = 0.2
+				tooltip = political_power_gain_tt
+			}
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
 	focus = {
 		id = AUS_money_print
 		icon = GFX_focus_FRA_expand_army_budget
