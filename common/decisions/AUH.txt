@@ -2856,6 +2856,32 @@ AUH_the_imperial_council = {
 		fire_only_once = no
 		is_good = yes
 	}
+	AUS_implement_bohemian_octroi = {
+		priority = 99
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		days_mission_timeout = 180
+		available = {
+			has_completed_focus = AUS_force_through_the_bohemian_octroi
+		}
+		visible = {
+			original_tag = AUS
+		}
+		activation = {
+			always = yes
+		}
+		timeout_effect = {
+			#clam cabinet falls
+			country_event = {
+				id = ww1_austriahungary.253
+				days = 1
+			}
+		}
+		fire_only_once = no
+		is_good = no
+	}
 	AUS_king_intervention = {
 		priority = 99
 		icon = GFX_decision_generic_ignite_civil_war

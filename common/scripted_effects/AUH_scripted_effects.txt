@@ -2743,7 +2743,7 @@ AUS_fire_minister_advisor = {
 		deactivate_advisor = AUS_heinrich_clam_martinic
 		deactivate_advisor = AUH_franz_conrad_von_hotzendorf_mp
 		deactivate_advisor = AUS_alexander_spitzmuller
-
+		deactivate_advisor = AUS_ernst_seidler_von_feuchtenegg
 		#reset minister relations
 		set_variable = {
 			AUS_parliament_relations = 0
@@ -4026,4 +4026,52 @@ AUH_spawn_galicia_effect = {
 		end_civil_wars = yes
 		end_wars = no
 	}
+}
+
+AUS_german_austria_effect = {
+	set_country_flag = AUS_german_austria
+		hidden_effect = {
+			remove_dynamic_modifier = {
+				modifier = AUS_economic_patchwork
+			}
+			remove_dynamic_modifier = {
+				modifier = AUS_state_of_the_realm
+			}
+			remove_dynamic_modifier = {
+				modifier = AUS_state_of_the_realm_real
+			}
+			remove_dynamic_modifier = {
+				modifier = AUS_multiethnic_army
+			}
+			set_variable = { AUS_EP_consumer_goods = 0.8 }
+			set_variable = { AUS_EP_prod_eff_growth = -0.2 }
+			set_variable = { AUS_EP_prod_eff_cap = -0.2 }
+			set_variable = { AUS_EP_stab = -0.5 }
+			set_variable = { AUS_EP_infra = -0.1}
+			set_variable = { AUS_EP_factory_output = 0 }
+			set_variable = { AUS_ep_research_speed = 0 }
+			set_variable = { AUS_ep_construction_speed = -0.2 }
+			set_variable = { AUS_ep_mil_speed = 0 }
+			set_variable = { AUS_ep_civ_speed = 0 }
+			set_variable = { AUS_ep_bonus_res = 0 }
+			set_variable = { AUS_EP_trade_ai_chance = 0 }
+			set_variable = { AUS_ep_local_resource = 0 }
+			set_variable = { AUS_ep_production_factory_start_efficiency_factor = 0 }
+			set_variable = { AUS_ep_line_change_production_efficiency_factor = 0 }
+			set_variable = {
+				AUS_ep_pp_gain = -1
+			}
+			add_dynamic_modifier = {
+				modifier = AUS_economic_chaos
+			}
+			add_ideas = AUS_mass_starvation
+			add_popularity = {
+				ideology = communism
+				popularity = 0.35
+			}
+		}
+		
+		load_focus_tree = austria_tree_g
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = AUS_all_good_things_come_to_an_end
 }
