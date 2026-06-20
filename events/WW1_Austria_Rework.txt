@@ -6715,6 +6715,23 @@ country_event = {
 		activate_advisor = AUS_heinrich_clam_martinic
 	}
 }
+#failed to get bohemian octroi through, clam falls
+country_event = {
+	id = ww1_austriahungary.253
+	title = ww1_austriahungary.253.t
+	desc = ww1_austriahungary.253.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { #appoint clam
+		name = ww1_austriahungary.253.a
+		AUS_fire_minister_advisor = yes
+		set_global_flag = AUS_feuchtenegg_minister
+		AUS_ernst_seidler_von_feuchtenegg = {
+			set_character_flag = minister_AUS
+		}
+		activate_advisor = AUS_ernst_seidler_von_feuchtenegg
+	}
+}
 #end of ww1_austriahungary
 
 add_namespace = ww1_austria_quests
