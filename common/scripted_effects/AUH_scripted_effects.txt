@@ -1775,10 +1775,17 @@ AUH_release_CZE = {
 AUH_release_HUN = {
 	hidden_effect = {
 		HUN = {
+			drop_cosmetic_tag = yes
 			delete_unit = {
 				disband = no				#to avoid hungary being too strong when at war with romania
 			}
 			load_oob = HUN_1918
+			AUS = {
+				set_autonomy = {
+					target = HUN
+					autonomy_state = autonomy_free
+				}
+			}
 			if = {
 				limit = {
 					NOT = {
@@ -1796,14 +1803,10 @@ AUH_release_HUN = {
 					communism = 24
 				}
 			}
+			leave_faction = yes
 			set_country_flag = collapse_of_austria_hungary_HUN
-			if = {
-				limit = {
-					has_cosmetic_tag = HUN_archkingdom
-				}
-				drop_cosmetic_tag = yes
-				clr_country_flag = HUN_archkingdom
-			}
+			clr_country_flag = monarchist_puppet
+			clr_country_flag = HUN_archkingdom
 			retire_character = HUN_istvan_tisza			#killed
 			remove_ideas = AUH_ww1_House_Habsburg_Lorraine
 			set_party_name = {
@@ -1811,6 +1814,7 @@ AUH_release_HUN = {
 				long_name = HUN_regency_party
 				name = HUN_regency_party
 			}
+			set_cosmetic_tag = HUN_first_hungarian_republic_pre
 			if = {
 				limit = {
 					has_character = AUH_joseph_august_von_osterreich

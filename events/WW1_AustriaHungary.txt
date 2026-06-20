@@ -8655,66 +8655,66 @@ news_event = {
 
 # AUSTRIA LOST GREAT WAR - HUNGARY LEAVES
 # Historical : hungary leave the ship
-country_event = {
-	id = ww1_auh.171
-	title = ww1_auh.171.t
-	desc = ww1_auh.171.d
-	picture = GFX_report_event_hungary_parliament
-	is_triggered_only = yes #rework make this being trigger by event ww1_auh.219
-	immediate = {
-		set_country_flag = collapse_of_austria_hungary_HUN
-		hidden_effect = {
-			if = {
-				limit = {
-					tag = AUS
-					HUN = {
-						has_country_leader = {
-							character = HUN_sandor_wekerle
-						}
-					}
-				}
-				HUN = {
-					promote_character = HUN_janos_hadik
-				}
-			}
-		}
-	}
-	option = {
-		name = ww1_auh.171.a	# Oh my...
-		if = {
-			limit = {
-				tag = AUS
-			}
-			add_stability = -0.05
-			if = {
-				limit = {
-					OR = {
-						owns_state = 43
-						HUN = { is_subject_of = ROOT }
-					}
-				}
-				AUH_release_HUN = yes		
-			}
-			else_if = {
-				limit = {
-					HUN = {
-						OR = {
-							tag = ROOT
-							has_country_flag = great_war_winner
-						}
-					}
-				}
-				every_state = {
-					limit = {
-						state = 27
-						is_owned_or_subject_PREV_trigger = yes
-					}
-					transfer_state_to = HUN
-				}
-			}
-		}
-	}
-}
+#country_event = {
+#	id = ww1_auh.171
+#	title = ww1_auh.171.t
+#	desc = ww1_auh.171.d
+#	picture = GFX_report_event_hungary_parliament
+#	is_triggered_only = yes #rework make this being trigger by event ww1_auh.219
+#	immediate = {
+#		set_country_flag = collapse_of_austria_hungary_HUN
+#		hidden_effect = {
+#			if = {
+#				limit = {
+#					tag = AUS
+#					HUN = {
+#						has_country_leader = {
+#							character = HUN_sandor_wekerle
+#						}
+#					}
+#				}
+#				HUN = {
+#					promote_character = HUN_janos_hadik
+#				}
+#			}
+#		}
+#	}
+#	option = {
+#		name = ww1_auh.171.a	# Oh my...
+#		if = {
+#			limit = {
+#				tag = AUS
+#			}
+#			add_stability = -0.05
+#			if = {
+#				limit = {
+#					OR = {
+#						owns_state = 43
+#						HUN = { is_subject_of = ROOT }
+#					}
+#				}
+#				AUH_release_HUN = yes		
+#			}
+#			else_if = {
+#				limit = {
+#					HUN = {
+#						OR = {
+#							tag = ROOT
+#							has_country_flag = great_war_winner
+#						}
+#					}
+#				}
+#				every_state = {
+#					limit = {
+#						state = 27
+#						is_owned_or_subject_PREV_trigger = yes
+#					}
+#					transfer_state_to = HUN
+#				}
+#			}
+#		}
+#	}
+#}
 
 # Historical : stability is too low and czechia join the allies
 country_event = {
@@ -10846,33 +10846,33 @@ country_event = {
 	}
 }
 # romania asks for bukovina
-country_event = {
-	id = ww1_auh.214
-	title = ww1_auh.214.t
-	desc = ww1_auh.214.d	
-	is_triggered_only = yes
-	option = {
-		name = ww1_auh.214.a
-		add_political_power = -150
-		80 = {
-		transfer_state_to = ROM	
-		}
-		GER = { add_to_faction = ROM}
-		ai_chance = {
-			base = 30
-		}
-	}
-	option = {
-		name = ww1_auh.214.b
-		GER = {
-			country_event = ww1_germany.173
-		}
-		ai_chance = {
-			base = 70
-		}	
-	}
-	
-}
+#country_event = {
+#	id = ww1_auh.214
+#	title = ww1_auh.214.t
+#	desc = ww1_auh.214.d	
+#	is_triggered_only = yes
+#	option = {
+#		name = ww1_auh.214.a
+#		add_political_power = -150
+#		80 = {
+#			transfer_state_to = ROM	
+#		}
+#		GER = { add_to_faction = ROM}
+#		ai_chance = {
+#			base = 30
+#		}
+#	}
+#	option = {
+#		name = ww1_auh.214.b
+#		GER = {
+#			country_event = ww1_germany.173
+#		}
+#		ai_chance = {
+#			base = 70
+#		}	
+#	}
+#	
+#}
 
 #austria change his economic law, so hungary does as well
 country_event = {
@@ -11039,172 +11039,172 @@ country_event = {
 }
 
 #karl manifesto in hungary
-country_event = {
-	id = ww1_auh.218
-	title = ww1_auh.218.t
-	desc = ww1_auh.218.d
-	picture = GFX_report_event_karl_i_coronation
-	trigger = {
-		OR = {
-			tag = AUS
-			tag = HUN
-		}
-		AUS = {
-			OR = {
-				AND = {
-					has_war = yes
-					has_idea = AUH_house_of_cards
-					has_stability < 0.09
-				}
-				AND = {
-					has_country_flag = great_war_loser
-				}
-			}
-		}
-		HUN = {
-			is_subject_of = AUS
-			has_idea = HUN_ausgleich
-			NOT = {
-				has_autonomy_state = autonomy_tgwr_personal_union
-			}
-		}
-		NOT = {
-			has_country_flag = hungary_abolish_ausgleich
-		}
-	}
-	mean_time_to_happen = {
-		days = 7
-	}
-	immediate = {
-		hidden_effect = {
-			set_country_flag = hungary_abolish_ausgleich
-			if = {
-				limit = {
-					tag = HUN
-					has_idea = HUN_ausgleich
-					NOT = {
-						has_autonomy_state = autonomy_tgwr_personal_union
-					}
-				}
-				remove_ideas = HUN_ausgleich
-				get_current_government_type = yes
-				OVERLORD = {
-					set_autonomy = {
-						target = ROOT
-						autonomous_state = autonomy_tgwr_personal_union
-						end_wars = no
-						end_civil_wars = no
-					}
-				}
-				restore_previous_government_type = yes
-			}
-		}
-		
-	}
-	option = {
-		name = ww1_auh.218.a
-		trigger = {
-			tag = HUN
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_autonomy_state = autonomy_tgwr_personal_union
-				}
-			}
-			effect_tooltip = {
-				remove_ideas = HUN_ausgleich
-				OVERLORD = {
-					set_autonomy = {
-						target = ROOT
-						autonomous_state = autonomy_tgwr_personal_union
-						end_wars = no
-						end_civil_wars = no
-					}
-				}
-			}
-		}
-		AUS = {
-			AUH_joseph_august_von_osterreich = {
-				set_nationality = HUN
-				promote_leader = yes
-				set_character_name = HUN_joseph_august
-			}
-		}
-		country_event = {
-			id = ww1_auh.219
-			days = 4
-		}
-	}
-	option = {
-		name = ww1_auh.218.b
-		trigger = {
-			tag = AUS
-		}
-		add_political_power = -100
-		effect_tooltip = {
-			HUN = {
-				remove_ideas = HUN_ausgleich
-			}		
-			set_autonomy = {
-				target = HUN
-				autonomous_state = autonomy_tgwr_personal_union
-				end_wars = no
-				end_civil_wars = no
-			}
-		}
-		custom_effect_tooltip = AUH_hungarian_army_leave
-		transfer_units_fraction= {
-			target = HUN
-			size = 0.35
-			target_organization = 1
-			source_organization = 1
-			navy_ratio = 0
-			keep_unit_leaders_trigger = {
-				always = yes
-			}
-		}
-		hidden_effect = {
-			HUN = {
-				delete_unit = {}
-				load_oob = HUN_1910
-			}
-		}
-	}
-}
+#country_event = {
+#	id = ww1_auh.218
+#	title = ww1_auh.218.t
+#	desc = ww1_auh.218.d
+#	picture = GFX_report_event_karl_i_coronation
+#	trigger = {
+#		OR = {
+#			tag = AUS
+#			tag = HUN
+#		}
+#		AUS = {
+#			OR = {
+#				AND = {
+#					has_war = yes
+#					has_idea = AUH_house_of_cards
+#					has_stability < 0.09
+#				}
+#				AND = {
+#					has_country_flag = great_war_loser
+#				}
+#			}
+#		}
+#		HUN = {
+#			is_subject_of = AUS
+#			has_idea = HUN_ausgleich
+#			NOT = {
+#				has_autonomy_state = autonomy_tgwr_personal_union
+#			}
+#		}
+#		NOT = {
+#			has_country_flag = hungary_abolish_ausgleich
+#		}
+#	}
+#	mean_time_to_happen = {
+#		days = 7
+#	}
+#	immediate = {
+#		hidden_effect = {
+#			set_country_flag = hungary_abolish_ausgleich
+#			if = {
+#				limit = {
+#					tag = HUN
+#					has_idea = HUN_ausgleich
+#					NOT = {
+#						has_autonomy_state = autonomy_tgwr_personal_union
+#					}
+#				}
+#				remove_ideas = HUN_ausgleich
+#				get_current_government_type = yes
+#				OVERLORD = {
+#					set_autonomy = {
+#						target = ROOT
+#						autonomous_state = autonomy_tgwr_personal_union
+#						end_wars = no
+#						end_civil_wars = no
+#					}
+#				}
+#				restore_previous_government_type = yes
+#			}
+#		}
+#		
+#	}
+#	option = {
+#		name = ww1_auh.218.a
+#		trigger = {
+#			tag = HUN
+#		}
+#		if = {
+#			limit = {
+#				NOT = {
+#					has_autonomy_state = autonomy_tgwr_personal_union
+#				}
+#			}
+#			effect_tooltip = {
+#				remove_ideas = HUN_ausgleich
+#				OVERLORD = {
+#					set_autonomy = {
+#						target = ROOT
+#						autonomous_state = autonomy_tgwr_personal_union
+#						end_wars = no
+#						end_civil_wars = no
+#					}
+#				}
+#			}
+#		}
+#		AUS = {
+#			AUH_joseph_august_von_osterreich = {
+#				set_nationality = HUN
+#				promote_leader = yes
+#				set_character_name = HUN_joseph_august
+#			}
+#		}
+#		#country_event = {
+#		#	id = ww1_auh.219
+#		#	days = 4
+#		#}
+#	}
+#	option = {
+#		name = ww1_auh.218.b
+#		trigger = {
+#			tag = AUS
+#		}
+#		add_political_power = -100
+#		effect_tooltip = {
+#			HUN = {
+#				remove_ideas = HUN_ausgleich
+#			}		
+#			set_autonomy = {
+#				target = HUN
+#				autonomous_state = autonomy_tgwr_personal_union
+#				end_wars = no
+#				end_civil_wars = no
+#			}
+#		}
+#		custom_effect_tooltip = AUH_hungarian_army_leave
+#		transfer_units_fraction= {
+#			target = HUN
+#			size = 0.35
+#			target_organization = 1
+#			source_organization = 1
+#			navy_ratio = 0
+#			keep_unit_leaders_trigger = {
+#				always = yes
+#			}
+#		}
+#		hidden_effect = {
+#			HUN = {
+#				delete_unit = {}
+#				load_oob = HUN_1910
+#			}
+#		}
+#	}
+#}
 
 
 #
-country_event = {
-	id = ww1_auh.219
-	title = ww1_auh.219.t
-	desc = ww1_auh.219.d
-	picture = GFX_report_event_karl_i_coronation
-	is_triggered_only = yes
-	option = {
-		name = ww1_auh.218.a
-		AUH_joseph_august_von_osterreich = {
-			promote_character = semi_constitutional_monarchy
-		}
-		set_party_name = {
-			ideology = neutrality
-			long_name = HUN_regency_party
-			name = HUN_regency_party
-		}		
-		every_country = {
-			limit = {
-				OR = {
-					tag = AUS
-					tag = HUN
-				}
-			}
-			country_event = {
-				id = ww1_auh.171
-				days = 6
-			}
-		}
-	}
-}
+#country_event = {
+#	id = ww1_auh.219
+#	title = ww1_auh.219.t
+#	desc = ww1_auh.219.d
+#	picture = GFX_report_event_karl_i_coronation
+#	is_triggered_only = yes
+#	option = {
+#		name = ww1_auh.218.a
+#		AUH_joseph_august_von_osterreich = {
+#			promote_character = semi_constitutional_monarchy
+#		}
+#		set_party_name = {
+#			ideology = neutrality
+#			long_name = HUN_regency_party
+#			name = HUN_regency_party
+#		}		
+#		every_country = {
+#			limit = {
+#				OR = {
+#					tag = AUS
+#					tag = HUN
+#				}
+#			}
+#			#country_event = {
+#			#	id = ww1_auh.171
+#			#	days = 6
+#			#}
+#		}
+#	}
+#}
 
 #germany wants ask poland (bad english)
 country_event = {
@@ -11357,104 +11357,104 @@ news_event = {
 
 
 #karl manifesto in hungary if hungary doesn't exist
-country_event = {
-	id = ww1_auh.223
-	title = ww1_auh.218.t
-	desc = ww1_auh.218.d
-	picture = GFX_report_event_karl_i_coronation
-	trigger = {
-		tag = AUS
-		OR = {
-			AND = {
-				has_war = yes
-				has_idea = AUH_house_of_cards
-				has_stability < 0.09
-			}
-			AND = {
-				has_country_flag = great_war_loser
-			}
-		}
-		NOT = {
-			has_country_flag = collapse_of_austria_hungary_HUN
-			country_exists = HUN
-			has_country_flag = hungary_rebel_another_time
-		}
-		any_owned_state = {
-			is_core_of = HUN
-		}
-	}
-	mean_time_to_happen = {
-		days = 7
-	}
-	immediate = {
-		set_country_flag = hungary_abolish_ausgleich
-		set_country_flag = hungary_rebel_another_time
-		AUS = {
-			release = HUN
-			every_owned_state = {
-				limit = {
-					OR = {
-						state = 70
-						state = 71
-						state = 664
-						state = 1020
-						is_core_of = HUN
-						is_core_of = ROM
-					}
-				}
-				transfer_state_to = HUN
-				set_state_flag = dont_transfer
-			}
-		}
-		if = {
-			limit = {
-				tag = HUN
-			}
-			remove_ideas = HUN_ausgleich
-			get_current_government_type = yes
-			AUS = {
-				set_autonomy = {
-					target = ROOT
-					autonomous_state = autonomy_tgwr_personal_union
-					end_wars = no
-					end_civil_wars = no
-				}
-			}
-			restore_previous_government_type = yes
-		}
-		hidden_effect = {
-			AUS = {
-				AUH_joseph_august_von_osterreich = {
-					set_nationality = HUN
-					promote_leader = yes
-					set_character_name = HUN_joseph_august
-				}
-			}
-			country_event = {
-				id = ww1_auh.219
-				days = 4
-			}
-		}
-	}
-	option = {
-		name = ww1_auh.218.b
-		trigger = {
-			tag = AUS
-		}
-		add_political_power = -100
-		custom_effect_tooltip = AUH_hungarian_army_leave
-		transfer_units_fraction= {
-			target = HUN
-			size = 0.35
-			target_organization = 1
-			source_organization = 1
-			navy_ratio = 0
-			keep_unit_leaders_trigger = {
-				always = yes
-			}
-		}
-	}
-}
+#country_event = {
+#	id = ww1_auh.223
+#	title = ww1_auh.218.t
+#	desc = ww1_auh.218.d
+#	picture = GFX_report_event_karl_i_coronation
+#	trigger = {
+#		tag = AUS
+#		OR = {
+#			AND = {
+#				has_war = yes
+#				has_idea = AUH_house_of_cards
+#				has_stability < 0.09
+#			}
+#			AND = {
+#				has_country_flag = great_war_loser
+#			}
+#		}
+#		NOT = {
+#			has_country_flag = collapse_of_austria_hungary_HUN
+#			country_exists = HUN
+#			has_country_flag = hungary_rebel_another_time
+#		}
+#		any_owned_state = {
+#			is_core_of = HUN
+#		}
+#	}
+#	mean_time_to_happen = {
+#		days = 7
+#	}
+#	immediate = {
+#		set_country_flag = hungary_abolish_ausgleich
+#		set_country_flag = hungary_rebel_another_time
+#		AUS = {
+#			release = HUN
+#			every_owned_state = {
+#				limit = {
+#					OR = {
+#						state = 70
+#						state = 71
+#						state = 664
+#						state = 1020
+#						is_core_of = HUN
+#						is_core_of = ROM
+#					}
+#				}
+#				transfer_state_to = HUN
+#				set_state_flag = dont_transfer
+#			}
+#		}
+#		if = {
+#			limit = {
+#				tag = HUN
+#			}
+#			remove_ideas = HUN_ausgleich
+#			get_current_government_type = yes
+#			AUS = {
+#				set_autonomy = {
+#					target = ROOT
+#					autonomous_state = autonomy_tgwr_personal_union
+#					end_wars = no
+#					end_civil_wars = no
+#				}
+#			}
+#			restore_previous_government_type = yes
+#		}
+#		hidden_effect = {
+#			AUS = {
+#				AUH_joseph_august_von_osterreich = {
+#					set_nationality = HUN
+#					promote_leader = yes
+#					set_character_name = HUN_joseph_august
+#				}
+#			}
+#			country_event = {
+#				id = ww1_auh.219
+#				days = 4
+#			}
+#		}
+#	}
+#	option = {
+#		name = ww1_auh.218.b
+#		trigger = {
+#			tag = AUS
+#		}
+#		add_political_power = -100
+#		custom_effect_tooltip = AUH_hungarian_army_leave
+#		transfer_units_fraction= {
+#			target = HUN
+#			size = 0.35
+#			target_organization = 1
+#			source_organization = 1
+#			navy_ratio = 0
+#			keep_unit_leaders_trigger = {
+#				always = yes
+#			}
+#		}
+#	}
+#}
 
 # A-Historical : f48p hungary leave the ship
 #country_event = {

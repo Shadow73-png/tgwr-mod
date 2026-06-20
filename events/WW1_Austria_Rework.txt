@@ -9040,9 +9040,22 @@ country_event = {
 			activate_mission = AUS_polish_council
 			activate_mission = AUS_bukovina_council
 			activate_mission = AUS_czech_council
-			country_event = {
-				id = ww1_austriahungary_collapse.4
-				days = 11
+			if = {
+				limit = {
+					HUN = {
+						exists = yes
+					}
+				}
+				country_event = {
+					id = ww1_austriahungary_collapse.4 #historically: 16 October
+					days = 11
+				}
+				else = {
+					country_event = {
+						id = ww1_auh.223
+						days = 11
+					}
+				}
 			}
 			country_event = {
 				id = ww1_austriahungary_collapse.6
@@ -9130,6 +9143,12 @@ country_event = {
 	}
 	option = {
 		name = ww1_austriahungary_collapse.4.a
+		effect_tooltip = {
+			country_event = {
+				id = ww1_austriahungary_collapse.18
+				days = 2
+			}
+		}
 	}
 }
 #bukovina council
@@ -9236,6 +9255,14 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_collapse.10.a
 		hidden_effect = {
+			if = {
+				limit = {
+					HUN = {
+						owns_state = 208
+					}
+				}
+				transfer_state_to = CRO
+			}
 			every_state = {
 				limit = {
 					OR = {
@@ -9243,6 +9270,7 @@ country_event = {
 						is_owned_by = AUS
 					}
 					state = 109
+					
 				}
 				CRO = {
 					safe_transfer_state_to = yes
@@ -9353,9 +9381,17 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_collapse.16.a
 		AUS_german_austria_effect = yes
+		AUH_joseph_august_von_osterreich = {
+			promote_character = semi_constitutional_monarchy
+		}
+		set_party_name = {
+			ideology = neutrality
+			long_name = HUN_regency_party
+			name = HUN_regency_party
+		}
 	}
 }
-#karl manifesto:hungary
+#karl manifesto:hungary: collapse
 country_event = {
 	id = ww1_austriahungary_collapse.17
 	title = ww1_austriahungary_collapse.17.t
@@ -9363,9 +9399,222 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			set_country_flag = hungary_abolish_ausgleich
+			if = {
+				limit = {
+					has_idea = HUN_ausgleich
+					NOT = {
+						has_autonomy_state = autonomy_tgwr_personal_union
+					}
+				}
+				remove_ideas = HUN_ausgleich
+			}
+		}
+	}
 	option = {
 		name = ww1_austriahungary_collapse.17.a
+		effect_tooltip = {
+			if = {
+				limit = {
+					has_idea = HUN_ausgleich
+					NOT = {
+						has_autonomy_state = autonomy_tgwr_personal_union
+					}
+				}
+				remove_ideas = HUN_ausgleich
+			}
+		}
+		AUS = {
+			country_event = {
+				id = ww1_austriahungary_collapse.18
+				days = 1
+			}
+		}
 
+	}
+}
+#Hungarian Termination of Real Union
+country_event = {
+	id = ww1_austriahungary_collapse.18
+	title = ww1_austriahungary_collapse.18.t
+	desc = ww1_austriahungary_collapse.18.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_collapse.18.a
+		HUN = {
+			clr_country_flag = monarchist_puppet
+		}
+		get_current_government_type = yes
+		set_autonomy = {
+			target = HUN
+			autonomy_state = autonomy_satellite
+		}
+		restore_previous_government_type = yes
+		country_event = {
+			id = ww1_austriahungary_collapse.19
+			days = 6
+		}
+		HUN = {
+			country_event = {
+				id = ww1_austriahungary_collapse.19
+				days = 6
+			}
+		}
+	}
+}
+#Aster Revolution
+country_event = {
+	id = ww1_austriahungary_collapse.19
+	title = ww1_austriahungary_collapse.19.t
+	desc = ww1_austriahungary_collapse.19.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		set_country_flag = collapse_of_austria_hungary_HUN
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = HUN
+					HUN = {
+						has_country_leader = {
+							character = HUN_sandor_wekerle
+						}
+					}
+				}
+				promote_character = HUN_janos_hadik
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary_collapse.19.a
+		if = {
+			limit = {
+				tag = AUS
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 43
+						HUN = { is_subject_of = ROOT }
+					}
+				}
+				AUH_release_HUN = yes	
+			}
+			else_if = {
+				limit = {
+					HUN = {
+						OR = {
+							tag = ROOT
+							has_country_flag = great_war_winner
+						}
+					}
+				}
+				every_state = {
+					limit = {
+						state = 27
+						is_owned_or_subject_PREV_trigger = yes
+					}
+					transfer_state_to = HUN
+				}
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary_collapse.19.b
+		trigger = {
+			tag = HUN
+		}
+		effect_tooltip = {
+			if = {
+				limit = {
+					tag = HUN
+					HUN = {
+						has_country_leader = {
+							character = HUN_sandor_wekerle
+						}
+					}
+				}
+				promote_character = HUN_janos_hadik
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 43
+						HUN = { is_subject_of = AUS }
+					}
+				}
+				AUH_release_HUN = yes		
+			}
+			else_if = {
+				limit = {
+					HUN = {
+						OR = {
+							tag = ROOT
+							has_country_flag = great_war_winner
+						}
+					}
+				}
+				every_state = {
+					limit = {
+						state = 27
+						is_owned_or_subject_PREV_trigger = yes
+					}
+					transfer_state_to = HUN
+				}
+			}
+		}
+	}
+}
+#karl manifesto in hungary if hungary doesn't exist
+country_event = {
+	id = ww1_austriahungary_collapse.20
+	title = ww1_austriahungary_collapse.20.t
+	desc = ww1_austriahungary_collapse.20.d
+	picture = GFX_report_event_karl_i_coronation
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = hungary_abolish_ausgleich
+		set_country_flag = hungary_rebel_another_time
+		AUS = {
+			release = HUN
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 70
+						state = 71
+						state = 664
+						state = 1020
+						is_core_of = HUN
+						is_core_of = ROM
+					}
+				}
+				transfer_state_to = HUN
+				set_state_flag = dont_transfer
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary_collapse.20.a
+		trigger = {
+			tag = AUS
+		}
+		add_political_power = -100
+		custom_effect_tooltip = AUH_hungarian_army_leave
+		transfer_units_fraction= {
+			target = HUN
+			size = 0.35
+			target_organization = 1
+			source_organization = 1
+			navy_ratio = 0
+			keep_unit_leaders_trigger = {
+				always = yes
+			}
+		}
 	}
 }
 
