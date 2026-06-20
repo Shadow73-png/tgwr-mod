@@ -178,7 +178,7 @@ RUS_fight_TUR = {
 	ai_strategy = {
 		type = front_control
 		country_trigger = {
-			has_country_flag = PER_gendarmerie_flag
+			has_country_flag = PER_defense_committee_flag
 			has_war_with = FROM
 		}
 		ratio = 0.1
@@ -189,7 +189,7 @@ RUS_fight_TUR = {
 	ai_strategy = {
 		type = front_unit_request
 		country_trigger = {
-			has_country_flag = PER_gendarmerie_flag
+			has_country_flag = PER_defense_committee_flag
 			has_war_with = FROM
 			is_ai = yes
 		}
@@ -199,6 +199,44 @@ RUS_fight_TUR = {
 		type = dont_defend_ally_borders
 		id = ARB
 		value = 1
+	}
+}
+
+RUS_special_military_operation_in_PER = {
+	allowed = {
+		tag = RUS
+	}
+	enable = {
+		OR = {
+			AND = {
+				focus_progress = {
+					focus = RUS_ultimatum_to_persia
+					progress > 0
+				}
+				NOT = {
+					has_completed_focus = RUS_ultimatum_to_persia
+				}
+			}
+			has_active_mission = RUS_secure_tehran
+			has_active_mission = RUS_invasion_of_persia
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = prepare_for_war
+		id = PER
+		value = 1
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = PER
+		value = 50
+	}
+	ai_strategy = {
+		type = front_control
+		tag = PER
+		execution_type = rush
+		execute_order = yes
 	}
 }
 
@@ -592,6 +630,10 @@ RUS_varshava_backline = {
 		131 = { # why hold varshava if the front is behind
 			is_controlled_by_ROOT_or_subject = yes
 		}
+		war_length_with = {
+			tag = GER
+			months < 6
+		}
 	}
 	abort = {
 		GER = {
@@ -802,6 +844,10 @@ RUS_osowiec_fortress = {
 			is_controlled_by_ROOT_or_subject = yes
 		}
 		controls_province = 3392
+		war_length_with = {
+			tag = GER
+			months < 12
+		}
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
@@ -880,6 +926,10 @@ RUS_kovno_backline = {
 		}
 		189 = {
 			is_controlled_by_ROOT_or_subject = yes
+		}
+		war_length_with = {
+			tag = GER
+			months < 12
 		}
 	}
 	abort_when_not_enabled = yes
