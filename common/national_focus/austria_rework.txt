@@ -7514,6 +7514,49 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = AUS_premptive_strike
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		cost = 4
+		x = 5
+		y = 4
+		allow_branch = {
+			has_focus_tree = austria_tree
+		}
+		prerequisite = {
+			focus = AUS_suppress_the_terrorists
+		}
+		prerequisite = {
+			focus = AUS_enforce_war_requirement_act_on_bosnia
+		}
+		relative_position_id = AUS_condemn_ottomans
+		available = {
+			OR = {
+				date > 1915.1.1
+				AND = {
+					has_completed_focus = AUS_implement_conrads_army_structure
+					OR = {
+						threat > 0.16
+						has_war_support = 0.5
+					}
+				}
+			}
+		}
+		
+		completion_reward = {
+			declare_war_on = {
+				target = SER
+				type = annex_everything
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_LOYALTY
+		}
+	}
+	focus = {
 		id = AUS_pursue_balkan_peace
 		icon = GFX_focus_balkan_league_defense
 		cost = 4
