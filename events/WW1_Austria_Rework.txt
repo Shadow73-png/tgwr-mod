@@ -9093,6 +9093,7 @@ country_event = {
 				id = ww1_austriahungary_collapse.16
 				days = 41
 			}
+			# galicia collapse ww1_auh.172
 		}
 	}
 	fire_only_once = yes
@@ -9137,7 +9138,10 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			HUN = {
-				country_event = ww1_austriahungary_collapse.17
+				country_event = {
+					id = ww1_austriahungary_collapse.17
+					days = 2
+				}
 			}
 		}
 	}
@@ -9195,13 +9199,13 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = {
-		name = ww1_austriahungary_collapse.8.a
-		AUH_release_CZE = yes
-		CZE = {
-			complete_national_focus = CZE_birth
-		}
+	immediate = {
+		set_country_flag = collapse_of_austria_hungary_CZE
 		hidden_effect = {
+			AUH_release_CZE = yes
+			CZE = {
+				complete_national_focus = CZE_birth
+			}
 			every_state = {
 				limit = {
 					state = 9
@@ -9212,22 +9216,18 @@ country_event = {
 		}
 	}
 	option = {
+		name = ww1_austriahungary_collapse.8.a
+		effect_tooltip = {
+			AUH_release_CZE = yes
+		}
+	}
+	option = {
 		name = ww1_austriahungary_collapse.8.b
-		AUH_release_CZE = yes
-		hidden_effect = {
-			every_state = {
-				limit = {
-					state = 9
-					is_owned_by = AUS
-				}
-				transfer_state_to = CZE
-			}
+		effect_tooltip = {
+			AUH_release_CZE = yes
 		}
 		CZE = {
 			change_tag_from = AUS
-		}
-		CZE = {
-			complete_national_focus = CZE_birth
 		}
 	}
 		
@@ -9252,8 +9252,8 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = {
-		name = ww1_austriahungary_collapse.10.a
+	immediate = {
+		set_country_flag = collapse_of_austria_hungary_YUG
 		hidden_effect = {
 			if = {
 				limit = {
@@ -9261,7 +9261,9 @@ country_event = {
 						owns_state = 208
 					}
 				}
-				transfer_state_to = CRO
+				CRO = {
+					transfer_state = 208
+				}
 			}
 			every_state = {
 				limit = {
@@ -9276,18 +9278,7 @@ country_event = {
 					safe_transfer_state_to = yes
 				}
 			}
-		}
-		AUH_release_CRO_state_of_croats_and_slovenes = yes
-		hidden_effect = {
-			HUN = {
-				if = {
-					limit = {
-						has_cosmetic_tag = HUN_archkingdom
-					}
-					drop_cosmetic_tag = yes
-					clr_country_flag = HUN_archkingdom
-				}
-			}
+			AUH_release_CRO_state_of_croats_and_slovenes = yes
 			every_state = {
 				limit = {
 					OR = {
@@ -9307,6 +9298,20 @@ country_event = {
 					safe_transfer_state_to = yes
 				}
 			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary_collapse.10.a
+		effect_tooltip = {
+			AUH_release_CRO_state_of_croats_and_slovenes = yes
+		}
+	}
+	option = {
+		effect_tooltip = {
+			AUH_release_CRO_state_of_croats_and_slovenes = yes
+		}
+		CRO = {
+			change_tag_from = AUS
 		}
 	}
 }
