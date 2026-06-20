@@ -508,10 +508,12 @@ peace_deals = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = SOV
 				is_subject = no
 				has_war_with = ROOT
 			}
+		}
+		targets = {
+			SOV
 		}
 		# target_root_trigger = {
 		# 	has_war_with = FROM
@@ -546,10 +548,12 @@ peace_deals = {
 		}
 		target_trigger = {
 			FROM = {
-				tag = UKR
 				is_subject = no
 				has_war_with = ROOT
 			}
+		}
+		targets = {
+			UKR
 		}
 		available = {
 			surrender_progress > 0.15
@@ -740,11 +744,7 @@ operations = {
 		fire_only_once = yes
 		cost = 0
 		days_remove = 30
-		target_trigger = {
-			FROM = {
-				owns_state = 97
-			}
-		}
+		target_array = 97.owner
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -847,6 +847,8 @@ operations = {
 			NOT = {
 				has_border_war_with = FROM
 			}
+		}
+		target_root_trigger = {
 			has_completed_focus = POL_old_borders
 		}
 		highlight_states = {
@@ -857,11 +859,7 @@ operations = {
 		fire_only_once = yes
 		cost = 0
 		days_remove = 30
-		target_trigger = {
-			FROM = {
-				owns_state = 773
-			}
-		}
+		target_array = 773.owner
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -953,10 +951,8 @@ operations = {
 		fire_only_once = yes
 		cost = 50
 		days_remove = 10
-		target_trigger = {
-			FROM = {
-				tag = LIT
-			}
+		targets = {
+			LIT
 		}
 		ai_will_do = {
 			factor = 100
