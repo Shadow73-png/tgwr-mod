@@ -7440,26 +7440,6 @@ country_event = {
 	}
 	option = {
 		name = ww1_austriahungary_war.22.a
-		else = {
-			add_stability = -0.1
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_consumer_goods = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
-				AUS_EP_prod_eff_cap = -0.1
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			add_to_variable = {
-				AUS_EP_prod_eff_growth = -0.1
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
-			add_to_variable = {
-				AUS_EP_factory_output = -0.1
-				tooltip = industrial_capacity_factory_tt
-			}
-		}
 		if = {
 			limit = {
 				has_completed_focus = AUS_handle_food_issue
@@ -7480,6 +7460,26 @@ country_event = {
 			}
 			add_to_variable = {
 				AUS_EP_factory_output = -0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+		}
+		else = {
+			add_stability = -0.1
+			custom_effect_tooltip = AUS_modify_eco.tt
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_prod_eff_cap = -0.1
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_prod_eff_growth = -0.1
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			add_to_variable = {
+				AUS_EP_factory_output = -0.1
 				tooltip = industrial_capacity_factory_tt
 			}
 		}
@@ -9853,6 +9853,14 @@ country_event = {
 	option = {
 		name =  ww1_german_austria.15.a
 		set_country_flag = AUS_mayr_gov
+		add_country_leader_role = {
+			character = AUS_michael_mayr
+			promote_leader = yes
+			country_leader = {
+				ideology = conservatism #change
+       			expire = "1965.1.1.1"
+			}
+		}
 	}
 }
 #consitution
