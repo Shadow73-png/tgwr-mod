@@ -177,6 +177,7 @@ focus_tree = {
 				AUS_ep_pp_gain = 1
 				tooltip = political_power_gain_tt
 			}
+			activate_mission = AUS_inflation_iw
 		}
 		ai_will_do = {
 			base = 1
@@ -203,6 +204,27 @@ focus_tree = {
 		
 		}
 		completion_reward = {
+			custom_effect_tooltip = AUS_ur_kinda_dumb
+			custom_effect_tooltip = empty_space_tt
+			add_stability = -0.1
+			add_political_power = -100
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}
+				custom_effect_tooltip = AUS_modify_economic_chaos
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.4
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_ep_pp_gain = 1
+				tooltip = political_power_gain_tt
+			}
+				add_timed_idea = {
+				idea = ITA_less_spending
+				days = 365
+			}
 		}
 		ai_will_do = {
 			base = 1
