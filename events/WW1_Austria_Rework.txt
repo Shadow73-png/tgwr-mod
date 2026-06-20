@@ -9352,11 +9352,21 @@ country_event = {
 			is_owned_and_controlled_by = AUS
 		}
 	}
+	immediate = {
+		hidden_effect = {
+			1269 = {
+				add_core_of = ZKP
+				transfer_state_to = ZKP
+			}
+		}
+	}
 	option = {
 		name = ww1_austriahungary_collapse.13.a
-		1269 = {
-			add_core_of = ZKP
-			transfer_state_to = ZKP
+		effect_tooltip = {
+			1269 = {
+				add_core_of = ZKP
+				transfer_state_to = ZKP
+			}
 		}
 	}
 }
@@ -9368,11 +9378,26 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = yes
+	trigger = {
+		1270 = {
+			is_owned_and_controlled_by = AUS
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			1270 = {
+				add_core_of = KMR
+				transfer_state_to = KMR
+			}
+		}
+	}
 	option = {
 		name = ww1_austriahungary_collapse.14.a
-		237 = {
-			add_core_of = KMR
-			transfer_state_to = KMR
+		effect_tooltip = {
+			1270 = {
+				add_core_of = KMR
+				transfer_state_to = KMR
+			}
 		}
 	}
 	option = {
@@ -9391,12 +9416,28 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			1268 = {
+				add_core_of = TBZ
+				transfer_state_to = TBZ
+			}
+		}
+	}
+	trigger = {
+		1268 = {
+			is_owned_and_controlled_by = AUS
+		}
+	}
 	option = {
 		name = ww1_austriahungary_collapse.15.a
-		1268 = {
-			add_core_of = TBZ
-			transfer_state_to = TBZ
+		effect_tooltip = {
+			1268 = {
+				add_core_of = TBZ
+				transfer_state_to = TBZ
+			}
 		}
+		custom_effect_tooltip = that_was_not_tuff
 	}
 }
 #karl gives up authority german austria formed
@@ -9644,6 +9685,29 @@ country_event = {
 				always = yes
 			}
 		}
+	}
+}
+#karl manifesto in hungary if hungary doesn't exist
+country_event = {
+	id = ww1_austriahungary_collapse.21
+	title = ww1_austriahungary_collapse.21.t
+	desc = ww1_austriahungary_collapse.21.d
+	picture = GFX_report_event_karl_i_coronation
+	is_triggered_only = yes
+	trigger = {
+		237 = {
+			is_owned_and_controlled_by = AUS
+		}
+	}
+	immediate = {
+		237 = {
+			add_core_of = LMK
+			transfer_state_to = LMK
+		}
+	}
+	option = {
+		name = ww1_austriahungary_collapse.21.a
+		
 	}
 }
 
