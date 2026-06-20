@@ -13,6 +13,21 @@ recruit_character = ATH_meletius_metaxakis
 
 send_embargo = PAP
 
+add_opinion_modifier = {
+	target = PAP
+	modifier = ATH_great_schism
+}
+
+add_opinion_modifier = {
+	target = SER
+	modifier = ATH_protectors_of_hilandar 
+}
+
+add_opinion_modifier = {
+	target = BUL
+	modifier = ATH_bulgarian_exarchate 
+}
+
 1910.1.1 = {
 	set_politics = {
 		ruling_party = neutrality
@@ -28,6 +43,26 @@ send_embargo = PAP
 		disarmed_nation
 		isolation  
 		closed_economy
+		ATH_monastic_state
+		ATH_ottoman_garrison
+	}
+
+	every_possible_country = {
+		limit = {
+			has_orthodoxy = yes
+			NOT = { original_tag = ROOT }
+		}
+		add_opinion_modifier = {
+			target = ATH
+			modifier = ATH_spiritual_heart_of_eastern_orthodoxy 
+		}
+		ROOT = {
+			add_opinion_modifier = {
+				target = PREV
+				modifier = ATH_orhodox_country  
+			}
+		}
+
 	}
 }
 1914.1.1 = {
