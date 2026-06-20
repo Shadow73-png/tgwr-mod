@@ -9507,7 +9507,8 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_collapse.16.a
 		set_country_flag = AUS_german_austria
-		remove_dynamic_modifier = {
+		hidden_effect = {
+			remove_dynamic_modifier = {
 			modifier = AUS_economic_patchwork
 		}
 		remove_dynamic_modifier = {
@@ -9538,6 +9539,12 @@ country_event = {
 			modifier = AUS_economic_chaos
 		}
 		add_ideas = AUS_mass_starvation
+		add_popularity = {
+			ideology = communism
+			popularity = 0.35
+		}
+		}
+		
 		load_focus_tree = austria_tree_g
 		mark_focus_tree_layout_dirty = yes
 		complete_national_focus = AUS_all_good_things_come_to_an_end
