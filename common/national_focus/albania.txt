@@ -6802,6 +6802,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_revive_italian_relations
 		completion_reward = {
+			add_ideas = ALB_albanian_remigration
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -6818,6 +6819,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ALB_crown_the_ottoman_albanian
 		completion_reward = {
+			add_ideas = ALB_foreign_gendarmerie
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -12080,8 +12082,32 @@ joint_focus = {
 		trigger = { original_tag = ITA }
 	}
 	completion_reward_joint_originator = {
+		if = {
+			limit = { original_tag = ALB }
+			add_ideas = ALB_treaty_of_tirana
+		}
+		if = {
+			limit = { original_tag = ITA }
+			diplomatic_relation = {
+				country = ALB
+				relation = docking_rights
+				active = yes
+			}
+		}
 	}
 	completion_reward_joint_member = {
+		if = {
+			limit = { original_tag = ALB }
+			add_ideas = ALB_treaty_of_tirana
+		}
+		if = {
+			limit = { original_tag = ITA }
+			diplomatic_relation = {
+				country = ALB
+				relation = docking_rights
+				active = yes
+			}
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12108,8 +12134,38 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_pact_of_friendship_and_security
 	completion_reward_joint_originator = {
+		if = {
+			limit = { original_tag = ALB }
+			swap_ideas = {
+				remove_idea = ALB_treaty_of_tirana
+				add_idea = ALB_treaty_of_tirana_2
+			}
+		}
+		if = {
+			limit = { original_tag = ITA }
+			diplomatic_relation = {
+				country = ALB
+				relation = guarantee
+				active = yes
+			}
+		}
 	}
 	completion_reward_joint_member = {
+		if = {
+			limit = { original_tag = ALB }
+			swap_ideas = {
+				remove_idea = ALB_treaty_of_tirana
+				add_idea = ALB_treaty_of_tirana_2
+			}
+		}
+		if = {
+			limit = { original_tag = ITA }
+			diplomatic_relation = {
+				country = ALB
+				relation = guarantee
+				active = yes
+			}
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12135,9 +12191,83 @@ joint_focus = {
 	x = -2
 	y = 1
 	relative_position_id = ALB_treaty_of_defensive_alliance
+	available = {
+		ALB = {
+			any_controlled_state = {
+				is_core_of = ROOT
+				is_coastal = yes
+			}
+		}
+	}
 	completion_reward_joint_originator = {
+		if = {
+			limit = { original_tag = ALB }
+			random_controlled_state = {
+				limit = {
+					is_coastal = yes
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		if = {
+			limit = { original_tag = ITA }
+			custom_effect_tooltip = ITA_modify_fleet_tt
+			add_to_variable = {
+				ITA_navy_navy_max_range_factor = 0.05
+				tooltip = navy_max_range_factor_tt
+			}
+			add_to_variable = {
+				ITA_navy_repair_speed_factor = 0.1
+				tooltip = navy_repair_speed_factor_tt
+			}
+			custom_effect_tooltip = empty_space_tt
+		}
 	}
 	completion_reward_joint_member = {
+		if = {
+			limit = { original_tag = ALB }
+			random_controlled_state = {
+				limit = {
+					is_coastal = yes
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		if = {
+			limit = { original_tag = ITA }
+			custom_effect_tooltip = ITA_modify_fleet_tt
+			add_to_variable = {
+				ITA_navy_navy_max_range_factor = 0.05
+				tooltip = navy_max_range_factor_tt
+			}
+			add_to_variable = {
+				ITA_navy_repair_speed_factor = 0.1
+				tooltip = navy_repair_speed_factor_tt
+			}
+			custom_effect_tooltip = empty_space_tt
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12164,8 +12294,42 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_treaty_of_defensive_alliance
 	completion_reward_joint_originator = {
+		if = {
+			limit = { original_tag = ALB }
+			ALB = {
+				add_ideas = ALB_joint_mountaineer_corps
+				add_tech_bonus = {
+					name = AUH_prepare_westfront
+					bonus = 1
+					category = mountaineers_tech
+					uses = 1
+				}
+			}
+		}
+		if = {
+			limit = { original_tag = ITA }
+			custom_effect_tooltip = add_mountain_warfare_ALB_tt
+			hidden_effect = { set_technology = { mountain_warfare_ALB = 1 } }
+		}
 	}
 	completion_reward_joint_member = {
+		if = {
+			limit = { original_tag = ALB }
+			ALB = {
+				add_ideas = ALB_joint_mountaineer_corps
+				add_tech_bonus = {
+					name = AUH_prepare_westfront
+					bonus = 1
+					category = mountaineers_tech
+					uses = 1
+				}
+			}
+		}
+		if = {
+			limit = { original_tag = ITA }
+			custom_effect_tooltip = add_mountain_warfare_ALB_tt
+			hidden_effect = { set_technology = { mountain_warfare_ALB = 1 } }
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12192,8 +12356,38 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_treaty_of_defensive_alliance
 	completion_reward_joint_originator = {
+		if = {
+			limit = { original_tag = ALB }
+			swap_ideas = {
+				remove_idea = ALB_treaty_of_tirana_2
+				add_idea = ALB_treaty_of_tirana_3
+			}
+		}
+		if = {
+			limit = { original_tag = ITA }
+			add_timed_idea = {
+				idea = ALB_business_in_albania
+				days = 365
+			}
+			give_resource_rights = { receiver = ITA state = 44 }
+		}
 	}
 	completion_reward_joint_member = {
+		if = {
+			limit = { original_tag = ALB }
+			swap_ideas = {
+				remove_idea = ALB_treaty_of_tirana_2
+				add_idea = ALB_treaty_of_tirana_3
+			}
+		}
+		if = {
+			limit = { original_tag = ITA }
+			add_timed_idea = {
+				idea = ALB_business_in_albania
+				days = 365
+			}
+			give_resource_rights = { receiver = ITA state = 44 }
+		}
 	}
 	ai_will_do = {
 		modifier = {
