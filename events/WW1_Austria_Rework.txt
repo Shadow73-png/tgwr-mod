@@ -9520,7 +9520,7 @@ country_event = {
 		remove_dynamic_modifier = {
 			modifier = AUS_multiethnic_army
 		}
-		set_variable = { AUS_EP_consumer_goods = 0.4 }
+		set_variable = { AUS_EP_consumer_goods = 0.8 }
 		set_variable = { AUS_EP_prod_eff_growth = -0.2 }
 		set_variable = { AUS_EP_prod_eff_cap = -0.2 }
 		set_variable = { AUS_EP_stab = -0.5 }
@@ -9535,6 +9535,9 @@ country_event = {
 		set_variable = { AUS_ep_local_resource = 0 }
 		set_variable = { AUS_ep_production_factory_start_efficiency_factor = 0 }
 		set_variable = { AUS_ep_line_change_production_efficiency_factor = 0 }
+		set_variable = {
+			AUS_ep_pp_gain = -1
+		}
 		add_dynamic_modifier = {
 			modifier = AUS_economic_chaos
 		}
@@ -9836,15 +9839,10 @@ country_event = {
 	fire_only_once = no
 	option = {
 		name =  ww1_german_austria.14.a
-		hidden_effect = {
-			country_event = {
-				id = ww1_german_austria.14
-				days = 20
-			}
-		}
+		
 	}
 }
-#right wing government
+#right wing government after brenner cabinet resigns
 country_event = {
 	id = ww1_german_austria.15
 	title = ww1_german_austria.15.t
@@ -9854,7 +9852,111 @@ country_event = {
 	fire_only_once = no
 	option = {
 		name =  ww1_german_austria.15.a
+		set_country_flag = AUS_mayr_gov
+	}
+}
+#consitution
+country_event = {
+	id = ww1_german_austria.16
+	title = ww1_german_austria.16.t
+	desc = ww1_german_austria.16.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name =  ww1_german_austria.16.a
 		
+	}
+}
+#elections
+country_event = {
+	id = ww1_german_austria.17
+	title = ww1_german_austria.17.t
+	desc = ww1_german_austria.17.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name =  ww1_german_austria.17.a
+		hidden_effect = {
+			country_event = {
+				id = ww1_german_austria.18
+				days = 10
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_german_austria.18
+	title = ww1_german_austria.18.t
+	desc = ww1_german_austria.18.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name =  ww1_german_austria.18.a
+		hidden_effect = {
+			country_event = {
+				id = ww1_german_austria.19
+				days = 150
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_german_austria.19
+	title = ww1_german_austria.19.t
+	desc = ww1_german_austria.19.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name =  ww1_german_austria.19.a
+		hidden_effect = {
+			country_event = {
+				id = ww1_german_austria.20
+				days = 60
+			}
+		}
+	}
+}
+#Schober gov
+country_event = {
+	id = ww1_german_austria.20
+	title = ww1_german_austria.20.t
+	desc = ww1_german_austria.20.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name =  ww1_german_austria.20.a
+		complete_national_focus = AUS_center_right_governance
+	}
+}
+#inflation
+country_event = {
+	id = ww1_german_austria.21
+	title = ww1_german_austria.21.t
+	desc = ww1_german_austria.21.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name =  ww1_german_austria.21.a
+		activate_mission = AUS_inflation_iw
+	}
+}
+#goodbye germans
+country_event = {
+	id = ww1_german_austria.22
+	title = ww1_german_austria.22.t
+	desc = ww1_german_austria.22.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name =  ww1_german_austria.21.a
+		add_stability = 0.05
 	}
 }
 ##german austria search end

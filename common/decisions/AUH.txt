@@ -1,3 +1,37 @@
+AUS_fledgling_republic = {
+	AUS_inflation_iw = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 10
+		days_mission_timeout = 30
+		available = {
+			has_war = no
+		}
+		activation = {
+			
+		}
+		cancel_trigger = {
+			has_country_flag = AUS_no_more_inflation
+		}
+		timeout_effect = {
+						custom_effect_tooltip = AUS_modify_economic_chaos
+			add_to_variable = {
+				AUS_EP_consumer_goods = 0.04
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_ep_pp_gain = -0.1
+				tooltip = political_power_gain_tt
+			}
+		}
+		complete_effect = {
+		}
+		fire_only_once = yes
+		is_good = no
+	}
+}
 AUS_socialist_coup_attempt = {
 	AUS_socialist_coup_mission = {
 		icon = GFX_decision_generic_ignite_civil_war
