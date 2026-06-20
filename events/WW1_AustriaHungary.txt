@@ -517,282 +517,250 @@ country_event = {
 
 # AUSTRIA LOST GREAT WAR - DEATH OF EMPIRE
 #############################################
-country_event = {
-	id = ww1_auh.17
-	title = ww1_auh.17.t
-	desc = ww1_auh.17.d
-	picture = GFX_report_event_ger_civil_war
-	trigger = {
-		tag = AUS
-		has_country_flag = collapse_of_austria_hungary_HUN
-		has_country_flag = collapse_of_austria_hungary_CZE
-		has_country_flag = collapse_of_austria_hungary_YUG
-		has_country_flag = collapse_of_austria_hungary_POL
-		NOT = {
-			has_global_flag = AUH_has_fully_collapsed
-			has_country_flag = great_war_winner
-		}
-	}
-	fire_only_once = yes
-	mean_time_to_happen = {
-		days = 1
-	}
-	immediate = {
-		set_global_flag = AUH_has_fully_collapsed
-		hidden_effect = {
-			every_owned_state = {
-				limit = {
-					is_core_of = ALB
-				}
-				if = {
-					limit = {
-						CONTROLLER = {
-							OR = {
-								has_war_with = ROOT
-							}
-						}
-					}
-					transfer_state_to = CONTROLLER
-					else = {
-						transfer_state_to = ALB
-					}
-				}
-			}
-			if = {
-				limit = {
-					is_in_faction_with = GER
-					NOT = {
-						has_country_flag = great_war_loser
-					}
-				}
-				GER = {
-					set_country_flag = you_can_save_austria
-				}
-			}
-			#annexing liquidation comission of poland (GAL)
-			if = {
-				limit = {
-					country_exists = POL
-					88 = {
-						is_core_of = POL
-					}
-					90 = {
-						is_owned_and_controlled_by = POL
-					}
-				}
-				POL = {
-					annex_country = {
-						target = GAL
-						transfer_troops = yes
-					}
-				}
-			}
-			if = {
-				limit = {
-					HUN = {
-						is_subject_of = AUS
-					}
-				}
-				set_autonomy = {
-					target = HUN
-					autonomous_state = autonomy_free
-				}
-			}
-			if = {
-				limit = {
-					HUN = {
-						has_country_flag = collapse_of_austria_hungary_HUN
-					}
-				}
-				HUN = {
-					# set_country_flag = great_war_loser	#so romania take claims
-					set_cosmetic_tag = HUN_republic
-					set_country_flag = HUN_republic
-					clr_country_flag = HUN_archkingdom
-					remove_ideas = {
-						AUH_ww1_House_Habsburg_Lorraine
-						HUN_franz_joseph_i
-						#HUN_franz_ferdinand
-						#HUN_franz_ferdinand_2
-						HUN_karl_i
-					}
-				}
-			}
-		}
-		
-
-		
-	}
-	option = {
-		name = ww1_auh.17.a
-		hidden_effect = {
-			every_unit_leader = {
-				limit = {
-					is_unit_leader = yes
-					NOT = {
-						has_trait = trait_royal
-						is_character = AUH_karl_von_pflanzerbaltin
-						is_character = AUH_eduard_von_bohmermolli		
-					}
-				}				
-				ROOT = {
-					retire_character = PREV
-				}	
-			}
-		}
-		every_state = {
-			limit = {
-				NOT = {
-					AND = {
-						is_core_of = AUS
-						is_owned_by = AUS
-					}
-					state = 147
-					state = 39
-				}			
-			}
-			remove_core_of = ROOT
-		}
-		every_owned_state = {
-			limit = {
-				is_core_of = HUN
-			}
-			HUN = {
-				safe_transfer_state_to = yes
-			}
-		}	
-		every_owned_state = {
-			limit = {
-				is_core_of = ITA
-			}
-			ITA = {
-				safe_transfer_state_to = yes
-			}
-		}			
-		every_state = {
-			limit = {
-				is_claimed_by = ROOT
-			}
-			remove_claim_by = ROOT
-		}
-		# HUN = {
-		# 	every_enemy_country = {
-		# 		PREV = {
-		# 			white_peace = PREV #HUN is the loser
-		# 		}	
-		# 	}	
-		# }
-		#if = { #ww1_poland.102 event is for that
-		#	limit = {
-		#		POL = {
-		#			exists = yes
-		#		}
-		#		GAL = {
-		#			OR = {
-		#				is_subject_of = ROOT
-		#				is_subject = no
-		#			}					
-		#		}
-		#	}
-		#	POL = {
-		#		annex_country = {
-		#			target = GAL
-		##	}	
-		#}	
-		hidden_effect = {
-			remove_ideas = {
-				AUH_ww1_House_Habsburg_Lorraine
-				AUH_house_of_cards
-				AUH_determined_ausgleich
-				AUH_determined_ausgleich_2
-				AUH_karl_i
-			}
-			clr_country_flag = AUS_empire_flag
-			set_country_flag = AUS_republic_flag
-			delete_unit = {}
-			load_oob = AUS_1918
-			set_party_name = {
-				ideology = communism
-				name = AUS_german_communist_party
-				long_name = AUS_german_communist_party_long
-			}
-			# set_party_name = {
-			# 	ideology = neutrality
-			# 	name = AUS_christian_social_party
-			# 	long_name = AUS_christian_social_party_long
-			# }
-			set_party_name = {
-				ideology = fascism
-				name = AUS_nazi_party #formed earlier
-				long_name = AUS_nazi_party_long
-			}
-			# provisional
-			set_politics = {
-				ruling_party = neutrality
-				name = AUS_state_council_party
-				long_name = AUS_state_council_party
-				elections_allowed = no
-			}
-			promote_character = AUS_karl_seitz
-			promote_character = AUS_wilhelm_miklas
-			promote_character = AUS_state_council
-			every_owned_state = {
-				limit = {
-					is_core_of = CZE
-				}
-				set_demilitarized_zone = yes
-			}
-		}
-		set_cosmetic_tag = AUR
-		# German-Austria
-		if = {
-			limit = {
-				is_subject = no
-				OR = {
-					is_in_faction_with = GER
-					has_war_together_with = GER
-				}			
-				GER = {
-					is_subject = no
-					NOT = {
-						has_government = communism
-					}
-				}
-			}
-			get_current_government_type = yes
-			GER = {
-				set_autonomy = {
-					target = ROOT
-					autonomy_state = autonomy_tgwr_unilateral_union
-					end_wars = no
-					end_civil_wars = no
-				}
-			}
-			restore_previous_government_type = yes
-		}
-		news_event = {
-			id = ww1_auh.18
-		}
-		hidden_effect = {
-			set_global_flag = AUH_collapse
-		}
-	}
-}
-
-
-# DEATH OF AUSTRIA - NEWS
-#################
-news_event = {
-	id = ww1_auh.18
-	title = ww1_auh.18.t
-	desc = ww1_auh.18.d
-	picture = GFX_news_event_auh_collapse
-	is_triggered_only = yes
-	major = yes
-	option = {
-		name = ww1_auh.18.a
-	}
-}
+#country_event = {
+#	id = ww1_auh.17
+#	title = ww1_auh.17.t
+#	desc = ww1_auh.17.d
+#	picture = GFX_report_event_ger_civil_war
+#	trigger = {
+#		tag = AUS
+#		has_country_flag = collapse_of_austria_hungary_HUN
+#		has_country_flag = collapse_of_austria_hungary_CZE
+#		has_country_flag = collapse_of_austria_hungary_YUG
+#		has_country_flag = collapse_of_austria_hungary_POL
+#		NOT = {
+#			has_global_flag = AUH_has_fully_collapsed
+#			has_country_flag = great_war_winner
+#		}
+#	}
+#	fire_only_once = yes
+#	mean_time_to_happen = {
+#		days = 1
+#	}
+#	immediate = {
+#		set_global_flag = AUH_has_fully_collapsed
+#		hidden_effect = {
+#			every_owned_state = {
+#				limit = {
+#					is_core_of = ALB
+#				}
+#				if = {
+#					limit = {
+#						CONTROLLER = {
+#							OR = {
+#								has_war_with = ROOT
+#							}
+#						}
+#					}
+#					transfer_state_to = CONTROLLER
+#					else = {
+#						transfer_state_to = ALB
+#					}
+#				}
+#			}
+#			if = {
+#				limit = {
+#					is_in_faction_with = GER
+#					NOT = {
+#						has_country_flag = great_war_loser
+#					}
+#				}
+#				GER = {
+#					set_country_flag = you_can_save_austria
+#				}
+#			}
+#			#annexing liquidation comission of poland (GAL)
+#			if = {
+#				limit = {
+#					country_exists = POL
+#					88 = {
+#						is_core_of = POL
+#					}
+#					90 = {
+#						is_owned_and_controlled_by = POL
+#					}
+#				}
+#				POL = {
+#					annex_country = {
+#						target = GAL
+#						transfer_troops = yes
+#					}
+#				}
+#			}
+#			if = {
+#				limit = {
+#					HUN = {
+#						is_subject_of = AUS
+#					}
+#				}
+#				set_autonomy = {
+#					target = HUN
+#					autonomous_state = autonomy_free
+#				}
+#			}
+#			if = {
+#				limit = {
+#					HUN = {
+#						has_country_flag = collapse_of_austria_hungary_HUN
+#					}
+#				}
+#				HUN = {
+#					# set_country_flag = great_war_loser	#so romania take claims
+#					set_cosmetic_tag = HUN_republic
+#					set_country_flag = HUN_republic
+#					clr_country_flag = HUN_archkingdom
+#					remove_ideas = {
+#						AUH_ww1_House_Habsburg_Lorraine
+#						HUN_franz_joseph_i
+#						#HUN_franz_ferdinand
+#						#HUN_franz_ferdinand_2
+#						HUN_karl_i
+#					}
+#				}
+#			}
+#		}
+#		
+#
+#		
+#	}
+#	option = {
+#		name = ww1_auh.17.a
+#		hidden_effect = {
+#			every_unit_leader = {
+#				limit = {
+#					is_unit_leader = yes
+#					NOT = {
+#						has_trait = trait_royal
+#						is_character = AUH_karl_von_pflanzerbaltin
+#						is_character = AUH_eduard_von_bohmermolli		
+#					}
+#				}				
+#				ROOT = {
+#					retire_character = PREV
+#				}	
+#			}
+#		}
+#		every_state = {
+#			limit = {
+#				NOT = {
+#					AND = {
+#						is_core_of = AUS
+#						is_owned_by = AUS
+#					}
+#					state = 147
+#					state = 39
+#				}			
+#			}
+#			remove_core_of = ROOT
+#		}
+#		every_owned_state = {
+#			limit = {
+#				is_core_of = HUN
+#			}
+#			HUN = {
+#				safe_transfer_state_to = yes
+#			}
+#		}	
+#		every_owned_state = {
+#			limit = {
+#				is_core_of = ITA
+#			}
+#			ITA = {
+#				safe_transfer_state_to = yes
+#			}
+#		}			
+#		every_state = {
+#			limit = {
+#				is_claimed_by = ROOT
+#			}
+#			remove_claim_by = ROOT
+#		}
+#		# HUN = {
+#		# 	every_enemy_country = {
+#		# 		PREV = {
+#		# 			white_peace = PREV #HUN is the loser
+#		# 		}	
+#		# 	}	
+#		# }
+#		#if = { #ww1_poland.102 event is for that
+#		#	limit = {
+#		#		POL = {
+#		#			exists = yes
+#		#		}
+#		#		GAL = {
+#		#			OR = {
+#		#				is_subject_of = ROOT
+#		#				is_subject = no
+#		#			}					
+#		#		}
+#		#	}
+#		#	POL = {
+#		#		annex_country = {
+#		#			target = GAL
+#		##	}	
+#		#}	
+#		hidden_effect = {
+#			remove_ideas = {
+#				AUH_ww1_House_Habsburg_Lorraine
+#				AUH_house_of_cards
+#				AUH_determined_ausgleich
+#				AUH_determined_ausgleich_2
+#				AUH_karl_i
+#			}
+#			clr_country_flag = AUS_empire_flag
+#			set_country_flag = AUS_republic_flag
+#			delete_unit = {}
+#			load_oob = AUS_1918
+#			set_party_name = {
+#				ideology = communism
+#				name = AUS_german_communist_party
+#				long_name = AUS_german_communist_party_long
+#			}
+#			# set_party_name = {
+#			# 	ideology = neutrality
+#			# 	name = AUS_christian_social_party
+#			# 	long_name = AUS_christian_social_party_long
+#			# }
+#			set_party_name = {
+#				ideology = fascism
+#				name = AUS_nazi_party #formed earlier
+#				long_name = AUS_nazi_party_long
+#			}
+#			# provisional
+#			set_politics = {
+#				ruling_party = neutrality
+#				name = AUS_state_council_party
+#				long_name = AUS_state_council_party
+#				elections_allowed = no
+#			}
+#			promote_character = AUS_karl_seitz
+#			promote_character = AUS_wilhelm_miklas
+#			promote_character = AUS_state_council
+#			every_owned_state = {
+#				limit = {
+#					is_core_of = CZE
+#				}
+#				set_demilitarized_zone = yes
+#			}
+#		}
+#		set_cosmetic_tag = AUR
+#	}
+#}
+#
+#
+## DEATH OF AUSTRIA - NEWS
+##################
+#news_event = {
+#	id = ww1_auh.18
+#	title = ww1_auh.18.t
+#	desc = ww1_auh.18.d
+#	picture = GFX_news_event_auh_collapse
+#	is_triggered_only = yes
+#	major = yes
+#	option = {
+#		name = ww1_auh.18.a
+#	}
+#}
 
 # BROTHERS WAR - NEWS
 #################
@@ -11489,51 +11457,51 @@ country_event = {
 }
 
 # A-Historical : f48p hungary leave the ship
-country_event = {
-	id = ww1_auh.224
-	title = ww1_auh.171.t
-	desc = ww1_auh.171.d
-	picture = GFX_report_event_hungary_parliament
-	trigger = {
-		OR = {
-			tag = AUS
-			tag = HUN
-		}
-		NOT = {
-			has_country_flag = collapse_of_austria_hungary_HUN
-		}
-		AUS = {
-			OR = {
-				AND = {
-					has_war = yes
-					has_idea = AUH_house_of_cards
-					has_stability < 0.09
-				}
-				AND = {
-					has_country_flag = great_war_loser
-				}
-			}			
-		}
-		HUN = {
-			is_subject_of = AUS
-			has_HUN_F48P_government = yes
-		}
-		has_country_flag = hungary_abolish_ausgleich
-	}
-	mean_time_to_happen = {
-		days = 0
-	}
-	immediate = {
-		set_country_flag = collapse_of_austria_hungary_HUN
-	}
-	option = {
-		name = ww1_auh.171.a	# Oh my...
-		if = {
-			limit = {
-				tag = AUS
-			}
-			add_stability = -0.05
-			AUH_release_HUN = yes
-		}
-	}
-}
+#country_event = {
+#	id = ww1_auh.224
+#	title = ww1_auh.171.t
+#	desc = ww1_auh.171.d
+#	picture = GFX_report_event_hungary_parliament
+#	trigger = {
+#		OR = {
+#			tag = AUS
+#			tag = HUN
+#		}
+#		NOT = {
+#			has_country_flag = collapse_of_austria_hungary_HUN
+#		}
+#		AUS = {
+#			OR = {
+#				AND = {
+#					has_war = yes
+#					has_idea = AUH_house_of_cards
+#					has_stability < 0.09
+#				}
+#				AND = {
+#					has_country_flag = great_war_loser
+#				}
+#			}			
+#		}
+#		HUN = {
+#			is_subject_of = AUS
+#			has_HUN_F48P_government = yes
+#		}
+#		has_country_flag = hungary_abolish_ausgleich
+#	}
+#	mean_time_to_happen = {
+#		days = 0
+#	}
+#	immediate = {
+#		set_country_flag = collapse_of_austria_hungary_HUN
+#	}
+#	option = {
+#		name = ww1_auh.171.a	# Oh my...
+#		if = {
+#			limit = {
+#				tag = AUS
+#			}
+#			add_stability = -0.05
+#			AUH_release_HUN = yes
+#		}
+#	}
+#}

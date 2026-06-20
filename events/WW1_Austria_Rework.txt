@@ -9183,6 +9183,7 @@ country_event = {
 	}
 }
 #war time search end
+
 #collapse events
 add_namespace = ww1_austriahungary_collapse
 country_event = {
@@ -9275,6 +9276,7 @@ country_event = {
 	}
 }
 #peoples manifesto
+#legacy event ID: ww1_auh.218
 country_event = {
 	id = ww1_austriahungary_collapse.4
 	title = ww1_austriahungary_collapse.4.t
@@ -9282,6 +9284,13 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			HUN = {
+				country_event = ww1_austriahungary_collapse.17
+			}
+		}
+	}
 	option = {
 		name = ww1_austriahungary_collapse.4.a
 	}
@@ -9506,53 +9515,23 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_collapse.16.a
-		set_country_flag = AUS_german_austria
-		hidden_effect = {
-			remove_dynamic_modifier = {
-			modifier = AUS_economic_patchwork
-		}
-		remove_dynamic_modifier = {
-			modifier = AUS_state_of_the_realm
-		}
-		remove_dynamic_modifier = {
-			modifier = AUS_state_of_the_realm_real
-		}
-		remove_dynamic_modifier = {
-			modifier = AUS_multiethnic_army
-		}
-		set_variable = { AUS_EP_consumer_goods = 0.8 }
-		set_variable = { AUS_EP_prod_eff_growth = -0.2 }
-		set_variable = { AUS_EP_prod_eff_cap = -0.2 }
-		set_variable = { AUS_EP_stab = -0.5 }
-		set_variable = { AUS_EP_infra = -0.1}
-		set_variable = { AUS_EP_factory_output = 0 }
-		set_variable = { AUS_ep_research_speed = 0 }
-		set_variable = { AUS_ep_construction_speed = -0.2 }
-		set_variable = { AUS_ep_mil_speed = 0 }
-		set_variable = { AUS_ep_civ_speed = 0 }
-		set_variable = { AUS_ep_bonus_res = 0 }
-		set_variable = { AUS_EP_trade_ai_chance = 0 }
-		set_variable = { AUS_ep_local_resource = 0 }
-		set_variable = { AUS_ep_production_factory_start_efficiency_factor = 0 }
-		set_variable = { AUS_ep_line_change_production_efficiency_factor = 0 }
-		set_variable = {
-			AUS_ep_pp_gain = -1
-		}
-		add_dynamic_modifier = {
-			modifier = AUS_economic_chaos
-		}
-		add_ideas = AUS_mass_starvation
-		add_popularity = {
-			ideology = communism
-			popularity = 0.35
-		}
-		}
-		
-		load_focus_tree = austria_tree_g
-		mark_focus_tree_layout_dirty = yes
-		complete_national_focus = AUS_all_good_things_come_to_an_end
+		AUS_german_austria_effect = yes
 	}
 }
+#karl manifesto:hungary
+country_event = {
+	id = ww1_austriahungary_collapse.17
+	title = ww1_austriahungary_collapse.17.t
+	desc = ww1_austriahungary_collapse.17.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary_collapse.17.a
+
+	}
+}
+
 ###german austria search
 add_namespace = ww1_german_austria
 country_event = {
