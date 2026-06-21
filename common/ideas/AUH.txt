@@ -2716,6 +2716,78 @@ ideas = {
 				experience_gain_army_factor = 0.15
 			}
 		}
+		AUS_support_in_civil_war = {
+			picture = AUS_volunteers_to_italy
+			allowed = {
+				always = no
+			}
+			available = {
+				has_global_flag = italian_civil_war
+				has_war = yes
+			}
+			removal_cost = -1
+			modifier = {
+				experience_gain_army_factor = 0.15
+				military_factory_donations = 2
+			}
+		}
+		AUS_austrian_loans = {
+			picture = PER_fund_state_intelligence_idea
+			allowed = {
+				always = no
+			}
+			available = {
+				has_global_flag = italian_civil_war
+				has_war = yes
+			}
+			on_remove = {
+				AUS = {
+					add_timed_ideas = {
+						idea = AUS_austrian_loans2
+						days = 180
+					}
+				}
+				ITA = {
+					add_timed_ideas = {
+						idea = AUS_austrian_loans3
+						days = 180
+					}
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.15
+			}
+		}
+		AUS_austrian_loans2 = {
+			picture = PER_fund_state_intelligence_idea
+			allowed = {
+				always = no
+			}
+			available = {
+				has_global_flag = italian_civil_war
+				has_war = yes
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.15
+			}
+		}
+		AUS_austrian_loans3 = {
+			picture = PER_fund_state_intelligence_idea
+			allowed = {
+				always = no
+			}
+			available = {
+				has_global_flag = italian_civil_war
+				has_war = yes
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.15
+				civilian_factory_use = 3
+			}
+		}
 		AUS_social_housing = {
 			picture = PRC_nanjing_wireless_electronics_plant
 			allowed = {

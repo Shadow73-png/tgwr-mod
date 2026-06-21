@@ -250,8 +250,8 @@ TGWR_great_power_politics = {
 	}
 	AUS_send_peacekeepers_vatican = {
 		icon = GFX_decision_hol_war_on_pacifism
-		days_remove = 60
-		fire_only_once = no
+		days_remove = 20
+		fire_only_once = yes
 		allowed = {
 			original_tag = AUS
 		}
@@ -265,6 +265,7 @@ TGWR_great_power_politics = {
 		}
 		available = {
 			has_completed_focus = AUS_civil_war_in_west
+			has_global_flag = italian_civil_war
 		}
 		remove_effect = {
 			PAP = {
@@ -274,8 +275,8 @@ TGWR_great_power_politics = {
 	}
 	AUS_reinstate_liechtenstein_monarchy = {
 		icon = GFX_decision_hol_war_on_pacifism
-		days_remove = 60
-		fire_only_once = no
+		days_remove = 20
+		fire_only_once = yes
 		allowed = {
 			original_tag = AUS
 		}
@@ -289,6 +290,7 @@ TGWR_great_power_politics = {
 		}
 		available = {
 			has_completed_focus = AUS_civil_war_in_west
+			has_global_flag = italian_civil_war
 			LIE = {
 				has_country_leader = LIE_martin_ritter
 			}
@@ -296,6 +298,70 @@ TGWR_great_power_politics = {
 		remove_effect = {
 			LIE = {
 				country_event = ww1_liechtenstein.10
+			}
+		}
+	}
+	AUS_send_weapons_italy = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_support_italian_monarchy
+		}
+		available = {
+			has_completed_focus = AUS_support_italian_monarchy
+			has_global_flag = italian_civil_war
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -100
+			}
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = -100
+			}
+			ITA = {
+				country_event = ww1_austriahungary.255
+			}
+
+		}
+	}
+	AUS_send_loans_italy = {
+		icon = GFX_decision_generic_fundraising
+		days_remove = 5
+		fire_only_once = yes
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 100
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_support_italian_monarchy
+		}
+		available = {
+			has_completed_focus = AUS_support_italian_monarchy
+			has_global_flag = italian_civil_war
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_return_on_investment_tt
+			ITA = {
+				country_event = ww1_austriahungary.256
 			}
 		}
 	}
