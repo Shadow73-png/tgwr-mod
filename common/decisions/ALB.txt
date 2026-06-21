@@ -2782,6 +2782,20 @@ foreign_politics = {
 							}
 						}
 					}
+					else_if = {
+						limit = { PREV = { tag = ENG } }
+						every_country = {
+							limit = { has_character = ENG_albert_herbert }
+							ENG_albert_herbert = {
+								set_nationality = PREV.PREV
+								set_character_flag = ALB_foreign_supervisor
+								add_country_leader_role = {
+									promote_leader = yes
+									country_leader = { ideology = civilian_dictatorship }
+								}
+							}
+						}
+					}
 					else = {
 						PREV = {
 							random_unit_leader = {
