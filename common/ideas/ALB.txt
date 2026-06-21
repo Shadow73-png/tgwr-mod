@@ -2009,6 +2009,75 @@ ideas={
 				modifier_army_sub_unit_mountaineers_max_org_factor = 0.07
 			}
 		}
+		ALB_little_italy = {
+			picture = ITA_italia_irredenta_achieved
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.1
+				army_core_attack_factor = 0.7
+				production_factory_efficiency_gain_factor = 0.1
+				production_factory_start_efficiency_factor = 0.1
+				production_factory_max_efficiency_factor = -0.05
+			}
+			removal_cost = -1
+		}
+		ALB_victor_emmanuel = {
+			picture = ITA_emanuele_iii_idea
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = -0.05
+				war_support_factor = 0.05
+				improve_relations_maintain_cost_factor = -0.1
+			}
+			removal_cost = -1
+		}
+		ALB_re_esrtablished_market_access = {
+			picture = ARG_civilian_economy_boost
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.3
+				cic_construction_boost_factor = 0.1
+			}
+			targeted_modifier = {
+				tag = TUR
+				trade_cost_for_target_factor = -0.3
+				cic_to_target_factor = 0.1
+			}
+			removal_cost = -1
+		}
+		ALB_teskilat_i_mahsusa = {
+			picture = TUR_teskilat_i_mahsusa
+			allowed = { original_tag = TUR }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				operative_slot = 1
+				resistance_decay = 0.05
+				foreign_subversive_activites = -0.1
+			}
+		}
+		ALB_teskilat_i_mahsusa_no_lar = {
+			name = ALB_teskilat_i_mahsusa
+			picture = TUR_teskilat_i_mahsusa
+			allowed = { original_tag = TUR }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				resistance_decay = 0.05
+				foreign_subversive_activites = -0.1
+			}
+		}
+		ALB_islamic_legitimacy = {
+			picture = raj_marginalized_muslim_community_happy
+			allowed = { original_tag = TUR }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				mobilization_speed = 0.1
+				drift_defence_factor 0.1
+			}
+		}
 	}
 	hidden_ideas = {
 		TUR_soldier_desertions = {

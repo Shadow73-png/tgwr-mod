@@ -5838,6 +5838,10 @@ focus_tree = {
 			add_political_power = 25
 			custom_effect_tooltip = modify_ALB_country_in_disarray
 			add_to_variable = {
+				tooltip = political_power_factor_tt
+				ALB_sos_political_power_factor = 0.05
+			}
+			add_to_variable = {
 				tooltip = war_support_factor_minus_5
 				ALB_sos_war_support_factor = -0.05
 			}
@@ -11556,29 +11560,32 @@ joint_focus = {
 		ALB = { has_country_leader = { character = ALB_esad_toptani } }
 	}
 	completion_reward_joint_originator = {
-		if = {
-			limit = { has_country_leader = { character = ALB_esad_toptani } }
-			set_politics = {
-				ruling_party = neutrality
-				elections_allowed = no
-				name = ALB_house_of_toptani_party
-				long_name = ALB_house_of_toptani_party
-			}
-			effect_tooltip = { ALB_esad_toptani = { custom_effect_tooltip = ALB_albanian_serbian_union_tt } }
-			hidden_effect = {
-				ALB_esad_toptani = {
-					set_character_name = ALB_esad_toptani_prince
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = {
-							ideology = absolute_monarchy
-							traits = { ALB_fulfilled_ambitions }
+		ALB = {
+			if = {
+				limit = { has_country_leader = { character = ALB_esad_toptani } }
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+					name = ALB_house_of_toptani_party
+					long_name = ALB_house_of_toptani_party
+				}
+				effect_tooltip = { ALB_esad_toptani = { custom_effect_tooltip = ALB_albanian_serbian_union_tt } }
+				hidden_effect = {
+					ALB_esad_toptani = {
+						set_character_name = ALB_esad_toptani_prince
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								ideology = absolute_monarchy
+								traits = { ALB_fulfilled_ambitions }
+							}
 						}
 					}
 				}
 			}
-		}
-		effect_tooltip = {
+			else = { add_political_power = 100 }
+			set_country_flag = monarchist_puppet
+			hidden_effect = { ALB = { get_current_government_type = yes } }
 			SER = {
 				set_autonomy = {
 					target = ALB
@@ -11587,21 +11594,24 @@ joint_focus = {
 					end_civil_wars = no
 				}
 			}
-		}
-		hidden_effect = {
-			set_country_flag = monarchist_puppet
-			SER = { country_event = { id = albania.79 hours = 8 } }
-		}
-		set_portraits = {
-			character = ALB_esad_toptani
-			civilian = {
-				large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
-				small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized.png"
+			hidden_effect = { ALB = { restore_previous_government_type = yes } }
+			set_portraits = {
+				character = ALB_esad_toptani
+				civilian = {
+					large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
+					small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized.png"
+				}
+				army = {
+					large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
+					small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized_army.png"
+				}
 			}
-			army = {
-				large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
-				small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized_army.png"
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = political_power_factor_tt
+				ALB_sos_political_power_factor = 0.05
 			}
+			custom_effect_tooltip = empty_space
 		}
 	}
 	ai_will_do = {
@@ -11627,12 +11637,20 @@ joint_focus = {
 	relative_position_id = ALB_albanian_serbian_political_integration
 	available = { original_tag = ALB }
 	completion_reward_joint_originator = {
-		swap_ideas = {
-			remove_idea = ALB_albanian_serbian_commission_5
-			add_idea = ALB_albanian_serbian_commission_6
+		ALB = {
+			swap_ideas = {
+				remove_idea = ALB_albanian_serbian_commission_5
+				add_idea = ALB_albanian_serbian_commission_6
+			}
+			give_guarantee = SER
+			give_military_access = SER
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = war_support_factor_tt
+				ALB_sos_war_support_factor = 0.1
+			}
+			custom_effect_tooltip = empty_space
 		}
-		give_guarantee = SER
-		give_military_access = SER
 	}
 	completion_reward_joint_member = {
 		swap_ideas = {
@@ -12003,24 +12021,13 @@ joint_focus = {
 		}
 	}
 	completion_reward_joint_originator = {
-		set_politics = {
-			ruling_party = neutrality
-			elections_allowed = no
-			name = ALB_house_of_toptani_party
-			long_name = ALB_house_of_toptani_party
-		}
-		effect_tooltip = {
-			ALB_esad_toptani = { custom_effect_tooltip = ALB_albanian_serbian_union_tt }
-			SER = {
-				set_autonomy = {
-					target = ALB
-					autonomous_state = autonomy_tgwr_real_union
-					end_wars = no
-					end_civil_wars = no
-				}
+		ALB = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+				name = ALB_house_of_toptani_party
+				long_name = ALB_house_of_toptani_party
 			}
-		}
-		hidden_effect = {
 			ALB_esad_toptani = {
 				set_character_name = ALB_esad_toptani_prince
 				add_country_leader_role = {
@@ -12032,17 +12039,26 @@ joint_focus = {
 				}
 			}
 			set_country_flag = monarchist_puppet
-			SER = { country_event = { id = albania.79 hours = 8 } }
-		}
-		set_portraits = {
-			character = ALB_esad_toptani
-			civilian = {
-				large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
-				small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized.png"
+			hidden_effect = { ALB = { get_current_government_type = yes } }
+			SER = {
+				set_autonomy = {
+					target = ALB
+					autonomous_state = autonomy_tgwr_real_union
+					end_wars = no
+					end_civil_wars = no
+				}
 			}
-			army = {
-				large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
-				small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized_army.png"
+			hidden_effect = { ALB = { restore_previous_government_type = yes } }
+			set_portraits = {
+				character = ALB_esad_toptani
+				civilian = {
+					large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
+					small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized.png"
+				}
+				army = {
+					large = "gfx/leaders/ALB/ALB_esad_toptani_civilized.png"
+					small = "gfx/interface/ideas/ALB/ALB_esad_toptani_civilized_army.png"
+				}
 			}
 		}
 	}
@@ -12362,6 +12378,7 @@ joint_focus = {
 				remove_idea = ALB_treaty_of_tirana_2
 				add_idea = ALB_treaty_of_tirana_3
 			}
+			ALB_reduce_customs_duty_effectiveness_3 = yes
 		}
 		if = {
 			limit = { original_tag = ITA }
@@ -12379,6 +12396,7 @@ joint_focus = {
 				remove_idea = ALB_treaty_of_tirana_2
 				add_idea = ALB_treaty_of_tirana_3
 			}
+			ALB_reduce_customs_duty_effectiveness_3 = yes
 		}
 		if = {
 			limit = { original_tag = ITA }
@@ -12419,7 +12437,15 @@ joint_focus = {
 		original_tag = ALB
 	}
 	completion_reward_joint_originator = {
-		
+		ALB = {
+			add_ideas = ALB_little_italy
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = war_support_factor_tt
+				ALB_sos_war_support_factor = 0.1
+			}
+			custom_effect_tooltip = empty_space
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12446,7 +12472,26 @@ joint_focus = {
 		original_tag = ALB
 	}
 	completion_reward_joint_originator = {
-		
+		ALB = {
+			set_country_flag = monarchist_puppet
+			hidden_effect = { ALB = { get_current_government_type = yes } }
+			ITA = {
+				set_autonomy = {
+					target = ALB
+					autonomous_state = autonomy_tgwr_personal_union
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			hidden_effect = { ALB = { restore_previous_government_type = yes } }
+			add_ideas = ALB_victor_emmanuel
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = political_power_factor_tt
+				ALB_sos_political_power_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12586,8 +12631,28 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_ottoman_material_support
 	completion_reward_joint_originator = {
+		if = {
+			limit = { original_tag = ALB }
+			add_ideas = ALB_re_esrtablished_market_access
+			ALB_reduce_customs_duty_effectiveness_3 = yes
+		}
+		if = {
+			limit = { original_tag = TUR }
+			give_market_access = ALB
+			add_cic = 700
+		}
 	}
 	completion_reward_joint_member = {
+		if = {
+			limit = { original_tag = ALB }
+			add_ideas = ALB_re_esrtablished_market_access
+			ALB_reduce_customs_duty_effectiveness_3 = yes
+		}
+		if = {
+			limit = { original_tag = TUR }
+			give_market_access = ALB
+			add_cic = 700
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12614,8 +12679,102 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_ottoman_material_support
 	completion_reward_joint_originator = {
+		if = {
+			limit = { original_tag = ALB }
+			custom_effect_tooltip = modify_ALB_country_in_disarray
+			add_to_variable = {
+				tooltip = stability_factor_tt
+				ALB_sos_stability_factor = 0.1
+			}
+			custom_effect_tooltip = empty_space
+			custom_effect_tooltip = modify_ALB_illiterate_society_tt
+			add_to_variable = {
+				tooltip = research_speed_factor_tt
+				ALB_is_research_speed = 0.05
+			}
+			custom_effect_tooltip = empty_space
+		}
+		if = {
+			limit = { original_tag = TUR }
+			custom_effect_tooltip = TUR_modify_TUR_crippling_illiteracy_tt
+			add_to_variable = {
+				tooltip = research_speed_factor_tt
+				ALB_is_research_speed = 0.02
+			}
+			custom_effect_tooltip = empty_space
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							check_variable = { TUR_albanian_sunni_state_variable < 0 }
+							check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+							check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						}
+					}
+					set_variable = { TUR_ottoman_resistance_target_albanian = -0.3 }
+					set_variable = { TUR_ottoman_compliance_growth_albanian = 0.05 }
+				}
+				#for tooltip
+				TUR_set_old_albanian_value = yes
+				set_temp_variable = { ALB_albanian_turkish_cultural_programs = old_albanian_value }
+				divide_temp_variable = { ALB_albanian_turkish_cultural_programs = TUR_albanian_population_factor_new }
+				set_temp_variable = { TUR_albanian_population_factor_focus = TUR_albanian_population_factor_new }
+				add_to_temp_variable = { TUR_albanian_population_factor_focus = -0.1 }
+				multiply_temp_variable = { ALB_albanian_turkish_cultural_programs = TUR_albanian_population_factor_focus }
+				subtract_from_temp_variable = { ALB_albanian_turkish_cultural_programs = old_albanian_value }
+			}
+			add_to_variable = { TUR_albanian_population_factor_new = -0.1 }
+			custom_effect_tooltip = ALB_albanian_turkish_cultural_programs_tt
+		}
 	}
 	completion_reward_joint_member = {
+		if = {
+			limit = { original_tag = ALB }
+			custom_effect_tooltip = modify_ALB_country_in_disarray
+			add_to_variable = {
+				tooltip = stability_factor_tt
+				ALB_sos_stability_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
+			custom_effect_tooltip = modify_ALB_illiterate_society_tt
+			add_to_variable = {
+				tooltip = research_speed_factor_tt
+				ALB_is_research_speed = 0.05
+			}
+			custom_effect_tooltip = empty_space
+		}
+		if = {
+			limit = { original_tag = TUR }
+			custom_effect_tooltip = TUR_modify_TUR_crippling_illiteracy_tt
+			add_to_variable = {
+				tooltip = research_speed_factor_tt
+				ALB_is_research_speed = 0.02
+			}
+			custom_effect_tooltip = empty_space
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							check_variable = { TUR_albanian_sunni_state_variable < 0 }
+							check_variable = { TUR_albanian_orthodox_state_variable < 0 }
+							check_variable = { TUR_albanian_catholic_state_variable < 0 }
+						}
+					}
+					set_variable = { TUR_ottoman_resistance_target_albanian = -0.3 }
+					set_variable = { TUR_ottoman_compliance_growth_albanian = 0.05 }
+				}
+				#for tooltip
+				TUR_set_old_albanian_value = yes
+				set_temp_variable = { ALB_albanian_turkish_cultural_programs = old_albanian_value }
+				divide_temp_variable = { ALB_albanian_turkish_cultural_programs = TUR_albanian_population_factor_new }
+				set_temp_variable = { TUR_albanian_population_factor_focus = TUR_albanian_population_factor_new }
+				add_to_temp_variable = { TUR_albanian_population_factor_focus = -0.1 }
+				multiply_temp_variable = { ALB_albanian_turkish_cultural_programs = TUR_albanian_population_factor_focus }
+				subtract_from_temp_variable = { ALB_albanian_turkish_cultural_programs = old_albanian_value }
+			}
+			add_to_variable = { TUR_albanian_population_factor_new = -0.1 }
+			custom_effect_tooltip = ALB_albanian_turkish_cultural_programs_tt
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12641,9 +12800,86 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = ALB_albanian_turkish_cultural_programs
+	available = {
+		TUR = {
+			if = {
+				limit = { has_dlc = "La Resistance" }
+				has_idea = TUR_teskilat_i_mahsusa
+			}
+			else = { has_idea = TUR_teskilat_i_mahsusa_no_lar }
+		}
+	}
 	completion_reward_joint_originator = {
+		if = {
+			limit = { original_tag = ALB }
+			if = {
+				limit = { has_dlc = "La Resistance" }
+				add_ideas = ALB_teskilat_i_mahsusa
+				create_intelligence_agency = {
+					name = "Teşkilât-ı Mahsusa"
+					icon = GFX_intelligence_agency_logo_tur_ww1_1
+				}
+				if = {
+					limit = { NOT = { has_done_agency_upgrade = upgrade_passive_defense } }
+					upgrade_intelligence_agency = upgrade_passive_defense
+					set_country_flag = TUR_empower_the_special_organization
+				}
+			}
+			else = { add_ideas = ALB_teskilat_i_mahsusa_no_lar }
+		}
+		if = {
+			limit = { original_tag = TUR }
+			if = {
+				limit = { has_dlc = "La Resistance" }
+				swap_ideas = {
+					remove_idea = TUR_teskilat_i_mahsusa
+					add_idea = TUR_teskilat_i_mahsusa_2
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = TUR_teskilat_i_mahsusa_no_lar
+					add_idea = TUR_teskilat_i_mahsusa_no_lar_2
+				}
+			}
+			set_division_template_cap = { division_template = "Teşkilât-ı Mahsusa Birliği" division_cap = 12 }
+		}
 	}
 	completion_reward_joint_member = {
+		if = {
+			limit = { original_tag = ALB }
+			if = {
+				limit = { has_dlc = "La Resistance" }
+				add_ideas = ALB_teskilat_i_mahsusa
+				create_intelligence_agency = {
+					name = "Teşkilât-ı Mahsusa"
+					icon = GFX_intelligence_agency_logo_tur_ww1_1
+				}
+				if = {
+					limit = { NOT = { has_done_agency_upgrade = upgrade_passive_defense } }
+					upgrade_intelligence_agency = upgrade_passive_defense
+					set_country_flag = TUR_empower_the_special_organization
+				}
+			}
+			else = { add_ideas = ALB_teskilat_i_mahsusa_no_lar }
+		}
+		if = {
+			limit = { original_tag = TUR }
+			if = {
+				limit = { has_dlc = "La Resistance" }
+				swap_ideas = {
+					remove_idea = TUR_teskilat_i_mahsusa
+					add_idea = TUR_teskilat_i_mahsusa_2
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = TUR_teskilat_i_mahsusa_no_lar
+					add_idea = TUR_teskilat_i_mahsusa_no_lar_2
+				}
+			}
+			set_division_template_cap = { division_template = "Teşkilât-ı Mahsusa Birliği" division_cap = 12 }
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12666,6 +12902,10 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_re_esrtablish_market_accesses
 	completion_reward_joint_originator = {
+		if = {
+			limit = { original_tag = ALB }
+			add_ideas = ALB_islamic_legitimacy
+		}
 	}
 	completion_reward_joint_member = {
 	}
@@ -12695,8 +12935,14 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_religious_legitimacy
 	completion_reward_joint_originator = {
-	}
-	completion_reward_joint_member = {
+		ALB = {
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = war_support_factor_tt
+				ALB_sos_war_support_factor = 0.1
+			}
+			custom_effect_tooltip = empty_space
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12720,8 +12966,14 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_religious_legitimacy
 	completion_reward_joint_originator = {
-	}
-	completion_reward_joint_member = {
+		ALB = {
+			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
+			add_to_variable = {
+				tooltip = political_power_factor_tt
+				ALB_sos_political_power_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
+		}
 	}
 	ai_will_do = {
 		modifier = {
