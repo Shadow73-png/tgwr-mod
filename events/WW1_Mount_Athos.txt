@@ -1,0 +1,131 @@
+add_namespace = ww1_mount_athos
+
+# Mount Athos inder our control
+####################
+country_event = {
+	id = ww1_mount_athos.1
+	title = ww1_mount_athos.1.t
+	desc = ww1_mount_athos.1.d
+	picture = GFX_report_event_ATH_greek_soldiers
+	trigger = {
+		owns_state = 345
+		NOT = {
+			original_tag = ATH
+			has_subject = ATH 
+		}
+		has_war = no
+		NOT = {
+			AND = {
+				original_tag = FRA
+				345 = {
+					has_state_flag = french_salonika
+				}			
+			}		
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			ATH = {
+				if = {
+					limit = { is_subject = yes }
+					OVERLORD = {
+						country_event = {
+							id = ww1_mount_athos.3
+							hours = 1
+						}	
+					}
+				}
+				set_country_flag = protectorate
+				get_current_government_type = yes
+				ROOT = {
+					set_autonomy = {
+						target = PREV
+						autonomous_state = autonomy_tgwr_protectorate
+						freedom_level = 0.5
+					}	
+				}
+				restore_previous_government_type = yes
+				country_event = ww1_mount_athos.2
+			}
+		}
+	}
+	mean_time_to_happen = { days = 0 }
+	option = {
+		name = ww1_mount_athos.1.a
+		effect_tooltip = {
+			puppet = ATH
+		}
+	}
+}
+
+# Mount Athos: New overlord
+####################
+country_event = {
+	id = ww1_mount_athos.2
+	title = ww1_mount_athos.2.t
+	desc = ww1_mount_athos.2.d
+	picture = GFX_report_event_ATH_greek_soldiers
+
+	immediate = {
+		hidden_effect = {
+			send_embargo = PAP
+			add_opinion_modifier = {
+				target = PAP
+				modifier = ATH_great_schism
+			}
+			add_opinion_modifier = {
+				target = SER
+				modifier = ATH_protectors_of_hilandar 
+			}
+			add_opinion_modifier = {
+				target = BUL
+				modifier = ATH_bulgarian_exarchate 
+			}
+			every_possible_country = {
+				limit = {
+					has_orthodoxy = yes
+					NOT = { original_tag = ROOT }
+				}
+				ROOT = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = ATH_orhodox_country  
+					}
+				}
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ww1_mount_athos.2.a
+		effect_tooltip = {
+			FROM = {
+				puppet = ROOT
+			}			
+		}
+	}
+}
+
+# Lost Mount Athos
+####################
+country_event = {
+	id = ww1_mount_athos.3
+	title = ww1_mount_athos.3.t
+	desc = ww1_mount_athos.3.d
+	picture = GFX_report_event_ATH_greek_soldiers
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ww1_mount_athos.3.a
+		effect_tooltip = {
+			FROM = {
+				puppet = ATH
+			}			
+		}
+	}
+}	
+
+
