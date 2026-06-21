@@ -274,7 +274,7 @@ TGWR_great_power_politics = {
 		}
 	}
 	AUS_reinstate_liechtenstein_monarchy = {
-		icon = GFX_decision_hol_war_on_pacifism
+		icon = GFX_decision_generic_prepare_civil_war
 		days_remove = 20
 		fire_only_once = yes
 		allowed = {
@@ -362,6 +362,112 @@ TGWR_great_power_politics = {
 			custom_effect_tooltip = AUS_return_on_investment_tt
 			ITA = {
 				country_event = ww1_austriahungary.256
+			}
+		}
+	}
+	AUS_combat_italian_seperatists = {
+		icon = GFX_decision_generic_prepare_civil_war
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 25
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_once_austrian_always_austrian
+			NOT = {
+				159 = {
+					is_core_of = AUS
+				}
+			}	
+		}
+		available = {
+			has_completed_focus = AUS_once_austrian_always_austrian
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -500
+			}
+		}
+		remove_effect = {
+			159 = {
+				add_resistance = -10
+			}
+			160 = {
+				add_resistance = -10
+			}
+		}
+	}
+	AUS_humanitarian_support_north = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 25
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_once_austrian_always_austrian
+			NOT = {
+				159 = {
+					is_core_of = AUS
+				}
+			}
+		}
+		available = {
+			has_completed_focus = AUS_once_austrian_always_austrian
+		}
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		remove_effect = {
+			159 = {
+				add_compliance = 10
+			}
+			160 = {
+				add_compliance = 10
+			}
+		}
+	}
+	AUS_pacify_north_italy = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 100
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_once_austrian_always_austrian
+		}
+		available = {
+			has_completed_focus = AUS_once_austrian_always_austrian
+			159 = {
+				compliance > 75
+			}
+			160 = {
+				compliance > 75
+			}
+		}
+		remove_effect = {
+			159 = {
+				add_core_of = AUS
+			}
+			160 = {
+				add_core_of = AUS
 			}
 		}
 	}
