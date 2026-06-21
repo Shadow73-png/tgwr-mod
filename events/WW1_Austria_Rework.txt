@@ -6691,6 +6691,7 @@ country_event = {
 	}
 	option = { #pressure him into forming cabinet
 		name = ww1_austriahungary.251.b
+		add_political_power = -50
 		AUS_fire_minister_advisor = yes
 		set_global_flag = AUS_spitzmuller_minister
 		AUS_alexander_spitzmuller = {
@@ -6724,6 +6725,11 @@ country_event = {
 	fire_only_once = yes
 	option = { #appoint clam
 		name = ww1_austriahungary.253.a
+		custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_pp_gain = -0.1
+				tooltip = political_power_factor_tt
+			}
 		AUS_fire_minister_advisor = yes
 		set_global_flag = AUS_feuchtenegg_minister
 		AUS_ernst_seidler_von_feuchtenegg = {
