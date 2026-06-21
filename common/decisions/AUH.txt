@@ -7,18 +7,20 @@ AUS_fledgling_republic = {
 		priority = 10
 		days_mission_timeout = 30
 		available = {
-			has_war = no
+						has_completed_focus = AUS_restructure_economy
+
 		}
 		activation = {
-			
+			has_completed_focus = AUS_money_print
 		}
 		cancel_trigger = {
-			has_country_flag = AUS_no_more_inflation
+			has_completed_focus = AUS_restructure_economy
 		}
 		timeout_effect = {
+			activate_mission = AUS_inflation_iw
 						custom_effect_tooltip = AUS_modify_economic_chaos
 			add_to_variable = {
-				AUS_EP_consumer_goods = 0.04
+				AUS_EP_consumer_goods = 0.08
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -28,7 +30,7 @@ AUS_fledgling_republic = {
 		}
 		complete_effect = {
 		}
-		fire_only_once = yes
+		fire_only_once = no
 		is_good = no
 	}
 }
