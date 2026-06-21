@@ -847,7 +847,7 @@ focus_tree = {
 							promote_leader = yes
 							country_leader = {
 								ideology = semi_constitutional_monarchy
-								traits = { ALB_foreign_monarch ALB_albanian_general }
+								traits = { ALB_albanian_general }
 							}
 						}
 					}
@@ -1431,6 +1431,7 @@ focus_tree = {
 		relative_position_id = ALB_national_bank_of_albania
 		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
 		completion_reward = {
+			set_variable = { ALB_progression_of_literacy = 180 }
 			activate_mission = ALB_progression_of_literacy
 			custom_effect_tooltip = ALB_open_up_schools_tt
 			effect_tooltip = {
@@ -2727,7 +2728,6 @@ focus_tree = {
 					option = HIDE
 				}
 				OR = {
-					has_completed_focus = ALB_recrown_abdulhamid_II
 					has_completed_focus = ALB_ideals_of_romantic_independence
 					has_completed_focus = ALB_foreign_policy_priority
 				}
@@ -4402,7 +4402,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		prerequisite = { focus = ALB_rilindja_kombetare }
-		x = 16
+		x = 22
 		y = 1
 		relative_position_id = ALB_rilindja_kombetare
 		available = {
@@ -4825,8 +4825,9 @@ focus_tree = {
 			FOCUS_FILTER_MANPOWER
 			FOCUS_FILTER_HISTORICAL
 		}
-		x = 72
-		y = 0
+		x = 10
+		y = -1
+		relative_position_id = ALB_draft_the_grece_memorandum
 		available_if_capitulated = yes
 		completion_reward = {
 			add_timed_idea = {
@@ -5760,6 +5761,7 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = ALB_establish_the_ottoman_regency }
 		prerequisite = { focus = ALB_albanian_independence }
@@ -5795,6 +5797,22 @@ focus_tree = {
 				news_event = { id = albania.132 hours = 6 }
 			}
 			mark_focus_tree_layout_dirty = yes
+			if = {
+				limit = { has_idea = ALB_swedish_military_mission }
+				remove_ideas = ALB_swedish_military_mission
+			}
+			if = {
+				limit = { has_idea = ALB_dutch_military_mission }
+				remove_ideas = ALB_dutch_military_mission
+			}
+			if = {
+				limit = { has_idea = ALB_swiss_military_mission }
+				remove_ideas = ALB_swiss_military_mission
+			}
+			if = {
+				limit = { has_idea = ALB_international_control_commission_idea }
+				remove_ideas = ALB_international_control_commission_idea
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5805,6 +5823,7 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = ALB_albanian_independence }
 		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_foreign_policy_priority }
@@ -5819,6 +5838,22 @@ focus_tree = {
 			}
 			custom_effect_tooltip = empty_space
 			mark_focus_tree_layout_dirty = yes
+			if = {
+				limit = { has_idea = ALB_swedish_military_mission }
+				remove_ideas = ALB_swedish_military_mission
+			}
+			if = {
+				limit = { has_idea = ALB_dutch_military_mission }
+				remove_ideas = ALB_dutch_military_mission
+			}
+			if = {
+				limit = { has_idea = ALB_swiss_military_mission }
+				remove_ideas = ALB_swiss_military_mission
+			}
+			if = {
+				limit = { has_idea = ALB_international_control_commission_idea }
+				remove_ideas = ALB_international_control_commission_idea
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5829,6 +5864,7 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = ALB_albanian_independence }
 		mutually_exclusive = { focus = ALB_declare_state_of_emergency focus = ALB_recrown_abdulhamid_II focus = ALB_ideals_of_romantic_independence }
@@ -5852,6 +5888,22 @@ focus_tree = {
 			}
 			custom_effect_tooltip = empty_space
 			mark_focus_tree_layout_dirty = yes
+			if = {
+				limit = { has_idea = ALB_swedish_military_mission }
+				remove_ideas = ALB_swedish_military_mission
+			}
+			if = {
+				limit = { has_idea = ALB_dutch_military_mission }
+				remove_ideas = ALB_dutch_military_mission
+			}
+			if = {
+				limit = { has_idea = ALB_swiss_military_mission }
+				remove_ideas = ALB_swiss_military_mission
+			}
+			if = {
+				limit = { has_idea = ALB_international_control_commission_idea }
+				remove_ideas = ALB_international_control_commission_idea
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -5862,6 +5914,7 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
 		}
 		prerequisite = { focus = ALB_ideals_of_romantic_independence }
 		mutually_exclusive = { focus = ALB_favor_the_ghica_pretender focus = ALB_crown_the_kastrioti_prince }
@@ -5886,7 +5939,9 @@ focus_tree = {
 		icon = GFX_ALB_recall_the_diaspora
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_RESEARCH
 		}
 		prerequisite = { focus = ALB_republican_ideals }
 		x = -3
@@ -5902,7 +5957,7 @@ focus_tree = {
 		icon = GFX_generic_puppet_master
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = ALB_recall_the_diaspora }
 		x = 0
@@ -5927,12 +5982,14 @@ focus_tree = {
 		icon = GFX_focus_PER_islamic_solidarity
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = ALB_centralize_the_culture }
 		x = 0
 		y = 1
 		relative_position_id = ALB_centralize_the_culture
+		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
 		completion_reward = {
 			custom_effect_tooltip = modify_ALB_illiterate_society_tt
 			add_to_variable = {
@@ -5987,6 +6044,7 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = ALB_republican_ideals }
 		mutually_exclusive = { focus = ALB_parliamentary_model }
@@ -6011,6 +6069,7 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = ALB_parliamentary_model focus = ALB_presidential_model }
 		mutually_exclusive = { focus = ALB_give_the_mantle_to_the_nationalists }
@@ -6036,6 +6095,8 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_POLITICAL_CHARACTER
 		}
 		prerequisite = { focus = ALB_parliamentary_model focus = ALB_presidential_model }
 		mutually_exclusive = { focus = ALB_paternal_republic }
@@ -6111,6 +6172,7 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL_CHARACTER
 		}
 		prerequisite = { focus = ALB_ideals_of_romantic_independence }
 		mutually_exclusive = { focus = ALB_republican_ideals focus = ALB_crown_the_kastrioti_prince }
@@ -6148,7 +6210,8 @@ focus_tree = {
 		icon = GFX_ALB_reapproachment_with_aromanians
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = ALB_favor_the_ghica_pretender }
 		x = -1
@@ -6178,7 +6241,9 @@ focus_tree = {
 		icon = GFX_focus_invite_romania
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_WAR_SUPPORT
+			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = ALB_favor_the_ghica_pretender }
 		x = 0
@@ -6210,6 +6275,9 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = ALB_ideals_of_romantic_independence }
 		mutually_exclusive = { focus = ALB_republican_ideals focus = ALB_favor_the_ghica_pretender }
@@ -6247,7 +6315,8 @@ focus_tree = {
 		icon = GFX_focus_generic_monarchy_2
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = ALB_crown_the_kastrioti_prince }
 		x = 1
@@ -6273,11 +6342,13 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
-		id = ALB_strenghten_the_christian_heritage
+		id = ALB_strengthen_the_christian_heritage
 		icon = GFX_goal_generic_catholic_cross
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_WAR_SUPPORT
+			FOCUS_FILTER_FRA_OCCUPATION_COST
 		}
 		prerequisite = { focus = ALB_crown_the_kastrioti_prince }
 		x = 0
@@ -6336,7 +6407,7 @@ focus_tree = {
 		icon = GFX_ALB_utilize_foreign_clubs
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_RESEARCH
 		}
 		prerequisite = { focus = ALB_favor_the_ghica_pretender focus = ALB_crown_the_kastrioti_prince }
 		x = 1
@@ -6355,7 +6426,9 @@ focus_tree = {
 		icon = GFX_focus_generic_ministeral_meeting
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_STABILITY
+			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = ALB_favor_the_ghica_pretender focus = ALB_crown_the_kastrioti_prince }
 		x = -1
@@ -6393,12 +6466,13 @@ focus_tree = {
 		icon = GFX_focus_generic_university_2
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_RESEARCH
 		}
 		prerequisite = { focus = ALB_utilize_foreign_clubs focus = ALB_reshape_the_albanian_aristocracy }
 		x = 1
 		y = 1
 		relative_position_id = ALB_utilize_foreign_clubs
+		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
 		completion_reward = {
 			custom_effect_tooltip = modify_ALB_illiterate_society_tt
 			add_to_variable = {
@@ -6415,9 +6489,8 @@ focus_tree = {
 		icon = GFX_focus_central_powers
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
+		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strengthen_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
 		mutually_exclusive = { focus = ALB_playing_both_sides focus = ALB_entente_allignment }
 		x = 3
 		y = 1
@@ -6462,9 +6535,9 @@ focus_tree = {
 		icon = GFX_ALB_playing_both_sides
 		cost = 10
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_ANNEXATION
 		}
-		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
+		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strengthen_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
 		mutually_exclusive = { focus = ALB_central_powers_allignment focus = ALB_entente_allignment }
 		x = 5
 		y = 1
@@ -6492,9 +6565,8 @@ focus_tree = {
 		icon = GFX_focus_consolidate_entente
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
-		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
+		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strengthen_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
 		mutually_exclusive = { focus = ALB_central_powers_allignment focus = ALB_playing_both_sides }
 		x = 7
 		y = 1
@@ -6540,9 +6612,9 @@ focus_tree = {
 		icon = GFX_focus_generic_limited_social_mobilization
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_MANPOWER
 		}
-		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
+		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strengthen_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
 		x = 1
 		y = 1
 		relative_position_id = ALB_paternal_republic
@@ -6581,7 +6653,6 @@ focus_tree = {
 		icon = GFX_focus_SWE_hedgehog_defense
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		prerequisite = { focus = ALB_form_the_citizens_militia }
 		x = -1
@@ -6618,7 +6689,6 @@ focus_tree = {
 		icon = GFX_focus_generic_provoke_border_clashes
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		prerequisite = { focus = ALB_form_the_citizens_militia }
 		x = 1
@@ -6643,9 +6713,9 @@ focus_tree = {
 		icon = GFX_focus_generic_public_works
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_INDUSTRY
 		}
-		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strenghten_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
+		prerequisite = { focus = ALB_paternal_republic focus = ALB_give_the_mantle_to_the_nationalists focus = ALB_strengthen_the_christian_heritage focus = ALB_strenghten_ties_with_romania }
 		x = 9
 		y = 1
 		relative_position_id = ALB_paternal_republic
@@ -6666,7 +6736,7 @@ focus_tree = {
 		icon = GFX_focus_BUL_free_balkan_states
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = ALB_albanian_public_works }
 		x = -1
@@ -6682,7 +6752,7 @@ focus_tree = {
 		icon = GFX_focus_ETH_adopt_the_lira
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = ALB_albanian_public_works }
 		x = 1
@@ -6703,13 +6773,13 @@ focus_tree = {
 		icon = GFX_focus_befriend_italy
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		prerequisite = { focus = ALB_foreign_policy_priority }
 		mutually_exclusive = { focus = ALB_cosy_up_to_the_serbs focus = ALB_crown_the_ottoman_albanian }
 		x = -4
 		y = 1
 		relative_position_id = ALB_foreign_policy_priority
+		available = { NOT = { has_war_with = ITA } }
 		completion_reward = {
 			add_timed_idea = {
 				idea = ALB_albanian_exodus
@@ -6735,13 +6805,13 @@ focus_tree = {
 		icon = GFX_focus_deal_with_serbia
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		prerequisite = { focus = ALB_foreign_policy_priority }
 		mutually_exclusive = { focus = ALB_revive_italian_relations focus = ALB_crown_the_ottoman_albanian }
 		x = 0
 		y = 1
 		relative_position_id = ALB_foreign_policy_priority
+		available = { NOT = { has_war_with = SER } }
 		completion_reward = {
 			unlock_decision_tooltip = ALB_crush_the_kosovo_committee
 			SER = {
@@ -6766,12 +6836,14 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_WAR_SUPPORT
 		}
 		prerequisite = { focus = ALB_foreign_policy_priority }
 		mutually_exclusive = { focus = ALB_revive_italian_relations focus = ALB_cosy_up_to_the_serbs }
 		x = 4
 		y = 1
 		relative_position_id = ALB_foreign_policy_priority
+		available = { NOT = { has_war_with = TUR } }
 		completion_reward = {
 			add_ideas = ALB_izzet_I
 			TUR = {
@@ -6802,7 +6874,9 @@ focus_tree = {
 		icon = GFX_ALB_recall_the_diaspora
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_RESEARCH
+			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = ALB_revive_italian_relations focus = ALB_cosy_up_to_the_serbs focus = ALB_crown_the_ottoman_albanian }
 		x = 2
@@ -6819,7 +6893,7 @@ focus_tree = {
 		icon = GFX_focus_generic_military_mission
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_ARMY_XP
 		}
 		prerequisite = { focus = ALB_revive_italian_relations focus = ALB_cosy_up_to_the_serbs focus = ALB_crown_the_ottoman_albanian }
 		x = -2
@@ -9094,6 +9168,10 @@ focus_tree = {
 				ALB_is_research_speed = 0.05
 			}
 			custom_effect_tooltip = empty_space
+			add_to_variable = {
+				tooltip = ALB_progression_of_literacy_time_tt
+				ALB_progression_of_literacy = 5
+			}
 		}
 		ai_will_do = { factor = 20 }
 	}
@@ -10862,6 +10940,9 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL_CHARACTER
+			FOCUS_FILTER_MILITARY_CHARACTER
+			FOCUS_FILTER_STABILITY
 		}
 		prerequisite = { focus = ALB_recrown_abdulhamid_II }
 		x = 0
@@ -10879,7 +10960,7 @@ focus_tree = {
 		icon = GFX_focus_AUS_lawmaking_leniency
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_STABILITY
 		}
 		prerequisite = { focus = ALB_exile_the_opposition }
 		x = 1
@@ -10897,7 +10978,7 @@ focus_tree = {
 		icon = GFX_focus_generic_silence
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_POLITICAL
 		}
 		prerequisite = { focus = ALB_initiate_political_transformation }
 		x = 1
@@ -10906,7 +10987,7 @@ focus_tree = {
 		available = {
 			has_country_leader = { character = TUR_abdulhamid_II }
 			OR = {
-				haS_idea = ALB_political_transformation
+				has_idea = ALB_political_transformation
 				has_active_mission = ALB_albanian_national_revolution
 			}
 		}
@@ -10942,7 +11023,7 @@ focus_tree = {
 		icon = GFX_focus_otto_uniform
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_FRA_OCCUPATION_COST
 		}
 		prerequisite = { focus = ALB_exile_the_opposition }
 		x = -2
@@ -11000,7 +11081,8 @@ focus_tree = {
 		icon = GFX_focus_generic_islamic_alliance
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_STABILITY
 		}
 		prerequisite = { focus = ALB_initiate_political_transformation }
 		x = -1
@@ -11017,7 +11099,7 @@ focus_tree = {
 		icon = GFX_focus_generic_money
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = ALB_utilize_pan_islamism }
 		x = -2
@@ -11035,13 +11117,16 @@ focus_tree = {
 		icon = GFX_focus_generic_islamic_education
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_RESEARCH
 		}
 		prerequisite = { focus = ALB_utilize_pan_islamism }
 		x = 2
 		y = 1
 		relative_position_id = ALB_utilize_pan_islamism
-		available = { has_country_leader = { character = TUR_abdulhamid_II } }
+		available = {
+			has_country_leader = { character = TUR_abdulhamid_II }
+			has_dynamic_modifier = { modifier = ALB_illiterate_society }
+		}
 		completion_reward = {
 			custom_effect_tooltip = modify_ALB_illiterate_society_tt
 			add_to_variable = {
@@ -11053,6 +11138,10 @@ focus_tree = {
 				ALB_is_research_speed = 0.05
 			}
 			custom_effect_tooltip = empty_space
+			add_to_variable = {
+				tooltip = ALB_progression_of_literacy_time_tt
+				ALB_progression_of_literacy = 5
+			}
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -11061,7 +11150,8 @@ focus_tree = {
 		icon = GFX_focus_generic_population_growth
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_INDUSTRY
 		}
 		prerequisite = { focus = ALB_utilize_pan_islamism }
 		x = 0
@@ -11078,7 +11168,8 @@ focus_tree = {
 		icon = GFX_focus_generic_islam
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_MANPOWER
+			FOCUS_FILTER_FRA_OCCUPATION_COST
 		}
 		prerequisite = { focus = ALB_return_the_balkan_refugees_abd }
 		x = 0
@@ -11099,7 +11190,8 @@ focus_tree = {
 		icon = GFX_focus_AFG_savior_of_the_holy_lands
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_WAR_SUPPORT
+			FOCUS_FILTER_STABILITY
 		}
 		prerequisite = { focus = ALB_a_state_for_all_muslims }
 		x = -1
@@ -11119,7 +11211,7 @@ focus_tree = {
 		icon = GFX_focus_usa_reestablish_the_gold_standard
 		cost = 5
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_FRA_OCCUPATION_COST
 		}
 		prerequisite = { focus = ALB_a_state_for_all_muslims }
 		x = 1
@@ -11138,7 +11230,7 @@ focus_tree = {
 		icon = GFX_focus_TUR_army_of_united_islam
 		cost = 10
 		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_ANNEXATION
 		}
 		prerequisite = { focus = ALB_a_state_for_all_muslims }
 		x = 0
@@ -11288,9 +11380,9 @@ joint_focus = {
 		y = 7
 		trigger = { original_tag = SER }
 	}
+	available = { ALB = { NOT = { has_war_with = SER } } }
 	completion_reward_joint_originator = {
 		add_ideas = ALB_albanian_serbian_commission
-		add_political_power = 35
 	}
 	completion_reward_joint_member = {
 		add_ideas = ALB_albanian_serbian_commission
@@ -11319,6 +11411,7 @@ joint_focus = {
 	x = -1
 	y = 1
 	relative_position_id = ALB_form_the_albanian_serbian_commission
+	available = { ALB = { NOT = { has_war_with = SER } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { has_idea = ALB_albanian_serbian_commission_3 }
@@ -11333,7 +11426,6 @@ joint_focus = {
 				add_idea = ALB_albanian_serbian_commission_2
 			}
 		}
-		army_experience = 35
 	}
 	completion_reward_joint_member = {
 		if = {
@@ -11375,6 +11467,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = ALB_form_the_albanian_serbian_commission
+	available = { ALB = { NOT = { has_war_with = SER } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { has_idea = ALB_albanian_serbian_commission_2 }
@@ -11390,7 +11483,6 @@ joint_focus = {
 			}
 		}
 		ALB_reduce_customs_duty_effectiveness_3 = yes
-		add_cic = 500
 	}
 	completion_reward_joint_member = {
 		if = {
@@ -11433,6 +11525,7 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_albanian_serbian_central_bank
 	available = {
+		ALB = { NOT = { has_war_with = SER } }
 		can_build_railway = {
 			start_province = 11586
    			target_province = 12700
@@ -11482,13 +11575,13 @@ joint_focus = {
 	cost = 5
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
-		FOCUS_FILTER_STABILITY
 	}
 	prerequisite = { focus = ALB_albanian_serbian_joint_army }
 	prerequisite = { focus = ALB_albanian_serbian_central_bank }
 	x = 1
 	y = 1
 	relative_position_id = ALB_albanian_serbian_joint_army
+	available = { ALB = { NOT = { has_war_with = SER } } }
 	completion_reward_joint_originator = {
 		swap_ideas = {
 			remove_idea = ALB_albanian_serbian_commission_4
@@ -11502,6 +11595,7 @@ joint_focus = {
 						has_state_flag = ALB_albanian_serbian_political_integration
 					}
 				}
+				847 = { is_owned_by = SER }
 			}
 			1240 = {
 				transfer_state_to = SER
@@ -11509,27 +11603,11 @@ joint_focus = {
 				set_state_flag = ALB_albanian_serbian_political_integration
 			}
 		}
-		add_stability = 0.05
 	}
 	completion_reward_joint_member = {
 		swap_ideas = {
 			remove_idea = ALB_albanian_serbian_commission_4
 			add_idea = ALB_albanian_serbian_commission_5
-		}
-		if = {
-			limit = {
-				1240 = {
-					OR = {
-						is_owned_by = ALB
-						has_state_flag = ALB_albanian_serbian_political_integration
-					}
-				}
-			}
-			1240 = {
-				transfer_state_to = SER
-				add_core_of = SER
-				set_state_flag = ALB_albanian_serbian_political_integration
-			}
 		}
 	}
 	ai_will_do = {
@@ -11550,8 +11628,7 @@ joint_focus = {
 	text_icon = joint_ALB_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL_CHARACTER
-		FOCUS_FILTER_INTERNAL_AFFAIRS
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 	prerequisite = { focus = ALB_albanian_serbian_political_integration }
 	mutually_exclusive = { focus = ALB_our_greatest_allies }
@@ -11560,7 +11637,8 @@ joint_focus = {
 	relative_position_id = ALB_albanian_serbian_political_integration
 	available = {
 		original_tag = ALB
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		has_country_leader = { character = ALB_esad_toptani }
+		NOT = { has_war_with = SER }
 	}
 	completion_reward_joint_originator = {
 		ALB = {
@@ -11638,7 +11716,10 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = ALB_albanian_serbian_political_integration
-	available = { original_tag = ALB }
+	available = {
+		original_tag = ALB
+		NOT = { has_war_with = SER }
+	}
 	completion_reward_joint_originator = {
 		ALB = {
 			swap_ideas = {
@@ -11714,7 +11795,10 @@ joint_focus = {
 		trigger = { original_tag = SER }
 	}
 	available = {
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		ALB = {
+			has_country_leader = { character = ALB_esad_toptani }
+			NOT = { has_war_with = SER }
+		}
 		custom_trigger_tooltip = {
 			tooltip = ALB_has_signed_treaty_of_nis
 			has_global_flag = ALB_treaty_of_nis
@@ -11722,7 +11806,6 @@ joint_focus = {
 	}
 	completion_reward_joint_originator = {
 		add_ideas = ALB_albanian_serbian_commission
-		add_political_power = 35
 	}
 	completion_reward_joint_member = {
 		add_ideas = ALB_albanian_serbian_commission
@@ -11752,7 +11835,10 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_form_the_albanian_serbian_commission2
 	available = {
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		ALB = {
+			has_country_leader = { character = ALB_esad_toptani }
+			NOT = { has_war_with = SER }
+		}
 		custom_trigger_tooltip = {
 			tooltip = ALB_has_signed_treaty_of_nis
 			has_global_flag = ALB_treaty_of_nis
@@ -11772,7 +11858,6 @@ joint_focus = {
 				add_idea = ALB_albanian_serbian_commission_2
 			}
 		}
-		army_experience = 35
 	}
 	completion_reward_joint_member = {
 		if = {
@@ -11815,7 +11900,10 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_form_the_albanian_serbian_commission2
 	available = {
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		ALB = {
+			has_country_leader = { character = ALB_esad_toptani }
+			NOT = { has_war_with = SER }
+		}
 		custom_trigger_tooltip = {
 			tooltip = ALB_has_signed_treaty_of_nis
 			has_global_flag = ALB_treaty_of_nis
@@ -11836,7 +11924,6 @@ joint_focus = {
 			}
 		}
 		ALB_reduce_customs_duty_effectiveness_3 = yes
-		add_cic = 500
 	}
 	completion_reward_joint_member = {
 		if = {
@@ -11879,7 +11966,10 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_albanian_serbian_central_bank2
 	available = {
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		ALB = {
+			has_country_leader = { character = ALB_esad_toptani }
+			NOT = { has_war_with = SER }
+		}
 		custom_trigger_tooltip = {
 			tooltip = ALB_has_signed_treaty_of_nis
 			has_global_flag = ALB_treaty_of_nis
@@ -11941,7 +12031,10 @@ joint_focus = {
 	y = 1
 	relative_position_id = ALB_albanian_serbian_joint_army2
 	available = {
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		ALB = {
+			has_country_leader = { character = ALB_esad_toptani }
+			NOT = { has_war_with = SER }
+		}
 		custom_trigger_tooltip = {
 			tooltip = ALB_has_signed_treaty_of_nis
 			has_global_flag = ALB_treaty_of_nis
@@ -11957,37 +12050,22 @@ joint_focus = {
 				1240 = {
 					OR = {
 						is_owned_by = ALB
-						has_state_flag = ALB_albanian_serbian_political_integration
+						has_state_flag = ALB_albanian_serbian_political_integration2
 					}
 				}
+				847 = { is_owned_by = SER }
 			}
 			1240 = {
 				transfer_state_to = SER
 				add_core_of = SER
-				set_state_flag = ALB_albanian_serbian_political_integration
+				set_state_flag = ALB_albanian_serbian_political_integration2
 			}
 		}
-		add_stability = 0.05
 	}
 	completion_reward_joint_member = {
 		swap_ideas = {
 			remove_idea = ALB_albanian_serbian_commission_4
 			add_idea = ALB_albanian_serbian_commission_5
-		}
-		if = {
-			limit = {
-				1240 = {
-					OR = {
-						is_owned_by = ALB
-						has_state_flag = ALB_albanian_serbian_political_integration
-					}
-				}
-			}
-			1240 = {
-				transfer_state_to = SER
-				add_core_of = SER
-				set_state_flag = ALB_albanian_serbian_political_integration
-			}
 		}
 	}
 	ai_will_do = {
@@ -12017,7 +12095,8 @@ joint_focus = {
 	relative_position_id = ALB_albanian_serbian_political_integration2
 	available = {
 		original_tag = ALB
-		ALB = { has_country_leader = { character = ALB_esad_toptani } }
+		has_country_leader = { character = ALB_esad_toptani }
+		NOT = { has_war_with = SER }
 		custom_trigger_tooltip = {
 			tooltip = ALB_has_signed_treaty_of_nis
 			has_global_flag = ALB_treaty_of_nis
@@ -12079,7 +12158,7 @@ joint_focus = {
 	text_icon = joint_ALB_ITA_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_INDUSTRY
 	}
 	prerequisite = { focus = ALB_revive_italian_relations focus = ITA_fall_of_the_great focus = ITA_seek_emergency_powers focus = ITA_destiny_arrives_all_the_same }
 	x = 0
@@ -12100,6 +12179,7 @@ joint_focus = {
 		y = 4
 		trigger = { original_tag = ITA }
 	}
+	available = { ALB = { NOT = { has_war_with = ITA } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { original_tag = ALB }
@@ -12146,12 +12226,13 @@ joint_focus = {
 	text_icon = joint_ALB_ITA_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_INDUSTRY
 	}
 	prerequisite = { focus = ALB_pact_of_friendship_and_security }
 	x = 0
 	y = 1
 	relative_position_id = ALB_pact_of_friendship_and_security
+	available = { ALB = { NOT = { has_war_with = ITA } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { original_tag = ALB }
@@ -12204,7 +12285,7 @@ joint_focus = {
 	text_icon = joint_ALB_ITA_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_INDUSTRY
 	}
 	prerequisite = { focus = ALB_treaty_of_defensive_alliance }
 	x = -2
@@ -12218,6 +12299,7 @@ joint_focus = {
 			}
 		}
 	}
+	available = { ALB = { NOT = { has_war_with = ITA } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { original_tag = ALB }
@@ -12306,17 +12388,18 @@ joint_focus = {
 	text_icon = joint_ALB_ITA_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
 	}
 	prerequisite = { focus = ALB_treaty_of_defensive_alliance }
 	x = 0
 	y = 1
 	relative_position_id = ALB_treaty_of_defensive_alliance
+	available = { ALB = { NOT = { has_war_with = ITA } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { original_tag = ALB }
 			ALB = {
 				add_ideas = ALB_joint_mountaineer_corps
+				custom_effect_tooltip = empty_space
 				add_tech_bonus = {
 					name = AUH_prepare_westfront
 					bonus = 1
@@ -12336,6 +12419,7 @@ joint_focus = {
 			limit = { original_tag = ALB }
 			ALB = {
 				add_ideas = ALB_joint_mountaineer_corps
+				custom_effect_tooltip = empty_space
 				add_tech_bonus = {
 					name = AUH_prepare_westfront
 					bonus = 1
@@ -12368,12 +12452,13 @@ joint_focus = {
 	text_icon = joint_ALB_ITA_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_INDUSTRY
 	}
 	prerequisite = { focus = ALB_treaty_of_defensive_alliance }
 	x = 2
 	y = 1
 	relative_position_id = ALB_treaty_of_defensive_alliance
+	available = { ALB = { NOT = { has_war_with = ITA } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { original_tag = ALB }
@@ -12428,8 +12513,8 @@ joint_focus = {
 	text_icon = joint_ALB_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL_CHARACTER
-		FOCUS_FILTER_INTERNAL_AFFAIRS
+		FOCUS_FILTER_INDUSTRY
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 	prerequisite = { focus = ALB_treaty_of_defensive_alliance }
 	mutually_exclusive = { focus = ALB_personal_union_with_italy }
@@ -12438,10 +12523,12 @@ joint_focus = {
 	relative_position_id = ALB_treaty_of_defensive_alliance
 	available = {
 		original_tag = ALB
+		NOT = { has_war_with = ITA }
 	}
 	completion_reward_joint_originator = {
 		ALB = {
 			add_ideas = ALB_little_italy
+			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
 			add_to_variable = {
 				tooltip = war_support_factor_tt
@@ -12464,6 +12551,8 @@ joint_focus = {
 	cost = 5
 	search_filters = {
 		FOCUS_FILTER_POLITICAL_CHARACTER
+		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_WAR_SUPPORT
 		FOCUS_FILTER_INTERNAL_AFFAIRS
 	}
 	prerequisite = { focus = ALB_treaty_of_defensive_alliance }
@@ -12473,6 +12562,7 @@ joint_focus = {
 	relative_position_id = ALB_treaty_of_defensive_alliance
 	available = {
 		original_tag = ALB
+		NOT = { has_war_with = ITA }
 	}
 	completion_reward_joint_originator = {
 		ALB = {
@@ -12489,6 +12579,7 @@ joint_focus = {
 			hidden_effect = { restore_previous_government_type = yes }
 			set_cosmetic_tag = ALB_principality
 			add_ideas = ALB_victor_emmanuel
+			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
 			add_to_variable = {
 				tooltip = political_power_factor_tt
@@ -12511,7 +12602,7 @@ joint_focus = {
 	text_icon = joint_ALB_TUR_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_MANPOWER
 	}
 	prerequisite = { focus = ALB_crown_the_ottoman_albanian focus = TUR_our_place_in_the_world }
 	x = 0
@@ -12532,6 +12623,7 @@ joint_focus = {
 		y = 1
 		trigger = { original_tag = TUR }
 	}
+	available = { ALB = { NOT = { has_war_with = TUR } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { tag = TUR }
@@ -12628,12 +12720,13 @@ joint_focus = {
 	text_icon = joint_ALB_TUR_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_INDUSTRY
 	}
 	prerequisite = { focus = ALB_ottoman_material_support }
 	x = -1
 	y = 1
 	relative_position_id = ALB_ottoman_material_support
+	available = { ALB = { NOT = { has_war_with = TUR } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { original_tag = ALB }
@@ -12676,12 +12769,14 @@ joint_focus = {
 	text_icon = joint_ALB_TUR_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
+		FOCUS_FILTER_RESEARCH
 	}
 	prerequisite = { focus = ALB_ottoman_material_support }
 	x = 1
 	y = 1
 	relative_position_id = ALB_ottoman_material_support
+	available = { ALB = { NOT = { has_war_with = TUR } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { original_tag = ALB }
@@ -12691,12 +12786,15 @@ joint_focus = {
 				ALB_sos_stability_factor = 0.1
 			}
 			custom_effect_tooltip = empty_space
-			custom_effect_tooltip = modify_ALB_illiterate_society_tt
-			add_to_variable = {
-				tooltip = research_speed_factor_tt
-				ALB_is_research_speed = 0.05
+			if = {
+				limit = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
+				custom_effect_tooltip = modify_ALB_illiterate_society_tt
+				add_to_variable = {
+					tooltip = research_speed_factor_tt
+					ALB_is_research_speed = 0.05
+				}
+				custom_effect_tooltip = empty_space
 			}
-			custom_effect_tooltip = empty_space
 		}
 		if = {
 			limit = { original_tag = TUR }
@@ -12740,12 +12838,15 @@ joint_focus = {
 				ALB_sos_stability_factor = 0.05
 			}
 			custom_effect_tooltip = empty_space
-			custom_effect_tooltip = modify_ALB_illiterate_society_tt
-			add_to_variable = {
-				tooltip = research_speed_factor_tt
-				ALB_is_research_speed = 0.05
+			if = {
+				limit = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
+				custom_effect_tooltip = modify_ALB_illiterate_society_tt
+				add_to_variable = {
+					tooltip = research_speed_factor_tt
+					ALB_is_research_speed = 0.05
+				}
+				custom_effect_tooltip = empty_space
 			}
-			custom_effect_tooltip = empty_space
 		}
 		if = {
 			limit = { original_tag = TUR }
@@ -12798,7 +12899,7 @@ joint_focus = {
 	text_icon = joint_ALB_TUR_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_FRA_OCCUPATION_COST
 	}
 	prerequisite = { focus = ALB_albanian_turkish_cultural_programs }
 	x = 1
@@ -12813,6 +12914,7 @@ joint_focus = {
 			else = { has_idea = TUR_teskilat_i_mahsusa_no_lar }
 		}
 	}
+	available = { ALB = { NOT = { has_war_with = TUR } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { original_tag = ALB }
@@ -12900,12 +13002,13 @@ joint_focus = {
 	text_icon = joint_ALB_TUR_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_STABILITY
 	}
 	prerequisite = { focus = ALB_re_esrtablish_market_accesses focus = ALB_albanian_turkish_cultural_programs }
 	x = 1
 	y = 1
 	relative_position_id = ALB_re_esrtablish_market_accesses
+	available = { ALB = { NOT = { has_war_with = TUR } } }
 	completion_reward_joint_originator = {
 		if = {
 			limit = { original_tag = ALB }
@@ -12920,7 +13023,7 @@ joint_focus = {
 		}
 	}
 	completion_reward_joint_member = {
-		f = {
+		if = {
 			limit = { original_tag = ALB }
 			add_ideas = ALB_islamic_legitimacy
 		}
@@ -12951,13 +13054,17 @@ joint_focus = {
 	text_icon = joint_ALB_focus_style
 	cost = 5
 	search_filters = {
-		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_WAR_SUPPORT
 	}
 	prerequisite = { focus = ALB_religious_legitimacy }
 	mutually_exclusive = { focus = ALB_assume_direct_control }
 	x = -1
 	y = 1
 	relative_position_id = ALB_religious_legitimacy
+	available = {
+		original_tag = ALB
+		NOT = { has_war_with = TUR }
+	}
 	completion_reward_joint_originator = {
 		ALB = {
 			add_ideas = ALB_turkish_military_mission
@@ -13001,19 +13108,27 @@ joint_focus = {
 	cost = 5
 	search_filters = {
 		FOCUS_FILTER_POLITICAL
+		FOCUS_FILTER_WAR_SUPPORT
+		FOCUS_FILTER_POLITICAL_CHARACTER
+		FOCUS_FILTER_INTERNAL_AFFAIRS
 	}
 	prerequisite = { focus = ALB_religious_legitimacy }
 	mutually_exclusive = { focus = ALB_privilaged_partnership }
 	x = 1
 	y = 1
 	relative_position_id = ALB_religious_legitimacy
+	available = {
+		original_tag = ALB
+		NOT = { has_war_with = TUR }
+	}
 	completion_reward_joint_originator = {
 		ALB = {
+			remove_ideas = ALB_izzet_I
 			effect_tooltip = {
 				create_country_leader = {
 					name = ALB_ahmet_izzet
 					ideology = semi_constitutional_monarchy
-					traits = { ALB_foreign_monarch ALB_albanian_general }
+					traits = { ALB_albanian_general }
 				}
 			}
 			hidden_effect = {
@@ -13022,7 +13137,7 @@ joint_focus = {
 					promote_leader = yes
 					country_leader = {
 						ideology = semi_constitutional_monarchy
-						traits = { ALB_foreign_monarch ALB_albanian_general }
+						traits = { ALB_albanian_general }
 					}
 				}
 			}
