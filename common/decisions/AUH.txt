@@ -248,6 +248,57 @@ TGWR_great_power_politics = {
 			AUH_se_pig_war_levels = yes
 		}
 	}
+	AUS_send_peacekeepers_vatican = {
+		icon = GFX_decision_hol_war_on_pacifism
+		days_remove = 60
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_civil_war_in_west
+		}
+		available = {
+			has_completed_focus = AUS_civil_war_in_west
+		}
+		remove_effect = {
+			PAP = {
+				add_ideas = AUS_austrian_peacekeepers
+			}
+		}
+	}
+	AUS_reinstate_liechtenstein_monarchy = {
+		icon = GFX_decision_hol_war_on_pacifism
+		days_remove = 60
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_civil_war_in_west
+		}
+		available = {
+			has_completed_focus = AUS_civil_war_in_west
+			LIE = {
+				has_country_leader = LIE_martin_ritter
+			}
+		}
+		remove_effect = {
+			LIE = {
+				country_event = ww1_liechtenstein.10
+			}
+		}
+	}
 }
 
 AUH_great_war_bullshit = {
