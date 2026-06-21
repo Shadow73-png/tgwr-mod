@@ -5,7 +5,7 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 10000
+			add = 100
 			tag = AUS
 			has_country_flag = AUS_german_austria
 		}
@@ -23,7 +23,7 @@ focus_tree = {
 		icon = GFX_focus_generic_concessions
 		cost = 8
 		x = -4
-		y = 5
+		y = 1
 		prerequisite = {
 			focus = AUS_all_good_things_come_to_an_end
 		}
@@ -48,7 +48,7 @@ focus_tree = {
 		icon = GFX_focus_generic_price_controls
 		cost = 8
 		x = -2
-		y = 5
+		y = 1
 		prerequisite = {
 			focus = AUS_all_good_things_come_to_an_end
 		}
@@ -155,7 +155,7 @@ focus_tree = {
 		icon = GFX_focus_RAJ_to_shake_the_world
 		cost = 8
 		x = -3
-		y = 6
+		y = 2
 		prerequisite = {
 			focus = AUS_save_vienna
 		}
@@ -184,7 +184,7 @@ focus_tree = {
 		icon = GFX_focus_generic_welfare
 		cost = 8
 		x = -3
-		y = 7
+		y = 3
 		prerequisite = {
 			focus = AUS_foreign_food_aid
 		}
@@ -215,8 +215,9 @@ focus_tree = {
 		id = AUS_money_print
 		icon = GFX_focus_FRA_expand_army_budget
 		cost = 8
-		x = -1
-		y = 6
+		x = 1
+		y = 1
+		relative_position_id = AUS_save_vienna
 		mutually_exclusive = {
 			focus = AUS_austerity
 		}
@@ -342,8 +343,9 @@ focus_tree = {
 		id = AUS_austerity
 		icon = GFX_focus_dead_economy
 		cost = 8
-		x = 1
-		y = 6
+		x = 3
+		y = 1
+		relative_position_id = AUS_save_vienna
 		mutually_exclusive = {
 			focus = AUS_money_print
 		}
@@ -390,7 +392,7 @@ focus_tree = {
 		icon = GFX_focus_ETH_peacekeeping_forces
 		cost = 8
 		x = 2
-		y = 5
+		y = 1
 		prerequisite = {
 			focus = AUS_all_good_things_come_to_an_end
 		}
@@ -604,7 +606,7 @@ focus_tree = {
 		id = AUS_center_right_governance
 		icon = GFX_focus_por_concordat
 		cost = 8
-		x = -4
+		x = -3
 		y = 1
 		prerequisite = {
 			focus = AUS_all_good_things_come_to_an_end
@@ -860,16 +862,17 @@ focus_tree = {
 		id = AUS_backstab
 		icon = GFX_focus_GER_tend_to_the_future
 		cost = 8
-		x = -1
-		y = 3
+		x = -10
+		y = 1
 		prerequisite = {
-			focus = AUS_so_many_loans
+			focus = AUS_all_good_things_come_to_an_end
 		}
 		available = {
 			always = no
+			has_completed_focus = AUS_so_many_loans
 		}
 
-		relative_position_id = AUS_treaty_of_lana
+		relative_position_id = AUS_all_good_things_come_to_an_end
 		completion_reward = {
 			
 		}
@@ -1022,9 +1025,9 @@ focus_tree = {
 		}
 		available = {
 		}
-bypass = {
-	has_completed_focus = AUS_austerity
-}
+		bypass = {
+			has_completed_focus = AUS_austerity
+		}
 		relative_position_id = AUS_backstab
 		completion_reward = {
 			remove_mission = AUS_inflation_iw
@@ -1042,7 +1045,7 @@ bypass = {
 		icon = GFX_focus_generic_advanced_military_studies
 		cost = 8
 		x = -2
-		y = 2
+		y = 3
 		prerequisite = {
 			focus = AUS_suppress_the_left
 		}
@@ -1062,12 +1065,12 @@ bypass = {
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
-		focus = {
+	focus = {
 		id = AUS_more_then_just_surviving
 		icon = GFX_
 		cost = 8
 		x = -4
-		y = 3
+		y = 4
 		prerequisite = {
 			focus = AUS_align_far_right
 		}
