@@ -7394,6 +7394,87 @@ country_event = { #albania approach turkey
 	}
 }
 
+country_event = { #albania asks to reclaim territory
+	id = albania.146
+	title = albania.146.t
+	desc = albania.146.desc
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	option = {
+		name = albania.146.a
+		effect_tooltip = {
+			declare_war_on = {
+				target = FROM.FROM
+				type = take_state
+			}
+			FROM = {
+				declare_war_on = {
+					target = FROM.FROM
+					type = take_state
+				}
+			}
+		}
+		hidden_effect = { FROM = { country_event = { id = albania.147 hours = 8 } } }
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = albania.146.b
+		hidden_effect = { FROM = { country_event = { id = albania.148 hours = 8 } } }
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { #albania asks to reclaim territory yes
+	id = albania.147
+	title = albania.147.t
+	desc = albania.147.desc
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	option = {
+		declare_war_on = {
+			target = FROM.FROM.FROM
+			type = take_state
+		}
+		FROM = {
+			declare_war_on = {
+				target = FROM.FROM.FROM
+				type = take_state
+			}
+		}
+		name = albania.147.a
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { #albania asks to reclaim territory no
+	id = albania.148
+	title = albania.148.t
+	desc = {
+		text = albania.148.desc1
+		trigger = { is_subject = no }
+	}
+	desc = {
+		text = albania.148.desc2
+		trigger = { is_subject = yes }
+	}
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	option = {
+		name = albania.148.a
+		trigger = { is_subject = no }
+		declare_war_on = {
+			target = FROM.FROM.FROM
+			type = take_state
+		}
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = albania.148.a
+		trigger = { is_subject = yes }
+		ai_chance = { factor = 100 }
+	}
+}
+
 #No More Ottoman Puppet
 country_event = {
 	id = ww1_albania.11

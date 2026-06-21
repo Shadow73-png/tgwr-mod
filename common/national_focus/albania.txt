@@ -5134,7 +5134,8 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = { has_country_flag = ALB_form_the_citizens_militia }
-				set_division_template_cap = { division_template = "Forcat e Milicisë" division_cap = 28 }
+				custom_effect_tooltip = ALB_form_the_citizens_militia_tt2
+				hidden_effect = { set_division_template_cap = { division_template = "Forcat e Milicisë" division_cap = 28 } }
 			}
 			else = {
 				division_template = {
@@ -6549,7 +6550,8 @@ focus_tree = {
 			add_ideas = ALB_militia_formations
 			if = {
 				limit = { has_country_flag = ALB_arm_patriotic_civilians }
-				set_division_template_cap = { division_template = "Forcat e Milicisë" division_cap = 28 }
+				custom_effect_tooltip = ALB_form_the_citizens_militia_tt2
+				hidden_effect = { set_division_template_cap = { division_template = "Forcat e Milicisë" division_cap = 28 } }
 			}
 			else = {
 				division_template = {
@@ -6786,6 +6788,7 @@ focus_tree = {
 					limit = { has_character = TUR_ahmet_izzet }
 					TUR_ahmet_izzet = {
 						set_nationality = ALB
+						set_character_name = ALB_ahmet_izzet
 						promote_leader = yes
 					}
 				}
@@ -12474,7 +12477,7 @@ joint_focus = {
 	completion_reward_joint_originator = {
 		ALB = {
 			set_country_flag = monarchist_puppet
-			hidden_effect = { ALB = { get_current_government_type = yes } }
+			hidden_effect = { get_current_government_type = yes }
 			ITA = {
 				set_autonomy = {
 					target = ALB
@@ -12483,7 +12486,8 @@ joint_focus = {
 					end_civil_wars = no
 				}
 			}
-			hidden_effect = { ALB = { restore_previous_government_type = yes } }
+			hidden_effect = { restore_previous_government_type = yes }
+			set_cosmetic_tag = ALB_principality
 			add_ideas = ALB_victor_emmanuel
 			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
 			add_to_variable = {
@@ -12842,7 +12846,8 @@ joint_focus = {
 					add_idea = TUR_teskilat_i_mahsusa_no_lar_2
 				}
 			}
-			set_division_template_cap = { division_template = "Teşkilât-ı Mahsusa Birliği" division_cap = 12 }
+			custom_effect_tooltip = ALB_utilize_turkish_intelligence_tt
+			hidden_effect = { set_division_template_cap = { division_template = "Teşkilât-ı Mahsusa Birliği" division_cap = 12 } }
 		}
 	}
 	completion_reward_joint_member = {
@@ -12906,8 +12911,27 @@ joint_focus = {
 			limit = { original_tag = ALB }
 			add_ideas = ALB_islamic_legitimacy
 		}
+		if = {
+			limit = { original_tag = TUR }
+			add_to_variable = {
+				tooltip = TUR_international_standing_var_tt
+				TUR_international_standing_var = 20
+			}
+		}
 	}
 	completion_reward_joint_member = {
+		f = {
+			limit = { original_tag = ALB }
+			add_ideas = ALB_islamic_legitimacy
+		}
+		if = {
+			limit = { original_tag = TUR }
+			add_political_power = 35
+			add_to_variable = {
+				tooltip = TUR_international_standing_var_tt
+				TUR_international_standing_var = 20
+			}
+		}
 	}
 	ai_will_do = {
 		modifier = {
@@ -12936,11 +12960,29 @@ joint_focus = {
 	relative_position_id = ALB_religious_legitimacy
 	completion_reward_joint_originator = {
 		ALB = {
+			add_ideas = ALB_turkish_military_mission
+			custom_effect_tooltip = empty_space
+			unlock_decision_tooltip = ALB_war_for_our_lost_lands
 			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
 			add_to_variable = {
 				tooltip = war_support_factor_tt
 				ALB_sos_war_support_factor = 0.1
 			}
+			custom_effect_tooltip = empty_space
+			custom_effect_tooltip = empty_space
+		}
+		TUR = {
+			custom_effect_tooltip = TUR_modify_TUR_army_of_a_bygone_era_dynamic_name_tt
+			add_to_variable = {
+				tooltip = recon_factor_tt
+				TUR_aoabe_recon_factor = 0.05
+			}
+			custom_effect_tooltip = empty_space
+			add_to_variable = {
+				tooltip = supply_combat_penalties_on_core_factor_tt
+				TUR_aoabe_supply_combat_penalties_on_core_factor = -0.02
+			}
+			custom_effect_tooltip = empty_space
 			custom_effect_tooltip = empty_space
 		}
 	}
@@ -12967,6 +13009,35 @@ joint_focus = {
 	relative_position_id = ALB_religious_legitimacy
 	completion_reward_joint_originator = {
 		ALB = {
+			effect_tooltip = {
+				create_country_leader = {
+					name = ALB_ahmet_izzet
+					ideology = semi_constitutional_monarchy
+					traits = { ALB_foreign_monarch ALB_albanian_general }
+				}
+			}
+			hidden_effect = {
+				add_country_leader_role = {
+					character = TUR_ahmet_izzet
+					promote_leader = yes
+					country_leader = {
+						ideology = semi_constitutional_monarchy
+						traits = { ALB_foreign_monarch ALB_albanian_general }
+					}
+				}
+			}
+			hidden_effect = { get_current_government_type = yes }
+			TUR = {
+				set_autonomy = {
+					target = ALB
+					autonomous_state = autonomy_tgwr_unilateral_union
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			hidden_effect = { restore_previous_government_type = yes }
+			set_cosmetic_tag = ALB_principality
+			unlock_decision_tooltip = ALB_war_for_our_lost_lands
 			custom_effect_tooltip = swap_ALB_statuti_organik_i_shqiperise
 			add_to_variable = {
 				tooltip = political_power_factor_tt
