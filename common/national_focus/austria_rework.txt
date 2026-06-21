@@ -12835,6 +12835,12 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
+			if = {
+				limit = {
+					is_in_faction = no
+				}
+				create_faction = danube_adriabund
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -12907,8 +12913,12 @@ focus_tree = {
 			focus = AUS_support_italian_monarchy
 		}
 		available = {
+			is_faction_leader = yes
 		}
 		completion_reward = {
+			ITA = {
+				country_event = ww1_austriahungary.259
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -12935,6 +12945,7 @@ focus_tree = {
 		completion_reward = {
 			set_state_owner = 159
 			set_state_owner = 160
+			set_state_owner = 1259
 			set_country_flag = ITA_austria_took_north
 			ITA = {
 				country_event = ww1_austriahungary.257
@@ -12968,18 +12979,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			unlock_decision_tooltip = {
-				decision = AUS_humanitarian_support_north
-				show_effect_tooltip = yes
-			}
-			unlock_decision_tooltip = {
-				decision = AUS_combat_italian_seperatists
-				show_effect_tooltip = yes
-			}
-			unlock_decision_tooltip = {
-				decision = AUS_pacify_north_italy
-				show_effect_tooltip = yes
-			}
+			country_event = ww1_auh.25
 		}
 		ai_will_do = {
 			base = 1
