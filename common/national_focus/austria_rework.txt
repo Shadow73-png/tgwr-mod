@@ -574,15 +574,6 @@ focus_tree = {
 		cost = 0
 		x = 27
 		y = 0
-		offset = {
-			trigger = {
-				OR = {
-					has_completed_focus = AUS_destroy_decadent_democracy
-					has_completed_focus = AUS_the_conservative_duopoly
-				}
-			}
-			x = -13
-		}
 		available = {
 			always = no
 			AUS_bienerth_MP = yes
@@ -1601,6 +1592,9 @@ focus_tree = {
 		y = 1
 		available = {
 			AUS_bienerth_MP = yes
+			NOT = {
+				has_active_mission = AUS_imperial_elections
+			}
 		}
 		completion_reward = {
 			add_to_variable = {
@@ -1811,6 +1805,9 @@ focus_tree = {
 			check_variable = {
 				AUS_pm_mandate_power > 0
 				tooltip = AUS_at_least_one_pm_power
+			}
+			NOT = {
+				has_active_mission = AUS_imperial_elections
 			}
 		}
 		completion_reward = {
@@ -2313,6 +2310,12 @@ focus_tree = {
 		cost = 0
 		x = 15
 		y = 1
+		offset = {
+			x = -3
+			trigger = {
+				has_completed_focus = AUS_destroy_decadent_democracy
+			}
+		}
 		prerequisite = {
 			focus = AUS_count_richard_von_bienerth_schmerling
 		}
@@ -3904,6 +3907,12 @@ focus_tree = {
 		allow_branch = {
 			NOT = {
 				has_completed_focus = AUS_the_conservative_duopoly
+			}
+		}
+		offset = {
+			x = 4
+			trigger = {
+				has_completed_focus = AUS_destroy_decadent_democracy
 			}
 		}
 		mutually_exclusive = {
@@ -11634,7 +11643,7 @@ focus_tree = {
 		icon = GFX_focus_AUS_lawmaking_leniency
 		cost = 4
 		x = 28
-		y = 10
+		y = 11
 		available = {
 			HUN = {
 				has_active_mission = HUN_army_question_crisis
