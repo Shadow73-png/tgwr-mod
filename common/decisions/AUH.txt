@@ -5157,6 +5157,7 @@ has_completed_focus = AUS_bienerth_resigns
 			remove_dynamic_modifier = {
 				modifier = AUS_imperial_council
 			}
+			set_global_flag = AUS_imperial_council_suspended
 			if = {
 				limit = {
 					has_completed_focus = AUS_take_advantage_of_section_41
@@ -5173,6 +5174,7 @@ has_completed_focus = AUS_bienerth_resigns
 			}
 		}
 		remove_effect = {
+			clr_global_flag = AUS_imperial_council_suspendedAUS_imperial_council_suspended
 			add_dynamic_modifier = {
 				modifier = AUS_imperial_council
 			}
@@ -5379,7 +5381,7 @@ has_completed_focus = AUS_bienerth_resigns
 			unlock_national_focus = AUS_polish_loyalty
 		}
 	}
-		AUH_obstructionist_imperial_council= {
+	AUH_obstructionist_imperial_council= {
 		priority = 1002
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
@@ -5405,6 +5407,9 @@ has_completed_focus = AUS_bienerth_resigns
 			original_tag = AUS
 			NOT = {
 				has_country_flag = AUS_obstructionism_is_gone
+				hidden_trigger = {
+					has_country_flag = AUS_perm_obstructionism
+				}
 			}
 		}
 		timeout_effect = {

@@ -7,6 +7,8 @@ defined_text = {
 			has_global_flag = AUS_imperial_council_conservative
 			NOT = {
 				has_completed_focus = AUS_reformist_club
+				has_global_flag = AUS_imperial_council_suspended
+				has_global_flag = AUS_imperial_council_closed
 			}
 		}
         localization_key = AUS_ic_con.tt
@@ -14,13 +16,25 @@ defined_text = {
 
     # Nationalist Liberals
     text = {
-        trigger = { has_global_flag = AUS_imperial_council_liberal }
+        trigger = {
+			has_global_flag = AUS_imperial_council_liberal
+			NOT = {
+				has_global_flag = AUS_imperial_council_suspended
+				has_global_flag = AUS_imperial_council_closed
+			}
+		}
         localization_key = AUS_ic_lib.tt
     }
 
     # Social Democrats
     text = {
-        trigger = { has_global_flag = AUS_imperial_council_social_democrat }
+        trigger = {
+			has_global_flag = AUS_imperial_council_social_democrat 
+			NOT = {
+				has_global_flag = AUS_imperial_council_suspended
+				has_global_flag = AUS_imperial_council_closed
+			}
+		}
         localization_key = AUS_ic_socdem.tt
     }
 
@@ -30,7 +44,9 @@ defined_text = {
 			has_completed_focus = AUS_reformist_club
 			has_global_flag = AUS_imperial_council_conservative
 			NOT = {
-				has_active_mission = AUS_imperial_elections
+			#	has_active_mission = AUS_imperial_elections
+				has_global_flag = AUS_imperial_council_suspended
+				has_global_flag = AUS_imperial_council_closed
 			}
 			AUS_richard_von_bienerth_schmerling = {
 				has_character_flag = minister_AUS
@@ -45,6 +61,17 @@ defined_text = {
 			has_global_flag = AUS_imperial_council_closed
 		}
 		localization_key = AUS_ic_closed.tt
+	}
+
+	#Suspended
+	text = {
+		trigger = {
+			has_global_flag = AUS_imperial_council_suspended
+			NOT = {
+				has_global_flag = AUS_imperial_council_closed
+			}
+		}
+		localization_key = AUS_ic_suspended.tt
 	}
 }
 defined_text = {
@@ -604,6 +631,10 @@ defined_text = {
 	# Extremely friendly: =2 or >2
 	text = {
 		trigger = {
+			NOT = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
 			OR = {
 				check_variable = {
 					AUS_parliament_relations = 2
@@ -618,6 +649,10 @@ defined_text = {
 	# Friendly: =1 or >1 up to <2
 	text = {
 		trigger = {
+			NOT = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
 			AND = {
 				OR = {
 					check_variable = {
@@ -637,6 +672,10 @@ defined_text = {
 	# Unfriendly: >-0.9 and <-0.9, includes 0
 	text = {
 		trigger = {
+			NOT = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
 			AND = {
 				check_variable = {
 					AUS_parliament_relations > -0.9
@@ -651,6 +690,10 @@ defined_text = {
 	# Outright hostile: =-1 or >-2 up to <-0.9
 	text = {
 		trigger = {
+			NOT = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
 			AND = {
 				OR = {
 					check_variable = {
@@ -670,6 +713,10 @@ defined_text = {
 	# Dysfunctional: =-2 or <-2
 	text = {
 		trigger = {
+			NOT = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
 			OR = {
 				check_variable = {
 					AUS_parliament_relations = -2
@@ -680,6 +727,15 @@ defined_text = {
 			}
 		}
 		localization_key = AUS_dysfunctional
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
+		}
+		localization_key = AUS_nonexistant_tt
 	}
 	
 }
@@ -693,6 +749,10 @@ defined_text = {
                 check_variable = { AUS_parliament_influence = 4 }
                 check_variable = { AUS_parliament_influence > 4 }
             }
+			NOT = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
         }
         localization_key = AUS_Dominant
     }
@@ -707,6 +767,10 @@ defined_text = {
                 }
                 check_variable = { AUS_parliament_influence < 4 }
             }
+			NOT = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
         }
         localization_key = AUS_Fairly_High
     }
@@ -721,6 +785,10 @@ defined_text = {
                 }
                 check_variable = { AUS_parliament_influence < 3 }
             }
+			NOT = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
         }
         localization_key = AUS_Limited
     }
@@ -749,9 +817,22 @@ defined_text = {
                 }
                 check_variable = { AUS_parliament_influence < 1 }
             }
+			NOT = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
         }
         localization_key = AUS_Non_Existent
     }
+	text = {
+		trigger = {
+			OR = {
+				has_global_flag = AUS_imperial_council_closed
+				has_global_flag = AUS_imperial_council_suspended
+			}
+		}
+		localization_key = AUS_none_tt
+	}
 
    
 }

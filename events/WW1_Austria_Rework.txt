@@ -10534,6 +10534,60 @@ country_event = {
 		
 	}
 }
+country_event = {
+	id = ww1_austriadebug.5
+	title = change_austria_ic_parties
+	desc = something
+	picture = GFX_report_event_gathering_protest
+	#fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = sdpao
+		clr_global_flag = AUS_imperial_council_conservative
+		clr_global_flag = AUS_imperial_council_liberal
+		set_global_flag = AUS_imperial_council_social_democrat
+		clr_global_flag = AUS_imperial_council_closed
+		clr_global_flag = AUS_imperial_council_suspended
+	}
+	option = {
+		name = csp
+		set_global_flag = AUS_imperial_council_conservative
+		clr_global_flag = AUS_imperial_council_liberal
+		clr_global_flag = AUS_imperial_council_social_democrat
+		clr_global_flag = AUS_imperial_council_closed
+		clr_global_flag = AUS_imperial_council_suspended
+	}
+	option = {
+		name = dnv
+		clr_global_flag = AUS_imperial_council_conservative
+		set_global_flag = AUS_imperial_council_liberal
+		clr_global_flag = AUS_imperial_council_social_democrat
+		clr_global_flag = AUS_imperial_council_closed
+		clr_global_flag = AUS_imperial_council_suspended
+	}
+	#option = {
+	#	name = force_bienerth
+	#	set_global_flag = AUS_imperial_council_conservative
+	#	clr_global_flag = AUS_imperial_council_liberal
+	#	clr_global_flag = AUS_imperial_council_social_democrat
+	#	clr_global_flag = AUS_imperial_council_closed
+	#	clr_global_flag = AUS_imperial_council_suspended
+	#	AUS_richard_von_bienerth_schmerling = {
+	#		set_character_flag = minister_AUS
+	#	}
+	#	complete_national_focus = AUS_reformist_club
+	#}
+	option = {
+		name = suspend
+		clr_global_flag = AUS_imperial_council_closed
+		set_global_flag = AUS_imperial_council_suspended
+	}
+	option = {
+		name = close
+		set_global_flag = AUS_imperial_council_closed
+		clr_global_flag = AUS_imperial_council_suspended
+	}
+}
 #Bulgaria wants to join the Central Powers (Event for Germany)
 country_event = {
 	id = ww1_bulgaria.134
