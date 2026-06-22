@@ -1091,6 +1091,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER }
 		completion_reward = {
 			add_political_power = 100
+			unlock_decision_category_tooltip = RCW_terrtorial_management
+			set_country_flag = RCW_can_core_states
 			if = {
 				limit = {
 					has_idea = NWA_decentralized_administration
@@ -1563,16 +1565,13 @@ focus_tree = {
 		id = NWA_fire_the_defence_minister
 		dynamic = yes
 		icon = {
-			trigger = {
+			GFX_focus_eng_move_to_secure_the_dominions = {
 				has_completed_focus = NWA_form_northwestern_government
 				has_country_leader = {
 					character = RUS_nikolai_yudenich 
 				}
 			}
-			value = GFX_focus_eng_move_to_secure_the_dominions
-		}
-		icon = {
-			value = GFX_goal_support_democracy
+			GFX_goal_support_democracy = yes
 		}
 		cost = 5
 		x = -2

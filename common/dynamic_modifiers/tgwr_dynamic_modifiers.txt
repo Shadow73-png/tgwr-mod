@@ -101,68 +101,6 @@ turanism_support = {
 	compliance_growth = 0.1
 	resistance_growth = -0.15
 }
-per_russian_sphere = {
-	enable = {
-		CONTROLLER = {
-			tag = PER
-			NOT = {
-				has_war_with = RUS
-			}	
-		}	
-	}
-	remove_trigger = { 
-		OR = {
-			NOT = { is_owned_by = PER }	
-			has_russian_civil_war = yes
-		}
-	}
-	icon = GFX_modifiers_PER_foreign_sphere
-
-	state_production_speed_buildings_factor = 0.10
-	state_resources_factor = -0.15
-	local_factories = -0.15
-}
-per_british_sphere = {
-	enable = {
-		CONTROLLER = {
-			tag = PER
-			NOT = {
-				has_war_with = ENG
-			}	
-		}	
-	}
-	remove_trigger = { 
-		OR = {
-			NOT = { is_owned_by = PER }
-			ENG = { has_civil_war = yes }
-		}
-	}
-	icon = GFX_modifiers_PER_foreign_sphere
-	
-	state_production_speed_buildings_factor = 0.10
-	state_resources_factor = -0.15
-	local_factories = -0.15
-}
-per_paramilitary_gendarmerie = {
-	enable = {
-		CONTROLLER = {
-			original_tag = PER	
-		}	
-	}
-	remove_trigger = { 
-		OR = {
-			NOT = { is_owned_by = PER }
-			PER = { has_civil_war = yes }
-		}
-	}
-	icon = GFX_modifiers_state_manpower
-	
-	local_org_regain = -0.05
-	army_speed_factor = -0.20
-	army_attack_factor = -0.10
-	army_defence_factor = -0.10
-	disable_strategic_redeployment_for_controller = 1
-}
 auh_assimilated_cisleitania = {
 	enable = {
 		CONTROLLER = {
@@ -473,10 +411,10 @@ AUH_OSB_debts = {
 	enable = { original_tag = AUS }
 	consumer_goods_expected_value = var:AUH_OSB_var
 }
-SIB_gold_reserve_dynamic_modifier = {
+RCW_gold_reserve_dynamic_modifier = {
 	icon = GFX_idea_SPR_seize_the_gold_reserves
 	enable = { original_tag = RUS }
-	consumer_goods_expected_value = var:SIB_gold_reserve_var
+	consumer_goods_expected_value = var:global.RCW_gold_reserve_var
 }
 SPR_independence_movements = {
 	enable = { 
@@ -501,26 +439,26 @@ SPR_independence_movements = {
 GRE_IFC_dynamic_modifier = {
 	icon = GFX_idea_gre_debt_to_the_ifc
 	enable = { original_tag = GRE }
-	consumer_goods_factor = var:GRE_IFC_var
-	country_resource_steel = GRE_IFC_country_resource_steel
-	country_resource_chromium = GRE_IFC_country_resource_chromium
-	production_speed_buildings_factor = GRE_IFC_production_speed_buildings_factor
-	production_speed_industrial_complex_factor = GRE_IFC_production_speed_industrial_complex_factor
-	production_speed_arms_factory_factor = GRE_IFC_production_speed_arms_factory_factor
-	industrial_capacity_factory = GRE_IFC_industrial_capacity_factory
-	industrial_capacity_dockyard = GRE_IFC_industrial_capacity_dockyard
+	consumer_goods_factor = var:global.GRE_IFC_var
+	country_resource_steel = global.GRE_IFC_country_resource_steel
+	country_resource_chromium = global.GRE_IFC_country_resource_chromium
+	production_speed_buildings_factor = global.GRE_IFC_production_speed_buildings_factor
+	production_speed_industrial_complex_factor = global.GRE_IFC_production_speed_industrial_complex_factor
+	production_speed_arms_factory_factor = global.GRE_IFC_production_speed_arms_factory_factor
+	industrial_capacity_factory = global.GRE_IFC_industrial_capacity_factory
+	industrial_capacity_dockyard = global.GRE_IFC_industrial_capacity_dockyard
 }
 GRE_political_turmoil_dynamic_modifier = {
 	icon = GFX_idea_GRE_goudi
     enable = { original_tag = GRE }
-	stability_factor = var:GRE_stability_var
-	political_power_factor = var:GRE_pp_var
+	stability_factor = var:global.GRE_stability_var
+	political_power_factor = var:global.GRE_pp_var
 }
 GRE_political_normality_dynamic_modifier = {
 	icon = GFX_idea_generic_pp_unity_bonus
     enable = { original_tag = GRE }
-	stability_factor = var:GRE_stability_var
-	political_power_factor = var:GRE_pp_var
+	stability_factor = var:global.GRE_stability_var
+	political_power_factor = var:global.GRE_pp_var
 }
 GRE_agrarian_society_dynamic_modifier = {
 	icon = GFX_idea_GRE_agrarian_society
@@ -1030,10 +968,16 @@ TUR_breakdown_of_economic_infrastructure_2 = {
 }
 
 TUR_local_cooperation_with_the_enemy = {
-	enable = { is_controlled_by = TUR }
-	remove_trigger = {
-		NOT = {
+	enable = {
+		ROOT = {
 			is_controlled_by = TUR
+		}
+	}
+	remove_trigger = {
+		ROOT = {
+			NOT = {
+				is_controlled_by = TUR
+			}
 		}
 	}
 	icon = GFX_modifiers_TUR_local_cooperation_with_the_enemy
@@ -1253,6 +1197,14 @@ generic_local_famine = {
 	local_supplies_for_controller = -0.25
 	resistance_target = 0.5
 	compliance_growth = -0.5
+}
+
+AUS_local_famine = {
+	enable = { always = yes }
+	icon = GFX_modifiers_RAJ_famine_state
+	recruitable_population_factor = -0.1
+	resistance_target = 0.1
+	compliance_growth = -0.2
 }
 
 ALB_ICC_support = {
@@ -1665,10 +1617,9 @@ FRA_anti_french_resistance_mid = {
 	icon = GFX_modifiers_generic_resistance
 	recruitable_population_factor = -0.25
 	local_supplies_for_controller = -0.25
-	attrition_for_controller = 0.25
 	resistance_target = 0.25
 	compliance_growth = -0.25
-	required_garrison_factor = 0.5
+	required_garrison_factor = 0.2
 }
 
 FRA_colonial_conscription = {
@@ -1750,7 +1701,7 @@ FRA_michel_defensive_plan = {
 
 FRA_voie_sacree_modifier = {
 	enable = {
-		CONTROLLER = {
+		controller = {
 			OR = {
 				tag = FRA
 				is_ally_with = FRA
@@ -1760,7 +1711,7 @@ FRA_voie_sacree_modifier = {
 	remove_trigger = {
 		OR = {
 			has_global_flag = great_war_ends
-			owner = {
+			controller = {
 				NOT = {
 					tag = FRA
 					is_ally_with = FRA
@@ -1769,7 +1720,7 @@ FRA_voie_sacree_modifier = {
 		}
 	}
 	icon = GFX_modifiers_generic_supply
-	local_supplies_for_controller = 0.20
+	local_supplies_for_controller = 0.1
 }
 
 FRA_joffre_offensive_plan = {
@@ -1973,6 +1924,7 @@ ITA_italian_army = {
 	air_superiority_efficiency = ITA_air_sup_var
 	air_close_air_support_org_damage_factor = ITA_cas_org_damage
 	ace_effectiveness_factor = ITA_ace_utility
+	land_mastery_gain_factor = ITA_army_land_mastery_gain_factor
 }
 
 
@@ -2005,6 +1957,7 @@ ITA_army_preperations = {
 	experience_gain_army_factor = ITA_preperation_experience_var
 	army_org_regain = ITA_preperation_org_var
 	heat_attrition_factor = ITA_preperation_heat_var
+	land_mastery_gain_factor = ITA_libya_preparation_land_mastery
 	naval_damage_factor = ITA_preperation_naval_attack_var
 	amphibious_invasion = ITA_army_preperations_amphibious_invasion
 	amphibious_invasion_defence = ITA_army_preperations_amphibious_invasion_defence
@@ -2069,7 +2022,10 @@ ITA_ottoman_islands_bombed = {
 	icon = GFX_modifiers_generic_resistance
 	attrition_for_controller = 0.15
 	local_supplies = -1
-	local_org_regain = -0.5
+	army_attack_factor = -0.15
+	army_defence_factor = -0.15
+	dig_in_speed_factor = -0.5
+	max_dig_in_factor = -0.5
 }
 
 ITA_aus_shell = {
@@ -2212,6 +2168,11 @@ ROM_romanian_army_idea = {
 	equipment_capture_factor = ROM_stealing 
 	experience_gain_army = ROM_army_xp
 	supply_consumption_factor = ROM_army_supply
+	land_mastery_gain_factor = ROM_army_land_mastery
+
+	#
+	unit_field_gun_brigade_design_cost_factor = ROM_arty_brigade_cost
+	unit_infantry_design_cost_factor = ROM_infantry_brigade_cost
 }
 ROM_occupation_costs = {
 	enable = { always = yes }
@@ -2358,7 +2319,7 @@ ROM_khotyn_uprising = {
 # }
 RUS_armistice_effect = {
 	enable = {
-		OWNER = {
+		controller = {
 			OR = {
 				has_idea = RUS_idea_armistice_cp
 				has_idea = RUS_idea_armistice_rus
@@ -2366,7 +2327,7 @@ RUS_armistice_effect = {
 		}
 	}
 	remove_trigger = {
-		OWNER = {
+		controller = {
 			NOT = {
 				has_idea = RUS_idea_armistice_cp
 				has_idea = RUS_idea_armistice_rus
@@ -2382,13 +2343,10 @@ RUS_armistice_effect = {
 }
 HUN_demarcation_line = {
 	enable = {
-		OR = {
-			is_controlled_by = ROM
-			is_controlled_by = HUN
-		}
+		always = yes
 	}
 	remove_trigger = {
-		OWNER = {
+		controller = {
 			NOT = {
 				original_tag = ROM
 				original_tag = HUN
@@ -2521,7 +2479,7 @@ GER_productional_efficiency = {
 	resistance_decay = -0.15
 	resistance_growth = 0.15
 	resistance_target = 0.1
-	local_factory_sabotage = 0.25
+	local_factory_sabotage = 0.02
 	enemy_army_speed_factor = 0.15
 	army_speed_factor_for_controller = -0.05
 	local_building_slots_factor = 0.5
@@ -2793,21 +2751,13 @@ TUN_protected_sacred_places = {
 GEO_transcaucasia_modifier = {
 	enable = {
 		CONTROLLER = {
-			OR = {
-				has_cosmetic_tag = GEO_TSCN
-				has_cosmetic_tag = GEO_TSCN_commissariat
-				has_cosmetic_tag = GEO_TSCN_committee
-				has_cosmetic_tag = GEO_TSCN_communism
-			}
+			original_tag = COU
 		}
 	}
 	remove_trigger = {
 		owner = {
 			NOT = {
-				has_cosmetic_tag = GEO_TSCN
-				has_cosmetic_tag = GEO_TSCN_commissariat
-				has_cosmetic_tag = GEO_TSCN_committee
-				has_cosmetic_tag = GEO_TSCN_communism
+				original_tag = COU
 			}
 		}
 	}
@@ -3056,11 +3006,6 @@ PUPPET_FRA_french_judiciary_system = {
 
 GER_movement_war = {
 	enable = { always = yes }
-	remove_trigger = { 
-		CONTROLLER = {
-			has_war_with = BEL
-		}
-	}
 	icon = GFX_modifiers_state_manpower
 	enemy_army_speed_factor = 0.25
 	max_dig_in_factor = -0.75
@@ -3485,11 +3430,11 @@ LBA_tribal_resistance = {
 	icon = GFX_modifiers_tur_traditionalist_sedition
 	recruitable_population_factor = -0.25
 	local_supplies_for_controller = -0.2
-	resistance_target = 0.15
-	resistance_growth = 0.25
+	resistance_target = 0.1
+	resistance_growth = 0.15
 	compliance_growth = -0.35
 	local_intel_to_enemies = 0.4
-	required_garrison_factor = 0.15
+	required_garrison_factor = 0.1
 	army_speed_factor_for_controller = -0.05
 }
 
@@ -3636,8 +3581,8 @@ unknown_lands = {
 	icon = GFX_unplanned_offensive
 
 	custom_modifier_tooltip = unknown_lands_tt
-	army_attack_factor = -0.15
-	army_defence_factor = -0.1
+	army_attack_factor = -0.1
+	army_defence_factor = -0.05
 	local_supply_impact_factor = 0.1
 }
 unknown_lands_2 = {
@@ -3658,8 +3603,8 @@ unknown_lands_2 = {
 	}
 	icon = GFX_unplanned_offensive
 
-	army_attack_factor = -0.15
-	army_defence_factor = -0.1
+	army_attack_factor = -0.1
+	army_defence_factor = -0.05
 	local_supply_impact_factor = 0.1
 }
 
@@ -3721,4 +3666,44 @@ SIA_french_sphere = {
 	state_production_speed_buildings_factor = 0.10
 	state_resources_factor = -0.15
 	local_factories = -0.15
+}
+
+PER_foreign_influence_modifier = {
+	icon = GFX_idea_per_foreign_interference
+
+	political_power_gain = PER_political_power_gain
+	consumer_goods_expected_value = PER_total_foreign_influence
+	min_export = PER_total_foreign_influence
+	civilian_intel_to_others = PER_civilian_intel_to_others
+	custom_modifier_tooltip = PER_foreign_influence_modifier_tt
+}
+
+PER_influence_in_persia_modifier = {
+	#icon = GFX_idea_per_foreign_interference
+	enable = {
+		any_other_country = {
+			has_dynamic_modifier = PER_foreign_influence_modifier
+			NOT = { has_war_with = ROOT }
+		}
+	}
+	remove_trigger = {
+		OR = {
+			is_subject = yes
+			has_country_flag = great_war_loser
+		}
+	}
+	
+	political_power_gain = PER_political_power_gain
+	consumer_goods_factor = PER_consumer_goods_factor
+}	
+colonial_war = {
+	enable = {
+		is_in_colonial_war = yes
+	}
+	war_stability_factor = 0.2
+	war_support_factor = 1
+	mobilization_speed = -0.3
+	army_core_attack_factor = -0.1
+	army_core_defence_factor = -0.1
+	command_power_gain_mult = -0.5
 }

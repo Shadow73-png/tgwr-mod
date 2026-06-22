@@ -456,184 +456,21 @@ FRA_french_bop = {
 	}
 }
 
-FRA_situation_in_morocco = {
-	# FRA_situation_in_morocco = {
-	# 	icon = GFX_decision_generic_naval
-	# 	allowed = {
-	# 		original_tag = FRA
-	# 	}	
-	# 	cancel_trigger = {
-	# 		hidden_trigger = {
-	# 			OR = {
-	# 				is_subject = yes
-	# 				MOR = {
-	# 					OR = {
-	# 						exists = no
-	# 						is_subject = yes
-	# 						has_country_flag = FRA_has_annexed_morocco
-	# 					}
-	# 				}
-	# 				has_country_flag = great_war_loser 
-	# 				AND = {
-	# 					has_war = yes
-	# 					NOT = { has_idea = FRA_wadai_war }			
-	# 				}
-	# 				has_global_flag = FRA_MOR_war	
-	# 			}				
-	# 		}
-	# 	}
-	# 	target_trigger = {
-	# 		FROM = {
-	# 			tag = MOR
-	# 		}		
-	# 	}
-	# 	visible = {
-	# 		NOT = {
-	# 			has_global_flag = FRA_MOR_war	
-	# 		}
-	# 		NOT = {
-	# 			has_war_with = MOR
-	# 		}
-	# 	}
-	# 	fire_only_once = yes #it will not disappear otherwise
-	# 	selectable_mission = yes
-	# 	activation = {
-	# 		date > 1910.8.8
-	# 		is_subject = no 
-	# 		NOT = {
-	# 			has_global_flag = FRA_MOR_war	
-	# 		}
-	# 		MOR = {
-	# 			exists = yes
-	# 			is_subject = no
-	# 			NOT = {
-	# 				has_war_with = FRA
-	# 			}
-	# 			NOT = {
-	# 				has_country_flag = FRA_has_annexed_morocco
-	# 			}	
-	# 			NOT = { 
-	# 				has_country_flag = great_war_loser 
-	# 			}
-	# 		}		
-	# 		OR = {
-	# 			has_war = no
-	# 			has_idea = FRA_wadai_war					
-	# 		}			
-	# 	}
-	# 	days_mission_timeout = 380
-	# 	cost = 50
-	# 	ai_will_do = {
-	# 		factor = 0
-	# 		modifier = {
-	# 			date > 1911.4.20
-	# 			factor = 5
-	# 		}
-	# 		modifier = {
-	# 			date > 1911.5.5
-	# 			factor = 1000
-	# 		}
-	# 	}
-	# 	is_good = yes
-	# 	timeout_effect = {
-	# 		add_stability = -0.05
-	# 		MOR = {
-	# 			country_event =  {
-	# 				id = ww1_morocco.1
-	# 				hours = 3
-	# 			}
-	# 			set_country_flag = FRA_has_annexed_morocco
-	# 		}			
-	# 	}
-	# 	complete_effect = {
-	# 		MOR = {
-	# 			country_event =  {
-	# 				id = ww1_morocco.1
-	# 				hours = 3
-	# 			}
-	# 			set_country_flag = FRA_has_annexed_morocco
-	# 		}			
-	# 	}
-	# }
-	FRA_leave_MOR = {
-		allowed = {
-			original_tag = FRA
-		}
-		icon = GFX_decision_generic_prepare_civil_war
-		activation = {
-			has_war_with = MOR
-			any_owned_state = {
-				is_core_of = MOR
-			}
-			MOR = {
-				is_in_faction = no
-			}
-		}
-		available = {
-			has_war_with = MOR
-			MOR = {
-				has_full_control_of_state = 108
-				has_full_control_of_state = 462
-				has_full_control_of_state = 1093
-				has_full_control_of_state = 461
-				has_full_control_of_state = 1094
-				has_full_control_of_state = 290
-				has_full_control_of_state = 1137
-				has_full_control_of_state = 996
-				has_full_control_of_state = 1237
-			}
-		}
-		cancel_trigger = {
-			MOR = {
-				NOT = {
-					has_war_with = FRA
-				}
-			}
-		}
-		visible = {
-			has_war_with = MOR
-		}
-		ai_will_do = {
-			factor = 100
-		}
-		days_mission_timeout = 360
-		selectable_mission = yes
-		complete_effect = {
-			set_global_flag = FRA_MOR_moroccan_victory
-			MOR = {
-				country_event = {
-					id = ww1_morocco.31
-					hours = 6
-				}
-			}
-		}
-		timeout_effect = {
-			set_global_flag = FRA_MOR_moroccan_victory
-			MOR = {
-				country_event = {
-					id = ww1_morocco.32
-					hours = 6
-				}
-			}			
-		}
-	}
-}
-
-GER_great_war = {
+TGWR_great_power_politics = {
+	#great_power_politics_misc
 	FRA_pull_out_from_mali = {
 		icon = GFX_decision_eng_blackshirt_march
 		allowed = {
 			original_tag = FRA
 		}
-		target_trigger = {
-			FROM = {
-				tag = VOL
-			}
+		targets = {
+			VOL
 		}
 		# target_root_trigger = {
 		# 	has_war_with = FROM
 		# }
 		visible = {
+			great_power_politics_misc_visible = yes
 			has_war_with = VOL
 			NOT = {
 				has_global_flag = mali_war_end
@@ -690,6 +527,7 @@ GER_great_war = {
 			original_tag = FRA
 		}
 		visible = {
+			great_power_politics_misc_visible = yes
 			NOT = {
 				tag = FRC
 			}
@@ -795,6 +633,7 @@ GER_great_war = {
 			set_country_flag = france_lost_tunisia
 		}
 	}
+	#great_power_politics_great_war
 	FRA_send_janin_to_russia = {
 		icon = GFX_decision_fra_advisors
 		fire_only_once = no
@@ -802,6 +641,7 @@ GER_great_war = {
 			original_tag = FRA
 		}
 		visible = {
+			great_power_politics_great_war_visible = yes
 			NOT = { has_global_flag = great_war_ends }
 			FROM = {
 				exists = yes
@@ -821,6 +661,9 @@ GER_great_war = {
 			}
 			has_character = FRA_maurice_janin
 		}
+		target_root_trigger = {
+			has_character = FRA_maurice_janin
+		}
 		custom_cost_trigger = {
 			command_power > 9.9
 		}
@@ -831,12 +674,13 @@ GER_great_war = {
 			}
 		}
 		available = {
-			any_other_country = {
-				OR = {
-					is_major = yes
-					tag = SOV
-				}	
-				has_war_with = FROM
+			FROM = {
+				any_enemy_country = {
+					OR = {
+						is_major = yes
+						tag = SOV
+					}
+				}
 			}
 			NOT = {
 				has_idea = idea_army_restrictions
@@ -920,6 +764,69 @@ GER_great_war = {
 		days_mission_timeout = 4
 		timeout_effect = {
 			country_event = ww1_france.311
+		}
+	}
+
+	FRA_leave_MOR = {
+		allowed = {
+			original_tag = FRA
+		}
+		icon = GFX_decision_generic_prepare_civil_war
+		activation = {
+			has_war_with = MOR
+			any_owned_state = {
+				is_core_of = MOR
+			}
+			MOR = {
+				is_in_faction = no
+			}
+		}
+		available = {
+			has_war_with = MOR
+			MOR = {
+				has_full_control_of_state = 108
+				has_full_control_of_state = 462
+				has_full_control_of_state = 1093
+				has_full_control_of_state = 461
+				has_full_control_of_state = 1094
+				has_full_control_of_state = 290
+				has_full_control_of_state = 1137
+				has_full_control_of_state = 996
+				has_full_control_of_state = 1237
+			}
+		}
+		cancel_trigger = {
+			MOR = {
+				NOT = {
+					has_war_with = FRA
+				}
+			}
+		}
+		visible = {
+			has_war_with = MOR
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		days_mission_timeout = 360
+		selectable_mission = yes
+		complete_effect = {
+			set_global_flag = FRA_MOR_moroccan_victory
+			MOR = {
+				country_event = {
+					id = ww1_morocco.31
+					hours = 6
+				}
+			}
+		}
+		timeout_effect = {
+			set_global_flag = FRA_MOR_moroccan_victory
+			MOR = {
+				country_event = {
+					id = ww1_morocco.32
+					hours = 6
+				}
+			}			
 		}
 	}
 }
@@ -2175,9 +2082,6 @@ FRA_defense_of_france = {
 						has_cosmetic_tag = FRA_KINGDOM_legitimist
 						has_cosmetic_tag = FRA_THIRD_EMPIRE
 						has_cosmetic_tag = FRA_socialism
-						has_cosmetic_tag = FRA_socialism_not_commune
-						has_cosmetic_tag = FRA_socialism_syndicalist
-						has_cosmetic_tag = FRA_socialism_republic_of
 					}
 				}
 				set_cosmetic_tag = FRA_alt_blue
@@ -2830,10 +2734,8 @@ peace_deals = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = GER
-			}
+		targets = {
+			GER
 		}
 		# target_root_trigger = {
 		# 	has_war_with = FROM
@@ -3009,10 +2911,8 @@ peace_deals = {
 				has_capitulated = no
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = GER
-			}
+		targets = {
+			GER
 		}
 		target_root_trigger = {
 			has_country_flag = FRA_socialist_france_flag
@@ -3416,7 +3316,6 @@ FRA_wadai_war = {
 				CHA = {
 					leave_faction = yes
 				}
-				remove_ideas = FRA_wadai_war
 				set_global_flag = wadai_war_end
 			}
 		}
@@ -3426,10 +3325,8 @@ FRA_wadai_war = {
 		allowed = {
 			original_tag = FRA
 		}
-		target_trigger = {
-			FROM = {
-				tag = CHA
-			}
+		targets = {
+			CHA
 		}
 		# target_root_trigger = {
 		# 	has_war_with = FROM
@@ -3493,7 +3390,6 @@ FRA_wadai_war = {
 				CHA = {
 					leave_faction = yes
 				}
-				remove_ideas = FRA_wadai_war
 				set_global_flag = wadai_war_end
 			}
 		}
@@ -3502,9 +3398,8 @@ FRA_wadai_war = {
 			base = 0
 			modifier = {
 				add = 500
-				any_country = {
+				any_enemy_country = {
 					is_major = yes
-					has_war_with = ROOT
 				}
 			}
 			modifier = {
@@ -3826,10 +3721,8 @@ foreign_politics = {
 		fire_only_once = yes
 		cost = 100
 		days_remove = 5
-		target_trigger = {
-			FROM = {
-				tag = MLT
-			}
+		targets = {
+			MLT
 		}
 		target_root_trigger = {
 			has_country_flag = FRA_nationalist_france_flag
@@ -3868,11 +3761,9 @@ interwar_decisions = {
 		allowed = {
 			original_tag = FRA
 		}
-		target_trigger = {
-			FROM = {
-				tag = SYR
-			}	
-		}	
+		targets = {
+			SYR
+		}
 		target_root_trigger = {
 			has_global_flag = interbellum
 			has_country_flag = great_war_winner
@@ -4326,8 +4217,8 @@ FRA_french_civil_war_category = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = { tag = NFA }
+		targets = {
+			NFA
 		}
 		target_root_trigger = {
 			has_global_flag = french_civil_war
@@ -4386,8 +4277,8 @@ FRA_french_civil_war_category = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = { tag = FRC }
+		targets = {
+			FRC
 		}
 		target_root_trigger = {
 			has_global_flag = french_civil_war
@@ -4437,7 +4328,11 @@ FRA_french_army = {
 political_actions = {
 	generic_provide_humanitarian_help = {
 		allowed = {
-			always = yes
+			OR = {
+				tag = MOR
+				tag = FRA
+				tag = ENG
+			}
 		}
 		icon = GFX_decision_hol_exchange_intelligence_data
 		days_remove = 14
@@ -4487,18 +4382,18 @@ FRA_weapon_seller = {
 					has_country_flag = has_refused_french_weapons
 					has_country_flag = FRA_is_buying_60_renault_tanks
 				}
-				OR = {
-					tag = POL
-					tag = ROM
-					tag = SER
-					tag = BEL
-					tag = USA
-					tag = SER
-					tag = ITA
-					tag = RUS
-					tag = ENG
-				}
 			}
+		}
+		targets = {
+			POL
+			ROM
+			SER
+			BEL
+			USA
+			SER
+			ITA
+			RUS
+			ENG
 		}
 		target_root_trigger = {
 			has_country_flag = FRA_maintain_war_industry

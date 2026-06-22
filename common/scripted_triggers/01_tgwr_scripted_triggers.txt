@@ -1,3 +1,9 @@
+diplomatic_trigger_always_no = {
+	custom_trigger_tooltip = {
+		tooltip = diplomatic_trigger_always_no_tt
+		always = no
+	}
+}
 has_completed_industrial_warfare_doctrine = {
 	custom_trigger_tooltip = {
 		tooltip = has_completed_industrial_warfare_doctrine_tt
@@ -493,6 +499,9 @@ is_islamic_core = {
 		is_core_of = DAR
 		is_core_of = KUT
 		is_core_of = BLC
+		is_core_of = ARB
+		is_core_of = MAK
+		is_core_of = MRG
 	}
 }
 
@@ -663,6 +672,21 @@ is_a_very_weak_country = {
 		num_of_controlled_states < 2
 		num_of_factories < 3
 	}
+}
+
+is_disabled_tag = {
+	OR = {
+		is_microstate = yes
+		original_tag = ZAN
+		original_tag = MLD
+		original_tag = PLS
+		original_tag = KED
+		original_tag = KEL
+		original_tag = TRG
+		original_tag = RIA
+		original_tag = FUJ
+	}
+
 }
 
 is_spanish_tag = {
@@ -924,80 +948,68 @@ is_neighbor_of_subject = {
 # meaning it's the top 7 in the world or has at least 70% of the average of those 7
 # we're also including a number of tags which should act like majors even if they're not in that category
 is_actual_major = {
-	custom_trigger_tooltip = {
+	custom_override_tooltip = {
 		tooltip = is_actual_major
-		# is_major = yes
+		is_major = yes
+		num_of_factories > 19 #MAJOR_MIN_FACTORIES
 
 		# rank the majors according to their num_of_factories
-		clear_temp_array = global.actual_majors
 		get_sorted_scored_countries_temp = {
-			scorer = actual_majors_score
-			array = global.actual_majors
+			scorer = major_industry_count_scorer
+			array = actual_majors
 		}
 
 		# limit that ranking to the top 8
-		resize_temp_array = { global.actual_majors = 8 }
-
-		# now figure out what 70% of the average of those 8 is, with a minimum of 35
-		set_temp_variable = { global.factory_average = 0 }
-		all_of_scopes = {
-			array = global.actual_majors
-			add_to_temp_variable = { global.factory_average = THIS.num_of_factories }
-		}
-		divide_temp_variable = { global.factory_average = 7 }
-		multiply_temp_variable = { global.factory_average = 0.7 }
-		clamp_temp_variable = { var = global.factory_average min = 35 }
+		resize_temp_array = { actual_majors = 8 }
 
 		OR = {
-			# is actually in the top 8
-			is_in_array = { global.actual_majors = THIS }
-			# has more than 70% of the average of the top 8
-			check_variable = { num_of_factories > global.factory_average }
-			# is in the list of "always acts like a major" countries
-			tag = GER
-			tag = AUS
-			tag = FRA
-			tag = ENG
-			tag = RUS
-			tag = JAP
-			tag = USA
+			# is one of the seven largest
+			is_in_array = { actual_majors = THIS }
+
+			#is an exception
+			tag = ENT		
 			tag = ITA
 			tag = TUR
+
+			# has more than 70% of the average of the top 7
+			set_temp_variable = { factory_average = 0 }
+			all_of_scopes = {
+				array = actual_majors
+				add_to_temp_variable = { factory_average = THIS.num_of_factories }
+			}
+			divide_temp_variable = { factory_average = 4.9 }
+			num_of_factories > factory_average
 		}
 	}
 }
 
 is_actual_major_without_exceptions = {
-	custom_trigger_tooltip = {
+	custom_override_tooltip = {
 		tooltip = is_actual_major_without_exceptions
-		# is_major = yes
+		is_major = yes
+		num_of_factories > 19 #MAJOR_MIN_FACTORIES
 
 		# rank the majors according to their num_of_factories
-		clear_temp_array = global.actual_majors
 		get_sorted_scored_countries_temp = {
-			scorer = actual_majors_score
-			array = global.actual_majors
+			scorer = major_industry_count_scorer
+			array = actual_majors
 		}
 
 		# limit that ranking to the top 8
-		resize_temp_array = { global.actual_majors = 8 }
-
-		# now figure out what 70% of the average of those 8 is, with a minimum of 35
-		set_temp_variable = { global.factory_average = 0 }
-		all_of_scopes = {
-			array = global.actual_majors
-			add_to_temp_variable = { global.factory_average = THIS.num_of_factories }
-		}
-		divide_temp_variable = { global.factory_average = 8 }
-		multiply_temp_variable = { global.factory_average = 0.7 }
-		clamp_temp_variable = { var = global.factory_average min = 35 }
+		resize_temp_array = { actual_majors = 8 }
 
 		OR = {
-			# is actually in the top 8
-			is_in_array = { global.actual_majors = THIS }
-			# has more than 70% of the average of the top 8
-			check_variable = { num_of_factories > global.factory_average }
-			# is in the list of "always acts like a major" countries
+			# is one of the seven largest
+			is_in_array = { actual_majors = THIS }
+
+			# has more than 70% of the average of the top 7
+			set_temp_variable = { factory_average = 0 }
+			all_of_scopes = {
+				array = actual_majors
+				add_to_temp_variable = { factory_average = THIS.num_of_factories }
+			}
+			divide_temp_variable = { factory_average = 4.9 }
+			num_of_factories > factory_average
 		}
 	}
 }
@@ -1005,14 +1017,20 @@ is_actual_major_without_exceptions = {
 is_polish_criteria_state = {
     OR = {
         state = 10  # Warszawa
+        state = 1266  # Pultulsk
         state = 87  # Kalisz
         state = 90  # Kielce
         state = 92  # Lublin
+        state = 1262  # Sedlets
         state = 98  # Plock
         state = 766 # Kholm
+        state = 1263 # Byala
         state = 1201 # Radom
         state = 1202 # Piotrków
+        state = 1264 # Lodz
+        state = 1265 # Chenstokhov
         state = 1203 # Łomża
+        state = 1267 # Kolno
         state = 1204 # Włocławek
     }
 }
@@ -1140,4 +1158,32 @@ protectorate_type_subject = {
 
 is_generic_character = {
 	has_character_flag = is_generic
+}
+
+is_in_colonial_war = {
+	custom_trigger_tooltip = {
+		tooltip = is_in_colonial_war_tt
+		has_war = yes
+		has_dynamic_modifier = colonial_war
+		all_enemy_country = {
+			capital_scope = {
+				OR = {
+					is_on_continent = africa
+					is_on_continent = middle_east
+					is_on_continent = asia
+				}
+			}
+			is_actual_major = no
+		}	
+	}
+}
+is_in_major_war = {
+	custom_trigger_tooltip = {
+		tooltip = is_in_major_war_tt
+		has_war = yes
+		any_enemy_country = {
+			is_government_in_exile = no
+		}
+		is_in_colonial_war = no
+	}
 }

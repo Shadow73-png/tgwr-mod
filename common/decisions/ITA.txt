@@ -47,9 +47,9 @@ ITA_the_biennio_rosso = {
 			has_global_flag = ITA_biennio_rosso
 		}
 		timeout_effect = {
-			custom_effect_tooltip = ITA_br_rev_progress_5
 			add_to_variable = {
 				ITA_br_rev_progress = 5
+				tooltip = ITA_br_rev_progress_modify_tt
 			}
 			activate_mission = ITA_revolution_organizes
 		}
@@ -100,8 +100,8 @@ ITA_the_biennio_rosso = {
 				25 = {
 					add_to_variable = {
 						ITA_br_suppress_power = -1
+						tooltip = ITA_br_suppress_modify_tt
 					}
-					custom_effect_tooltip = ITA_br_suppress_1_minus
 				}
 			}
 		}
@@ -148,8 +148,8 @@ ITA_the_biennio_rosso = {
 				25 = {
 					add_to_variable = {
 						ITA_br_reformist_relations = -1
+						tooltip = ITA_br_reformist_modify_tt
 					}
-					custom_effect_tooltip = ITA_br_reformist_1_minus
 				}
 			}
 		}
@@ -176,16 +176,16 @@ ITA_the_biennio_rosso = {
 			base = 80
 		}
 		complete_effect = {
-			custom_effect_tooltip = ITA_br_bargain_1_minus
 			add_to_variable = {
 				ITA_br_reforms_level = -1
+				tooltip = ITA_br_bargain_modify_tt
 			}
 		}
 		cost = 5
 		remove_effect = {
-			custom_effect_tooltip = ITA_br_rev_progress_5_minus
 			add_to_variable = {
 				ITA_br_rev_progress = -5
+				tooltip = ITA_br_rev_progress_modify_tt
 			}
 		}
 	}
@@ -242,8 +242,8 @@ ITA_the_biennio_rosso = {
 		remove_effect = {
 			add_to_variable = {
 				ITA_br_reformist_relations = 1
+				tooltip = ITA_br_reformist_modify_tt
 			}
-			custom_effect_tooltip = ITA_br_reformist_1
 		}
 	}
 	ITA_work_with_police = {
@@ -268,8 +268,8 @@ ITA_the_biennio_rosso = {
 		remove_effect = {
 			add_to_variable = {
 				ITA_br_suppress_power = 1
+				tooltip = ITA_br_suppress_modify_tt
 			}
-			custom_effect_tooltip = ITA_br_suppress_1
 		}
 	}
 	ITA_8_hours_with_steel = {
@@ -326,14 +326,14 @@ ITA_the_biennio_rosso = {
 				ITA_production_eff_speed = 0.05
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
-			custom_effect_tooltip = ITA_br_bargain_1
 			add_to_variable = {
 				ITA_br_reforms_level = 1
+				tooltip = ITA_br_bargain_modify_tt
 			}
 			add_to_variable = {
 				ITA_br_reformist_relations = 1
+				tooltip = ITA_br_reformist_modify_tt
 			}
-			custom_effect_tooltip = ITA_br_reformist_1
 		}
 	}
 }
@@ -736,168 +736,6 @@ ITA_war_prep = {
 	}
 }
 
-ITA_great_war_austria = {
-	ITA_the_knock_out_blow = {
-		icon = GFX_decision_hol_draw_up_staff_plans
-		cost = 10
-		allowed = {
-			original_tag = AUS
-		}
-		available = {
-			has_war_with = ITA
-			is_in_faction_with = GER
-			NOT = {
-				has_global_flag = great_war_ends
-				has_global_flag = GER_capitulation
-				has_global_flag = ENT_capitulation
-			}
-		}
-		visible = {
-			has_war_with = ITA
-			is_in_faction_with = GER
-			NOT = {
-				has_global_flag = great_war_ends
-				has_global_flag = GER_capitulation
-				has_global_flag = ENT_capitulation
-			}
-		}
-		fire_only_once = yes
-		ai_will_do = {
-			base = 0
-			modifier = {
-				add = 1
-				war_length_with = {
-					tag = ITA
-					months > 3
-				}
-			}
-			modifier = {
-				add = 5
-				war_length_with = {
-					tag = ITA
-					months > 5
-				}
-			}
-			modifier = {
-				add = 10
-				war_length_with = {
-					tag = ITA
-					months > 8
-				}
-			}
-			modifier = {
-				add = 200
-				war_length_with = {
-					tag = ITA
-					months > 12
-				}
-			}
-		}
-		complete_effect = {
-			add_timed_idea = {
-				idea = ITA_final_blow_idea_AUS
-				days = 90
-			}
-			hidden_effect = {
-				ITA = {
-					country_event = ww1_italy.295
-				}
-			}
-		}
-	}
-	AUS_blockade_italy = {
-		days_remove = 180
-		icon = GFX_decision_generic_ignite_civil_war
-		fire_only_once = no
-		allowed = {
-			tag = AUS
-		}
-		available = {
-			FROM = {
-				NOT = {
-					has_completed_focus = ITA_impliment_cunibertis_theory
-				}
-			}
-			has_completed_focus = AUH_naval_excercices 
-		}
-		target_trigger = {
-			FROM = {
-				tag = ITA
-			}
-		}
-		visible = {
-			has_war_with = FROM
-		}
-		complete_effect = {
-			custom_effect_tooltip = ITA_british_pov_thing
-			effect_tooltip = {
-				add_to_variable = {
-					ITA_bread_shortages = 1
-					tooltip = ITA_modify_bread_shortages_tt
-				}
-				add_to_variable = {
-					ITA_percieved_usefulness = -2
-					tooltip = ITA_modify_war_score_tt
-				}
-			}
-			FROM = {
-				country_event = ww1_italy.292
-			}
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-	AUS_shell_venice = {
-		days_remove = 180
-		icon = GFX_decision_generic_ignite_civil_war
-		fire_only_once = no
-		allowed = {
-			tag = AUS
-		}
-		available = {
-			FROM = {
-				NOT = {
-					has_completed_focus = ITA_utilize_the_radio
-				}
-			}
-			controls_state = 736
-			has_completed_focus = AUH_naval_excercices 
-		}
-		target_trigger = {
-			FROM = {
-				tag = ITA
-				controls_state = 160
-			}
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = 160
-			}
-		}
-		visible = {
-			has_war_with = FROM
-		}
-		complete_effect = {
-			160 = {
-				add_dynamic_modifier = {
-					modifier = ITA_aus_shell
-					scope = FROM
-					days = 30
-				}
-			}
-			custom_effect_tooltip = ITA_british_pov_thing
-			add_to_variable = {
-				ITA.ITA_percieved_usefulness = -2
-				tooltip = ITA_modify_war_score_tt
-			}
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-}
-
 ITA_great_war = {
 	ITA_reset_capture_points = {
 		allowed = {
@@ -941,6 +779,7 @@ ITA_great_war = {
 				has_country_flag = ITA_collapsed_one
 				has_government = communism
 			}
+			has_civil_war = no
 		}
 		timeout_effect = {
 			effect_tooltip = {
@@ -980,6 +819,7 @@ ITA_great_war = {
 				has_country_flag = ITA_collapsed_two
 				has_government = communism
 			}
+			has_civil_war = no
 		}
 		timeout_effect = {
 			effect_tooltip = {
@@ -1021,6 +861,7 @@ ITA_great_war = {
 				has_country_flag = ITA_collapsed_three
 				has_government = communism
 			}
+			has_civil_war = no
 		}
 		cancel_trigger = {
 			has_war = no
@@ -1071,6 +912,7 @@ ITA_great_war = {
 		activation = {
 			has_war_with_major = yes
 			is_great_war_ongoing = yes
+			has_civil_war = no
 		}
 		cancel_trigger = {
 			OR = {
@@ -1115,6 +957,7 @@ ITA_great_war = {
 			has_completed_focus = ITA_the_great_war_redux
 			is_great_war_ongoing = yes
 			has_war_with_major = yes
+			has_civil_war = no
 		}
 		cancel_trigger = {
 			OR = {
@@ -1164,6 +1007,7 @@ ITA_great_war = {
 			check_variable = {
 				ITA_war_budget < -4
 			}
+			has_civil_war = no
 		}
 		cancel_trigger = {
 			OR = {
@@ -1198,6 +1042,7 @@ ITA_great_war = {
 			has_war_support > 0.4
 			has_war_with_major = yes
 			is_great_war_ongoing = yes
+			has_civil_war = no
 		}
 		cancel_trigger = {
 			OR = {
@@ -1229,6 +1074,7 @@ ITA_great_war = {
 			has_completed_focus = ITA_the_great_war_redux
 			is_great_war_ongoing = yes
 			has_war_with_major = yes
+			has_civil_war = no
 		}
 		cancel_trigger = {
 			OR = {
@@ -1373,8 +1219,10 @@ ITA_great_war = {
 			has_war = no
 		}
 		activation = {
+			has_completed_focus = ITA_the_great_war_redux
 			has_war_with_major = yes
 			is_great_war_ongoing = yes
+			has_civil_war = no
 		}
 		cancel_trigger = {
 			OR = {
@@ -1427,6 +1275,7 @@ ITA_great_war = {
 			NOT = {
 				has_completed_focus = ITA_arise_workers_of_italy
 			}
+			has_civil_war = no
 		}
 		cancel_trigger = {
 			OR = {
@@ -1633,11 +1482,10 @@ ITA_great_war = {
 					has_completed_focus = ITA_a_modern_battlefleet
 				}
 			}
+			has_civil_war = no
 		}
-		target_trigger = {
-			FROM = {
-				tag = AUS
-			}
+		targets = {
+			AUS
 		}
 		cancel_trigger = {
 			NOT = {
@@ -1679,16 +1527,15 @@ ITA_great_war = {
 		ai_will_do = {
 			base = 200 #take asap
 		}
-		target_trigger = {
-			FROM = {
-				tag = AUS
-			}
+		targets = {
+			AUS
 		}
 		visible = {
 			has_war_with = FROM
 			NOT = {
 				has_global_flag = great_war_ends
 			}
+			has_civil_war = no
 		}
 		cancel_trigger = {
 			NOT = {
@@ -1716,6 +1563,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_war = yes
+			has_civil_war = no
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -1768,6 +1616,7 @@ ITA_great_war = {
 				ITA_concessions_to_labor_var < 5
 			}
 			has_completed_focus = ITA_sacred_egoism
+			has_civil_war = no
 		}
 		available = {
 			has_war_support > 0.49
@@ -1803,6 +1652,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_war = yes
+			has_civil_war = no
 		}
 		available = {
 			has_completed_focus = ITA_restrict_the_press
@@ -1829,6 +1679,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_war = yes
+			has_civil_war = no
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -1872,9 +1723,7 @@ ITA_great_war = {
 		visible = {
 			has_war = yes
 			has_completed_focus = ITA_hearten_morale
-		}
-		available = {
-			has_completed_focus = ITA_hearten_morale
+			has_civil_war = no
 		}
 		fire_only_once = yes
 		days_remove = 30
@@ -1905,9 +1754,7 @@ ITA_great_war = {
 		visible = {
 			has_war = yes
 			has_completed_focus = ITA_hearten_morale
-		}
-		available = {
-			has_completed_focus = ITA_hearten_morale
+			has_civil_war = no
 		}
 		fire_only_once = yes
 		days_remove = 30
@@ -1928,6 +1775,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_war = yes
+			has_civil_war = no
 		}
 		available = {
 			has_completed_focus = ITA_intervene_in_labor_relations
@@ -1959,6 +1807,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_war = yes
+			has_civil_war = no
 		}
 		available = {
 			has_completed_focus = ITA_enforce_social_cohesion
@@ -1982,6 +1831,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_war = yes
+			has_civil_war = no
 		}
 		available = {
 			has_completed_focus = ITA_enforce_social_cohesion
@@ -2011,6 +1861,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_completed_focus = ITA_intensify_food_production
+			has_civil_war = no
 		}
 		available = {
 		}
@@ -2049,6 +1900,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_completed_focus = ITA_intensify_food_production
+			has_civil_war = no
 		}
 		available = {
 		}
@@ -2080,6 +1932,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_completed_focus = ITA_comprehensive_national_strategy
+			has_civil_war = no
 		}
 		available = {
 		}
@@ -2109,6 +1962,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_completed_focus = ITA_intensify_food_production
+			has_civil_war = no
 		}
 		available = {
 		}
@@ -2140,6 +1994,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_completed_focus = ITA_implement_strict_rationing
+			has_civil_war = no
 		}
 		available = {
 		}
@@ -2175,6 +2030,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_completed_focus = ITA_implement_strict_rationing
+			has_civil_war = no
 		}
 		available = {
 		}
@@ -2205,6 +2061,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_completed_focus = ITA_implement_strict_rationing
+			has_civil_war = no
 		}
 		available = {
 		}
@@ -2239,6 +2096,7 @@ ITA_great_war = {
 					ITA_bonds_3 = 3
 				}
 			}
+			has_civil_war = no
 		}
 		available = {
 		}
@@ -2278,6 +2136,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_completed_focus = ITA_take_on_debt
+			has_civil_war = no
 		}
 		available = {
 			check_variable = {
@@ -2390,7 +2249,8 @@ ITA_great_war = {
 		}
 		visible = {
 			has_war_with_major = yes
-			has_global_flag = great_war
+			is_great_war_ongoing = yes
+			has_civil_war = no
 		}
 		available = {
 			check_variable = {
@@ -2452,7 +2312,8 @@ ITA_great_war = {
 		}
 		visible = {
 			has_war_with_major = yes
-			has_global_flag = great_war
+			is_great_war_ongoing = yes
+			has_civil_war = no
 		}
 		available = {
 			check_variable = {
@@ -2529,6 +2390,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_war = yes
+			has_civil_war = no
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -2564,6 +2426,7 @@ ITA_great_war = {
 		}
 		visible = {
 			has_war = yes
+			has_civil_war = no
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -2683,7 +2546,6 @@ ITA_the_southern_insurrection = {
 			original_tag = ITA
 		}
 		cost = 10
-		days_remove = 10
 		visible = {
 			has_country_flag = ITA_southern_revolt_active
 			has_country_flag = ITA_socialist_italy_flag
@@ -2699,6 +2561,15 @@ ITA_the_southern_insurrection = {
 		complete_effect = {
 			clr_country_flag = ITA_southern_revolt_active
 			custom_effect_tooltip = ITA_revolt_ends
+			every_owned_state = {
+				limit = {
+					has_dynamic_modifier = ITA_revolting
+				}
+				remove_dynamic_modifier = {
+					modifier = ITA_revolting
+				}
+				set_demilitarized_zone = no
+			}
 		}
 		fire_only_once = yes
 	}
@@ -2714,7 +2585,7 @@ ITA_the_southern_insurrection = {
 			has_completed_focus = ITA_enforcing_our_laws
 			has_country_flag = ITA_socialist_italy_flag
 		}
-		complete_effect = {
+		remove_effect = {
 			custom_effect_tooltip = ITA_reduce_revolt_1
 			add_to_variable = {
 				ITA_southern_revolt_strength = -1
@@ -2820,7 +2691,7 @@ ITA_the_southern_insurrection = {
 		allowed = {
 			original_tag = ITA
 		}
-		days_mission_timeout = 60
+		days_mission_timeout = 100
 		available = {
 			NOT = {
 				has_country_flag = ITA_southern_revolt_active
@@ -3027,17 +2898,12 @@ ITA_libyan_war = {
 			custom_effect_tooltip = ITA_consequences_lose_war
 			news_event = ww1_italianturkish.9
 			set_global_flag = libyan_crisis_resolved
-			ROOT = {
-				add_timed_idea = {
-					idea = ITA_reparations_to_war
-					days = 720
-				}
+			add_timed_idea = {
+				idea = ITA_reparations_to_war
+				days = 720
 			}
 			TUR = {
-				add_timed_idea = {
-					idea = ITA_reparations_to_war2
-					days = 720
-				}
+				TUR_remove_debt_2950 = yes
 			}
 		}
 		complete_effect = {
@@ -3066,14 +2932,13 @@ ITA_libyan_war = {
 		}
 	}
 	ITA_bomb_ottoman_islands = {
-		icon = GFX_decision_generic_civil_support
+		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
 			original_tag = ITA
 		}
 		cost = 0
 		target_trigger = {
 			FROM = {
-				tag = TUR
 				any_controlled_state = {
 					OR = {
 						state = 899
@@ -3081,6 +2946,9 @@ ITA_libyan_war = {
 					}
 				}
 			}
+		}
+		targets = {
+			TUR
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -3099,7 +2967,7 @@ ITA_libyan_war = {
 					}
 					add_dynamic_modifier = {
 						modifier = ITA_ottoman_islands_bombed
-						days = 90
+						days = 120
 						scope = TUR
 					}
 					damage_building = {
@@ -3126,16 +2994,30 @@ ITA_libyan_war = {
 						army = yes
 						navy = yes
 					}
+					damage_units = {
+						state = 164
+						org_damage = 0.25
+						str_damage = 0.1
+						army = yes
+						navy = yes
+					}
 				}
 			}
 		}
 		ai_will_do = {
-			base = 1
+			base = 0
+			modifier = {
+				add = 1
+				OR = {
+					controls_state = 448
+					controls_state = 450
+				}
+			}
 		}
 		fire_only_once = yes
 	}
 	ITA_bombard_the_libyan_coast = {
-		cost = 15
+		cost = 0
 		days_remove = 100
 		icon = GFX_decision_generic_ignite_civil_war
 		fire_only_once = yes
@@ -3143,15 +3025,18 @@ ITA_libyan_war = {
 			original_tag = ITA
 		}
 		available = {
-			has_completed_focus = ITA_new_naval_guns
-			ships_in_area = {
-				area = 29
-				size > 15
+			OR = {
+				ships_in_area = {
+					area = 29
+					size > 15
+				}
+				hidden_trigger = {
+					is_ai = yes
+				}
 			}
 		}
 		target_trigger = {
 			FROM = {
-				tag = TUR
 				any_controlled_state = {
 					OR = {
 						state = 448
@@ -3159,6 +3044,9 @@ ITA_libyan_war = {
 					}
 				}
 			}
+		}
+		targets = {
+			TUR
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -3272,24 +3160,30 @@ ITA_libyan_war = {
 		}
 	}
 	ITA_raid_beirut_port = {
-		cost = 10
+		cost = 0
 		icon = GFX_decision_generic_army_support
 		fire_only_once = yes
 		allowed = {
 			original_tag = ITA
 		}
 		available = {
-			has_completed_focus = ITA_2_enemies_2_navies
-			ships_in_area = {
-				area = 69
-				size > 15
+			OR = {
+				ships_in_area = {
+					area = 69
+					size > 15
+				}
+				hidden_trigger = {
+					is_ai = yes
+				}
 			}
 		}
 		target_trigger = {
 			FROM = {
-				tag = TUR
 				owns_state = 553
 			}
+		}
+		targets = {
+			TUR
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -3371,24 +3265,22 @@ ITA_libyan_war = {
 			base = -1 # just in case
 			modifier = {
 				add = 100
-				OR = {
-					surrender_progress > 0.1
+				AND = {
+					surrender_progress > 0.2
 					ROOT = {
-						any_owned_state = {
+						any_core_state = {
 							is_controlled_by = TUR
 						}
 					}
 				}
 			}
-			modifier = { # dont surrender on historical focus against AI even with big casualities
+			modifier = { # fast surrender against 'smart' players
 				add = 500
-				if = {
-					limit = { 
-						is_historical_focus_on = yes 
-					}
+				OR = {
 					TUR = { is_ai = no }
+					LBA = { is_ai = no }
 				}
-				casualties > 80000
+				casualties > 50000
 			}
 			modifier = {
 				add = 10
@@ -5248,6 +5140,7 @@ ITA_reforming_the_country = {
 			158
 			159
 			160
+			1259
 			833
 			161
 			162
@@ -7758,10 +7651,8 @@ ITA_reforming_the_country = {
 				state = FROM
 			}
 		}
-		target_root_trigger = {
-			tag = ITA
-		}
-		state_target = any_controlled_state
+		target_array = ROOT.controlled_states
+		state_target = yes
 		target_trigger = {
 			FROM = {
 				has_dynamic_modifier = {
@@ -7813,8 +7704,17 @@ ITA_reforming_the_country = {
 		}
 		visible = {
 			has_completed_focus = ITA_textile_industries
+			159 = {
+				is_owned_by = ROOT
+			}
+			NOT = {
+				has_global_flag = ITA_lombardy_textile_industry_done
+			}
 		}
 		available = {
+			159 = {
+				is_controlled_by = ROOT
+			}
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -7830,12 +7730,20 @@ ITA_reforming_the_country = {
 		complete_effect = {
 		}
 		remove_effect = {
+			set_global_flag = ITA_lombardy_textile_industry_done
 			159 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
 					instant_build = yes
+				}
+			}
+		}
+		cancel_trigger = {
+			159 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
 				}
 			}
 		}
@@ -7869,6 +7777,13 @@ ITA_reforming_the_country = {
 				add_resource = {
 					type = coal
 					amount = 2
+				}
+			}
+		}
+		cancel_trigger = {
+			162 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
 				}
 			}
 		}
@@ -7909,6 +7824,13 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			117 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_tap_into_sardina_tungsten = {
 		icon = GFX_decision_tungsten
@@ -7943,6 +7865,13 @@ ITA_reforming_the_country = {
 				add_resource = {
 					type = tungsten
 					amount = 7
+				}
+			}
+		}
+		cancel_trigger = {
+			114 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
 				}
 			}
 		}
@@ -7983,6 +7912,13 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			159 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}	
 	}
 	ITA_invest_in_emilia_electricity = {
 		icon = GFX_decision_generic_electricity
@@ -7995,7 +7931,7 @@ ITA_reforming_the_country = {
 		}
 		available = {
 			833 = {
-				is_owned_and_controlled_by = ROOT
+				is_controlled_by = ROOT
 			}
 		}
 		highlight_states = {
@@ -8012,7 +7948,7 @@ ITA_reforming_the_country = {
 		complete_effect = {
 		}
 		remove_effect = {
-			161 = {
+			833 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -8021,6 +7957,13 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			833 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}		
 	}
 	ITA_utilize_southern_agriculture_for_northern_industry = {
 		icon = GFX_decision_gre_paying_ifc_debt
@@ -8037,6 +7980,7 @@ ITA_reforming_the_country = {
 					state = 161
 					state = 159
 					state = 160
+					state = 1259
 					state = 1216
 				}
 			}
@@ -8058,6 +8002,7 @@ ITA_reforming_the_country = {
 						state = 161
 						state = 159
 						state = 160
+						state = 1259
 						state = 1216
 					}
 				}
@@ -8077,8 +8022,14 @@ ITA_reforming_the_country = {
 		}
 		visible = {
 			has_completed_focus = ITA_the_heart_and_soul_of_italy
+			160 = {
+				is_owned_by = ROOT
+			}
 		}
 		available = {
+			160 = {
+				is_controlled_by = ROOT
+			}
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -8104,6 +8055,13 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			160 = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_expand_hydroelectricity = {
 		icon = GFX_decision_generic_electricity
@@ -8111,22 +8069,28 @@ ITA_reforming_the_country = {
 			original_tag = ITA
 		}
 		visible = {
-			has_completed_focus = ITA_hydro_electricity_schemes
+			FROM = {
+				is_owned_by = ROOT
+			}
 		}
 		available = {
+			FROM = {
+				is_controlled_by = ROOT
+			}
 		}
 		target_root_trigger = {
-			tag = ROOT
+			has_completed_focus = ITA_hydro_electricity_schemes
 		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 160
-					state = 159
-					state = 161
-				}
+				is_owned_and_controlled_by = ROOT
 			}
+		}
+		targets = {
+			160
+			159
+			161
 		}
 		fire_only_once = yes
 		days_remove = italian_industry_decision_time
@@ -8145,14 +8109,18 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			FROM = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_invest_in_southern_infra = {
 		icon = GFX_decision_generic_construction
 		allowed = {
 			original_tag = ITA
-		}
-		visible = {
-			has_completed_focus = ITA_help_messina_earthquake_recovery
 		}
 		available = {
 		}
@@ -8162,20 +8130,21 @@ ITA_reforming_the_country = {
 			}
 		}
 		target_root_trigger = {
-			tag = ITA
+			has_completed_focus = ITA_help_messina_earthquake_recovery
 		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 157
-					state = 117
-					state = 1217
-					state = 1218
-					state = 156
-					state = 115
-				}
+				is_owned_and_controlled_by = ROOT
 			}
+		}
+		targets = {
+			157
+			117
+			1217
+			1218
+			156
+			115
 		}
 		fire_only_once = yes
 		days_remove = italian_industry_decision_time
@@ -8196,13 +8165,30 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			FROM = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_redistribute_land_in_the_south = {
 		icon = GFX_decision_generic_consumer_goods
 		allowed = {
 			original_tag = ITA
 		}
-		visible = {
+		available = {
+			FROM = {
+				is_demilitarized_zone = no
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = FROM
+			}
+		}
+		target_root_trigger = {
 			OR = {
 				has_completed_focus = ITA_land_reform_south
 				has_completed_focus = ITA_no_more_delays_for_south_land_reform
@@ -8217,31 +8203,19 @@ ITA_reforming_the_country = {
 				has_country_flag = ITA_socialist_italy_flag
 			}
 		}
-		available = {
-			FROM = {
-				is_demilitarized_zone = no
-			}
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = FROM
-			}
-		}
-		target_root_trigger = {
-			tag = ITA
-		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 157
-					state = 117
-					state = 1217
-					state = 1218
-					state = 156
-					state = 115
-				}
+				is_owned_and_controlled_by = ROOT
 			}
+		}
+		targets = {
+			157
+			117
+			1217
+			1218
+			156
+			115
 		}
 		fire_only_once = yes
 		days_remove = italian_industry_decision_time
@@ -8263,14 +8237,18 @@ ITA_reforming_the_country = {
 				}
 			}
 		}
+		cancel_trigger = {
+			FROM = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_invest_in_southern_states = {
 		icon = GFX_decision_gre_paying_ifc_debt
 		allowed = {
 			original_tag = ITA
-		}
-		visible = {
-			has_completed_focus = ITA_land_reclamation
 		}
 		available = {
 		}
@@ -8280,19 +8258,21 @@ ITA_reforming_the_country = {
 			}
 		}
 		target_root_trigger = {
-			tag = ITA
+			has_completed_focus = ITA_land_reclamation
 		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 157
-					state = 1217
-					state = 1218
-					state = 156
-					state = 115
-				}
+				is_owned_and_controlled_by = ROOT
 			}
+		}
+		targets = {
+			157
+			117
+			1217
+			1218
+			156
+			115
 		}
 		fire_only_once = yes
 		days_remove = italian_industry_decision_time
@@ -8305,6 +8285,13 @@ ITA_reforming_the_country = {
 				increase_state_category = yes
 			}
 		}
+		cancel_trigger = {
+			FROM = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
 	}
 	ITA_fight_malaria_in_state = {
 		icon = GFX_decision_gre_paying_ifc_debt
@@ -8312,7 +8299,6 @@ ITA_reforming_the_country = {
 			original_tag = ITA
 		}
 		visible = {
-			has_completed_focus = ITA_fight_malaria
 			FROM = {
 				has_dynamic_modifier = {
 					modifier = ITA_widespread_malaria
@@ -8322,19 +8308,21 @@ ITA_reforming_the_country = {
 		available = {
 		}
 		target_root_trigger = {
-			tag = ITA
+			has_completed_focus = ITA_fight_malaria
 		}
-		state_target = any_controlled_state
+		state_target = yes
 		target_trigger = {
 			FROM = {
-				OR = {
-					state = 117
-					state = 1217
-					state = 1218
-					state = 156
-					state = 115
-				}
+				is_owned_and_controlled_by = ROOT
 			}
+		}
+		targets = {
+			114
+			115
+			156
+			117
+			1218
+			1217
 		}
 		fire_only_once = yes
 		days_remove = 80
@@ -8346,6 +8334,13 @@ ITA_reforming_the_country = {
 			FROM = {
 				remove_dynamic_modifier = {
 					modifier = ITA_widespread_malaria
+				}
+			}
+		}
+		cancel_trigger = {
+			FROM = {
+				NOT = {
+					is_owned_and_controlled_by = ROOT
 				}
 			}
 		}
@@ -8373,6 +8368,9 @@ ITA_reforming_the_country = {
 			}
 		}
 		complete_effect = {
+				add_to_variable = {
+				ITA_total_tariffs = 1
+			}
 			custom_effect_tooltip = ITA_protect_dec_in.tt
 			add_to_variable = {
 				italian_industry_decision_cost = -4
@@ -8382,7 +8380,7 @@ ITA_reforming_the_country = {
 			}
 			custom_effect_tooltip = ITA_modify_industry_tt
 			add_to_variable = {
-				ITA_ind_consumer_goods = 0.025
+				ITA_ind_consumer_goods = 0.01
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -8431,7 +8429,7 @@ ITA_reforming_the_country = {
 		remove_effect = {
 			custom_effect_tooltip = ITA_modify_industry_tt
 			add_to_variable = {
-				ITA_resources_factor_ind = 0.05
+				ITA_resources_factor_ind = 0.1
 				tooltip = local_resources_factor_tt
 			}
 			set_global_flag = ITA_cw_check_35
@@ -8460,6 +8458,9 @@ ITA_reforming_the_country = {
 			}
 		}
 		complete_effect = {
+				add_to_variable = {
+				ITA_total_tariffs = 1
+			}
 			custom_effect_tooltip = ITA_protect_dec_in.tt
 			add_to_variable = {
 				italian_industry_decision_cost = -4
@@ -8469,7 +8470,7 @@ ITA_reforming_the_country = {
 			}
 			custom_effect_tooltip = ITA_modify_industry_tt
 			add_to_variable = {
-				ITA_ind_consumer_goods = 0.025
+				ITA_ind_consumer_goods = 0.01
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -8510,6 +8511,9 @@ ITA_reforming_the_country = {
 			}
 		}
 		complete_effect = {
+				add_to_variable = {
+				ITA_total_tariffs = 1
+			}
 			custom_effect_tooltip = ITA_protect_dec_in.tt
 			add_to_variable = {
 				italian_industry_decision_cost = -4
@@ -8519,9 +8523,10 @@ ITA_reforming_the_country = {
 			}
 			add_to_variable = {
 				ITA_ind_civs = 0.025
+				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			add_to_variable = {
-				ITA_ind_consumer_goods = 0.025
+				ITA_ind_consumer_goods = 0.01
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -8556,6 +8561,9 @@ ITA_reforming_the_country = {
 			}
 		}
 		complete_effect = {
+				add_to_variable = {
+				ITA_total_tariffs = 1
+			}
 			custom_effect_tooltip = ITA_protect_dec_in.tt
 			add_to_variable = {
 				italian_industry_decision_cost = -4
@@ -8565,9 +8573,10 @@ ITA_reforming_the_country = {
 			}
 			add_to_variable = {
 				ITA_ind_civs = 0.025
+				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			add_to_variable = {
-				ITA_ind_consumer_goods = 0.025
+				ITA_ind_consumer_goods = 0.01
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -8602,6 +8611,9 @@ ITA_reforming_the_country = {
 			}
 		}
 		complete_effect = {
+				add_to_variable = {
+				ITA_total_tariffs = 1
+			}
 			custom_effect_tooltip = ITA_protect_dec_in.tt
 			add_to_variable = {
 				italian_industry_decision_cost = -4
@@ -8611,7 +8623,7 @@ ITA_reforming_the_country = {
 			}
 			custom_effect_tooltip = ITA_modify_industry_tt
 			add_to_variable = {
-				ITA_ind_consumer_goods = 0.05
+				ITA_ind_consumer_goods = 0.01
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -8647,6 +8659,9 @@ ITA_reforming_the_country = {
 			}
 		}
 		complete_effect = {
+			add_to_variable = {
+				ITA_total_tariffs = 1
+			}
 			custom_effect_tooltip = ITA_protect_dec_in.tt
 			add_to_variable = {
 				italian_industry_decision_cost = -4
@@ -8656,12 +8671,12 @@ ITA_reforming_the_country = {
 			}
 			custom_effect_tooltip = ITA_modify_industry_tt
 			add_to_variable = {
-				ITA_ind_consumer_goods = 0.05
+				ITA_ind_consumer_goods = 0.01
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
-				ITA_ind_civs = 0.025
-				tooltip = production_speed_industrial_complex_factor_tt
+				ITA_ind_mil_speed = 0.025
+				tooltip = production_speed_arms_factory_factor_tt
 			}
 			add_resource = {
 				type = steel
@@ -9332,7 +9347,7 @@ ITA_free_trade_decat = {
 				has_idea = closed_economy
 			}
 		}
-		cost = 30
+		cost = 15
 		fire_only_once = yes
 		ai_will_do = {
 			base = 0
@@ -9408,7 +9423,7 @@ ITA_free_trade_decat = {
 				has_idea = closed_economy
 			}
 		}
-		cost = 45
+		cost = 80
 		fire_only_once = yes
 		ai_will_do = {
 			base = 0
@@ -9416,6 +9431,9 @@ ITA_free_trade_decat = {
 				add = 10
 				has_political_power > 80
 			}
+		}
+		modifier = {
+			consumer_goods_factor = 0.15
 		}
 		days_remove = 60
 		complete_effect = {
@@ -9448,7 +9466,7 @@ ITA_free_trade_decat = {
 				has_idea = closed_economy
 			}
 		}
-		cost = 45
+		cost = 30
 		fire_only_once = yes
 		ai_will_do = {
 			base = 0
@@ -9485,7 +9503,7 @@ ITA_free_trade_decat = {
 				has_idea = closed_economy
 			}
 		}
-		cost = 35
+		cost = 15
 		fire_only_once = yes
 		ai_will_do = {
 			base = 0
@@ -9506,7 +9524,7 @@ ITA_free_trade_decat = {
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			add_to_variable = {
-				ITA_ind_consumer_goods = -0.15
+				ITA_ind_consumer_goods = -0.1
 				tooltip = consumer_goods_factor_tt
 			}
 			country_event = ww1_italy.131
@@ -9553,11 +9571,11 @@ ITA_free_trade_decat = {
 		remove_effect = {
 			custom_effect_tooltip = ITA_modify_industry_tt
 			add_to_variable = {
-				ITA_ind_civs = -0.025
-				tooltip = production_speed_industrial_complex_factor_tt
+				ITA_ind_mil_speed = -0.025
+				tooltip = production_speed_arms_factory_factor_tt
 			}
 			add_to_variable = {
-				ITA_ind_consumer_goods = -0.1
+				ITA_ind_consumer_goods = -0.15
 				tooltip = consumer_goods_factor_tt
 			}
 			add_tech_bonus = {
@@ -9713,7 +9731,8 @@ ITA_free_trade_decat = {
 				has_political_power > 80
 			}
 		}
-		complete_effect = {
+		days_remove = 15
+		remove_effect = {
 			FRA = {
 				country_event = ww1_italy.312
 			}
@@ -9760,14 +9779,17 @@ ITA_free_trade_decat = {
 				has_political_power > 80
 			}
 		}
+		days_remove = 120
 		complete_effect = {
-			set_global_flag = ITA_cw_check_57
 			GER = {
 				add_timed_idea = {
 					idea = GER_private_italian_investments
-					days = 70
+					days = 35
 				}
 			}
+			set_global_flag = ITA_cw_check_57
+		}
+		remove_effect = {
 			159 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -9785,7 +9807,7 @@ ITA_free_trade_decat = {
 	}
 }
 
-peace_deals = {
+TGWR_great_power_politics = {
 	ITA_return_rhodes_mission = {
 		# After Treaty of Ouchy
 		icon = GFX_decision_infiltrate_state
@@ -9860,6 +9882,54 @@ peace_deals = {
 		is_good = yes
 		days_mission_timeout = 600
 	}
+	ITA_valona_timer = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = {
+			original_tag = ITA
+		}
+		days_mission_timeout = 200
+		activation = {
+			always = no
+		}
+		available = {
+			OR = {
+				is_subject = yes
+				has_capitulated = yes
+				has_war_with = ALB
+				NOT = {
+					owns_state = 44
+					owns_state = 871
+					owns_state = 1214
+					owns_state = 1215
+				}
+				has_subject = ALB
+			}
+		}
+		fire_only_once = no
+		is_good = no
+		timeout_effect = {
+			effect_tooltip = {
+				every_owned_state = {
+					limit = {
+						is_core_of = ALB
+					}
+					transfer_state_to = ALB
+				}
+			}
+			hidden_effect = {
+				#set_global_flag = valona_war_end
+				ALB = {
+					every_core_state = {
+						limit = {
+							is_demilitarized_zone = yes
+						}
+						set_demilitarized_zone = no
+					}
+				}
+				country_event = ww1_albania.20
+			}
+		}
+	}
 }
 
 operations = {
@@ -9933,10 +10003,8 @@ operations = {
 		fire_only_once = yes
 		cost = 50
 		days_remove = 15
-		target_trigger = {
-			FROM = {
-				tag = MLT
-			}
+		targets = {
+			MLT
 		}
 		ai_will_do = {
 			factor = 50
@@ -10000,7 +10068,8 @@ ITA_italian_civil_war_decisions = {
 		visible = {
 			has_global_flag = italian_civil_war
 			has_country_flag = ITA_republican_italy_flag
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				OR = {
 					has_country_flag = ITA_socialist_italy_flag
 					has_country_flag = ITA_monarchist_italy_flag
@@ -10011,7 +10080,7 @@ ITA_italian_civil_war_decisions = {
 		}
 		highlight_states = {
 			highlight_state_targets = {
-				state = 144
+				state = 114
 			}
 		}
 		fire_only_once = yes
@@ -10062,7 +10131,8 @@ ITA_italian_civil_war_decisions = {
 				has_country_flag = ITA_monarchist_italy_flag
 				has_country_flag = ITA_socialist_italy_flag
 			}
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				OR = {
 					has_country_flag = ITA_republican_italy_flag
 					has_country_flag = ITA_monarchist_italy_flag
@@ -10133,7 +10203,8 @@ ITA_italian_civil_war_decisions = {
 					has_country_flag = ITA_socialist_italy_flag
 				}
 			}
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_republican_italy_flag
 				OR = {
 					has_war_with = SRI
@@ -10146,7 +10217,8 @@ ITA_italian_civil_war_decisions = {
 		}
 		visible = {
 			has_global_flag = italian_civil_war
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_republican_italy_flag
 				OR = {
 					has_war_with = SRI
@@ -10183,10 +10255,8 @@ ITA_italian_civil_war_decisions = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = ROI
-			}
+		targets = {
+			ROI
 		}
 		complete_effect = {
 			set_country_flag = supported_italian_civil_war
@@ -10218,7 +10288,8 @@ ITA_italian_civil_war_decisions = {
 					has_country_flag = ITA_socialist_italy_flag
 				}
 			}
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_monarchist_italy_flag
 				OR = {
 					has_war_with = SRI
@@ -10231,7 +10302,8 @@ ITA_italian_civil_war_decisions = {
 		}
 		visible = {
 			has_global_flag = italian_civil_war
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_monarchist_italy_flag
 				OR = {
 					has_war_with = SRI
@@ -10268,10 +10340,8 @@ ITA_italian_civil_war_decisions = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = ITS
-			}
+		targets = {
+			ITS
 		}
 		complete_effect = {
 			set_country_flag = supported_italian_civil_war
@@ -10303,7 +10373,8 @@ ITA_italian_civil_war_decisions = {
 					has_country_flag = ITA_socialist_italy_flag
 				}
 			}
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_socialist_italy_flag
 				OR = {
 					has_war_with = ITS
@@ -10316,7 +10387,8 @@ ITA_italian_civil_war_decisions = {
 		}
 		visible = {
 			has_global_flag = italian_civil_war
-			any_country = {
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_socialist_italy_flag
 				OR = {
 					has_war_with = ITS
@@ -10353,10 +10425,8 @@ ITA_italian_civil_war_decisions = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = SRI
-			}
+		targets = {
+			SRI
 		}
 		complete_effect = {
 			set_country_flag = supported_italian_civil_war
@@ -10393,8 +10463,8 @@ ITA_italian_civil_war_decisions = {
 			NOT = {
 				has_country_flag = ITA_second_civil_war_intervention
 			}
-			any_country = {
-				original_tag = ITA
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_government = communism
 			}
 		}
@@ -10409,10 +10479,8 @@ ITA_italian_civil_war_decisions = {
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = SRI
-			}
+		targets = {
+			SRI
 		}
 		complete_effect = {
 			set_country_flag = ITA_second_civil_war_intervention
@@ -10429,8 +10497,8 @@ ITA_italian_civil_war_decisions = {
 		}
 		available = {
 			has_global_flag = italian_civil_war
-			any_country = {
-				original_tag = ITA
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_socialist_italy_flag
 				OR = {
 					has_war_with = ITS
@@ -10446,8 +10514,8 @@ ITA_italian_civil_war_decisions = {
 				has_government = democratic
 			}
 			has_global_flag = italian_civil_war
-			any_country = {
-				original_tag = ITA
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_country_flag = ITA_socialist_italy_flag
 				OR = {
 					has_war_with = ITS
@@ -10460,12 +10528,12 @@ ITA_italian_civil_war_decisions = {
 				AND = {
 					has_government = communism
 					OR = {
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_monarchist_italy_flag
 						}
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_republican_italy_flag
 						}
 					}
@@ -10474,8 +10542,8 @@ ITA_italian_civil_war_decisions = {
 					NOT = {
 						has_government = communism
 					}
-					any_country = {
-						original_tag = ITA
+					any_country_with_original_tag = {
+						original_tag_to_check = ITA
 						has_country_flag = ITA_socialist_italy_flag
 					}
 				}
@@ -10484,18 +10552,15 @@ ITA_italian_civil_war_decisions = {
 		fire_only_once = yes
 		cost = 125
 		days_remove = 15
-		target_trigger = {
-			FROM = {
-				original_tag = ITA
-				has_country_flag = ITA_socialist_italy_flag
-			}
+		targets = {
+			SRI
 		}
 		cancel_trigger = {
 			hidden_trigger = {
 				NOT = {
 					OR = {
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_socialist_italy_flag
 							OR = {
 								has_war_with = ITS
@@ -10508,12 +10573,12 @@ ITA_italian_civil_war_decisions = {
 									has_government = communism
 								}
 								OR = {
-									any_country = {
-										original_tag = ITA
+									any_country_with_original_tag = {
+										original_tag_to_check = ITA
 										has_country_flag = ITA_monarchist_italy_flag
 									}
-									any_country = {
-										original_tag = ITA
+									any_country_with_original_tag = {
+										original_tag_to_check = ITA
 										has_country_flag = ITA_republican_italy_flag
 									}
 								}
@@ -10524,8 +10589,8 @@ ITA_italian_civil_war_decisions = {
 										has_government = communism
 									}
 								}
-								any_country = {
-									original_tag = ITA
+								any_country_with_original_tag = {
+									original_tag_to_check = ITA
 									has_country_flag = ITA_socialist_italy_flag
 								}
 							}
@@ -10541,7 +10606,8 @@ ITA_italian_civil_war_decisions = {
 				}
 				if = {
 					limit = {
-						any_country = {
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							exists = yes
 							has_country_flag = ITA_socialist_italy_flag
 						}
@@ -10554,8 +10620,8 @@ ITA_italian_civil_war_decisions = {
 				}
 				if = {
 					limit = {
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_monarchist_italy_flag
 							has_war_with = SRI
 						}
@@ -10567,8 +10633,8 @@ ITA_italian_civil_war_decisions = {
 				}
 				if = {
 					limit = {
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_republican_italy_flag
 							has_war_with = SRI
 						}
@@ -10582,8 +10648,8 @@ ITA_italian_civil_war_decisions = {
 			else = {
 				if = {
 					limit = {
-						any_country = {
-							exists = yes
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_country_flag = ITA_monarchist_italy_flag
 						}
 					}
@@ -10782,11 +10848,11 @@ ITA_war_preperations = {
 				tooltip = amphibious_invasion_defence_tt
 			}
 			add_to_variable = {
-				ITA_army_preperations_naval_invasion_division_cap = 3
+				ITA_army_preperations_naval_invasion_division_cap = 5
 				tooltip = naval_invasion_division_cap_tt
 			}
 			add_to_variable = {
-				ITA_army_preperations_naval_invasion_plan_cap = 1
+				ITA_army_preperations_naval_invasion_plan_cap = 2
 				tooltip = naval_invasion_plan_cap_tt
 			}
 			add_to_variable = {
@@ -10837,7 +10903,7 @@ ITA_war_preperations = {
 			custom_effect_tooltip = ITA_modify_libyan_war_preparations_tt
 			add_to_variable = {
 				var = ITA_preperation_offence_var
-				value = 0.05
+				value = 0.1
 				tooltip = army_attack_factor_tt
 			}
 			add_to_variable = {
@@ -10888,8 +10954,13 @@ ITA_war_preperations = {
 			}
 			add_to_variable = {
 				var = ITA_preperation_heat_var
-				value = -0.15
+				value = -0.2
 				tooltip = heat_attrition_factor_tt
+			}
+			add_to_variable = {
+				var = ITA_libya_preparation_land_mastery
+				value = 0.15
+				tooltip = land_mastery_gain_factor_tt
 			}
 			add_to_variable = {
 				var = ITA_preperation_experience_var
@@ -10967,9 +11038,14 @@ ITA_war_preperations = {
 			NOT = {
 				has_country_flag = ITA_active_war_prep
 			}
-			ships_in_state_ports = {
-				size > 9
-				state = 115
+			OR = {
+				ships_in_state_ports = {
+					size > 9
+					state = 115
+				}
+				hidden_trigger = {
+					is_ai = yes # ai cant use fleet as player
+				}
 			}
 		}
 		icon = GFX_decision_generic_naval
@@ -10983,7 +11059,7 @@ ITA_war_preperations = {
 			custom_effect_tooltip = ITA_modify_libyan_war_preparations_tt
 			add_to_variable = {
 				var = ITA_preperation_naval_attack_var
-				value = 0.1
+				value = 0.15
 				tooltip = naval_damage_factor_tt
 			}
 		}
@@ -11046,16 +11122,12 @@ ITA_war_preperations = {
 			modifier = {
 				add = 1000
 				OR = {
-					has_global_flag = ITA_wp_check_4
+					AND = {
+						is_historical_focus_on = no
+						has_global_flag = ITA_wp_check_4
+					}
 					date > 1911.9.24
 				}
-			}
-			modifier = {
-				factor = 0
-				AND = {
-					is_historical_focus_on = yes
-					date < 1911.9.24
-				}			
 			}
 		}
 	}
@@ -11339,7 +11411,7 @@ ITA_army_reforms = {
 		visible = {
 			has_completed_focus = ITA_conscription_reform
 			NOT = {
-				has_country_flag = ITA_establish_the_health_sector
+				has_global_flag = ITA_establish_the_health_sector
 			}
 		}
 		fire_only_once = yes
@@ -11360,7 +11432,7 @@ ITA_army_reforms = {
 				ITA_army_supply = -0.05
 				tooltip = supply_consumption_factor_tt
 			}
-			set_country_flag = ITA_establish_the_health_sector
+			set_global_flag = ITA_establish_the_health_sector
 		}
 	}
 	ITA_establish_mobile_command_centers = {
@@ -11376,7 +11448,7 @@ ITA_army_reforms = {
 			}
 		}
 		available = {
-			has_country_flag = ITA_establish_the_health_sector
+			has_global_flag = ITA_establish_the_health_sector
 		}
 		days_remove = 30
 		modifier = {
@@ -11887,22 +11959,24 @@ ITA_army_reforms = {
 				add_building_construction = {
 					type = bunker
 					level = 2
+					province = 1126
+				}
+			}
+			1259 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
 					province = 628
 				}
 				add_building_construction = {
 					type = bunker
 					level = 2
 					province = 9613
-				}
+				}		
 				add_building_construction = {
 					type = bunker
 					level = 2
 					province = 13376
-				}
-				add_building_construction = {
-					type = bunker
-					level = 2
-					province = 1126
 				}
 				add_building_construction = {
 					type = bunker
@@ -11958,6 +12032,8 @@ ITA_army_reforms = {
 					level = 3
 					province = 603
 				}
+			}
+			159 = {
 				add_building_construction = {
 					type = bunker
 					level = 2
@@ -12399,13 +12475,19 @@ ITA_army_reforms = {
 			has_war_with = AUS
 		}
 		available = {
-			1197 = {
-				is_owned_and_controlled_by = AUS
+			OR = {
+				1197 = {
+					is_owned_and_controlled_by = AUS
+				}
+				1260 = {
+					is_owned_and_controlled_by = AUS
+				}
 			}
 		}
 		highlight_states = {
 			highlight_state_targets = {
 				state = 1197
+				state = 1260
 			}
 		}
 		cancel_trigger = {
@@ -12435,6 +12517,13 @@ ITA_army_reforms = {
 					scope = ROOT
 				}
 			}
+			1260 = {
+				add_dynamic_modifier = {
+					modifier = ITA_offensive
+					days = 120
+					scope = ROOT
+				}
+			}
 		}
 	}
 	ITA_veneto_counteroffensive = {
@@ -12448,19 +12537,27 @@ ITA_army_reforms = {
 			# no cw check needed as communist italy cant do these focuses
 		}
 		available = {
-			160 = {
-				NOT = {
-					is_fully_controlled_by = ROOT
-					has_dynamic_modifier = {
-						modifier = ITA_stand_on_the_piave
+			AND = {
+				160 = {
+					NOT = {
+						is_fully_controlled_by = ROOT
+						has_dynamic_modifier = {
+							modifier = ITA_stand_on_the_piave
+						}
+					}
+				}
+				1259 = {
+					NOT = {
+						is_fully_controlled_by = ROOT
+						has_dynamic_modifier = {
+							modifier = ITA_stand_on_the_piave
+						}
 					}
 				}
 			}
 		}
-		target_trigger = {
-			FROM = {
-				tag = AUS
-			}
+		targets = {
+			AUS
 		}
 		cancel_trigger = {
 			NOT = {
@@ -12483,6 +12580,13 @@ ITA_army_reforms = {
 		}
 		remove_effect = {
 			160 = {
+				add_dynamic_modifier = {
+					modifier = ITA_veneto_offensive
+					days = 100
+					scope = ROOT
+				}
+			}
+			1259 = {
 				add_dynamic_modifier = {
 					modifier = ITA_veneto_offensive
 					days = 100
@@ -12544,15 +12648,12 @@ ITA_army_reforms = {
 
 ITA_navy_decisions = {
 	ITA_build_weather_monitoring_stations = {
-		cost = 15
-		days_remove = 60
+		days_remove = 30
 		modifier = {
 			civilian_factory_use = 1
 		}
 		allowed = {
 			original_tag = ITA
-		}
-		available = {
 		}
 		visible = {
 			has_completed_focus = ITA_utilize_the_radio
@@ -12562,9 +12663,12 @@ ITA_navy_decisions = {
 		remove_effect = {
 			custom_effect_tooltip = ITA_modify_fleet_tt
 			add_to_variable = {
-				ITA_navy_weather = -0.3
+				ITA_navy_weather = -0.15
 				tooltip = navy_weather_penalty_tt
 			}
+		}
+		ai_will_do = {
+			base = 1
 		}
 	}
 	ITA_train_new_naval_officers = {
@@ -12591,14 +12695,13 @@ ITA_navy_decisions = {
 		remove_effect = {
 			custom_effect_tooltip = ITA_modify_fleet_tt
 			add_to_variable = {
-				ITA_navy_org = 0.1
+				ITA_navy_org = 0.07
 				tooltip = navy_org_factor_tt
 			}
 		}
 	}
 	ITA_develop_new_hydrophones = {
-		cost = 15
-		days_remove = 75
+		days_remove = 40
 		icon = GFX_decision_generic_research
 		fire_only_once = yes
 		modifier = {
@@ -12616,7 +12719,7 @@ ITA_navy_decisions = {
 		remove_effect = {
 			custom_effect_tooltip = ITA_modify_fleet_tt
 			add_to_variable = {
-				ITA_navy_see_subs = 0.1
+				ITA_navy_see_subs = 0.075
 				tooltip = naval_detection_tt
 			}
 		}
@@ -13234,7 +13337,7 @@ ITA_communist_civil_war_decisions = {
 	ITA_crush_anti_socialist_resistance = {
 		icon = GFX_decision_oppression
 		cost = 25
-		days_remove = 75
+		days_remove = 50
 		allowed = {
 			original_tag = ITA
 		}
@@ -13249,6 +13352,10 @@ ITA_communist_civil_war_decisions = {
 		visible = {
 			has_completed_focus = ITA_the_enemy_from_within
 			has_country_flag = ITA_socialist_italy_flag
+			has_country_flag = ITA_anti_socialist_resistance_flag
+			NOT = {
+				has_idea = ITA_anti_socialist_resistance
+			}
 		}
 		modifier = {
 			political_power_cost = 0.1
@@ -13256,17 +13363,6 @@ ITA_communist_civil_war_decisions = {
 		}
 		remove_effect = {
 			if = {
-				limit = {
-					has_idea = ITA_anti_socialist_resistance
-				}
-				effect_tooltip = {
-					swap_ideas = {
-						remove_idea = ITA_anti_socialist_resistance2
-						add_idea = ITA_anti_socialist_resistance
-					}
-				}
-			}
-			else_if = {
 				limit = {
 					has_idea = ITA_anti_socialist_resistance2
 				}
@@ -13323,6 +13419,7 @@ ITA_communist_civil_war_decisions = {
 		visible = {
 			has_completed_focus = ITA_the_enemy_from_within
 			has_country_flag = ITA_socialist_italy_flag
+			has_country_flag = ITA_anti_socialist_resistance_flag
 		}
 		modifier = {
 			political_power_cost = 0.1
@@ -13375,7 +13472,7 @@ ITA_communist_civil_war_decisions = {
 				has_government = communism
 			}
 		}
-		days_mission_timeout = 120
+		days_mission_timeout = 160
 		fire_only_once = no
 		is_good = no
 		activation = {
@@ -13484,7 +13581,6 @@ ITA_italy_communist_decisions = {
 			}
 		}
 		visible = {
-			has_completed_focus = ITA_form_the_international
 			has_country_flag = ITA_socialist_italy_flag
 			FROM = {
 				is_subject = no
@@ -13494,6 +13590,9 @@ ITA_italy_communist_decisions = {
 					has_country_flag = ITA_asked_join_internationale
 				}
 			}
+		}
+		target_root_trigger = {
+			has_completed_focus = ITA_form_the_international
 		}
 		complete_effect = {
 			FROM = {
@@ -13514,7 +13613,7 @@ ITA_italy_communist_decisions = {
 		allowed = {
 			original_tag = ITA
 		}
-		visible = {
+		target_root_trigger = {
 			has_completed_focus = ITA_socialist_economic_intergration
 			has_country_flag = ITA_socialist_italy_flag
 		}
@@ -13569,7 +13668,7 @@ ITA_socialist_sabotadge_entente = {
 		allowed = {
 			original_tag = ITA
 		}
-		visible = {
+		target_root_trigger = {
 			has_completed_focus = ITA_sabotadge_entente
 			has_country_flag = ITA_socialist_italy_flag
 		}

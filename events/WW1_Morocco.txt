@@ -50,6 +50,7 @@ country_event = {
 		}
 		division_template = {
 			name = "Harka"
+			override_model = middle_eastern_gfx_cavalry_entity
 			is_locked = yes
 			regiments = {
 				irregular_infantry = {
@@ -98,11 +99,11 @@ country_event = {
 				count = 10
 			}
 		}
-		MOR_ahmed_al_hiba = {
-			promote_character = absolute_monarchy
-			promote_character = reactionism
-		}
-		add_ideas = MOR_ahmed_al_hiba
+		# MOR_ahmed_al_hiba = {
+		# 	promote_character = absolute_monarchy
+		# 	promote_character = reactionism
+		# }
+		# add_ideas = MOR_ahmed_al_hiba
 		add_ideas = extensive_conscription
 		add_ideas = MOR_guerilla_warfare
 		remove_ideas = FRA_idea_moroccan_intervention
@@ -222,6 +223,13 @@ country_event = {
 				reserve_dynamic_country = yes
 				set_country_flag = MOR_anti_french
 				set_cosmetic_tag = RMO
+				MOR = {
+					MOR_mouha_ou_hammou_zayani = {
+						set_nationality = PREV.PREV
+						promote_character = absolute_monarchy
+						promote_character = reactionism
+					}
+				}
 				every_state = {
 					limit = {
 						is_core_of = MOR
@@ -1965,6 +1973,7 @@ country_event = {
 			RIF = {
 				division_template = {
 					name = "Harka"
+					override_model = middle_eastern_gfx_cavalry_entity
 					regiments = {
 						irregular_infantry = { x = 0 y = 0 }
 						irregular_infantry = { x = 0 y = 1 }
@@ -4063,25 +4072,6 @@ country_event = {
 	}
 	option = {
 		name = ww1_morocco.87.b
-	}
-}
-
-# Battle of Tiznit
-country_event = {
-	id = ww1_morocco.88
-	title = ww1_morocco.88.t
-	desc = ww1_morocco.88.d
-	picture = GFX_report_event_arab_revolt
-	is_triggered_only = yes
-	trigger = {
-		has_start_date < 1914.1.1
-		GUD = {
-			has_war_with = MOR
-		}
-	}
-	option = {
-		name = ww1_morocco.88.a
-		GUD = { white_peace = MOR }
 	}
 }
 

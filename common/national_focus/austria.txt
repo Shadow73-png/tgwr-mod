@@ -444,6 +444,11 @@ focus_tree = {
 			focus = AUH_invalidate_croatian_constitution
 		}
 		relative_position_id = AUH_integration_of_southern_croatia
+		available = {
+			109 = {
+				is_owned_or_subject_trigger = yes
+			}
+		}
 		completion_reward = {	
 			custom_effect_tooltip = AUH_spawn_3_guards_divisions_to_zagreb
 			hidden_effect = {
@@ -665,6 +670,7 @@ focus_tree = {
 				owns_state = 562
 				owns_state = 991
 				owns_state = 1007
+				#owns_state = 1268
 			}
 		}
 		prerequisite = {
@@ -987,7 +993,7 @@ focus = {
 		}
 	}
 	search_filters = {
-		FOCUS_FILTER_INTERNAL_AFFAIRS
+		FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_COMPLETED_BY_EVENT
 	}
 	relative_position_id = AUH_stabilize_the_empire
 	# prerequisite = {
@@ -3412,6 +3418,7 @@ focus = {
 	}
 	completion_reward = {
 		add_state_claim = 160
+		add_state_claim = 1259
 		add_state_claim = 159
 		add_state_claim = 244
 		add_tech_bonus = {
@@ -3720,7 +3727,7 @@ focus = {
 		create_wargoal = {
 			target = ITA
 			type = take_claimed_state
-			generator = {160 159 244}
+			generator = {160 1259 159 244}
 		}
 	}
 	will_lead_to_war_with = ITA
@@ -3955,7 +3962,7 @@ focus = {
 				}
 				set_state_flag = AUH_invested_here
 			}
-			random_state = {
+			random_state = { 
 				limit = {
 					is_core_of = GAL
 					is_controlled_by_ROOT_or_subject = yes

@@ -23,18 +23,10 @@ operations = {
 					OVERLORD = { is_russian_tag = no }
 				}
 			}
-			NOT = {
-				has_cosmetic_tag = GEO_TSCN
-				has_cosmetic_tag = GEO_TSCN_committee
-				has_cosmetic_tag = GEO_TSCN_commissariat
-				has_cosmetic_tag = GEO_TSCN_communism
-			}
 		}
 		state_target = yes
-		target_trigger = {
-			FROM = {
-				state = 233
-			}
+		targets = {
+			223
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -141,15 +133,11 @@ peace_deals = {
 		name = sue_for_peace_FROM
 		icon = GFX_decision_eng_trade_unions_support
 		allowed = {
-			tag = GEO
+			tag = CAU
 		}
-		target_trigger = {
-			FROM = {
-				OR = {
-					tag = GER
-					tag = ENT
-				}	
-			}
+		targets = {
+			GER
+			ENT
 		}
 		# target_root_trigger = {
 		# 	has_war_with = FROM
@@ -178,11 +166,6 @@ peace_deals = {
 				has_war_with = PER
 				has_war_with = RUS
 				FROM = { is_in_faction_with = TUR }
-			}
-			OR = {
-				has_cosmetic_tag = GEO_TSCN
-				has_cosmetic_tag = GEO_TSCN_committee
-				has_cosmetic_tag = GEO_TSCN_commissariat
 			}
 			is_subject = no
 			is_in_faction = no
@@ -213,6 +196,7 @@ foreign_politics = {
 		icon = GFX_decision_eng_trade_unions_demand
 		allowed = {
 			OR = {
+				original_tag = GEO
 				original_tag = AZR
 				original_tag = ARM
 			}
@@ -229,12 +213,7 @@ foreign_politics = {
 		}
 		target_trigger = {
 			FROM = {
-				OR = {
-					has_cosmetic_tag = GEO_TSCN_commissariat
-					has_cosmetic_tag = GEO_TSCN
-					has_cosmetic_tag = GEO_TSCN_committee
-					has_cosmetic_tag = GEO_TSCN_communism
-				}
+				tag = CAU
 				is_subject = no
 			}
 		}
@@ -292,6 +271,10 @@ foreign_politics = {
 			modifier = {
 				factor = 0
 				OR = {
+					AND = {
+						original_tag = GEO
+						owns_state = 231
+					}
 					AND = {
 						original_tag = AZR
 						owns_state = 229 #Baku
