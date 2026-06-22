@@ -12811,11 +12811,77 @@ focus_tree = {
 		#}
 	}
 	focus = {
+		id = AUS_under_the_shadow_of_the_eagle
+		icon = GFX_focus_GER_mitteleuropa_KR
+		cost = 0
+		x = -10
+		y = 10
+		mutually_exclusive = {
+			focus = AUS_peace_with_honor
+		}
+		mutually_exclusive = {
+			focus = AUS_new_world_order
+		}
+		relative_position_id = AUS_new_kaiser
+		bypass = {
+			has_country_flag = great_war_winner
+		}
+		available = {
+						has_country_flag = great_war_winner
+		
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+	focus = {
+		id = AUS_peace_with_honor
+		icon = GFX_focus_generic_scales_replacement
+		cost = 0
+		x = 10
+		y = 10
+		mutually_exclusive = {
+			focus = AUS_under_the_shadow_of_the_eagle
+		}
+		mutually_exclusive = {
+			focus = AUS_new_world_order
+		}
+		relative_position_id = AUS_new_kaiser
+		bypass = {
+			has_country_flag = great_war_winner
+		}
+		available = {
+						has_country_flag = great_war_winner
+		
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+	focus = {
 		id = AUS_new_world_order
 		icon = GFX_focus_RAJ_to_shake_the_world
 		cost = 0
 		x = 0
 		y = 10
+		mutually_exclusive = {
+			focus = AUS_under_the_shadow_of_the_eagle
+		}
+		mutually_exclusive = {
+			focus = AUS_peace_with_honor
+		}
 		relative_position_id = AUS_new_kaiser
 		bypass = {
 			has_country_flag = great_war_winner
@@ -12843,6 +12909,8 @@ focus_tree = {
 		relative_position_id = AUS_new_world_order
 		prerequisite = {
 			focus = AUS_new_world_order
+			focus = AUS_under_the_shadow_of_the_eagle
+			focus = AUS_peace_with_honor
 		}
 		bypass = {
 			has_country_flag = great_war_winner
@@ -12868,6 +12936,8 @@ focus_tree = {
 		relative_position_id = AUS_new_world_order
 		prerequisite = {
 			focus = AUS_new_world_order
+			focus = AUS_under_the_shadow_of_the_eagle
+			focus = AUS_peace_with_honor
 		}
 		bypass = {
 			has_country_flag = great_war_winner
