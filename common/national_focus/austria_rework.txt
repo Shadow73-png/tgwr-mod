@@ -12983,9 +12983,7 @@ focus_tree = {
 			focus = AUS_world_ablaze
 		}
 		available = {
-			ITA = {
-				has_war_with = SRA
-			}
+			has_italian_civil_war = yes
 		}
 		completion_reward = {
 			unlock_decision_tooltip = AUS_reinstate_liechtenstein_monarchy
@@ -13011,9 +13009,7 @@ focus_tree = {
 			focus = AUS_take_oppurtunity
 		}
 		available = {
-			ITA = {
-				has_war_with = SRA
-			}
+			has_italian_civil_war = yes
 		}
 		completion_reward = {
 			ITA = {
@@ -13066,9 +13062,7 @@ focus_tree = {
 			focus = AUS_support_italian_monarchy
 		}
 		available = {
-			ITA = {
-				has_war_with = SRA
-			}
+			has_italian_civil_war = yes
 		}
 		completion_reward = {
 			set_state_owner = 159
@@ -13166,6 +13160,9 @@ focus_tree = {
 			focus = AUS_civil_war_in_east
 		}
 		available = {
+			UKR = {
+				is_puppet_of = AUS
+			}
 		}
 		completion_reward = {
 		}
@@ -13189,8 +13186,15 @@ focus_tree = {
 			focus = AUS_respect_ukranian_rights
 		}
 		available = {
+			UKR = {
+				is_puppet_of = AUS
+			}
 		}
 		completion_reward = {
+			UKR = {
+				add_ideas = UKR_austrian_exploitation
+			}
+			
 		}
 		ai_will_do = {
 			base = 1
@@ -13212,6 +13216,9 @@ focus_tree = {
 			focus = AUS_take_ukranian_rescourses
 		}
 		available = {
+			UKR = {
+				is_puppet_of = AUS
+			}
 		}
 		completion_reward = {
 		}
@@ -13222,7 +13229,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = AUS_negotiate_with_kubans
+		id = AUS_support_don
 		icon = GFX_goal_generic_military_deal
 		cost = 5
 		x = -1
@@ -13232,8 +13239,47 @@ focus_tree = {
 			focus = AUS_respect_ukranian_rights focus = AUS_take_ukranian_rescourses
 		}
 		available = {
+			SRA = {
+				has_capitulated = no
+				has_war_with = SOV
+			}
 		}
 		completion_reward = {
+			unlock_decision_tooltip = {
+				decision = AUS_send_weapons_don
+				show_effect_tooltip = yes
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = AUS_supporting_the_whites
+		icon = GFX_goal_generic_military_deal
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = AUS_support_the_don_army
+		prerequisite = {
+			focus = AUS_support_the_don_army
+		}
+		available = {
+			OR = {
+				NWA = {
+					has_capitulated = no
+					has_war_with = SOV
+				}
+				SRA = {
+					has_capitulated = no
+					has_war_with = SOV
+				}
+			}
+		}
+		completion_reward = {
+
 		}
 		ai_will_do = {
 			base = 1
