@@ -3,7 +3,12 @@ defined_text = {
 
     # Conservatives
     text = {
-        trigger = { has_global_flag = AUS_imperial_council_conservative }
+        trigger = {
+			has_global_flag = AUS_imperial_council_conservative
+			NOT = {
+				has_completed_focus = AUS_reformist_club
+			}
+		}
         localization_key = AUS_ic_con.tt
     }
 
@@ -19,11 +24,28 @@ defined_text = {
         localization_key = AUS_ic_socdem.tt
     }
 
-    # Local Parties
+    # Bienerth Coalition
     text = {
-        trigger = { has_global_flag = AUS_imperial_council_social_democrat }
-        localization_key = AUS_ic_local_parties.tt
+        trigger = { 
+			has_completed_focus = AUS_reformist_club
+			has_global_flag = AUS_imperial_council_conservative
+			NOT = {
+				has_active_mission = AUS_imperial_elections
+			}
+			AUS_richard_von_bienerth_schmerling = {
+				has_character_flag = minister_AUS
+			}
+		}
+        localization_key = AUS_ic_bienerth_coalition.tt
     }
+	
+	#Closed
+	text = {
+		trigger = {
+			has_global_flag = AUS_imperial_council_closed
+		}
+		localization_key = AUS_ic_closed.tt
+	}
 }
 defined_text = {
     name = AUS_bourgeoisie_unity_name
