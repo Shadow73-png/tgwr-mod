@@ -205,14 +205,33 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = ALB_foreign_delegate_to_the_council
-		available = { is_subject = yes }
+		available = {
+			is_subject = yes
+			has_dynamic_modifier = { modifier = ALB_illiterate_society }
+		}
 		completion_reward = {
-			custom_effect_tooltip = modify_ALB_illiterate_society_tt
-			add_to_variable = {
-				tooltip = research_speed_factor_7
-				ALB_is_research_speed = 0.07
+			if = {
+				limit = {
+					OR = {
+						check_variable = {
+							var = ALB_is_research_speed_factor
+							value = -0.08
+							compare = greater_than_or_equals
+						}
+						has_country_flag = ALB_establish_foreign_schools1
+					}
+				}
+				remove_dynamic_modifier = { modifier = ALB_illiterate_society }
+				set_country_flag = ALB_establish_foreign_schools1
 			}
-			custom_effect_tooltip = empty_space
+			else = {
+				custom_effect_tooltip = modify_ALB_illiterate_society_tt
+				add_to_variable = {
+					tooltip = research_speed_factor_tt
+					ALB_is_research_speed_factor = 0.08
+				}
+				custom_effect_tooltip = empty_space
+			}
 			hidden_effect = { overlord = { set_variable = { PREV.ALB_albanian_autonomy_overlord = THIS } } }
 			add_ideas = ALB_pro_overlord_education
 		}
@@ -1438,10 +1457,10 @@ focus_tree = {
 				custom_effect_tooltip = modify_ALB_illiterate_society_tt
 				add_to_variable = {
 					tooltip = research_speed_factor_1
-					ALB_is_research_speed = 0.01
+					ALB_is_research_speed_factor = 0.01
 				}
 				custom_effect_tooltip = empty_space
-				activate_mission = ALB_improving_the_customs_duty
+				activate_mission = ALB_progression_of_literacy
 			}
 		}
 		ai_will_do = { factor = 100 }
@@ -5991,14 +6010,31 @@ focus_tree = {
 		relative_position_id = ALB_centralize_the_culture
 		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
 		completion_reward = {
-			custom_effect_tooltip = modify_ALB_illiterate_society_tt
-			add_to_variable = {
-				tooltip = war_support_weekly_01
-				ALB_is_war_support_weekly = 0.001
+			if = {
+				limit = {
+					OR = {
+						check_variable = {
+							var = ALB_is_research_speed_factor
+							value = -0.05
+							compare = greater_than_or_equals
+						}
+						has_country_flag = ALB_patriotic_education
+					}
+				}
+				remove_dynamic_modifier = { modifier = ALB_illiterate_society }
+				set_country_flag = ALB_patriotic_education
 			}
-			add_to_variable = {
-				tooltip = research_speed_factor_5
-				ALB_is_research_speed = 0.05
+			else = {
+				custom_effect_tooltip = modify_ALB_illiterate_society_tt
+				add_to_variable = {
+					tooltip = war_support_weekly_01
+					ALB_is_war_support_weekly = 0.001
+				}
+				add_to_variable = {
+					tooltip = research_speed_factor_5
+					ALB_is_research_speed_factor = 0.05
+				}
+				custom_effect_tooltip = empty_space
 			}
 			custom_effect_tooltip = empty_space
 		}
@@ -6475,9 +6511,27 @@ focus_tree = {
 		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
 		completion_reward = {
 			custom_effect_tooltip = modify_ALB_illiterate_society_tt
-			add_to_variable = {
-				tooltip = research_speed_factor_7
-				ALB_is_research_speed = 0.07
+			if = {
+				limit = {
+					OR = {
+						check_variable = {
+							var = ALB_is_research_speed_factor
+							value = -0.07
+							compare = greater_than_or_equals
+						}
+						has_country_flag = ALB_patriotic_education
+					}
+				}
+				remove_dynamic_modifier = { modifier = ALB_illiterate_society }
+				set_country_flag = ALB_patriotic_education
+			}
+			else = {
+				custom_effect_tooltip = modify_ALB_illiterate_society_tt
+				add_to_variable = {
+					tooltip = research_speed_factor_tt
+					ALB_is_research_speed_factor = 0.07
+				}
+				custom_effect_tooltip = empty_space
 			}
 			custom_effect_tooltip = empty_space
 		}
@@ -8445,7 +8499,7 @@ focus_tree = {
 					add_ideas = ALB_internal_opposition
 					add_dynamic_modifier = { modifier = ALB_illiterate_society }
 					set_variable = { ALB_is_stability_factor = ALB.ALB_is_stability_factor }
-					set_variable = { ALB_is_research_speed = ALB.ALB_is_research_speed }
+					set_variable = { ALB_is_research_speed_factor = ALB.ALB_is_research_speed_factor }
 					add_dynamic_modifier = { modifier = ALB_country_in_disarray }
 					set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
 					set_variable = { ALB_as_war_support_factor = ALB.ALB_as_war_support_factor }
@@ -9158,16 +9212,32 @@ focus_tree = {
 		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
 		bypass_if_unavailable = yes
 		completion_reward = {
-			custom_effect_tooltip = modify_ALB_illiterate_society_tt
-			add_to_variable = {
-				tooltip = stability_factor_5
-				ALB_is_stability_factor = 0.05
+			if = {
+				limit = {
+					OR = {
+						check_variable = {
+							var = ALB_is_research_speed_factor
+							value = -0.05
+							compare = greater_than_or_equals
+						}
+						has_country_flag = ALB_swap_to_the_arabic_script
+					}
+				}
+				remove_dynamic_modifier = { modifier = ALB_illiterate_society }
+				set_country_flag = ALB_swap_to_the_arabic_script
 			}
-			add_to_variable = {
-				tooltip = research_speed_factor_5
-				ALB_is_research_speed = 0.05
+			else = {
+				custom_effect_tooltip = modify_ALB_illiterate_society_tt
+				add_to_variable = {
+					tooltip = stability_factor_5
+					ALB_is_stability_factor = 0.05
+				}
+				add_to_variable = {
+					tooltip = research_speed_factor_5
+					ALB_is_research_speed_factor = 0.05
+				}
+				custom_effect_tooltip = empty_space
 			}
-			custom_effect_tooltip = empty_space
 			add_to_variable = {
 				tooltip = ALB_progression_of_literacy_time_tt
 				ALB_progression_of_literacy = 5
@@ -9577,7 +9647,7 @@ focus_tree = {
 					add_ideas = ALB_internal_opposition_4
 					add_dynamic_modifier = { modifier = ALB_illiterate_society }
 					set_variable = { ALB_is_stability_factor = ALB.ALB_is_stability_factor }
-					set_variable = { ALB_is_research_speed = ALB.ALB_is_research_speed }
+					set_variable = { ALB_is_research_speed_factor = ALB.ALB_is_research_speed_factor }
 					add_dynamic_modifier = { modifier = ALB_country_in_disarray }
 					set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
 					set_variable = { ALB_as_war_support_factor = ALB.ALB_as_war_support_factor }
@@ -10401,16 +10471,32 @@ focus_tree = {
 		relative_position_id = ALB_reapproach_the_albanian_nationalists
 		available = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
 		completion_reward = {
-			custom_effect_tooltip = modify_ALB_illiterate_society_tt
-			add_to_variable = {
-				tooltip = war_support_factor_5
-				ALB_is_war_support_factor = 0.05
+			if = {
+				limit = {
+					OR = {
+						check_variable = {
+							var = ALB_is_research_speed_factor
+							value = -0.05
+							compare = greater_than_or_equals
+						}
+						has_country_flag = ALB_fund_albanologic_studies
+					}
+				}
+				remove_dynamic_modifier = { modifier = ALB_illiterate_society }
+				set_country_flag = ALB_fund_albanologic_studies
 			}
-			add_to_variable = {
-				tooltip = research_speed_factor_5
-				ALB_is_research_speed = 0.05
+			else = {
+				custom_effect_tooltip = modify_ALB_illiterate_society_tt
+				add_to_variable = {
+					tooltip = war_support_factor_5
+					ALB_is_war_support_factor = 0.05
+				}
+				add_to_variable = {
+					tooltip = research_speed_factor_5
+					ALB_is_research_speed_factor = 0.05
+				}
+				custom_effect_tooltip = empty_space
 			}
-			custom_effect_tooltip = empty_space
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -11128,16 +11214,32 @@ focus_tree = {
 			has_dynamic_modifier = { modifier = ALB_illiterate_society }
 		}
 		completion_reward = {
-			custom_effect_tooltip = modify_ALB_illiterate_society_tt
-			add_to_variable = {
-				tooltip = stability_factor_5
-				ALB_is_stability_factor = 0.05
+			if = {
+				limit = {
+					OR = {
+						check_variable = {
+							var = ALB_is_research_speed_factor
+							value = -0.05
+							compare = greater_than_or_equals
+						}
+						has_country_flag = ALB_swap_to_the_arabic_script_abd
+					}
+				}
+				remove_dynamic_modifier = { modifier = ALB_illiterate_society }
+				set_country_flag = ALB_swap_to_the_arabic_script_abd
 			}
-			add_to_variable = {
-				tooltip = research_speed_factor_5
-				ALB_is_research_speed = 0.05
+			else = {
+				custom_effect_tooltip = modify_ALB_illiterate_society_tt
+				add_to_variable = {
+					tooltip = stability_factor_5
+					ALB_is_stability_factor = 0.05
+				}
+				add_to_variable = {
+					tooltip = research_speed_factor_5
+					ALB_is_research_speed_factor = 0.05
+				}
+				custom_effect_tooltip = empty_space
 			}
-			custom_effect_tooltip = empty_space
 			add_to_variable = {
 				tooltip = ALB_progression_of_literacy_time_tt
 				ALB_progression_of_literacy = 5
@@ -12787,13 +12889,36 @@ joint_focus = {
 			}
 			custom_effect_tooltip = empty_space
 			if = {
-				limit = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
-				custom_effect_tooltip = modify_ALB_illiterate_society_tt
-				add_to_variable = {
-					tooltip = research_speed_factor_tt
-					ALB_is_research_speed = 0.05
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = ALB_illiterate_society }
+						has_country_flag = ALB_albanian_turkish_cultural_programs1
+						has_country_flag = ALB_albanian_turkish_cultural_programs2
+					}
 				}
-				custom_effect_tooltip = empty_space
+				if = {
+					limit = {
+						OR = {
+							check_variable = {
+								var = ALB_is_research_speed_factor
+								value = -0.05
+								compare = greater_than_or_equals
+							}
+							has_country_flag = ALB_albanian_turkish_cultural_programs1
+						}
+					}
+					remove_dynamic_modifier = { modifier = ALB_illiterate_society }
+					set_country_flag = ALB_albanian_turkish_cultural_programs1
+				}
+				else = {
+					custom_effect_tooltip = modify_ALB_illiterate_society_tt
+					add_to_variable = {
+						tooltip = research_speed_factor_tt
+						ALB_is_research_speed_factor = 0.05
+					}
+					custom_effect_tooltip = empty_space
+					set_country_flag = ALB_albanian_turkish_cultural_programs2
+				}
 			}
 		}
 		if = {
@@ -12801,7 +12926,7 @@ joint_focus = {
 			custom_effect_tooltip = TUR_modify_TUR_crippling_illiteracy_tt
 			add_to_variable = {
 				tooltip = research_speed_factor_tt
-				ALB_is_research_speed = 0.02
+				TUR_ci_research_speed_factor = 0.02
 			}
 			custom_effect_tooltip = empty_space
 			hidden_effect = {
@@ -12839,13 +12964,36 @@ joint_focus = {
 			}
 			custom_effect_tooltip = empty_space
 			if = {
-				limit = { has_dynamic_modifier = { modifier = ALB_illiterate_society } }
-				custom_effect_tooltip = modify_ALB_illiterate_society_tt
-				add_to_variable = {
-					tooltip = research_speed_factor_tt
-					ALB_is_research_speed = 0.05
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = ALB_illiterate_society }
+						has_country_flag = ALB_albanian_turkish_cultural_programs1
+						has_country_flag = ALB_albanian_turkish_cultural_programs2
+					}
 				}
-				custom_effect_tooltip = empty_space
+				if = {
+					limit = {
+						OR = {
+							check_variable = {
+								var = ALB_is_research_speed_factor
+								value = -0.05
+								compare = greater_than_or_equals
+							}
+							has_country_flag = ALB_albanian_turkish_cultural_programs1
+						}
+					}
+					remove_dynamic_modifier = { modifier = ALB_illiterate_society }
+					set_country_flag = ALB_albanian_turkish_cultural_programs1
+				}
+				else = {
+					custom_effect_tooltip = modify_ALB_illiterate_society_tt
+					add_to_variable = {
+						tooltip = research_speed_factor_tt
+						ALB_is_research_speed_factor = 0.05
+					}
+					custom_effect_tooltip = empty_space
+					set_country_flag = ALB_albanian_turkish_cultural_programs2
+				}
 			}
 		}
 		if = {
@@ -12853,7 +13001,7 @@ joint_focus = {
 			custom_effect_tooltip = TUR_modify_TUR_crippling_illiteracy_tt
 			add_to_variable = {
 				tooltip = research_speed_factor_tt
-				ALB_is_research_speed = 0.02
+				TUR_ci_research_speed_factor = 0.02
 			}
 			custom_effect_tooltip = empty_space
 			hidden_effect = {

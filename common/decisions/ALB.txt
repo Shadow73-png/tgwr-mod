@@ -1828,7 +1828,7 @@ ALB_rising_opposition = {
 					}
 					add_dynamic_modifier = { modifier = ALB_illiterate_society }
 					set_variable = { ALB_is_stability_factor = ALB.ALB_is_stability_factor }
-					set_variable = { ALB_is_research_speed = ALB.ALB_is_research_speed }
+					set_variable = { ALB_is_research_speed_factor = ALB.ALB_is_research_speed_factor }
 					add_dynamic_modifier = { modifier = ALB_country_in_disarray }
 					set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
 					add_to_variable = { ALB_as_war_support_factor = 0.1 }
@@ -2037,7 +2037,7 @@ ALB_literacy_campaigns = {
 			if = {
 				limit = {
 					check_variable = {
-						var = ALB_is_research_speed
+						var = ALB_is_research_speed_factor
 						value = -0.01
 						compare = less_than_or_equals
 					}
@@ -2047,8 +2047,8 @@ ALB_literacy_campaigns = {
 			else = {
 				custom_effect_tooltip = modify_ALB_illiterate_society_tt
 				add_to_variable = {
-					tooltip = research_speed_factor_1
-					ALB_is_research_speed = 0.01
+					tooltip = research_speed_factor_tt
+					ALB_is_research_speed_factor = 0.01
 				}
 				custom_effect_tooltip = empty_space
 				activate_mission = ALB_improving_the_customs_duty
@@ -3593,7 +3593,7 @@ crisis = {
 					add_ideas = ALB_internal_opposition
 					add_dynamic_modifier = { modifier = ALB_illiterate_society }
 					set_variable = { ALB_is_stability_factor = ALB.ALB_is_stability_factor }
-					set_variable = { ALB_is_research_speed = ALB.ALB_is_research_speed }
+					set_variable = { ALB_is_research_speed_factor = ALB.ALB_is_research_speed_factor }
 					add_dynamic_modifier = { modifier = ALB_country_in_disarray }
 					set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
 					set_variable = { ALB_as_war_support_factor = ALB.ALB_as_war_support_factor }
@@ -3817,7 +3817,7 @@ crisis = {
 					add_ideas = ALB_internal_opposition_4
 					add_dynamic_modifier = { modifier = ALB_illiterate_society }
 					set_variable = { ALB_is_stability_factor = ALB.ALB_is_stability_factor }
-					set_variable = { ALB_is_research_speed = ALB.ALB_is_research_speed }
+					set_variable = { ALB_is_research_speed_factor = ALB.ALB_is_research_speed_factor }
 					add_dynamic_modifier = { modifier = ALB_country_in_disarray }
 					set_variable = { ALB_as_political_power_factor = ALB.ALB_as_political_power_factor }
 					set_variable = { ALB_as_war_support_factor = ALB.ALB_as_war_support_factor }
