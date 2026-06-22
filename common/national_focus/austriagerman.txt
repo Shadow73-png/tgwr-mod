@@ -125,7 +125,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_red_guard
-		icon = GFX_sss
+		icon = GFX_wip
 		cost = 8
 		x = -3
 		y = 1
@@ -248,7 +248,55 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 	}
-		focus = {
+	focus = {
+		id = AUS_austerity
+		icon = GFX_focus_dead_economy
+		cost = 8
+		x = 3
+		y = 1
+		relative_position_id = AUS_save_vienna
+		mutually_exclusive = {
+			focus = AUS_money_print
+		}
+		prerequisite = {
+			focus = AUS_save_vienna
+			focus = AUS_demobilization
+		}
+		available = {
+		
+		}
+		completion_reward = {
+			custom_effect_tooltip = AUS_ur_kinda_dumb
+			custom_effect_tooltip = empty_space_tt
+			add_stability = -0.1
+			add_political_power = -100
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}
+				custom_effect_tooltip = AUS_modify_economic_chaos
+			add_to_variable = {
+				AUS_EP_consumer_goods = -0.4
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				AUS_ep_pp_gain = 1
+				tooltip = political_power_gain_tt
+			}
+				add_timed_idea = {
+				idea = ITA_less_spending
+				days = 365
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+			FOCUS_FILTER_HISTORICAL
+		}
+	}
+	focus = {
 		id = AUS_construction_for_tools
 		icon = GFX_focus_generic_modernize_industry
 		cost = 8
@@ -329,54 +377,6 @@ focus_tree = {
 			add_to_variable = {
 				AUS_ep_construction_speed = 0.05
 				tooltip = production_speed_buildings_factor_tt
-			}
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-			FOCUS_FILTER_ARMY_REFORM
-			FOCUS_FILTER_HISTORICAL
-		}
-	}
-	focus = {
-		id = AUS_austerity
-		icon = GFX_focus_dead_economy
-		cost = 8
-		x = 3
-		y = 1
-		relative_position_id = AUS_save_vienna
-		mutually_exclusive = {
-			focus = AUS_money_print
-		}
-		prerequisite = {
-			focus = AUS_save_vienna
-			focus = AUS_demobilization
-		}
-		available = {
-		
-		}
-		completion_reward = {
-			custom_effect_tooltip = AUS_ur_kinda_dumb
-			custom_effect_tooltip = empty_space_tt
-			add_stability = -0.1
-			add_political_power = -100
-			add_popularity = {
-				ideology = communism
-				popularity = 0.3
-			}
-				custom_effect_tooltip = AUS_modify_economic_chaos
-			add_to_variable = {
-				AUS_EP_consumer_goods = -0.4
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
-				AUS_ep_pp_gain = 1
-				tooltip = political_power_gain_tt
-			}
-				add_timed_idea = {
-				idea = ITA_less_spending
-				days = 365
 			}
 		}
 		ai_will_do = {
@@ -487,7 +487,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_cut_habsburg_bloat
-				icon = GFX_focus_generic_expropriate_industrialist
+		icon = GFX_focus_generic_expropriate_industrialist
 
 		cost = 8
 		x = 0
@@ -1048,7 +1048,7 @@ focus_tree = {
 			add_political_power = 10
 			add_stability = 0.03
 			add_popularity = {
-				ideology = democracy
+				ideology = democratic
 				popularity = -0.05
 			}
 			add_popularity = {
@@ -1082,7 +1082,7 @@ focus_tree = {
 			add_political_power = 10
 			add_stability = 0.03
 			add_popularity = {
-				ideology = democracy
+				ideology = democratic
 				popularity = -0.05
 			}
 			add_popularity = {
