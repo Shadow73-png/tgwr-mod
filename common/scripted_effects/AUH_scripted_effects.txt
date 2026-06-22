@@ -2756,24 +2756,20 @@ AUS_fire_minister_advisor = {
 			}
 			clr_character_flag = minister_AUS
 		}
-		deactivate_advisor = AUS_richard_von_bienerth_schmerling
-		deactivate_advisor = AUS_max_wladimir_von_beck
-		deactivate_advisor = AUS_heinrich_lammasch
-		deactivate_advisor = AUS_ernest_von_koerber
-		if = {
-			limit = {
-				NOT = {
-					has_global_flag = AUS_stop_deactivating_paul
-				}
-			}
-			deactivate_advisor = AUH_paul_gautsch
+		remove_ideas = {
+			AUS_richard_von_bienerth_idea
+			AUS_max_wladimir_von_beck_idea
+			AUS_heinrich_lammasch_idea
+			AUS_ernest_von_koerber_idea
+			AUH_karl_von_sturgkh_idea
+			AUS_alexander_spitzmuller_idea
+			AUS_max_von_heinlein_idea
+			AUS_heinrich_clam_martinic_idea
+			AUH_franz_conrad_von_hotzendorf_mp_idea
+			AUS_ernst_seidler_von_feuchtenegg_idea
+			AUH_paul_gautsch_idea
 		}
-		deactivate_advisor = AUH_karl_von_sturgkh
-		deactivate_advisor = AUS_max_von_heinlein
-		deactivate_advisor = AUS_heinrich_clam_martinic
-		deactivate_advisor = AUH_franz_conrad_von_hotzendorf_mp
-		deactivate_advisor = AUS_alexander_spitzmuller
-		deactivate_advisor = AUS_ernst_seidler_von_feuchtenegg
+		
 		#reset minister relations
 		set_variable = {
 			AUS_parliament_relations = 0
