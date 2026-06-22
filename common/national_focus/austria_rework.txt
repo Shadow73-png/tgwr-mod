@@ -12071,7 +12071,7 @@ focus_tree = {
 				character = AUH_karl_i
 			}
 			AUS_alexander_spitzmuller = {
-				is_hired_as_advisor = yes
+				has_character_flag = minister_AUS
 			}
 		}
 		mutually_exclusive = {
@@ -12106,7 +12106,7 @@ focus_tree = {
 				character = AUH_karl_i
 			}
 			AUS_heinrich_clam_martinic = {
-				is_hired_as_advisor = yes
+				has_character_flag = minister_AUS
 			}
 		}
 		mutually_exclusive = {
@@ -12141,7 +12141,7 @@ focus_tree = {
 				character = AUH_karl_i
 			}
 			AUS_heinrich_clam_martinic = {
-				is_hired_as_advisor = yes
+				has_character_flag = minister_AUS
 			}
 		}
 		mutually_exclusive = {
@@ -12854,11 +12854,14 @@ focus_tree = {
 		}
 		relative_position_id = AUS_new_kaiser
 		bypass = {
-			has_country_flag = great_war_winner
+			
 		}
 		available = {
-						has_country_flag = great_war_winner
-		
+			has_country_flag = great_war_loser
+			OR = {
+				#sixtus affair
+				#other shit
+			}
 		}
 		completion_reward = {
 		}
