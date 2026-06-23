@@ -1,3 +1,31 @@
+AUS_dismantle_augs = {
+	AUS_coronate_hungary = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			original_tag = AUS
+		}
+		priority = 10
+		days_mission_timeout = 180
+		available = {
+		always = no
+
+		}
+		activation = {
+			has_completed_focus = AUS_franz_ferdinand
+		}
+		cancel_trigger = {
+			has_war_with = HUN
+		}
+		timeout_effect = {
+			set_country_flag = AUS_king_of_hungary
+			custom_effect_tooltip = AUS_its_joever
+		}
+		complete_effect = {
+		}
+		fire_only_once = no
+		is_good = no
+	}
+}
 AUS_fledgling_republic = {
 	AUS_inflation_iw = {
 		icon = GFX_decision_generic_ignite_civil_war
@@ -7,18 +35,20 @@ AUS_fledgling_republic = {
 		priority = 10
 		days_mission_timeout = 30
 		available = {
-			has_war = no
+						has_completed_focus = AUS_restructure_economy
+
 		}
 		activation = {
-			
+			has_completed_focus = AUS_money_print
 		}
 		cancel_trigger = {
-			has_country_flag = AUS_no_more_inflation
+			has_completed_focus = AUS_restructure_economy
 		}
 		timeout_effect = {
+			activate_mission = AUS_inflation_iw
 						custom_effect_tooltip = AUS_modify_economic_chaos
 			add_to_variable = {
-				AUS_EP_consumer_goods = 0.04
+				AUS_EP_consumer_goods = 0.08
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -28,7 +58,7 @@ AUS_fledgling_republic = {
 		}
 		complete_effect = {
 		}
-		fire_only_once = yes
+		fire_only_once = no
 		is_good = no
 	}
 }
@@ -246,6 +276,278 @@ TGWR_great_power_politics = {
 			}
 			#custom_effect_tooltip = AUS_tooltip_reduce_pw_level
 			AUH_se_pig_war_levels = yes
+		}
+	}
+	AUS_send_peacekeepers_vatican = {
+		icon = GFX_decision_hol_war_on_pacifism
+		days_remove = 20
+		fire_only_once = yes
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_civil_war_in_west
+		}
+		available = {
+			has_completed_focus = AUS_civil_war_in_west
+			ITA = {
+				has_war_with = SRA
+			}
+		}
+		remove_effect = {
+			PAP = {
+				add_ideas = AUS_austrian_peacekeepers
+			}
+		}
+	}
+	AUS_reinstate_liechtenstein_monarchy = {
+		icon = GFX_decision_generic_prepare_civil_war
+		days_remove = 20
+		fire_only_once = yes
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_civil_war_in_west
+		}
+		available = {
+			has_completed_focus = AUS_civil_war_in_west
+			LIE = {
+				has_country_leader = {
+					character = LIE_martin_ritter
+					ruling_only = yes
+				}
+			}
+		}
+		remove_effect = {
+			LIE = {
+				country_event = ww1_liechtenstein.10
+			}
+		}
+	}
+	AUS_send_weapons_italy = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_support_italian_monarchy
+		}
+		available = {
+			has_completed_focus = AUS_support_italian_monarchy
+			ITA = {
+				has_war_with = SRA
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -100
+			}
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = -100
+			}
+			ITA = {
+				country_event = ww1_austriahungary.255
+			}
+
+		}
+	}
+	AUS_send_loans_italy = {
+		icon = GFX_decision_generic_fundraising
+		days_remove = 5
+		fire_only_once = yes
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 100
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_support_italian_monarchy
+		}
+		available = {
+			has_completed_focus = AUS_support_italian_monarchy
+			ITA = {
+				has_war_with = SRA
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = AUS_return_on_investment_tt
+			ITA = {
+				country_event = ww1_austriahungary.256
+			}
+		}
+	}
+	AUS_combat_italian_seperatists = {
+		icon = GFX_decision_generic_prepare_civil_war
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 25
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_once_austrian_always_austrian
+			NOT = {
+				159 = {
+					is_core_of = AUS
+				}
+			}	
+		}
+		available = {
+			has_completed_focus = AUS_once_austrian_always_austrian
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -500
+			}
+		}
+		remove_effect = {
+			159 = {
+				add_resistance = -10
+			}
+			160 = {
+				add_resistance = -10
+			}
+		}
+	}
+	AUS_humanitarian_support_north = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 25
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_once_austrian_always_austrian
+			NOT = {
+				159 = {
+					is_core_of = AUS
+				}
+			}
+			owns_state = 159
+		}
+		available = {
+			has_completed_focus = AUS_once_austrian_always_austrian
+		}
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		remove_effect = {
+			159 = {
+				add_compliance = 10
+			}
+			160 = {
+				add_compliance = 10
+			}
+		}
+	}
+	AUS_pacify_north_italy = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 100
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_once_austrian_always_austrian
+		}
+		available = {
+			has_completed_focus = AUS_once_austrian_always_austrian
+			159 = {
+				compliance > 75
+			}
+			160 = {
+				compliance > 75
+			}
+		}
+		remove_effect = {
+			159 = {
+				add_core_of = AUS
+			}
+			160 = {
+				add_core_of = AUS
+			}
+		}
+	}
+	AUS_send_weapons_don = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_support_don
+		}
+		available = {
+			has_completed_focus = AUS_support_don
+			DON = {
+				has_war = yes
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -100
+			}
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = -100
+			}
+			DON = {
+				country_event = ww1_austriahungary.262
+			}
+
 		}
 	}
 }
@@ -852,6 +1154,7 @@ AUH_great_war_bullshit = {
 				}
 				has_country_leader = {
 					character = AUH_conrad_von_hotzendorf
+					ruling_only = yes
 				}
 			}
 		}
@@ -3086,6 +3389,27 @@ AUH_the_imperial_council = {
 		fire_only_once = no
 		is_good = no
 	}
+	AUS_reopening_reichsrat = {
+		priority = 99
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = AUS
+		}
+		days_mission_timeout = 120
+		available = {
+			has_completed_focus = AUS_reopen_the_reichsrat
+		}
+		visible = {
+			original_tag = AUS
+		}
+		activation = {
+			always = no
+		}
+		timeout_effect = {
+		}
+		fire_only_once = no
+		is_good = no
+	}
 	AUS_king_intervention = {
 		priority = 99
 		icon = GFX_decision_generic_ignite_civil_war
@@ -4829,12 +5153,12 @@ has_completed_focus = AUS_bienerth_resigns
 			}
 			NOT = {
 				has_completed_focus = AUS_the_constitutionalist_dictatorship
-				has_completed_focus = AUS_minister_president_conrad
+			#	has_completed_focus = AUS_minister_president_conrad
 			}
 		}
 		cancel_trigger = {
 			has_completed_focus = AUS_the_constitutionalist_dictatorship
-			has_completed_focus = AUS_minister_president_conrad
+		#	has_completed_focus = AUS_minister_president_conrad
 		}
 		priority = 210
 		available = {
@@ -4854,6 +5178,7 @@ has_completed_focus = AUS_bienerth_resigns
 			remove_dynamic_modifier = {
 				modifier = AUS_imperial_council
 			}
+			set_global_flag = AUS_imperial_council_suspended
 			if = {
 				limit = {
 					has_completed_focus = AUS_take_advantage_of_section_41
@@ -4870,6 +5195,7 @@ has_completed_focus = AUS_bienerth_resigns
 			}
 		}
 		remove_effect = {
+			clr_global_flag = AUS_imperial_council_suspendedAUS_imperial_council_suspended
 			add_dynamic_modifier = {
 				modifier = AUS_imperial_council
 			}
@@ -5076,7 +5402,7 @@ has_completed_focus = AUS_bienerth_resigns
 			unlock_national_focus = AUS_polish_loyalty
 		}
 	}
-		AUH_obstructionist_imperial_council= {
+	AUH_obstructionist_imperial_council= {
 		priority = 1002
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
@@ -5102,6 +5428,9 @@ has_completed_focus = AUS_bienerth_resigns
 			original_tag = AUS
 			NOT = {
 				has_country_flag = AUS_obstructionism_is_gone
+				hidden_trigger = {
+					has_country_flag = AUS_perm_obstructionism
+				}
 			}
 		}
 		timeout_effect = {
@@ -6538,7 +6867,7 @@ AUH_stitching_the_quilt = {
 			}
 		}
 	}
-	AUS_pit_easterners_against_jews = {
+	AUS_encourage_jewish_exodus = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
 			original_tag = AUS
@@ -8395,7 +8724,7 @@ debug_decisions = {
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
-AUH_switch_regular = {
+	AUH_switch_regular = {
 		fire_only_once = no
 		allowed = {
 			original_tag = AUS

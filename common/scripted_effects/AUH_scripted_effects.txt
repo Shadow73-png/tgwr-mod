@@ -1499,6 +1499,11 @@ AUH_release_CRO_state_of_croats_and_slovenes = {
 			}
 			end_puppet = CRO
 		}
+		AUS = {
+			AUH_dragutin_prica = {
+				set_nationality = CRO
+			}
+		}
 		CRO = {
 			delete_unit = {
 				disband = yes
@@ -1543,11 +1548,9 @@ AUH_release_CRO_state_of_croats_and_slovenes = {
 				SLV = {
 					SLV_anton_korosec = {
 						set_nationality = CRO
+						promote_character = conservatism
+						promote_character = authoritarian_democracy
 					}
-				}
-				SLV_anton_korosec = {
-					promote_character = conservatism
-					promote_character = authoritarian_democracy
 				}
 			}
 			if = {
@@ -1669,6 +1672,26 @@ AUH_release_CZE = {
 				last_election = "1910.1.1"
 				election_frequency = 48
 				elections_allowed = yes
+			}
+			#set_party_name = {
+			#	ideology = fascism
+			#	long_name = CZE_fascism_party_long
+			#	name = CZE_fascism_party
+			#}
+			set_party_name = {
+				ideology = democratic
+				long_name = CZE_democratic_party_long
+				name = CZE_democratic_party
+			}
+			set_party_name = {
+				ideology = communism
+				long_name = CZE_communism_party_long
+				name = CZE_communism_party
+			}
+			set_party_name = {
+				ideology = neutrality
+				long_name = CZE_neutrality_party_long
+				name = CZE_neutrality_party
 			}
 			set_popularities = {
 				fascism = 0
@@ -1950,6 +1973,8 @@ AUH_release_POL = {
 					state = 994
 					state = 237
 					state = 72
+					state = 1269
+					state = 1268
 				}
 			}
 			if = {
@@ -1987,6 +2012,7 @@ AUH_release_POL = {
 							state = 89
 							state = 91
 							state = 1007
+							state = 1270
 						}
 					}
 					93 = {
@@ -2730,24 +2756,20 @@ AUS_fire_minister_advisor = {
 			}
 			clr_character_flag = minister_AUS
 		}
-		deactivate_advisor = AUS_richard_von_bienerth_schmerling
-		deactivate_advisor = AUS_max_wladimir_von_beck
-		deactivate_advisor = AUS_heinrich_lammasch
-		deactivate_advisor = AUS_ernest_von_koerber
-		if = {
-			limit = {
-				NOT = {
-					has_global_flag = AUS_stop_deactivating_paul
-				}
-			}
-			deactivate_advisor = AUH_paul_gautsch
+		remove_ideas = {
+			AUS_richard_von_bienerth_idea
+			AUS_max_wladimir_von_beck_idea
+			AUS_heinrich_lammasch_idea
+			AUS_ernest_von_koerber_idea
+			AUH_karl_von_sturgkh_idea
+			AUS_alexander_spitzmuller_idea
+			AUS_max_von_heinlein_idea
+			AUS_heinrich_clam_martinic_idea
+			AUH_franz_conrad_von_hotzendorf_mp_idea
+			AUS_ernst_seidler_von_feuchtenegg_idea
+			AUH_paul_gautsch_idea
 		}
-		deactivate_advisor = AUH_karl_von_sturgkh
-		deactivate_advisor = AUS_max_von_heinlein
-		deactivate_advisor = AUS_heinrich_clam_martinic
-		deactivate_advisor = AUH_franz_conrad_von_hotzendorf_mp
-		deactivate_advisor = AUS_alexander_spitzmuller
-		deactivate_advisor = AUS_ernst_seidler_von_feuchtenegg
+		
 		#reset minister relations
 		set_variable = {
 			AUS_parliament_relations = 0
@@ -3968,36 +3990,54 @@ AUS_spawn_MGS = {
 
 AUS_spawn_bohemian_crown = {
 	set_global_flag = AUS_bohemian_crown_created
-		every_owned_state = {
-			limit = {
-				is_core_of = CZE
-			}
-			transfer_state_to = CZE
+	every_state = {
+		limit = {
+			is_core_of = CZE
+			is_owned_and_controlled_by = AUS
 		}
-		CZE = {
-			add_ideas = CZE_divided_administration
-			add_ideas = CZE_duties_to_vienna
-            CZE = { set_country_flag = monarchist_puppet }
-            hidden_effect = {
-                CZE = {
-                    set_popularities = {
-                        fascism = 0
-                        communism = 2
-                        democratic = 58
-                        neutrality = 40
-                    }
-                    add_ideas = HUN_ausgleich
-                }
-            }
+		transfer_state_to = CZE
+	}
+	CZE = {
+		add_ideas = CZE_divided_administration
+		add_ideas = CZE_duties_to_vienna
+    	set_country_flag = monarchist_puppet
+        hidden_effect = {
+			set_popularities = {
+			    fascism = 0
+			    communism = 2
+			    democratic = 58
+			    neutrality = 40
+			}
+			add_ideas = HUN_ausgleich
+        }
 		add_to_tech_sharing_group = austrian_research
-		AUS = {
-			set_autonomy = {
-				target = CZE
-				autonomous_state = autonomy_tgwr_real_union
-				freedom_level = 0.85
-			}
+		set_party_name = {
+			ideology = fascism
+			long_name = CZE_bohemia_fascism_party_long
+			name = CZE_bohemia_fascism_party
 		}
-		
+		set_party_name = {
+			ideology = democratic
+			long_name = CZE_bohemia_democratic_party_long
+			name = CZE_bohemia_democratic_party
+		}
+		set_party_name = {
+			ideology = communism
+			long_name = CZE_bohemia_communism_party_long
+			name = CZE_bohemia_communism_party
+		}
+		set_party_name = {
+			ideology = neutrality
+			long_name = CZE_bohemia_neutrality_party_long
+			name = CZE_bohemia_neutrality_party
+		}
+	}
+	AUS = {
+		set_autonomy = {
+			target = CZE
+			autonomous_state = autonomy_tgwr_real_union
+			freedom_level = 0.85
+		}
 	}
 }
 AUH_spawn_galicia_effect = {
@@ -4012,6 +4052,14 @@ AUH_spawn_galicia_effect = {
 			NOT = {
 				has_state_flag = AUH_AUS_state
 				has_state_flag = AUH_HUN_state
+			}
+			NOT = {
+				is_owned_and_controlled_by = HUN
+				OR = {
+					state = 73
+					state = 1043
+					state = 994
+				}
 			}
 		}
 		transfer_state_to = POL
@@ -4034,50 +4082,50 @@ AUH_spawn_galicia_effect = {
 
 AUS_german_austria_effect = {
 	set_country_flag = AUS_german_austria
-		hidden_effect = {
-			remove_dynamic_modifier = {
-				modifier = AUS_economic_patchwork
-			}
-			remove_dynamic_modifier = {
-				modifier = AUS_state_of_the_realm
-			}
-			remove_dynamic_modifier = {
-				modifier = AUS_state_of_the_realm_real
-			}
-			remove_dynamic_modifier = {
-				modifier = AUS_multiethnic_army
-			}
-			set_variable = { AUS_EP_consumer_goods = 0.8 }
-			set_variable = { AUS_EP_prod_eff_growth = -0.2 }
-			set_variable = { AUS_EP_prod_eff_cap = -0.2 }
-			set_variable = { AUS_EP_stab = -0.5 }
-			set_variable = { AUS_EP_infra = -0.1}
-			set_variable = { AUS_EP_factory_output = 0 }
-			set_variable = { AUS_ep_research_speed = 0 }
-			set_variable = { AUS_ep_construction_speed = -0.2 }
-			set_variable = { AUS_ep_mil_speed = 0 }
-			set_variable = { AUS_ep_civ_speed = 0 }
-			set_variable = { AUS_ep_bonus_res = 0 }
-			set_variable = { AUS_EP_trade_ai_chance = 0 }
-			set_variable = { AUS_ep_local_resource = 0 }
-			set_variable = { AUS_ep_production_factory_start_efficiency_factor = 0 }
-			set_variable = { AUS_ep_line_change_production_efficiency_factor = 0 }
-			set_variable = {
-				AUS_ep_pp_gain = -1
-			}
-			add_dynamic_modifier = {
-				modifier = AUS_economic_chaos
-			}
-			add_ideas = AUS_mass_starvation
-			add_popularity = {
-				ideology = communism
-				popularity = 0.35
-			}
+	hidden_effect = {
+		remove_dynamic_modifier = {
+			modifier = AUS_economic_patchwork
 		}
+		remove_dynamic_modifier = {
+			modifier = AUS_state_of_the_realm
+		}
+		remove_dynamic_modifier = {
+			modifier = AUS_state_of_the_realm_real
+		}
+		remove_dynamic_modifier = {
+			modifier = AUS_multiethnic_army
+		}
+		set_variable = { AUS_EP_consumer_goods = 0.8 }
+		set_variable = { AUS_EP_prod_eff_growth = -0.2 }
+		set_variable = { AUS_EP_prod_eff_cap = -0.2 }
+		set_variable = { AUS_EP_stab = -0.5 }
+		set_variable = { AUS_EP_infra = -0.1}
+		set_variable = { AUS_EP_factory_output = 0 }
+		set_variable = { AUS_ep_research_speed = 0 }
+		set_variable = { AUS_ep_construction_speed = -0.2 }
+		set_variable = { AUS_ep_mil_speed = 0 }
+		set_variable = { AUS_ep_civ_speed = 0 }
+		set_variable = { AUS_ep_bonus_res = 0 }
+		set_variable = { AUS_EP_trade_ai_chance = 0 }
+		set_variable = { AUS_ep_local_resource = 0 }
+		set_variable = { AUS_ep_production_factory_start_efficiency_factor = 0 }
+		set_variable = { AUS_ep_line_change_production_efficiency_factor = 0 }
+		set_variable = {
+			AUS_ep_pp_gain = -1
+		}
+		add_dynamic_modifier = {
+			modifier = AUS_economic_chaos
+		}
+		add_ideas = AUS_mass_starvation
+		add_popularity = {
+			ideology = communism
+			popularity = 0.35
+		}
+	}
 		
-		load_focus_tree = austria_tree_g
-		mark_focus_tree_layout_dirty = yes
-		complete_national_focus = AUS_all_good_things_come_to_an_end
+	load_focus_tree = austria_tree_g
+	mark_focus_tree_layout_dirty = yes
+	complete_national_focus = AUS_all_good_things_come_to_an_end
 }
 AUS_polish_city_states = {
 	1269 = {

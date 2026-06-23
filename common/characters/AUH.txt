@@ -242,7 +242,6 @@ characters = {
 				}
 			}
 			traits = {
-				AUS_minister_president_autocrat
 				AUS_military_man
 			}
 			ai_will_do = {
@@ -776,18 +775,25 @@ characters = {
 			logistics_skill=3
 		}
 	}
-	AUH_joseph_ferdinand_von_osterreich={
-		name="AUH_joseph_ferdinand_von_osterreich"
-		can_be_captured = no
+	AUH_georg_schariczer = { #Hungarian/German?, moved to Bratislava
 		portraits={
 			army={
-				large="gfx/leaders/AUH/AUH_Joseph_Ferdinand.png"
-				small="gfx/interface/ideas/AUH/idea_AUH_Joseph_Ferdinand.png"
+				large="gfx/leaders/AUH/AUH_georg_schariczer.png"
+				small="gfx/interface/ideas/AUH/idea_AUH_georg_schariczer.png"
 			}
+		}
+		corps_commander={
+			traits={ harsh_leader career_officer }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
 		}
 	}
 	AUH_joseph_ferdinand_von_osterreich = {
 		name = "AUH_joseph_ferdinand_von_osterreich"
+		can_be_captured = no
 		portraits = {
 			army = {
 				large = "gfx/leaders/AUH/AUH_Joseph_Ferdinand.png"
@@ -1779,6 +1785,38 @@ characters = {
 			}
 		}
 	}
+	AUH_benno_stephan_von_millenkovich={ #Serbian, stayed in Austria
+		portraits={
+			navy={
+				large="gfx/leaders/AUH/AUH_benno_stephan_von_millenkovich.png"
+				small="gfx/interface/ideas/AUH/idea_AUH_benno_stephan_von_millenkovich.png"
+			}
+		}
+		navy_leader={
+			traits={ bold craven blockade_runner seawolf }
+			skill=2
+			attack_skill=4
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=1
+		}
+	}
+	AUH_dragutin_prica={ #Croatian Serb, joined Yugoslavia
+		portraits={
+			navy={
+				large="gfx/leaders/AUH/AUH_dragutin_prica.png"
+				small="gfx/interface/ideas/AUH/idea_AUH_dragutin_prica.png"
+			}
+		}
+		navy_leader={
+			traits={ bold caustic_personality navy_career_officer }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			maneuvering_skill=2
+			coordination_skill=2
+		}
+	}
 	AUH_franz_von_holub = {
 		advisor = {
 			slot = high_command
@@ -1942,29 +1980,29 @@ characters = {
 		}
 	}
 	AUH_karl_von_sturgkh = {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUH_karl_von_sturgkh
-			allowed = {
-				original_tag = AUS
-			}
-			cost = 0
-			available = {
-				has_government = neutrality
-				has_character_flag = minister_AUS 
-			}
-			traits = {
-				AUS_absolutist_mp
-			}
-			ai_will_do = {
-				factor = 1
-				#modifier = {
-				#	has_country_flag = AUH_federalism
-				#	factor = 500
-				#}
-			}
-			can_be_fired = no
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUH_karl_von_sturgkh
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	cost = 0
+		#	available = {
+		#		has_government = neutrality
+		#		has_character_flag = minister_AUS 
+		#	}
+		#	traits = {
+		#		AUS_absolutist_mp
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#		#modifier = {
+		#		#	has_country_flag = AUH_federalism
+		#		#	factor = 500
+		#		#}
+		#	}
+		#	can_be_fired = no
+		#}
 		portraits = {
 			civilian = {
 				small = "gfx/interface/ideas/AUH/idea_AUH_Karl_von_Sturgkh.png"
@@ -1972,25 +2010,25 @@ characters = {
 		}
 	}
 	AUS_alexander_spitzmuller = {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUS_alexander_spitzmuller
-			allowed = {
-				original_tag = AUS
-			}
-			available = {
-				has_government = neutrality
-				has_character_flag = minister_AUS
-			}
-			cost = 100
-			traits = {
-				AUS_fiscal_manager_mp
-			}
-			ai_will_do = {
-				factor = 1
-			}
-			can_be_fired = no
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUS_alexander_spitzmuller
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	available = {
+		#		has_government = neutrality
+		#		has_character_flag = minister_AUS
+		#	}
+		#	cost = 100
+		#	traits = {
+		#		AUS_fiscal_manager_mp
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#	}
+		#	can_be_fired = no
+		#}
 		portraits = {
 			civilian = {
 				small = GFX_idea_europe_generic_5
@@ -1998,29 +2036,29 @@ characters = {
 		}
 	}
 	AUS_heinrich_clam_martinic = {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUS_heinrich_clam_martinic
-			allowed = {
-				original_tag = AUS
-			}
-			available = {
-				has_government = neutrality
-				has_character_flag = minister_AUS 
-			}
-			cost = 100
-			traits = {
-				AUS_staunch_aristocrat_MP
-			}
-			ai_will_do = {
-				factor = 1
-				#modifier = {
-				#	has_country_flag = AUH_federalism
-				#	factor = 500
-				#}
-			}
-			can_be_fired = no
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUS_heinrich_clam_martinic
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	available = {
+		#		has_government = neutrality
+		#		has_character_flag = minister_AUS 
+		#	}
+		#	cost = 100
+		#	traits = {
+		#		AUS_staunch_aristocrat_MP
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#		#modifier = {
+		#		#	has_country_flag = AUH_federalism
+		#		#	factor = 500
+		#		#}
+		#	}
+		#	can_be_fired = no
+		#}
 		portraits = {
 			civilian = {
 				small = GFX_idea_europe_generic_5
@@ -2028,29 +2066,29 @@ characters = {
 		}
 	}
 	AUS_ernst_seidler_von_feuchtenegg = {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUS_ernst_seidler_von_feuchtenegg
-			allowed = {
-				original_tag = AUS
-			}
-			available = {
-				has_government = neutrality
-				has_character_flag = minister_AUS 
-			}
-			cost = 100
-			traits = {
-				AUS_staunch_aristocrat_MP
-			}
-			ai_will_do = {
-				factor = 1
-				#modifier = {
-				#	has_country_flag = AUH_federalism
-				#	factor = 500
-				#}
-			}
-			can_be_fired = no
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUS_ernst_seidler_von_feuchtenegg
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	available = {
+		#		has_government = neutrality
+		#		has_character_flag = minister_AUS 
+		#	}
+		#	cost = 100
+		#	traits = {
+		#		AUS_gambler_parlimentarian
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#		#modifier = {
+		#		#	has_country_flag = AUH_federalism
+		#		#	factor = 500
+		#		#}
+		#	}
+		#	can_be_fired = no
+		#}
 		portraits = {
 			civilian = {
 				small = GFX_idea_europe_generic_4
@@ -2058,29 +2096,29 @@ characters = {
 		}
 	}
 	AUS_max_von_heinlein = {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUS_max_von_heinlein
-			allowed = {
-				original_tag = AUS
-			}
-			available = {
-				has_government = neutrality
-				has_character_flag = minister_AUS 
-			}
-			cost = 0
-			traits = {
-				AUS_federalist_MP
-			}
-			ai_will_do = {
-				factor = 1
-				#modifier = {
-				#	has_country_flag = AUH_federalism
-				#	factor = 500
-				#}
-			}
-			can_be_fired = no
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUS_max_von_heinlein
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	available = {
+		#		has_government = neutrality
+		#		has_character_flag = minister_AUS 
+		#	}
+		#	cost = 0
+		#	traits = {
+		#		AUS_federalist_MP
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#		#modifier = {
+		#		#	has_country_flag = AUH_federalism
+		#		#	factor = 500
+		#		#}
+		#	}
+		#	can_be_fired = no
+		#}
 		portraits = {
 			civilian = {
 				small = GFX_idea_generic_political_advisor_europe_4
@@ -2088,25 +2126,25 @@ characters = {
 		}
 	}
 	AUS_richard_von_bienerth_schmerling = {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUS_richard_von_bienerth_schmerling
-			allowed = {
-				original_tag = AUS
-			}
-			available = {
-				has_government = neutrality
-				has_character_flag = minister_AUS 
-			}
-			cost = 0
-			traits = {
-				AUS_minority_appeaser_MP
-			}
-			ai_will_do = {
-				factor = 1
-			}
-			can_be_fired = no
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUS_richard_von_bienerth_schmerling
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	available = {
+		#		has_government = neutrality
+		#		has_character_flag = minister_AUS 
+		#	}
+		#	cost = 0
+		#	traits = {
+		#		AUS_minority_appeaser_MP
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#	}
+		#	can_be_fired = no
+		#}
 		portraits = {
 			civilian = {
 				small = GFX_idea_europe_generic_2
@@ -2114,25 +2152,25 @@ characters = {
 		}
 	}
 	AUS_max_wladimir_von_beck = {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUS_max_wladimir_von_beck
-			allowed = {
-				original_tag = AUS
-			}
-			available = {
-				has_government = neutrality
-				has_character_flag = minister_AUS 
-			}
-			cost = 0
-			traits = {
-				AUS_architect_of_negotiation
-			}
-			ai_will_do = {
-				factor = 1
-			}
-			can_be_fired = no
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUS_max_wladimir_von_beck
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	available = {
+		#		has_government = neutrality
+		#		has_character_flag = minister_AUS 
+		#	}
+		#	cost = 0
+		#	traits = {
+		#		AUS_architect_of_negotiation
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#	}
+		#	can_be_fired = no
+		#}
 		portraits = {
 			civilian = {
 				small = GFX_idea_europe_generic_3
@@ -2140,29 +2178,29 @@ characters = {
 		}
 	}
 	AUS_heinrich_lammasch = {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUS_heinrich_lammasch
-			allowed = {
-				original_tag = AUS
-			}
-			visible = {
-				always = no
-				#to change later when late war is coded
-			}
-			cost = 0
-			available = {
-				has_government = neutrality
-				has_character_flag = minister_AUS 
-			}
-			traits = {
-				AUS_liquidator_mp
-			}
-			ai_will_do = {
-				factor = 1
-			}
-			can_be_fired = no
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUS_heinrich_lammasch
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	visible = {
+		#		always = no
+		#		#to change later when late war is coded
+		#	}
+		#	cost = 0
+		#	available = {
+		#		has_government = neutrality
+		#		has_character_flag = minister_AUS 
+		#	}
+		#	traits = {
+		#		AUS_liquidator_mp
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#	}
+		#	can_be_fired = no
+		#}
 		portraits = {
 			civilian = {
 				small = GFX_idea_europe_generic_6
@@ -2170,25 +2208,25 @@ characters = {
 		}
 	}
 	AUS_ernest_von_koerber = {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUS_ernest_von_koerber
-			allowed = {
-				original_tag = AUS
-			}
-			available = {
-				has_government = neutrality
-				has_character_flag = minister_AUS 
-			}
-			cost = 0
-			traits = {
-				AUS_koerber_plan
-			}
-			ai_will_do = {
-				factor = 1
-			}
-			can_be_fired = no
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUS_ernest_von_koerber
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	available = {
+		#		has_government = neutrality
+		#		has_character_flag = minister_AUS 
+		#	}
+		#	cost = 0
+		#	traits = {
+		#		AUS_koerber_plan
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#	}
+		#	can_be_fired = no
+		#}
 		portraits = {
 			civilian = {
 				small = GFX_idea_europe_generic_1
@@ -2297,9 +2335,9 @@ characters = {
 			}
 		}
 		portraits = {
-			#army={
-			#	small="gfx/interface/ideas/AUH/idea_AUH_Leopold_Berchtold.png"
-			#}
+			civilian={
+				small="gfx/interface/ideas/idea_generic_political_advisor_south_america_4.dds"
+			}
 		}
 	}
 	#Joint Foreign Ministers

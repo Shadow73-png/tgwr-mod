@@ -971,8 +971,8 @@ characters={
 			skill=2
 			attack_skill=2
 			defense_skill=1
-			planning_skill=1
-			logistics_skill=2
+			planning_skill=2
+			logistics_skill=1
 			visible = {
 				date < 1919.4.5
 				NOT = {
@@ -980,6 +980,30 @@ characters={
 					has_global_flag = hungarian_revolution
 				}
 			}	
+		}
+	}
+	HUN_johann_karg_von_bebenburg = { #Czech
+		portraits={
+			army={
+				large="gfx/leaders/HUN/HUN_johann_karg_von_bebenburg.png"
+				small="gfx/interface/ideas/HUN/idea_HUN_johann_karg_von_bebenburg.png"
+			}
+		}
+		corps_commander={
+			traits = {
+				infantry_officer trait_cautious
+			}
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=2
+			visible = {
+				NOT = {
+					has_country_flag = great_war_loser
+					has_global_flag = hungarian_revolution
+				}
+			}		
 		}
 	}
 	HUN_bela_berzeviczy={
@@ -1049,10 +1073,10 @@ characters={
 				 trait_reckless career_officer
 			}
 			skill=1
-			attack_skill=1
+			attack_skill=2
 			defense_skill=1
 			planning_skill=1
-			logistics_skill=2
+			logistics_skill=1
 			visible = {
 				NOT = {
 					has_country_flag = great_war_loser
@@ -1413,62 +1437,6 @@ characters={
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 2
-			visible = {
-				NOT = {
-					has_country_flag = great_war_loser
-				}
-			}
-		}
-	}
-	HUN_johann_karg_von_bebenburg = {
-		name="HUN_johann_karg_von_bebenburg"
-		advisor={
-			slot = high_command
-			idea_token = HUN_ferenc_julier_army_chief
-			allowed  = {
-				original_tag  = HUN
-			}
-			available = {
-				NOT = {
-					has_country_flag = great_war_loser
-				}
-			}
-			visible = {
-				NOT = {
-					has_country_flag = great_war_loser
-				}
-			}
-			traits = {
-				army_infantry_1
-			}
-			cost = 100
-			ai_will_do = {
-				factor  = 1
-			}
-		}
-		corps_commander = {
-			traits = { career_officer infantry_leader }
-			skill = 1
-			attack_skill = 2
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 2
-			visible = {
-				NOT = {
-					has_country_flag = great_war_loser
-				}
-			}
-		}
-	}
-	HUN_deszo_kolossvary = {
-		name="HUN_deszo_kolossvary"
-		corps_commander = {
-			traits = {  }
-			skill = 1
-			attack_skill = 1
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 1
 			visible = {
 				NOT = {
 					has_country_flag = great_war_loser
