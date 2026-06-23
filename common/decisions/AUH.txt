@@ -550,6 +550,40 @@ TGWR_great_power_politics = {
 
 		}
 	}
+	AUS_install_archduke_wilhelm = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 50
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 75
+		visible = {
+			great_power_politics_great_war_visible = yes
+			has_country_flag = AUS_flag_ukraine_acquired
+		}
+		available = {
+			has_country_flag = AUS_flag_ukraine_acquired
+			UKR = {
+				is_subject_of = AUS
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+		}
+		remove_effect = {
+			UKR = {
+				country_event = ww1_austriahungary.268
+			}
+			custom_effect_tooltip = AUS_coup_ukraine_tt
+		}
+	}
 }
 
 AUH_great_war_bullshit = {
