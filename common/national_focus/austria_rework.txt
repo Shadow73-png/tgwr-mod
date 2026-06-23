@@ -12872,10 +12872,9 @@ focus_tree = {
 			
 		}
 		available = {
-			has_country_flag = great_war_loser
-			OR = {
-				#sixtus affair
-				#other shit
+			custom_trigger_tooltip = {
+				tooltip = AUS_defeated_but_with_honor_tt
+				has_country_flag = great_war_loser
 			}
 		}
 		completion_reward = {
@@ -12958,7 +12957,7 @@ focus_tree = {
 			focus = AUS_peace_with_honor
 		}
 		bypass = {
-			has_country_flag = great_war_winner
+			
 		}
 		available = {
 		}
@@ -13076,9 +13075,18 @@ focus_tree = {
 			has_italian_civil_war = yes
 		}
 		completion_reward = {
-			set_state_owner = 159
-			set_state_owner = 160
-			set_state_owner = 1259
+			every_state = {
+				limit = {
+					OR = {
+						state = 160
+						state = 1259
+					}
+					owner = {
+						original_tag = ITA
+					}
+				}
+				transfer_state_to = ROOT
+			}
 			set_country_flag = ITA_austria_took_north
 			ITA = {
 				country_event = ww1_austriahungary.257
@@ -13215,7 +13223,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_respect_ukranian_rights
-		icon = GFX_SOV_respect_baltic_self_determination_ccp_2d_sov_compatibility
+		icon = GFX_focus_POL_ukrainian_army
 		cost = 5
 		x = 1
 		y = 1
@@ -13301,7 +13309,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_reorganise_serbia
-		icon = GFX_focus_rusian_civil_war
+		icon = GFX_focus_recall_old_officiers
 		cost = 5
 		x = 1
 		y = 1
