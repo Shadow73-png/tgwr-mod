@@ -18039,6 +18039,14 @@ TUR_create_bosnia_vilayet = {
 			add_dynamic_modifier = { modifier = TUR_serbian_minority }
 		}
 	}
+	1261 = {
+		add_core_of = ROOT
+		force_enable_resistance = ROOT
+		if = {
+			limit = { controller = { TUR_has_minority_system = yes } }
+			add_dynamic_modifier = { modifier = TUR_serbian_minority }
+		}
+	}
 	hidden_effect = {
 		if = {
 			limit = { 104 = { controller = { TUR_has_minority_system = yes } } }
@@ -18050,6 +18058,21 @@ TUR_create_bosnia_vilayet = {
 		}
 		else = {
 			104 = {
+				set_state_flag = TUR_bosnia
+				add_to_array = { global.TUR_bosnia = THIS }
+				set_state_flag = TUR_vilayet_centralization_no_control
+			}
+		}
+		if = {
+			limit = { 1261 = { controller = { TUR_has_minority_system = yes } } }
+			1261 = {
+				add_dynamic_modifier = { modifier = TUR_vilayet_centralization }
+				set_state_flag = TUR_bosnia
+				add_to_array = { global.TUR_bosnia = THIS }
+			}
+		}
+		else = {
+			1261 = {
 				set_state_flag = TUR_bosnia
 				add_to_array = { global.TUR_bosnia = THIS }
 				set_state_flag = TUR_vilayet_centralization_no_control
