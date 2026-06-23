@@ -2480,6 +2480,39 @@ country_event = {
 			if = {
 				limit = {
 					has_war_with = GER
+					has_completed_focus = RUS_variant_g
+				}
+				add_timed_idea = {
+					idea = RUS_variant_g_idea
+					days = 90
+				}
+			}
+			else_if = {
+				limit = {
+					has_war_with = AUS
+					has_completed_focus = RUS_variant_a
+				}
+				add_timed_idea = {
+					idea = RUS_variant_a_idea
+					days = 90
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_war_with = GER
+						has_war_with = AUS
+					}
+					has_completed_focus = RUS_strategic_planning
+				}
+				add_timed_idea = {
+					idea = RUS_mobilization_against_central_powers
+					days = 90
+				}
+			}
+			if = {
+				limit = {
+					has_war_with = GER
 				}
 				set_province_name = {
 					id = 3151
@@ -2510,6 +2543,39 @@ country_event = {
 	option = {
 		name = ww1_russia_war.1.a
 		effect_tooltip = {
+			if = {
+				limit = {
+					has_war_with = GER
+					has_completed_focus = RUS_variant_g
+				}
+				add_timed_idea = {
+					idea = RUS_variant_g_idea
+					days = 90
+				}
+			}
+			else_if = {
+				limit = {
+					has_war_with = AUS
+					has_completed_focus = RUS_variant_a
+				}
+				add_timed_idea = {
+					idea = RUS_variant_a_idea
+					days = 90
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_war_with = GER
+						has_war_with = AUS
+					}
+					has_completed_focus = RUS_strategic_planning
+				}
+				add_timed_idea = {
+					idea = RUS_mobilization_against_central_powers
+					days = 90
+				}
+			}
 			if = {
 				limit = {
 					has_war_with = GER
@@ -2878,12 +2944,56 @@ country_event = {
 	}
 	#Fire him!
 	option = {
-		name = ww1_russia_war.11.a
+		name = ww1_russia_war.12.a
 		effect_tooltip = {
 			swap_ideas = {
 				remove_idea = RUS_moderate_army_disintegration
 				add_idea = RUS_looming_army_collapse
 			}
+		}
+	}
+}
+
+#War Plan - Success
+country_event = {
+	id = ww1_russia_war.13
+	title = ww1_russia_war.13.t
+	desc = ww1_russia_war.13.d
+	picture = ww1_russia_stavka
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			add_war_support = 0.05
+		}
+	}
+	#Fire him!
+	option = {
+		name = ww1_russia_war.13.a
+		effect_tooltip = {
+			add_war_support = 0.05
+		}
+	}
+}
+
+#War Plan - Failure
+country_event = {
+	id = ww1_russia_war.14
+	title = ww1_russia_war.14.t
+	desc = ww1_russia_war.14.d
+	picture = ww1_russia_stavka
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			add_war_support = -0.05
+		}
+	}
+	#Fire him!
+	option = {
+		name = ww1_russia_war.13.a
+		effect_tooltip = {
+			add_war_support = -0.05
 		}
 	}
 }

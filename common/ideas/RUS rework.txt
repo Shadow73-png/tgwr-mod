@@ -1230,9 +1230,8 @@ ideas = {
 				conscription_factor = 0.25
 				mobilization_speed = 0.5
 				training_time_army_factor = -0.15
-				minimum_training_level = -0.2
-				max_training = -0.3
-				experience_gain_army_factor = -0.25
+				minimum_training_level = -0.25
+				experience_gain_army_factor = -0.1
 			}
 		}
 		RUS_quality_focused_officer_training = {
@@ -1315,6 +1314,131 @@ ideas = {
 				ship_hull_heavy_design_cost_factor = -0.5
 				ship_hull_cruiser_design_cost_factor = -0.3
 				ship_hull_light_design_cost_factor = -0.1
+			}
+		}
+		RUS_mobilization_against_central_powers = {
+			picture = CZE_planning_bonus
+			
+			allowed = { always = no }
+			
+			allowed_civil_war = { original_tag = RUS }
+			
+			available = {
+				OR = {
+					has_war_with = GER
+					has_war_with = AUS
+				}
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				mobilization_speed = 0.5
+				army_speed_factor = 0.1
+				training_time_factor = -0.25
+				minimum_training_level = -0.25
+			}
+
+		}
+		RUS_variant_a_idea = {
+			picture = CZE_planning_bonus
+			
+			allowed = { always = no }
+			
+			allowed_civil_war = { original_tag = RUS }
+			
+			available = {
+				has_war_with = AUS
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				mobilization_speed = 0.5
+				army_speed_factor = 0.1
+				training_time_factor = -0.25
+				minimum_training_level = -0.25
+				breakthrough_factor = 0.25
+				custom_modifier_tooltip = successful_if_control_galicia_tt
+			}
+			targeted_modifier = {
+				tag = AUS
+				attack_bonus_against = 0.2
+			}
+			targeted_modifier = {
+				tag = HUN
+				attack_bonus_against = 0.2
+			}
+			on_remove = {
+				if = {
+					limit = {
+						has_war_with = AUS
+						controls_state = 88
+						controls_state = 89
+						controls_state = 91
+						controls_state = 562
+					}
+					country_event = ww1_russia_war.13
+				}
+				else_if = {
+					limit = {
+						has_war_with = AUS
+						NOT = {
+							controls_state = 88
+							controls_state = 89
+							controls_state = 91
+							controls_state = 562
+						}
+					}
+					country_event = ww1_russia_war.14
+				}
+			}
+
+		}
+		RUS_variant_g_idea = {
+			picture = CZE_planning_bonus
+			
+			allowed = { always = no }
+			
+			allowed_civil_war = { original_tag = RUS }
+			
+			available = {
+				has_war_with = GER
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				mobilization_speed = 0.5
+				army_speed_factor = 0.1
+				training_time_factor = -0.25
+				minimum_training_level = -0.25
+				dig_in_speed_factor = 0.2
+				custom_modifier_tooltip = successful_if_control_east_prussia_tt
+			}
+			targeted_modifier = {
+				tag = GER
+				defense_bonus_against = 0.25
+			}
+			on_remove = {
+				if = {
+					limit = {
+						has_war_with = GER
+						controls_state = 5
+						controls_state = 763
+					}
+					country_event = ww1_russia_war.13
+				}
+				else_if = {
+					limit = {
+						has_war_with = GER
+						NOT = {
+							controls_state = 5
+							controls_state = 763
+						}
+					}
+					country_event = ww1_russia_war.14
+				}
 			}
 		}
 		RUS_purges_in_gendarmerie = {

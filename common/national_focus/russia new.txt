@@ -1871,7 +1871,7 @@ focus_tree = {
 				is_reformist = yes
 			}
 		}
-		x = -6
+		x = -8
 		y = 5
 		relative_position_id = RUS_stolypins_reforms
 		available_if_capitulated = yes
@@ -2145,11 +2145,8 @@ focus_tree = {
 			focus = RUS_centralize_army_command
 		}
 		available = {
-			RUS_vladimir_sukhomlinov = {
-				is_part_of_the_cabinet = yes
-			}
 			NOT = {
-				has_country_flag = RUS_failed_army_reforms
+				has_country_flag = RUS_great_war_started
 			}
 		}
 		x = 1
@@ -2197,11 +2194,8 @@ focus_tree = {
 			focus = RUS_centralize_army_command
 		}
 		available = {
-			RUS_vladimir_sukhomlinov = {
-				is_part_of_the_cabinet = yes
-			}
 			NOT = {
-				has_country_flag = RUS_failed_army_reforms
+				has_country_flag = RUS_great_war_started
 			}
 		}
 		x = -1
@@ -2269,11 +2263,8 @@ focus_tree = {
 			focus = RUS_new_conscription_law
 		}
 		available = {
-			RUS_vladimir_sukhomlinov = {
-				is_part_of_the_cabinet = yes
-			}
 			NOT = {
-				has_country_flag = RUS_failed_army_reforms
+				has_country_flag = RUS_great_war_started
 			}
 		}
 		x = 0
@@ -2336,13 +2327,10 @@ focus_tree = {
 			focus = RUS_lesser_rearmament_programme
 		}
 		available = {
-			RUS_vladimir_sukhomlinov = {
-				is_part_of_the_cabinet = yes
-			}
 			has_country_flag = RUS_lesser_rearmament_programme_passed_in_sc
 			has_idea = RUS_lesser_rearmament_programme
 			NOT = {
-				has_country_flag = RUS_failed_army_reforms
+				has_country_flag = RUS_great_war_started
 			}
 		}
 		x = 0
@@ -2408,14 +2396,11 @@ focus_tree = {
 			focus = RUS_centralize_army_command
 		}
 		available = {
-			RUS_vladimir_sukhomlinov = {
-				is_part_of_the_cabinet = yes
-			}
 			NOT = {
-				has_country_flag = RUS_failed_army_reforms
+				has_country_flag = RUS_great_war_started
 			}
 		}
-		x = 2
+		x = -2
 		y = 2
 		relative_position_id = RUS_centralize_army_command
 		available_if_capitulated = yes
@@ -2438,14 +2423,11 @@ focus_tree = {
 			focus = RUS_centralize_army_command
 		}
 		available = {
-			RUS_vladimir_sukhomlinov = {
-				is_part_of_the_cabinet = yes
-			}
 			NOT = {
-				has_country_flag = RUS_failed_army_reforms
+				has_country_flag = RUS_great_war_started
 			}
 		}
-		x = 3
+		x = -3
 		y = 1
 		relative_position_id = RUS_centralize_army_command
 		available_if_capitulated = yes
@@ -2471,7 +2453,7 @@ focus_tree = {
 		}
 		available = {
 		}
-		x = -2
+		x = -4
 		y = 2
 		relative_position_id = RUS_centralize_army_command
 		available_if_capitulated = yes
@@ -2499,7 +2481,7 @@ focus_tree = {
 		}
 		available = {
 		}
-		x = -3
+		x = -5
 		y = 1
 		relative_position_id = RUS_centralize_army_command
 		available_if_capitulated = yes
@@ -2514,6 +2496,110 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_ARMY_REFORM
+		}
+	}
+	focus = {
+		id = RUS_strategic_planning
+		icon = GFX_focus_RUS_army
+		cost = 5
+		prerequisite = {
+			focus = RUS_centralize_army_command
+		}
+		available = {
+			NOT = {
+				has_country_flag = RUS_great_war_started
+			}
+		}
+		x = 3
+		y = 1
+		relative_position_id = RUS_centralize_army_command
+		available_if_capitulated = yes
+		completion_reward = {
+			effect_tooltip = {
+				custom_effect_tooltip = when_great_war_starts_tt
+				add_timed_idea = {
+					idea = RUS_mobilization_against_central_powers
+					days = 90
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_ARMY_REFORM
+		}
+	}
+	focus = {
+		id = RUS_variant_a
+		icon = GFX_focus_attack_austria_hungary
+		cost = 5
+		prerequisite = {
+			focus = RUS_strategic_planning
+		}
+		mutually_exclusive = {
+			focus = RUS_variant_g
+		}
+		available = {
+			NOT = {
+				has_country_flag = RUS_great_war_started
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = RUS_strategic_planning
+		available_if_capitulated = yes
+		completion_reward = {
+			effect_tooltip = {
+				custom_effect_tooltip = when_great_war_starts_tt
+				swap_ideas = {
+					remove_idea = RUS_mobilization_against_central_powers
+					add_idea = RUS_variant_a_idea
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_ARMY_REFORM
+		}
+	}
+	focus = {
+		id = RUS_variant_g
+		icon = GFX_focus_attack_germany
+		cost = 5
+		prerequisite = {
+			focus = RUS_strategic_planning
+		}
+		mutually_exclusive = {
+			focus = RUS_variant_a
+		}
+		available = {
+			NOT = {
+				has_country_flag = RUS_great_war_started
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = RUS_strategic_planning
+		available_if_capitulated = yes
+		completion_reward = {
+			effect_tooltip = {
+				custom_effect_tooltip = when_great_war_starts_tt
+				swap_ideas = {
+					remove_idea = RUS_mobilization_against_central_powers
+					add_idea = RUS_variant_g_idea
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
 			FOCUS_FILTER_ARMY_REFORM
 		}
 	}
@@ -5041,6 +5127,7 @@ focus_tree = {
 			random_owned_state = {
 				limit = {
 					region = 131
+					is_controlled_by = RUS
 				}
 				create_unit = {
 					division = "division_template = \"Pol'skaya Strelkovaya Brigada\" start_experience_factor = 1 start_equipment_factor = 1 }"
@@ -5093,6 +5180,7 @@ focus_tree = {
 			random_owned_state = {
 				limit = {
 					region = 131
+					is_controlled_by = RUS
 				}
 				create_unit = {
 					division = "division_template = \"Chekhoslovatskiy Pekhotnyy Polk\" start_experience_factor = 0.8 start_equipment_factor = 0.75 force_equipment_variants = { infantry_equipment_1 = { owner = \"RUS\" }} force_equipment_variants = { field_gun_equipment_1 = { owner = \"RUS\" }}"
@@ -5141,6 +5229,7 @@ focus_tree = {
 			random_owned_state = {
 				limit = {
 					region = 134
+					is_controlled_by = RUS
 				}
 				create_unit = {
 					division = "division_template = \"Armyanskaya Druzhina\" start_experience_factor = 1 start_equipment_factor = 1 }"
@@ -5191,7 +5280,7 @@ focus_tree = {
 							has_completed_focus = RUS_reform_military_intelligence
 						}
 					}
-					set_country_flag = RUS_failed_army_reforms
+					set_country_flag = RUS_great_war_started
 				}
 			}
 		}
