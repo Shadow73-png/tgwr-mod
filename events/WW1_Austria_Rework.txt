@@ -9432,7 +9432,30 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
-		name = ww1_austriahungary_collapse.3.a		
+		name = ww1_austriahungary_collapse.3.a
+		if = {
+			limit = {
+				GAL = {
+					is_subject_of = AUS
+				}
+			}
+			every_state = {
+				limit = {
+					is_owned_and_controlled_by = GAL
+					OR = {
+						state = 237
+						state = 1269
+						state = 1268
+						state = 1270
+						state = 562
+						state = 91
+						state = 89
+					}
+					is_core_of = GAL
+				}
+				transfer_state_to = AUS
+			}
+		}	
 		every_state = {
 			limit = {
 				OR = {
@@ -9456,9 +9479,15 @@ country_event = {
 		}
 		set_global_flag = galicia_released
 		hidden_effect = {
-			end_puppet = GAL
+			set_autonomy = {
+				target = GAL
+				autonomy_state = autonomy_puppet
+				end_civil_wars = yes
+				end_wars = yes
+			}
 			GAL = {
 				clr_country_flag = monarchist_puppet
+				set_cosmetic_tag = GAL_liquidation_comitte
 				set_politics = {
 					ruling_party = neutrality
 					long_name = GAL_liquidation_comitte_party_long 
@@ -9474,19 +9503,6 @@ country_event = {
 				#POL_wincenty_witos = {
 				#	promote_character = authoritarian_democracy
 				#}	
-			}
-			GAL = {
-				get_current_government_type = yes
-			}
-			set_autonomy = {
-				target = GAL
-				autonomy_state = autonomy_puppet
-				end_civil_wars = yes
-				end_wars = yes
-			}
-			GAL = {
-				restore_previous_government_type = yes
-				set_cosmetic_tag = GAL_liquidation_comitte
 			}
 		}
 	}
@@ -9952,11 +9968,14 @@ country_event = {
 		name = ww1_austriahungary_collapse.18.a
 		HUN = {
 			clr_country_flag = monarchist_puppet
+			set_country_flag = occupied_state
 		}
 		get_current_government_type = yes
-		set_autonomy = {
-			target = HUN
-			autonomy_state = autonomy_satellite
+		AUS = {
+			set_autonomy = {
+				target = HUN
+				autonomy_state = autonomy_tgwr_occupied_state
+			}
 		}
 		restore_previous_government_type = yes
 		country_event = {
@@ -9992,6 +10011,12 @@ country_event = {
 					}
 				}
 				promote_character = HUN_janos_hadik
+			}
+			if = {
+				limit = {
+					tag = HUN
+				}
+				clr_country_flag = occupied_state
 			}
 		}
 	}
@@ -10179,13 +10204,24 @@ country_event = {
 						is_owned_and_controlled_by = AUS
 						is_owned_and_controlled_by = GAL
 					}
-					state = 80
+					OR = {
+						state = 80
+						state = 1007
+					}
 				}
 				transfer_state_to = WUK
 			}
-			country_event = {
-				id = ww1_austriahungary_collapse.25
-				days = 15
+			ROM = {
+				country_event = {
+					id = ww1_austriahungary_collapse.25
+					days = 15
+				}
+			}
+			WUK = {
+				country_event = {
+					id = ww1_austriahungary_collapse.25
+					days = 15
+				}
 			}
 		}
 	}
@@ -10357,7 +10393,7 @@ country_event = {
 		custom_effect_tooltip = GAME_OVER_TT
 		GAL = {
 			annex_country = {
-				target = TBZ
+				target = ZKP
 				transfer_troops = no
 			}
 		}
@@ -10369,7 +10405,7 @@ country_event = {
 		}
 		effect_tooltip = {
 			annex_country = {
-				target = TBZ
+				target = ZKP
 				transfer_troops = no
 			}
 		}
