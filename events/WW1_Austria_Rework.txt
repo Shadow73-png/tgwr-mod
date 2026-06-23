@@ -9456,17 +9456,9 @@ country_event = {
 		}
 		set_global_flag = galicia_released
 		hidden_effect = {
+			end_puppet = GAL
 			GAL = {
 				clr_country_flag = monarchist_puppet
-				set_cosmetic_tag = GAL_liquidation_comitte
-				AUS = {
-					set_autonomy = {
-						target = GAL
-						autonomy_state = autonomy_puppet
-						end_civil_wars = yes
-						end_wars = yes
-					}
-				}
 				set_politics = {
 					ruling_party = neutrality
 					long_name = GAL_liquidation_comitte_party_long 
@@ -9482,6 +9474,19 @@ country_event = {
 				#POL_wincenty_witos = {
 				#	promote_character = authoritarian_democracy
 				#}	
+			}
+			GAL = {
+				get_current_government_type = yes
+			}
+			set_autonomy = {
+				target = GAL
+				autonomy_state = autonomy_puppet
+				end_civil_wars = yes
+				end_wars = yes
+			}
+			GAL = {
+				restore_previous_government_type = yes
+				set_cosmetic_tag = GAL_liquidation_comitte
 			}
 		}
 	}
