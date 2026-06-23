@@ -6933,6 +6933,94 @@ country_event = {
 		name = ww1_austriahungary.264.a
 	}
 }
+#austria requests control of ukraine (germany gets event)
+country_event = {
+	id = ww1_austriahungary.265
+	title = ww1_austriahungary.265.t
+	desc = ww1_austriahungary.265.d
+	trigger = {
+		tag = GER
+		GER = {
+			has_subject = UKR
+		}
+		NOT = {
+			has_global_flag = sixtur_affair
+		}
+	}
+	fire_only_once = yes
+	option = { 
+		name = ww1_austriahungary.265.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = 10
+				AUS = {
+					has_army_manpower = {
+						size > 700000
+					}
+				}
+			}
+		}
+		AUS = {
+			puppet = UKR
+			country_event = ww1_austriahungary.266
+		}
+	}
+	option = { 
+		name = ww1_austriahungary.265.b
+		ai_chance = {
+			base = 5
+		}
+		AUS = {
+			country_event = ww1_austriahungary.267
+		}
+		add_political_power = -100
+	}
+}
+#germany gives austria ukraine
+country_event = {
+	id = ww1_austriahungary.266
+	title = ww1_austriahungary.266.t
+	desc = ww1_austriahungary.266.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { 
+		name = ww1_austriahungary.266.a
+		set_country_flag = AUS_flag_ukraine_acquired
+		unlock_decision_tooltip = AUS_install_archduke_wilhelm
+	}
+}
+#germany refuses to give austria ukraine
+country_event = {
+	id = ww1_austriahungary.267
+	title = ww1_austriahungary.267.t
+	desc = ww1_austriahungary.267.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { 
+		name = ww1_austriahungary.267.a
+	}
+}
+#austria coups ukrainians
+country_event = {
+	id = ww1_austriahungary.268
+	title = ww1_austriahungary.268.t
+	desc = ww1_austriahungary.268.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { 
+		name = ww1_austriahungary.268.a
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+			long_name = AUS_neutrality_party_long
+    		name = AUS_neutrality_party
+		}
+		add_stability = -0.1
+		promote_character = UKR_wilhelm_franz
+	}
+}
+
 
 #end of ww1_austriahungary
 
