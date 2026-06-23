@@ -7629,7 +7629,6 @@ focus_tree = {
 							value = TUR_greek_population_factor_new
 							add = -0.1
 						}
-						subtract = old_greek_value
 					}
 				}
 
@@ -7642,7 +7641,6 @@ focus_tree = {
 							value = TUR_bulgarian_population_factor_new
 							add = -0.1
 						}
-						subtract = old_bulgarian_value
 					}
 				}
 
@@ -7655,7 +7653,6 @@ focus_tree = {
 							value = TUR_albanian_population_factor_new
 							add = -0.1
 						}
-						subtract = old_albanian_value
 					}
 				}
 
@@ -7668,7 +7665,6 @@ focus_tree = {
 							value = TUR_serbian_population_factor_new
 							add = -0.1
 						}
-						subtract = old_serbian_value
 					}
 				}
 
@@ -7681,7 +7677,6 @@ focus_tree = {
 							value = TUR_assyrian_population_factor_new
 							add = -0.1
 						}
-						subtract = old_assyrian_value
 					}
 				}
 
@@ -7694,7 +7689,6 @@ focus_tree = {
 							value = TUR_georgian_population_factor_new
 							add = -0.1
 						}
-						subtract = old_georgian_value
 					}
 				}
 
@@ -7707,22 +7701,9 @@ focus_tree = {
 							value = TUR_turkish_population_factor_new
 							add = 0.1
 						}
-						subtract = old_turkish_value
 					}
 				}
 
-				set_temp_variable = {
-					TUR_oppose_the_unitary_state_old = {
-						value = old_armenian_value
-						add = old_greek_value
-						add = old_albanian_value
-						add = old_bulgarian_value
-						add = old_serbian_value
-						add = old_assyrian_value
-						add = old_georgian_value
-						add = old_turkish_value
-					}
-				}
 				set_temp_variable = {
 					TUR_oppose_the_unitary_state = {
 						value = TUR_oppose_the_unitary_state_armenian
@@ -7733,7 +7714,16 @@ focus_tree = {
 						add = TUR_oppose_the_unitary_state_assyrian
 						add = TUR_oppose_the_unitary_state_georgian
 						add = TUR_oppose_the_unitary_state_turkish
-						subtract = TUR_oppose_the_unitary_state_old
+						subtract = {
+							value = old_armenian_value
+							add = old_greek_value
+							add = old_albanian_value
+							add = old_bulgarian_value
+							add = old_serbian_value
+							add = old_assyrian_value
+							add = old_georgian_value
+							add = old_turkish_value
+						}
 					}
 				}
 			}
@@ -8755,7 +8745,6 @@ focus_tree = {
 							value = TUR_sunni_population_factor_new
 							add = -0.1
 						}
-						subtract = old_sunni_value
 					}
 				}
 
@@ -8768,21 +8757,17 @@ focus_tree = {
 							value = TUR_shia_population_factor_new
 							add = -0.1
 						}
-						subtract = old_shia_value
 					}
 				}
 
 				set_temp_variable = {
-					TUR_maintain_muslim_hegemony_old = {
-						value = old_shia_value
-						add = old_sunni_value
-					}
-				}
-				set_temp_variable = {
 					TUR_maintain_muslim_hegemony = {
-						value = TUR_maintain_muslim_hegemony_shia
-						add = TUR_maintain_muslim_hegemony_sunni
-						subtract = TUR_maintain_muslim_hegemony
+						value = TUR_maintain_muslim_hegemony_sunni
+						add = TUR_maintain_muslim_hegemony_shia
+						subtract = {
+							value = old_sunni_value
+							add = old_shia_value
+						}
 					}
 				}
 			}
@@ -8854,7 +8839,6 @@ focus_tree = {
 							value = TUR_sunni_population_factor_new
 							add = 0.2
 						}
-						subtract = old_sunni_value
 					}
 				}
 
@@ -8867,7 +8851,6 @@ focus_tree = {
 							value = TUR_shia_population_factor_new
 							add = 0.2
 						}
-						subtract = old_shia_value
 					}
 				}
 				
@@ -8880,7 +8863,6 @@ focus_tree = {
 							value = TUR_orthodox_population_factor_new
 							add = -0.3
 						}
-						subtract = old_orthodox_value
 					}
 				}
 
@@ -8893,7 +8875,6 @@ focus_tree = {
 							value = TUR_catholic_population_factor_new
 							add = -0.3
 						}
-						subtract = old_catholic_value
 					}
 				}
 
@@ -8906,7 +8887,6 @@ focus_tree = {
 							value = TUR_jewish_population_factor_new
 							add = -0.3
 						}
-						subtract = old_jewish_value
 					}
 				}
 
@@ -8919,7 +8899,6 @@ focus_tree = {
 							value = TUR_armenian_population_factor_new
 							add = -0.3
 						}
-						subtract = old_armenian_value
 					}
 				}
 
@@ -8932,22 +8911,9 @@ focus_tree = {
 							value = TUR_assyrian_population_factor_new
 							add = -0.3
 						}
-						subtract = old_assyrian_value
 					}
 				}
-
-				set_temp_variable = {
-					TUR_ittihat_i_anasir_old = {
-						value = old_turkish_value
-						add = old_sunni_value
-						add = old_shia_value
-						add = old_catholic_value
-						add = old_orthodox_value
-						add = old_jewish_value
-						add = old_armenian_value
-						add = old_assyrian_value
-					}
-				}
+				
 				set_temp_variable = {
 					TUR_ittihat_i_anasir = {
 						value = TUR_ittihat_i_anasir_turkish
@@ -8958,7 +8924,16 @@ focus_tree = {
 						add = TUR_ittihat_i_anasir_jewish
 						add = TUR_ittihat_i_anasir_armenian
 						add = TUR_ittihat_i_anasir_assyrian
-						subtract = TUR_ittihat_i_anasir_old
+						subtract = {
+							value = old_turkish_value
+							add = old_sunni_value
+							add = old_shia_value
+							add = old_catholic_value
+							add = old_orthodox_value
+							add = old_jewish_value
+							add = old_armenian_value
+							add = old_assyrian_value
+						}
 					}
 				}
 			}
@@ -9512,7 +9487,6 @@ focus_tree = {
 							value = TUR_orthodox_population_factor_new
 							add = 0.1
 						}
-						subtract = old_orthodox_value
 					}
 				}
 
@@ -9525,7 +9499,6 @@ focus_tree = {
 							value = TUR_catholic_population_factor_new
 							add = 0.1
 						}
-						subtract = old_catholic_value
 					}
 				}
 
@@ -9538,7 +9511,6 @@ focus_tree = {
 							value = TUR_jewish_population_factor_new
 							add = 0.1
 						}
-						subtract = old_jewish_value
 					}
 				}
 
@@ -9551,7 +9523,6 @@ focus_tree = {
 							value = TUR_armenian_population_factor_new
 							add = 0.1
 						}
-						subtract = old_armenian_value
 					}
 				}
 
@@ -9564,19 +9535,9 @@ focus_tree = {
 							value = TUR_assyrian_population_factor_new
 							add = 0.1
 						}
-						subtract = old_assyrian_value
 					}
 				}
 
-				set_temp_variable = {
-					TUR_reintroduce_jizya_old = {
-						value = old_catholic_value
-						add = old_orthodox_value
-						add = old_armenian_value
-						add = old_assyrian_value
-						add = old_jewish_value
-					}
-				}
 				set_temp_variable = {
 					TUR_reintroduce_jizya = {
 						value = TUR_reintroduce_jizya_catholic
@@ -9584,7 +9545,13 @@ focus_tree = {
 						add = TUR_reintroduce_jizya_armenian
 						add = TUR_reintroduce_jizya_assyrian
 						add = TUR_reintroduce_jizya_jewish
-						subtract = TUR_reintroduce_jizya_old
+						subtract = {
+							value = old_catholic_value
+							add = old_orthodox_value
+							add = old_armenian_value
+							add = old_assyrian_value
+							add = old_jewish_value
+						}
 					}
 				}
 			}
@@ -9645,7 +9612,6 @@ focus_tree = {
 							value = TUR_orthodox_population_factor_new
 							add = -0.1
 						}
-						subtract = old_orthodox_value
 					}
 				}
 
@@ -9658,7 +9624,6 @@ focus_tree = {
 							value = TUR_catholic_population_factor_new
 							add = -0.1
 						}
-						subtract = old_catholic_value
 					}
 				}
 
@@ -9671,7 +9636,6 @@ focus_tree = {
 							value = TUR_jewish_population_factor_new
 							add = -0.1
 						}
-						subtract = old_jewish_value
 					}
 				}
 
@@ -9684,7 +9648,6 @@ focus_tree = {
 							value = TUR_armenian_population_factor_new
 							add = -0.1
 						}
-						subtract = old_armenian_value
 					}
 				}
 
@@ -9697,19 +9660,9 @@ focus_tree = {
 							value = TUR_assyrian_population_factor_new
 							add = -0.1
 						}
-						subtract = old_assyrian_value
 					}
 				}
 
-				set_temp_variable = {
-					TUR_autonomy_in_non_muslim_vilayets_old = {
-						value = old_catholic_value
-						add = old_orthodox_value
-						add = old_armenian_value
-						add = old_assyrian_value
-						add = old_jewish_value
-					}
-				}
 				set_temp_variable = {
 					TUR_autonomy_in_non_muslim_vilayets = {
 						value = TUR_autonomy_in_non_muslim_vilayets_catholic
@@ -9717,7 +9670,13 @@ focus_tree = {
 						add = TUR_autonomy_in_non_muslim_vilayets_armenian
 						add = TUR_autonomy_in_non_muslim_vilayets_assyrian
 						add = TUR_autonomy_in_non_muslim_vilayets_jewish
-						subtract = TUR_autonomy_in_non_muslim_vilayets_old
+						subtract = {
+							value = old_catholic_value
+							add = old_orthodox_value
+							add = old_armenian_value
+							add = old_assyrian_value
+							add = old_jewish_value
+						}
 					}
 				}
 			}
@@ -9806,7 +9765,6 @@ focus_tree = {
 							value = TUR_orthodox_population_factor_new
 							add = 0.1
 						}
-						subtract = old_orthodox_value
 					}
 				}
 
@@ -9819,7 +9777,6 @@ focus_tree = {
 							value = TUR_catholic_population_factor_new
 							add = 0.1
 						}
-						subtract = old_catholic_value
 					}
 				}
 
@@ -9832,7 +9789,6 @@ focus_tree = {
 							value = TUR_armenian_population_factor_new
 							add = 0.1
 						}
-						subtract = old_armenian_value
 					}
 				}
 
@@ -9845,7 +9801,6 @@ focus_tree = {
 							value = TUR_assyrian_population_factor_new
 							add = 0.1
 						}
-						subtract = old_assyrian_value
 					}
 				}
 
@@ -9858,19 +9813,9 @@ focus_tree = {
 							value = TUR_jewish_population_factor_new
 							add = 0.1
 						}
-						subtract = old_jewish_value
 					}
 				}
 
-				set_temp_variable = {
-					TUR_drive_out_the_infidels_old = {
-						value = old_catholic_value
-						add = old_orthodox_value
-						add = old_armenian_value
-						add = old_assyrian_value
-						add = old_jewish_value
-					}
-				}
 				set_temp_variable = {
 					TUR_drive_out_the_infidels = {
 						value = TUR_drive_out_the_infidels_catholic
@@ -9878,7 +9823,13 @@ focus_tree = {
 						add = TUR_drive_out_the_infidels_armenian
 						add = TUR_drive_out_the_infidels_assyrian
 						add = TUR_drive_out_the_infidels_jewish
-						subtract = TUR_drive_out_the_infidels_old
+						subtract = {
+							value = old_catholic_value
+							add = old_orthodox_value
+							add = old_armenian_value
+							add = old_assyrian_value
+							add = old_jewish_value
+						}
 					}
 				}
 			}
@@ -18327,7 +18278,6 @@ focus_tree = {
 							value = TUR_sunni_population_factor_new
 							add = 0.3
 						}
-						subtract = old_sunni_value
 					}
 				}
 				
@@ -18340,7 +18290,6 @@ focus_tree = {
 							value = TUR_shia_population_factor_new
 							add = 0.1
 						}
-						subtract = old_shia_value
 					}
 				}
 
@@ -18353,7 +18302,6 @@ focus_tree = {
 							value = TUR_orthodox_population_factor_new
 							add = -0.3
 						}
-						subtract = old_orthodox_value
 					}
 				}
 
@@ -18366,7 +18314,6 @@ focus_tree = {
 							value = TUR_catholic_population_factor_new
 							add = -0.3
 						}
-						subtract = old_catholic_value
 					}
 				}
 
@@ -18379,7 +18326,6 @@ focus_tree = {
 							value = TUR_jewish_population_factor_new
 							add = -0.3
 						}
-						subtract = old_jewish_value
 					}
 				}
 
@@ -18392,7 +18338,6 @@ focus_tree = {
 							value = TUR_armenian_population_factor_new
 							add = -0.3
 						}
-						subtract = old_armenian_value
 					}
 				}
 
@@ -18405,21 +18350,9 @@ focus_tree = {
 							value = TUR_assyrian_population_factor_new
 							add = -0.3
 						}
-						subtract = old_assyrian_value
 					}
 				}
 
-				set_temp_variable = {
-					TUR_revive_the_ottomanism_dream_old = {
-						value = old_sunni_value
-						add = old_shia_value
-						add = old_catholic_value
-						add = old_orthodox_value
-						add = old_jewish_value
-						add = old_armenian_value
-						add = old_assyrian_value
-					}
-				}
 				set_temp_variable = {
 					TUR_revive_the_ottomanism_dream = {
 						value = TUR_revive_the_ottomanism_dream_sunni
@@ -18429,7 +18362,15 @@ focus_tree = {
 						add = TUR_revive_the_ottomanism_dream_jewish
 						add = TUR_revive_the_ottomanism_dream_armenian
 						add = TUR_revive_the_ottomanism_dream_assyrian
-						subtract = TUR_revive_the_ottomanism_dream_old
+						subtract = {
+							value = old_sunni_value
+							add = old_shia_value
+							add = old_catholic_value
+							add = old_orthodox_value
+							add = old_jewish_value
+							add = old_armenian_value
+							add = old_assyrian_value
+						}
 					}
 				}
 			}
@@ -18485,7 +18426,6 @@ focus_tree = {
 							value = TUR_orthodox_population_factor_new
 							add = 0.1
 						}
-						subtract = old_orthodox_value
 					}
 				}
 
@@ -18498,7 +18438,6 @@ focus_tree = {
 							value = TUR_catholic_population_factor_new
 							add = 0.1
 						}
-						subtract = old_catholic_value
 					}
 				}
 
@@ -18511,7 +18450,6 @@ focus_tree = {
 							value = TUR_armenian_population_factor_new
 							add = 0.1
 						}
-						subtract = old_armenian_value
 					}
 				}
 
@@ -18524,25 +18462,21 @@ focus_tree = {
 							value = TUR_assyrian_population_factor_new
 							add = 0.1
 						}
-						subtract = old_assyrian_value
 					}
 				}
 
-				set_temp_variable = {
-					TUR_christian_recruitments_old = {
-						value = old_catholic_value
-						add = old_orthodox_value
-						add = old_armenian_value
-						add = old_assyrian_value
-					}
-				}
 				set_temp_variable = {
 					TUR_christian_recruitments = {
 						value = TUR_christian_recruitments_orthodox
 						add = TUR_christian_recruitments_catholic
 						add = TUR_christian_recruitments_armenian
 						add = TUR_christian_recruitments_assyrian
-						subtract = TUR_christian_recruitments_old
+						subtract = {
+							value = old_catholic_value
+							add = old_orthodox_value
+							add = old_armenian_value
+							add = old_assyrian_value
+						}
 					}
 				}
 			}
@@ -18601,7 +18535,6 @@ focus_tree = {
 							value = TUR_armenian_population_factor_new
 							add = 0.1
 						}
-						subtract = old_armenian_value
 					}
 				}
 
@@ -18614,7 +18547,6 @@ focus_tree = {
 							value = TUR_arab_population_factor_new
 							add = 0.1
 						}
-						subtract = old_arab_value
 					}
 				}
 				
@@ -18627,7 +18559,6 @@ focus_tree = {
 							value = TUR_kurdish_population_factor_new
 							add = 0.1
 						}
-						subtract = old_kurdish_value
 					}
 				}
 
@@ -18640,25 +18571,21 @@ focus_tree = {
 							value = TUR_jewish_population_factor_new
 							add = 0.1
 						}
-						subtract = old_jewish_value
 					}
 				}
 
-				set_temp_variable = {
-					old_armenian_arab_kurdish_jewish_value = {
-						value = old_armenian_value
-						add = old_arab_value
-						add = old_kurdish_value
-						add = old_jewish_value
-					}
-				}
 				set_temp_variable = {
 					TUR_one_language_one_religion_one_nation = {
 						value = TUR_one_language_one_religion_one_nation_armenian
 						add = TUR_one_language_one_religion_one_nation_arab
 						add = TUR_one_language_one_religion_one_nation_kurdish
 						add = TUR_one_language_one_religion_one_nation_jewish
-						subtract = old_armenian_arab_kurdish_jewish_value
+						subtract = {
+							value = old_armenian_value
+							add = old_arab_value
+							add = old_kurdish_value
+							add = old_jewish_value
+						}
 					}
 				}
 			}
@@ -18959,7 +18886,6 @@ focus_tree = {
 							value = TUR_armenian_population_factor_new
 							add = 0.1
 						}
-						subtract = old_armenian_value
 					}
 				}
 				
@@ -18972,21 +18898,17 @@ focus_tree = {
 							value = TUR_assyrian_population_factor_new
 							add = 0.1
 						}
-						subtract = old_assyrian_value
 					}
 				}
 
 				set_temp_variable = {
-					old_armenian_assyrian_value = {
-						value = old_armenian_value
-						add = old_assyrian_value
-					}
-				}
-				set_temp_variable = {
 					TUR_temporary_law_of_deportation = {
 						value = TUR_temporary_law_of_deportation_armenia
 						add = TUR_temporary_law_of_deportation_assyria
-						subtract = old_armenian_assyrian_value
+						subtract = {
+							value = old_armenian_value
+							add = old_assyrian_value
+						}
 					}
 				}
 			}
