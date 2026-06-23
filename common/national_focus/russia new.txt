@@ -3312,6 +3312,7 @@ focus_tree = {
 				RUS_nikolay_maklakov = {
 					RUS_appoint_interior_minister = yes
 				}
+				activate_advisor = RUS_nikolay_maklakov
 			}
 			effect_tooltip = {
 				RUS_nikolay_maklakov = {
@@ -3441,6 +3442,7 @@ focus_tree = {
 				RUS_sergei_kryzhanovsky = {
 					RUS_appoint_interior_minister = yes
 				}
+				activate_advisor = RUS_sergei_kryzhanovsky
 			}
 			effect_tooltip = {
 				RUS_sergei_kryzhanovsky = {
@@ -3734,6 +3736,7 @@ focus_tree = {
 					RUS_nikolai_shcherbatov = {
 						RUS_appoint_interior_minister = yes
 					}
+					activate_advisor = RUS_nikolai_shcherbatov
 				}
 				effect_tooltip = {
 					RUS_nikolai_shcherbatov = {
@@ -3859,20 +3862,21 @@ focus_tree = {
 		relative_position_id = RUS_meet_with_duma_members
 		available_if_capitulated = yes
 		completion_reward = {
+			hidden_effect = {
+				RUS_clear_the_cabinet = yes
+				RUS_alexander_krivoshein = {
+					RUS_appoint_agriculture_minister = yes
+				}
+			}
 			if = {
 				limit = {
 					has_country_flag = krivoshein_chairman_flag
 				}
 				hidden_effect = {
-					every_character = {
-						limit = {
-							is_prime_minister = yes
-						}
-						RUS_remove_from_the_cabinet = yes
-					}
 					RUS_alexander_krivoshein = {
 						RUS_appoint_chairman = yes
 					}
+					activate_advisor = RUS_alexander_krivoshein
 				}
 				effect_tooltip = {
 					RUS_alexander_krivoshein = {
@@ -3884,41 +3888,12 @@ focus_tree = {
 			else_if = {
 				limit = {
 					has_country_flag = lvov_chairman_flag
-					has_country_flag = lvov_internal_affairs_flag
 				}
 				hidden_effect = {
-					every_character = {
-						limit = {
-							is_prime_minister = yes
-						}
-						RUS_remove_from_the_cabinet = yes
-					}
 					RUS_georgiy_lvov = {
 						RUS_appoint_chairman = yes
 					}
-				}
-				effect_tooltip = {
-					RUS_georgiy_lvov = {
-						RUS_appoint_chairman = yes
-						RUS_appoint_interior_minister = yes
-					}
-					show_ideas_tooltip = RUS_georgiy_lvov
-				}
-			}
-			else_if = {
-				limit = {
-					has_country_flag = lvov_chairman_flag
-				}
-				hidden_effect = {
-					every_character = {
-						limit = {
-							is_prime_minister = yes
-						}
-						RUS_remove_from_the_cabinet = yes
-					}
-					RUS_georgiy_lvov = {
-						RUS_appoint_chairman = yes
-					}
+					activate_advisor = RUS_georgiy_lvov
 				}
 				effect_tooltip = {
 					RUS_georgiy_lvov = {
@@ -3930,20 +3905,12 @@ focus_tree = {
 			if = {
 				limit = {
 					has_country_flag = kryzhanovsky_internal_affairs_flag
-					RUS_sergei_kryzhanovsky = {
-						is_minister_of_internal_affairs = no
-					}
 				}
 				hidden_effect = {
-					every_character = {
-						limit = {
-							is_minister_of_internal_affairs = yes
-						}
-						RUS_remove_from_the_cabinet = yes
-					}
 					RUS_sergei_kryzhanovsky = {
 						RUS_appoint_interior_minister = yes
 					}
+					activate_advisor = RUS_sergei_kryzhanovsky
 				}
 				effect_tooltip = {
 					RUS_sergei_kryzhanovsky = {
@@ -3952,23 +3919,32 @@ focus_tree = {
 					show_ideas_tooltip = RUS_sergei_kryzhanovsky
 				}
 			}
+			else_if = {
+				limit = {
+					has_country_flag = lvov_internal_affairs_flag
+				}
+				hidden_effect = {
+					RUS_georgiy_lvov = {
+						RUS_appoint_interior_minister = yes
+					}
+					activate_advisor = RUS_georgiy_lvov
+				}
+				effect_tooltip = {
+					RUS_georgiy_lvov = {
+						RUS_appoint_interior_minister = yes
+					}
+					show_ideas_tooltip = RUS_georgiy_lvov
+				}
+			}
 			if = {
 				limit = {
 					has_country_flag = bark_finance_flag
-					RUS_pyotr_bark = {
-						is_minister_of_finance = no
-					}
 				}
 				hidden_effect = {
-					every_character = {
-						limit = {
-							is_minister_of_finance = yes
-						}
-						RUS_remove_from_the_cabinet = yes
-					}
 					RUS_pyotr_bark = {
 						RUS_appoint_finance_minister = yes
 					}
+					activate_advisor = RUS_andrei_shingarev
 				}
 				effect_tooltip = {
 					RUS_pyotr_bark = {
@@ -3979,27 +3955,19 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					has_country_flag = bark_finance_flag
-					RUS_pyotr_bark = {
-						is_minister_of_finance = no
-					}
+					has_country_flag = shingarev_finance_flag
 				}
 				hidden_effect = {
-					every_character = {
-						limit = {
-							is_minister_of_finance = yes
-						}
-						RUS_remove_from_the_cabinet = yes
-					}
-					RUS_pyotr_bark = {
+					RUS_andrei_shingarev = {
 						RUS_appoint_finance_minister = yes
 					}
+					activate_advisor = RUS_andrei_shingarev
 				}
 				effect_tooltip = {
-					RUS_pyotr_bark = {
+					RUS_andrei_shingarev = {
 						RUS_appoint_finance_minister = yes
 					}
-					show_ideas_tooltip = RUS_pyotr_bark
+					show_ideas_tooltip = RUS_andrei_shingarev
 				}
 			}
 			if = {
@@ -4174,6 +4142,7 @@ focus_tree = {
 				RUS_alexei_khvostov = {
 					RUS_appoint_interior_minister = yes
 				}
+				activate_advisor = RUS_alexei_khvostov
 			}
 			effect_tooltip = {
 				RUS_alexei_khvostov = {
