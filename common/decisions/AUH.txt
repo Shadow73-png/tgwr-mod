@@ -3391,13 +3391,15 @@ AUH_the_imperial_council = {
 	}
 	AUS_reopening_reichsrat = {
 		priority = 99
-		icon = GFX_decision_eng_trade_unions_demand
+		icon = GFX_decision_SWI_no_elected_president
 		allowed = {
 			original_tag = AUS
 		}
 		days_mission_timeout = 120
 		available = {
-			has_completed_focus = AUS_reopen_the_reichsrat
+			hidden_trigger = {
+				always = no
+			}
 		}
 		visible = {
 			original_tag = AUS
@@ -3406,9 +3408,10 @@ AUH_the_imperial_council = {
 			always = no
 		}
 		timeout_effect = {
+			complete_national_focus = AUS_reopen_the_reichsrat
 		}
 		fire_only_once = no
-		is_good = no
+		is_good = yes
 	}
 	AUS_king_intervention = {
 		priority = 99
