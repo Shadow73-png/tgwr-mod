@@ -478,25 +478,36 @@ TUR_millet_system = {
 			set_variable = { TUR_catholic_population_factor_beirut = TUR_catholic_population_factor_new }
 
 			hidden_effect = {
-				set_temp_variable = { old_armenian_value = TUR_armenian_apostolic_minority_value_aleppo }
-				set_temp_variable = { TRS_fund_regional_churches_armenian = old_armenian_value }
-				divide_temp_variable = { TRS_fund_regional_churches_armenian = TUR_apostolic_population_factor_new }
+				set_temp_variable = {
+					TRS_fund_regional_churches_armenian = {
+						value = TUR_armenian_apostolic_minority_value_aleppo
+						divide = TUR_apostolic_population_factor_new
+					}
+				}
 
-				set_temp_variable = { old_orthodox_value = TUR_greek_orthodox_minority_value_aleppo }
-				add_to_temp_variable = { old_orthodox_value = TUR_arab_orthodox_minority_value_beirut }
-				set_temp_variable = { TRS_fund_regional_churches_orthodox = old_orthodox_value }
-				divide_temp_variable = { TRS_fund_regional_churches_orthodox = TUR_orthodox_population_factor_new }
+				set_temp_variable = {
+					TRS_fund_regional_churches_orthodox = {
+						value = TUR_greek_orthodox_minority_value_aleppo
+						divide = TUR_orthodox_population_factor_new
+					}
+				}
 
-				set_temp_variable = { old_catholic_value = TUR_arab_catholic_minority_value_beirut }
-				set_temp_variable = { TRS_fund_regional_churches_catholic = old_catholic_value }
-				divide_temp_variable = { TRS_fund_regional_churches_catholic = TUR_catholic_population_factor_new }
+				set_temp_variable = {
+					TRS_fund_regional_churches_catholic = {
+						value = TUR_arab_catholic_minority_value_beirut
+						divide = TUR_catholic_population_factor_new
+					}
+				}
 
-				set_temp_variable = { TRS_fund_regional_churches = TRS_fund_regional_churches_catholic }
-				add_to_temp_variable = { TRS_fund_regional_churches = TRS_fund_regional_churches_orthodox }
-				add_to_temp_variable = { TRS_fund_regional_churches = TRS_fund_regional_churches_armenian }
-				multiply_temp_variable = { TRS_fund_regional_churches = -1 }
-
-				subtract_from_temp_variable = { TRS_fund_regional_churches = TRS_fund_regional_churches_old }
+				set_temp_variable = {
+					TRS_fund_regional_churches = {
+						value = TRS_fund_regional_churches_catholic
+						add = TRS_fund_regional_churches_orthodox
+						add = TRS_fund_regional_churches_armenian
+						multiply = -1
+						subtract = TRS_fund_regional_churches_old
+					}
+				}
 			}
 			custom_effect_tooltip = TRS_fund_regional_churches_tt
 			TUR_reload_minority_values = yes
@@ -508,24 +519,36 @@ TUR_millet_system = {
 			clear_variable = TUR_catholic_population_factor_beirut
 
 			hidden_effect = {
-				set_temp_variable = { old_armenian_value = TUR_armenian_apostolic_minority_value_aleppo }
-				set_temp_variable = { TRS_fund_regional_churches_armenian = old_armenian_value }
-				divide_temp_variable = { TRS_fund_regional_churches_armenian = TUR_apostolic_population_factor_new }
+				set_temp_variable = {
+					TRS_fund_regional_churches_armenian = {
+						value = TUR_armenian_apostolic_minority_value_aleppo
+						divide = TUR_apostolic_population_factor_new
+					}
+				}
 
-				set_temp_variable = { old_orthodox_value = TUR_greek_orthodox_minority_value_aleppo }
-				add_to_temp_variable = { old_orthodox_value = TUR_arab_orthodox_minority_value_beirut }
-				set_temp_variable = { TRS_fund_regional_churches_orthodox = old_orthodox_value }
-				divide_temp_variable = { TRS_fund_regional_churches_orthodox = TUR_orthodox_population_factor_new }
+				set_temp_variable = {
+					TRS_fund_regional_churches_orthodox = {
+						value = TUR_greek_orthodox_minority_value_aleppo
+						divide = TUR_orthodox_population_factor_new
+					}
+				}
 
-				set_temp_variable = { old_catholic_value = TUR_arab_catholic_minority_value_beirut }
-				set_temp_variable = { TRS_fund_regional_churches_catholic = old_catholic_value }
-				divide_temp_variable = { TRS_fund_regional_churches_catholic = TUR_catholic_population_factor_new }
+				set_temp_variable = {
+					TRS_fund_regional_churches_catholic = {
+						value = TUR_arab_catholic_minority_value_beirut
+						divide = TUR_catholic_population_factor_new
+					}
+				}
 
-				set_temp_variable = { TRS_fund_regional_churches2 = TRS_fund_regional_churches_catholic }
-				add_to_temp_variable = { TRS_fund_regional_churches2 = TRS_fund_regional_churches_orthodox }
-				add_to_temp_variable = { TRS_fund_regional_churches2 = TRS_fund_regional_churches_armenian }
-
-				subtract_from_temp_variable = { TRS_fund_regional_churches2 = TRS_fund_regional_churches_old }
+				set_temp_variable = {
+					TRS_fund_regional_churches2 = {
+						value = TRS_fund_regional_churches_catholic
+						add = TRS_fund_regional_churches_orthodox
+						add = TRS_fund_regional_churches_armenian
+						multiply = -1
+						subtract = TRS_fund_regional_churches_old
+					}
+				}
 			}
 			custom_effect_tooltip = TRS_fund_regional_churches_tt2
 			TUR_reload_minority_values = yes

@@ -21562,12 +21562,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_arab_value = yes
-				set_temp_variable = { TUR_abdulhamid_zehravi2_var = old_arab_value }
-				divide_temp_variable = { TUR_abdulhamid_zehravi2_var = TUR_arab_population_factor_new }
-				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
-				add_to_temp_variable = { TUR_arab_population_factor_focus = -0.05 }
-				multiply_temp_variable = { TUR_abdulhamid_zehravi2_var = TUR_arab_population_factor_focus }
-				subtract_from_temp_variable = { TUR_abdulhamid_zehravi2_var = old_arab_value }
+				set_temp_variable = {
+					TUR_abdulhamid_zehravi2_var = {
+						value = old_arab_value
+						divide = TUR_arab_population_factor_new
+						multiply = {
+							value = TUR_arab_population_factor_new
+							add = -0.05
+						}
+						subtract = old_arab_value
+					}
+				}
 			}
 			add_to_variable = { TUR_arab_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_abdulhamid_zehravi2_tt
@@ -21625,12 +21630,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_arab_value = yes
-				set_temp_variable = { TUR_abdulhamid_zehravi2_var2 = old_arab_value }
-				divide_temp_variable = { TUR_abdulhamid_zehravi2_var2 = TUR_arab_population_factor_new }
-				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
-				add_to_temp_variable = { TUR_arab_population_factor_focus = 0.05 }
-				multiply_temp_variable = { TUR_abdulhamid_zehravi2_var2 = TUR_arab_population_factor_focus }
-				subtract_from_temp_variable = { TUR_abdulhamid_zehravi2_var2 = old_arab_value }
+				set_temp_variable = {
+					TUR_abdulhamid_zehravi2_var2 = {
+						value = old_arab_value
+						divide = TUR_arab_population_factor_new
+						multiply = {
+							value = TUR_arab_population_factor_new
+							add = 0.05
+						}
+						subtract = old_arab_value
+					}
+				}
 			}
 			add_to_variable = { TUR_arab_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_abdulhamid_zehravi2_tt2
@@ -22183,12 +22193,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_arab_value = yes
-				set_temp_variable = { TUR_sukru_el_aseli2_var = old_arab_value }
-				divide_temp_variable = { TUR_sukru_el_aseli2_var = TUR_arab_population_factor_new }
-				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
-				add_to_temp_variable = { TUR_arab_population_factor_focus = -0.05 }
-				multiply_temp_variable = { TUR_sukru_el_aseli2_var = TUR_arab_population_factor_focus }
-				subtract_from_temp_variable = { TUR_sukru_el_aseli2_var = old_arab_value }
+				set_temp_variable = {
+					TUR_sukru_el_aseli2_var = {
+						value = old_arab_value
+						divide = TUR_arab_population_factor_new
+						multiply = {
+							value = TUR_arab_population_factor_new
+							add = -0.05
+						}
+						subtract = old_arab_value
+					}
+				}
 			}
 			add_to_variable = { TUR_arab_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_sukru_el_aseli2_tt
@@ -22246,12 +22261,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_arab_value = yes
-				set_temp_variable = { TUR_sukru_el_aseli2_var2 = old_arab_value }
-				divide_temp_variable = { TUR_sukru_el_aseli2_var2 = TUR_arab_population_factor_new }
-				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
-				add_to_temp_variable = { TUR_arab_population_factor_focus = 0.05 }
-				multiply_temp_variable = { TUR_sukru_el_aseli2_var2 = TUR_arab_population_factor_focus }
-				subtract_from_temp_variable = { TUR_sukru_el_aseli2_var2 = old_arab_value }
+				set_temp_variable = {
+					TUR_sukru_el_aseli2_var2 = {
+						value = old_arab_value
+						divide = TUR_arab_population_factor_new
+						multiply = {
+							value = TUR_arab_population_factor_new
+							add = 0.05
+						}
+						subtract = old_arab_value
+					}
+				}
 			}
 			add_to_variable = { TUR_arab_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_sukru_el_aseli2_tt2
@@ -22616,15 +22636,20 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			custom_effect_tooltip = empty_space
 			hidden_effect = {
 				#for tooltip
-				TUR_set_old_arab_value = yes
-				set_temp_variable = { TUR_mehmed_serif_pasa2_var = old_arab_value }
-				divide_temp_variable = { TUR_mehmed_serif_pasa2_var = TUR_arab_population_factor_new }
-				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
-				add_to_temp_variable = { TUR_arab_population_factor_focus = -0.05 }
-				multiply_temp_variable = { TUR_mehmed_serif_pasa2_var = TUR_arab_population_factor_focus }
-				subtract_from_temp_variable = { TUR_mehmed_serif_pasa2_var = old_arab_value }
+				TUR_set_old_kurdish_value = yes
+				set_temp_variable = {
+					TUR_mehmed_serif_pasa2_var = {
+						value = old_kurdish_value
+						divide = TUR_kurdish_population_factor_new
+						multiply = {
+							value = TUR_kurdish_population_factor_new
+							add = -0.05
+						}
+						subtract = old_kurdish_value
+					}
+				}
 			}
-			add_to_variable = { TUR_arab_population_factor_new = -0.05 }
+			add_to_variable = { TUR_kurdish_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_mehmed_serif_pasa2_tt
 			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
@@ -22684,15 +22709,20 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			custom_effect_tooltip = empty_space
 			hidden_effect = {
 				#for tooltip
-				TUR_set_old_arab_value = yes
-				set_temp_variable = { TUR_mehmed_serif_pasa2_var2 = old_arab_value }
-				divide_temp_variable = { TUR_mehmed_serif_pasa2_var2 = TUR_arab_population_factor_new }
-				set_temp_variable = { TUR_arab_population_factor_focus = TUR_arab_population_factor_new }
-				add_to_temp_variable = { TUR_arab_population_factor_focus = 0.05 }
-				multiply_temp_variable = { TUR_mehmed_serif_pasa2_var2 = TUR_arab_population_factor_focus }
-				subtract_from_temp_variable = { TUR_mehmed_serif_pasa2_var2 = old_arab_value }
+				TUR_set_old_kurdish_value = yes
+				set_temp_variable = {
+					TUR_mehmed_serif_pasa2_var2 = {
+						value = old_kurdish_value
+						divide = TUR_kurdish_population_factor_new
+						multiply = {
+							value = TUR_kurdish_population_factor_new
+							add = 0.05
+						}
+						subtract = old_kurdish_value
+					}
+				}
 			}
-			add_to_variable = { TUR_arab_population_factor_new = 0.05 }
+			add_to_variable = { TUR_kurdish_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_mehmed_serif_pasa2_tt2
 			TUR_reload_minority_values = yes
 			force_update_dynamic_modifier = yes
@@ -24058,12 +24088,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_greek_value = yes
-				set_temp_variable = { TUR_kozmidi_efendi2_var = old_greek_value }
-				divide_temp_variable = { TUR_kozmidi_efendi2_var = TUR_greek_population_factor_new }
-				set_temp_variable = { TUR_greek_population_factor_focus = TUR_greek_population_factor_new }
-				add_to_temp_variable = { TUR_greek_population_factor_focus = -0.05 }
-				multiply_temp_variable = { TUR_kozmidi_efendi2_var = TUR_greek_population_factor_focus }
-				subtract_from_temp_variable = { TUR_kozmidi_efendi2_var = old_greek_value }
+				set_temp_variable = {
+					TUR_kozmidi_efendi2_var = {
+						value = old_greek_value
+						divide = TUR_greek_population_factor_new
+						multiply = {
+							value = TUR_greek_population_factor_new
+							add = -0.05
+						}
+						subtract = old_greek_value
+					}
+				}
 			}
 			add_to_variable = { TUR_greek_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_kozmidi_efendi2_tt
@@ -24143,12 +24178,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_greek_value = yes
-				set_temp_variable = { TUR_kozmidi_efendi2_var2 = old_greek_value }
-				divide_temp_variable = { TUR_kozmidi_efendi2_var2 = TUR_greek_population_factor_new }
-				set_temp_variable = { TUR_greek_population_factor_focus = TUR_greek_population_factor_new }
-				add_to_temp_variable = { TUR_greek_population_factor_focus = 0.05 }
-				multiply_temp_variable = { TUR_kozmidi_efendi2_var2 = TUR_greek_population_factor_focus }
-				subtract_from_temp_variable = { TUR_kozmidi_efendi2_var2 = old_greek_value }
+				set_temp_variable = {
+					TUR_kozmidi_efendi2_var2 = {
+						value = old_greek_value
+						divide = TUR_greek_population_factor_new
+						multiply = {
+							value = TUR_greek_population_factor_new
+							add = 0.05
+						}
+						subtract = old_greek_value
+					}
+				}
 			}
 			add_to_variable = { TUR_greek_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_kozmidi_efendi2_tt2
@@ -24252,12 +24292,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_serbian_value = yes
-				set_temp_variable = { TUR_sava_stojanovic2_var = old_serbian_value }
-				divide_temp_variable = { TUR_sava_stojanovic2_var = TUR_serbian_population_factor_new }
-				set_temp_variable = { TUR_serbian_population_factor_focus = TUR_serbian_population_factor_new }
-				add_to_temp_variable = { TUR_serbian_population_factor_focus = -0.05 }
-				multiply_temp_variable = { TUR_sava_stojanovic2_var = TUR_serbian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_sava_stojanovic2_var = old_serbian_value }
+				set_temp_variable = {
+					TUR_sava_stojanovic2_var = {
+						value = old_serbian_value
+						divide = TUR_serbian_population_factor_new
+						multiply = {
+							value = TUR_serbian_population_factor_new
+							add = -0.05
+						}
+						subtract = old_serbian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_serbian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_sava_stojanovic2_tt
@@ -24332,12 +24377,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_serbian_value = yes
-				set_temp_variable = { TUR_sava_stojanovic2_var2 = old_serbian_value }
-				divide_temp_variable = { TUR_sava_stojanovic2_var2 = TUR_serbian_population_factor_new }
-				set_temp_variable = { TUR_serbian_population_factor_focus = TUR_serbian_population_factor_new }
-				add_to_temp_variable = { TUR_serbian_population_factor_focus = 0.05 }
-				multiply_temp_variable = { TUR_sava_stojanovic2_var2 = TUR_serbian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_sava_stojanovic2_var2 = old_serbian_value }
+				set_temp_variable = {
+					TUR_sava_stojanovic2_var2 = {
+						value = old_serbian_value
+						divide = TUR_serbian_population_factor_new
+						multiply = {
+							value = TUR_serbian_population_factor_new
+							add = 0.05
+						}
+						subtract = old_serbian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_serbian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_sava_stojanovic2_tt2
@@ -24457,12 +24507,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_bulgarian_value = yes
-				set_temp_variable = { TUR_todor_pavlof2_var = old_bulgarian_value }
-				divide_temp_variable = { TUR_todor_pavlof2_var = TUR_bulgarian_population_factor_new }
-				set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
-				add_to_temp_variable = { TUR_bulgarian_population_factor_focus = -0.05 }
-				multiply_temp_variable = { TUR_todor_pavlof2_var = TUR_bulgarian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_todor_pavlof2_var = old_bulgarian_value }
+				set_temp_variable = {
+					TUR_todor_pavlof2_var = {
+						value = old_bulgarian_value
+						divide = TUR_bulgarian_population_factor_new
+						multiply = {
+							value = TUR_bulgarian_population_factor_new
+							add = -0.05
+						}
+						subtract = old_bulgarian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_bulgarian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_todor_pavlof2_tt
@@ -24540,12 +24595,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_bulgarian_value = yes
-				set_temp_variable = { TUR_todor_pavlof2_var2 = old_bulgarian_value }
-				divide_temp_variable = { TUR_todor_pavlof2_var2 = TUR_bulgarian_population_factor_new }
-				set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
-				add_to_temp_variable = { TUR_bulgarian_population_factor_focus = 0.05 }
-				multiply_temp_variable = { TUR_todor_pavlof2_var2 = TUR_bulgarian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_todor_pavlof2_var2 = old_bulgarian_value }
+				set_temp_variable = {
+					TUR_todor_pavlof2_var2 = {
+						value = old_bulgarian_value
+						divide = TUR_bulgarian_population_factor_new
+						multiply = {
+							value = TUR_bulgarian_population_factor_new
+							add = 0.05
+						}
+						subtract = old_bulgarian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_bulgarian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_todor_pavlof2_tt2
@@ -24665,12 +24725,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_bulgarian_value = yes
-				set_temp_variable = { TUR_dimitar_vlahov2_var = old_bulgarian_value }
-				divide_temp_variable = { TUR_dimitar_vlahov2_var = TUR_bulgarian_population_factor_new }
-				set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
-				add_to_temp_variable = { TUR_bulgarian_population_factor_focus = -0.05 }
-				multiply_temp_variable = { TUR_dimitar_vlahov2_var = TUR_bulgarian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_dimitar_vlahov2_var = old_bulgarian_value }
+				set_temp_variable = {
+					TUR_dimitar_vlahov2_var = {
+						value = old_bulgarian_value
+						divide = TUR_bulgarian_population_factor_new
+						multiply = {
+							value = TUR_bulgarian_population_factor_new
+							add = -0.05
+						}
+						subtract = old_bulgarian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_bulgarian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_dimitar_vlahov2_tt
@@ -24748,12 +24813,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_bulgarian_value = yes
-				set_temp_variable = { TUR_dimitar_vlahov2_var2 = old_bulgarian_value }
-				divide_temp_variable = { TUR_dimitar_vlahov2_var2 = TUR_bulgarian_population_factor_new }
-				set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
-				add_to_temp_variable = { TUR_bulgarian_population_factor_focus = 0.05 }
-				multiply_temp_variable = { TUR_dimitar_vlahov2_var2 = TUR_bulgarian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_dimitar_vlahov2_var2 = old_bulgarian_value }
+				set_temp_variable = {
+					TUR_dimitar_vlahov2_var2 = {
+						value = old_bulgarian_value
+						divide = TUR_bulgarian_population_factor_new
+						multiply = {
+							value = TUR_bulgarian_population_factor_new
+							add = -0.05
+						}
+						subtract = old_bulgarian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_bulgarian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_dimitar_vlahov2_tt2
@@ -24858,12 +24928,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_armenian_value = yes
-				set_temp_variable = { TUR_hampartsoum_boyadjian2_var = old_armenian_value }
-				divide_temp_variable = { TUR_hampartsoum_boyadjian2_var = TUR_armenian_population_factor_new }
-				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
-				add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.05 }
-				multiply_temp_variable = { TUR_hampartsoum_boyadjian2_var = TUR_armenian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_hampartsoum_boyadjian2_var = old_armenian_value }
+				set_temp_variable = {
+					TUR_hampartsoum_boyadjian2_var = {
+						value = old_armenian_value
+						divide = TUR_armenian_population_factor_new
+						multiply = {
+							value = TUR_armenian_population_factor_new
+							add = -0.05
+						}
+						subtract = old_armenian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_hampartsoum_boyadjian2_tt
@@ -24941,12 +25016,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_armenian_value = yes
-				set_temp_variable = { TUR_hampartsoum_boyadjian2_var2 = old_armenian_value }
-				divide_temp_variable = { TUR_hampartsoum_boyadjian2_var2 = TUR_armenian_population_factor_new }
-				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
-				add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.05 }
-				multiply_temp_variable = { TUR_hampartsoum_boyadjian2_var2 = TUR_armenian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_hampartsoum_boyadjian2_var2 = old_armenian_value }
+				set_temp_variable = {
+					TUR_hampartsoum_boyadjian2_var2 = {
+						value = old_armenian_value
+						divide = TUR_armenian_population_factor_new
+						multiply = {
+							value = TUR_armenian_population_factor_new
+							add = -0.05
+						}
+						subtract = old_armenian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_hampartsoum_boyadjian2_tt2
@@ -25054,12 +25134,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_armenian_value = yes
-				set_temp_variable = { TUR_nazaret_daghavarian2_var = old_armenian_value }
-				divide_temp_variable = { TUR_nazaret_daghavarian2_var = TUR_armenian_population_factor_new }
-				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
-				add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.05 }
-				multiply_temp_variable = { TUR_nazaret_daghavarian2_var = TUR_armenian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_nazaret_daghavarian2_var = old_armenian_value }
+				set_temp_variable = {
+					TUR_nazaret_daghavarian2_var = {
+						value = old_armenian_value
+						divide = TUR_armenian_population_factor_new
+						multiply = {
+							value = TUR_armenian_population_factor_new
+							add = -0.05
+						}
+						subtract = old_armenian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_nazaret_daghavarian2_tt
@@ -25138,12 +25223,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_armenian_value = yes
-				set_temp_variable = { TUR_nazaret_daghavarian2_var2 = old_armenian_value }
-				divide_temp_variable = { TUR_nazaret_daghavarian2_var2 = TUR_armenian_population_factor_new }
-				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
-				add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.05 }
-				multiply_temp_variable = { TUR_nazaret_daghavarian2_var2 = TUR_armenian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_nazaret_daghavarian2_var2 = old_armenian_value }
+				set_temp_variable = {
+					TUR_nazaret_daghavarian2_var2 = {
+						value = old_armenian_value
+						divide = TUR_armenian_population_factor_new
+						multiply = {
+							value = TUR_armenian_population_factor_new
+							add = 0.05
+						}
+						subtract = old_armenian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_nazaret_daghavarian2_tt2
@@ -25249,12 +25339,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_armenian_value = yes
-				set_temp_variable = { TUR_karakin_pastermadjian2_var = old_armenian_value }
-				divide_temp_variable = { TUR_karakin_pastermadjian2_var = TUR_armenian_population_factor_new }
-				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
-				add_to_temp_variable = { TUR_armenian_population_factor_focus = -0.05 }
-				multiply_temp_variable = { TUR_karakin_pastermadjian2_var = TUR_armenian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_karakin_pastermadjian2_var = old_armenian_value }
+				set_temp_variable = {
+					TUR_karakin_pastermadjian2_var = {
+						value = old_armenian_value
+						divide = TUR_armenian_population_factor_new
+						multiply = {
+							value = TUR_armenian_population_factor_new
+							add = -0.05
+						}
+						subtract = old_armenian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = -0.05 }
 			custom_effect_tooltip = TUR_karakin_pastermadjian2_tt
@@ -25333,12 +25428,17 @@ TUR_cult_of_hurriyet_ve_itilaf = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_armenian_value = yes
-				set_temp_variable = { TUR_karakin_pastermadjian2_var2 = old_armenian_value }
-				divide_temp_variable = { TUR_karakin_pastermadjian2_var2 = TUR_armenian_population_factor_new }
-				set_temp_variable = { TUR_armenian_population_factor_focus = TUR_armenian_population_factor_new }
-				add_to_temp_variable = { TUR_armenian_population_factor_focus = 0.05 }
-				multiply_temp_variable = { TUR_karakin_pastermadjian2_var2 = TUR_armenian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_karakin_pastermadjian2_var2 = old_armenian_value }
+				set_temp_variable = {
+					TUR_karakin_pastermadjian2_var2 = {
+						value = old_armenian_value
+						divide = TUR_armenian_population_factor_new
+						multiply = {
+							value = TUR_armenian_population_factor_new
+							add = 0.05
+						}
+						subtract = old_armenian_value
+					}
+				}
 			}
 			add_to_variable = { TUR_armenian_population_factor_new = 0.05 }
 			custom_effect_tooltip = TUR_karakin_pastermadjian2_tt2
