@@ -3083,12 +3083,17 @@ focus_tree = {
 			hidden_effect = {
 				#for tooltip
 				TUR_set_old_bulgarian_value = yes
-				set_temp_variable = { TUR_law_on_churches = old_bulgarian_value }
-				divide_temp_variable = { TUR_law_on_churches = TUR_bulgarian_population_factor_new }
-				set_temp_variable = { TUR_bulgarian_population_factor_focus = TUR_bulgarian_population_factor_new }
-				add_to_temp_variable = { TUR_bulgarian_population_factor_focus = -0.1 }
-				multiply_temp_variable = { TUR_law_on_churches = TUR_bulgarian_population_factor_focus }
-				subtract_from_temp_variable = { TUR_law_on_churches = old_bulgarian_value }
+				set_temp_variable = { 
+					TUR_law_on_churches = {
+						value = old_bulgarian_value
+						divide = TUR_bulgarian_population_factor_new
+						multiply = {
+							value = TUR_bulgarian_population_factor_new
+							add = -0.1
+						}
+						subtract = old_bulgarian_value
+					} 
+				}
 			}
 			add_to_variable = { TUR_bulgarian_population_factor_new = -0.1 }
 			custom_effect_tooltip = TUR_law_on_churches_tt
