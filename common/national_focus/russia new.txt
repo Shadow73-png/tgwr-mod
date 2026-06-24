@@ -33,7 +33,7 @@ focus_tree = {
 		scroll_wheel_factor = 0.8
 	}
 
-	initial_show_position = { focus = RUS_june_third_coup }
+	initial_show_position = { focus = RUS_whirlwinds_of_danger }
 	#####################
 	# REFORMS
 	#####################
@@ -41,14 +41,8 @@ focus_tree = {
 		id = RUS_stolypins_reforms
 		icon = GFX_focus_RUS_stolypin
 		cost = 5
-		x = 28
+		x = 30
 		y = 0
-		offset = {
-			x = 10
-			trigger = {
-				is_debug = yes
-			}
-		}
 		available_if_capitulated = yes
 		completion_reward = {
 			unlock_decision_tooltip = RUS_agrarian_reform_decision
@@ -2149,7 +2143,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				has_country_flag = RUS_great_war_started
+				has_completed_focus = RUS_second_patriotic_war
 			}
 		}
 		x = 1
@@ -2198,7 +2192,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				has_country_flag = RUS_great_war_started
+				has_completed_focus = RUS_second_patriotic_war
 			}
 		}
 		x = -1
@@ -2267,7 +2261,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				has_country_flag = RUS_great_war_started
+				has_completed_focus = RUS_second_patriotic_war
 			}
 		}
 		x = 0
@@ -2325,7 +2319,7 @@ focus_tree = {
 			has_country_flag = RUS_lesser_rearmament_programme_passed_in_sc
 			has_idea = RUS_lesser_rearmament_programme
 			NOT = {
-				has_country_flag = RUS_great_war_started
+				has_completed_focus = RUS_second_patriotic_war
 			}
 		}
 		x = 0
@@ -2384,7 +2378,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				has_country_flag = RUS_great_war_started
+				has_completed_focus = RUS_second_patriotic_war
 			}
 		}
 		x = -2
@@ -2417,7 +2411,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				has_country_flag = RUS_great_war_started
+				has_completed_focus = RUS_second_patriotic_war
 			}
 		}
 		x = -3
@@ -2501,7 +2495,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				has_country_flag = RUS_great_war_started
+				has_completed_focus = RUS_second_patriotic_war
 			}
 		}
 		x = 3
@@ -2537,7 +2531,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				has_country_flag = RUS_great_war_started
+				has_completed_focus = RUS_second_patriotic_war
 			}
 		}
 		x = -1
@@ -2573,7 +2567,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				has_country_flag = RUS_great_war_started
+				has_completed_focus = RUS_second_patriotic_war
 			}
 		}
 		x = 1
@@ -2600,17 +2594,11 @@ focus_tree = {
 	# INTERNAL POLITICS
 	#####################
 	focus = {
-		id = RUS_june_third_coup
-		icon = GFX_focus_generic_military_dictatorship
+		id = RUS_whirlwinds_of_danger
+		icon = GFX_goal_generic_war_with_comintern
 		cost = 0
 		x = 14
 		y = 0
-		offset = {
-			x = 5
-			trigger = {
-				is_debug = yes
-			}
-		}
 		allow_branch = {
 			OR = {
 				RUS_pyotr_stolypin = {
@@ -2620,9 +2608,218 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			effect_tooltip = {
-				add_ideas = RUS_june_third_political_system_idea
-			}
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICS
+		}
+	}
+	focus = {
+		id = RUS_october_manifesto
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 0
+		prerequisite = {
+			focus = RUS_whirlwinds_of_danger
+		}
+		x = -1
+		y = 1
+		relative_position_id = RUS_whirlwinds_of_danger
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICS
+		}
+	}
+	focus = {
+		id = RUS_proclaim_religious_tolerance
+		icon = GFX_focus_generic_islamic_propaganda
+		cost = 0
+		prerequisite = {
+			focus = RUS_whirlwinds_of_danger
+		}
+		x = 1
+		y = 1
+		relative_position_id = RUS_whirlwinds_of_danger
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICS
+		}
+	}
+	focus = {
+		id = RUS_convene_first_state_duma
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 0
+		prerequisite = {
+			focus = RUS_october_manifesto
+		}
+		prerequisite = {
+			focus = RUS_proclaim_religious_tolerance
+		}
+		x = 0
+		y = 2
+		relative_position_id = RUS_whirlwinds_of_danger
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICS
+		}
+	}
+	focus = {
+		id = RUS_appoint_stolypin
+		icon = GFX_focus_RUS_stolypin
+		cost = 0
+		prerequisite = {
+			focus = RUS_convene_first_state_duma
+		}
+		mutually_exclusive = {
+			focus = RUS_kadet_cabinet
+		}
+		x = -2
+		y = 1
+		relative_position_id = RUS_convene_first_state_duma
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICS
+		}
+	}
+	focus = {
+		id = RUS_court_martials_for_revolutionaries
+		icon = GFX_focus_SOV_military_purge
+		cost = 0
+		prerequisite = {
+			focus = RUS_appoint_stolypin
+		}
+		x = -1
+		y = 1
+		relative_position_id = RUS_appoint_stolypin
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICS
+		}
+	}
+	focus = {
+		id = RUS_abolish_buyout_payments
+		icon = GFX_focus_SOV_breadbasket_of_the_union
+		cost = 0
+		prerequisite = {
+			focus = RUS_appoint_stolypin
+		}
+		x = 1
+		y = 1
+		relative_position_id = RUS_appoint_stolypin
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICS
+		}
+	}
+	focus = {
+		id = RUS_kadet_cabinet
+		icon = GFX_focus_SWE_refuge_from_war
+		cost = 0
+		prerequisite = {
+			focus = RUS_convene_first_state_duma
+		}
+		mutually_exclusive = {
+			focus = RUS_appoint_stolypin
+		}
+		x = 2
+		y = 1
+		relative_position_id = RUS_convene_first_state_duma
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICS
+		}
+	}
+	focus = {
+		id = RUS_expropriate_landlord_lands
+		icon = GFX_focus_generic_modernizing_agriculture
+		cost = 0
+		prerequisite = {
+			focus = RUS_kadet_cabinet
+		}
+		x = -1
+		y = 1
+		relative_position_id = RUS_kadet_cabinet
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICS
+		}
+	}
+	focus = {
+		id = RUS_amnesty_for_revolutionaries
+		icon = GFX_focus_generic_treaty
+		cost = 0
+		prerequisite = {
+			focus = RUS_kadet_cabinet
+		}
+		x = 1
+		y = 1
+		relative_position_id = RUS_kadet_cabinet
+		completion_reward = {
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_POLITICS
+		}
+	}
+	focus = {
+		id = RUS_june_third_coup
+		icon = GFX_focus_generic_military_dictatorship
+		cost = 0
+		prerequisite = {
+			focus = RUS_court_martials_for_revolutionaries
+		}
+		prerequisite = {
+			focus = RUS_abolish_buyout_payments
+		}
+		x = 0
+		y = 3
+		relative_position_id = RUS_convene_first_state_duma
+		completion_reward = {
 		}
 		ai_will_do = {
 			factor = 3
@@ -2824,7 +3021,7 @@ focus_tree = {
 		x = 14
 		y = 0
 		offset = {
-			y = 3
+			y = 12
 			trigger = {
 				is_debug = yes
 			}
@@ -3523,8 +3720,8 @@ focus_tree = {
 		x = 14
 		y = 0
 		offset = {
-			x = 10
-			y = 3
+			x = 15
+			y = 12
 			trigger = {
 				is_debug = yes
 			}
@@ -3835,6 +4032,13 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
+		offset = {
+			x = 2
+			
+			trigger = {
+				is_debug = yes
+			}
+		}
 		offset = {
 			x = -2
 			
@@ -4190,6 +4394,12 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
+		offset = {
+			x = -2
+			trigger = {
+				is_debug = yes
+			}
+		}
 		offset = {
 			x = 2
 			trigger = {
@@ -5247,7 +5457,6 @@ focus_tree = {
 							has_completed_focus = RUS_reform_military_intelligence
 						}
 					}
-					set_country_flag = RUS_great_war_started
 				}
 			}
 		}
