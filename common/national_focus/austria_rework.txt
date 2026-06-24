@@ -12173,75 +12173,9 @@ focus_tree = {
 		search_filters = {
 		}
 	}
-	focus = {
-		id = AUS_decree_on_galician_autonomy
-		icon = GFX_focus_GAL_coat_of_arms
-		cost = 3
-		x = 1
-		y = 3
-		prerequisite = {
-			focus = AUS_force_through_the_bohemian_octroi
-		}
-		relative_position_id = AUS_fire_koerber
-		available = {
-			has_country_leader = {
-				character = AUH_karl_i
-			}
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_closer_ties_with_germany
-		icon = GFX_focus_deal_with_german_empire
-		cost = 3
-		x = 0
-		y = 4
-		prerequisite = {
-			focus = AUS_decree_on_galician_autonomy
-		}
-		relative_position_id = AUS_fire_koerber
-		available = {
-			has_country_leader = {
-				character = AUH_karl_i
-			}
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
-	focus = {
-		id = AUS_crush_czech_opposition
-		icon = GFX_focus_AUS_reject_bohemian_autonomy
-		cost = 3
-		x = 2
-		y = 4
-		prerequisite = {
-			focus = AUS_decree_on_galician_autonomy
-		}
-		relative_position_id = AUS_fire_koerber
-		available = {
-			has_country_leader = {
-				character = AUH_karl_i
-			}
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
+	
+	
+	
 	focus = {
 		id = AUS_repair_relations_with_the_minorities
 		icon = GFX_focus_BRA_reach_out_to_military_dem
@@ -12997,7 +12931,7 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		id = AUS_under_the_shadow_of_the_eagle
 		icon = GFX_focus_GER_mitteleuropa_KR
 		cost = 0
-		x = 10
+		x = -10
 		y = 10
 		mutually_exclusive = {
 			focus = AUS_peace_with_honor
@@ -13026,7 +12960,7 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		id = AUS_peace_with_honor
 		icon = GFX_focus_generic_scales_replacement
 		cost = 0
-		x = -10
+		x = 10
 		y = 10
 		mutually_exclusive = {
 			focus = AUS_under_the_shadow_of_the_eagle
@@ -13088,13 +13022,121 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		id = AUS_win_the_peace
 		icon = GFX_focus_hol_the_foundations_of_defense
 		cost = 5
-		x = -4
+		x = 3
 		y = 1
 		relative_position_id = AUS_new_world_order
 		prerequisite = {
 			focus = AUS_new_world_order
 			focus = AUS_under_the_shadow_of_the_eagle
 			focus = AUS_peace_with_honor
+		}
+		bypass = {
+			has_country_flag = great_war_winner
+		}
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+	focus = {
+		id = AUS_emperors_realm
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5
+		x = 5
+		y = 1
+			mutually_exclusive = {
+			focus = AUS_force_abdication
+		}
+		relative_position_id = AUS_new_world_order
+		prerequisite = {
+			focus = AUS_new_world_order
+			focus = AUS_under_the_shadow_of_the_eagle
+			focus = AUS_peace_with_honor
+		}
+		bypass = {
+			has_country_flag = great_war_winner
+		}
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+		focus = {
+		id = AUS_regain_control_of_state
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5
+		x = 6
+		y = 2
+		relative_position_id = AUS_new_world_order
+		prerequisite = {
+			focus = AUS_emperors_realm
+		}
+		bypass = {
+			has_country_flag = great_war_winner
+		}
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+		focus = {
+		id = AUS_force_abdication
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5
+		x = -1
+		y = 1
+		mutually_exclusive = {
+			focus = AUS_emperors_realm
+		}
+		relative_position_id = AUS_peace_with_honor
+		prerequisite = {
+			focus = AUS_peace_with_honor
+		}
+		bypass = {
+			has_country_flag = great_war_winner
+		}
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+		focus = {
+		id = AUS_stabilize_food
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = AUS_win_the_peace
+		prerequisite = {
+			focus = AUS_win_the_peace
 		}
 		bypass = {
 			has_country_flag = great_war_winner
@@ -13140,7 +13182,7 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		id = AUS_necessary_austerity
 		icon = GFX_focus_hol_the_foundations_of_defense
 		cost = 5
-		x = 1
+		x = 0
 		y = 2
 		relative_position_id = AUS_win_the_peace
 		prerequisite = {
@@ -13162,14 +13204,42 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		}
 	}
 	focus = {
-		id = AUS_emergency_anti_famine_measures
+		id = AUS_end_war_economy
 		icon = GFX_focus_hol_the_foundations_of_defense
 		cost = 5
-		x = -1
-		y = 1
+		x = 2
+		y = 2
 		relative_position_id = AUS_win_the_peace
 		prerequisite = {
-			focus = AUS_win_the_peace
+			focus = AUS_winding_down_the_war_effort
+		}
+		bypass = {
+			has_country_flag = great_war_winner
+		}
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+	focus = {
+		id = AUS_address_the_farm_crisis
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5
+		x = 1
+		y = 3
+		relative_position_id = AUS_win_the_peace
+		prerequisite = {
+			focus = AUS_end_war_economy
+		}
+		prerequisite = {
+			focus = AUS_necessary_austerity
 		}
 		bypass = {
 			has_country_flag = great_war_winner
@@ -13190,13 +13260,15 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		id = AUS_world_ablaze
 		icon = GFX_focus_army_purge
 		cost = 5
-		x = 4
+		x = -4
 		y = 1
+		mutually_exclusive = {
+			focus = AUS_intergrate_into_mittel_europe
+		}
 		relative_position_id = AUS_new_world_order
 		prerequisite = {
 			focus = AUS_new_world_order
 			focus = AUS_under_the_shadow_of_the_eagle
-			focus = AUS_peace_with_honor
 		}
 		bypass = {
 			
@@ -13225,6 +13297,35 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		}
 	}
 	focus = {
+		id = AUS_intergrate_into_mittel_europe
+		icon = GFX_focus_army_purge
+		cost = 5
+		x = -8
+		y = 1
+		mutually_exclusive = {
+			focus = AUS_world_ablaze
+		}
+		relative_position_id = AUS_new_world_order
+		prerequisite = {
+			focus = AUS_under_the_shadow_of_the_eagle
+		}
+		bypass = {
+			
+		}
+		available = {
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+	focus = {
 		id = AUS_civil_war_in_west
 		icon = GFX_SOV_protect_the_white_sea_baltic_canal_ccp_2d_sov_compatibility
 		cost = 5
@@ -13233,6 +13334,7 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		relative_position_id = AUS_world_ablaze
 		prerequisite = {
 			focus = AUS_world_ablaze
+			focus = AUS_intergrate_into_mittel_europe
 		}
 		available = {
 			has_italian_civil_war = yes
@@ -13309,6 +13411,9 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		relative_position_id = AUS_civil_war_in_west
 		prerequisite = {
 			focus = AUS_civil_war_in_west
+		}
+			prerequisite = {
+			focus = AUS_world_ablaze
 		}
 		mutually_exclusive = {
 			focus = AUS_support_italian_monarchy
@@ -13390,26 +13495,7 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		search_filters = {
 		}
 	}
-	focus = {
-		id = AUS_polish_stuff
-		icon = GFX_focus_army_purge
-		cost = 5
-		x = 2
-		y = 1
-		relative_position_id = AUS_civil_war_in_east
-		prerequisite = {
-			focus = AUS_civil_war_in_east
-		}
-		available = {
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-		}
-	}
+
 	focus = {
 		id = AUS_boost_control_ukraine
 		icon = GFX_focus_HUN_the_kingdom_of_ukraine
@@ -13437,11 +13523,13 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		id = AUS_take_ukranian_rescourses
 		icon = GFX_focus_DEN_heavy_regulations
 		cost = 5
-		x = -1
+		x = 1
 		y = 1
 		relative_position_id = AUS_boost_control_ukraine
 		prerequisite = {
 			focus = AUS_boost_control_ukraine
+			focus = AUS_stabilize_food
+			focus = AUS_civil_war_in_east
 		}
 		mutually_exclusive = {
 			focus = AUS_respect_ukranian_rights
@@ -13467,7 +13555,7 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		id = AUS_respect_ukranian_rights
 		icon = GFX_focus_POL_ukrainian_army
 		cost = 5
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = AUS_boost_control_ukraine
 		prerequisite = {
@@ -13494,7 +13582,7 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		id = AUS_support_don
 		icon = GFX_goal_generic_military_deal
 		cost = 5
-		x = -1
+		x = 1
 		y = 1
 		relative_position_id = AUS_respect_ukranian_rights
 		prerequisite = {
@@ -13554,7 +13642,7 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		id = AUS_reorganise_serbia
 		icon = GFX_focus_anti_serbian_crusade
 		cost = 5
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = AUS_world_ablaze
 		prerequisite = {
@@ -13574,7 +13662,7 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		id = AUS_protectorate_albania
 		icon = GFX_focus_generic_befriend_wiedist_albania
 		cost = 5
-		x = -1
+		x = 1
 		y = 1
 		relative_position_id = AUS_world_ablaze
 		prerequisite = {
@@ -13596,9 +13684,13 @@ custom_effect_tooltip = AUS_modify_aps.tt
 		cost = 5
 		x = 1
 		y = 1
-		relative_position_id = AUS_protectorate_albania
+		relative_position_id = AUS_reorganise_serbia
 		prerequisite = {
-			focus = AUS_protectorate_albania focus = AUS_reorganise_serbia
+			focus = AUS_protectorate_albania 
+		}
+		prerequisite = {
+						focus = AUS_reorganise_serbia
+
 		}
 		available = {
 		}
