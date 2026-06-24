@@ -3632,6 +3632,55 @@ AUH_the_imperial_council = {
 		fire_only_once = no
 		is_good = yes
 	}
+	AUS_minorities_angry_in_reichsrat = {
+		priority = 99
+		icon = GFX_decision_SWI_no_elected_president
+		allowed = {
+			original_tag = AUS
+		}
+		days_mission_timeout = 200
+		available = {
+			has_completed_focus = AUS_political_truce
+		}
+		visible = {
+			original_tag = AUS
+		}
+		activation = {
+			has_completed_focus = AUS_reopen_the_reichsrat
+			NOT = {
+				has_completed_focus = AUS_political_truce
+			}
+		}
+		timeout_effect = {
+			add_to_variable = {
+				AUS_ruthenian_loyalty = -5
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_pole_loyalty = -5
+				tooltip = AUS_loyalty_pole_tt
+			}
+			add_to_variable = {
+				AUS_czechoslovak_loyalty = -5
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			add_to_variable = {
+				AUS_serb_loyalty = -5
+				tooltip = AUS_loyalty_serb_tt
+			}
+			add_to_variable = {
+				AUS_croat_loyalty = -5
+				tooltip = AUS_loyalty_croatian_tt
+			}
+			add_to_variable = {
+				AUS_romanian_loyalty = -5
+				tooltip = AUS_loyalty_romanians_tt
+			}
+			AUS_update_state_of_realm = yes
+		}
+		fire_only_once = no
+		is_good = no
+	}
 	AUS_king_intervention = {
 		priority = 99
 		icon = GFX_decision_generic_ignite_civil_war
