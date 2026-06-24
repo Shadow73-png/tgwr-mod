@@ -422,3 +422,31 @@ country_event = {
 	}
 
 }
+country_event = {
+	id = ww1_czechoslovakia.17
+	title = ww1_czechoslovakia.17.t
+	desc = ww1_czechoslovakia.17.d
+	picture = GFX_report_event_czech_soldiers_02
+	fire_only_once = yes
+	trigger = {
+		tag = CZE
+		is_subject_of = AUS
+		any_owned_state = {
+			OR = {
+				is_core_of = AUS
+				AUS_is_AUS_state = yes
+			}
+		}
+		NOT = {
+			AUS = {
+				has_completed_focus = AUS_further_bohemian_autonomy
+			}
+			has_idea = CZE_sudetenland_protests
+			has_idea = CZE_sudetenland_protests_2
+		}
+	}
+	option = {
+		name = ww1_czechoslovakia.17.a
+		add_ideas = CZE_sudetenland_protests
+	}
+}

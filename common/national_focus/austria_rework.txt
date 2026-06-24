@@ -9514,8 +9514,8 @@ focus_tree = {
 		id = AUS_der_grobe_kriegsredux
 		icon = GFX_focus_AUH_country
 		cost = 0
-		x = -4
-		y = 9
+		x = -24
+		y = 12
 		available = {
 			custom_trigger_tooltip = {
 				has_completed_focus = AUS_der_grobe_kriegsredux
@@ -11774,6 +11774,10 @@ focus_tree = {
 				id = ww1_austriahungary.263
 				days = 1
 			}
+			custom_effect_tooltip = when_taken
+			effect_tooltip = {
+				activate_mission = AUS_reopening_reichsrat
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -11793,12 +11797,25 @@ focus_tree = {
 		}
 		relative_position_id = AUS_the_new_course_of_the_war
 		available = {
-			has_country_leader = {
-				character = AUH_karl_i
+			custom_trigger_tooltip = {
+				tooltip = AUS_reichsrat_finished_reopening.tt
+				has_completed_focus = AUS_reoepen_reichsrat
+			}
+		}
+		bypass = {
+			NOT = {
+				OR ={
+					has_country_flag = AUS_imperial_council_closed
+					has_country_flag = AUS_imperial_council_suspended
+				}
 			}
 		}
 		completion_reward = {
-			country_event = ww1_austriahungary.263
+			custom_effect_tooltip = AUS_reoepen_reichsrat.tt
+			clr_global_flag = AUS_imperial_council_closed
+			clr_global_flag = AUS_imperial_council_suspended
+			add_stability = 0.05
+			add_political_power = 30
 		}
 		ai_will_do = {
 			base = 1
@@ -11834,11 +11851,11 @@ focus_tree = {
 	focus = {
 		id = AUS_kaiser_karl_direct_aid
 		icon = GFX_focus_generic_money_deal
-		cost = 3
+		cost = 0
 		x = 0
 		y = 3
 		prerequisite = {
-			focus = AUS_support_the_population
+			focus = AUS_commute_political_death_sentences
 		}
 		relative_position_id = AUS_the_new_course_of_the_war
 		available = {
@@ -11902,10 +11919,9 @@ focus_tree = {
 		search_filters = {
 		}
 	}
-	
 	focus = {
-		id = AUS_support_the_population
-		icon = GFX_focus_generic_population_growth
+		id = AUS_commute_political_death_sentences
+		icon = GFX_focus_generic_court
 		cost = 3
 		x = -1
 		y = 2
@@ -11919,32 +11935,11 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			country_event = ww1_austriahungary_war.79
-			add_stability = 0.05
-			add_war_support = 0.05
-			add_to_variable = {
-				AUS_ruthenian_loyalty = 5
-				tooltip = AUS_loyalty_ruthenians_tt
-			}
-			add_to_variable = {
-				AUS_pole_loyalty = 5
-				tooltip = AUS_loyalty_pole_tt
-			}
+			#more stuff idk rn figure out later
+			add_political_power = 25
 			add_to_variable = {
 				AUS_czechoslovak_loyalty = 5
 				tooltip = AUS_loyalty_czechoslovakia_tt
-			}
-			add_to_variable = {
-				AUS_serb_loyalty = 5
-				tooltip = AUS_loyalty_serb_tt
-			}
-			add_to_variable = {
-				AUS_croat_loyalty = 5
-				tooltip = AUS_loyalty_croatian_tt
-			}
-			add_to_variable = {
-				AUS_romanian_loyalty = 5
-				tooltip = AUS_loyalty_romanians_tt
 			}
 			AUS_update_state_of_realm = yes
 		}
@@ -12268,8 +12263,9 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = AUS_commute_political_death_sentences
-		icon = GFX_focus_generic_court
+		id = AUS_support_the_population
+		icon = GFX_focus_generic_population_growth
+		cost = 3
 		cost = 3
 		x = 3
 		y = 3
@@ -12283,11 +12279,32 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			#more stuff idk rn figure out later
-			add_political_power = 25
+			country_event = ww1_austriahungary_war.79
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_to_variable = {
+				AUS_ruthenian_loyalty = 5
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_pole_loyalty = 5
+				tooltip = AUS_loyalty_pole_tt
+			}
 			add_to_variable = {
 				AUS_czechoslovak_loyalty = 5
 				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			add_to_variable = {
+				AUS_serb_loyalty = 5
+				tooltip = AUS_loyalty_serb_tt
+			}
+			add_to_variable = {
+				AUS_croat_loyalty = 5
+				tooltip = AUS_loyalty_croatian_tt
+			}
+			add_to_variable = {
+				AUS_romanian_loyalty = 5
+				tooltip = AUS_loyalty_romanians_tt
 			}
 			AUS_update_state_of_realm = yes
 		}
@@ -12339,7 +12356,7 @@ focus_tree = {
 		x = 4
 		y = 4
 		prerequisite = {
-			focus = AUS_commute_political_death_sentences
+			focus = AUS_support_the_population
 		}
 		prerequisite = {
 			focus = AUS_establish_ministry_of_social_welfare
@@ -12425,7 +12442,7 @@ focus_tree = {
 		id = AUS_lay_our_cards_on_the_table
 		icon = GFX_focus_GER_monarchy_compromise
 		cost = 4
-		x = -1
+		x = 3
 		y = 1
 		mutually_exclusive = {
 			focus = AUS_moves_in_the_shadows
@@ -12435,6 +12452,11 @@ focus_tree = {
 		}
 		relative_position_id = AUS_delay_the_coronation
 		completion_reward = {
+			country_event = ww1_austriahungary.269
+			HUN = {
+				country_event = ww1_austriahungary.269
+			}
+			custom_effect_tooltip = AUS_locott
 		}
 		ai_will_do = {
 			base = 1
@@ -12449,13 +12471,15 @@ focus_tree = {
 			focus = AUS_lay_our_cards_on_the_table
 		}
 		cost = 4
-		x = 3
+		x = -1
 		y = 1
 		prerequisite = {
 			focus = AUS_delay_the_coronation
 		}
 		relative_position_id = AUS_delay_the_coronation
 		completion_reward = {
+			add_political_power = 100
+			custom_effect_tooltip = AUS_prep_coup
 		}
 		ai_will_do = {
 			base = 1
@@ -12475,6 +12499,10 @@ focus_tree = {
 		}
 		relative_position_id = AUS_moves_in_the_shadows
 		completion_reward = {
+			custom_effect_tooltip = AUS_joint_mil_budget_shi
+			HUN = {
+				country_event = ww1_austriahungary.274
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -12513,6 +12541,13 @@ focus_tree = {
 		}
 		relative_position_id = AUS_delay_the_coronation
 		completion_reward = {
+			HUN = {
+				country_event = {
+					id = ww1_austriahungary.270
+					days = 3
+				}
+			}
+			custom_effect_tooltip = AUS_they_friends
 		}
 		ai_will_do = {
 			base = 1
@@ -12532,6 +12567,28 @@ focus_tree = {
 		}
 		relative_position_id = AUS_delay_the_coronation
 		completion_reward = {
+			IF = {
+				limit = {
+					NOT = {
+						has_global_flag = AUS_hun_revolt
+					}
+				}
+				HUN = {
+				country_event = {
+					id = ww1_austriahungary.272
+					days = 3
+				}
+			}
+						custom_effect_tooltip = AUS_joint_fakeout
+
+			custom_effect_tooltip = if_they_accept_newline_tt
+			effect_tooltip = {
+				annex_country = {
+				target = HUN
+			}
+			
+			}
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -12551,6 +12608,37 @@ focus_tree = {
 		}
 		relative_position_id = AUS_lay_our_cards_on_the_table
 		completion_reward = {
+			HUN = {
+				country_event = {
+					id = ww1_austriahungary.275
+					days = 2
+				}
+			}
+			custom_effect_tooltip = if_they_accept_newline_tt
+			effect_tooltip = {
+				add_to_variable = {
+				AUS_czechoslovak_loyalty = 5
+				tooltip = AUS_loyalty_czechoslovakia_tt
+			}
+			add_to_variable = {
+				AUS_croat_loyalty = 5
+				tooltip = AUS_loyalty_croatian_tt
+			}
+			add_to_variable = {
+				AUS_serb_loyalty = 5
+				tooltip = AUS_loyalty_serb_tt
+			}
+			add_to_variable = {
+				AUS_ruthenian_loyalty = 5
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			add_to_variable = {
+				AUS_romanian_loyalty = 5
+				tooltip = AUS_loyalty_romanians_tt
+			}
+			AUS_update_state_of_realm = yes
+			custom_effect_tooltip = AUS_the_genry_weaaaak
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -12572,6 +12660,11 @@ focus_tree = {
 		}
 		relative_position_id = AUS_franz_ferdinand
 		completion_reward = {
+			custom_effect_tooltip = AUS_modify_aps.tt
+				add_to_variable = {
+				AUS_aps_stab = 0.15
+				tooltip = stability_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -12593,6 +12686,15 @@ focus_tree = {
 		}
 		relative_position_id = AUS_franz_ferdinand
 		completion_reward = {
+				custom_effect_tooltip = AUS_modify_aps.tt
+				add_to_variable = {
+				AUS_aps_stab = -0.15
+				tooltip = stability_factor_tt
+			}
+				add_to_variable = {
+				AUS_aps_pp_gain = -0.1
+				tooltip = political_power_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -12643,7 +12745,19 @@ focus_tree = {
 		}
 		relative_position_id = AUS_legitimize_the_family
 		completion_reward = {
-
+custom_effect_tooltip = AUS_modify_aps.tt
+			add_to_variable = {
+				AUS_aps_pp_gain = 0.05
+				tooltip = political_power_factor_tt
+			}
+			add_to_variable = {
+				AUS_political_advisor_cost_factor = -0.25
+				tooltip = political_advisor_cost_factor_tt
+			}
+				add_to_variable = {
+				AUS_aps_stab = -0.15
+				tooltip = stability_factor_tt
+			}
 		}
 		ai_will_do = {
 			base = 1
@@ -12741,6 +12855,33 @@ focus_tree = {
 		#}
 	}
 	focus = {
+		id = AUS_perfect_augsliech
+		icon = GFX_focus_CZE_army_reform
+		cost = 4
+		x = 6
+		y = 3
+		mutually_exclusive = {
+			focus = AUS_true_centralization
+		}
+			mutually_exclusive = {
+			focus = AUS_trialism
+		}
+			mutually_exclusive = {
+			focus = AUS_usa_of_austria
+		}
+		prerequisite = {
+			focus = AUS_lay_our_cards_on_the_table
+		}
+		relative_position_id = AUS_moves_in_the_shadows
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		#search_filters = {
+		#}
+	}
+	focus = {
 		id = AUS_trialism
 		icon = GFX_focus_AUS_reject_bohemian_autonomy
 		cost = 4
@@ -12752,8 +12893,14 @@ focus_tree = {
 			mutually_exclusive = {
 			focus = AUS_true_centralization
 		}
+		mutually_exclusive = {
+			focus = AUS_perfect_augsliech
+		}
 		available = {
 			has_war = no
+			NOT = {
+				has_country_flag = AUS_king_of_hungary
+			}
 		}
 		prerequisite = {
 			focus = AUS_fate_of_the_czechs
@@ -12776,6 +12923,12 @@ focus_tree = {
 		y = 1
 		available = {
 			has_war = no
+			NOT = {
+				has_country_flag = AUS_king_of_hungary
+			}
+		}
+		mutually_exclusive = {
+			focus = AUS_perfect_augsliech
 		}
 		mutually_exclusive = {
 			focus = AUS_true_centralization
@@ -12803,12 +12956,18 @@ focus_tree = {
 		y = 1
 		available = {
 			has_war = no
+			NOT = {
+				has_country_flag = AUS_king_of_hungary
+			}
 		}
 		mutually_exclusive = {
 			focus = AUS_usa_of_austria
 		}
 			mutually_exclusive = {
 			focus = AUS_trialism
+		}
+		mutually_exclusive = {
+			focus = AUS_perfect_augsliech
 		}
 		prerequisite = {
 			focus = AUS_fate_of_the_czechs
@@ -12829,7 +12988,7 @@ focus_tree = {
 		id = AUS_under_the_shadow_of_the_eagle
 		icon = GFX_focus_GER_mitteleuropa_KR
 		cost = 0
-		x = -10
+		x = 10
 		y = 10
 		mutually_exclusive = {
 			focus = AUS_peace_with_honor
@@ -12842,8 +13001,7 @@ focus_tree = {
 			has_country_flag = great_war_winner
 		}
 		available = {
-						has_country_flag = great_war_winner
-		
+			has_country_flag = great_war_winner
 		}
 		completion_reward = {
 		}
@@ -12859,7 +13017,7 @@ focus_tree = {
 		id = AUS_peace_with_honor
 		icon = GFX_focus_generic_scales_replacement
 		cost = 0
-		x = 10
+		x = -10
 		y = 10
 		mutually_exclusive = {
 			focus = AUS_under_the_shadow_of_the_eagle
@@ -12945,6 +13103,81 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = AUS_winding_down_the_war_effort
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = AUS_win_the_peace
+		prerequisite = {
+			focus = AUS_win_the_peace
+		}
+		bypass = {
+			has_country_flag = great_war_winner
+		}
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+	focus = {
+		id = AUS_necessary_austerity
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5
+		x = 1
+		y = 2
+		relative_position_id = AUS_win_the_peace
+		prerequisite = {
+			focus = AUS_winding_down_the_war_effort
+		}
+		bypass = {
+			has_country_flag = great_war_winner
+		}
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+	focus = {
+		id = AUS_emergency_anti_famine_measures
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = AUS_win_the_peace
+		prerequisite = {
+			focus = AUS_win_the_peace
+		}
+		bypass = {
+			has_country_flag = great_war_winner
+		}
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+			FOCUS_FILTER_COMPLETED_BY_EVENT
+		}
+	}
+	focus = {
 		id = AUS_world_ablaze
 		icon = GFX_focus_army_purge
 		cost = 5
@@ -12986,7 +13219,7 @@ focus_tree = {
 		id = AUS_civil_war_in_west
 		icon = GFX_SOV_protect_the_white_sea_baltic_canal_ccp_2d_sov_compatibility
 		cost = 5
-		x = -3
+		x = -4
 		y = 1
 		relative_position_id = AUS_world_ablaze
 		prerequisite = {
@@ -13132,7 +13365,7 @@ focus_tree = {
 		id = AUS_civil_war_in_east
 		icon = GFX_focus_rusian_civil_war
 		cost = 5
-		x = 3
+		x = 4
 		y = 1
 		relative_position_id = AUS_world_ablaze
 		prerequisite = {
@@ -13152,7 +13385,7 @@ focus_tree = {
 		id = AUS_polish_stuff
 		icon = GFX_focus_army_purge
 		cost = 5
-		x = -1
+		x = 2
 		y = 1
 		relative_position_id = AUS_civil_war_in_east
 		prerequisite = {
@@ -13172,7 +13405,7 @@ focus_tree = {
 		id = AUS_boost_control_ukraine
 		icon = GFX_focus_HUN_the_kingdom_of_ukraine
 		cost = 5
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = AUS_civil_war_in_east
 		prerequisite = {
@@ -13240,6 +13473,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			
 		}
 		ai_will_do = {
 			base = 1
@@ -13278,13 +13512,13 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_supporting_the_whites
-		icon = GFX_goal_generic_military_deal
+		icon = GFX_focus_befriend_white_russia
 		cost = 5
-		x = 0
+		x = -2
 		y = 1
-		relative_position_id = AUS_support_don
+		relative_position_id = AUS_civil_war_in_east
 		prerequisite = {
-			focus = AUS_support_don
+			focus = AUS_civil_war_in_east
 		}
 		available = {
 			OR = {
@@ -13309,7 +13543,7 @@ focus_tree = {
 	}
 	focus = {
 		id = AUS_reorganise_serbia
-		icon = GFX_focus_recall_old_officiers
+		icon = GFX_focus_anti_serbian_crusade
 		cost = 5
 		x = 1
 		y = 1
@@ -13355,10 +13589,50 @@ focus_tree = {
 		y = 1
 		relative_position_id = AUS_protectorate_albania
 		prerequisite = {
-			focus = AUS_protectorate_albania
+			focus = AUS_protectorate_albania focus = AUS_reorganise_serbia
+		}
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = AUS_demand_moldova
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = AUS_weaken_romania_indenpendence
+		prerequisite = {
+			focus = AUS_weaken_romania_indenpendence
 		}
 		prerequisite = {
-			focus = AUS_reorganise_serbia
+			focus = AUS_boost_control_ukraine
+		}
+		available = {
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+		search_filters = {
+		}
+	}
+	focus = {
+		id = AUS_involve_in_greek_civil_war
+		icon = GFX_focus_GRE_bedrock_of_balkan_stability
+		cost = 5
+		x = -1
+		y = 1
+		relative_position_id = AUS_weaken_romania_indenpendence
+		prerequisite = {
+			focus = AUS_weaken_romania_indenpendence
 		}
 		available = {
 		}

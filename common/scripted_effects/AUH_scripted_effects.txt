@@ -1709,6 +1709,7 @@ AUH_release_CZE = {
 						state = 664
 						state = 994
 						state = 1043
+						state = 1271
 					}
 				}
 				add_core_of = CZE
@@ -1790,6 +1791,8 @@ AUH_release_CZE = {
 					type = howitzer_equipment
 					amount = -10000
 				}
+				mark_focus_tree_layout_dirty = yes
+				load_focus_tree = czech_focus
 			}
 		}
 	}
@@ -1864,6 +1867,7 @@ AUH_release_HUN = {
 				is_core_of = TRA
 				is_core_of = SLO
 				state = 73
+				state = 1271
 			}
 			NOT = {
 				state = 80
@@ -4010,6 +4014,7 @@ AUS_spawn_bohemian_crown = {
 			}
 			add_ideas = HUN_ausgleich
         }
+		inherit_technology = AUS
 		add_to_tech_sharing_group = austrian_research
 		set_party_name = {
 			ideology = fascism
@@ -4031,6 +4036,8 @@ AUS_spawn_bohemian_crown = {
 			long_name = CZE_bohemia_neutrality_party_long
 			name = CZE_bohemia_neutrality_party
 		}
+		mark_focus_tree_layout_dirty = yes
+				load_focus_tree = czech_focus
 	}
 	AUS = {
 		set_autonomy = {
@@ -4039,6 +4046,7 @@ AUS_spawn_bohemian_crown = {
 			freedom_level = 0.85
 		}
 	}
+	
 }
 AUH_spawn_galicia_effect = {
 	# GALICIA
@@ -4062,18 +4070,18 @@ AUH_spawn_galicia_effect = {
 				}
 			}
 		}
-		transfer_state_to = POL
+		transfer_state_to = GAL
 	}
-	POL = {
+	GAL = {
 		load_focus_tree = empty_focus
 	}
-	POL = {
+	GAL = {
 		set_cosmetic_tag = POL_GAL_AUS
 		#get_current_government_type = yes
 		set_country_flag = monarchist_puppet
 	}
 	set_autonomy = {
-		target = POL
+		target = GAL
 		autonomy_state = autonomy_tgwr_real_union
 		end_civil_wars = yes
 		end_wars = no
@@ -4122,9 +4130,8 @@ AUS_german_austria_effect = {
 			popularity = 0.35
 		}
 	}
-		
+		mark_focus_tree_layout_dirty = yes
 	load_focus_tree = austria_tree_g
-	mark_focus_tree_layout_dirty = yes
 	complete_national_focus = AUS_all_good_things_come_to_an_end
 }
 AUS_polish_city_states = {
