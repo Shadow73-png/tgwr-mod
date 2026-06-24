@@ -7,8 +7,7 @@ AUS_dismantle_augs = {
 		priority = 10
 		days_mission_timeout = 180
 		available = {
-		always = no
-
+			always = no
 		}
 		activation = {
 			has_completed_focus = AUS_franz_ferdinand
@@ -25,7 +24,108 @@ AUS_dismantle_augs = {
 		fire_only_once = no
 		is_good = no
 	}
+	AUS_ff_slovaks = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = AUS_neg_minority_time
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_delay_the_coronation
+		}
+		available = {
+			NOT = {
+				has_country_flag = AUS_neg_with_minority_already
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+			set_country_flag = AUS_neg_with_minority_already
+		}
+		remove_effect = {
+			clr_country_flag = AUS_neg_with_minority_already
+		}
+	}
+	AUS_ff_romanians = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = AUS_neg_minority_time
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_delay_the_coronation
+		}
+		available = {
+			NOT = {
+				has_country_flag = AUS_neg_with_minority_already
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+			set_country_flag = AUS_neg_with_minority_already
+		}
+		remove_effect = {
+			clr_country_flag = AUS_neg_with_minority_already
+		}
+	}
+	AUS_ff_croats = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		days_remove = AUS_neg_minority_time
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_delay_the_coronation
+		}
+		available = {
+			NOT = {
+				has_country_flag = AUS_neg_with_minority_already
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+			set_country_flag = AUS_neg_with_minority_already
+		}
+		remove_effect = {
+			clr_country_flag = AUS_neg_with_minority_already
+		}
+	}
+	AUS_sweeping_decree = {
+		icon = GFX_decision_generic_motorized
+		cost = 25
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			has_completed_focus = AUS_moves_in_the_shadows
+		}
+		available = {
+			
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 1
+		}
+		complete_effect = {
+			complete_national_focus = AUS_formulate_a_new_hungarian_government
+			complete_national_focus = AUS_universal_suffrage_in_hungary
+		}
+		
+	}
 }
+
 AUS_fledgling_republic = {
 	AUS_inflation_iw = {
 		icon = GFX_decision_generic_ignite_civil_war
@@ -35,8 +135,7 @@ AUS_fledgling_republic = {
 		priority = 10
 		days_mission_timeout = 30
 		available = {
-						has_completed_focus = AUS_restructure_economy
-
+			has_completed_focus = AUS_restructure_economy
 		}
 		activation = {
 			has_completed_focus = AUS_money_print
@@ -46,7 +145,7 @@ AUS_fledgling_republic = {
 		}
 		timeout_effect = {
 			activate_mission = AUS_inflation_iw
-						custom_effect_tooltip = AUS_modify_economic_chaos
+			custom_effect_tooltip = AUS_modify_economic_chaos
 			add_to_variable = {
 				AUS_EP_consumer_goods = 0.08
 				tooltip = consumer_goods_factor_tt
@@ -62,6 +161,7 @@ AUS_fledgling_republic = {
 		is_good = no
 	}
 }
+
 AUS_socialist_coup_attempt = {
 	AUS_socialist_coup_mission = {
 		icon = GFX_decision_generic_ignite_civil_war
@@ -100,11 +200,10 @@ AUS_socialist_coup_attempt = {
 			original_tag = AUS
 		}
 		visible = {
-		has_completed_focus = AUS_starve_off_revolution
+			has_completed_focus = AUS_starve_off_revolution
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 15
@@ -120,7 +219,7 @@ AUS_socialist_coup_attempt = {
 				AUS_red_coup_strength = -1
 				tooltip = AUS_var_communist_strength
 			}
-		}	
+		}
 	}
 	AUS_empower_workers_councils = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -128,11 +227,10 @@ AUS_socialist_coup_attempt = {
 			original_tag = AUS
 		}
 		visible = {
-		has_completed_focus = AUS_starve_off_revolution
+			has_completed_focus = AUS_starve_off_revolution
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 15
@@ -152,7 +250,7 @@ AUS_socialist_coup_attempt = {
 				AUS_red_coup_strength = -1
 				tooltip = AUS_var_communist_strength
 			}
-		}	
+		}
 	}
 	AUS_unemployment_assistance = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -160,11 +258,10 @@ AUS_socialist_coup_attempt = {
 			original_tag = AUS
 		}
 		visible = {
-		has_completed_focus = AUS_starve_off_revolution
+			has_completed_focus = AUS_starve_off_revolution
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 15
@@ -184,7 +281,7 @@ AUS_socialist_coup_attempt = {
 				AUS_red_coup_strength = -1
 				tooltip = AUS_var_communist_strength
 			}
-		}	
+		}
 	}
 	AUS_republican_paramilitary = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -192,11 +289,10 @@ AUS_socialist_coup_attempt = {
 			original_tag = AUS
 		}
 		visible = {
-		has_completed_focus = AUS_starve_off_revolution
+			has_completed_focus = AUS_starve_off_revolution
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 15
@@ -211,19 +307,18 @@ AUS_socialist_coup_attempt = {
 				AUS_red_coup_strength = -2
 				tooltip = AUS_var_communist_strength
 			}
-		}	
+		}
 	}
-		AUS_strengthen_security_forces = {
+	AUS_strengthen_security_forces = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
 			original_tag = AUS
 		}
 		visible = {
-		has_completed_focus = AUS_starve_off_revolution
+			has_completed_focus = AUS_starve_off_revolution
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 15
@@ -238,9 +333,10 @@ AUS_socialist_coup_attempt = {
 				AUS_red_coup_strength = -2
 				tooltip = AUS_var_communist_strength
 			}
-		}	
+		}
 	}
 }
+
 TGWR_great_power_politics = {
 	AUS_amend_pig_war = {
 		icon = balkan_powder_keg
@@ -372,7 +468,6 @@ TGWR_great_power_politics = {
 			ITA = {
 				country_event = ww1_austriahungary.255
 			}
-
 		}
 	}
 	AUS_send_loans_italy = {
@@ -421,7 +516,7 @@ TGWR_great_power_politics = {
 				159 = {
 					is_core_of = AUS
 				}
-			}	
+			}
 		}
 		available = {
 			has_completed_focus = AUS_once_austrian_always_austrian
@@ -547,7 +642,6 @@ TGWR_great_power_politics = {
 			DON = {
 				country_event = ww1_austriahungary.262
 			}
-
 		}
 	}
 	AUS_install_archduke_wilhelm = {
@@ -709,7 +803,6 @@ AUH_great_war_bullshit = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 75
@@ -724,8 +817,7 @@ AUH_great_war_bullshit = {
 		complete_effect = {
 		}
 		remove_effect = {
-			
-		}	
+		}
 	}
 	AUS_intensify_labor_punishment = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -738,7 +830,6 @@ AUH_great_war_bullshit = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 30
@@ -757,7 +848,7 @@ AUH_great_war_bullshit = {
 				popularity = -0.05
 			}
 			add_stability = -0.01
-		}	
+		}
 	}
 	AUS_investigate_labor_movements = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -770,7 +861,6 @@ AUH_great_war_bullshit = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 75
@@ -789,7 +879,7 @@ AUH_great_war_bullshit = {
 				ideology = communism
 				popularity = -0.05
 			}
-		}	
+		}
 	}
 	AUS_tyr_mission = {
 		icon = GFX_decision_generic_ignite_civil_war
@@ -864,15 +954,13 @@ AUH_great_war_bullshit = {
 			}
 			if = {
 				limit = {
-						has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-					
+					has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
 				}
 				add_war_support = 0.015
 			}
-				if = {
+			if = {
 				limit = {
-						has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
-					
+					has_completed_focus = AUS_supremacy_of_the_armeeoberkommando
 				}
 				add_war_support = 0.0075
 			}
@@ -1512,10 +1600,10 @@ AUH_great_war_bullshit = {
 			has_global_flag = MGS_resistance_too_high_to_exploit
 		}
 		timeout_effect = {
-		add_days_mission_timeout = {
-			mission = AUS_worsening_food_shortages
-			days = -10
-		}
+			add_days_mission_timeout = {
+				mission = AUS_worsening_food_shortages
+				days = -10
+			}
 			activate_mission = AUS_forced_labor_mission
 			add_timed_idea = {
 				idea = AUS_forced_labor_mission_idea
@@ -1753,7 +1841,6 @@ AUH_great_war_bullshit = {
 		fire_only_once = yes
 		is_good = no
 	}
-
 	AUS_assume_jurisdiction_of_armament_factory_men = {
 		icon = GFX_decision_eng_trade_unions_support
 		allowed = {
@@ -1966,8 +2053,7 @@ AUH_great_war_bullshit = {
 				AUS_intensity_of_food_shortages = -1
 				tooltip = AUS_intensity_of_food_shortages_tt
 			}
-						add_stability = -0.03
-
+			add_stability = -0.03
 		}
 	}
 	AUS_begin_the_rationing_of_flour_bread = {
@@ -2446,7 +2532,6 @@ AUS_minorities_mechanic = {
 		fire_only_once = no
 		is_good = no
 	}
-	
 	AUH_bohemian_parliament_shenanigans = {
 		priority = 100
 		icon = GFX_decision_generic_ignite_civil_war
@@ -2482,11 +2567,10 @@ AUS_minorities_mechanic = {
 		}
 		timeout_effect = {
 			activate_mission = AUH_bohemian_parliament_shenanigans
-				if = {
+			if = {
 				limit = {
 					NOT = {
-					has_global_flag = AUS_cze_overperform
-
+						has_global_flag = AUS_cze_overperform
 					}
 				}
 				add_political_power = -20
@@ -2495,8 +2579,7 @@ AUS_minorities_mechanic = {
 				limit = {
 					has_global_flag = AUS_cze_overperform
 					NOT = {
-										has_completed_focus = AUS_reject_bohemian_autonomy
-
+						has_completed_focus = AUS_reject_bohemian_autonomy
 					}
 				}
 				add_political_power = -30
@@ -2613,7 +2696,6 @@ AUS_minorities_mechanic = {
 			AUS_increase_southern_admin = yes
 		}
 	}
-
 	AUS_propaganda_in_bosnia = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -3372,7 +3454,7 @@ AUH_the_imperial_council = {
 		}
 		days_mission_timeout = 30
 		available = {
-				NOT = {
+			NOT = {
 				has_war = yes
 				has_global_flag = great_war_ends
 			}
@@ -3382,7 +3464,6 @@ AUH_the_imperial_council = {
 		}
 		activation = {
 			has_country_flag = AUS_karl_decisions_shown
-			
 		}
 		timeout_effect = {
 			swap_ideas = {
@@ -3391,7 +3472,6 @@ AUH_the_imperial_council = {
 			}
 		}
 		cancel_trigger = {
-			
 		}
 		cancel_effect = {
 		}
@@ -3445,7 +3525,8 @@ AUH_the_imperial_council = {
 		timeout_effect = {
 			complete_national_focus = AUS_reopen_the_reichsrat
 			hidden_effect = {
-				country_event = { #angry minorities
+				country_event = {
+					#angry minorities
 					id = ww1_austriahungary.264
 					days = 2
 				}
@@ -3498,7 +3579,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 30
@@ -3524,14 +3604,13 @@ AUH_the_imperial_council = {
 			original_tag = AUS
 		}
 		visible = {
-			has_completed_focus = AUS_bourgeoisie_unity	
+			has_completed_focus = AUS_bourgeoisie_unity
 			check_variable = {
 				AUS_polish_cock_sucked = 1
 			}
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 180
@@ -3550,9 +3629,9 @@ AUH_the_imperial_council = {
 		remove_effect = {
 			88 = {
 				add_building_construction = {
-    				type = infrastructure
-    				level = 1
-    				instant_build = yes
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
 		}
@@ -3565,20 +3644,19 @@ AUH_the_imperial_council = {
 		days_mission_timeout = 720
 		available = {
 			has_completed_focus = AUS_der_burgerliche_block
-		
 		}
 		activation = {
 			always = no
 		}
 		timeout_effect = {
-		complete_national_focus = AUS_bienerth_resigns
+			complete_national_focus = AUS_bienerth_resigns
 		}
 		complete_effect = {
 		}
 		fire_only_once = yes
 		is_good = no
 	}
-	AUS_tackle_first_czech_reforms  = {
+	AUS_tackle_first_czech_reforms = {
 		icon = GFX_decision_eng_trade_unions_demand
 		allowed = {
 			original_tag = AUS
@@ -3591,14 +3669,14 @@ AUH_the_imperial_council = {
 			always = no
 		}
 		timeout_effect = {
-		complete_national_focus = AUS_bienerth_resigns
+			complete_national_focus = AUS_bienerth_resigns
 		}
 		complete_effect = {
 		}
 		fire_only_once = yes
 		is_good = no
 	}
-	AUS_coalition_dissent_mission  = {
+	AUS_coalition_dissent_mission = {
 		icon = GFX_decision_eng_trade_unions_demand
 		allowed = {
 			original_tag = AUS
@@ -3617,10 +3695,10 @@ AUH_the_imperial_council = {
 			country_event = ww1_austriahungary.211
 			effect_tooltip = {
 				custom_effect_tooltip = AUS_modify_aps.tt
-			add_to_variable = {
-				AUS_aps_pp_gain = -0.05
-				tooltip = political_power_factor_tt
-			}
+				add_to_variable = {
+					AUS_aps_pp_gain = -0.05
+					tooltip = political_power_factor_tt
+				}
 			}
 			activate_mission = AUS_coalition_dissent_mission
 		}
@@ -3646,7 +3724,6 @@ AUH_the_imperial_council = {
 		cost = 20
 		ai_will_do = {
 			base = 0
-			
 		}
 		modifier = {
 			political_power_factor = -0.1
@@ -3662,9 +3739,9 @@ AUH_the_imperial_council = {
 			}
 			hidden_effect = {
 				country_event = {
-				id = ww1_austriahungary.217
-				days = 7
-			}
+					id = ww1_austriahungary.217
+					days = 7
+				}
 			}
 		}
 		remove_effect = {
@@ -3675,7 +3752,6 @@ AUH_the_imperial_council = {
 			country_event = ww1_austriahungary.219
 			set_country_flag = AUS_bohemian_districts_drawn
 		}
-		
 	}
 	AUS_decide_language_of_districts = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -3687,7 +3763,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 30
@@ -3712,11 +3787,9 @@ AUH_the_imperial_council = {
 			}
 			set_country_flag = AUS_decide_language_districts
 			country_event = ww1_austriahungary.220
-						custom_effect_tooltip = AUS_unlock_linguistic_focus
-
+			custom_effect_tooltip = AUS_unlock_linguistic_focus
 			set_country_flag = AUS_bohemian_districts_drawn
 		}
-		
 	}
 	AUS_negotiate_bohemian_language_in_schools = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -3731,7 +3804,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = no
 		cost = 20
@@ -3742,10 +3814,8 @@ AUH_the_imperial_council = {
 			custom_effect_tooltip = AUS_this_is_sensitive
 			country_event = ww1_austriahungary.222
 		}
-	
-		
 	}
-		AUS_settle_wishes_for_federal_spending = {
+	AUS_settle_wishes_for_federal_spending = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
 			original_tag = AUS
@@ -3758,7 +3828,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		cost = 20
@@ -3766,7 +3835,6 @@ AUH_the_imperial_council = {
 			base = 0
 		}
 		complete_effect = {
-		
 		}
 		remove_effect = {
 			add_days_mission_timeout = {
@@ -3775,7 +3843,6 @@ AUH_the_imperial_council = {
 			}
 			country_event = ww1_austriahungary.224
 		}
-		
 	}
 	AUS_further_agr_subsidies = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -3790,7 +3857,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 120
@@ -3815,10 +3881,10 @@ AUH_the_imperial_council = {
 				AUS_farmer_concession = 1
 			}
 			add_days_mission_timeout = {
-				mission = AUS_coalition_dissent_mission 
+				mission = AUS_coalition_dissent_mission
 				days = -15
 			}
-		}	
+		}
 	}
 	AUS_agr_tarrifs = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -3833,7 +3899,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 120
@@ -3863,10 +3928,10 @@ AUH_the_imperial_council = {
 				AUS_farmer_concession = 1
 			}
 			add_days_mission_timeout = {
-				mission = AUS_coalition_dissent_mission 
+				mission = AUS_coalition_dissent_mission
 				days = -15
 			}
-		}	
+		}
 	}
 	AUS_support_agr_organisations = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -3881,7 +3946,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 120
@@ -3908,10 +3972,10 @@ AUH_the_imperial_council = {
 				AUS_farmer_concession = 1
 			}
 			add_days_mission_timeout = {
-				mission = AUS_coalition_dissent_mission 
+				mission = AUS_coalition_dissent_mission
 				days = -15
 			}
-		}	
+		}
 	}
 	AUS_fund_agr_schools = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -3926,7 +3990,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 120
@@ -3953,10 +4016,10 @@ AUH_the_imperial_council = {
 				tooltip = research_speed_factor_tt
 			}
 			add_days_mission_timeout = {
-				mission = AUS_coalition_dissent_mission 
+				mission = AUS_coalition_dissent_mission
 				days = -15
 			}
-		}	
+		}
 	}
 	AUS_lower_business_tax = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -3971,7 +4034,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 120
@@ -4001,7 +4063,7 @@ AUH_the_imperial_council = {
 			add_to_variable = {
 				AUS_liberal_concession = 1
 			}
-		}	
+		}
 	}
 	AUS_lower_censorship_pacifist_literature = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4016,7 +4078,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 120
@@ -4038,7 +4099,7 @@ AUH_the_imperial_council = {
 			add_to_variable = {
 				AUS_liberal_concession = 1
 			}
-		}	
+		}
 	}
 	AUS_reduce_church_influence_school_funding = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4053,7 +4114,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 120
@@ -4078,7 +4138,7 @@ AUH_the_imperial_council = {
 			add_to_variable = {
 				AUS_liberal_concession = 1
 			}
-		}	
+		}
 	}
 	AUS_pledge_commitment_civil_liberties = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4096,7 +4156,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 120
@@ -4117,7 +4176,7 @@ AUH_the_imperial_council = {
 				AUS_pm_mandate_power = 1
 				tooltip = AUS_pm_mandate.tt
 			}
-		}	
+		}
 	}
 	AUS_drive_away_authoritarian_elements = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4132,7 +4191,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 90
@@ -4152,7 +4210,7 @@ AUH_the_imperial_council = {
 			}
 			custom_effect_tooltip = AUS_kunschak_decision_tt
 			add_political_power = 50
-		}	
+		}
 	}
 	AUS_promote_christian_democrats = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4167,7 +4225,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 60
@@ -4189,8 +4246,8 @@ AUH_the_imperial_council = {
 				ideology = democratic
 				popularity = 0.05
 			}
-		}	
-	}	
+		}
+	}
 	AUS_change_party_direction = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -4204,7 +4261,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 60
@@ -4213,7 +4269,6 @@ AUH_the_imperial_council = {
 			base = 1
 		}
 		modifier = {
-			
 		}
 		complete_effect = {
 		}
@@ -4226,8 +4281,8 @@ AUH_the_imperial_council = {
 				ideology = democratic
 				popularity = 0.1
 			}
-		}	
-	}	
+		}
+	}
 	AUS_push_for_freedom = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -4241,7 +4296,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 60
@@ -4250,7 +4304,6 @@ AUH_the_imperial_council = {
 			base = 1
 		}
 		modifier = {
-			
 		}
 		complete_effect = {
 		}
@@ -4264,9 +4317,8 @@ AUH_the_imperial_council = {
 				tooltip = democratic_drift_tt
 			}
 			custom_effect_tooltip = AUS_kunschak_decision_tt
-			
-		}	
-	}	
+		}
+	}
 	AUS_discredit_authoritarians = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -4280,7 +4332,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 60
@@ -4289,7 +4340,6 @@ AUH_the_imperial_council = {
 			base = 1
 		}
 		modifier = {
-			
 		}
 		complete_effect = {
 		}
@@ -4303,9 +4353,8 @@ AUH_the_imperial_council = {
 				tooltip = neutrality_drift_tt
 			}
 			custom_effect_tooltip = AUS_kunschak_decision_final_tt
-			
-		}	
-	}	
+		}
+	}
 	AUS_strenghten_coalition_unity_decision = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -4316,7 +4365,6 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = no
 		days_remove = 30
@@ -4325,7 +4373,6 @@ AUH_the_imperial_council = {
 			base = 1
 		}
 		modifier = {
-			
 		}
 		complete_effect = {
 		}
@@ -4334,7 +4381,7 @@ AUH_the_imperial_council = {
 				mission = AUS_coalition_dissent_mission
 				days = 60
 			}
-		}	
+		}
 	}
 	AUS_rallying_around_flag = {
 		priority = 100
@@ -4345,8 +4392,8 @@ AUH_the_imperial_council = {
 		days_mission_timeout = 30
 		available = {
 			OR = {
-			has_war_with_major = yes
-has_completed_focus = AUS_bienerth_resigns
+				has_war_with_major = yes
+				has_completed_focus = AUS_bienerth_resigns
 			}
 		}
 		visible = {
@@ -4362,7 +4409,6 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		timeout_effect = {
 			activate_mission = AUS_rallying_around_flag
-
 			add_days_mission_timeout = {
 				mission = AUS_coalition_dissent_mission
 				days = 20
@@ -4383,7 +4429,6 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 180
@@ -4397,8 +4442,7 @@ has_completed_focus = AUS_bienerth_resigns
 		complete_effect = {
 		}
 		remove_effect = {
-			
-		}	
+		}
 	}
 	AUS_trad_families_curiculum = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4410,7 +4454,6 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 180
@@ -4425,8 +4468,7 @@ has_completed_focus = AUS_bienerth_resigns
 		complete_effect = {
 		}
 		remove_effect = {
-			
-		}	
+		}
 	}
 	AUS_allowances_for_trad_families = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4438,7 +4480,6 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 180
@@ -4453,8 +4494,7 @@ has_completed_focus = AUS_bienerth_resigns
 		complete_effect = {
 		}
 		remove_effect = {
-			
-		}	
+		}
 	}
 	AUS_discredit_liberalism = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4466,7 +4506,6 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 50
@@ -4484,7 +4523,7 @@ has_completed_focus = AUS_bienerth_resigns
 				ideology = democratic
 				popularity = -0.05
 			}
-		}	
+		}
 	}
 	AUS_highlight_progressive_failures = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4496,7 +4535,6 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 100
@@ -4511,7 +4549,7 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		remove_effect = {
 			add_political_power = 10
-		}	
+		}
 	}
 	AUS_promote_our_narrative = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4523,7 +4561,6 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 120
@@ -4542,7 +4579,7 @@ has_completed_focus = AUS_bienerth_resigns
 				ideology = neutrality
 				popularity = 0.075
 			}
-		}	
+		}
 	}
 	AUS_pass_anti_socialist_legistlation = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4554,7 +4591,6 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 40
@@ -4574,7 +4610,7 @@ has_completed_focus = AUS_bienerth_resigns
 			}
 			set_country_flag = AUS_anti_socialist_measures_passed
 			custom_effect_tooltip = AUS_anti_socialist_measures_passed_tt
-		}	
+		}
 	}
 	AUS_zoning_laws_austria = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4759,14 +4795,12 @@ has_completed_focus = AUS_bienerth_resigns
 			base = 1
 		}
 		modifier = {
-			
 		}
 		complete_effect = {
 			add_to_variable = {
 				AUS_pm_mandate_power = -1
 				tooltip = AUS_pm_mandate.tt
 			}
-			
 		}
 		remove_effect = {
 			random_owned_controlled_state = {
@@ -4792,7 +4826,6 @@ has_completed_focus = AUS_bienerth_resigns
 				}
 			}
 		}
-		
 	}
 	AUS_fund_railways = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -4826,7 +4859,6 @@ has_completed_focus = AUS_bienerth_resigns
 				AUS_pm_mandate_power = -1
 				tooltip = AUS_pm_mandate.tt
 			}
-			
 		}
 		remove_effect = {
 			custom_effect_tooltip = AUS_modify_army.tt
@@ -4865,14 +4897,12 @@ has_completed_focus = AUS_bienerth_resigns
 			base = 1
 		}
 		modifier = {
-			
 		}
 		complete_effect = {
 			add_to_variable = {
 				AUS_pm_mandate_power = -1
 				tooltip = AUS_pm_mandate.tt
 			}
-			
 		}
 		remove_effect = {
 			custom_effect_tooltip = AUS_modify_eco.tt
@@ -4889,7 +4919,6 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		visible = {
 			has_completed_focus = AUS_forment_strong_small_farms
-			
 		}
 		priority = 210
 		available = {
@@ -4906,7 +4935,6 @@ has_completed_focus = AUS_bienerth_resigns
 		ai_will_do = {
 			base = 1
 		}
-	
 		complete_effect = {
 		}
 		remove_effect = {
@@ -4918,13 +4946,12 @@ has_completed_focus = AUS_bienerth_resigns
 				AUS_pm_mandate_power = -1
 				tooltip = AUS_pm_mandate.tt
 			}
-				custom_effect_tooltip = AUS_modify_eco.tt
+			custom_effect_tooltip = AUS_modify_eco.tt
 			add_to_variable = {
 				AUS_EP_consumer_goods = -0.05
 				tooltip = consumer_goods_factor_tt
 			}
 		}
-		
 	}
 	AUS_electricity_in_galicia = {
 		icon = GFX_decision_generic_electricity
@@ -4976,14 +5003,13 @@ has_completed_focus = AUS_bienerth_resigns
 					type = industrial_complex
 					level = 1
 					instant_build = yes
-				}	
+				}
 				add_dynamic_modifier = {
 					modifier = generic_local_investments
 					days = 720
 				}
 			}
 		}
-		
 	}
 	AUS_invest_in_ports = {
 		icon = GFX_decision_SWE_set_navy_budget
@@ -5015,7 +5041,7 @@ has_completed_focus = AUS_bienerth_resigns
 		days_remove = 200
 		cost = 0
 		ai_will_do = {
-			base = 10	
+			base = 10
 		}
 		modifier = {
 			civilian_factory_use = 2
@@ -5056,9 +5082,7 @@ has_completed_focus = AUS_bienerth_resigns
 				}
 			}
 		}
-		
 	}
-
 	AUS_rally_parties_against_socialism = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		allowed = {
@@ -5066,11 +5090,9 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		visible = {
 			has_completed_focus = AUS_sanitarer_kordon
-			
 		}
 		priority = 210
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 30
@@ -5081,12 +5103,11 @@ has_completed_focus = AUS_bienerth_resigns
 		complete_effect = {
 		}
 		remove_effect = {
-		add_days_mission_timeout = {
-			mission = AUS_coalition_dissent_mission
-			days = 60
+			add_days_mission_timeout = {
+				mission = AUS_coalition_dissent_mission
+				days = 60
+			}
 		}
-		}
-		
 	}
 	AUS_tempoary_coalitions_d = {
 		icon = GFX_decision_hol_attract_foreign_investors
@@ -5197,12 +5218,12 @@ has_completed_focus = AUS_bienerth_resigns
 			}
 			NOT = {
 				has_completed_focus = AUS_the_constitutionalist_dictatorship
-			#	has_completed_focus = AUS_minister_president_conrad
+				#	has_completed_focus = AUS_minister_president_conrad
 			}
 		}
 		cancel_trigger = {
 			has_completed_focus = AUS_the_constitutionalist_dictatorship
-		#	has_completed_focus = AUS_minister_president_conrad
+			#	has_completed_focus = AUS_minister_president_conrad
 		}
 		priority = 210
 		available = {
@@ -5446,14 +5467,13 @@ has_completed_focus = AUS_bienerth_resigns
 			unlock_national_focus = AUS_polish_loyalty
 		}
 	}
-	AUH_obstructionist_imperial_council= {
+	AUH_obstructionist_imperial_council = {
 		priority = 1002
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
 			original_tag = AUS
 		}
 		highlight_states = {
-			
 		}
 		days_mission_timeout = AUS_bohemia_mission_var
 		available = {
@@ -5462,7 +5482,6 @@ has_completed_focus = AUS_bienerth_resigns
 					has_country_flag = AUS_perm_obstructionism
 				}
 				has_completed_focus = AUS_der_burgerliche_block
-
 			}
 		}
 		visible = {
@@ -5479,31 +5498,31 @@ has_completed_focus = AUS_bienerth_resigns
 		}
 		timeout_effect = {
 			random_list = {
-			20 = {
-				country_event = {
-					id = ww1_austriahungary.231
+				20 = {
+					country_event = {
+						id = ww1_austriahungary.231
+					}
 				}
-			}
-			20 = {
-				country_event = {
-					id = ww1_austriahungary.232
+				20 = {
+					country_event = {
+						id = ww1_austriahungary.232
+					}
 				}
-			}
-			20 = {
-				country_event = {
-					id = ww1_austriahungary.233
+				20 = {
+					country_event = {
+						id = ww1_austriahungary.233
+					}
 				}
-			}
-			20 = {
-				country_event = {
-					id = ww1_austriahungary.234
+				20 = {
+					country_event = {
+						id = ww1_austriahungary.234
+					}
 				}
-			}
-			20 = {
-				country_event = {
-					id = ww1_austriahungary.235
+				20 = {
+					country_event = {
+						id = ww1_austriahungary.235
+					}
 				}
-			}
 			}
 		}
 		complete_effect = {
@@ -5574,8 +5593,7 @@ has_completed_focus = AUS_bienerth_resigns
 				}
 				country_event = ww1_austriahungary.21
 				complete_national_focus = AUS_1911_elections
-								custom_effect_tooltip = AUS_rads_win_the_elections
-
+				custom_effect_tooltip = AUS_rads_win_the_elections
 			}
 			if = {
 				limit = {
@@ -5601,10 +5619,8 @@ has_completed_focus = AUS_bienerth_resigns
 				}
 				country_event = ww1_austriahungary.43
 				complete_national_focus = AUS_1911_elections
-								custom_effect_tooltip = AUS_rads_win_the_elections
-
+				custom_effect_tooltip = AUS_rads_win_the_elections
 			}
-
 			# CSP Majority -- Has NOT completed Moderate Electoral Alliance focus and the CSP has more points than any other party
 			if = {
 				limit = {
@@ -5620,8 +5636,7 @@ has_completed_focus = AUS_bienerth_resigns
 				}
 				country_event = ww1_austriahungary.44
 				complete_national_focus = AUS_1911_elections
-								custom_effect_tooltip = AUS_csp_wins_election
-
+				custom_effect_tooltip = AUS_csp_wins_election
 			}
 			hidden_effect = {
 				country_event = {
@@ -5635,7 +5650,6 @@ has_completed_focus = AUS_bienerth_resigns
 			}
 		}
 	}
-	
 	AUS_dissolve_the_imperial_council = {
 		icon = GFX_decision_generic_electricity
 		allowed = {
@@ -5660,10 +5674,10 @@ has_completed_focus = AUS_bienerth_resigns
 		complete_effect = {
 		}
 		remove_effect = {
-		add_days_mission_timeout = {
-			mission = AUS_imperial_elections
-			days = -1000
-		}
+			add_days_mission_timeout = {
+				mission = AUS_imperial_elections
+				days = -1000
+			}
 		}
 	}
 	AUS_subsidize_skoda_works = {
@@ -5927,7 +5941,7 @@ AUH_stitching_the_quilt = {
 			original_tag = AUS
 		}
 		visible = {
-		#	has_completed_focus = AUS_arbeiterbildung
+			#	has_completed_focus = AUS_arbeiterbildung
 			always = no
 			#daggie
 		}
@@ -5956,7 +5970,7 @@ AUH_stitching_the_quilt = {
 			original_tag = AUS
 		}
 		visible = {
-		#	has_completed_focus = AUS_arbeiterbildung
+			#	has_completed_focus = AUS_arbeiterbildung
 			always = no
 			#daggie
 		}
@@ -6137,7 +6151,6 @@ AUH_stitching_the_quilt = {
 			}
 		}
 	}
-	
 	AUS_connect_german_railways = {
 		icon = GFX_decision_generic_electricity
 		priority = 20
@@ -6145,7 +6158,6 @@ AUH_stitching_the_quilt = {
 			has_completed_focus = AUS_conncect_railways
 		}
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 90
@@ -6173,7 +6185,6 @@ AUH_stitching_the_quilt = {
 			has_completed_focus = AUS_conncect_railways
 		}
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 90
@@ -6201,7 +6212,6 @@ AUH_stitching_the_quilt = {
 			has_completed_focus = AUS_conncect_railways
 		}
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 90
@@ -6229,7 +6239,6 @@ AUH_stitching_the_quilt = {
 			has_completed_focus = AUS_conncect_railways
 		}
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 90
@@ -6260,7 +6269,6 @@ AUH_stitching_the_quilt = {
 			has_completed_focus = AUS_generous_housing_program
 		}
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 180
@@ -6300,7 +6308,6 @@ AUH_stitching_the_quilt = {
 			has_completed_focus = AUS_generous_housing_program
 		}
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 180
@@ -6344,7 +6351,6 @@ AUH_stitching_the_quilt = {
 			has_completed_focus = AUS_generous_housing_program
 		}
 		available = {
-			
 		}
 		fire_only_once = yes
 		days_remove = 180
@@ -7339,6 +7345,7 @@ peace_deals = {
 		}
 	}
 }
+
 AUS_question_of_army_chief = {
 	AUS_aehrenthal_demand_for_conrads_dismissal = {
 		icon = GFX_decision_eng_trade_unions_demand
@@ -7364,7 +7371,7 @@ AUS_question_of_army_chief = {
 		fire_only_once = yes
 		is_good = yes
 	}
-	AUS_lobbying_of_the_belvedere_circle  = {
+	AUS_lobbying_of_the_belvedere_circle = {
 		icon = GFX_decision_eng_trade_unions_demand
 		allowed = {
 			original_tag = AUS
@@ -7377,7 +7384,8 @@ AUS_question_of_army_chief = {
 			always = no
 		}
 		timeout_effect = {
-			if = { #schemua
+			if = {
+				#schemua
 				limit = {
 					check_variable = {
 						AUS_army_focuses_taken > 6
@@ -7394,8 +7402,9 @@ AUS_question_of_army_chief = {
 					set_character_flag = AUS_chief_of_army
 				}
 			}
-			else_if = { #potiorek
-				limit = { 
+			else_if = {
+				#potiorek
+				limit = {
 					has_country_flag = AUS_potiorek_will_become_chief
 				}
 				activate_advisor = AUH_oskar_potiorek
@@ -7404,8 +7413,9 @@ AUS_question_of_army_chief = {
 					set_character_flag = AUS_chief_of_army
 				}
 			}
-			else_if = { #eugen
-				limit = { 
+			else_if = {
+				#eugen
+				limit = {
 					has_country_flag = AUS_eugen_will_become_chief
 				}
 				activate_advisor = AUH_eugen_von_osterreich_teschen
@@ -7414,7 +7424,8 @@ AUS_question_of_army_chief = {
 					set_character_flag = AUS_chief_of_army
 				}
 			}
-			else = { #conrad
+			else = {
+				#conrad
 				activate_advisor = AUH_franz_conrad_von_hotzendorf
 				set_country_flag = AUS_conrad_secured
 				AUH_conrad_von_hotzendorf = {
@@ -7491,6 +7502,7 @@ AUS_question_of_army_chief = {
 		}
 	}
 }
+
 AUH_austrian_military = {
 	AUS_expand_army_reserve = {
 		icon = GFX_decision_generic_military
@@ -7588,7 +7600,7 @@ AUH_austrian_military = {
 			original_tag = AUS
 		}
 		visible = {
-		#	has_completed_focus = AUS_war_like_training_methods
+			#	has_completed_focus = AUS_war_like_training_methods
 			always = no
 		}
 		available = {
@@ -7738,7 +7750,7 @@ AUH_austrian_military = {
 		}
 		fire_only_once = yes
 		ai_will_do = {
-			base = 0 #intended
+			base = 0			#intended
 		}
 		custom_cost_trigger = {
 			command_power > 9
@@ -8655,7 +8667,6 @@ AUS_quests = {
 	}
 }
 
-
 AUS_karl_category = {
 	AUS_karl_reopen_parliament = {
 		icon = generic_construction
@@ -8674,10 +8685,8 @@ AUS_karl_category = {
 		}
 		days_remove = 20
 		remove_effect = {
-			
 		}
 		complete_effect = {
-			
 		}
 	}
 	AUS_create_ministry_health = {
@@ -8719,7 +8728,6 @@ AUS_karl_category = {
 	AUS_karl_organize_charities = {
 		icon = generic_construction
 		available = {
-			
 		}
 		days_remove = 20
 		remove_effect = {
@@ -8729,7 +8737,6 @@ AUS_karl_category = {
 	AUS_karl_amnesties = {
 		icon = generic_construction
 		available = {
-			
 		}
 		days_remove = 20
 		remove_effect = {
@@ -8739,7 +8746,6 @@ AUS_karl_category = {
 	AUS_karl_reduce_censorship = {
 		icon = generic_construction
 		available = {
-			
 		}
 		days_remove = 20
 		remove_effect = {
@@ -8751,7 +8757,6 @@ AUS_karl_category = {
 		}
 	}
 }
-
 
 debug_decisions = {
 	AUH_switch_to_german_austria = {
@@ -8806,7 +8811,6 @@ debug_decisions = {
 			AUH_spawn_galicia_effect = yes
 		}
 	}
-	
 	AUH_MGS_test = {
 		fire_only_once = no
 		allowed = {
@@ -8836,7 +8840,7 @@ debug_decisions = {
 			has_variable = AUS_romanian_loyalty
 		}
 		complete_effect = {
-				add_to_variable = {
+			add_to_variable = {
 				AUS_ruthenian_loyalty = -500
 				tooltip = AUS_loyalty_ruthenians_tt
 			}
