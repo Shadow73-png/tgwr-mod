@@ -605,6 +605,103 @@ TGWR_great_power_politics = {
 			}
 		}
 	}
+	AUS_reform_ukrainian_borders = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_boost_control_ukraine
+		}
+		available = {
+			has_completed_focus = AUS_boost_control_ukraine
+			UKR = {
+				is_subject = yes
+			}
+			
+		}
+		remove_effect = {
+			add_to_variable = {
+				AUS_ruthenian_loyalty = 5
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+		}
+	}
+	AUS_amnesty_for_rada_members = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_boost_control_ukraine
+		}
+		available = {
+			has_completed_focus = AUS_boost_control_ukraine
+			UKR = {
+				is_subject = yes
+			}
+		}
+		remove_effect = {
+			UKR = {
+				add_stability = 0.075
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.1
+				}
+			}
+			add_to_variable = {
+				AUS_ruthenian_loyalty = 5
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+		}
+	}
+	AUS_create_brotherly_alliance_ukraine = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_boost_control_ukraine
+		}
+		available = {
+			has_completed_focus = AUS_boost_control_ukraine
+			has_completed_focus = AUS_respect_ukranian_rights
+			UKR = {
+				is_subject = yes
+			}
+		}
+		remove_effect = {
+			UKR = {
+				add_war_support = 0.1
+			}
+			add_to_variable = {
+				AUS_ruthenian_loyalty = 10
+				tooltip = AUS_loyalty_ruthenians_tt
+			}
+			country_event = ww1_austriahungary.277
+		}
+	}
 	AUS_send_weapons_don = {
 		icon = GFX_decision_SWI_support_humanitarian_efforts
 		days_remove = 30
