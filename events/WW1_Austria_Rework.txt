@@ -9694,6 +9694,10 @@ country_event = {
 				id = ww1_austriahungary_collapse.16 #
 				days = 36
 			}
+			country_event = {
+				id = ww1_austriahungary_collapse.21 # Lemko Republic creation - 5 December
+				days = 61
+			}
 
 			#future events
 			#karl abdication November 11
@@ -10044,6 +10048,18 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_collapse.12.a
 		add_political_power = -5
+		237 = {
+			set_demilitarized_zone = yes
+		}
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = WUK
+				OR = {
+					state = 91
+					state = 562
+				}
+			}
+		}
 	}
 }
 #republic of zakopane
@@ -10111,7 +10127,10 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		1270 = {
-			is_owned_and_controlled_by = AUS
+			OR = {
+				is_owned_and_controlled_by = AUS
+				is_owned_and_controlled_by = WUK
+			}
 		}
 	}
 	immediate = {
@@ -10135,18 +10154,18 @@ country_event = {
 			}
 		}
 	}
-	option = {
-		name = ww1_austriahungary_collapse.13.b
-		KMR = {
-			change_tag_from = AUS
-		}
-		effect_tooltip = {
-			1270 = {
-				add_core_of = KMR
-				transfer_state_to = KMR
-			}
-		}
-	}
+	#option = {
+	#	name = ww1_austriahungary_collapse.13.b
+	#	KMR = {
+	#		change_tag_from = AUS
+	#	}
+	#	effect_tooltip = {
+	#		1270 = {
+	#			add_core_of = KMR
+	#			transfer_state_to = KMR
+	#		}
+	#	}
+	#}
 	option = {
 		name = debug_option
 		trigger = {
@@ -10186,18 +10205,18 @@ country_event = {
 		}
 		custom_effect_tooltip = that_was_not_tuff
 	}
-	option = {
-		name = ww1_austriahungary_collapse.13.b
-		TBZ = {
-			change_tag_from = AUS
-		}
-		effect_tooltip = {
-			1268 = {
-				add_core_of = TBZ
-				transfer_state_to = TBZ
-			}
-		}
-	}
+	#option = { #shouldnt be playable
+	#	name = ww1_austriahungary_collapse.13.b
+	#	TBZ = {
+	#		change_tag_from = AUS
+	#	}
+	#	effect_tooltip = {
+	#		1268 = {
+	#			add_core_of = TBZ
+	#			transfer_state_to = TBZ
+	#		}
+	#	}
+	#}
 }
 #karl gives up authority german austria formed
 country_event = {
@@ -10460,7 +10479,7 @@ country_event = {
 		}
 	}
 }
-#karl manifesto in hungary if hungary doesn't exist
+#lemko
 country_event = {
 	id = ww1_austriahungary_collapse.21
 	title = ww1_austriahungary_collapse.21.t
@@ -10469,18 +10488,35 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		237 = {
-			is_owned_and_controlled_by = AUS
+			OR = {
+				is_owned_and_controlled_by = AUS
+				is_owned_and_controlled_by = WUK
+			}
 		}
 	}
 	immediate = {
-		237 = {
-			add_core_of = LMK
-			transfer_state_to = LMK
+		hidden_effect = {
+			237 = {
+				add_core_of = LMK
+				transfer_state_to = LMK
+			}
 		}
 	}
 	option = {
 		name = ww1_austriahungary_collapse.21.a
 		
+	}
+	option = { #should be playable, lasts until 1920 march
+		name = ww1_austriahungary_collapse.13.b
+		LMK = {
+			change_tag_from = AUS
+		}
+		effect_tooltip = {
+			1268 = {
+				add_core_of = LMK
+				transfer_state_to = LMK
+			}
+		}
 	}
 }
 
