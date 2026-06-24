@@ -139,8 +139,20 @@ country_event = {
 			GEO_nikoloz_chkheidze = {
 				set_nationality = ROOT
 				set_character_name = GEO_nikoloz_chkheidze
-				promote_character = social_democracy
 				promote_character = reformist_socialism
+				if = {
+					limit = { has_ideology = social_democracy }
+					promote_character = social_democracy
+				}
+				else = {
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader={
+							ideology = social_democracy
+							traits = { daddy }
+						}
+					}
+				}
 				set_character_flag = georgian_character
 			}
 		}	
