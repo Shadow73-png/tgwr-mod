@@ -9797,11 +9797,7 @@ country_event = {
 				days = 25
 			}
 			country_event = {
-				id = ww1_austriahungary_collapse.22				# create (west) ukraine 27 days / 1 November 1918
-				days = 27
-			}
-			country_event = {
-				id = ww1_austriahungary_collapse.12				#lviv/lemberg occupied by ukrainian rebels - 30 days / 3 November 
+				id = ww1_austriahungary_collapse.12				#lviv/lemberg occupied by ukrainian rebels - 27 days / 1 November 
 				days = 30
 			}
 			country_event = {
@@ -10171,18 +10167,67 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_and_controlled_by = AUS
+						is_owned_and_controlled_by = GAL
+					}
+					is_core_of = WUK
+					AUS_is_UKR_state = yes
+				}
+				transfer_state_to = WUK
+			}
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_and_controlled_by = AUS
+						is_owned_and_controlled_by = GAL
+					}
+					OR = {
+						state = 80
+						state = 1007
+					}
+				}
+				transfer_state_to = WUK
+			}
+			ROM = {
+				country_event = {
+					id = ww1_austriahungary_collapse.25
+					days = 15
+				}
+			}
+			WUK = {
+				country_event = {
+					id = ww1_austriahungary_collapse.25
+					days = 15
+				}
+			}
+		}
+	}
 	option = {
 		name = ww1_austriahungary_collapse.12.a
-		add_political_power = -5
-		237 = {
-			set_demilitarized_zone = yes
+		hidden_effect = {
+			WUK = {
+				country_event = {
+					id = ww1_austriahungary_collapse.23
+					days = 12
+				}
+			}
 		}
-		every_state = {
-			limit = {
-				is_owned_and_controlled_by = WUK
-				OR = {
-					state = 91
-					state = 562
+	}
+	option = {
+		name = ww1_austriahungary_collapse.12.b
+		WUK = {
+			change_tag_from = AUS
+		}
+		hidden_effect = {
+			WUK = {
+				country_event = {
+					id = ww1_austriahungary_collapse.23
+					days = 12
 				}
 			}
 		}
@@ -10659,79 +10704,79 @@ country_event = {
 }
 
 #creation of ukrainian state (western ukrainian republic)
-country_event = {
-	id = ww1_austriahungary_collapse.22
-	title = ww1_austriahungary_collapse.22.t
-	desc = ww1_austriahungary_collapse.22.d
-	picture = GFX_report_event_karl_i_coronation
-	is_triggered_only = yes
-	fire_only_once = yes
-	immediate = {
-		hidden_effect = {
-			every_state = {
-				limit = {
-					OR = {
-						is_owned_and_controlled_by = AUS
-						is_owned_and_controlled_by = GAL
-					}
-					is_core_of = WUK
-					AUS_is_UKR_state = yes
-				}
-				transfer_state_to = WUK
-			}
-			every_state = {
-				limit = {
-					OR = {
-						is_owned_and_controlled_by = AUS
-						is_owned_and_controlled_by = GAL
-					}
-					OR = {
-						state = 80
-						state = 1007
-					}
-				}
-				transfer_state_to = WUK
-			}
-			ROM = {
-				country_event = {
-					id = ww1_austriahungary_collapse.25
-					days = 15
-				}
-			}
-			WUK = {
-				country_event = {
-					id = ww1_austriahungary_collapse.25
-					days = 15
-				}
-			}
-		}
-	}
-	option = {
-		name = ww1_austriahungary_collapse.22.a
-		hidden_effect = {
-			WUK = {
-				country_event = {
-					id = ww1_austriahungary_collapse.23
-					days = 12
-				}
-			}
-		}
-	}
-	option = {
-		name = ww1_austriahungary_collapse.22.b
-		WUK = {
-			change_tag_from = AUS
-		}
-		hidden_effect = {
-			WUK = {
-				country_event = {
-					id = ww1_austriahungary_collapse.23
-					days = 12
-				}
-			}
-		}
-	}
-}
+# country_event = {
+# 	id = ww1_austriahungary_collapse.22
+# 	title = ww1_austriahungary_collapse.22.t
+# 	desc = ww1_austriahungary_collapse.22.d
+# 	picture = GFX_report_event_karl_i_coronation
+# 	is_triggered_only = yes
+# 	fire_only_once = yes
+# 	immediate = {
+# 		hidden_effect = {
+# 			every_state = {
+# 				limit = {
+# 					OR = {
+# 						is_owned_and_controlled_by = AUS
+# 						is_owned_and_controlled_by = GAL
+# 					}
+# 					is_core_of = WUK
+# 					AUS_is_UKR_state = yes
+# 				}
+# 				transfer_state_to = WUK
+# 			}
+# 			every_state = {
+# 				limit = {
+# 					OR = {
+# 						is_owned_and_controlled_by = AUS
+# 						is_owned_and_controlled_by = GAL
+# 					}
+# 					OR = {
+# 						state = 80
+# 						state = 1007
+# 					}
+# 				}
+# 				transfer_state_to = WUK
+# 			}
+# 			ROM = {
+# 				country_event = {
+# 					id = ww1_austriahungary_collapse.25
+# 					days = 15
+# 				}
+# 			}
+# 			WUK = {
+# 				country_event = {
+# 					id = ww1_austriahungary_collapse.25
+# 					days = 15
+# 				}
+# 			}
+# 		}
+# 	}
+# 	option = {
+# 		name = ww1_austriahungary_collapse.22.a
+# 		hidden_effect = {
+# 			WUK = {
+# 				country_event = {
+# 					id = ww1_austriahungary_collapse.23
+# 					days = 12
+# 				}
+# 			}
+# 		}
+# 	}
+# 	option = {
+# 		name = ww1_austriahungary_collapse.22.b
+# 		WUK = {
+# 			change_tag_from = AUS
+# 		}
+# 		hidden_effect = {
+# 			WUK = {
+# 				country_event = {
+# 					id = ww1_austriahungary_collapse.23
+# 					days = 12
+# 				}
+# 			}
+# 		}
+# 	}
+# }
 
 #west ukraine rename
 country_event = {
