@@ -7411,7 +7411,7 @@ country_event = {
 			}
 		}
 	}
-		option = {
+	option = {
 		name = ww1_austriahungary.278.b
 		uncomplete_national_focus = {
 			focus = AUS_prevent_withering_of_the_army
@@ -9888,7 +9888,7 @@ country_event = {
 				}
 				OR = {
 					state = 88
-					#state = 237
+					state = 237
 					state = 991
 					#state = 1269
 					#state = 1268
@@ -9924,9 +9924,9 @@ country_event = {
 					communism = 8
 					neutrality = 46
 				}
-				#POL_wincenty_witos = {
-				#	promote_character = authoritarian_democracy
-				#}	
+				POL_wincenty_witos = {
+					promote_character = authoritarian_democracy
+				}	
 			}
 		}
 	}
@@ -10173,12 +10173,14 @@ country_event = {
 				limit = {
 					OR = {
 						is_owned_and_controlled_by = AUS
-						is_owned_and_controlled_by = GAL
+						#is_owned_and_controlled_by = GAL
 					}
 					is_core_of = WUK
 					AUS_is_UKR_state = yes
 				}
 				transfer_state_to = WUK
+				remove_core_of = ROOT
+				remove_claim_by = ROOT
 			}
 			every_state = {
 				limit = {
@@ -10192,6 +10194,8 @@ country_event = {
 					}
 				}
 				transfer_state_to = WUK
+				remove_core_of = ROOT
+				remove_claim_by = ROOT
 			}
 			ROM = {
 				country_event = {
@@ -10200,6 +10204,32 @@ country_event = {
 				}
 			}
 			WUK = {
+				inherit_technology = ROOT
+				add_ideas = standing_alone
+				set_cosmetic_tag = WUK_ukrainian_state #renamed shortly after
+				if = {
+					limit = {
+						country_exists = UKR
+					}
+					give_military_access = UKR
+					diplomatic_relation = {
+						country = UKR
+						relation = non_aggression_pact
+					}
+					UKR = {
+						give_military_access = PREV
+						diplomatic_relation = {
+							country = UKR
+							relation = non_aggression_pact
+						}
+					}
+				}
+				if = {
+					limit = {
+						num_divisions < 5
+					}
+					load_oob = "WUK_army"
+				}
 				country_event = {
 					id = ww1_austriahungary_collapse.25
 					days = 15
@@ -10789,7 +10819,7 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			WUK = {
-				set_cosmetic_tag = WUK_ukrainian_state
+				drop_cosmetic_tag = yes
 			}
 		}
 	}
