@@ -140,11 +140,11 @@ country_event = {
 				days = 2
 			}
 		}
-			custom_effect_tooltip = AUS_modify_eco.tt
-			add_to_variable = {
-				AUS_EP_consumer_goods = 0.02
-				tooltip = consumer_goods_factor_tt
-			}
+		custom_effect_tooltip = AUS_modify_eco.tt
+		add_to_variable = {
+			AUS_EP_consumer_goods = 0.02
+			tooltip = consumer_goods_factor_tt
+		}
 		effect_tooltip = {
 			CZE = {
 				swap_ideas = {
@@ -153,23 +153,23 @@ country_event = {
 				}
 			}
 		}
+		ai_chance = {
+			base = 10
+		}
 	}
 	option = {
 		name = ww1_czechoslovakia.6.b
-		trigger = {
-			OR = {
-				CZE = {
-					NOT = {
-						has_completed_focus = CZE_friendly_relations_with_vienna
-					}
-				}
-				is_ai = no
-			}
-		}
 		CZE = {
 			country_event = {
 				id = ww1_czechoslovakia.8
 				days = 2
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = 7
+				has_completed_focus = CZE_friendly_relations_with_vienna
 			}
 		}
 	}
@@ -448,5 +448,89 @@ country_event = {
 	option = {
 		name = ww1_czechoslovakia.17.a
 		add_ideas = CZE_sudetenland_protests
+	}
+}
+
+# Attract Austrian Investors
+
+country_event = {
+	id = ww1_czechoslovakia.18
+	title = ww1_czechoslovakia.18.t
+	desc = ww1_czechoslovakia.18.d
+	picture = GFX_report_event_czech_soldiers_02
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_czechoslovakia.18.a
+		add_political_power = -15
+		CZE = {
+			effect_tooltip = {
+				add_timed_idea = {
+					idea = CZE_austrian_investors_idea
+					days = 365
+				}
+			}
+			country_event = ww1_czechoslovakia.19
+		}
+		ai_chance = {
+			base = 9
+		}
+	}
+	option = {
+		name = ww1_czechoslovakia.18.b
+		add_political_power = 5
+		CZE = {
+			country_event = ww1_czechoslovakia.20
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = CZE_investment_attempts
+			}
+			modifier = {
+				add = 5
+				has_completed_focus = CZE_friendly_relations_with_vienna
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_czechoslovakia.19
+	title = ww1_czechoslovakia.19.t
+	desc = ww1_czechoslovakia.19.d
+	picture = GFX_report_event_czech_soldiers_02
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_czechoslovakia.19.a
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_timed_idea = {
+			idea = CZE_austrian_investors_idea
+			days = 365
+		}
+		unlock_decision_tooltip = CZE_attract_austrian_investors
+	}
+}
+country_event = {
+	id = ww1_czechoslovakia.20
+	title = ww1_czechoslovakia.20.t
+	desc = ww1_czechoslovakia.20.d
+	picture = GFX_report_event_czech_soldiers_02
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_czechoslovakia.20.a
+		add_political_power = -15
+		custom_effect_tooltip = decision_available_in_365_days
+		unlock_decision_tooltip = CZE_attract_austrian_investors
+		add_to_variable = {
+			CZE_investment_attempts = 1
+		}
 	}
 }
