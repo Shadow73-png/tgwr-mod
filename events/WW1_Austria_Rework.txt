@@ -7294,10 +7294,18 @@ country_event = {
 	fire_only_once = no
 	option = { 
 		name = ww1_austriahungary.274.a
+		trigger = {
+			NOT = {
+				has_global_flag = AUS_agree_no_reforms
+			}
+		}
 		custom_effect_tooltip = AUS_if_they_agree_no_trialism_stuff
 	}
 		option = { 
 		name = ww1_austriahungary.274.b
+	}
+	option = { 
+		name = ww1_austriahungary.274.c
 	}
 }
 country_event = {
@@ -7340,6 +7348,20 @@ country_event = {
 		add_political_power = 50
 	}
 }
+country_event = {
+	id = ww1_austriahungary.278
+	title = ww1_austriahungary.278.t
+	desc = ww1_austriahungary.278.d
+	is_triggered_only = yes
+	fire_only_once = no
+	option = { 
+		name = ww1_austriahungary.278.a
+		set_global_flag = AUS_agree_no_reforms
+custom_effect_tooltip = AUS_locks_reforms_so
+	}
+		
+}
+
 
 #end of ww1_austriahungary
 
