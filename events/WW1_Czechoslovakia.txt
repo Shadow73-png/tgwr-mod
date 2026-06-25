@@ -531,6 +531,7 @@ country_event = {
 	id = ww1_czechoslovakia.21
 	title = ww1_czechoslovakia.21.t
 	desc = ww1_czechoslovakia.21.d
+	fire_only_once = yes
 	immediate = {
 		white_peace = HUN
 		HUN = {
@@ -579,11 +580,16 @@ country_event = {
 	id = ww1_czechoslovakia.22
 	title = ww1_czechoslovakia.22.t
 	desc = ww1_czechoslovakia.22.d
+	fire_only_once = yes
+
 	immediate = {
-		71 = {
-			transfer_state_to = SLO
-		}
-		1043 = {
+		every_state = {
+			limit = {
+				controller = {
+					tag = CZE
+				}
+				is_core_of = SLO
+			}
 			transfer_state_to = SLO
 		}
 		SLO = {
@@ -595,9 +601,9 @@ country_event = {
 	trigger = {
 		tag = CZE
 		70 = {
-		controller = {
-			tag = CZE
-		}
+			controller = {
+				tag = CZE
+			}
 		}
 	}
 	option = {
@@ -614,12 +620,13 @@ country_event = {
 	id = ww1_czechoslovakia.23
 	title = ww1_czechoslovakia.23.t
 	desc = ww1_czechoslovakia.23.d
+	fire_only_once = yes
 	trigger = {
 		tag = CZE
 		73 = {
-		controller = {
-			tag = CZE
-		}
+			controller = {
+				tag = CZE
+			}
 		}
 	}
 	option = {
