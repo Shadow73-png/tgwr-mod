@@ -1,3 +1,68 @@
+CZE_formation_of_a_nation = {
+	CZE_sudetenland_border_war = {
+		icon = GFX_decision_generic_decision
+		allowed = {
+			original_tag = CZE
+		}
+		#priority = 19
+		on_map_mode = map_only
+		visible = {
+			has_completed_focus = CZE_reclaim_lands_of_bohemia_crown
+			NOT = {
+				date > 1914.1.1
+			}
+		}
+		available = {
+			NOT = { 
+				has_country_flag = CZE_conquering_state
+			}
+			
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = FROM
+			}
+		}
+		target_root_trigger = {
+			tag = CZE
+		}
+		state_target = yes
+		target_trigger = {
+			
+			FROM = {
+				
+				NOT = { is_owned_by = ROOT }
+				
+				OR = {
+						state = 69
+							state = 1200
+							state = 74
+							state = 1199
+							state = 992
+							state = 993
+							
+				}
+				
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		ai_will_do = {
+			base = 100
+			
+		}
+		complete_effect = {
+			set_country_flag = CZE_conquering_state
+		}
+		cost = 0
+		remove_effect = {
+			clr_country_flag = CZE_conquering_state
+			FROM = {
+				transfer_state_to = CZE
+			}
+		}
+	}
+}
 peace_deals = {
 	CZE_sue_for_peace_HUN = {
 		icon = GFX_decision_eng_trade_unions_support
