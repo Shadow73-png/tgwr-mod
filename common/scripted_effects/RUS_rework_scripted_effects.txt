@@ -1630,11 +1630,6 @@ RUS_remove_from_the_cabinet = {
 	custom_effect_tooltip = RUS_remove_from_the_cabinet_tt
 	hidden_effect = {
 		if = {
-			limit = { is_hired_as_advisor = yes } #removes them as an advisor
-			set_nationality = XXA #couldn't find another way
-			set_nationality = PREV
-		}
-		if = {
 			limit = {
 				has_trait = prime_minister
 			}
@@ -1730,11 +1725,6 @@ RUS_clear_the_cabinet = {
 		every_character = {
 			limit = {
 				is_part_of_the_cabinet = yes
-			}
-			if = {
-				limit = { is_hired_as_advisor = yes } #removes them as an advisor
-				set_nationality = XXA #couldn't find another way
-				set_nationality = PREV
 			}
 			RUS_remove_from_the_cabinet = yes
 		}
