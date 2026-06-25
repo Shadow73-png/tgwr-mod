@@ -6936,7 +6936,7 @@ country_event = {
 	}
 }
 
-#we support don during rcw (don gets event)
+#we support x country during rcw (x country gets event)
 country_event = {
 	id = ww1_austriahungary.262
 	title = ww1_austriahungary.262.t
@@ -7067,6 +7067,9 @@ country_event = {
 		name = ww1_austriahungary.266.a
 		set_country_flag = AUS_flag_ukraine_acquired
 		unlock_decision_tooltip = AUS_install_archduke_wilhelm
+		UKR = {
+			add_ideas = UKR_aspirations_of_indenpendence
+		}
 	}
 }
 
@@ -7480,6 +7483,111 @@ country_event = {
 	}
 	
 }
+#offer don to be their protectorate in return for being able to leave the civil war
+country_event = {
+	id = ww1_austriahungary.281
+	title = ww1_austriahungary.281.t
+	desc = ww1_austriahungary.281.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.281.a
+		AUS = {
+			puppet = DON
+			country_event = ww1_austriahungary.282
+		}
+		DON = {
+			if = {
+				limit = { 
+					AUS = {
+						NOT = {
+							has_war_with = SOV
+						}
+					}
+				}
+				every_enemy_country = {
+					limit = {
+						OR = {
+							tag = SOV
+							is_ally_with = SOV
+						}
+						NOT = {
+							original_tag = DON
+						}
+					}
+					white_peace = DON
+				}
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary.281.b
+		add_political_power = 10
+		country_event = ww1_austriahungary.283
+	}
+}
+#don accepts
+country_event = {
+	id = ww1_austriahungary.282
+	title = ww1_austriahungary.282.t
+	desc = ww1_austriahungary.282.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.282.a
+	}
+}
+#don rejects
+country_event = {
+	id = ww1_austriahungary.283
+	title = ww1_austriahungary.283.t
+	desc = ww1_austriahungary.283.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.283.a
+	}
+}
+#choosing white faction to support
+country_event = {
+	id = ww1_austriahungary.284
+	title = ww1_austriahungary.284.t
+	desc = ww1_austriahungary.284.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.284.a
+		set_country_flag = AUS_supports_nwa
+	}
+	option = {
+		name = ww1_austriahungary.284.b
+		set_country_flag = AUS_supports_sra
+	}
+}
+#asking germany for control of wallachia
+country_event = {
+	id = ww1_austriahungary.285
+	title = ww1_austriahungary.285.t
+	desc = ww1_austriahungary.285.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.285.a
+		AUS = {
+			#will do later
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		name = ww1_austriahungary.285.b
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
 #end of ww1_austriahungary
 add_namespace = ww1_austria_quests
 # forts dispatch event

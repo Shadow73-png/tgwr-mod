@@ -605,35 +605,6 @@ TGWR_great_power_politics = {
 			}
 		}
 	}
-	AUS_reform_ukrainian_borders = {
-		icon = GFX_decision_SWI_support_humanitarian_efforts
-		days_remove = 30
-		fire_only_once = no
-		allowed = {
-			original_tag = AUS
-		}
-		ai_will_do = {
-			base = 10
-		}
-		cost = 20
-		visible = {
-			great_power_politics_misc_visible = yes
-			has_completed_focus = AUS_boost_control_ukraine
-		}
-		available = {
-			has_completed_focus = AUS_boost_control_ukraine
-			UKR = {
-				is_subject = yes
-			}
-			
-		}
-		remove_effect = {
-			add_to_variable = {
-				AUS_ruthenian_loyalty = 5
-				tooltip = AUS_loyalty_ruthenians_tt
-			}
-		}
-	}
 	AUS_amnesty_for_rada_members = {
 		icon = GFX_decision_SWI_support_humanitarian_efforts
 		days_remove = 30
@@ -702,6 +673,34 @@ TGWR_great_power_politics = {
 			country_event = ww1_austriahungary.277
 		}
 	}
+	AUS_allow_ukrainian_nationalism = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_respect_ukranian_rights
+		}
+		available = {
+			has_completed_focus = AUS_respect_ukranian_rights
+			UKR = {
+				is_subject = yes
+			}
+		}
+		remove_effect = {
+			UKR = {
+				add_war_support = 0.15
+			}
+			
+		}
+	}
 	AUS_send_weapons_don = {
 		icon = GFX_decision_SWI_support_humanitarian_efforts
 		days_remove = 30
@@ -737,6 +736,112 @@ TGWR_great_power_politics = {
 				amount = -100
 			}
 			DON = {
+				country_event = ww1_austriahungary.262
+			}
+		}
+	}
+	AUS_offer_protection_don = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_completed_focus = AUS_support_don
+		}
+		available = {
+			has_completed_focus = AUS_support_don
+			DON = {
+				has_war = yes
+				controls_state = 238
+				controls_state = 245
+				controls_state = 218
+			}
+		}
+		remove_effect = {
+			DON = {
+				country_event = ww1_austriahungary.281
+			}
+		}
+	}
+	AUS_send_weapons_nwa = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_country_flag = AUS_supports_nwa
+		}
+		available = {
+			NWA = {
+				has_war = yes
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -100
+			}
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = -100
+			}
+			NWA = {
+				country_event = ww1_austriahungary.262
+			}
+		}
+	}
+	AUS_send_weapons_sra = {
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		days_remove = 30
+		fire_only_once = no
+		allowed = {
+			original_tag = AUS
+		}
+		ai_will_do = {
+			base = 10
+		}
+		cost = 20
+		visible = {
+			great_power_politics_misc_visible = yes
+			has_country_flag = AUS_supports_sra
+		}
+		available = {
+			SRA = {
+				has_war = yes
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -100
+			}
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = -100
+			}
+			SRA = {
 				country_event = ww1_austriahungary.262
 			}
 		}
