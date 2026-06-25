@@ -12433,6 +12433,7 @@ focus_tree = {
 		}
 		relative_position_id = AUS_franz_ferdinand
 		available = {
+			has_subject = HUN
 		}
 		completion_reward = {
 			country_event = ww1_austriahungary.116
@@ -12463,10 +12464,18 @@ focus_tree = {
 		prerequisite = {
 			focus = AUS_delay_the_coronation
 		}
+		available = {
+			has_subject = HUN
+		}
 		relative_position_id = AUS_delay_the_coronation
 		completion_reward = {
-			country_event = ww1_austriahungary.269
-			HUN = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = AUS
+						is_subject_of = AUS
+					}
+				}
 				country_event = ww1_austriahungary.269
 			}
 			custom_effect_tooltip = AUS_locott
@@ -12486,6 +12495,9 @@ focus_tree = {
 		cost = 4
 		x = -1
 		y = 1
+		available = {
+			has_subject = HUN
+		}
 		prerequisite = {
 			focus = AUS_delay_the_coronation
 		}
@@ -12514,6 +12526,9 @@ focus_tree = {
 			focus = AUS_moves_in_the_shadows
 			focus = AUS_lay_our_cards_on_the_table
 		}
+		available = {
+			has_subject = HUN
+		}
 		relative_position_id = AUS_moves_in_the_shadows
 		completion_reward = {
 			custom_effect_tooltip = AUS_joint_mil_budget_shi
@@ -12536,6 +12551,9 @@ focus_tree = {
 		prerequisite = {
 			focus = AUS_moves_in_the_shadows
 			focus = AUS_lay_our_cards_on_the_table
+		}
+		available = {
+			has_subject = HUN
 		}
 		relative_position_id = AUS_delay_the_coronation
 		completion_reward = {
@@ -12592,6 +12610,9 @@ focus_tree = {
 			focus = AUS_moves_in_the_shadows
 			focus = AUS_lay_our_cards_on_the_table
 		}
+		available = {
+			has_subject = HUN
+		}
 		relative_position_id = AUS_delay_the_coronation
 		completion_reward = {
 			HUN = {
@@ -12625,6 +12646,9 @@ focus_tree = {
 			focus = AUS_moves_in_the_shadows
 			focus = AUS_lay_our_cards_on_the_table
 		}
+		available = {
+			has_subject = HUN
+		}
 		relative_position_id = AUS_delay_the_coronation
 		completion_reward = {
 			IF = {
@@ -12634,20 +12658,18 @@ focus_tree = {
 					}
 				}
 				HUN = {
-				country_event = {
-					id = ww1_austriahungary.272
-					days = 3
+					country_event = {
+						id = ww1_austriahungary.272
+						days = 3
+					}
 				}
-			}
-						custom_effect_tooltip = AUS_joint_fakeout
-
-			custom_effect_tooltip = if_they_accept_newline_tt
-			effect_tooltip = {
-				annex_country = {
-				target = HUN
-			}
-			
-			}
+				custom_effect_tooltip = AUS_joint_fakeout
+				custom_effect_tooltip = if_they_accept_newline_tt
+				effect_tooltip = {
+					annex_country = {
+						target = HUN
+					}
+				}
 			}
 		}
 		ai_will_do = {
@@ -12665,6 +12687,9 @@ focus_tree = {
 		prerequisite = {
 			focus = AUS_lay_our_cards_on_the_table
 			focus = AUS_moves_in_the_shadows
+		}
+		available = {
+			has_subject = HUN
 		}
 		relative_position_id = AUS_lay_our_cards_on_the_table
 		completion_reward = {

@@ -7114,6 +7114,18 @@ country_event = {
 	option = {
 		name = ww1_austriahungary.269.a
 		add_political_power = 25
+		trigger = {
+			tag = AUS
+		}
+	}
+	option = {
+		name = ww1_austriahungary.269.b
+		trigger = {
+			NOT = {
+				tag=AUS
+			}
+		}
+		add_political_power = 15
 	}
 }
 
@@ -7122,12 +7134,19 @@ country_event = {
 	title = ww1_austriahungary.270.t
 	desc = ww1_austriahungary.270.d
 	is_triggered_only = yes
-	fire_only_once = no
+	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary.270.a
 		AUS = {
-			country_event = ww1_austriahungary.271
+			country_event = {
+				id = ww1_austriahungary.271
+				days = 5
+			}
 		}
+		add_stability = -0.1
+		add_war_support = -0.1
+		add_political_power = -100
+		custom_effect_tooltip = prepare_for_a_revolt
 	}
 }
 
@@ -7139,32 +7158,43 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	immediate = {
-		AUS = {
-			add_ideas = standing_alone
-		}
 		hidden_effect = {
-		}
-		AUS = {
-			set_autonomy = {
-				target = HUN
-				autonomous_state = autonomy_free
-				end_wars = no
-				end_civil_wars = no
+			AUS = {
+				add_ideas = standing_alone
 			}
-		}
-		HUN = {
-			promote_character = HUN_janos_hadik
-		}
-		HUN = {
-			leave_faction = yes
-		}
-		if = {
-			limit = {
-				TAG = HUN
+			HUN = {
+				get_current_government_type = yes
 			}
-			hidden_effect = {
+			AUS = {
+				set_autonomy = {
+					target = HUN
+					autonomous_state = autonomy_free
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			AUS = {
+				transfer_units_fraction = {
+					target = HUN
+					size = 0.25
+					target_organization = 1
+					source_organization = 1
+					army_ratio = 0.25
+					navy_ratio = 0
+					stockpile_ratio = 0.25
+					keep_unit_leaders_trigger = {
+						always = yes
+					}
+				}
+			}
+			HUN = {
+				restore_previous_government_type = yes
+
+				promote_character = HUN_janos_hadik
+				leave_faction = yes
+				drop_cosmetic_tag = yes
 				add_named_threat = {
-					threat = 10
+					threat = 9.6
 					name = AUH_hungarian_revolution
 				}
 				HUN = {
@@ -7172,82 +7202,67 @@ country_event = {
 						add_claim_by = AUS
 					}
 				}
-				hidden_effect = {
-					set_global_flag = AUS_hun_revolt
-					HUN = {
-						every_owned_state = {
-							limit = {
-								OR = {
-									has_state_flag = AUH_CZE_state
-									has_state_flag = AUH_ROM_state
-									has_state_flag = AUH_SER_state
-									has_state_flag = AUH_CRO_state
-									has_state_flag = AUH_POL_state
-								}
-							}
-							transfer_state_to = AUS
-						}
-					}
-					AUS = {
-						transfer_units_fraction = {
-							target = HUN
-							size = 0.25
-							target_organization = 1
-							source_organization = 1
-							army_ratio = 0.25
-							navy_ratio = 0
-							stockpile_ratio = 0.25
-							keep_unit_leaders_trigger = {
-								always = yes
+				set_global_flag = AUS_hun_revolt
+				HUN = {
+					every_owned_state = {
+						limit = {
+							OR = {
+								AUS_is_CZE_state = yes
+								AUS_is_ROM_state = yes
+								AUS_is_SER_state = yes
+								AUS_is_CRO_state = yes
+								AUS_is_POL_state = yes
+								state = 778
 							}
 						}
+						transfer_state_to = AUS
 					}
-					HUN = {
-						division_template = {
-							name = "Forradalmi Milícia"
-							is_locked = yes
-							priority = 0
-							regiments = {
-								militia = {
-									x = 0
-									y = 0
-								}
-								militia = {
-									x = 0
-									y = 1
-								}
-								militia = {
-									x = 0
-									y = 2
-								}
-								militia = {
-									x = 1
-									y = 0
-								}
-								militia = {
-									x = 1
-									y = 1
-								}
-								militia = {
-									x = 1
-									y = 2
-								}
+				}
+				HUN = {
+					division_template = {
+						name = "Forradalmi Milícia"
+						is_locked = yes
+						priority = 0
+						regiments = {
+							militia = {
+								x = 0
+								y = 0
+							}
+							militia = {
+								x = 0
+								y = 1
+							}
+							militia = {
+								x = 0
+								y = 2
+							}
+							militia = {
+								x = 1
+								y = 0
+							}
+							militia = {
+								x = 1
+								y = 1
+							}
+							militia = {
+								x = 1
+								y = 2
 							}
 						}
-						#43 = {
-						#	create_unit = {
-						#division = "name = "Forradalmi Milícia" division_template = "Forradalmi Milícia" start_experience_factor = 0.0 start_equipment_factor = 0.5"
-						#		owner = HUN
-						#		count = 16
-						#	}
-						#}
 					}
-					AUS = {
-						set_major = yes
-						declare_war_on = {
-							target = HUN
-							type = annex_everything
-						}
+					#43 = {
+					#	create_unit = {
+					#division = "name = "Forradalmi Milícia" division_template = "Forradalmi Milícia" start_experience_factor = 0.0 start_equipment_factor = 0.5"
+					#		owner = HUN
+					#		count = 16
+					#	}
+					#}
+				}
+				AUS = {
+					set_major = yes
+					declare_war_on = {
+						target = HUN
+						type = annex_everything
 					}
 				}
 			}
@@ -7331,9 +7346,19 @@ country_event = {
 	title = ww1_austriahungary.272.t
 	desc = ww1_austriahungary.272.d
 	is_triggered_only = yes
-	fire_only_once = no
+	#fire_only_once = no
 	option = {
 		name = ww1_austriahungary.272.a
+		AUS = {
+			country_event = {
+				id = ww1_austriahungary.273
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary.272.b
+		custom_effect_tooltip = AUS_current_hungary_is_good
 		AUS = {
 			country_event = {
 				id = ww1_austriahungary.273
@@ -7364,13 +7389,14 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name = ww1_austriahungary.274.a
+		name = ww1_austriahungary.274.a # yes but no trialism
 		trigger = {
 			NOT = {
 				has_global_flag = AUS_agree_no_reforms
 			}
 		}
 		custom_effect_tooltip = AUS_if_they_agree_no_trialism_stuff
+		set_global_flag = AUS_no_trialism
 		AUS = {
 			country_event = {
 				id = ww1_austriahungary.278
@@ -7378,13 +7404,16 @@ country_event = {
 			custom_effect_tooltip = if_they_accept_newline_tt
 			custom_effect_tooltip = AUS_unlocks_the_budget
 			custom_effect_tooltip = AUS_locks_reforms_so
+			effect_tooltip = {
+				army_experience = 15
+			}
 		}
 	}
 	option = {
-		name = ww1_austriahungary.274.b
+		name = ww1_austriahungary.274.b # yes
 	}
 	option = {
-		name = ww1_austriahungary.274.c
+		name = ww1_austriahungary.274.c # no
 	}
 }
 
@@ -7434,6 +7463,7 @@ country_event = {
 	fire_only_once = no
 	option = {
 		name = ww1_austriahungary.278.a
+		army_experience = 15
 		set_global_flag = AUS_agree_no_reforms
 		set_country_flag = AUS_hungary_budget
 		custom_effect_tooltip = AUS_unlocks_the_budget
