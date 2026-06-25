@@ -1,4 +1,188 @@
 operations = {
+	YEM_organize_resistance = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = { always = yes }
+		custom_cost_text = decision_cost_CP_10
+		custom_cost_trigger = { command_power > 9.9 }
+		days_remove = 30
+		cancel_trigger = { controls_state = FROM }
+		state_target = yes
+		target_array = ROOT.core_states
+		visible = {
+			FROM = {
+				has_resistance = yes
+				controller = { TUR_has_minority_system = yes }
+				is_owned_by = ROOT
+			}
+			has_idea = ARB_insurgence_tactics
+		}
+		available = { has_idea = ARB_insurgence_tactics }
+		on_map_mode = map_only
+		complete_effect = { hidden_effect = { add_command_power = -10 } }
+		remove_effect = {
+			effect_tooltip = {
+				FROM = {
+					add_resistance = 25
+					add_compliance = -2
+				}
+			}
+			custom_effect_tooltip = ALB_albanian_independence_movement_tt
+			if = {
+				limit = { any_enemy_country = { divisions_in_state = { state = FROM size > 3 } } }
+				FROM = {
+					add_resistance = 5
+					add_compliance = -10
+				}
+			}
+			else_if = {
+				limit = { any_enemy_country = { divisions_in_state = { state = FROM size > 2 } } }
+				FROM = {
+					add_resistance = 10
+					add_compliance = -8
+				}
+			}
+			else_if = {
+				limit = { any_enemy_country = { divisions_in_state = { state = FROM size > 1 } } }
+				FROM = {
+					add_resistance = 15
+					add_compliance = -6
+				}
+			}
+			else_if = {
+				limit = { any_enemy_country = { divisions_in_state = { state = FROM size > 0 } } }
+				FROM = {
+					add_resistance = 20
+					add_compliance = -4
+				}
+			}
+			else_if = {
+				limit = { any_enemy_country = { divisions_in_state = { state = FROM size < 1 } } }
+				FROM = {
+					add_resistance = 25
+					add_compliance = -2
+				}
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				tag = YEM
+				date > 1910.7.24
+				FROM = {
+					state = 293
+					resistance > 19
+					resistance < 30
+					NOT = { resistance_target > 30 }
+				}
+				add = 15
+			}
+			modifier = {
+				tag = YEM
+				date > 1910.8.24
+				FROM = {
+					state = 293
+					resistance > 29
+					resistance < 40
+					NOT = { resistance_target > 45 }
+				}
+				add = 15
+			}
+			modifier = {
+				tag = YEM
+				date > 1910.9.24
+				FROM = {
+					state = 293
+					resistance > 39
+					resistance < 50
+					NOT = { resistance_target > 60 }
+				}
+				add = 15
+			}
+			modifier = {
+				tag = YEM
+				date > 1910.11.24
+				FROM = {
+					state = 293
+					resistance > 49
+					resistance < 60
+					NOT = { resistance_target > 75 }
+				}
+				add = 30
+			}
+			modifier = {
+				tag = YEM
+				date > 1910.12.24
+				FROM = {
+					state = 293
+					resistance > 59
+				}
+				add = 1000
+			}
+			modifier = {
+				tag = YEM
+				TUR = { focus_progress = { focus = TUR_ratify_the_treaty_of_daan progress > 0 } }
+				factor = 0
+			}
+			modifier = {
+				tag = ASR
+				date > 1910.6.24
+				FROM = {
+					state = 293
+					resistance > 19
+					resistance < 30
+					NOT = { resistance_target > 30 }
+				}
+				add = 15
+			}
+			modifier = {
+				tag = ASR
+				date > 1910.7.24
+				FROM = {
+					state = 293
+					resistance > 29
+					resistance < 40
+					NOT = { resistance_target > 45 }
+				}
+				add = 15
+			}
+			modifier = {
+				tag = ASR
+				date > 1910.8.24
+				FROM = {
+					state = 293
+					resistance > 39
+					resistance < 50
+					NOT = { resistance_target > 60 }
+				}
+				add = 15
+			}
+			modifier = {
+				tag = ASR
+				date > 1910.9.24
+				FROM = {
+					state = 293
+					resistance > 49
+					resistance < 60
+					NOT = { resistance_target > 75 }
+				}
+				add = 30
+			}
+			modifier = {
+				tag = ASR
+				date > 1910.10.24
+				FROM = {
+					state = 293
+					resistance > 59
+				}
+				add = 1000
+			}
+			modifier = {
+				tag = ASR
+				TUR = { focus_progress = { focus = TUR_truce_with_asir progress > 0 } }
+				factor = 0
+			}
+		}
+	}
 	YEM_annex_BID = {
 		icon = border_war
 		allowed = {
