@@ -9816,6 +9816,10 @@ country_event = {
 				id = ww1_austriahungary_collapse.21				# Lemko Republic creation - 5 December
 				days = 61
 			}
+			country_event = {
+				id = ww1_austriahungary_collapse.22				# Hutsul Republic creation - 8 January
+				days = 95
+			}
 			#future events
 			#karl abdication November 11
 			#Temporary Governing Committee of lviv/lwow: 23 November to 10 january as it was merged in the Liquidation commission
@@ -10728,6 +10732,46 @@ country_event = {
 			1268 = {
 				add_core_of = LMK
 				transfer_state_to = LMK
+			}
+		}
+	}
+}
+
+#hutsul
+country_event = {
+	id = ww1_austriahungary_collapse.22
+	title = ww1_austriahungary_collapse.22.t
+	desc = ww1_austriahungary_collapse.22.d
+	#picture = GFX_report_event_karl_i_coronation
+	is_triggered_only = yes
+	trigger = {
+		1271 = {
+			OR = {
+				is_owned_and_controlled_by = AUS
+				is_owned_and_controlled_by = HUN
+			}
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			1271 = {
+				add_core_of = HSL
+				transfer_state_to = HSL
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary_collapse.21.a
+	}
+	option = {
+		name = ww1_austriahungary_collapse.22.b
+		HSL = {
+			change_tag_from = AUS
+		}
+		effect_tooltip = {
+			1271 = {
+				add_core_of = HSL
+				transfer_state_to = HSL
 			}
 		}
 	}
