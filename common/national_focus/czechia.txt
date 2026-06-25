@@ -1859,31 +1859,7 @@ focus_tree = {
 			FOCUS_FILTER_ARMY_REFORM
 		}
 	}
-	focus = {
-		id = CZE_mount_the_czech_currency
-		icon = GFX_focus_generic_currency_reforms
-		cost = 5
-		x = 0
-		y = 2
-		relative_position_id = CZE_buy_from_austria
-		prerequisite = {
-			focus = CZE_buy_from_austria
-			focus = CZE_economic_self_suffiency
-		}
-		available = {
-			NOT = {
-				is_subject = yes
-			}
-		}
-		completion_reward = {
-		}
-		ai_will_do = {
-			base = 1
-		}
-		search_filters = {
-			FOCUS_FILTER_ARMY_REFORM
-		}
-	}
+	
 	focus = {
 		id = CZE_the_national_assembly
 		icon = GFX_generic_parliament
@@ -1929,6 +1905,39 @@ focus_tree = {
 		relative_position_id = CZE_birth
 		completion_reward = {
 			custom_effect_tooltip = CZE_invade_stuff_sud
+		}
+		ai_will_do = {
+			base = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_ARMY_REFORM
+		}
+	}
+	focus = {
+		id = CZE_war_for_cieszyn
+		icon = GFX_focus_generic_annex_country_2
+		cost = 5
+		x = 2
+		y = 2
+		prerequisite = {
+			focus = CZE_reclaim_lands_of_bohemia_crown
+		}
+		available = {
+		}
+		relative_position_id = CZE_birth
+		completion_reward = {
+				72 = {
+				owner = {
+					CZE = {
+						declare_war_on = {
+							target = PREV
+							type = brothers_war
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = CZE_peace_win_dijsdjisioundiuno
+		
 		}
 		ai_will_do = {
 			base = 100
