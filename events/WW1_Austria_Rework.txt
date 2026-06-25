@@ -5727,11 +5727,41 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_austriahungary.214.a
-		activate_advisor = AUS_aloys_von_liechtenstein
+		trigger = {
+			NOT = {
+				has_global_flag = AUS_aloys_minister
+			}
+		}
+		AUS_fire_minister_advisor = yes
+		set_global_flag = AUS_aloys_minister
+		AUS_aloys_von_liechtenstein = {
+			set_character_flag = minister_AUS
+		}
+		add_ideas = AUH_aloys_liechtenstein_idea
+		#activate_advisor = AUS_aloys_von_liechtenstein
+		ai_chance = {
+			base = 1
+		}
+		
 	}
 	option = {
 		name = ww1_austriahungary.214.b
-		activate_advisor = AUS_leopold_kunschak
+		#activate_advisor = AUS_leopold_kunschak
+		trigger = {
+			NOT = {
+				has_global_flag = AUS_kunschak_minister
+			}
+		}
+		AUS_fire_minister_advisor = yes
+		set_global_flag = AUS_kunschak_minister
+		AUS_leopold_kunschak = {
+			set_character_flag = minister_AUS
+		}
+		add_ideas = AUH_leopold_kunschak_idea
+		#activate_advisor = AUS_aloys_von_liechtenstein
+		ai_chance = {
+			base = 1
+		}
 	}
 }
 
