@@ -1,8 +1,20 @@
 ﻿division_template = {
 	name = "Strilets'ka Bryhada"			# Riflemen Brigade
 	regiments = {
-		irregular_infantry = { x = 0 y = 0 }
-		irregular_infantry = { x = 1 y = 0 }
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = {
+			x = 0
+			y = 0
+		}
+		field_gun = {
+			x = 0
+			y = 1
+		}
 	}
 	priority = 1
 }
@@ -17,10 +29,12 @@ division_template = {
 }
 
 division_template = {
-	name = "Al'pinists'ka Bryhada"			# Mountainious Brigade
+	name = "Al'pinists'ka Bryhada"			# Mountainious Brigade, 4,000 men
 	regiments = {
 		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
 		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
 	}
 }
 
@@ -29,28 +43,28 @@ division_template = {
 units = {
 	#1st UGA corps
 	division = {
-		name = "5-ta Sokal's'ka bryhada"
+		name = "5-ta Sokal's'ka Bryhada"
 		location = 536
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "6-ta Ravs'ka bryhada"
+		name = "6-ta Ravs'ka Bryhada"
 		location = 9468
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "9-a Uhnivs'ko-Belz'ka bryhada"
+		name = "9-a Uhnivs'ko-Belz'ka Bryhada"
 		location = 9468
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "10-ta Yavorivs'ka bryhada"
+		name = "10-ta Yavorivs'ka Bryhada"
 		location = 6431
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
@@ -58,28 +72,28 @@ units = {
 	}
 	#2nd UGA corps
 	division = {
-		name = "Ukraïnski sichovi stril'tsi"
+		name = "Ukraïnski Sichovi Stril'tsi"
 		location = 11479
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "2-a Kolomyys'ka bryhada"
+		name = "2-a Kolomyys'ka Bryhada"
 		location = 11411
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "3-tya Berezhans'ka bryhada"
-		location = 3457
+		name = "3-tya Berezhans'ka Bryhada"
+		location = 11427
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "4-a Zolochivs'ka bryhada"
+		name = "4-a Zolochivs'ka Bryhada"
 		location = 3483
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
@@ -87,45 +101,53 @@ units = {
 	}
 	#3rd UGA corps
 	division = {
-		name = "1-a al'pinists'ka bryhada"
+		name = "1-a al'pinists'ka Bryhada"
 		location = 6460
 		division_template = "Al'pinists'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "7 Stryys'ka bryhada"
+		name = "7 Stryys'ka Bryhada"
 		location = 491
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "8-a Sambirs'ka bryhada"
+		name = "8-a Sambirs'ka Bryhada"
 		location = 6431
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "Boyovi hrupy «Krukevychi» ta «Hlyboka»"
+		name = "Boyovi Hrupy 'Krukevychi'"
 		location = 491
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "12 bryhada"
-		location = 11479
+		name = "Boyovi Hrupy 'Hlyboka'"
+		location = 491
 		division_template = "Strilets'ka Bryhada"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
 	}
-	division = {
-		name = "21 Zbaraz'ka bryhada"
-		location = 3470
-		division_template = "Strilets'ka Bryhada"
-		start_experience_factor = 0.1
-		start_equipment_factor = 0.8
-	}
+	#4th UGA corps
+	# division = { #created may-june 1919
+	# 	name = "12 bryhada"
+	# 	location = 11479
+	# 	division_template = "Strilets'ka Bryhada"
+	# 	start_experience_factor = 0.1
+	# 	start_equipment_factor = 0.8
+	# }
+	# division = { #created may 1919
+	# 	name = "21 Zbaraz'ka bryhada"
+	# 	location = 3470
+	# 	division_template = "Strilets'ka Bryhada"
+	# 	start_experience_factor = 0.1
+	# 	start_equipment_factor = 0.8
+	# }
 }
