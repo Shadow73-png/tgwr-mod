@@ -1,4 +1,37 @@
 CZE_formation_of_a_nation = {
+	CZE_war_for_cieszyn = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = AUS
+		}
+		visible = {
+			tag = AUS
+		}
+		priority = 210
+		available = {
+		}
+		fire_only_once = yes
+		days_remove = 60
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			72 = {
+				owner = {
+					CZE = {
+						declare_war_on = {
+							target = PREV
+							type = brothers_war
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = CZE_peace_win_dijsdjisioundiuno
+		}
+	}
 	CZE_sudetenland_border_war = {
 		icon = GFX_decision_generic_decision
 		allowed = {
@@ -7,10 +40,7 @@ CZE_formation_of_a_nation = {
 		#priority = 19
 		on_map_mode = map_only
 		visible = {
-			has_completed_focus = CZE_reclaim_lands_of_bohemia_crown
-			NOT = {
-				date > 1914.1.1
-			}
+			tag = CZE
 		}
 		available = {
 			NOT = { 
@@ -62,6 +92,7 @@ CZE_formation_of_a_nation = {
 			}
 		}
 	}
+
 }
 peace_deals = {
 	CZE_sue_for_peace_HUN = {
