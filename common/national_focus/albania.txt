@@ -2738,20 +2738,20 @@ focus_tree = {
 		}
 		x = 46
 		y = 0
-		offset = {
-			x = -5
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				OR = {
-					has_completed_focus = ALB_ideals_of_romantic_independence
-					has_completed_focus = ALB_foreign_policy_priority
-				}
-			}
-		}
+		#offset = {
+		#	x = -5
+		#	y = 0
+		#	trigger = {
+		#		has_game_rule = {
+		#			rule = obsolete_focus_branches_visibility
+		#			option = HIDE
+		#		}
+		#		OR = {
+		#			has_completed_focus = ALB_ideals_of_romantic_independence
+		#			has_completed_focus = ALB_foreign_policy_priority
+		#		}
+		#	}
+		#}
 		available_if_capitulated = yes
 		completion_reward = {
 			custom_effect_tooltip = modify_ALB_country_in_disarray
@@ -4796,24 +4796,7 @@ focus_tree = {
 				long_name = ALB_vilayet_party
 			}
 			clr_country_flag = TUR_revolting_country
-		}
-		ai_will_do = { factor = 100 }
-	}
-	focus = {
-		id = ALB_side_with_the_moderate_liberals
-		icon = GFX_focus_generic_little_entente
-		cost = 5
-		search_filters = {
-			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_HISTORICAL
-		}
-		prerequisite = { focus = ALB_albanian_vilayet }
-		mutually_exclusive = { focus = ALB_formulate_another_uprising }
-		x = -2
-		y = 1
-		relative_position_id = ALB_albanian_vilayet
-		available = { is_subject_of = TUR }
-		completion_reward = {
+			hidden_effect = { country_event = { id = albania.82 days = 365 random_days = 30 } } #albanian nationalist party
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -4823,15 +4806,395 @@ focus_tree = {
 		cost = 5
 		search_filters = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
-			FOCUS_FILTER_HISTORICAL
 		}
 		prerequisite = { focus = ALB_albanian_vilayet }
 		mutually_exclusive = { focus = ALB_side_with_the_moderate_liberals }
+		x = -2
+		y = 1
+		relative_position_id = ALB_albanian_vilayet
+		available = { is_subject_of = TUR }
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = yes
+			}
+			add_country_leader_role = {
+				character = ALB_hasan_prishtina
+				promote_leader = yes
+				country_leader = {
+					ideology = authoritarian_democracy
+					traits = { ALB_pragmatic_statesman }
+				}
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
+			}
+			set_party_name = {
+				ideology = democratic
+				name = ALB_moderate_liberal_party
+				long_name = ALB_moderate_liberal_party_long
+			}
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_invite_the_nationalists_to_the_government
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_formulate_another_uprising }
+		x = -2
+		y = 1
+		relative_position_id = ALB_formulate_another_uprising
+		available = {
+			is_subject_of = TUR
+			custom_trigger_tooltip = {
+				tooltip = ALB_albanian_nationalist_party_formed_tt
+				has_global_flag = ALB_albanian_nationalist_party_formed
+			}
+		}
+		completion_reward = {
+			set_party_name = {
+				ideology = neutrality
+				name = ALB_albanian_nationalist_party
+				long_name = ALB_albanian_nationalist_party_long
+			}
+			set_party_name = {
+				ideology = communism
+				name = ALB_albanian_nationalist_party
+				long_name = ALB_albanian_nationalist_party_long
+			}
+			set_party_name = {
+				ideology = fascism
+				name = ALB_albanian_nationalist_party
+				long_name = ALB_albanian_nationalist_party_long
+			}
+			add_country_leader_role = {
+				character = ALB_kostandin_boshnjaku
+				promote_leader = yes
+				country_leader = {
+					ideology = market_socialism
+					traits = { ALB_left_leaning_banker }
+				}
+			}
+			add_country_leader_role = {
+				character = ALB_sabri_qyteza
+				promote_leader = yes
+				country_leader = {
+					ideology = revolutionary_nationalism
+					traits = { ALB_nationalist_jurist }
+				}
+			}
+			add_ideas = ALB_nationalist_cooperation
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = communism_party_popularity }
+				add_dynamic_modifier = { modifier = fascism_party_popularity }
+			}
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_side_with_the_moderate_liberals
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_albanian_vilayet }
+		mutually_exclusive = { focus = ALB_formulate_another_uprising }
 		x = 2
 		y = 1
 		relative_position_id = ALB_albanian_vilayet
 		available = { is_subject_of = TUR }
 		completion_reward = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+				name = ALB_moderate_liberal_party
+				long_name = ALB_moderate_liberal_party_long
+			}
+			add_country_leader_role = {
+				character = ALB_ismail_qemali
+				promote_leader = yes
+				country_leader = {
+					ideology = classical_liberalism
+					traits = { ALB_modern_liberal }
+				}
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
+		id = ALB_albanian_constutional_revolution
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_formulate_another_uprising focus = ALB_side_with_the_moderate_liberals }
+		x = 2
+		y = 1
+		relative_position_id = ALB_formulate_another_uprising
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+
+	###ALBANIAN MINORITY SYSTEM###
+	focus = {
+		id = ALB_four_vilayets_many_people
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_albanian_vilayet }
+		x = 8
+		y = 1
+		relative_position_id = ALB_albanian_vilayet
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_ally_the_turks_in_administration
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_four_vilayets_many_people }
+		x = -2
+		y = 1
+		relative_position_id = ALB_four_vilayets_many_people
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_beacon_of_religious_tolerance
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_four_vilayets_many_people }
+		x = 0
+		y = 1
+		relative_position_id = ALB_four_vilayets_many_people
+		mutually_exclusive = { focus = ALB_maintain_muslim_dominance }
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_maintain_muslim_dominance
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_four_vilayets_many_people }
+		x = 2
+		y = 1
+		relative_position_id = ALB_four_vilayets_many_people
+		mutually_exclusive = { focus = ALB_beacon_of_religious_tolerance }
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_push_back_serbian_colonialists
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_ally_the_turks_in_administration focus = ALB_maintain_muslim_dominance }
+		prerequisite = { focus = ALB_ally_the_turks_in_administration focus = ALB_beacon_of_religious_tolerance }
+		x = -2
+		y = 2
+		relative_position_id = ALB_beacon_of_religious_tolerance
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_promote_coexistance_with_bulgarians
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_ally_the_turks_in_administration }
+		prerequisite = { focus = ALB_beacon_of_religious_tolerance }
+		x = -1
+		y = 1
+		relative_position_id = ALB_beacon_of_religious_tolerance
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_eliminate_macedonian_bulgarians
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_ally_the_turks_in_administration focus = ALB_maintain_muslim_dominance }
+		prerequisite = { focus = ALB_ally_the_turks_in_administration focus = ALB_beacon_of_religious_tolerance }
+		x = 1
+		y = 1
+		relative_position_id = ALB_beacon_of_religious_tolerance
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_combat_greek_monopolies
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_ally_the_turks_in_administration focus = ALB_maintain_muslim_dominance }
+		prerequisite = { focus = ALB_ally_the_turks_in_administration focus = ALB_beacon_of_religious_tolerance }
+		x = 2
+		y = 2
+		relative_position_id = ALB_beacon_of_religious_tolerance
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_recognize_aromanian_rights
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_promote_coexistance_with_bulgarians focus = ALB_eliminate_macedonian_bulgarians }
+		x = 1
+		y = 1
+		relative_position_id = ALB_promote_coexistance_with_bulgarians
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
+		id = ALB_use_greek_expertise_in_thessaloniki
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_recognize_aromanian_rights }
+		x = -2
+		y = 1
+		relative_position_id = ALB_recognize_aromanian_rights
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+			TUR_owns_selanik_vilayet = yes
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_macedonia_for_albanians
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_recognize_aromanian_rights }
+		prerequisite = { focus = ALB_eliminate_macedonian_bulgarians }
+		prerequisite = { focus = ALB_combat_greek_monopolies }
+		x = 0
+		y = 1
+		relative_position_id = ALB_recognize_aromanian_rights
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+			TUR_owns_selanik_vilayet = yes
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_promote_turkish_presence_in_thessaloniki
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_recognize_aromanian_rights }
+		prerequisite = { focus = ALB_combat_greek_monopolies }
+		x = 0
+		y = 1
+		relative_position_id = ALB_combat_greek_monopolies
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+			TUR_owns_selanik_vilayet = yes
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_integrate_jewish_pockets
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_use_greek_expertise_in_thessaloniki focus = ALB_macedonia_for_albanians focus = ALB_promote_turkish_presence_in_thessaloniki }
+		x = 0
+		y = 1
+		relative_position_id = ALB_macedonia_for_albanians
+		available = {
+			has_dynamic_modifier = { modifier = ALB_sublime_realm }
+			any_owned_state = { has_dynamic_modifier = { modifier = TUR_jewish_minority } }
+		}
+		completion_reward = {
+			
 		}
 		ai_will_do = { factor = 100 }
 	}
@@ -4844,7 +5207,7 @@ focus_tree = {
 			FOCUS_FILTER_MANPOWER
 			FOCUS_FILTER_HISTORICAL
 		}
-		x = 10
+		x = 17
 		y = -1
 		relative_position_id = ALB_draft_the_grece_memorandum
 		available_if_capitulated = yes
@@ -6139,6 +6502,12 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = ALB_parliamentary_model
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ALB_albanian_nationalist_party_formed_tt
+				has_global_flag = ALB_albanian_nationalist_party_formed
+			}
+		}
 		completion_reward = {
 			add_country_leader_role = {
 				character = ALB_kostandin_boshnjaku

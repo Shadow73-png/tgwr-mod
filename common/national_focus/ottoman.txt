@@ -17657,7 +17657,19 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = TUR_expand_turkish_hearts
-		available = { has_idea = TUR_ahmed_cemal }
+		available = {
+			has_idea = TUR_ahmed_cemal
+			custom_trigger_tooltip = {
+				tooltip = TUR_owns_syria_vilayet_tt
+				OR = {
+					TUR_owns_aleppo_vilayet = yes
+					TUR_owns_deir_ez_zor_vilayet = yes
+					TUR_owns_beirut_vilayet = yes
+					TUR_owns_damascus_vilayet = yes
+					TUR_owns_jerusalem_vilayet = yes
+				}
+			}
+		}
 		completion_reward = {
 			custom_effect_tooltip = TUR_assign_cemal_to_syria_tt
 			hidden_effect = {
