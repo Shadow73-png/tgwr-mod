@@ -4421,7 +4421,7 @@ focus_tree = {
 			FOCUS_FILTER_HISTORICAL
 		}
 		prerequisite = { focus = ALB_rilindja_kombetare }
-		x = 22
+		x = 21
 		y = 1
 		relative_position_id = ALB_rilindja_kombetare
 		available = {
@@ -4809,7 +4809,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = ALB_albanian_vilayet }
 		mutually_exclusive = { focus = ALB_side_with_the_moderate_liberals }
-		x = -2
+		x = -3
 		y = 1
 		relative_position_id = ALB_albanian_vilayet
 		available = { is_subject_of = TUR }
@@ -4896,6 +4896,128 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 	}
 	focus = {
+		id = ALB_take_advantage_of_the_pardon
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_formulate_another_uprising }
+		x = 0
+		y = 1
+		relative_position_id = ALB_formulate_another_uprising
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_lobby_for_our_cause
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_take_advantage_of_the_pardon }
+		x = -2
+		y = 1
+		relative_position_id = ALB_take_advantage_of_the_pardon
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_reorganize_the_rebels
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_take_advantage_of_the_pardon }
+		x = 0
+		y = 1
+		relative_position_id = ALB_take_advantage_of_the_pardon
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_contact_the_balkan_league
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_lobby_for_our_cause }
+		x = -1
+		y = 1
+		relative_position_id = ALB_lobby_for_our_cause
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_organize_religious_outcasts
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_reorganize_the_rebels }
+		x = -1
+		y = 1
+		relative_position_id = ALB_reorganize_the_rebels
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_cooperate_with_IMRO
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_lobby_for_our_cause }
+		prerequisite = { focus = ALB_organize_religious_outcasts }
+		x = 0
+		y = 2
+		relative_position_id = ALB_lobby_for_our_cause
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_nationalism_over_religion
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_reorganize_the_rebels }
+		x = 0
+		y = 2
+		relative_position_id = ALB_reorganize_the_rebels
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_reignite_our_struggle
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+		}
+		prerequisite = { focus = ALB_organize_religious_outcasts focus = ALB_nationalism_over_religion }
+		x = -1
+		y = 1
+		relative_position_id = ALB_nationalism_over_religion
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
 		id = ALB_side_with_the_moderate_liberals
 		icon = GFX_focus_generic_little_entente
 		cost = 5
@@ -4904,7 +5026,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = ALB_albanian_vilayet }
 		mutually_exclusive = { focus = ALB_formulate_another_uprising }
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = ALB_albanian_vilayet
 		available = { is_subject_of = TUR }
@@ -4932,6 +5054,153 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALB_crush_minority_parties
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_side_with_the_moderate_liberals }
+		mutually_exclusive = { focus = ALB_permit_minority_parties }
+		x = -1
+		y = 1
+		relative_position_id = ALB_side_with_the_moderate_liberals
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_permit_minority_parties
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_side_with_the_moderate_liberals }
+		mutually_exclusive = { focus = ALB_crush_minority_parties }
+		x = 1
+		y = 1
+		relative_position_id = ALB_side_with_the_moderate_liberals
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_resettling_towns
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_crush_minority_parties focus = ALB_permit_minority_parties }
+		x = 1
+		y = 1
+		relative_position_id = ALB_crush_minority_parties
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_a_miracle_to_call_our_own
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_resettling_towns }
+		x = 0
+		y = 1
+		relative_position_id = ALB_resettling_towns
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_mission_to_the_albanian_lands
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_crush_minority_parties focus = ALB_permit_minority_parties }
+		x = 1
+		y = 1
+		relative_position_id = ALB_permit_minority_parties
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_prepare_against_the_balkan_league
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_mission_to_the_albanian_lands }
+		x = 0
+		y = 1
+		relative_position_id = ALB_mission_to_the_albanian_lands
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_two_people_one_empire
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_resettling_towns focus = ALB_mission_to_the_albanian_lands }
+		x = 1
+		y = 2
+		relative_position_id = ALB_resettling_towns
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_ask_for_thessaloniki
+		icon = GFX_focus_generic_little_entente
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_two_people_one_empire }
+		x = -1
+		y = 1
+		relative_position_id = ALB_two_people_one_empire
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_protect_bosnia
+		icon = GFX_focus_generic_little_entente
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_two_people_one_empire }
+		x = 1
+		y = 1
+		relative_position_id = ALB_two_people_one_empire
+		available = { is_subject_of = TUR }
+		completion_reward = {
+		}
+		ai_will_do = { factor = 100 }
+	}
+
+	focus = {
 		id = ALB_albanian_constutional_revolution
 		icon = GFX_focus_generic_little_entente
 		cost = 5
@@ -4939,7 +5208,7 @@ focus_tree = {
 			FOCUS_FILTER_INTERNAL_AFFAIRS
 		}
 		prerequisite = { focus = ALB_formulate_another_uprising focus = ALB_side_with_the_moderate_liberals }
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = ALB_formulate_another_uprising
 		completion_reward = {
@@ -4947,7 +5216,108 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 100 }
 	}
-
+	focus = {
+		id = ALB_teach_the_latin_alphabet
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_albanian_constutional_revolution }
+		x = -1
+		y = 1
+		relative_position_id = ALB_albanian_constutional_revolution
+		mutually_exclusive = { focus = ALB_swap_to_the_arabic_script_alv }
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_swap_to_the_arabic_script_alv
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_albanian_constutional_revolution }
+		mutually_exclusive = { focus = ALB_teach_the_latin_alphabet }
+		x = 1
+		y = 1
+		relative_position_id = ALB_albanian_constutional_revolution
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_mend_the_religious_divide
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_teach_the_latin_alphabet focus = ALB_swap_to_the_arabic_script_alv }
+		x = 0
+		y = 1
+		relative_position_id = ALB_teach_the_latin_alphabet
+		mutually_exclusive = { focus = ALB_favor_muslims_in_administration }
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_favor_muslims_in_administration
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_teach_the_latin_alphabet focus = ALB_swap_to_the_arabic_script_alv }
+		mutually_exclusive = { focus = ALB_mend_the_religious_divide }
+		x = 0
+		y = 1
+		relative_position_id = ALB_swap_to_the_arabic_script_alv
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_an_albanian_state_for_the_albanian_nation
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_mend_the_religious_divide focus = ALB_favor_muslims_in_administration }
+		x = 0
+		y = 1
+		relative_position_id = ALB_mend_the_religious_divide
+		mutually_exclusive = { focus = ALB_tolerance_to_ethnic_minorities }
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
+	focus = {
+		id = ALB_tolerance_to_ethnic_minorities
+		icon = GFX_focus_generic_little_entente
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+		prerequisite = { focus = ALB_mend_the_religious_divide focus = ALB_favor_muslims_in_administration }
+		mutually_exclusive = { focus = ALB_an_albanian_state_for_the_albanian_nation }
+		x = 0
+		y = 1
+		relative_position_id = ALB_favor_muslims_in_administration
+		completion_reward = {
+			
+		}
+		ai_will_do = { factor = 100 }
+	}
 
 	###ALBANIAN MINORITY SYSTEM###
 	focus = {
@@ -4957,7 +5327,7 @@ focus_tree = {
 		search_filters = {
 		}
 		prerequisite = { focus = ALB_albanian_vilayet }
-		x = 8
+		x = 9
 		y = 1
 		relative_position_id = ALB_albanian_vilayet
 		available = {
@@ -5207,7 +5577,7 @@ focus_tree = {
 			FOCUS_FILTER_MANPOWER
 			FOCUS_FILTER_HISTORICAL
 		}
-		x = 17
+		x = 18
 		y = -1
 		relative_position_id = ALB_draft_the_grece_memorandum
 		available_if_capitulated = yes
