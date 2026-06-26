@@ -10060,11 +10060,11 @@ country_event = {
 					is_owned_by = HUN
 				}
 				OR = {
-					state = 88
-					state = 237
-					state = 991
-					#state = 1269
-					#state = 1268
+					state = 88 #Krakow
+					state = 237 #Lemkow
+					state = 991 #Bielitz
+					state = 1269 #Zakopane
+					state = 1268 #Tarnobrzeg
 					#state = 1270
 					#state = 562
 					#state = 91
@@ -10075,29 +10075,47 @@ country_event = {
 			transfer_state_to = GAL
 		}
 		set_global_flag = galicia_released
+		set_global_flag = AUS_collapse_spawn_tarnobrzeg
 		hidden_effect = {
-			set_autonomy = {
-				target = GAL
-				autonomy_state = autonomy_puppet
-				end_civil_wars = yes
-				end_wars = yes
+			#liquidation committee
+			if = {
+				limit = {
+					POL = {
+						exists = yes
+					}
+				}
+				POL = {
+					set_autonomy = {
+						target = GAL
+						autonomy_state = autonomy_puppet
+						end_civil_wars = yes
+						end_wars = yes
+					}
+				}
+				GAL = {
+					clr_country_flag = monarchist_puppet
+					set_cosmetic_tag = GAL_liquidation_comitte
+					set_politics = {
+						ruling_party = neutrality
+						long_name = GAL_liquidation_comitte_party_long
+						name = GAL_liquidation_comitte_party
+						elections_allowed = no
+					}
+					set_popularities = {
+						democratic = 46
+						fascism = 0
+						communism = 8
+						neutrality = 46
+					}
+					POL_wincenty_witos = {
+						promote_character = authoritarian_democracy
+					}	
+				}
 			}
-			GAL = {
+			#poland doesnt exist just release
+			else = {
 				clr_country_flag = monarchist_puppet
-				set_cosmetic_tag = GAL_liquidation_comitte
-				set_politics = {
-					ruling_party = neutrality
-					long_name = GAL_liquidation_comitte_party_long
-					name = GAL_liquidation_comitte_party
-					elections_allowed = no
-				}
-				set_popularities = {
-					democratic = 46
-					fascism = 0
-					communism = 8
-					neutrality = 46
-				}
-				POL_wincenty_witos = {
+				POL_wincenty_witos = { #change? idk
 					promote_character = authoritarian_democracy
 				}	
 			}
@@ -10447,7 +10465,13 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		1269 = {
-			is_owned_and_controlled_by = AUS
+			OR = {
+				is_owned_by = AUS
+				AND = {
+					is_owned_by = GAL
+					has_global_flag = AUS_collapse_spawn_tarnobrzeg
+				}
+			}
 		}
 	}
 	immediate = {
@@ -10585,7 +10609,13 @@ country_event = {
 	}
 	trigger = {
 		1268 = {
-			is_owned_and_controlled_by = AUS
+			OR = {
+				is_owned_by = AUS
+				AND = {
+					is_owned_by = GAL
+					has_global_flag = AUS_collapse_spawn_tarnobrzeg
+				}
+			}
 		}
 	}
 	option = {
