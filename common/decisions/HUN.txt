@@ -2333,16 +2333,24 @@ AUS_minorities_mechanic_HUN = {
 			}
 		}
 		activation = {
+			AUS_HUN_exists = yes
+			NOT = {
+				has_global_flag = hungary_1910_elections
+			}
 		}
 		available = {
 			hidden_trigger = {
 				always = no
 			}
 		}
+		cancel_trigger = {
+			AUS_HUN_exists = no
+		}
 		timeout_effect = {
 			HUN = {
 				country_event = ww1_hungary_auh.1
 			}
+			set_global_flag = hungary_1910_elections
 		}
 	}
 	HUN_pending_croatian_chaos = {
@@ -2352,6 +2360,10 @@ AUS_minorities_mechanic_HUN = {
 		is_good = no
 		fire_only_once = yes
 		activation = {
+			AUS_HUN_exists = yes
+			NOT = {
+				has_global_flag = hun_croatian_chaos_mission_timedout
+			}
 		}
 		available = {
 			OR = {
@@ -2360,8 +2372,14 @@ AUS_minorities_mechanic_HUN = {
 		}
 		visible = {
 			tag = HUN
-			NOT = {
-				tag = BOS
+			
+		}
+		cancel_trigger = {
+			OR = {
+				AUS_HUN_exists = no
+				any_owned_state = {
+					AUS_is_CRO_state = no
+				}
 			}
 		}
 		timeout_effect = {
@@ -2378,6 +2396,7 @@ AUS_minorities_mechanic_HUN = {
 					tooltip = political_power_factor_tt
 				}
 			}
+			set_global_flag = hun_croatian_chaos_mission_timedout
 		}
 		complete_effect = {
 		}
@@ -2541,11 +2560,15 @@ AUS_minorities_mechanic_HUN = {
 			hidden_trigger = {
 				always = yes
 			}
+			AUS_HUN_exists = yes
 		}
 		available = {
 			hidden_trigger = {
 				always = no
 			}
+		}
+		cancel_trigger = {
+			AUS_HUN_exists = no
 		}
 		timeout_effect = {
 			
