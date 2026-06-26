@@ -942,8 +942,85 @@ TGWR_great_power_politics = {
 	}
 	
 }
-
-political_actions = {
+HUN_soviet_army = {
+	HUN_found_the_international_brigade = {
+		icon = GFX_decision_generic_military
+		cost = 15
+		days_remove = 5
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_government = communism
+			has_war = yes
+		}
+		visible = {
+			has_completed_focus = HUN_found_the_red_army
+			has_government = communism
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			custom_effect_tooltip = HUN_voros_division.tt
+			43 = {
+				create_unit = {
+					division = "name = \"80th Nemzetközi Brigád\" division_template = \"Vörös Hadosztály\" start_experience_factor = 0.3"
+					owner = ROOT
+				}
+			}
+		}
+	}
+	HUN_war_communism = {
+		icon = GFX_decision_eng_trade_unions_support
+		cost = 15
+		days_remove = 15
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_government = communism
+			has_war = yes
+		}
+		visible = {
+			has_completed_focus = HUN_collectivise_farming
+			has_completed_focus = HUN_union_decision_making
+			has_government = communism
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			add_stability = -0.1
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 6000
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = 200
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 200
+				producer = ROOT
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = tot_economic_mobilisation
+					}
+				}
+				add_ideas = tot_economic_mobilisation
+			}
+		}
+	}
 	HUN_establish_slovak_soviet_republic = {
 		icon = GFX_decision_SOV_secure_the_administration
 		allowed = {
@@ -951,22 +1028,12 @@ political_actions = {
 		}
 		available = {
 			controls_state = 71
-			NOT = {
-				country_exists = SLO
-			}
+			NOT = { country_exists = SLO }
 		}
 		visible = {
 			is_subject = no
 			has_government = communism
-			OR = {
-				NOT = {
-					has_global_flag = great_war
-				}
-				AND = {
-					has_global_flag = great_war
-					has_global_flag = interbellum
-				}
-			}
+			has_completed_focus = HUN_offensive_against_czechs
 		}
 		fire_only_once = yes
 		ai_will_do = {
@@ -980,13 +1047,16 @@ political_actions = {
 				limit = {
 					is_core_of = SLO
 					is_fully_controlled_by = HUN
+					NOT = {
+						state = 664
+					}
 				}
 				transfer_state_to = SLO
 			}
 			SLO = {
 				set_politics = {
 					ruling_party = communism
-					elections_allowed = no
+					elections_allowed = no 
 				}
 				set_capital = {
 					state = 71
@@ -1002,7 +1072,7 @@ political_actions = {
 			original_tag = HUN
 		}
 		available = {
-			has_war = no
+			has_war = no			
 			any_owned_state = {
 				is_core_of = AUS
 				region = 22
@@ -1033,7 +1103,7 @@ political_actions = {
 			factor = 1
 		}
 		complete_effect = {
-			every_owned_state = {
+			every_owned_state = {			
 				limit = {
 					is_core_of = AUS
 					region = 22
@@ -1053,6 +1123,8 @@ political_actions = {
 			puppet = AUS
 		}
 	}
+}
+political_actions = {
 	HUN_end_regency = {
 		icon = GFX_decision_generic_monarchy
 		allowed = {
