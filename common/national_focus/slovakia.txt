@@ -1,0 +1,193 @@
+focus_tree = {
+	id = slovakia_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			tag = SLO
+			has_global_flag = SLO_meme_tree
+		}
+	}
+	continuous_focus_position = { x = 3015 y = 950 }
+	default = no
+	
+	
+	
+	#Starting Politcal Tree
+	focus = {
+		id = SLO_off_with_the_yoke
+		icon = GFX_focus_AUS_bring_phonix_insurance_from_the_ashes
+		cost = 1 
+		x = 0
+		y = 0
+		available = {
+			
+		}
+		completion_reward = {
+			
+		}
+		ai_will_do = {
+			factor = 250
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+	}
+	focus = {
+		id = SLO_align_with_hungary
+		icon = GFX_focus_generic_little_entente
+		cost = 1 
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = SLO_off_with_the_yoke
+		}
+		relative_position_id = SLO_off_with_the_yoke
+		available = {
+			
+		}
+		completion_reward = {
+			HUN = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_increase
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 250
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+	}
+	focus = {
+		id = SLO_self_defense
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		cost = 1 
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = SLO_align_with_hungary
+		}
+		relative_position_id = SLO_off_with_the_yoke
+		mutually_exclusive = {
+			focus = SLO_its_over
+		}
+		available = {
+			
+		}
+		completion_reward = {
+			add_manpower = 67
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 14
+			}
+		}
+		ai_will_do = {
+			factor = 250
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+	}
+	focus = {
+		id = SLO_its_over
+		icon = GFX_ss
+		mutually_exclusive = {
+			focus = SLO_self_defense
+		}
+		cost = 1 
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = SLO_align_with_hungary
+		}
+		relative_position_id = SLO_off_with_the_yoke
+		available = {
+			
+		}
+		completion_reward = {
+			custom_effect_tooltip = SLO_prepare_a_train
+			add_war_support = -1
+		}
+		ai_will_do = {
+			factor = 250
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+	}
+	focus = {
+		id = SLO_its_over_real
+		icon = GFX_ss
+		mutually_exclusive = {
+			focus = SLO_self_defense
+		}
+		cost = 1 
+		x = 1
+		y = 3
+		prerequisite = {
+			focus = SLO_its_over
+		}
+		relative_position_id = SLO_off_with_the_yoke
+		available = {
+			
+		}
+		completion_reward = {
+			HUN = {
+				country_event = {
+					id = ww1_czechoslovakia.24
+					days = 1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 250
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+	}
+	focus = {
+		id = SLO_coming_home
+		icon = GFX_focus_agrarian_soldiers
+		cost = 1 
+		x = -1
+		y = 3
+		prerequisite = {
+			focus = SLO_self_defense
+		}
+		relative_position_id = SLO_off_with_the_yoke
+		available = {
+			
+		}
+		completion_reward = {
+			HUN = {
+				annex_country = {
+					target = SLO
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 250
+			
+		}
+		search_filters = {
+			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_INTERNAL_AFFAIRS
+		}
+	}
+}
+
+

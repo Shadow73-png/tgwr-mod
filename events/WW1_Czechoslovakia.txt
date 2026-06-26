@@ -583,6 +583,10 @@ country_event = {
 	desc = ww1_czechoslovakia.22.d
 	fire_only_once = yes
 	immediate = {
+				set_global_flag = SLO_meme_tree
+SLO = {
+	load_focus_tree = slovakia_focus
+}
 		71 = {
 			transfer_state_to = SLO
 		}
@@ -605,7 +609,9 @@ country_event = {
 			target = SLO
 			type = take_core_state
 		}
-		set_global_flag = SLO_meme_tree
+		SLO = {
+			complete_national_focus = SLO_off_with_the_yoke
+		}
 	}
 }
 
@@ -633,5 +639,17 @@ country_event = {
 		73 = {
 			transfer_state_to = CZE
 		}
+	}
+}
+#bullshit
+country_event = {
+	id = ww1_czechoslovakia.24
+	title = ww1_czechoslovakia.24.t
+	desc = ww1_czechoslovakia.24.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ww1_czechoslovakia.24.a
+		
 	}
 }
