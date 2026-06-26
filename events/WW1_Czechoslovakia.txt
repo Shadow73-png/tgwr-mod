@@ -583,13 +583,19 @@ country_event = {
 	desc = ww1_czechoslovakia.22.d
 	fire_only_once = yes
 	immediate = {
-		71 = {
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = CZE
+					is_owned_by = HUN
+				}
+				OR = {
+					state = 71
+					state = 1043
+				}
+			}
 			transfer_state_to = SLO
 		}
-		1043 = {
-			transfer_state_to = SLO
-		}
-		
 	}
 	trigger = {
 		tag = CZE
@@ -602,8 +608,8 @@ country_event = {
 	option = {
 		name = ww1_czechoslovakia.22.a
 		declare_war_on = {
-			target = SLO
-			type = take_core_state
+		 	target = SLO
+		 	type = take_core_state
 		}
 	}
 }
