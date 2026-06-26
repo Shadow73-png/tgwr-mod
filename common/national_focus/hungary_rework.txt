@@ -7371,12 +7371,12 @@ focus_tree = {
 			add_stability = -0.05
 			add_war_support = -0.02
 			add_to_variable = {
-				HUN_food_stab_var = 15
+				HUN_food_stab_var = 5
 				tooltip = HUN_food_var_plus_15.tt
 			}
 			add_days_mission_timeout = {
 				mission = HUN_fading_food_stability_mission
-				days = 225
+				days = 50
 			}
 			add_days_mission_timeout = {
 				mission = HUN_great_war_discontent_mission
@@ -7411,7 +7411,7 @@ focus_tree = {
 			}
 			add_days_mission_timeout = {
 				mission = HUN_fading_food_stability_mission
-				days = 100
+				days = 50
 			}
 			custom_effect_tooltip = HUN_modify_eco_tt
 			add_to_variable = {
@@ -7462,7 +7462,7 @@ focus_tree = {
 			}
 			add_days_mission_timeout = {
 				mission = HUN_fading_food_stability_mission
-				days = 100
+				days = 50
 			}
 			custom_effect_tooltip = HUN_modify_eco_tt
 			add_to_variable = {
@@ -7494,6 +7494,14 @@ focus_tree = {
 			focus = HUN_price_regulations
 		}
 		completion_reward = { 
+				add_days_mission_timeout = {
+				mission = HUN_fading_food_stability_mission
+				days = 365
+			}
+			add_to_variable = {
+				HUN_food_stab_var = 20
+				tooltip = HUN_food_var_plus_15.tt
+			}
 			custom_effect_tooltip = HUN_modify_eco_tt
 			add_to_variable = {
 				HUN_eco_consumer_good = -0.1
@@ -7506,6 +7514,15 @@ focus_tree = {
 			add_to_variable = {
 				HUN_eco_trade_opinion = -0.35
 				tooltip = trade_opinion_factor_tt
+			}
+			custom_effect_tooltip = HUN_fuck_over_austria
+			AUS = {
+				country_event = {
+					id = ww1_austriahungary_war.80
+					days = 3
+				}
+						custom_effect_tooltip = AUS_hungary_fucks_you
+
 			}
 		}
 	 }
@@ -7579,7 +7596,7 @@ focus_tree = {
 			}
 			add_days_mission_timeout = {
 				mission = HUN_fading_food_stability_mission
-				days = 100
+				days = 50
 			}
 		}
 	 }
@@ -7731,7 +7748,7 @@ focus_tree = {
 		completion_reward = { 
 			add_days_mission_timeout = {
 				mission = HUN_fading_food_stability_mission
-				days = 100
+				days = 50
 			}
 			add_war_support = -0.01
 			add_stability = -0.01
