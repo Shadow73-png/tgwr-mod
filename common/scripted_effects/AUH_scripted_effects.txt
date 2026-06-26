@@ -2772,6 +2772,8 @@ AUS_fire_minister_advisor = {
 			AUH_franz_conrad_von_hotzendorf_mp_idea
 			AUS_ernst_seidler_von_feuchtenegg_idea
 			AUH_paul_gautsch_idea
+			AUH_leopold_kunschak_idea
+			AUH_aloys_liechtenstein_idea
 		}
 		
 		#reset minister relations
@@ -4013,37 +4015,39 @@ AUS_spawn_bohemian_crown = {
 			    neutrality = 40
 			}
 			add_ideas = HUN_ausgleich
+			set_party_name = {
+				ideology = fascism
+				long_name = CZE_bohemia_fascism_party_long
+				name = CZE_bohemia_fascism_party
+			}
+			set_party_name = {
+				ideology = democratic
+				long_name = CZE_bohemia_democratic_party_long
+				name = CZE_bohemia_democratic_party
+			}
+			set_party_name = {
+				ideology = communism
+				long_name = CZE_bohemia_communism_party_long
+				name = CZE_bohemia_communism_party
+			}
+			set_party_name = {
+				ideology = neutrality
+				long_name = CZE_bohemia_neutrality_party_long
+				name = CZE_bohemia_neutrality_party
+			}
+			mark_focus_tree_layout_dirty = yes
+			load_focus_tree = czech_focus
         }
-		inherit_technology = AUS
 		add_to_tech_sharing_group = austrian_research
-		set_party_name = {
-			ideology = fascism
-			long_name = CZE_bohemia_fascism_party_long
-			name = CZE_bohemia_fascism_party
-		}
-		set_party_name = {
-			ideology = democratic
-			long_name = CZE_bohemia_democratic_party_long
-			name = CZE_bohemia_democratic_party
-		}
-		set_party_name = {
-			ideology = communism
-			long_name = CZE_bohemia_communism_party_long
-			name = CZE_bohemia_communism_party
-		}
-		set_party_name = {
-			ideology = neutrality
-			long_name = CZE_bohemia_neutrality_party_long
-			name = CZE_bohemia_neutrality_party
-		}
-		mark_focus_tree_layout_dirty = yes
-				load_focus_tree = czech_focus
 	}
 	AUS = {
 		set_autonomy = {
 			target = CZE
 			autonomous_state = autonomy_tgwr_real_union
 			freedom_level = 0.85
+		}
+		hidden_effect = {
+			add_ideas = AUS_bohemian_compromise_idea
 		}
 	}
 	
@@ -4139,9 +4143,10 @@ AUS_polish_city_states = {
 		add_core_of = ZKP
 		transfer_state_to = ZKP
 	}
-	237 = {
-		add_core_of = LMK
-		transfer_state_to = LMK
+	#transfer_state_to breaks here
+	LMR = {
+		add_state_core = 237
+		transfer_state = 237
 	}
 	1268 = {
 		add_core_of = TBZ

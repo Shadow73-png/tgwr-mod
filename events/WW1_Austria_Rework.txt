@@ -3224,7 +3224,6 @@ country_event = {
 				id = ww1_austriahungary.118
 			}
 		}
-		
 	}
 }
 
@@ -5718,8 +5717,7 @@ country_event = {
 	}
 }
 
-#CSP internal vote for MP 
-# wtf is this slop
+#CSP internal vote for MP
 country_event = {
 	id = ww1_austriahungary.214
 	title = ww1_austriahungary.214.t
@@ -5728,11 +5726,43 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_austriahungary.214.a
-		activate_advisor = AUS_aloys_von_liechtenstein
+		trigger = {
+			NOT = {
+				has_global_flag = AUS_aloys_minister
+			}
+		}
+		AUS_fire_minister_advisor = yes
+		set_global_flag = AUS_aloys_minister
+		AUS_aloys_von_liechtenstein = {
+			set_character_flag = minister_AUS
+		}
+		add_ideas = AUH_aloys_liechtenstein_idea
+		#activate_advisor = AUS_aloys_von_liechtenstein
+		ai_chance = {
+			base = 1
+		}
+		complete_national_focus = AUS_mantain_principles_vogelsang
+		
 	}
 	option = {
 		name = ww1_austriahungary.214.b
-		activate_advisor = AUS_leopold_kunschak
+		#activate_advisor = AUS_leopold_kunschak
+		trigger = {
+			NOT = {
+				has_global_flag = AUS_kunschak_minister
+			}
+		}
+		AUS_fire_minister_advisor = yes
+		set_global_flag = AUS_kunschak_minister
+		AUS_leopold_kunschak = {
+			set_character_flag = minister_AUS
+		}
+		add_ideas = AUH_leopold_kunschak_idea
+		#activate_advisor = AUS_aloys_von_liechtenstein
+		complete_national_focus = AUS_social_democratising
+		ai_chance = {
+			base = 1
+		}
 	}
 }
 
@@ -6247,6 +6277,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.239
 	title = ww1_austriahungary.239.t
@@ -6269,6 +6300,7 @@ country_event = {
 		}
 	}
 }
+
 #debloating military apparatus done
 country_event = {
 	id = ww1_austriahungary.240
@@ -6298,6 +6330,7 @@ country_event = {
 		}
 	}
 }
+
 #liberals hate "oppose modernity"
 country_event = {
 	id = ww1_austriahungary.241
@@ -6314,6 +6347,7 @@ country_event = {
 		}
 	}
 }
+
 #control over wages - abolish class conflict part 1
 country_event = {
 	id = ww1_austriahungary.242
@@ -6373,6 +6407,7 @@ country_event = {
 		}
 	}
 }
+
 #worker safety regulations - abolish class conflict part 2
 country_event = {
 	id = ww1_austriahungary.243
@@ -6433,6 +6468,7 @@ country_event = {
 		}
 	}
 }
+
 #worker hours - abolish class conflict part 3
 country_event = {
 	id = ww1_austriahungary.244
@@ -6493,6 +6529,7 @@ country_event = {
 		}
 	}
 }
+
 #corporations coercing workers to keep working for them - abolish class conflict part 4
 country_event = {
 	id = ww1_austriahungary.245
@@ -6553,6 +6590,7 @@ country_event = {
 		}
 	}
 }
+
 #were done and socialists hate us - abolish class conflict final
 country_event = {
 	id = ww1_austriahungary.246
@@ -6575,6 +6613,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.247
 	title = ww1_austriahungary.247.t
@@ -6593,6 +6632,7 @@ country_event = {
 		}
 	}
 }
+
 #tca mission
 country_event = {
 	id = ww1_austriahungary.248
@@ -6633,6 +6673,7 @@ country_event = {
 		set_country_flag = AUS_tca_south
 	}
 }
+
 #tca mission
 country_event = {
 	id = ww1_austriahungary.249
@@ -6678,6 +6719,7 @@ country_event = {
 		custom_effect_tooltip = AUS_spitzmuller_is_making_cabinet
 	}
 }
+
 #spitzmuller losing confidence
 country_event = {
 	id = ww1_austriahungary.251
@@ -6685,7 +6727,8 @@ country_event = {
 	desc = ww1_austriahungary.251.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { #appoint clam
+	option = {
+		#appoint clam
 		name = ww1_austriahungary.251.a
 		custom_effect_tooltip = historical_tt
 		country_event = {
@@ -6693,7 +6736,8 @@ country_event = {
 			days = 2
 		}
 	}
-	option = { #pressure him into forming cabinet
+	option = {
+		#pressure him into forming cabinet
 		name = ww1_austriahungary.251.b
 		add_political_power = -50
 		AUS_fire_minister_advisor = yes
@@ -6705,13 +6749,15 @@ country_event = {
 		#activate_advisor = AUS_alexander_spitzmuller
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.252
 	title = ww1_austriahungary.252.t
 	desc = ww1_austriahungary.252.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { #appoint clam
+	option = {
+		#appoint clam
 		name = ww1_austriahungary.252.a
 		AUS_fire_minister_advisor = yes
 		set_global_flag = AUS_heinrich_minister
@@ -6722,6 +6768,7 @@ country_event = {
 		#activate_advisor = AUS_heinrich_clam_martinic
 	}
 }
+
 #failed to get bohemian octroi through, clam falls
 country_event = {
 	id = ww1_austriahungary.253
@@ -6729,13 +6776,14 @@ country_event = {
 	desc = ww1_austriahungary.253.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { #appoint clam
+	option = {
+		#appoint clam
 		name = ww1_austriahungary.253.a
 		custom_effect_tooltip = AUS_modify_aps.tt
-			add_to_variable = {
-				AUS_aps_pp_gain = -0.1
-				tooltip = political_power_factor_tt
-			}
+		add_to_variable = {
+			AUS_aps_pp_gain = -0.1
+			tooltip = political_power_factor_tt
+		}
 		AUS_fire_minister_advisor = yes
 		set_global_flag = AUS_feuchtenegg_minister
 		AUS_ernst_seidler_von_feuchtenegg = {
@@ -6745,6 +6793,7 @@ country_event = {
 		#activate_advisor = AUS_ernst_seidler_von_feuchtenegg
 	}
 }
+
 #we support italian monarchy in their civil war (italy gets event)
 country_event = {
 	id = ww1_austriahungary.254
@@ -6752,13 +6801,14 @@ country_event = {
 	desc = ww1_austriahungary.254.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.254.a
 		ITA = {
 			add_ideas = AUS_support_in_civil_war
 		}
 	}
 }
+
 #we support italian monarchy in their civil war2 (italy gets event)
 country_event = {
 	id = ww1_austriahungary.255
@@ -6766,7 +6816,7 @@ country_event = {
 	desc = ww1_austriahungary.255.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.255.a
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
@@ -6782,6 +6832,7 @@ country_event = {
 		}
 	}
 }
+
 #we support italian monarchy in their civil war3 (italy gets event)
 country_event = {
 	id = ww1_austriahungary.256
@@ -6789,7 +6840,7 @@ country_event = {
 	desc = ww1_austriahungary.256.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.256.a
 		ITA = {
 			add_timed_idea = {
@@ -6798,10 +6849,11 @@ country_event = {
 			}
 		}
 	}
-	option = { 
+	option = {
 		name = ww1_austriahungary.256.b
 	}
 }
+
 #we take north italy during their civil war (italy gets event)
 country_event = {
 	id = ww1_austriahungary.257
@@ -6809,10 +6861,11 @@ country_event = {
 	desc = ww1_austriahungary.257.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.257.a
 	}
 }
+
 #we take north italy during their civil war but northern socialists rise up
 country_event = {
 	id = ww1_austriahungary.258
@@ -6820,7 +6873,7 @@ country_event = {
 	desc = ww1_austriahungary.258.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.258.a
 		159 = {
 			add_dynamic_modifier = {
@@ -6836,6 +6889,7 @@ country_event = {
 		}
 	}
 }
+
 #we invite italy (italian event)
 country_event = {
 	id = ww1_austriahungary.259
@@ -6843,19 +6897,20 @@ country_event = {
 	desc = ww1_austriahungary.259.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.259.a
 		AUS = {
 			country_event = ww1_austriahungary.260
 		}
 	}
-	option = { 
+	option = {
 		name = ww1_austriahungary.259.b
 		AUS = {
 			country_event = ww1_austriahungary.261
 		}
 	}
 }
+
 #italy accepts alliance
 country_event = {
 	id = ww1_austriahungary.260
@@ -6863,11 +6918,12 @@ country_event = {
 	desc = ww1_austriahungary.260.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.260.a
 		add_to_faction = ITA
 	}
 }
+
 #italy rejects alliance
 country_event = {
 	id = ww1_austriahungary.261
@@ -6875,18 +6931,19 @@ country_event = {
 	desc = ww1_austriahungary.261.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.261.a
 	}
 }
-#we support don during rcw (don gets event)
+
+#we support x country during rcw (x country gets event)
 country_event = {
 	id = ww1_austriahungary.262
 	title = ww1_austriahungary.262.t
 	desc = ww1_austriahungary.262.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.262.a
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
@@ -6902,6 +6959,7 @@ country_event = {
 		}
 	}
 }
+
 #preparing reopening reichsrat
 country_event = {
 	id = ww1_austriahungary.263
@@ -6915,13 +6973,14 @@ country_event = {
 			activate_mission = AUS_reopening_reichsrat
 		}
 	}
-	option = { 
+	option = {
 		name = ww1_austriahungary.263.a
 		effect_tooltip = {
 			activate_mission = AUS_reopening_reichsrat
 		}
 	}
 }
+
 #reichsrat reopens and minorities are mad
 country_event = {
 	id = ww1_austriahungary.264
@@ -6929,7 +6988,7 @@ country_event = {
 	desc = ww1_austriahungary.264.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.264.a
 		add_stability = -0.05
 		add_to_variable = {
@@ -6951,6 +7010,7 @@ country_event = {
 		AUS_update_state_of_realm = yes
 	}
 }
+
 #austria requests control of ukraine (germany gets event)
 country_event = {
 	id = ww1_austriahungary.265
@@ -6966,7 +7026,7 @@ country_event = {
 		}
 	}
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.265.a
 		ai_chance = {
 			base = 1
@@ -6984,7 +7044,7 @@ country_event = {
 			country_event = ww1_austriahungary.266
 		}
 	}
-	option = { 
+	option = {
 		name = ww1_austriahungary.265.b
 		ai_chance = {
 			base = 5
@@ -6995,6 +7055,7 @@ country_event = {
 		add_political_power = -100
 	}
 }
+
 #germany gives austria ukraine
 country_event = {
 	id = ww1_austriahungary.266
@@ -7002,12 +7063,16 @@ country_event = {
 	desc = ww1_austriahungary.266.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.266.a
 		set_country_flag = AUS_flag_ukraine_acquired
 		unlock_decision_tooltip = AUS_install_archduke_wilhelm
+		UKR = {
+			add_ideas = UKR_aspirations_of_indenpendence
+		}
 	}
 }
+
 #germany refuses to give austria ukraine
 country_event = {
 	id = ww1_austriahungary.267
@@ -7015,10 +7080,11 @@ country_event = {
 	desc = ww1_austriahungary.267.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.267.a
 	}
 }
+
 #austria coups ukrainians
 country_event = {
 	id = ww1_austriahungary.268
@@ -7026,42 +7092,64 @@ country_event = {
 	desc = ww1_austriahungary.268.d
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = { 
+	option = {
 		name = ww1_austriahungary.268.a
 		set_politics = {
 			ruling_party = neutrality
 			elections_allowed = no
 			long_name = AUS_neutrality_party_long
-    		name = AUS_neutrality_party
+			name = AUS_neutrality_party
 		}
 		add_stability = -0.1
 		promote_character = UKR_vasyl_i
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.269
 	title = ww1_austriahungary.269.t
 	desc = ww1_austriahungary.269.d
 	is_triggered_only = yes
 	fire_only_once = no
-	option = { 
+	option = {
 		name = ww1_austriahungary.269.a
 		add_political_power = 25
+		trigger = {
+			tag = AUS
+		}
+	}
+	option = {
+		name = ww1_austriahungary.269.b
+		trigger = {
+			NOT = {
+				tag=AUS
+			}
+		}
+		add_political_power = 15
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.270
 	title = ww1_austriahungary.270.t
 	desc = ww1_austriahungary.270.d
 	is_triggered_only = yes
-	fire_only_once = no
-	option = { 
+	fire_only_once = yes
+	option = {
 		name = ww1_austriahungary.270.a
 		AUS = {
-			country_event =  ww1_austriahungary.271
+			country_event = {
+				id = ww1_austriahungary.271
+				days = 5
+			}
 		}
+		add_stability = -0.1
+		add_war_support = -0.1
+		add_political_power = -100
+		custom_effect_tooltip = prepare_for_a_revolt
 	}
 }
+
 #hungarian revolt
 country_event = {
 	id = ww1_austriahungary.271
@@ -7069,33 +7157,44 @@ country_event = {
 	desc = ww1_austriahungary.271.d
 	is_triggered_only = yes
 	fire_only_once = yes
-		immediate = {
-		AUS = {
-			add_ideas = standing_alone
-		}
+	immediate = {
 		hidden_effect = {
-		}
-		AUS = {
-			set_autonomy = {
-				target = HUN
-				autonomous_state = autonomy_free
-				end_wars = no
-				end_civil_wars = no
+			AUS = {
+				add_ideas = standing_alone
 			}
-		}
-		HUN = {
-			promote_character = HUN_janos_hadik
-		}
-		HUN = {
-			leave_faction = yes
-		}
-		if = {
-			limit = {
-				TAG = HUN
+			HUN = {
+				get_current_government_type = yes
 			}
-			hidden_effect = {
+			AUS = {
+				set_autonomy = {
+					target = HUN
+					autonomous_state = autonomy_free
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			AUS = {
+				transfer_units_fraction = {
+					target = HUN
+					size = 0.25
+					target_organization = 1
+					source_organization = 1
+					army_ratio = 0.25
+					navy_ratio = 0
+					stockpile_ratio = 0.25
+					keep_unit_leaders_trigger = {
+						always = yes
+					}
+				}
+			}
+			HUN = {
+				restore_previous_government_type = yes
+
+				promote_character = HUN_janos_hadik
+				leave_faction = yes
+				drop_cosmetic_tag = yes
 				add_named_threat = {
-					threat = 10
+					threat = 9.6
 					name = AUH_hungarian_revolution
 				}
 				HUN = {
@@ -7103,82 +7202,67 @@ country_event = {
 						add_claim_by = AUS
 					}
 				}
-				hidden_effect = {
-					set_global_flag = AUS_hun_revolt
-					HUN = {
-						every_owned_state = {
-							limit = {
-								OR = {
-									has_state_flag = AUH_CZE_state
-									has_state_flag = AUH_ROM_state
-									has_state_flag = AUH_SER_state
-									has_state_flag = AUH_CRO_state
-									has_state_flag = AUH_POL_state
-								}
-							}
-							transfer_state_to = AUS
-						}
-					}
-					AUS = {
-						transfer_units_fraction = {
-							target = HUN
-							size = 0.25
-							target_organization = 1
-							source_organization = 1
-							army_ratio = 0.25
-							navy_ratio = 0
-							stockpile_ratio = 0.25
-							keep_unit_leaders_trigger = {
-								always = yes
+				set_global_flag = AUS_hun_revolt
+				HUN = {
+					every_owned_state = {
+						limit = {
+							OR = {
+								AUS_is_CZE_state = yes
+								AUS_is_ROM_state = yes
+								AUS_is_SER_state = yes
+								AUS_is_CRO_state = yes
+								AUS_is_POL_state = yes
+								state = 778
 							}
 						}
+						transfer_state_to = AUS
 					}
-					HUN = {
-						division_template = {
-							name = "Forradalmi Milícia"
-							is_locked = yes
-							priority = 0
-							regiments = {
-								militia = {
-									x = 0
-									y = 0
-								}
-								militia = {
-									x = 0
-									y = 1
-								}
-								militia = {
-									x = 0
-									y = 2
-								}
-								militia = {
-									x = 1
-									y = 0
-								}
-								militia = {
-									x = 1
-									y = 1
-								}
-								militia = {
-									x = 1
-									y = 2
-								}
+				}
+				HUN = {
+					division_template = {
+						name = "Forradalmi Milícia"
+						is_locked = yes
+						priority = 0
+						regiments = {
+							militia = {
+								x = 0
+								y = 0
+							}
+							militia = {
+								x = 0
+								y = 1
+							}
+							militia = {
+								x = 0
+								y = 2
+							}
+							militia = {
+								x = 1
+								y = 0
+							}
+							militia = {
+								x = 1
+								y = 1
+							}
+							militia = {
+								x = 1
+								y = 2
 							}
 						}
-						#43 = {
-						#	create_unit = {
-						#division = "name = "Forradalmi Milícia" division_template = "Forradalmi Milícia" start_experience_factor = 0.0 start_equipment_factor = 0.5"
-						#		owner = HUN
-						#		count = 16
-						#	}
-						#}
 					}
-					AUS = {
-						set_major = yes
-						declare_war_on = {
-							target = HUN
-							type = annex_everything
-						}
+					#43 = {
+					#	create_unit = {
+					#division = "name = "Forradalmi Milícia" division_template = "Forradalmi Milícia" start_experience_factor = 0.0 start_equipment_factor = 0.5"
+					#		owner = HUN
+					#		count = 16
+					#	}
+					#}
+				}
+				AUS = {
+					set_major = yes
+					declare_war_on = {
+						target = HUN
+						type = annex_everything
 					}
 				}
 			}
@@ -7256,65 +7340,285 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.272
 	title = ww1_austriahungary.272.t
 	desc = ww1_austriahungary.272.d
 	is_triggered_only = yes
-	fire_only_once = no
-	option = { 
+	#fire_only_once = no
+	option = {
 		name = ww1_austriahungary.272.a
 		AUS = {
-				country_event = {
-					id = ww1_austriahungary.273
-					days = 3
-				}
-			
+			country_event = {
+				id = ww1_austriahungary.273
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary.272.b
+		custom_effect_tooltip = AUS_current_hungary_is_good
+		AUS = {
+			country_event = {
+				id = ww1_austriahungary.273
+				days = 3
+			}
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.273
 	title = ww1_austriahungary.273.t
 	desc = ww1_austriahungary.273.d
 	is_triggered_only = yes
 	fire_only_once = no
-	option = { 
+	option = {
 		name = ww1_austriahungary.273.a
 		uncomplete_national_focus = {
 			focus = AUS_implement_joint_government_bodies
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.274
 	title = ww1_austriahungary.274.t
 	desc = ww1_austriahungary.274.d
 	is_triggered_only = yes
 	fire_only_once = no
-	option = { 
-		name = ww1_austriahungary.274.a
+	option = {
+		name = ww1_austriahungary.274.a # yes but no trialism
+		trigger = {
+			NOT = {
+				has_global_flag = AUS_agree_no_reforms
+			}
+		}
 		custom_effect_tooltip = AUS_if_they_agree_no_trialism_stuff
+		set_global_flag = AUS_no_trialism
+		AUS = {
+			country_event = {
+				id = ww1_austriahungary.278
+			}
+			custom_effect_tooltip = if_they_accept_newline_tt
+			custom_effect_tooltip = AUS_unlocks_the_budget
+			custom_effect_tooltip = AUS_locks_reforms_so
+			effect_tooltip = {
+				army_experience = 15
+			}
+		}
 	}
-		option = { 
-		name = ww1_austriahungary.274.b
+	option = {
+		name = ww1_austriahungary.274.b # yes
+	}
+	option = {
+		name = ww1_austriahungary.274.c # no
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary.275
 	title = ww1_austriahungary.275.t
 	desc = ww1_austriahungary.275.d
 	is_triggered_only = yes
 	fire_only_once = no
-	option = { 
+	option = {
 		name = ww1_austriahungary.275.a
 		custom_effect_tooltip = AUS_if_they_agree_no_trialism_stuff
-		
 	}
-		
 }
-#end of ww1_austriahungary
 
+country_event = {
+	id = ww1_austriahungary.276
+	title = ww1_austriahungary.276.t
+	desc = ww1_austriahungary.276.d
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name = ww1_austriahungary.276.a
+	}
+}
+
+#ukraine likes austria
+country_event = {
+	id = ww1_austriahungary.277
+	title = ww1_austriahungary.277.t
+	desc = ww1_austriahungary.277.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.277.a
+		add_manpower = 10000
+		add_stability = 0.01
+		add_political_power = 50
+	}
+}
+
+country_event = {
+	id = ww1_austriahungary.278
+	title = ww1_austriahungary.278.t
+	desc = ww1_austriahungary.278.d
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name = ww1_austriahungary.278.a
+		army_experience = 15
+		set_global_flag = AUS_agree_no_reforms
+		set_country_flag = AUS_hungary_budget
+		custom_effect_tooltip = AUS_unlocks_the_budget
+		custom_effect_tooltip = AUS_locks_reforms_so
+		HUN = {
+			country_event = {
+				id = ww1_austriahungary.279
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary.278.b
+		uncomplete_national_focus = {
+			focus = AUS_prevent_withering_of_the_army
+		}
+		HUN = {
+			country_event = {
+				id = ww1_austriahungary.280
+				days = 3
+			}
+		}
+	}
+}
+country_event = {
+	id = ww1_austriahungary.279
+	title = ww1_austriahungary.279.t
+	desc = ww1_austriahungary.279.d
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name = ww1_austriahungary.279.a
+		add_political_power = 50
+		add_stability = 0.05
+	}
+	
+}
+country_event = {
+	id = ww1_austriahungary.280
+	title = ww1_austriahungary.280.t
+	desc = ww1_austriahungary.280.d
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name = ww1_austriahungary.280.a
+		add_political_power = -20
+	}
+	
+}
+#offer don to be their protectorate in return for being able to leave the civil war
+country_event = {
+	id = ww1_austriahungary.281
+	title = ww1_austriahungary.281.t
+	desc = ww1_austriahungary.281.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.281.a
+		AUS = {
+			puppet = DON
+			country_event = ww1_austriahungary.282
+		}
+		DON = {
+			if = {
+				limit = { 
+					AUS = {
+						NOT = {
+							has_war_with = SOV
+						}
+					}
+				}
+				every_enemy_country = {
+					limit = {
+						OR = {
+							tag = SOV
+							is_ally_with = SOV
+						}
+						NOT = {
+							original_tag = DON
+						}
+					}
+					white_peace = DON
+				}
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary.281.b
+		add_political_power = 10
+		country_event = ww1_austriahungary.283
+	}
+}
+#don accepts
+country_event = {
+	id = ww1_austriahungary.282
+	title = ww1_austriahungary.282.t
+	desc = ww1_austriahungary.282.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.282.a
+	}
+}
+#don rejects
+country_event = {
+	id = ww1_austriahungary.283
+	title = ww1_austriahungary.283.t
+	desc = ww1_austriahungary.283.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.283.a
+	}
+}
+#choosing white faction to support
+country_event = {
+	id = ww1_austriahungary.284
+	title = ww1_austriahungary.284.t
+	desc = ww1_austriahungary.284.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.284.a
+		set_country_flag = AUS_supports_nwa
+	}
+	option = {
+		name = ww1_austriahungary.284.b
+		set_country_flag = AUS_supports_sra
+	}
+}
+#asking germany for control of wallachia
+country_event = {
+	id = ww1_austriahungary.285
+	title = ww1_austriahungary.285.t
+	desc = ww1_austriahungary.285.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ww1_austriahungary.285.a
+		AUS = {
+			#will do later
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		name = ww1_austriahungary.285.b
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+#end of ww1_austriahungary
 add_namespace = ww1_austria_quests
 # forts dispatch event
 #country_event = {
@@ -8023,6 +8327,7 @@ country_event = {
 		add_political_power = 25
 	}
 }
+
 #shortages events
 country_event = {
 	id = ww1_austriahungary_war.25
@@ -8046,7 +8351,6 @@ country_event = {
 	}
 	option = {
 		name = ww1_austriahungary_war.25.a
-		
 		custom_effect_tooltip = AUS_modify_eco.tt
 		add_to_variable = {
 			AUS_EP_consumer_goods = -0.03
@@ -9184,7 +9488,6 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
-		
 		name = ww1_austriahungary_war.61.a
 		activate_mission = AUS_karls_democratization
 		custom_effect_tooltip = AUS_karls_decisions
@@ -9416,6 +9719,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.72
 	title = ww1_austriahungary_war.72.t
@@ -9443,6 +9747,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.73
 	title = ww1_austriahungary_war.73.t
@@ -9469,6 +9774,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.74
 	title = ww1_austriahungary_war.74.t
@@ -9496,6 +9802,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.75
 	title = ww1_austriahungary_war.75.t
@@ -9528,6 +9835,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.76
 	title = ww1_austriahungary_war.76.t
@@ -9544,6 +9852,7 @@ country_event = {
 		add_stability = -0.02
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.77
 	title = ww1_austriahungary_war.77.t
@@ -9557,11 +9866,10 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.77.a
-		
 		add_political_power = 100
-		
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.78
 	title = ww1_austriahungary_war.78.t
@@ -9575,11 +9883,10 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.78.a
-		
 		add_political_power = 15
-		
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_war.79
 	title = ww1_austriahungary_war.79.t
@@ -9593,16 +9900,13 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_austriahungary_war.79.a
-		
 		add_political_power = 15
-		
 	}
 }
-#war time search end
 
+#war time search end
 #collapse events
 #collapse start
-
 add_namespace = ww1_austriahungary_collapse
 country_event = {
 	id = ww1_austriahungary_collapse.1
@@ -9618,7 +9922,7 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			#event would be theoretically on 5 October
-			activate_mission = AUS_croat_slovene_serb_council # 1 day / 6 October
+			activate_mission = AUS_croat_slovene_serb_council			# 1 day / 6 October
 			if = {
 				limit = {
 					HUN = {
@@ -9626,73 +9930,69 @@ country_event = {
 					}
 				}
 				country_event = {
-					id = ww1_austriahungary_collapse.4 #11 days / 16 October
+					id = ww1_austriahungary_collapse.4					#11 days / 16 October
 					days = 11
 				}
 				# triggers the Hungarian event for the Karl speech + option to dismantle Augsleich / # 17 October
-					# triggers Aster Revolution event # 23 October
+				# triggers Aster Revolution event # 23 October
 				else = {
 					country_event = {
-						id = ww1_austriahungary_collapse.20 #Makes Hungary independant if they didn't exist/were annexed: 11 days / 16 October
+						id = ww1_austriahungary_collapse.20						#Makes Hungary independant if they didn't exist/were annexed: 11 days / 16 October
 						days = 11
 					}
 				}
 			}
-			activate_mission = AUS_bukovina_council # 12 days / 17 October
+			activate_mission = AUS_bukovina_council			# 12 days / 17 October
 			country_event = {
-				id = ww1_austriahungary_collapse.6 #Steirmark Committee of Welfare - # 15 days / 20 October
+				id = ww1_austriahungary_collapse.6				#Steirmark Committee of Welfare - # 15 days / 20 October
 				days = 15
 			}
 			country_event = {
-				id = ww1_austriahungary_collapse.7 # German-Austria provisional assembly - #16 days - 21 October
+				id = ww1_austriahungary_collapse.7				# German-Austria provisional assembly - #16 days - 21 October
 				days = 16
 			}
-			activate_mission = AUS_polish_council # 23 days / 28 October
-			activate_mission = AUS_czech_council # Release Czechia event - 23 days / 28 October
+			activate_mission = AUS_polish_council			# 23 days / 28 October
+			activate_mission = AUS_czech_council			# Release Czechia event - 23 days / 28 October
 			country_event = {
-				id = ww1_austriahungary_collapse.9 #? - 
+				id = ww1_austriahungary_collapse.9				#? - 
 				days = 24
 			}
 			country_event = {
-				id = ww1_austriahungary_collapse.10 #Slavs leave - 24 days / 29 october 1918
+				id = ww1_austriahungary_collapse.10				#Slavs leave - 24 days / 29 october 1918
 				days = 24
 			}
 			country_event = {
-				id = ww1_austriahungary_collapse.13 # zakopane creation - 32 days / 30 October
+				id = ww1_austriahungary_collapse.13				# zakopane creation - 32 days / 30 October
 				days = 25
 			}
 			country_event = {
-				id = ww1_austriahungary_collapse.22 # create (west) ukraine 27 days / 1 November 1918
-				days = 27
-			}
-			country_event = {
-				id = ww1_austriahungary_collapse.12 #lviv/lemberg occupied by ukrainian rebels - 30 days / 3 November 
+				id = ww1_austriahungary_collapse.12				#lviv/lemberg occupied by ukrainian rebels - 27 days / 1 November 
 				days = 30
 			}
 			country_event = {
-				id = ww1_austriahungary_collapse.14 # komacza creation - 31 days / 4 November
+				id = ww1_austriahungary_collapse.14				# komacza creation - 31 days / 4 November
 				days = 31
 			}
 			country_event = {
-				id = ww1_austriahungary_collapse.15 # tarnobrzeg creation - 33 days / 6 November
+				id = ww1_austriahungary_collapse.15				# tarnobrzeg creation - 33 days / 6 November
 				days = 33
 			}
 			country_event = {
-				id = ww1_austriahungary_collapse.16 #
+				id = ww1_austriahungary_collapse.16				#
 				days = 36
 			}
 			country_event = {
-				id = ww1_austriahungary_collapse.21 # Lemko Republic creation - 5 December
+				id = ww1_austriahungary_collapse.21				# Lemko Republic creation - 5 December
 				days = 61
 			}
-
+			country_event = {
+				id = ww1_austriahungary_collapse.22				# Hutsul Republic creation - 8 January
+				days = 95
+			}
 			#future events
 			#karl abdication November 11
 			#Temporary Governing Committee of lviv/lwow: 23 November to 10 january as it was merged in the Liquidation commission
 			#liquidation commission dissolved 23 March 1919
-
-
-
 			#country_event = {
 			#	id = ww1_auh.15
 			#	days = 45
@@ -9706,6 +10006,7 @@ country_event = {
 		add_stability = -0.05
 	}
 }
+
 #croat slovene serb council
 country_event = {
 	id = ww1_austriahungary_collapse.2
@@ -9718,6 +10019,7 @@ country_event = {
 		name = ww1_austriahungary_collapse.2.a
 	}
 }
+
 #polish council
 country_event = {
 	id = ww1_austriahungary_collapse.3
@@ -9726,8 +10028,7 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = {
-		name = ww1_austriahungary_collapse.3.a
+	immediate = {
 		if = {
 			limit = {
 				GAL = {
@@ -9750,7 +10051,7 @@ country_event = {
 				}
 				transfer_state_to = AUS
 			}
-		}	
+		}
 		every_state = {
 			limit = {
 				OR = {
@@ -9758,11 +10059,11 @@ country_event = {
 					is_owned_by = HUN
 				}
 				OR = {
-					state = 88
-					#state = 237
-					state = 991
-					#state = 1269
-					#state = 1268
+					state = 88 #Krakow
+					state = 237 #Lemkow
+					state = 991 #Bielitz
+					state = 1269 #Zakopane
+					state = 1268 #Tarnobrzeg
 					#state = 1270
 					#state = 562
 					#state = 91
@@ -9773,35 +10074,149 @@ country_event = {
 			transfer_state_to = GAL
 		}
 		set_global_flag = galicia_released
+		set_global_flag = AUS_collapse_spawn_tarnobrzeg
 		hidden_effect = {
-			set_autonomy = {
-				target = GAL
-				autonomy_state = autonomy_puppet
-				end_civil_wars = yes
-				end_wars = yes
+			#liquidation committee
+			if = {
+				limit = {
+					POL = {
+						exists = yes
+					}
+				}
+				POL = {
+					set_autonomy = {
+						target = GAL
+						autonomy_state = autonomy_puppet
+						end_civil_wars = yes
+						end_wars = yes
+					}
+				}
+				GAL = {
+					clr_country_flag = monarchist_puppet
+					set_cosmetic_tag = GAL_liquidation_comitte
+					set_politics = {
+						ruling_party = neutrality
+						long_name = GAL_liquidation_comitte_party_long
+						name = GAL_liquidation_comitte_party
+						elections_allowed = no
+					}
+					set_popularities = {
+						democratic = 46
+						fascism = 0
+						communism = 8
+						neutrality = 46
+					}
+					POL_wincenty_witos = {
+						promote_character = authoritarian_democracy
+					}	
+				}
 			}
-			GAL = {
+			#poland doesnt exist just release
+			else = {
 				clr_country_flag = monarchist_puppet
-				set_cosmetic_tag = GAL_liquidation_comitte
-				set_politics = {
-					ruling_party = neutrality
-					long_name = GAL_liquidation_comitte_party_long 
-					name = GAL_liquidation_comitte_party 
-					elections_allowed = no
-				}
-				set_popularities = {
-					democratic = 46
-					fascism = 0
-					communism = 8
-					neutrality = 46
-				}
-				#POL_wincenty_witos = {
-				#	promote_character = authoritarian_democracy
-				#}	
+				POL_wincenty_witos = { #change? idk
+					promote_character = authoritarian_democracy
+				}	
 			}
 		}
 	}
+	option = {
+		name = ww1_austriahungary_collapse.3.a
+		effect_tooltip = {
+			if = {
+			limit = {
+				GAL = {
+					is_subject_of = AUS
+				}
+			}
+			every_state = {
+				limit = {
+					is_owned_and_controlled_by = GAL
+					OR = {
+						state = 237
+						state = 1269
+						state = 1268
+						state = 1270
+						state = 562
+						state = 91
+						state = 89
+					}
+					is_core_of = GAL
+				}
+				transfer_state_to = AUS
+			}
+		}
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = AUS
+					is_owned_by = HUN
+				}
+				OR = {
+					state = 88 #Krakow
+					state = 237 #Lemkow
+					state = 991 #Bielitz
+					state = 1269 #Zakopane
+					state = 1268 #Tarnobrzeg
+					#state = 1270
+					#state = 562
+					#state = 91
+					#state = 89
+				}
+				is_core_of = GAL
+			}
+			transfer_state_to = GAL
+		}
+		set_global_flag = galicia_released
+		set_global_flag = AUS_collapse_spawn_tarnobrzeg
+		hidden_effect = {
+			#liquidation committee
+			if = {
+				limit = {
+					POL = {
+						exists = yes
+					}
+				}
+				POL = {
+					set_autonomy = {
+						target = GAL
+						autonomy_state = autonomy_puppet
+						end_civil_wars = yes
+						end_wars = yes
+					}
+				}
+				GAL = {
+					clr_country_flag = monarchist_puppet
+					set_cosmetic_tag = GAL_liquidation_comitte
+					set_politics = {
+						ruling_party = neutrality
+						long_name = GAL_liquidation_comitte_party_long
+						name = GAL_liquidation_comitte_party
+						elections_allowed = no
+					}
+					set_popularities = {
+						democratic = 46
+						fascism = 0
+						communism = 8
+						neutrality = 46
+					}
+					POL_wincenty_witos = {
+						promote_character = authoritarian_democracy
+					}	
+				}
+			}
+			#poland doesnt exist just release
+			else = {
+				clr_country_flag = monarchist_puppet
+				POL_wincenty_witos = { #change? idk
+					promote_character = authoritarian_democracy
+				}	
+			}
+		}
+		}
+	}
 }
+
 #peoples manifesto
 #legacy event ID: ww1_auh.218
 country_event = {
@@ -9831,6 +10246,7 @@ country_event = {
 		}
 	}
 }
+
 #bukovina council
 country_event = {
 	id = ww1_austriahungary_collapse.5
@@ -9848,6 +10264,7 @@ country_event = {
 		AUS_update_state_of_realm = yes
 	}
 }
+
 #steiermark committee of public welfare
 country_event = {
 	id = ww1_austriahungary_collapse.6
@@ -9859,13 +10276,14 @@ country_event = {
 	option = {
 		name = ww1_austriahungary_collapse.6.a
 		1194 = {
-			set_demilitarized_zone = yes
+			# set_demilitarized_zone = yes
 			add_dynamic_modifier = {
 				modifier = AUS_no_factories_for_you
 			}
 		}
 	}
 }
+
 #provisional national assembly of german austria
 country_event = {
 	id = ww1_austriahungary_collapse.7
@@ -9884,10 +10302,11 @@ country_event = {
 					is_core_of = CZE
 				}
 			}
-			set_demilitarized_zone = yes
+			# set_demilitarized_zone = yes
 		}
 	}
 }
+
 #czech council declares czechoslovak indepedence release cze
 country_event = {
 	id = ww1_austriahungary_collapse.8
@@ -9927,8 +10346,8 @@ country_event = {
 			change_tag_from = AUS
 		}
 	}
-		
 }
+
 #sudetenland and german bohemia
 country_event = {
 	id = ww1_austriahungary_collapse.9
@@ -9941,6 +10360,7 @@ country_event = {
 		name = ww1_austriahungary_collapse.9.a
 	}
 }
+
 #south slavs declare independence
 country_event = {
 	id = ww1_austriahungary_collapse.10
@@ -9969,7 +10389,6 @@ country_event = {
 						is_owned_by = AUS
 					}
 					state = 109
-					
 				}
 				CRO = {
 					safe_transfer_state_to = yes
@@ -10012,6 +10431,7 @@ country_event = {
 		}
 	}
 }
+
 #green peasant revolts
 #country_event = {
 #	id = ww1_austriahungary_collapse.11
@@ -10032,23 +10452,103 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_and_controlled_by = AUS
+						#is_owned_and_controlled_by = GAL
+					}
+					is_core_of = WUK
+					AUS_is_UKR_state = yes
+				}
+				transfer_state_to = WUK
+				remove_core_of = ROOT
+				remove_claim_by = ROOT
+			}
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_and_controlled_by = AUS
+						is_owned_and_controlled_by = GAL
+					}
+					OR = {
+						state = 80
+						state = 1007
+					}
+				}
+				transfer_state_to = WUK
+				remove_core_of = ROOT
+				remove_claim_by = ROOT
+			}
+			ROM = {
+				country_event = {
+					id = ww1_austriahungary_collapse.25
+					days = 15
+				}
+			}
+			WUK = {
+				inherit_technology = ROOT
+				add_ideas = standing_alone
+				set_cosmetic_tag = WUK_ukrainian_state #renamed shortly after
+				if = {
+					limit = {
+						country_exists = UKR
+					}
+					give_military_access = UKR
+					diplomatic_relation = {
+						country = UKR
+						relation = non_aggression_pact
+					}
+					UKR = {
+						give_military_access = PREV
+						diplomatic_relation = {
+							country = UKR
+							relation = non_aggression_pact
+						}
+					}
+				}
+				if = {
+					limit = {
+						num_divisions < 5
+					}
+					load_oob = "WUK_army"
+				}
+				country_event = {
+					id = ww1_austriahungary_collapse.25
+					days = 15
+				}
+			}
+		}
+	}
 	option = {
 		name = ww1_austriahungary_collapse.12.a
-		add_political_power = -5
-		237 = {
-			set_demilitarized_zone = yes
+		hidden_effect = {
+			WUK = {
+				country_event = {
+					id = ww1_austriahungary_collapse.23
+					days = 12
+				}
+			}
 		}
-		every_state = {
-			limit = {
-				is_owned_and_controlled_by = WUK
-				OR = {
-					state = 91
-					state = 562
+	}
+	option = {
+		name = ww1_austriahungary_collapse.12.b
+		WUK = {
+			change_tag_from = AUS
+		}
+		hidden_effect = {
+			WUK = {
+				country_event = {
+					id = ww1_austriahungary_collapse.23
+					days = 12
 				}
 			}
 		}
 	}
 }
+
 #republic of zakopane
 country_event = {
 	id = ww1_austriahungary_collapse.13
@@ -10059,7 +10559,13 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		1269 = {
-			is_owned_and_controlled_by = AUS
+			OR = {
+				is_owned_by = AUS
+				AND = {
+					is_owned_by = GAL
+					has_global_flag = AUS_collapse_spawn_tarnobrzeg
+				}
+			}
 		}
 	}
 	immediate = {
@@ -10090,20 +10596,27 @@ country_event = {
 				transfer_state_to = ZKP
 			}
 		}
+		ZKP = {
+			complete_national_focus = ZKP_prexit
+		}
 	}
-	#option = { they get disestablished a month later
-	#	name = ww1_austriahungary_collapse.13.b
-	#	ZKP = {
-	#		change_tag_from = AUS
-	#	}
-	#	effect_tooltip = {
-	#		1269 = {
-	#			add_core_of = ZKP
-	#			transfer_state_to = ZKP
-	#		}
-	#	}
-	#}
+	option = { 
+		name = ww1_austriahungary_collapse.13.b
+		ZKP = {
+			change_tag_from = AUS
+		}
+		effect_tooltip = {
+			1269 = {
+				add_core_of = ZKP
+				transfer_state_to = ZKP
+			}
+		}
+		ZKP = {
+			complete_national_focus = ZKP_prexit
+		}
+	}
 }
+
 #komancza republic
 country_event = {
 	id = ww1_austriahungary_collapse.14
@@ -10126,9 +10639,25 @@ country_event = {
 				province = 466
 				value = 1
 			}
+			KMR = {
+				division_template = {
+					name = "Militia"
+					regiments = {
+						militia = {
+							x = 0
+							y = 0
+						}
+					}
+				}
+			}
 			1270 = {
 				add_core_of = KMR
 				transfer_state_to = KMR
+				create_unit = {
+					division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 0.8"
+					owner = KMR
+					count = 1
+				}
 			}
 		}
 	}
@@ -10141,26 +10670,27 @@ country_event = {
 			}
 		}
 	}
-	#option = {
-	#	name = ww1_austriahungary_collapse.13.b
-	#	KMR = {
-	#		change_tag_from = AUS
-	#	}
-	#	effect_tooltip = {
-	#		1270 = {
-	#			add_core_of = KMR
-	#			transfer_state_to = KMR
-	#		}
-	#	}
-	#}
+	option = {
+		name = ww1_austriahungary_collapse.13.b
+		KMR = {
+			change_tag_from = AUS
+		}
+		effect_tooltip = {
+			1270 = {
+				add_core_of = KMR
+				transfer_state_to = KMR
+			}
+		}
+	}
 	option = {
 		name = debug_option
 		trigger = {
 			is_debug = yes
 		}
-		AUS_polish_city_states=yes
+		AUS_polish_city_states = yes
 	}
 }
+
 #tarnobrzeg republic
 country_event = {
 	id = ww1_austriahungary_collapse.15
@@ -10179,7 +10709,13 @@ country_event = {
 	}
 	trigger = {
 		1268 = {
-			is_owned_and_controlled_by = AUS
+			OR = {
+				is_owned_by = AUS
+				AND = {
+					is_owned_by = GAL
+					has_global_flag = AUS_collapse_spawn_tarnobrzeg
+				}
+			}
 		}
 	}
 	option = {
@@ -10190,21 +10726,28 @@ country_event = {
 				transfer_state_to = TBZ
 			}
 		}
-		custom_effect_tooltip = that_was_not_tuff
+		TBZ = {
+			complete_national_focus = TBZ_how_the_might_have_fallen
+		}
 	}
-	#option = { #shouldnt be playable
-	#	name = ww1_austriahungary_collapse.13.b
-	#	TBZ = {
-	#		change_tag_from = AUS
-	#	}
-	#	effect_tooltip = {
-	#		1268 = {
-	#			add_core_of = TBZ
-	#			transfer_state_to = TBZ
-	#		}
-	#	}
-	#}
+	option = { 
+		name = ww1_austriahungary_collapse.13.b
+		TBZ = {
+			complete_national_focus = TBZ_how_the_might_have_fallen
+		}
+		TBZ = {
+			change_tag_from = AUS
+		}
+
+		effect_tooltip = {
+			1268 = {
+				add_core_of = TBZ
+				transfer_state_to = TBZ
+			}
+		}
+	}
 }
+
 #karl gives up authority german austria formed
 country_event = {
 	id = ww1_austriahungary_collapse.16
@@ -10226,6 +10769,7 @@ country_event = {
 		}
 	}
 }
+
 #karl manifesto:hungary: collapse
 country_event = {
 	id = ww1_austriahungary_collapse.17
@@ -10267,9 +10811,9 @@ country_event = {
 				days = 1
 			}
 		}
-
 	}
 }
+
 #Hungarian Termination of Real Union
 country_event = {
 	id = ww1_austriahungary_collapse.18
@@ -10304,6 +10848,7 @@ country_event = {
 		}
 	}
 }
+
 #Aster Revolution
 country_event = {
 	id = ww1_austriahungary_collapse.19
@@ -10344,10 +10889,12 @@ country_event = {
 				limit = {
 					OR = {
 						owns_state = 43
-						HUN = { is_subject_of = ROOT }
+						HUN = {
+							is_subject_of = ROOT
+						}
 					}
 				}
-				AUH_release_HUN = yes	
+				AUH_release_HUN = yes
 			}
 			else_if = {
 				limit = {
@@ -10389,10 +10936,12 @@ country_event = {
 				limit = {
 					OR = {
 						owns_state = 43
-						HUN = { is_subject_of = AUS }
+						HUN = {
+							is_subject_of = AUS
+						}
 					}
 				}
-				AUH_release_HUN = yes		
+				AUH_release_HUN = yes
 			}
 			else_if = {
 				limit = {
@@ -10414,6 +10963,7 @@ country_event = {
 		}
 	}
 }
+
 #karl manifesto in hungary if hungary doesn't exist
 country_event = {
 	id = ww1_austriahungary_collapse.20
@@ -10454,7 +11004,7 @@ country_event = {
 		}
 		add_political_power = -100
 		custom_effect_tooltip = AUH_hungarian_army_leave
-		transfer_units_fraction= {
+		transfer_units_fraction = {
 			target = HUN
 			size = 0.35
 			target_organization = 1
@@ -10466,6 +11016,7 @@ country_event = {
 		}
 	}
 }
+
 #lemko
 country_event = {
 	id = ww1_austriahungary_collapse.21
@@ -10477,111 +11028,174 @@ country_event = {
 		237 = {
 			OR = {
 				is_owned_and_controlled_by = AUS
-				is_owned_and_controlled_by = WUK
+				is_owned_and_controlled_by = GAL
 			}
 		}
 	}
 	immediate = {
 		hidden_effect = {
-			237 = {
-				add_core_of = LMK
-				transfer_state_to = LMK
+			#transfer_state_to breaks here
+			LMR = {
+				add_state_core = 237
+				transfer_state = 237
 			}
 		}
 	}
 	option = {
 		name = ww1_austriahungary_collapse.21.a
-		
+		effect_tooltip = {
+			237 = {
+				add_core_of = LMR
+				transfer_state_to = LMR
+			}
+		}
 	}
-	option = { #should be playable, lasts until 1920 march
+	option = {
+		#should be playable, lasts until 1920 march
 		name = ww1_austriahungary_collapse.13.b
-		LMK = {
+		LMR = {
 			change_tag_from = AUS
 		}
 		effect_tooltip = {
-			1268 = {
-				add_core_of = LMK
-				transfer_state_to = LMK
+			237 = {
+				add_core_of = LMR
+				transfer_state_to = LMR
+			}
+		}
+	}
+}
+
+#hutsul
+country_event = {
+	id = ww1_austriahungary_collapse.22
+	title = ww1_austriahungary_collapse.22.t
+	desc = ww1_austriahungary_collapse.22.d
+	#picture = GFX_report_event_karl_i_coronation
+	is_triggered_only = yes
+	trigger = {
+		1271 = {
+			OR = {
+				is_owned_and_controlled_by = AUS
+				is_owned_and_controlled_by = HUN
+			}
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			HSL = {
+				division_template = {
+					name = "Narodna Oborona"
+					regiments = {
+						militia = {
+							x = 0
+							y = 0
+						}
+					}
+				}
+			}
+			1271 = {
+				add_core_of = HSL
+				transfer_state_to = HSL
+				create_unit = {
+					division = "name = \"Narodna Oborona\" division_template = \"Narodna Oborona\" start_experience_factor = 0.1 start_equipment_factor = 1"
+					owner = HSL
+					count = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = ww1_austriahungary_collapse.21.a
+	}
+	option = {
+		name = ww1_austriahungary_collapse.22.b
+		HSL = {
+			change_tag_from = AUS
+		}
+		effect_tooltip = {
+			1271 = {
+				add_core_of = HSL
+				transfer_state_to = HSL
 			}
 		}
 	}
 }
 
 #creation of ukrainian state (western ukrainian republic)
+# country_event = {
+# 	id = ww1_austriahungary_collapse.22
+# 	title = ww1_austriahungary_collapse.22.t
+# 	desc = ww1_austriahungary_collapse.22.d
+# 	picture = GFX_report_event_karl_i_coronation
+# 	is_triggered_only = yes
+# 	fire_only_once = yes
+# 	immediate = {
+# 		hidden_effect = {
+# 			every_state = {
+# 				limit = {
+# 					OR = {
+# 						is_owned_and_controlled_by = AUS
+# 						is_owned_and_controlled_by = GAL
+# 					}
+# 					is_core_of = WUK
+# 					AUS_is_UKR_state = yes
+# 				}
+# 				transfer_state_to = WUK
+# 			}
+# 			every_state = {
+# 				limit = {
+# 					OR = {
+# 						is_owned_and_controlled_by = AUS
+# 						is_owned_and_controlled_by = GAL
+# 					}
+# 					OR = {
+# 						state = 80
+# 						state = 1007
+# 					}
+# 				}
+# 				transfer_state_to = WUK
+# 			}
+# 			ROM = {
+# 				country_event = {
+# 					id = ww1_austriahungary_collapse.25
+# 					days = 15
+# 				}
+# 			}
+# 			WUK = {
+# 				country_event = {
+# 					id = ww1_austriahungary_collapse.25
+# 					days = 15
+# 				}
+# 			}
+# 		}
+# 	}
+# 	option = {
+# 		name = ww1_austriahungary_collapse.22.a
+# 		hidden_effect = {
+# 			WUK = {
+# 				country_event = {
+# 					id = ww1_austriahungary_collapse.23
+# 					days = 12
+# 				}
+# 			}
+# 		}
+# 	}
+# 	option = {
+# 		name = ww1_austriahungary_collapse.22.b
+# 		WUK = {
+# 			change_tag_from = AUS
+# 		}
+# 		hidden_effect = {
+# 			WUK = {
+# 				country_event = {
+# 					id = ww1_austriahungary_collapse.23
+# 					days = 12
+# 				}
+# 			}
+# 		}
+# 	}
+# }
 
-country_event = {
-	id = ww1_austriahungary_collapse.22
-	title = ww1_austriahungary_collapse.22.t
-	desc = ww1_austriahungary_collapse.22.d
-	picture = GFX_report_event_karl_i_coronation
-	is_triggered_only = yes
-	fire_only_once = yes
-	immediate = {
-		hidden_effect = {
-			every_state = {
-				limit = {
-					OR = {
-						is_owned_and_controlled_by = AUS
-						is_owned_and_controlled_by = GAL
-					}
-					is_core_of = WUK
-					AUS_is_UKR_state = yes
-				}
-				transfer_state_to = WUK
-			}
-			every_state = {
-				limit = {
-					OR = {
-						is_owned_and_controlled_by = AUS
-						is_owned_and_controlled_by = GAL
-					}
-					OR = {
-						state = 80
-						state = 1007
-					}
-				}
-				transfer_state_to = WUK
-			}
-			ROM = {
-				country_event = {
-					id = ww1_austriahungary_collapse.25
-					days = 15
-				}
-			}
-			WUK = {
-				country_event = {
-					id = ww1_austriahungary_collapse.25
-					days = 15
-				}
-			}
-		}
-	}
-	option = {
-		name = ww1_austriahungary_collapse.22.a
-		hidden_effect = {
-			WUK = {
-				country_event = {
-					id = ww1_austriahungary_collapse.23
-					days = 12
-				}
-			}
-		}
-	}
-	option = {
-		name = ww1_austriahungary_collapse.22.b
-		WUK = {
-			change_tag_from = AUS
-		}
-		hidden_effect = {
-			WUK = {
-				country_event = {
-					id = ww1_austriahungary_collapse.23
-					days = 12
-				}
-			}
-		}
-	}
-}
 #west ukraine rename
 country_event = {
 	id = ww1_austriahungary_collapse.23
@@ -10593,13 +11207,12 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			WUK = {
-				set_cosmetic_tag = WUK_ukrainian_state
+				set_cosmetic_tag = WUK
 			}
 		}
 	}
 	option = {
 		name = ww1_austriahungary_collapse.23.a
-		
 	}
 }
 
@@ -10611,12 +11224,11 @@ country_event = {
 	picture = GFX_report_event_karl_i_coronation
 	is_triggered_only = yes
 	fire_only_once = yes
-	
 	option = {
 		name = ww1_austriahungary_collapse.24.a
-		
 	}
 }
+
 #ukraine unable to set up administration
 country_event = {
 	id = ww1_austriahungary_collapse.25
@@ -10647,7 +11259,6 @@ country_event = {
 	picture = GFX_report_event_karl_i_coronation
 	is_triggered_only = yes
 	#fire_only_once = yes
-	
 	option = {
 		name = ww1_austriahungary_collapse.25.a
 		trigger = {
@@ -10686,6 +11297,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_collapse.26
 	title = ww1_austriahungary_collapse.26.t
@@ -10693,13 +11305,11 @@ country_event = {
 	picture = GFX_report_event_karl_i_coronation
 	is_triggered_only = yes
 	#fire_only_once = yes
-	
 	option = {
 		name = ww1_austriahungary_collapse.26.a
 		trigger = {
 			tag = WUK
 		}
-		
 	}
 	option = {
 		name = ww1_austriahungary_collapse.26.a
@@ -10709,6 +11319,7 @@ country_event = {
 		add_political_power = 15
 	}
 }
+
 country_event = {
 	id = ww1_austriahungary_collapse.27
 	title = ww1_austriahungary_collapse.27.t
@@ -10754,6 +11365,33 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = ww1_german_austria.1.a
+		set_cosmetic_tag = AUR
+		# German-Austria
+		if = {
+			limit = {
+				is_subject = no
+				OR = {
+					is_in_faction_with = GER
+					has_war_together_with = GER
+				}
+				GER = {
+					is_subject = no
+					NOT = {
+						has_government = communism
+					}
+				}
+			}
+			get_current_government_type = yes
+			GER = {
+				set_autonomy = {
+					target = ROOT
+					autonomy_state = autonomy_tgwr_unilateral_union
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			restore_previous_government_type = yes
+		}
 		custom_effect_tooltip = AUS_entente_might_have_other_plans
 		GER = {
 			country_event = {
@@ -10769,6 +11407,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.2
 	title = ww1_german_austria.2.t
@@ -10786,6 +11425,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.3
 	title = ww1_german_austria.3.t
@@ -10803,6 +11443,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.4
 	title = ww1_german_austria.4.t
@@ -10840,6 +11481,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.5
 	title = ww1_german_austria.5.t
@@ -10859,6 +11501,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.6
 	title = ww1_german_austria.6.t
@@ -10867,10 +11510,10 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.6.a
-	
+		name = ww1_german_austria.6.a
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.7
 	title = ww1_german_austria.7.t
@@ -10879,7 +11522,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.7.a
+		name = ww1_german_austria.7.a
 		set_global_flag = saint_germain_treaty
 		if = {
 			limit = {
@@ -10910,7 +11553,6 @@ country_event = {
 		AUH_eduard_von_bohmermolli = {
 			set_nationality = CZE
 		}
-		
 		every_state = {
 			limit = {
 				has_state_flag = saint_germain_treaty
@@ -10919,9 +11561,9 @@ country_event = {
 			remove_contested_owner = ROOT
 			transfer_state_to = ROOT
 		}
-	
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.8
 	title = ww1_german_austria.8.t
@@ -10944,6 +11586,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.9
 	title = ww1_german_austria.9.t
@@ -10952,11 +11595,12 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.9.a
+		name = ww1_german_austria.9.a
 		add_political_power = 100
 		complete_national_focus = AUS_austrian_republic
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.10
 	title = ww1_german_austria.10.t
@@ -10965,10 +11609,11 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.10.a
+		name = ww1_german_austria.10.a
 		add_stability = 0.02
 	}
 }
+
 #Halstead Mission
 country_event = {
 	id = ww1_german_austria.11
@@ -10978,7 +11623,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.11.a
+		name = ww1_german_austria.11.a
 		add_stability = 0.05
 		add_popularity = {
 			ideology = communism
@@ -10990,6 +11635,7 @@ country_event = {
 		}
 	}
 }
+
 #anti hasburg law
 country_event = {
 	id = ww1_german_austria.12
@@ -10999,7 +11645,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.12.a
+		name = ww1_german_austria.12.a
 		add_political_power = 20
 		add_stability = 0.05
 		add_popularity = {
@@ -11008,6 +11654,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.13
 	title = ww1_german_austria.13.t
@@ -11016,10 +11663,10 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.13.a
-		
+		name = ww1_german_austria.13.a
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.14
 	title = ww1_german_austria.14.t
@@ -11028,10 +11675,10 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.14.a
-		
+		name = ww1_german_austria.14.a
 	}
 }
+
 #right wing government after brenner cabinet resigns
 country_event = {
 	id = ww1_german_austria.15
@@ -11041,18 +11688,19 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.15.a
+		name = ww1_german_austria.15.a
 		set_country_flag = AUS_mayr_gov
 		add_country_leader_role = {
 			character = AUS_michael_mayr
 			promote_leader = yes
 			country_leader = {
-				ideology = conservatism #change
-       			expire = "1965.1.1.1"
+				ideology = conservatism				#change
+				expire = "1965.1.1.1"
 			}
 		}
 	}
 }
+
 #consitution
 country_event = {
 	id = ww1_german_austria.16
@@ -11062,10 +11710,10 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.16.a
-		
+		name = ww1_german_austria.16.a
 	}
 }
+
 #elections
 country_event = {
 	id = ww1_german_austria.17
@@ -11075,7 +11723,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.17.a
+		name = ww1_german_austria.17.a
 		hidden_effect = {
 			country_event = {
 				id = ww1_german_austria.18
@@ -11084,6 +11732,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.18
 	title = ww1_german_austria.18.t
@@ -11092,7 +11741,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.18.a
+		name = ww1_german_austria.18.a
 		hidden_effect = {
 			country_event = {
 				id = ww1_german_austria.19
@@ -11101,6 +11750,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.19
 	title = ww1_german_austria.19.t
@@ -11109,7 +11759,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.19.a
+		name = ww1_german_austria.19.a
 		hidden_effect = {
 			country_event = {
 				id = ww1_german_austria.20
@@ -11118,6 +11768,7 @@ country_event = {
 		}
 	}
 }
+
 #Schober gov
 country_event = {
 	id = ww1_german_austria.20
@@ -11127,10 +11778,11 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.20.a
+		name = ww1_german_austria.20.a
 		complete_national_focus = AUS_center_right_governance
 	}
 }
+
 #inflation
 country_event = {
 	id = ww1_german_austria.21
@@ -11140,10 +11792,11 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.21.a
+		name = ww1_german_austria.21.a
 		activate_mission = AUS_inflation_iw
 	}
 }
+
 #goodbye germans
 country_event = {
 	id = ww1_german_austria.22
@@ -11153,10 +11806,11 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.22.a
+		name = ww1_german_austria.22.a
 		add_stability = 0.05
 	}
 }
+
 #czechs - austria wants loans
 country_event = {
 	id = ww1_german_austria.23
@@ -11166,13 +11820,14 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.23.a
+		name = ww1_german_austria.23.a
 		add_political_power = -20
 		AUS = {
 			country_event = ww1_german_austria.24
 		}
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.24
 	title = ww1_german_austria.24.t
@@ -11181,31 +11836,32 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.24.a
+		name = ww1_german_austria.24.a
 		custom_effect_tooltip = AUS_how_the_might_have_fallen
 		custom_effect_tooltip = AUS_modify_economic_chaos
-			add_to_variable = {
-				AUS_EP_consumer_goods = -0.08
-				tooltip = consumer_goods_factor_tt
+		add_to_variable = {
+			AUS_EP_consumer_goods = -0.08
+			tooltip = consumer_goods_factor_tt
+		}
+		add_to_variable = {
+			AUS_ep_pp_gain = 0.2
+			tooltip = political_power_gain_tt
+		}
+		hidden_effect = {
+			country_event = {
+				id = ww1_german_austria.25
+				days = 10
 			}
-			add_to_variable = {
-				AUS_ep_pp_gain = 0.2
-				tooltip = political_power_gain_tt
+		}
+		hidden_effect = {
+			country_event = {
+				id = ww1_german_austria.26
+				days = 20
 			}
-			hidden_effect = {
-				country_event = {
-					id = ww1_german_austria.25
-					days = 10
-				}
-			}
-			hidden_effect = {
-				country_event = {
-					id = ww1_german_austria.26
-					days = 20
-				}
-			}
+		}
 	}
 }
+
 #protests
 country_event = {
 	id = ww1_german_austria.25
@@ -11215,11 +11871,12 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.25.a
+		name = ww1_german_austria.25.a
 		add_political_power = -50
 		add_stability = -0.03
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.26
 	title = ww1_german_austria.26.t
@@ -11228,10 +11885,11 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.26.a
+		name = ww1_german_austria.26.a
 		add_political_power = 20
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.27
 	title = ww1_german_austria.27.t
@@ -11240,10 +11898,10 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.27.a
-		
+		name = ww1_german_austria.27.a
 	}
 }
+
 country_event = {
 	id = ww1_german_austria.28
 	title = ww1_german_austria.28.t
@@ -11252,11 +11910,26 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = no
 	option = {
-		name =  ww1_german_austria.28.a
+		name = ww1_german_austria.28.a
 		complete_national_focus = AUS_backstab
 	}
 }
+country_event = {
+	id = ww1_german_austria.29
+	title = ww1_german_austria.29.t
+	desc = ww1_german_austria.29.d
+	#picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name = ww1_german_austria.29.a
+		complete_national_focus = AUS_austrian_revolution
+		#make new leader
+	}
+}
 ##german austria search end
+#austria hungary survives interwar start 
+#austria hungary survives interwar end
 ##################
 #####  DEBUG #####
 ##################
@@ -11363,6 +12036,7 @@ country_event = {
 		activate_mission = AUS_improve_vienna_armament
 	}
 }
+
 country_event = {
 	id = ww1_austriadebug.3
 	title = ww1_austriadebug.3.t
@@ -11375,6 +12049,7 @@ country_event = {
 		country_event = ww1_austriadebug.4
 	}
 }
+
 country_event = {
 	id = ww1_austriadebug.4
 	title = ww1_austriadebug.4.t
@@ -11384,9 +12059,9 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_austriadebug.4.a
-		
 	}
 }
+
 country_event = {
 	id = ww1_austriadebug.5
 	title = change_austria_ic_parties
@@ -11441,6 +12116,7 @@ country_event = {
 		clr_global_flag = AUS_imperial_council_suspended
 	}
 }
+
 #Bulgaria wants to join the Central Powers (Event for Germany)
 country_event = {
 	id = ww1_bulgaria.134

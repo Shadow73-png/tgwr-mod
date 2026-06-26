@@ -1,3 +1,104 @@
+CZE_formation_of_a_nation = {
+	CZE_war_for_cieszyn = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		allowed = {
+			original_tag = CZE
+		}
+		visible = {
+			tag = CZE
+			NOT = {
+				72 = {
+					is_owned_and_controlled_by = CZE
+				}
+			}
+		}
+		priority = 210
+		available = {
+		}
+		fire_only_once = yes
+		days_remove = 20
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			72 = {
+				owner = {
+					CZE = {
+						declare_war_on = {
+							target = PREV
+							type = brothers_war
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = CZE_peace_win_dijsdjisioundiuno
+		}
+	}
+	CZE_sudetenland_border_war = {
+		icon = GFX_decision_generic_decision
+		allowed = {
+			original_tag = CZE
+		}
+		#priority = 19
+		on_map_mode = map_only
+		visible = {
+			tag = CZE
+		}
+		available = {
+			NOT = { 
+				has_country_flag = CZE_conquering_state
+			}
+			
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = FROM
+			}
+		}
+		target_root_trigger = {
+			tag = CZE
+		}
+		state_target = yes
+		target_trigger = {
+			
+			FROM = {
+				
+				NOT = { is_owned_by = ROOT }
+				
+				OR = {
+						state = 69
+							state = 1200
+							state = 74
+							state = 1199
+							state = 992
+							state = 993
+							
+				}
+				
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		ai_will_do = {
+			base = 100
+			
+		}
+		complete_effect = {
+			set_country_flag = CZE_conquering_state
+		}
+		cost = 0
+		remove_effect = {
+			clr_country_flag = CZE_conquering_state
+			FROM = {
+				transfer_state_to = CZE
+			}
+		}
+	}
+
+}
 peace_deals = {
 	CZE_sue_for_peace_HUN = {
 		icon = GFX_decision_eng_trade_unions_support
@@ -43,6 +144,38 @@ peace_deals = {
 		}
 		complete_effect = {
 			FROM = { country_event = ww1_hungary.8 }
+		}
+	}
+}
+
+CZE_economic_policy = {
+	CZE_attract_austrian_investors = {
+		icon = GFX_decision_eng_trade_unions_support
+		allowed = {
+			tag = CZE
+		}
+		available = {
+			
+		}
+		visible = {
+			is_subject_of = AUS
+		}
+		#fire_only_once = yes
+		ai_will_do = {
+			base = 1000
+		}
+		days_remove = 180
+		days_re_enable = 365
+		modifier = {
+			political_power_cost = 0.15
+		}
+		complete_effect = {
+			AUS = {
+				country_event = {
+					id = ww1_czechoslovakia.18
+					days = 1
+				}
+			}
 		}
 	}
 }

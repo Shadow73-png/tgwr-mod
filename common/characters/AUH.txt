@@ -1480,16 +1480,13 @@ characters = {
 			idea_token = HUN_miklos_horthy
 			ledger = navy
 			available = {
+				has_completed_focus = AUS_new_naval_officers
 				hidden_trigger = {
 					if = {
 						limit = {
 							NOT = {
 								tag = HUN
 							}
-						}
-						OR = {
-							date > 1918.2.27
-							has_country_flag = AUH_cattaro_mutiny
 						}
 						HUN = {
 							OR = {
@@ -1517,10 +1514,6 @@ characters = {
 						NOT = {
 							tag = HUN
 						}
-					}
-					OR = {
-						date > 1918.2.27
-						has_country_flag = AUH_cattaro_mutiny
 					}
 					HUN = {
 						OR = {
@@ -1568,10 +1561,7 @@ characters = {
 							tag = HUN
 						}
 					}
-					OR = {
-						date > 1918.2.27
-						has_country_flag = AUH_cattaro_mutiny
-					}
+					has_completed_focus = AUS_new_naval_officers
 					HUN = {
 						OR = {
 							exists = no
@@ -1876,6 +1866,9 @@ characters = {
 				NOT = {
 					has_character_flag = retired
 				}
+			}
+			available = {
+				has_completed_focus = AUS_reshape_the_court
 			}
 			traits = {
 				AUS_influential_pol_writer
@@ -2381,6 +2374,9 @@ characters = {
 			allowed = {
 				original_tag = AUS
 			}
+			available = {
+				has_completed_focus = AUS_peace_diplomacy
+			}
 			traits = {
 				appeaser
 			}
@@ -2440,9 +2436,10 @@ characters = {
 				original_tag = AUS
 			}
 			available = {
+				has_completed_focus = AUS_reshape_the_court
 				OR = {
 					any_owned_state = {
-						is_core_of = CRO
+						AUS_is_CRO_state = yes
 					}
 					any_subject_country = {
 						any_owned_state = {
@@ -2697,23 +2694,23 @@ characters = {
 		}
 	}
 	AUS_aloys_von_liechtenstein= {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUS_aloys_von_liechtenstein
-			cost = 100
-			allowed = {
-				original_tag = AUS
-			}
-			visible = {
-				has_character_flag = can_be_hired
-			}
-			traits = {
-				
-			}
-			ai_will_do = {
-				factor = 1
-			}
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUS_aloys_von_liechtenstein
+		#	cost = 100
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	visible = {
+		#		
+		#	}
+		#	traits = {
+		#		
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#	}
+		#}
 		portraits = {
 			civilian = {
 				small = "gfx/interface/ideas/idea_europe_generic_9.dds"
@@ -2721,23 +2718,23 @@ characters = {
 		}
 	}
 	AUS_leopold_kunschak= {
-		advisor = {
-			slot = political_advisor
-			idea_token = AUS_leopold_kunschak
-			cost = 100
-			allowed = {
-				original_tag = AUS
-			}
-			visible = {
-				has_character_flag = can_be_hired
-			}
-			traits = {
-				
-			}
-			ai_will_do = {
-				factor = 1
-			}
-		}
+		#advisor = {
+		#	slot = political_advisor
+		#	idea_token = AUS_leopold_kunschak
+		#	cost = 100
+		#	allowed = {
+		#		original_tag = AUS
+		#	}
+		#	visible = {
+		#		has_character_flag = can_be_hired
+		#	}
+		#	traits = {
+		#		
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#	}
+		#}
 		portraits = {
 			civilian = {
 				small = "gfx/interface/ideas/idea_europe_generic_9.dds"

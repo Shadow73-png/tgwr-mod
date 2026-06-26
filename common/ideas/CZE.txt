@@ -286,6 +286,73 @@ ideas = {
 				production_speed_buildings_factor = 0.05
 			}
 		}
+		CZE_breaking_apart_economic = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				is_subject_of = AUS
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.05
+				political_power_factor = -0.05
+				#stability_factor = 0.05
+			}
+			targeted_modifier = {
+				tag = AUS
+				trade_opinion_factor = -0.5
+			}
+		}
+		CZE_breaking_apart_economic_upgrade = {
+			name = CZE_breaking_apart_economic
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				is_subject_of = AUS
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.1
+				political_power_factor = -0.04
+				stability_factor = 0.05
+			}
+			targeted_modifier = {
+				tag = AUS
+				trade_opinion_factor = -0.5
+			}
+		}
+		CZE_austrian_investors_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				is_subject_of = AUS
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.15
+				autonomy_gain = -0.1
+				production_speed_buildings_factor = 0.15
+				custom_modifier_tooltip = offmap_factory_CZE
+			}
+			on_add = {
+				add_offsite_building = { type = industrial_complex level = 1 }
+			}
+			on_remove = {
+				add_offsite_building = { type = industrial_complex level = -1 }
+			}
+		}
 		CZE_sudetenland_autonomy = {
 			allowed = {
 				always = no
@@ -299,7 +366,23 @@ ideas = {
 				stability_factor = 0.05
 			}
 		}
-			CZE_shorter_work_week = {
+		AUS_bohemian_compromise_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				has_subject = CZE
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.05
+				consumer_goods_factor = -0.15
+			}
+		}
+		CZE_shorter_work_week = {
 			allowed = {
 				always = no
 			}
@@ -430,6 +513,27 @@ ideas = {
 			removal_cost = -1
 			traits = {
 				blessed
+			}
+		}
+	}
+	hidden_ideas = {
+		CZE_breaking_apart_economic_2 = {
+			name = CZE_breaking_apart_economic
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				has_subject = CZE
+			}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = CZE
+				trade_cost_for_target_factor = 0.1
+				extra_trade_to_overlord_factor = -0.1
+				trade_opinion_factor = -0.5
 			}
 		}
 	}
