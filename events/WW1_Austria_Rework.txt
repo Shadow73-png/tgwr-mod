@@ -7594,26 +7594,52 @@ country_event = {
 		set_country_flag = AUS_supports_sra
 	}
 }
-#asking germany for control of wallachia
+#reorganise serbia focus
 country_event = {
-	id = ww1_austriahungary.285
-	title = ww1_austriahungary.285.t
-	desc = ww1_austriahungary.285.d
+	id = ww1_austriahungary.286
+	title = ww1_austriahungary.286.t
+	desc = ww1_austriahungary.286.d
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
-		name = ww1_austriahungary.285.a
-		AUS = {
-			#will do later
+		name = ww1_austriahungary.286.a
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_completed_focus = AUS_trialism
+						has_completed_focus = AUS_usa_of_austria
+					}
+				}
+			}
+			release_puppet = MGS
+			set_autonomy = {
+				target = MGS
+				autonomy_state = autonomy_satellite
+			}
 		}
-		ai_chance = {
-			base = 10
+		if = {
+			limit = {
+				has_completed_focus = AUS_trialism				
+			}
+			CRO = {
+				annex_country = {
+					target = MGS
+				}
+				annex_country = {
+					target = SER
+				}
+			}
 		}
-	}
-	option = {
-		name = ww1_austriahungary.285.b
-		ai_chance = {
-			base = 1
+		if = {
+			limit = {
+				has_completed_focus = AUS_usa_of_austria				
+			}
+			release_puppet = SER
+			set_autonomy = {
+				target = SER
+				autonomy_state = autonomy_tgwr_personal_union
+			}
 		}
 	}
 }
