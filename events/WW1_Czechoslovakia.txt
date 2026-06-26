@@ -526,6 +526,7 @@ country_event = {
 		}
 	}
 }
+
 #peace with hungary for slovakia
 country_event = {
 	id = ww1_czechoslovakia.21
@@ -562,34 +563,30 @@ country_event = {
 		name = ww1_czechoslovakia.21.a
 		effect_tooltip = {
 			white_peace = HUN
-		HUN = {
-			every_state = {
-				limit = {
-					is_owned_by = HUN
-					is_core_of = SLO
+			HUN = {
+				every_state = {
+					limit = {
+						is_owned_by = HUN
+						is_core_of = SLO
+					}
+					transfer_state_to = CZE
 				}
-				transfer_state_to = CZE
 			}
 		}
-		}
-		
 	}
 }
+
 #slovak pepoles republic
 country_event = {
 	id = ww1_czechoslovakia.22
 	title = ww1_czechoslovakia.22.t
 	desc = ww1_czechoslovakia.22.d
 	fire_only_once = yes
-
 	immediate = {
-		every_state = {
-			limit = {
-				controller = {
-					tag = CZE
-				}
-				is_core_of = SLO
-			}
+		71 = {
+			transfer_state_to = SLO
+		}
+		1043 = {
 			transfer_state_to = SLO
 		}
 		SLO = {
@@ -612,9 +609,9 @@ country_event = {
 			target = SLO
 			type = take_core_state
 		}
-		
 	}
 }
+
 #wp_event sgi might be broken idec
 country_event = {
 	id = ww1_czechoslovakia.23
@@ -639,6 +636,5 @@ country_event = {
 		73 = {
 			transfer_state_to = CZE
 		}
-		
 	}
 }
