@@ -1,4 +1,4 @@
-﻿capital = 335 #Jakarta
+﻿﻿capital = 335 #Jakarta
 
 recruit_character = INS_a_w_frederik_idenburg
 recruit_character = INS_frits_van_daalen
@@ -23,6 +23,34 @@ set_autonomy = {
 
 1910.1.1 = {
 	#VARIABLES
+	#KNIL
+	set_variable = {
+		INS_variable_knil_attack = -0.1
+	}
+	set_variable = {
+		HOL_variable_knil_defence = -0.1
+	}
+	set_variable = {
+		HOL_variable_knil_speed = -0.05
+	}
+	set_variable = {
+		HOL_variable_knil_org = -0.25
+	}
+	set_variable = {
+		HOL_variable_knil_entrench_speed = -0.1
+	}
+	set_variable = {
+		HOL_variable_knil_conscription = -0.5
+	}
+	set_variable = {
+		HOL_variable_knil_xp_gain = -0.5
+	}
+	set_variable = {
+		HOL_variable_knil_training_time = 0.1
+	}
+	set_variable = {
+		HOL_variable_knil_consumers = 0
+	}
 	#TRADE ECONOMY
 	set_variable = {
 		INS_variable_te_consumer = -0.1
@@ -64,13 +92,14 @@ set_autonomy = {
 		powder_type_b = 1
 		narrow_gauge_railway = 1
 	}
-	HOL = {
-		add_dynamic_modifier = {
-			modifier = INS_trade_economy
-		}
-		add_dynamic_modifier = {
-			modifier = INS_ethical_policy
-		}
+	add_dynamic_modifier = {
+		modifier = INS_knil
+	}
+	add_dynamic_modifier = {
+		modifier = INS_trade_economy
+	}
+	add_dynamic_modifier = {
+		modifier = INS_ethical_policy
 	}
 	if = {
 		limit = {
@@ -98,8 +127,6 @@ set_autonomy = {
 	add_ideas = {
 		INS_colonial_nation
 		INS_rampant_rascism
-		agricultural_economy
-		idea_overseas_chinese_community
 		free_trade
 		disarmed_nation 
 	}
