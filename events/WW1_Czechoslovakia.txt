@@ -14,6 +14,7 @@ country_event = {
 			type = take_core_state
 		}
 		custom_effect_tooltip = CZE_peace_out_for_czechoslovakia_stuff
+		set_country_flag = CZE_martin_declaration_war
 	}
 }
 
@@ -40,7 +41,7 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		#hidden_effect = {
-		#	country_event = ww1_czechoslovakia.21 #???
+		#	country_event = ww1_czechoslovakia.21
 		#}
 	}
 	option = {
@@ -533,21 +534,24 @@ country_event = {
 	title = ww1_czechoslovakia.21.t
 	desc = ww1_czechoslovakia.21.d
 	fire_only_once = yes
-	is_triggered_only = yes
 	immediate = {
-		hidden_effect = {
-			white_peace = HUN
+		white_peace = HUN
+		HUN = {
+			70 = {
+				transfer_state_to = CZE
+			}
+		}
+	}
+	trigger = {
+		tag = CZE
+		has_war_with = HUN
+		has_country_flag = CZE_martin_declaration_war
+		OR = {
+			70 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
 			HUN = {
-				every_state = {
-					limit = {
-						is_owned_by = HUN
-						OR = {
-							is_core_of = SLO
-							is_core_of = CZE
-						}
-					}
-					transfer_state_to = CZE
-				}
+				surrender_progress > 0.2
 			}
 		}
 	}
@@ -556,14 +560,7 @@ country_event = {
 		effect_tooltip = {
 			white_peace = HUN
 			HUN = {
-				every_state = {
-					limit = {
-						is_owned_by = HUN
-						OR = {
-							is_core_of = CZE
-							is_core_of = SLO
-						}
-					}
+				70 = {
 					transfer_state_to = CZE
 				}
 			}
@@ -577,7 +574,6 @@ country_event = {
 	title = ww1_czechoslovakia.22.t
 	desc = ww1_czechoslovakia.22.d
 	fire_only_once = yes
-	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
 			set_global_flag = SLO_meme_tree
@@ -587,24 +583,25 @@ country_event = {
 			every_state = {
 				limit = {
 					is_owned_and_controlled_by = HUN
-					NOT = {
-						is_controlled_by = CZE
-					}
 					is_core_of = SLO
-					NOT = {
-						state = 664
+					OR = {
+						state = 71
+						state = 1043
 					}
 				}
 				transfer_state_to = SLO
+				set_global_flag = SLO_meme_tree
 			}
 		}
 	}
-	#trigger = {
-	#	tag = CZE
-	#	70 = {
-	#		is_fully_controlled_by = CZE
-	#	}
-	#}
+	trigger = {
+		tag = CZE
+		70 = {
+			controller = {
+				tag = CZE
+			}
+		}
+	}
 	option = {
 		name = ww1_czechoslovakia.22.a
 		declare_war_on = {
