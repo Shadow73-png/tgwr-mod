@@ -583,16 +583,18 @@ country_event = {
 	desc = ww1_czechoslovakia.22.d
 	fire_only_once = yes
 	immediate = {
-		71 = {
-			transfer_state_to = SLO
-		}
-		1043 = {
-			transfer_state_to = SLO
-		}
-		SLO = {
-			set_politics = {
-				ruling_party = communism
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = CZE
+					is_owned_by = HUN
+				}
+				OR = {
+					state = 71
+					state = 1043
+				}
 			}
+			transfer_state_to = SLO
 		}
 	}
 	trigger = {
@@ -605,10 +607,11 @@ country_event = {
 	}
 	option = {
 		name = ww1_czechoslovakia.22.a
-		declare_war_on = {
-			target = SLO
-			type = take_core_state
-		}
+		#no war, slovak peoples republic didnt have army and czechs just annexed them
+		# declare_war_on = {
+		# 	target = SLO
+		# 	type = take_core_state
+		# }
 	}
 }
 
