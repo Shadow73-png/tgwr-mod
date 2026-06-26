@@ -1,3 +1,4 @@
+
 debug_decisions = {
 	HUN_set_tisza_dead_flag = {
 		allowed = {
@@ -565,46 +566,7 @@ TGWR_great_power_politics = {
 		complete_effect = {
 		}
 	}
-	HUN_stop_the_steamroller = {
-		days_mission_timeout = 250
-		fire_only_once = yes
-		allowed = {
-			original_tag = HUN
-		}
-		activation = {
-			always = no
-		}
-		available = {
-			if = {
-				limit = { 
-					AUS_HUN_exists = yes
-				}
-				NOT = {
-					AUS = {
-						OR = {
-							controls_state = 91
-							controls_state = 89
-							controls_state = 562
-						}
-					}
-				}
-			}
-		}
-		complete_effect = {
-			add_stability = -0.05
-			add_war_support = -0.05
-			add_political_power = -150
-		}
-		timeout_effect = {
-			add_war_support = 0.1
-			add_political_power = 100
-			add_stability = 0.05
-			add_to_variable = {
-				global.AUH_HUN_aus_relations = 5
-				tooltip = AUH_HUN_aus_relations_tt
-			}
-		}
-	}
+
 	HUN_pin_hope_on_russian_defeat_mission = {
 		days_mission_timeout = 400
 		is_good = no
@@ -736,6 +698,140 @@ TGWR_great_power_politics = {
 			}
 		}
 	}
+	HUN_lessons_from_mountain = {
+		icon = GFX_decision_SWE_set_army_budget
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 25
+		}
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_war_with_major = yes
+			OR = {
+				RUS = {
+					casualties_inflicted_by = {
+					opponent = HUN
+					thousands = 20
+				}
+				}
+				ROM = {
+					casualties_inflicted_by = {
+					opponent = HUN
+					thousands = 20
+				}
+				}
+			}
+		}
+		visible = {
+			has_war_with_major = yes
+			has_completed_focus = HUN_lessons_from_the_east
+		}
+		complete_effect = {
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_army_core_defense = 0.05
+				tooltip = HUN_carpathian_fighting_forces.tt
+			}
+			add_tech_bonus = {
+				name = HUN_carpathian_fighting_forces
+				category = mountaineers_tech
+				uses = 1
+				bonus = 1.5
+			}
+			custom_effect_tooltip = empty_space_tt
+			AUH_franz_rohr_von_denta = {
+				add_trait = {
+					trait = trait_mountaineer
+				}
+			}
+		}
+	}
+	HUN_mobilize_the_hussars = {
+		icon = GFX_decision_SWE_set_army_budget
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 25
+		}
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			
+		}
+		visible = {
+			has_war_with_major = yes
+			has_completed_focus = HUN_hazai_leadership
+		}
+		complete_effect = {
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_hussar_attack = 0.1
+				tooltip = HUN_mobilize_the_hussars.tt
+			}
+			add_to_variable = {
+				HUN_hussar_defense = 0.1
+				tooltip = HUN_mobilize_the_hussars.tt2
+			}
+			custom_effect_tooltip = HUN_mobilize_the_hussars.tt3
+			hidden_effect = {
+				43 = {
+					create_unit = {
+						division = "division_template = \"Lovashadosztály\"	start_experience_factor = 0.4	start_equipment_factor = 0.5"
+						owner = ROOT
+						count = 1
+					}
+				}
+				1139 = {
+					create_unit = {
+						division = "division_template = \"Lovasdandár\"	start_experience_factor = 0.4	start_equipment_factor = 0.8"
+						owner = ROOT
+						count = 1
+					}
+				}
+			}
+		}
+	}
+	HUN_bolster_artilley_regiments = {
+		icon = GFX_decision_SWE_set_army_budget
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 25
+		}
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			
+		}
+		visible = {
+			has_war_with_major = yes
+			has_completed_focus = HUN_ludovika_academy 
+		}
+		complete_effect = {
+			add_tech_bonus = {
+				name = HUN_bolster_artilley_regiments
+				category = cat_field_gun
+				bonus = 1.5
+				uses = 1
+			}
+			add_tech_bonus = {
+				name = HUN_bolster_artilley_regiments
+				category = cat_artillery
+				bonus = 1.5
+				uses = 1
+			}
+			custom_effect_tooltip = HUN_modify_army_tt
+			add_to_variable = {
+				HUN_arty_attack = 0.1
+				tooltip = army_artillery_attack_factor_tt
+			}
+		}
+	}
 	HUN_admin_of_registered_roma_pop = {
 		icon = GFX_decision_unknown
 		fire_only_once = yes
@@ -786,6 +882,74 @@ TGWR_great_power_politics = {
 			add_political_power = 30
 		}
 	}
+	HUN_secure_the_east = {
+		icon = GFX_decision_unknown
+		fire_only_once = yes
+		cost = 20
+		days_remove = 30
+		ai_will_do = {
+			factor = 25
+		}
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_war_with_major = yes
+			
+		}
+		visible = {
+			has_war_with_major = yes
+		has_completed_focus = HUN_secure_the_state
+		} 
+		complete_effect = {
+			
+		}
+		remove_effect = {
+						country_event = ww1_hungary.84
+
+		}
+	}
+	HUN_purchase_civillian_guns = {
+		icon = GFX_decision_unknown
+		fire_only_once = yes
+		cost = 20
+		days_remove = 30
+		ai_will_do = {
+			factor = 25
+		}
+		allowed = {
+			original_tag = HUN
+		}
+		available = {
+			has_war_with_major = yes
+			
+		}
+		visible = {
+			has_war_with_major = yes
+		has_completed_focus = HUN_secure_the_state
+		} 
+		complete_effect = {
+			
+		}
+		remove_effect = {
+						add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 276
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 376
+				producer = AUS
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 167
+				producer = RUS
+			}
+
+		}
+	}
 	HUN_digep_factory_mission = {
 		icon = GFX_decision_generic_political_address
 		priority = 99
@@ -812,6 +976,7 @@ TGWR_great_power_politics = {
 		complete_effect = {
 		}
 	}
+	
 }
 
 political_actions = {
