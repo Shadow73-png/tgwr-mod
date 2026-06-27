@@ -677,15 +677,15 @@ TGWR_great_power_politics = {
 			OR = {
 				RUS = {
 					casualties_inflicted_by = {
-					opponent = HUN
-					thousands = 20
-				}
+						opponent = HUN
+						thousands < 20
+					}
 				}
 				ROM = {
 					casualties_inflicted_by = {
-					opponent = HUN
-					thousands = 20
-				}
+						opponent = HUN
+						thousands < 20
+					}
 				}
 			}
 		}
@@ -1314,7 +1314,10 @@ HUN_habsburg_restoration = {
 				}
 				else_if = {
 					limit = {
-						has_idea = HUN_franz_ferdinand
+						OR = {
+							has_idea = HUN_franz_ferdinand_i
+							has_idea = HUN_franz_ferdinand_i_2
+						}
 					}
 					AUS = {
 						AUH_franz_ferdinand = {
