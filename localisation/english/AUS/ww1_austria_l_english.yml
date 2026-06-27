@@ -248,7 +248,7 @@ AUS_seeking_a_national_compromise: "Seeking a National Compromise"
 AUS_protect_the_status_of_prague: "Protect the Status of Prague"
 AUS_the_language_question: "The Language Question"
 AUS_wait_them_out: "Wait Them Out"
-AUS_successful_talks: "Successful Talks"
+AUS_sucessful_talks: "Successful Talks"
 AUS_authoritarian_measures: "Authoritarian Measures"
 AUS_away_from_imperial_decrees: "Reduce Imperial Decrees"
 AUS_social_and_economic_reform: "Social and Economic Reforms"
@@ -392,12 +392,6 @@ AUS_status_quo_angry: "Continuing the policies of the status quo will likely lea
 AUS_the_hostile_enemy_of_austria: "Begin the Race War"
 AUS_adress_inequality: "Address the Problem of Inequality"
 AUS_adress_inequality_desc: "Our empire is vast, but unequal. Many ethnicities feel like they are neglected and left behind. Economic stagnation in these rural or mountainous reaches cannot be denied, and although not our fault, we are the ones that must help jumpstart some proper industry in every corner of our vast Empire. By investing into these territories, we can gain very much needed sympathy from our peoples and work towards building a prosperous society."
-ww1_austriadebug.3.t: "Austria Guides"
-ww1_austriadebug.3.d: "Austria is a nation with many paths and mechanics, here you'll find explanations to all of them to ensure your going in knowing what your doing."
-ww1_austriadebug.3.a: "Mechanic explanation"
-ww1_austriadebug.4.t: "Austria Mechanics"
-ww1_austriadebug.4.d: "Austria has two overarching mechanics, §CMinority Loyalty§! and The §CImperial Council§!.\n\nMinority loyalty, as the name suggests, represents how loyal minorities are to the empire. These effect your national spirit §CState of the Monarchy.§! Your average loyalty effects §CPolitical Power§! and §CStability§! given by the national spirit. Higher average loyalty gives buffs while lower average minority gives debuffs. The Bohemian modifier will affect industrial modifiers provided by the national spirit and the eastern minorities will affect your consumer goods factors provided by your national spirits - the higher the relations the better.\n\nThe §CImperial Council§! mechanic has its effects added in the §CImperial Council§! national spirit. Having high §CRelations with the Imperial Council§! will provide buffs while low relations with the imperial council will provide debuffs. The extent of these buffs or debuffs is determined by the §CInfluence§! of the Imperial council - a Imperial Council with lower influence won't provide strong debuffs or buffs."
-ww1_austriadebug.4.a: "Noted"
 AUS_provide_trucks_dec: "Requisition Civilian Motor Vehicles"
 AUS_lean_on_franz_joseph_support: "Close Ties to the Camarilla"
 AUS_align_poles: "Polish Parliamentary Allies"
@@ -501,6 +495,7 @@ AUS_kunschak: "Conservative Labor Mobilizer"
 AUS_red_prince: "The Red Prince"
 AUS_ferdinand_von_trauttmansdorff: "Ferdinand Von Trauttmansdorff"
 AUS_suspend_the_reichsrat: "Suspend the Reichsrat"
+higher_relations_influence: "§GHigh relations might positively affect the Romanians' decision!§!"
 AUS_alexander_spitzmuller: "Alexander Spitzmüller"
 AUS_alexander_spitzmuller_desc: "Alexander Spitzmüller was born on the 6th of September 1862 and is one of the most brilliant financial minds in the empire. After entering the Ministry of Finance context in 1886, he quickly climbed the ranks due to his sharp economic instincts. He recently left direct government service to take up a vital role as the director of the prestigious Creditanstalt bank, where he exerts immense influence over Austria's economic and commercial landscape."
 AUS_heinrich_clam_martinic: "Heinrich Clam-Martinic"
@@ -2686,11 +2681,12 @@ ww1_austriahungary_collapse.12.b: "Slava Ukraini! (Play as [WUK.GetFlag][WUK.Get
 ww1_austriahungary_collapse.13.t: "Creation of the Republic of Zakopane"
 ww1_austriahungary_collapse.13.d: "Stefan Zeromski and his conglomerates have decided to declare independance from the fracturing Empire with the goal of joining an independant Polish state."
 ww1_austriahungary_collapse.13.a: "Crazy..."
-ww1_austriahungary_collapse.13.b: "Let's move to the wonderful city (Play as [ZKP.GetFlag][ZKP.GetName])"
+ww1_austriahungary_collapse.13.b: "Let's move to the wonderful city (Play as [ZKP.GetNameWithFlag])"
 
 ww1_austriahungary_collapse.14.t: "Creation of the Komancza Republic"
 ww1_austriahungary_collapse.14.d: ""
 ww1_austriahungary_collapse.14.a: "Everybody thinks they can make little nations now"
+ww1_austriahungary_collapse.14.b: "Let's move to the wonderful city (Play as [KMR.GetNameWithFlag])"
 
 ww1_austriahungary_collapse.15.t: "Creation of the Tarnobrzeg Republic"
 ww1_austriahungary_collapse.15.d: ""
@@ -2747,7 +2743,8 @@ ww1_austriahungary_collapse.27.a: "Our dreams will come true"
 ww1_austriahungary_collapse.27.b: "Okay..?"
 
 
-
+AUS_hide_tutorial: "§RHide the Tutorial§!"
+AUS_tutorial_event: "§YHow to Play [AUS.GetNameWithFlag§!]"
 ### ideas
 AUS_central_system_max: "Centrals System"
 AUS_naval_expansion_program_idea: "Naval Expansion Program"
@@ -3668,3 +3665,21 @@ AUS_socialist_coup_mission_desc: "The current strength of the §QCommunists§! i
 AUS_new_elections: "Form a Transitional Government "
 AUS_ur_kinda_dumb: "The §YAustrian§! people suffered years of dramatic shortages during the §YGreat War§!, and are now facing record high §Runemployment§! admist an economy in §Rabsolute ruin§!, and we are now about to tell the people to do more with less... in the midst of an already §Qrevolutionary§! enviornment."
 ##german austria end
+
+## tutorial
+austria_tutorial.exit: "I got it from here"
+austria_tutorial.go_back: "Go back"
+austria_tutorial.1.t: "Austria Guides"
+austria_tutorial.1.d: "Austria is a nation with many paths and mechanics, here you'll find explanations to all of them to ensure your going in knowing what your doing. Simply select what mechanic you would like to learn more about."
+austria_tutorial.1.a: "Main mechanic"
+austria_tutorial.1.b: "Bienerth mechanic"
+
+# Main Mechanics
+austria_tutorial.2.t: "Austria Mechanics"
+austria_tutorial.2.d: "Austria has two overarching mechanics, §CMinority Loyalty§! and The §CImperial Council§!.\n\nMinority loyalty, as the name suggests, represents how loyal minorities are to the empire. These effect your national spirit §CState of the Monarchy.§! Your average loyalty effects §CPolitical Power§! and §CStability§! given by the national spirit. Higher average loyalty gives buffs while lower average minority gives debuffs. The Bohemian modifier will affect industrial modifiers provided by the national spirit and the eastern minorities will affect your consumer goods factors provided by your national spirits - the higher the relations the better.\n\nThe §CImperial Council§! mechanic has its effects added in the §CImperial Council§! national spirit. Having high §CRelations with the Imperial Council§! will provide buffs while low relations with the imperial council will provide debuffs. The extent of these buffs or debuffs is determined by the §CInfluence§! of the Imperial council - a Imperial Council with lower influence won't provide strong debuffs or buffs."
+austria_tutorial.2.a: "Noted"
+
+# Bienerth Mechanics
+austria_tutorial.3.t: "Bienerth Mechanics"
+austria_tutorial.3.d: "So, you want to know more about Bienerth. Bienerth, at game start, is Minister-President. His main mechanic is parliamentary mandates: you can exchange parliamentary mandates for a focus in his tree, for example; 'Set Up Programs for Small Farmers'. Some focuses require more than one, as they represent big changes in result of reforms by Bienerth's government.\n\nIn the Bienerth tree, you can form a coalition between the CSP, local parties, and DNV. This coalition, if won (conditions for win are indicated on the focus 'Propose a Moderate Electoral Alliance') This path is the reformist Austria path: and you have to prevent your coalition falling apart by reaching a certain focus and you have the option to release yourself as Austrian Bohemia."
+austria_tutorial.3.a: "Certainly the best path"
