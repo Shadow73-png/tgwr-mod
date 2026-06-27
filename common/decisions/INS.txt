@@ -18,6 +18,7 @@ INS_dc_army_decisions = {
 		visible = {
 			is_subject = yes
 			is_subject_of = HOL
+			has_completed_focus = INS_request_dutch_funding
 		}
 		fire_only_once = no
 		remove_effect = {
@@ -48,6 +49,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -85,6 +87,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -127,6 +130,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -164,6 +168,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -206,6 +211,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -243,6 +249,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -285,6 +292,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -322,6 +330,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -364,6 +373,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -401,6 +411,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -443,6 +454,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -480,6 +492,7 @@ INS_dc_army_decisions = {
 		}
 		visible = {
 			is_subject = yes
+			has_completed_focus = INS_acquire_foreign_equipment_abroad
 		}
 		fire_only_once = no
 		complete_effect = {
@@ -503,6 +516,183 @@ INS_dc_army_decisions = {
 		}
 		cost = 30
 		days_remove = 70
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_german_aeroplanes = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			GER = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+			has_completed_focus = INS_create_mlknil
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = scout_plane_equipment_1
+				amount = 10
+				producer = GER
+			}
+		}
+		days_remove = 70
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_french_aeroplanes = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			FRA = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+			has_completed_focus = INS_create_mlknil
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = scout_plane_equipment_1
+				amount = 10
+				producer = FRA
+			}
+		}
+		days_remove = 70
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_dutch_aeroplanes = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			HOL = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+			has_completed_focus = INS_create_mlknil
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = scout_plane_equipment_1
+				amount = 10
+				producer = HOL
+			}
+		}
+		days_remove = 70
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_create_andir_airbase = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = INS_create_mlknil
+		}
+		fire_only_once = no
+		remove_effect = {
+			
+		}
+		days_remove = 30
+		cost = 30
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_create_tjililitan_airbase = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = INS_create_mlknil
+		}
+		fire_only_once = no
+		remove_effect = {
+			
+		}
+		days_remove = 30
+		cost = 30
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_create_kalidjati_airbase = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = INS_create_mlknil
+		}
+		fire_only_once = no
+		remove_effect = {
+			
+		}
+		days_remove = 30
+		cost = 30
 		ai_will_do = {
 			factor = 200
 		}

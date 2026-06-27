@@ -210,7 +210,18 @@ focus_tree = {
 		relative_position_id = INS_request_dutch_funding
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			air_experience = 10
+			add_tech_bonus = {
+				category = cat_scout_plane
+				uses = 1
+				bonus = 0.75
+			}
+			unlock_decision_tooltip = INS_create_kalidjati_airbase
+			unlock_decision_tooltip = INS_create_andir_airbase
+			unlock_decision_tooltip = INS_create_tjililitan_airbase
+			unlock_decision_tooltip = INS_buy_french_aeroplanes
+			unlock_decision_tooltip = INS_buy_dutch_aeroplanes
+			unlock_decision_tooltip = INS_buy_german_aeroplanes
 		}
 		ai_will_do = {
 			factor = 500
@@ -235,14 +246,25 @@ focus_tree = {
 		relative_position_id = INS_knil
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_xp_gain = 0.1
+				tooltip = experience_gain_army_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_knil_conscription = 0.1
+				tooltip = conscription_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_knil_org = 0.05
+				tooltip = army_org_factor_tt
+			}
 		}
 		ai_will_do = {
 			factor = 500
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			
 		}
 		cost = 5
 		x = -3
@@ -260,7 +282,27 @@ focus_tree = {
 		relative_position_id = INS_indigenous_in_army
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 250
+			}
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_defence = 0.05
+				tooltip = army_defence_factor_tt
+			}
+			add_to_variable = {
+				INS_variable_knil_attack = 0.05
+				tooltip = army_attack_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_knil_speed = 0.05
+				tooltip = army_speed_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_knil_org = 0.05
+				tooltip = army_org_factor_tt
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -285,7 +327,20 @@ focus_tree = {
 		relative_position_id = INS_indigenous_in_army
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			add_manpower = 1000
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_org = 0.05
+				tooltip = army_org_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_knil_conscription = 0.1
+				tooltip = conscription_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_knil_xp_gain = 0.1
+				tooltip = experience_gain_army_factor_tt
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -309,7 +364,19 @@ focus_tree = {
 		relative_position_id = INS_indigenous_in_army
 		available_if_capitulated = yes
 		completion_reward = {
-			
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_training_time = -0.25
+				tooltip = training_time_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_knil_conscription = 0.1
+				tooltip = conscription_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_knil_xp_gain = 0.1
+				tooltip = experience_gain_army_factor_tt
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -332,8 +399,26 @@ focus_tree = {
 		}
 		relative_position_id = INS_fund_army_gear
 		available_if_capitulated = yes
+		mutually_exclusive = {
+			focus = INS_give_indonesians_chance
+		}
 		completion_reward = {
-			
+			random_army_leader = {
+				add_skill_level = 1
+			}
+			random_army_leader = {
+				add_skill_level = 1
+			}
+			add_political_power = 100
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_org = 0.1
+				tooltip = army_org_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_knil_conscription = -0.1
+				tooltip = conscription_factor_tt
+			}
 		}
 		ai_will_do = {
 			factor = 500
@@ -356,8 +441,26 @@ focus_tree = {
 		}
 		relative_position_id = INS_no_rascism_army
 		available_if_capitulated = yes
+		mutually_exclusive = {
+			focus = INS_the_white_man_leads
+		}
 		completion_reward = {
-			
+			random_army_leader = {
+				add_skill_level = 1
+			}
+			random_army_leader = {
+				add_skill_level = 1
+			}
+			add_war_support = 0.15
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_org = -0.1
+				tooltip = army_org_factor_tt
+			}
+			add_to_variable = {
+				HOL_variable_knil_conscription = 0.1
+				tooltip = conscription_factor_tt
+			}
 		}
 		ai_will_do = {
 			factor = 500
