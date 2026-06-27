@@ -7262,3 +7262,30 @@ country_event = {
 		name = ww1_romania.214.a
 	}
 }
+#hutsul skirmishes with romania
+country_event = {
+	id = ww1_romania.215
+	title = ww1_romania.215.t
+	desc = ww1_romania.215.d
+	picture = GFX_report_event_generic_sign_treaty1
+	trigger = {
+		original_tag = ROM
+		HSL = {
+			exists = yes
+		}
+		any_neighbor_country = {
+			tag = HSL
+		}
+	}
+	option = {
+		name = ww1_romania.215.a
+		custom_effect_tooltip = historical_tt
+		HSL = {
+			set_country_flag = ROM_invading_hutsul
+		}
+		declare_war_on = {
+			target = HSL
+			type = take_state
+		}
+	}
+}

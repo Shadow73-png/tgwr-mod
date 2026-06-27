@@ -8358,6 +8358,19 @@
 				relinguish_entente_leadership = yes
 			}
 			log = "[GetDateText]: [ROOT.GetName] has capitulated by [FROM.GetName]"
+			#Hutsul Republic falls to Romania
+			if = {
+				limit =  {
+					tag = HSL
+					has_country_flag = ROM_invading_hutsul
+				}
+				HSL = {
+					clr_country_flag = ROM_invading_hutsul
+					1271 = {
+						transfer_state_to = CZE
+					}
+				}
+			}
 		}
 	}
 	on_civil_war_end = {
