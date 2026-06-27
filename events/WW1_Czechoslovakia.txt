@@ -9,12 +9,23 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_czechoslovakia.1.a
-		declare_war_on = {
-			target = HUN
-			type = take_core_state
+		hidden_effect = {
+			country_event = {
+				id = ww1_czechoslovakia.22
+				days = 7
+			}
 		}
-		custom_effect_tooltip = CZE_peace_out_for_czechoslovakia_stuff
-		set_country_flag = CZE_martin_declaration_war
+		HUN = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 70
+						state = 994
+					}
+				}
+				transfer_state_to = CZE
+			}
+		}
 	}
 }
 
@@ -529,44 +540,51 @@ country_event = {
 }
 
 #peace with hungary for slovakia
-country_event = {
-	id = ww1_czechoslovakia.21
-	title = ww1_czechoslovakia.21.t
-	desc = ww1_czechoslovakia.21.d
-	fire_only_once = yes
-	immediate = {
-		white_peace = HUN
-		HUN = {
-			70 = {
-				transfer_state_to = CZE
-			}
-		}
-	}
-	trigger = {
-		tag = CZE
-		has_war_with = HUN
-		has_country_flag = CZE_martin_declaration_war
-		OR = {
-			70 = {
-				state_is_fully_controlled_by_ROOT_or_subject = yes
-			}
-			HUN = {
-				surrender_progress > 0.2
-			}
-		}
-	}
-	option = {
-		name = ww1_czechoslovakia.21.a
-		effect_tooltip = {
-			white_peace = HUN
-			HUN = {
-				70 = {
-					transfer_state_to = CZE
-				}
-			}
-		}
-	}
-}
+# country_event = {
+# 	id = ww1_czechoslovakia.21
+# 	title = ww1_czechoslovakia.21.t
+# 	desc = ww1_czechoslovakia.21.d
+# 	fire_only_once = yes
+# 	immediate = {
+# 		white_peace = HUN
+# 		HUN = {
+# 			70 = {
+# 				transfer_state_to = CZE
+# 			}
+# 			994 = {
+# 				transfer_state_to = CZE
+# 			}
+# 		}
+# 	}
+# 	trigger = {
+# 		tag = CZE
+# 		has_war_with = HUN
+# 		OR = {
+# 			70 = {
+# 				controller = {
+# 					tag = CZE
+# 				}
+# 			}
+# 			HUN = {
+# 				surrender_progress > 0.2
+# 			}
+# 		}
+# 	}
+# 	option = {
+# 		name = ww1_czechoslovakia.21.a
+# 		effect_tooltip = {
+# 			white_peace = HUN
+# 			HUN = {
+# 				70 = {
+# 					transfer_state_to = CZE
+# 				}
+# 				994 = {
+# 					transfer_state_to = CZE
+# 				}
+# 			}
+# 		}
+# 	}
+# }
 
 #slovak people's republic
 country_event = {
@@ -574,14 +592,9 @@ country_event = {
 	title = ww1_czechoslovakia.22.t
 	desc = ww1_czechoslovakia.22.d
 	fire_only_once = yes
+	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
-			set_global_flag = SLO_meme_tree
-			SLO = {
-				load_focus_tree = slovakia_focus
-				set_cosmetic_tag = SLO_slovak_peoples_republic
-				promote_character = SLO_viktor_dvorcak
-			}
 			every_state = {
 				limit = {
 					is_owned_and_controlled_by = HUN
@@ -592,15 +605,16 @@ country_event = {
 					}
 				}
 				transfer_state_to = SLO
-				set_global_flag = SLO_meme_tree
 			}
-		}
-	}
-	trigger = {
-		tag = CZE
-		70 = {
-			controller = {
-				tag = CZE
+			set_global_flag = SLO_meme_tree
+			SLO = {
+				load_focus_tree = slovakia_focus
+				set_cosmetic_tag = SLO_slovak_peoples_republic
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}	
+				promote_character = SLO_viktor_dvorcak
 			}
 		}
 	}
