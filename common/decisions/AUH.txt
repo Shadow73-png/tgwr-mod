@@ -349,7 +349,11 @@ TGWR_great_power_politics = {
 			original_tag = AUS
 		}
 		ai_will_do = {
-			base = 10
+			base = 1
+			modifier = {
+				add = 100
+				has_political_power > 40
+			}
 		}
 		cost = 20
 		visible = {
@@ -5419,20 +5423,23 @@ AUH_the_imperial_council = {
 				has_idea = AUH_blocked_budgets
 				has_idea = AUH_blocked_budgets_2
 			}
+			NOT = {
+				has_global_flag = AUS_imperial_council_suspended
+				has_global_flag = AUS_imperial_council_closed
+			}
 		}
 		fire_only_once = no
 		days_remove = 120
 		cost = 0
 		ai_will_do = {
-			base = 0
+			base = 100
 			modifier = {
-				add = 5
-				NOT = {
-					has_completed_focus = AUS_prioritize_arms_bill
-				}
+				add = -10000
+				has_completed_focus = AUS_bypass_the_obstructionists
 			}
 		}
 		complete_effect = {
+			set_country_flag = AUS_temporary_coalition
 			add_political_power = -15
 			effect_tooltip = {
 				if = {
@@ -5480,6 +5487,7 @@ AUH_the_imperial_council = {
 			}
 		}
 		remove_effect = {
+			clr_country_flag = AUS_temporary_coalition
 			hidden_effect = {
 				if = {
 					limit = {
@@ -5519,12 +5527,15 @@ AUH_the_imperial_council = {
 		}
 		priority = 210
 		available = {
+			NOT = {
+				has_country_flag = AUS_temporary_coalition
+			}
 		}
 		fire_only_once = no
 		days_remove = 120
 		cost = 0
 		ai_will_do = {
-			factor = 0
+			base = 100
 		}
 		complete_effect = {
 			add_to_variable = {
@@ -5595,7 +5606,7 @@ AUH_the_imperial_council = {
 			}
 		}
 		fire_only_once = yes
-		days_remove = 120
+		days_remove = 70
 		cost = 0
 		ai_will_do = {
 			factor = 0
@@ -5639,7 +5650,7 @@ AUH_the_imperial_council = {
 			}
 		}
 		fire_only_once = yes
-		days_remove = 120
+		days_remove = 70
 		cost = 0
 		ai_will_do = {
 			factor = 0
@@ -5678,7 +5689,7 @@ AUH_the_imperial_council = {
 			}
 		}
 		fire_only_once = yes
-		days_remove = 120
+		days_remove = 70
 		cost = 0
 		ai_will_do = {
 			factor = 0
@@ -5970,7 +5981,16 @@ AUH_the_imperial_council = {
 		days_remove = 7
 		cost = 0
 		ai_will_do = {
-			base = 80
+			base = 0
+			modifier = {
+				add = 100
+				date > 1911.06.14
+			}
+			modifier = {
+				add = 100
+				always = no
+				#if party that needs to win (althist ai) has enough points, click it immediately
+			}
 		}
 		complete_effect = {
 		}
@@ -7415,7 +7435,7 @@ AUH_stitching_the_quilt = {
 		fire_only_once = yes
 		days_remove = AUS_galacia_state_invest_time
 		ai_will_do = {
-			base = 80
+			base = 100
 		}
 		complete_effect = {
 			set_country_flag = AUS_investing_in_galacia
@@ -8569,7 +8589,7 @@ AUH_terrorism = {
 		}
 		fire_only_once = yes
 		ai_will_do = {
-			factor = 0
+			base = 100
 		}
 		complete_effect = {
 			set_global_flag = AUH_already_destroying_one_smuggling_operation
@@ -8613,7 +8633,7 @@ AUH_terrorism = {
 		}
 		fire_only_once = yes
 		ai_will_do = {
-			factor = 0
+			base = 100
 		}
 		complete_effect = {
 			set_global_flag = AUH_already_destroying_one_smuggling_operation

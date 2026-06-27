@@ -557,9 +557,16 @@ country_event = {
 		add_to_variable = {
 			AUS_socdem_election_performance = -1
 		}
+		ai_chance = {
+			base = 10
+		}
 	}
 	option = {
 		name = ww1_austriahungary.19.b
+		ai_chance = {
+			base = 2
+			#socdem win
+		}
 	}
 }
 
@@ -919,6 +926,9 @@ country_event = {
 	}
 	option = {
 		name = ww1_austriahungary.34.a
+		ai_chance = {
+			base = 10
+		}
 	}
 	option = {
 		name = ww1_austriahungary.34.b
@@ -926,6 +936,10 @@ country_event = {
 			AUS_socdem_election_performance = 1
 		}
 		custom_effect_tooltip = AUS_socdem_election_good_1
+		ai_chance = {
+			base = 2
+			#socdem win
+		}
 	}
 }
 
@@ -945,7 +959,7 @@ country_event = {
 		}
 		custom_effect_tooltip = AUS_lib_election_good_1
 		ai_chance = {
-			base = 5
+			base = 10
 			#modifier = {
 			#	factor = 0
 			#	has_game_rule = {
@@ -961,6 +975,10 @@ country_event = {
 			AUS_conservative_election_performance = 1
 		}
 		custom_effect_tooltip = AUS_cons_election_good_1
+		ai_chance = {
+			base = 2
+			#csp win
+		}
 	}
 }
 
@@ -997,6 +1015,9 @@ country_event = {
 			AUS_conservative_election_performance = 1
 		}
 		custom_effect_tooltip = AUS_cons_election_good_1
+		ai_chance = {
+			base = 2
+		}
 	}
 	option = {
 		name = ww1_austriahungary.37.b
@@ -1005,11 +1026,7 @@ country_event = {
 		}
 		custom_effect_tooltip = AUS_lib_election_good_1
 		ai_chance = {
-			base = 0
-			modifier = {
-				add = 100
-				is_historical_focus_on = yes
-			}
+			base = 10
 		}
 	}
 	option = {
@@ -1018,6 +1035,9 @@ country_event = {
 			AUS_socdem_election_performance = 1
 		}
 		custom_effect_tooltip = AUS_socdem_election_good_1
+		ai_chance = {
+			base = 2
+		}
 	}
 }
 
@@ -1093,9 +1113,15 @@ country_event = {
 			AUS_liberal_election_performance = 1
 		}
 		custom_effect_tooltip = AUS_lib_election_good_1
+		ai_chance = {
+			base = 5
+		}
 	}
 	option = {
 		name = ww1_austriahungary.41.b
+		ai_chance = {
+			base = 1
+		}
 	}
 }
 
@@ -1114,6 +1140,9 @@ country_event = {
 			AUS_conservative_election_performance = 1
 		}
 		custom_effect_tooltip = AUS_cons_election_good_1
+		ai_chance = {
+			base = 1
+		}
 	}
 	option = {
 		name = ww1_austriahungary.42.b
@@ -1122,11 +1151,7 @@ country_event = {
 		}
 		custom_effect_tooltip = AUS_lib_election_good_1
 		ai_chance = {
-			base = 0
-			modifier = {
-				add = 100
-				is_historical_focus_on = yes
-			}
+			base = 10
 		}
 	}
 	option = {
@@ -1135,6 +1160,9 @@ country_event = {
 			AUS_socdem_election_performance = 1
 		}
 		custom_effect_tooltip = AUS_socdem_election_good_1
+		ai_chance = {
+			base = 1
+		}
 	}
 }
 
@@ -1221,7 +1249,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ww1_austriahungary.47.a
-		add_political_power = 5
+		add_political_power = 15
 		add_to_variable = {
 			global.AUH_hun_aus_relations = -5
 			tooltip = AUH_HUN_aus_relations_tt
@@ -1243,10 +1271,16 @@ country_event = {
 			tooltip = AUS_loyalty_czechoslovakia_tt
 		}
 		AUS_update_state_of_realm = yes
+		ai_chance = {
+			base = 5
+		}
 	}
 	option = {
 		name = ww1_austriahungary.47.b
-		add_political_power = -25
+		add_political_power = -15
+		ai_chance = {
+			base = 10
+		}
 	}
 }
 
@@ -2492,6 +2526,9 @@ country_event = {
 	}
 	option = {
 		name = ww1_austriahungary.88.a
+		trigger = {
+			always = no #disabled cuz sidz said no fun!
+		}
 		custom_effect_tooltip = AUS_modify_aps.tt
 		add_to_variable = {
 			AUS_aps_stab = -0.05
@@ -2544,16 +2581,16 @@ country_event = {
 	option = {
 		name = ww1_austriahungary.88.b
 		add_stability = 0.02
-		ai_chance = {
-			base = 10
-			modifier = {
-				factor = 0
-				has_game_rule = {
-					rule = AUH_ai_behavior
-					option = HISTORICAL
-				}
-			}
-		}
+		#ai_chance = {
+		#	base = 10
+		#	modifier = {
+		#		factor = 0
+		#		has_game_rule = {
+		#			rule = AUH_ai_behavior
+		#			option = HISTORICAL
+		#		}
+		#	}
+		#}
 	}
 }
 
@@ -4174,9 +4211,15 @@ country_event = {
 			tooltip = AUS_loyalty_ruthenians_tt
 		}
 		AUS_update_state_of_realm = yes
+		ai_chance = {
+			base = 2
+		}
 	}
 	option = {
 		name = ww1_austriahungary.146.b
+		ai_chance = {
+			base = 5
+		}
 	}
 }
 
@@ -4204,7 +4247,7 @@ country_event = {
 	id = ww1_austriahungary.148
 	title = ww1_austriahungary.148.t
 	desc = ww1_austriahungary.148.d
-	picture = GFX_report_event_generic_read_write
+	picture = GFX_report_event_hindenburg_flames
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
@@ -4254,7 +4297,7 @@ country_event = {
 	id = ww1_austriahungary.150
 	title = ww1_austriahungary.150.t
 	desc = ww1_austriahungary.150.d
-	picture = GFX_report_event_generic_read_write
+	picture = GFX_report_event_hindenburg_flames
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
@@ -5176,6 +5219,9 @@ country_event = {
 			tooltip = AUS_loyalty_ruthenians_tt
 		}
 		AUS_update_state_of_realm = yes
+		ai_chance = {
+			base = 10
+		}
 	}
 	option = {
 		name = ww1_austriahungary.190.b
@@ -5189,6 +5235,9 @@ country_event = {
 			tooltip = AUS_loyalty_pole_tt
 		}
 		AUS_update_state_of_realm = yes
+		ai_chance = {
+			base = 2
+		}
 	}
 }
 
