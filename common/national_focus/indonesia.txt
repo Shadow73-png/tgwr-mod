@@ -15,15 +15,11 @@ focus_tree = {
 
 	#shortcuts
 	initial_show_position = {
-		focus = HOL_heemskerk_gov
+		focus = INS_knil
 	}
-	#####################
-	# Political (initial)
-	#####################
-	
 	focus = {
 		id = INS_knil
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_generic_jungle_training
 		available = {
 			
 		}
@@ -44,7 +40,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_modernisation_effort
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_generic_soldier_salute
 		available = {
 			
 		}
@@ -61,7 +57,6 @@ focus_tree = {
 		}
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
-			
 		}
 		cost = 5
 		x = -1
@@ -69,7 +64,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_acquire_foreign_equipment_abroad
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_generic_money_for_equipment
 		available = {
 			
 		}
@@ -94,7 +89,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_request_dutch_funding
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_usa_reestablish_the_gold_standard
 		available = {
 			
 		}
@@ -119,7 +114,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_expand_bases
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_generic_advanced_military_studies
 		available = {
 			
 		}
@@ -144,7 +139,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_build_arms_industry
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_generic_military_industry
 		available = {
 			
 		}
@@ -169,7 +164,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_create_mlknil
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_SMB_purchase_aircraft
 		available = {
 			
 		}
@@ -194,7 +189,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_indigenous_in_army
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_ETH_peacekeeping_forces
 		available = {
 			
 		}
@@ -219,7 +214,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_fund_army_gear
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_generic_commonwealth_build_infantry
 		available = {
 			
 		}
@@ -244,7 +239,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_no_rascism_army
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_generic_diverse_army
 		available = {
 			
 		}
@@ -268,7 +263,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_improve_training_conditions
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_SOV_military_engineering_university_ccp_2d_sov_compatibility
 		available = {
 			
 		}
@@ -292,14 +287,14 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_the_white_man_leads
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_AST_call_that_a_knife
 		available = {
 			
 		}
 		prerequisite = {
 			focus = INS_fund_army_gear
 		}
-		relative_position_id = INS_indigenous_in_army
+		relative_position_id = INS_fund_army_gear
 		available_if_capitulated = yes
 		completion_reward = {
 			
@@ -316,14 +311,14 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_give_indonesians_chance
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_CONGO_congolese_generals
 		available = {
 			
 		}
 		prerequisite = {
 			focus = INS_no_rascism_army
 		}
-		relative_position_id = INS_indigenous_in_army
+		relative_position_id = INS_no_rascism_army
 		available_if_capitulated = yes
 		completion_reward = {
 			
@@ -340,7 +335,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_dei_navy
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_INS_request_naval_control
 		available = {
 			
 		}
@@ -364,7 +359,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_plans_for_navy
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_generic_navy_research_bonus
 		available = {
 			
 		}
@@ -387,8 +382,32 @@ focus_tree = {
 		y = 1
 	}
 	focus = {
+		id = INS_shows_of_force
+		icon = GFX_goal_generic_navy_battleship
+		available = {
+			
+		}
+		prerequisite = {
+			focus = INS_plans_for_navy
+		}
+		relative_position_id = INS_plans_for_navy
+		available_if_capitulated = yes
+		completion_reward = {
+			
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		search_filters = {
+			
+		}
+		cost = 5
+		x = 0
+		y = 2
+	}
+	focus = {
 		id = INS_crack_down_naval_unions
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_RAJ_union_busting
 		available = {
 			
 		}
@@ -412,7 +431,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_start_modernisation
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_focus_generic_navy_battleship2
 		available = {
 			
 		}
@@ -436,31 +455,7 @@ focus_tree = {
 	}
 	focus = {
 		id = INS_fix_hygiene_problems
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
-		available = {
-			
-		}
-		prerequisite = {
-			focus = INS_plans_for_navy
-		}
-		relative_position_id = INS_plans_for_navy
-		available_if_capitulated = yes
-		completion_reward = {
-			
-		}
-		ai_will_do = {
-			factor = 500
-		}
-		search_filters = {
-			
-		}
-		cost = 5
-		x = 0
-		y = 2
-	}
-	focus = {
-		id = INS_fix_hygiene_problems
-		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		icon = GFX_SOV_naval_infantry_ccp_2d_sov_compatibility
 		available = {
 			
 		}
