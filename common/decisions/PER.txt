@@ -258,6 +258,9 @@ PER_guarded_domains = {
 		
 		visible = {
 			has_active_mission = PER_cossacks_leaving_mission
+			NOT = {
+				has_war_with = RUS
+			}
 		}
 
 		available = {
@@ -303,7 +306,10 @@ PER_guarded_domains = {
 		activation = {
 			check_variable = {
 				PER.PER_recruited_cossacks > 0
-			}	
+			}
+			NOT = {
+				has_war_with = RUS
+			}
 		}
 
 		available = {
@@ -631,7 +637,10 @@ PER_guarded_domains = {
 				}
 			}
 			random_owned_controlled_state = {
-				limit = { is_core_of = ROOT }
+				limit = { 
+					is_core_of = ROOT 
+					impassable = no
+				}
 				create_unit = {
 					division = "name = \"Žāndārmirī-ye Daulatī\" division_template = \"Žāndārmirī-ye Daulatī\" start_experience_factor = 0.2 start_equipment_factor = 1 force_equipment_variants = { infantry_equipment_1 = { owner = \"ENG\" }}" 
 					owner = ROOT
@@ -699,7 +708,7 @@ PER_guarded_domains = {
 			custom_effect_tooltip = if_FROM_agrees
 			effect_tooltip = {
 				FROM = {
-					add_political_power = -50
+					add_political_power = -10
 				}
 				add_to_variable = {
 					PER_available_funds = 1
