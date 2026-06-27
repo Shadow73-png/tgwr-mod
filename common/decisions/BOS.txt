@@ -373,12 +373,26 @@ BOS_the_bosnian_diet_dec = {
 			has_completed_focus = BOS_dealing_with_protestors
 		}
 		highlight_states = {
-			highlight_state_targets = {
-				state = 104
+			highlight_states_trigger = {
+				is_core_of = BOS
+				is_owned_and_controlled_by = BOS
+			}
+		}
+		target_root_trigger = {
+			tag = BOS
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_core_of = ROOT
+				is_owned_and_controlled_by = ROOT
 			}
 		}
 		available = {
-			104 = { is_owned_and_controlled_by = BOS }
+			any_owned_state = {
+				is_core_of = BOS
+				is_owned_and_controlled_by = BOS
+			}
 		}
 		complete_effect = {
 			if = {
@@ -401,6 +415,9 @@ BOS_the_bosnian_diet_dec = {
 				tooltip = BOS_austria_relations_tt
 			}
 			BOS_update_austria_relations = yes
+			FROM = {
+				add_manpower = -1
+			}
 		}
 		ai_will_do = {
 			base = 100
@@ -819,6 +836,9 @@ BOS_austro_hungarian_influence = {
 		days_mission_timeout = BOS_AUS_sarajevo_days
 		available = {
 			always = no
+			check_variable = {
+				global.BOS_austria_relations < BOS_AUS_rel_needed_collapse_diet
+			}
 		}
 		timeout_effect = {
 			activate_mission = BOS_faltering_relations_with_vienna
