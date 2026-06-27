@@ -6786,7 +6786,7 @@ country_event = {
 		custom_effect_tooltip = CZE_armistice.tt
 		hidden_effect = {
 			CZE = {
-				add_ideas = CZE_armistice
+				#add_ideas = CZE_armistice
 				every_state = {
 					limit = { #bring czech troops back
 						OR = {
@@ -6809,7 +6809,8 @@ country_event = {
 				}
 			}
 			HUN = {
-				add_ideas = HUN_czech_armistice
+				#add_ideas = HUN_czech_armistice
+				white_peace = CZE
 				every_state = { #hungary withdraws to south slovakia
 					limit = {
 						OR = {
@@ -6824,14 +6825,26 @@ country_event = {
 							is_owned_by = SLO
 						}
 					}
+					# teleport_armies = {
+					# 	limit = {
+					# 		original_tag = HUN
+					# 	}
+					# 	to_state = 664
+					# }
+					set_state_province_controller = {
+						controller = CZE
+					}
+				}
+				#teleport
+				every_state = {
+					limit = {
+						is_owned_by = CZE
+					}
 					teleport_armies = {
 						limit = {
 							original_tag = HUN
 						}
 						to_state = 664
-					}
-					set_state_province_controller = {
-						controller = CZE
 					}
 				}
 			}
@@ -6956,9 +6969,12 @@ country_event = {
 		}
 		custom_effect_tooltip = HUN_czech_demarcations_broken.tt
 		hidden_effect = {
-			remove_ideas = HUN_czech_armistice
+			#remove_ideas = HUN_czech_armistice
 			CZE = {
-				remove_ideas = CZE_armistice
+				declare_war_on = {
+					target = HUN
+					type = take_core_state
+				}
 			}
 		}
 
