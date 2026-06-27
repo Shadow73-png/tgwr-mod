@@ -9959,8 +9959,11 @@ country_event = {
 	#picture = GFX_report_event_generic_read_write
 	trigger = {
 		tag = AUS
-		check_variable = {
-			AUS_total_loyalty < 16
+		OR = {
+			check_variable = {
+				AUS_total_loyalty < 16
+			}
+			has_country_flag = AUS_testing_collapse
 		}
 	}
 	immediate = {
