@@ -284,11 +284,7 @@ TGWR_great_power_politics = {
 			hidden_effect = {
 				set_capital = { state = 461 }
 			
-				every_core_state = {
-					if = {
-						limit = { has_resistance = no }
-						start_resistance = yes
-					}
+				every_core_state = {					
 					add_core_of = RMO
 				}
 				RMO = {
@@ -340,6 +336,10 @@ TGWR_great_power_politics = {
 						}
 					}
 					remove_core_of = MOR
+					if = {
+						limit = { has_resistance = no }
+						start_resistance = yes
+					}
 					add_dynamic_modifier = {
 						modifier = FRA_anti_french_resistance
 					}
