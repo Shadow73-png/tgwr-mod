@@ -10913,6 +10913,7 @@ country_event = {
 					disband = no						#to avoid hungary being too strong when at war with romania
 				}
 				load_oob = HUN_1918
+				#karolyi gov
 				if = {
 					limit = {
 						NOT = {
@@ -10938,12 +10939,19 @@ country_event = {
 					drop_cosmetic_tag = yes
 					clr_country_flag = HUN_archkingdom
 				}
-				retire_character = HUN_istvan_tisza					#killed
+				###
+				retire_character = HUN_istvan_tisza					#killed, add assassination as event
 				remove_ideas = AUH_ww1_House_Habsburg_Lorraine
 				remove_ideas = HUN_ausgleich
 				add_ideas = HUN_catholic_church_opposition
 				add_ideas = HUN_disorganized_army
 				add_ideas = HUN_socialist_unrest
+				#remove dynam modifiers, change later when coding hungary interwar
+				remove_dynamic_modifier = { modifier = HUN_army }
+				remove_dynamic_modifier = { modifier = HUN_transitioning_economy }
+				remove_dynamic_modifier = { modifier = HUN_croatian_sabor }
+				remove_dynamic_modifier = { modifier = HUN_magyarization_and_minorities }
+				#post soviet coup?
 				set_party_name = {
 					ideology = neutrality
 					long_name = HUN_regency_party
