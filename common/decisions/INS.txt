@@ -1,3 +1,510 @@
 INS_dc_faction_management = {
 	
 }
+INS_dc_army_decisions = {
+	INS_dutch_funding_decision = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			check_variable = {
+				HOL_variable_knil_consumers > -0.05
+			}
+		}
+		visible = {
+			is_subject = yes
+			is_subject_of = HOL
+		}
+		fire_only_once = no
+		remove_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = -0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		days_remove = 15
+		cost = 30
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_german_guns = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			GER = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = GER
+			}
+		}
+		days_remove = 70
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_german_misc = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			GER = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = 100
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+				producer = GER
+			}
+		}
+		cost = 10
+		days_remove = 70
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_french_guns = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			FRA = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = FRA
+			}
+		}
+		days_remove = 70
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_french_misc = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			FRA = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = 100
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+				producer = FRA
+			}
+		}
+		cost = 10
+		days_remove = 70
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_english_guns = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			ENG = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = ENG
+			}
+		}
+		days_remove = 70
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_english_misc = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			ENG = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = 100
+				producer = ENG
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+				producer = ENG
+			}
+		}
+		cost = 30
+		days_remove = 70
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_dutch_guns = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			HOL = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = HOL
+			}
+		}
+		days_remove = 70
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_dutch_misc = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			HOL = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = 100
+				producer = HOL
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+				producer = HOL
+			}
+		}
+		cost = 30
+		days_remove = 70
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_austrian_guns = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			AUS = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = AUS
+			}
+		}
+		days_remove = 70
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_austrian_misc = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			AUS = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = 100
+				producer = AUS
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+				producer = AUS
+			}
+		}
+		cost = 30
+		days_remove = 70
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_usa_guns = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			USA = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = USA
+			}
+		}
+		days_remove = 70
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+	}
+	INS_buy_usa_misc = {
+		icon = GFX_decision_hol_war_on_pacifism
+		allowed = {
+			original_tag = INS
+		}
+		available = {
+			check_variable = {
+				HOL_variable_knil_consumers < 0
+			}
+			USA = {
+				has_war = no
+			}
+		}
+		visible = {
+			is_subject = yes
+		}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = INS_modify_knil_tt
+			add_to_variable = {
+				HOL_variable_knil_consumers = 0.01
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = field_gun_equipment
+				amount = 100
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+				producer = USA
+			}
+		}
+		cost = 30
+		days_remove = 70
+		ai_will_do = {
+			factor = 200
+		}
+	}
+}
