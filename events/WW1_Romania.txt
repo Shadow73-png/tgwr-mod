@@ -6818,6 +6818,7 @@ country_event = {
 							state = 70
 							state = 73
 							state = 1043
+							state = 994
 						}
 						OR = {
 							is_owned_by = CZE
@@ -6831,9 +6832,7 @@ country_event = {
 					# 	}
 					# 	to_state = 664
 					# }
-					set_state_province_controller = {
-						controller = CZE
-					}
+					transfer_state_to = CZE
 				}
 				#teleport
 				every_state = {
@@ -6845,6 +6844,20 @@ country_event = {
 							original_tag = HUN
 						}
 						to_state = 664
+					}
+				}
+			}
+			#annex slovak soviet if they exist still
+			SLO = {
+				if = {
+					limit = {
+						exists = yes
+						is_subject_of = HUN
+					}
+					HUN = {
+						annex_country = {
+							target = SLO
+						}
 					}
 				}
 			}
