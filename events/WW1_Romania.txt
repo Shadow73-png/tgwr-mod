@@ -2314,19 +2314,26 @@ country_event = {
 	picture = GFX_report_event_romanian_soldiers
 	fire_only_once = yes
 	trigger = {
-		tag = ROM
-		has_global_flag = compiegne_armistice
-		NOT = {
-			has_country_flag = great_war_loser
-		}
-		HUN = {
-			has_country_flag = great_war_loser
-			is_subject = no
-			is_in_faction = no
-		}
-		NOT = {
-			owns_state = 83
-			owns_state = 1020
+		OR = {
+			AUS = {
+				has_country_flag = AUS_testing_collapse
+			}
+			AND = {
+				tag = ROM
+				has_global_flag = compiegne_armistice
+				NOT = {
+					has_country_flag = great_war_loser
+				}
+				HUN = {
+					has_country_flag = great_war_loser
+					is_subject = no
+					is_in_faction = no
+				}
+				NOT = {
+					owns_state = 83
+					owns_state = 1020
+				}
+			}
 		}
 	}
 	immediate = {
