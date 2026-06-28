@@ -6250,6 +6250,9 @@ focus_tree = {
 	 focus = {
 		allow_branch = {
 			has_country_flag = HUN_national_work_party_yes
+			NOT = {
+				has_completed_focus = HUN_a_blank_page
+			}
 		}
 		id = HUN_stand_with_tisza_gov
 		icon = GFX_SOV_romanov_reconstruction_ccp_2d_sov_compatibility
@@ -6289,6 +6292,9 @@ focus_tree = {
 	 }
 	  #The Prison Question
 	 focus = {
+		allow_branch = {
+			has_country_flag = HUN_national_work_party_yes
+		}
 		id = HUN_prison_question
 		icon = GFX_focus_CHI_arrest_the_seven_gentlemen
 		cost = 3
@@ -7128,7 +7134,7 @@ focus_tree = {
 	 }
 	  focus = {
 		id = HUN_lessons_from_the_east
-		icon = GFX_goal_generic_defence
+		icon = GFX_wip
 		cost = 4
 		relative_position_id = HUN_hazai_leadership
 		x = -1
@@ -7138,7 +7144,10 @@ focus_tree = {
 			FOCUS_FILTER_ARMY_XP
 		}
 		available = {
-			
+			OR = {
+				has_war_with = RUS
+				has_war_with = ROM
+			}
 		}
 		prerequisite = {
 			focus = HUN_hazai_leadership
@@ -8401,9 +8410,6 @@ focus_tree = {
 		}
 	}
 	 focus = {
-		allow_branch = {
-			original_tag = HUN
-		}
 		id = HUN_pin_all_hopes_on_russian_defeat
 		icon = GFX_focus_ger_strike_at_the_source
 		cost = 4
@@ -8420,6 +8426,8 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = HUN_hazai_leadership
+		}
+		prerequisite = {
 			focus = HUN_secure_the_state
 		}
 		bypass = {
